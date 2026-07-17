@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Galeri Seçim — Techne Lab</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #E8E5DF; font-family: 'Courier New', monospace; padding: 24px; }
+  h1 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #B8F000; margin-bottom: 6px; }
+  p.hint { font-size: 10px; color: #555; margin-bottom: 28px; letter-spacing: 0.08em; }
+  h2 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8780; margin: 32px 0 12px; border-top: 1px solid #2a2a2a; padding-top: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .item { position: relative; cursor: pointer; }
+  .item img { width: 100%; height: 140px; object-fit: cover; display: block; opacity: 0.65; transition: opacity 0.2s; }
+  .item:hover img { opacity: 1; }
+  .item.selected img { opacity: 1; outline: 2px solid #B8F000; }
+  .item .label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.75); font-size: 9px; padding: 4px 6px; letter-spacing: 0.1em; opacity: 0; transition: opacity 0.2s; }
+  .item:hover .label { opacity: 1; }
+  .item.selected .label { opacity: 1; color: #B8F000; }
+  .item .check { position: absolute; top: 6px; right: 6px; width: 20px; height: 20px; border: 1.5px solid #B8F000; background: transparent; border-radius: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; opacity: 0; transition: opacity 0.2s; }
+  .item.selected .check { opacity: 1; background: #B8F000; color: #0A0A0C; }
+  .item:hover .check { opacity: 0.5; }
+  #summary { position: fixed; bottom: 0; left: 0; right: 0; background: #0A0A0C; border-top: 1px solid #B8F000; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+  #summary span { font-size: 10px; letter-spacing: 0.12em; color: #8A8780; }
+  #summary strong { color: #B8F000; }
+  #copy-btn { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; background: #B8F000; color: #0A0A0C; border: none; padding: 8px 20px; cursor: pointer; font-family: inherit; }
+  #output { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #1C1C1C; border: 1px solid #B8F000; padding: 24px; max-width: 600px; width: 90%; z-index: 100; }
+  #output pre { font-size: 10px; color: #B8F000; white-space: pre-wrap; max-height: 400px; overflow: auto; }
+  #output button { margin-top: 12px; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; background: transparent; color: #8A8780; border: 1px solid #3a3a3a; padding: 6px 14px; cursor: pointer; font-family: inherit; }
+  #output button:hover { color: #E8E5DF; }
+</style>
+</head>
+<body>
+
+<h1>Galeri Seçim — Techne Lab</h1>
+<p class="hint">Siteye eklemek istediğin görsellere tıkla → seçileni tekrar tıklayınca kaldır → altta "Listeyi Kopyala"ya bas</p>
+
+<h2>🟡 Oyuncunun Mevcudiyeti — Burcu Halaçoğlu</h2>
+<div class="grid" id="mevcudiyet"></div>
+
+<h2>🟢 The Auteur Lab — Halil Yağız Şanal</h2>
+<div class="grid" id="auteur"></div>
+
+<h2>🟣 English Drama Lab</h2>
+<div class="grid" id="english"></div>
+
+<h2>🔵 Techne Musical Lab / Broadway</h2>
+<div class="grid" id="musical"></div>
+
+<div style="height:60px"></div>
+
+<div id="summary">
+  <span>Seçilen: <strong id="count">0</strong> görsel</span>
+  <button id="copy-btn" onclick="showOutput()">Listeyi Göster →</button>
+</div>
+
+<div id="output">
+  <p style="font-size:10px;letter-spacing:0.12em;color:#8A8780;margin-bottom:12px;">Seçilen görseller (bunu bana gönder):</p>
+  <pre id="output-text"></pre>
+  <button onclick="document.getElementById('output').style.display='none'">Kapat</button>
+</div>
+
+<script>
+const images = {
+  mevcudiyet: [
+    'mevcudiyet-01','mevcudiyet-02','mevcudiyet-03','mevcudiyet-04','mevcudiyet-05',
+    'mevcudiyet-06','mevcudiyet-07','mevcudiyet-08','mevcudiyet-09','mevcudiyet-010',
+    'mevcudiyet-011','mevcudiyet-012','mevcudiyet-013'
+  ],
+  auteur: ['auteur-01','auteur-02','auteur-03','auteur-04'],
+  english: [
+    'english-drama-1','english-drama-2','english-drama-3','english-drama-4','english-drama-5',
+    'english-drama-6','english-drama-7','english-drama-8','english-drama-9','english-drama-10',
+    'english-drama-11','english-drama-12','english-drama-13','english-drama-14','english-drama-15',
+    'english-drama-16','english-drama-17','english-drama-18','english-drama-19','english-drama-20',
+    'english-drama-21','english-drama-22'
+  ],
+  musical: ['musical-01','musical-02','musical-03']
+};
+
+const selected = new Set();
+
+Object.entries(images).forEach(([group, files]) => {
+  const container = document.getElementById(group);
+  files.forEach(name => {
+    const item = document.createElement('div');
+    item.className = 'item';
+    item.innerHTML = `
+      <img src="/images/gallery/${name}.jpg" loading="lazy" onerror="this.parentElement.style.opacity='0.3'">
+      <div class="label">${name}</div>
+      <div class="check">✓</div>
+    `;
+    item.onclick = () => {
+      if (selected.has(name)) { selected.delete(name); item.classList.remove('selected'); }
+      else { selected.add(name); item.classList.add('selected'); }
+      document.getElementById('count').textContent = selected.size;
+    };
+    container.appendChild(item);
+  });
+});
+
+function showOutput() {
+  const list = [...selected].map(n => `  { src: '/images/gallery/${n}.jpg', alt: '...', category: 'atölye' },`).join('\n');
+  document.getElementById('output-text').textContent = list || '(hiç seçilmedi)';
+  document.getElementById('output').style.display = 'block';
+}
+</script>
+</body>
+</html>
