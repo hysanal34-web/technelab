@@ -11,7 +11,7 @@ const WORKSHOP_IMAGES: Record<string, string> = {
   'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.png',
   'english-drama-final-project':   '/images/gallery/english-drama-11.jpg',
   'english-drama-youth':           '/images/covers/english-drama-youth.png',
-  'techne-musical-lab':            '/images/gallery/musical-01.jpg',
+  'techne-musical-lab':            '/images/covers/techne-musical-lab.png',
   'broadway-musical-dance':        '/images/gallery/dslr-zl5a1044.jpg',
 }
 
