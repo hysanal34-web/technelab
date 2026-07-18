@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
-import { useCart } from '@/lib/cart'
 import { useLang } from '@/contexts/LanguageContext'
 import { WORKSHOPS } from '@/lib/data'
 import { ThemeToggle } from '@/components/ThemeToggle'
@@ -73,7 +72,6 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const count = useCart((s) => s.count())
   const { lang, setLang } = useLang()
 
   useEffect(() => {
@@ -172,21 +170,6 @@ export function Nav() {
           )
         )}
 
-        {/* Cart */}
-        <Link
-          href="/sepet"
-          className="relative font-mono text-[13px] tracking-[0.1em] lowercase text-fg/70 hover:text-neon transition-colors duration-200"
-          aria-label={`Sepet — ${count} ürün`}
-          data-hover
-        >
-          sepet
-          {count > 0 && (
-            <span className="absolute -top-2 -right-3 w-4 h-4 bg-neon text-bg text-[11px] flex items-center justify-center font-mono font-medium">
-              {count}
-            </span>
-          )}
-        </Link>
-
         {/* TR / EN toggle */}
         <button
           onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
@@ -201,16 +184,8 @@ export function Nav() {
         <ThemeToggle />
       </nav>
 
-      {/* Mobile: cart + hamburger */}
+      {/* Mobile: hamburger */}
       <div className="md:hidden flex items-center gap-4">
-        <Link href="/sepet" className="relative font-mono text-[11px] text-stone" data-hover>
-          sepet
-          {count > 0 && (
-            <span className="absolute -top-1.5 -right-2.5 w-3.5 h-3.5 bg-neon text-bg text-[11px] flex items-center justify-center">
-              {count}
-            </span>
-          )}
-        </Link>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex flex-col gap-1 w-6"

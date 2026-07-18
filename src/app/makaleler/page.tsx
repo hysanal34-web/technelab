@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   title: 'Makale & Araştırma — Tiyatro, Dramaturji, Performans',
   description: 'Dramaturji, oyunculuk, sahne tasarımı ve çağdaş tiyatro üzerine makaleler. Techne Lab İstanbul araştırma yazıları.',
   alternates: { canonical: `${SITE_META.url}/makaleler` },
+  keywords: [
+    'tiyatro',
+    'çağdaş tiyatro',
+    'yaratıcı drama',
+    'doğaçlama',
+    'ingilizce drama',
+    'dramaturji',
+    'oyunculuk pedagojisi',
+    'bağımsız tiyatro istanbul',
+    'sahne sanatları',
+    'performans sanatları',
+    'tiyatro eğitimi',
+    'tiyatro makalesi',
+    'techne lab araştırma',
+  ],
 }
 
 export default function ArticlesPage() {

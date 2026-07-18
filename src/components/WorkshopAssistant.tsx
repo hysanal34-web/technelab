@@ -166,14 +166,11 @@ export function WorkshopAssistant() {
                   </div>
                 </div>
 
-                {/* Sağ: süre + fiyat */}
+                {/* Sağ: süre */}
                 <div className="text-right flex-shrink-0 ml-4">
                   <div className="font-mono text-[11px] tracking-[0.1em] text-dim">{w.duration}</div>
-                  <div
-                    className="font-display text-neon"
-                    style={{ fontSize: '14px', letterSpacing: '0.02em' }}
-                  >
-                    {(w.priceEarlyBird ?? w.price).toLocaleString('tr-TR')} ₺
+                  <div className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mt-1">
+                    detay →
                   </div>
                 </div>
               </Link>

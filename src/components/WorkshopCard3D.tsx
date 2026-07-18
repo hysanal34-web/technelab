@@ -143,13 +143,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
               <div className="font-mono text-[11px] tracking-[0.12em] text-dim mb-0.5">
                 {w.duration}
               </div>
-              <div className="font-mono text-[11px] tracking-[0.12em] text-dim mb-3">{w.venue}</div>
-              <div
-                className="font-display leading-none text-neon"
-                style={{ fontSize: 'clamp(20px, 2vw, 30px)' }}
-              >
-                {(w.priceEarlyBird ?? w.price).toLocaleString('tr-TR')} ₺
-              </div>
+              <div className="font-mono text-[11px] tracking-[0.12em] text-dim">{w.venue}</div>
             </div>
             <span
               className="font-mono text-[11px] tracking-[0.14em] uppercase px-3 py-2 transition-all duration-200 border border-fg/20 text-stone group-hover:border-neon group-hover:text-ink group-hover:bg-neon"

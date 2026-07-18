@@ -15,8 +15,6 @@ const ROW_IMAGES: Record<string, string> = {
 }
 
 export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
-  const displayPrice = w.priceEarlyBird ?? w.price
-  const isEarlyBird = !!w.priceEarlyBird
   const imgSrc = ROW_IMAGES[w.slug]
   const isPassive = !w.active
 
@@ -24,7 +22,7 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
     <article className={`border-b border-border last:border-b-0 first:border-t border-t-0 group ${isPassive ? 'opacity-60' : ''}`}>
       <Link
         href={`/atolyeler/${w.slug}`}
-        className="grid grid-cols-[48px_56px_1fr] md:grid-cols-[64px_80px_1fr_2fr_160px] gap-x-4 md:gap-x-8 gap-y-0 items-center py-7 px-4 md:px-0 hover:bg-bgAlt transition-colors duration-200"
+        className="grid grid-cols-[48px_56px_1fr] md:grid-cols-[64px_80px_1fr_2fr_auto] gap-x-4 md:gap-x-8 gap-y-0 items-center py-7 px-4 md:px-0 hover:bg-bgAlt transition-colors duration-200"
         data-hover
       >
         {/* ── Kod ── */}
@@ -58,15 +56,6 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
             {w.title}
           </h3>
           <p className="font-mono text-[11px] italic text-stone">{w.sub}</p>
-          {/* Fiyat — sadece mobilde */}
-          <div className="flex items-center gap-3 md:hidden mt-2">
-            <span className="font-display text-neon" style={{ fontSize: '18px', letterSpacing: '0.02em' }}>
-              {displayPrice.toLocaleString('tr-TR')} ₺
-            </span>
-            {isEarlyBird && (
-              <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon/60">erken kayıt</span>
-            )}
-          </div>
         </div>
 
         {/* ── Tagline + desc — sadece masaüstü ── */}
@@ -75,22 +64,13 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
           <p className="font-mono text-[13px] text-stone leading-relaxed line-clamp-2">{w.desc}</p>
         </div>
 
-        {/* ── Fiyat + CTA — sadece masaüstü ── */}
+        {/* ── Meta + CTA — sadece masaüstü ── */}
         <div className="text-right hidden md:block">
           <div className="font-mono text-[11px] text-dim mb-1">{w.venue}</div>
           <div className="font-mono text-[11px] text-dim mb-4">{w.duration}</div>
-          {isEarlyBird && (
-            <div className="font-mono text-[11px] tracking-[0.1em] uppercase text-neon/60 mb-0.5">erken kayıt</div>
-          )}
-          <div
-            className="font-display text-neon mb-4"
-            style={{ fontSize: 'clamp(18px,2vw,26px)', letterSpacing: '0.02em' }}
-          >
-            {displayPrice.toLocaleString('tr-TR')} ₺
-          </div>
           {isPassive ? (
             <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone border border-stone/40 px-3 py-1.5">
-              satışa kapalı
+              yakında
             </span>
           ) : (
             <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon border border-neon px-3 py-1.5 group-hover:bg-neon group-hover:text-bg transition-all duration-200">

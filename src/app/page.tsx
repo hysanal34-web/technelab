@@ -358,22 +358,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Discount banner — neon blok */}
-          <div className="mb-6 bg-neon px-6 py-5 flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <span className="font-display text-bg" style={{ fontSize: 'clamp(22px, 3vw, 38px)', letterSpacing: '0.02em' }}>
-                2 ATÖLYE ALANA %25 İNDİRİM
-              </span>
-              <p className="font-mono text-[11px] tracking-[0.08em] text-bg/70 mt-1">Sepette otomatik uygulanır.</p>
-            </div>
-            <Link
-              href="/atolyeler"
-              className="font-mono text-[11px] tracking-[0.14em] uppercase bg-bg text-fg px-5 py-3 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap"
-            >
-              hemen başvur →
-            </Link>
-          </div>
-
           {/* Assistant */}
           <div className="mb-10">
             <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim mb-3">

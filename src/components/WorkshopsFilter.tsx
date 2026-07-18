@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import { WORKSHOPS } from '@/lib/data'
 import { WorkshopRow } from '@/components/WorkshopRow'
@@ -46,23 +45,6 @@ export function WorkshopsFilter() {
             </button>
           )
         })}
-      </div>
-
-      {/* 2 atölye indirimi — neon blok */}
-      <div className="mx-4 md:mx-10 my-8 bg-neon px-8 py-6">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="font-display text-bg mb-1" style={{ fontSize: 'clamp(24px,3.4vw,42px)', letterSpacing: '0.02em' }}>
-              2 ATÖLYE ALANA %25 İNDİRİM
-            </p>
-            <p className="font-mono text-[11px] text-bg/70">
-              İki farklı program seçip sepete eklediğinizde indirim otomatik uygulanır.
-            </p>
-          </div>
-          <Link href="/sepet" className="font-mono text-[11px] tracking-[0.14em] uppercase bg-bg text-fg px-5 py-3 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap" data-hover>
-            sepete git →
-          </Link>
-        </div>
       </div>
 
       {/* Aktif programlar */}

@@ -422,9 +422,9 @@ export function TiyatroBot() {
       { label: 'Tiyatro tarihi quizi', value: 'quiz' },
     ]
     if (has('fiyat', 'ücret', 'ucret', 'kaç para', 'kac para', 'taksit', 'ödeme', 'odeme'))
-      return { from: 'bot', text: 'Programlar süreye göre 24.000₺ ile 96.000₺ arasında. Erken kayıt ve peşin/havale indirimleri var; faizsiz taksit seçenekleri mevcut. Ayrıca 2 farklı atölye seçersen sepette otomatik %25 indirim uygulanır.', options: [{ label: 'Programları gör →', value: 'go:/atolyeler' }, ...menu.slice(0, 1)] }
+      return { from: 'bot', text: 'Ücret ve kayıt bilgileri için bizimle doğrudan iletişime geçebilirsin — sana en uygun programı birlikte belirleyelim.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }, ...menu.slice(0, 1)] }
     if (has('indirim', 'kampanya', 'erken kayıt', 'erken kayit'))
-      return { from: 'bot', text: '2 farklı atölye seçene sepette otomatik %25 indirim. Uzun dönem programlarda ilk 5 kişiye erken kayıt fiyatı, peşin/havale ödemede ek indirim var.', options: [{ label: 'Programları gör →', value: 'go:/atolyeler' }] }
+      return { from: 'bot', text: 'Kayıt ve koşullar hakkında bilgi almak için bize mail atabilirsin.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('iletişim', 'iletisim', 'mail', 'e-posta', 'eposta', 'instagram', 'ulaş', 'ulas', 'telefon'))
       return { from: 'bot', text: 'Bize techne.lab.istanbul@gmail.com adresinden ya da Instagram\'da @technelabistanbul üzerinden ulaşabilirsin.', options: [{ label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))
@@ -442,16 +442,16 @@ export function TiyatroBot() {
     if (has('yazar', 'dramaturji', 'metin', 'oyun yazma'))
       return { from: 'bot', text: 'The Auteur Lab: dramaturji, yazarlık ve oyunculuğu birleştiren 8 haftalık laboratuvar. Halil Yağız Şanal yönetiminde.', options: [{ label: 'Auteur Lab →', value: 'go:auteur-lab' }] }
     if (has('kayıt', 'kayit', 'başvur', 'basvur', 'katıl', 'katil', 'nasıl alırım', 'satın'))
-      return { from: 'bot', text: 'Kayıt için program sayfasından "sepete ekle" ile online ödeme yapabilir ya da e-posta ile başvurabilirsin. Kontenjanlar 10–14 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }] }
+      return { from: 'bot', text: 'Başvuru için program sayfasından e-posta ile ulaşabilirsin. Kontenjanlar 10–14 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('deneyim', 'hiç', 'hic', 'yeni başl', 'yeni basl', 'sıfır', 'sifir'))
       return { from: 'bot', text: 'Deneyim şart değil — birçok programımız sıfırdan başlayanlara açık. Sana en uygununu bulalım mı?', options: [{ label: 'Program bul', value: 'guide' }] }
     if (has('quiz', 'soru', 'bilgi yarış'))
       return { from: 'bot', text: 'Tiyatro tarihi quizine hazır mısın? 10 soru, Antik Yunan\'dan post-dramatiğe.', options: [{ label: 'Quizi başlat', value: 'quiz' }] }
     if (has('merhaba', 'selam', 'hey', 'naber'))
-      return { from: 'bot', text: 'Merhaba! Programlar, fiyatlar, mekân... ne merak ediyorsan yaz — ya da aşağıdan seç.', options: menu }
+      return { from: 'bot', text: 'Merhaba! Programlar, mekân, kayıt... ne merak ediyorsan yaz — ya da aşağıdan seç.', options: menu }
     if (has('teşekkür', 'tesekkur', 'sağol', 'sagol', 'eyv'))
       return { from: 'bot', text: 'Rica ederim. Sahnede görüşmek üzere! ✳', options: menu }
-    return { from: 'bot', text: 'Bunu tam anlayamadım — fiyat, program, kayıt, mekân ya da iletişim hakkında sorabilirsin. İstersen sana uygun programı birlikte bulalım.', options: menu }
+    return { from: 'bot', text: 'Bunu tam anlayamadım — program, kayıt, mekân ya da iletişim hakkında sorabilirsin. İstersen sana uygun programı birlikte bulalım.', options: menu }
   }
 
   function sendFree() {

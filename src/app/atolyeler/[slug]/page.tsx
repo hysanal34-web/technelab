@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
-import { AddToCartButton } from '@/components/AddToCartButton'
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
@@ -42,8 +41,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
     provider: { '@type': 'Organization', name: SITE_META.name, url: SITE_META.url },
     offers: {
       '@type': 'Offer',
-      price: w.price,
-      priceCurrency: 'TRY',
       availability: w.active ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
       url: `${SITE_META.url}/atolyeler/${w.slug}`,
     },
@@ -138,46 +135,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
               ))}
             </div>
 
-            {/* Fiyatlandırma */}
-            <div className="mb-6 space-y-0">
-              {w.priceEarlyBird && (
-                <div className="mb-3 px-3 py-2 border border-neon/40 bg-neon/5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon">Erken Kayıt</span>
-                    <span className="font-display text-neon" style={{ fontSize: 'clamp(20px,2.5vw,28px)', letterSpacing: '0.02em' }}>
-                      {w.priceEarlyBird.toLocaleString('tr-TR')} ₺
-                    </span>
-                  </div>
-                  {w.earlyBirdSlots && (
-                    <p className="font-mono text-[11px] text-neon/60 mt-1">
-                      İlk {w.earlyBirdSlots} kontenjan için geçerlidir.
-                    </p>
-                  )}
-                </div>
-              )}
-              {w.priceCash && (
-                <div className="mb-3 px-3 py-1.5 border border-border flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone">Peşin / Havale</span>
-                  <span className="font-mono text-[15px] text-fg">{w.priceCash.toLocaleString('tr-TR')} ₺</span>
-                </div>
-              )}
-              <div className="flex items-baseline justify-between pt-1">
-                <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-dim">
-                  {w.installments ? `${w.installments} taksit · faizsiz` : 'program ücreti'}
-                </span>
-                <div>
-                  <span className="font-display text-fg" style={{ fontSize: 'clamp(24px,3vw,38px)', letterSpacing: '0.02em' }}>
-                    {w.price.toLocaleString('tr-TR')} ₺
-                  </span>
-                  {w.monthlyPrice && (
-                    <p className="font-mono text-[11px] text-dim text-right mt-0.5">
-                      aylık {w.monthlyPrice.toLocaleString('tr-TR')} ₺ × {w.installments} taksit
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-
             {!w.active ? (
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">Satışa Kapalı</p>
@@ -193,25 +150,14 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 </a>
               </div>
             ) : (
-              <div className="flex flex-col gap-3">
-                <AddToCartButton
-                  item={{ id: w.id, slug: w.slug, title: w.title, sub: w.sub, price: w.price, instructor: w.instructor }}
-                />
-                <a
-                  href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Başvuru`)}`}
-                  className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-fg border border-border text-center py-3 transition-colors duration-200"
-                  data-hover
-                >
-                  e-posta ile başvur
-                </a>
-              </div>
+              <a
+                href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Başvuru`)}`}
+                className="block font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg border border-neon text-center py-4 transition-all duration-200"
+                data-hover
+              >
+                başvur →
+              </a>
             )}
-
-            <div className="mt-6 p-4 bg-neon/10 border border-neon/30">
-              <p className="font-mono text-[11px] text-stone leading-relaxed">
-                <span className="text-fg font-medium">%25 indirim</span> — 2 farklı atölye seçerseniz toplam fiyata otomatik uygulanır.
-              </p>
-            </div>
           </aside>
         </div>
       </section>
@@ -281,7 +227,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   <p className="font-mono text-[11px] italic text-stone mb-4">{r.tagline}</p>
                   <p className="font-mono text-[11px] text-dim leading-relaxed mb-5 line-clamp-3">{r.desc}</p>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-fg">{(r.priceEarlyBird ?? r.price).toLocaleString('tr-TR')} ₺{r.priceEarlyBird ? ' — erken kayıt' : ''}</span>
+                    <span className="font-mono text-[11px] text-dim">{r.venue}</span>
                     <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon group-hover:tracking-[0.2em] transition-all duration-200">İncele →</span>
                   </div>
                 </Link>
