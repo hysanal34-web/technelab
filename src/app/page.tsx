@@ -94,17 +94,9 @@ export default function HomePage() {
 
         {/* ── TOP: Eyebrow + Headline + Slogan ── */}
         <div className="relative z-10 px-4 md:px-14 pt-28 max-w-[1400px]">
-          {/* Eyebrow */}
-          <div className="hero-rise hero-rise-1 flex items-center gap-3 mb-8">
-            <div className="w-6 h-px bg-fg/30" />
-            <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone">
-              <T tr="Bağımsız Tiyatro · Taksim · Kadıköy · 2026—" en="Independent Theatre · Taksim · Kadıköy · 2026—" />
-            </p>
-          </div>
-
           {/* Headline */}
           <h1
-            className="hero-rise hero-rise-2 font-display leading-none text-fg mb-6"
+            className="hero-rise hero-rise-1 font-display leading-none text-fg mb-6"
             style={{ fontSize: 'clamp(44px, 7.5vw, 110px)', letterSpacing: '0.01em' }}
           >
             <span className="block">TECHNE</span>
@@ -124,14 +116,22 @@ export default function HomePage() {
 
           {/* Slogan */}
           <p
-            className="hero-rise hero-rise-3 font-mono text-neon/70 mt-1"
+            className="hero-rise hero-rise-2 font-mono text-neon/70 mt-1"
             style={{ fontSize: 'clamp(11px, 1.1vw, 15px)', letterSpacing: '0.22em' }}
           >
             DISCIPLINE IS FREEDOM.<span className="cursor-blink ml-1 text-neon" aria-hidden="true">▮</span>
           </p>
 
+          {/* Tagline — Bağımsız Tiyatro kimliği, logo bloğunun altında */}
+          <div className="hero-rise hero-rise-3 flex items-center gap-3 mt-5 mb-2">
+            <div className="w-6 h-px bg-fg/30" />
+            <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone">
+              <T tr="Bağımsız Tiyatro · Taksim · Kadıköy · 2026—" en="Independent Theatre · Taksim · Kadıköy · 2026—" />
+            </p>
+          </div>
+
           {/* Dönen disiplinler — τέχνη'nin halleri */}
-          <div className="hero-rise hero-rise-3 flex items-baseline gap-3 mt-6" aria-hidden="true">
+          <div className="hero-rise hero-rise-4 flex items-baseline gap-3 mt-6" aria-hidden="true">
             <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">bu sezon →</span>
             <span className="cycle-wrap font-display text-neon" style={{ fontSize: 'clamp(24px, 3vw, 42px)', letterSpacing: '0.03em' }}>
               <span className="cycle-list">

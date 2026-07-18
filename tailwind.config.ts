@@ -9,7 +9,7 @@ const config: Config = {
         bgAlt:  'rgb(var(--bg-alt-rgb) / <alpha-value>)',
         bgHi:   'rgb(var(--bg-hi-rgb) / <alpha-value>)',
         fg:     'rgb(var(--fg-rgb) / <alpha-value>)',
-        neon:   '#B8F000',
+        neon:   'rgb(var(--neon-rgb) / <alpha-value>)',
         stone:  'rgb(var(--stone-rgb) / <alpha-value>)',
         dim:    'rgb(var(--dim-rgb) / <alpha-value>)',
         border: 'var(--border)',

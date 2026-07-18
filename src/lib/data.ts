@@ -21,7 +21,7 @@ export const WORKSHOPS: Workshop[] = [
   // ── 01 — AUTEUR LAB ────────────────────────────────────────────────
   {
     id: 1, slug: 'auteur-lab', code: '01',
-    title: 'THE AUTEUR LAB', sub: 'Dramaturji · Oyunculuk · Yazarlık',
+    title: 'THE AUTEUR LAB', sub: 'Dramaturji · Yazarlık',
     tagline: 'Dürtüden Tasarıma — Tasarımdan Eyleme',
     instructor: 'Halil Yağız Şanal',
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji ana sanat dalında öğrenimini sürdürdü. Yılın Oyunu ödüllü oyun yazarı.",
@@ -29,8 +29,8 @@ export const WORKSHOPS: Workshop[] = [
     installments: 3, monthlyPrice: 8000,
     maxStudents: 14, active: true,
     category: 'yazarlık',
-    tags: ['Dramaturji', 'Yazarlık', 'Oyunculuk'],
-    desc: 'Oyuncu olmak yetmez; oyunu kurmayı da bilmek gerekir. Metin çözümleme, dramaturgik düşünce ve sahne pratiğini birleştirerek katılımcıyı "Düşünen Oyuncu" seviyesine taşıyan 8 haftalık yoğun laboratuvar.',
+    tags: ['Dramaturji', 'Yazarlık'],
+    desc: 'Yazmak için yaratıcı bir alan. Kendi metnini kurmanın temel dinamiklerine odaklanıyoruz — karakter, çatışma, sahne. İlhamı beklemeden, üreterek.',
     blocks: [
       {
         title: '1. Modül: Temel Dinamikler',
@@ -129,62 +129,38 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Gösterim Hazırlığı', span: '9—12. Hafta', body: 'Grup doğaçlama gösterisi için prova ve sahne süreci. Sınıf içi performans sunumu.' },
     ],
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
-    edlFamily: ['english-drama-acting-focus', 'english-drama-final-performance', 'english-drama-youth'],
+    edlFamily: ['english-drama-final-project', 'english-drama-youth'],
     seoTitle: 'English Drama Lab — English Creative Drama',
     seoDesc: 'İngilizce yaratıcı drama ve doğaçlama atölyesi. 12 hafta, Taksim & Kadıköy. Techne Lab İstanbul.',
   },
 
-  // ── 05 — ENGLISH DRAMA LAB: ACTING FOCUS ──────────────────────────
+  // ── 05 — ENGLISH DRAMA LAB: FINAL PROJECT ─────────────────────────
   {
-    id: 8, slug: 'english-drama-acting-focus', code: '05',
-    title: 'ENGLISH DRAMA LAB', sub: 'Acting Focus',
-    tagline: 'Oyunculuk Tekniği — İngilizce Bir Sahne Dilinde',
+    id: 8, slug: 'english-drama-final-project', code: '05',
+    title: 'ENGLISH DRAMA LAB', sub: 'Final Project',
+    tagline: 'Bir Metin · Bir Sahne · Gerçek Seyirci',
     instructor: 'Ece Ertez',
     instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
-    venue: 'Taksim / Kadıköy', duration: '12 hafta', price: 36000,
-    installments: 3, monthlyPrice: 12000,
-    maxStudents: 12, active: true,
+    venue: 'Taksim / Kadıköy', duration: '6 hafta', price: 18000,
+    priceCash: 15000, installments: 2, monthlyPrice: 9000,
+    maxStudents: 10, active: true,
     category: 'ingilizce-drama',
-    tags: ['İngilizce', 'Oyunculuk', 'Metin', 'Derinlemesine'],
-    desc: 'Bu program İngilizce öğretmez — oyunculuğu İngilizce üzerinden çalışır. Ece Ertez ile metin analizi, karakter inşası ve sahne dinamiği tamamen İngilizce bir çalışma ortamında ilerler. Dili bilen için, sahneye ciddiyetle bakanlar için.',
+    tags: ['İngilizce', 'Performans', 'Sahne'],
+    desc: 'Kısa, yoğun, sonuç odaklı. Ece Ertez ile altı hafta boyunca bir İngilizce metin üzerinde çalışır, karakterini inşa eder ve sınıf seyircisinin karşısında sahneye çıkarsınız. Dili bilen, sahneyi tanıyan katılımcılar için.',
     blocks: [
-      { title: 'Metin & Analiz', span: '1—4. Hafta', body: 'İngilizce dramatik metin okuma, alt metin, hedef ve engel. Karakter motivasyonu. Sahnenin altında ne yatar?' },
-      { title: 'Sahne Pratiği', span: '5—8. Hafta', body: 'Partner çalışması, gerçek dinleme ve anlık tepki. Çağdaş ve klasik İngilizce metinlerden sahneler.' },
-      { title: 'Performans & Sunum', span: '9—12. Hafta', body: 'Sahneleme, blocking ve sınıf sunumu. Kişisel geri bildirim oturumu ve bireysel çalışma planı.' },
+      { title: 'Metin & Karakter', span: '1—2. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
+      { title: 'Prova Süreci', span: '3—4. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
+      { title: 'Final Performansı', span: '5—6. Hafta', body: 'Sahne bütünlüğü, kostüm ve sınıf sunumu. Kişisel geri bildirim seansı.' },
     ],
     images: ['english-drama-17', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
-    edlFamily: ['english-drama-lab', 'english-drama-final-performance', 'english-drama-youth'],
-    seoTitle: 'English Drama Lab: Acting Focus — Ece Ertez',
-    seoDesc: 'Ece Ertez ile 12 haftalık İngilizce oyunculuk programı. Metin, karakter ve sahne pratiği. Techne Lab İstanbul.',
+    edlFamily: ['english-drama-lab', 'english-drama-youth'],
+    seoTitle: 'English Drama Lab: Final Project — Ece Ertez ile Sahne',
+    seoDesc: 'Ece Ertez ile 6 haftalık İngilizce sahne projesi. Metin, prova ve sınıf performansı. Techne Lab İstanbul.',
   },
 
-  // ── 06 — ENGLISH DRAMA LAB: FINAL PERFORMANCE ─────────────────────
+  // ── 06 — ENGLISH DRAMA LAB: 14–17 YAŞ ────────────────────────────
   {
-    id: 7, slug: 'english-drama-final-performance', code: '06',
-    title: 'ENGLISH DRAMA LAB', sub: 'Final Performance Project',
-    tagline: "Ekim'den Mayıs'a — Sahneye Kadar",
-    instructor: 'Techne Lab', instructorBio: '',
-    venue: 'Taksim / Kadıköy', duration: '8 ay (Ekim–Mayıs)', price: 96000,
-    priceEarlyBird: 80000, priceCash: 72000, installments: 9, monthlyPrice: 10667,
-    earlyBirdSlots: 5,
-    maxStudents: 12, active: true, nextDate: 'Ekim 2026',
-    category: 'ingilizce-drama',
-    tags: ['İngilizce', 'Performans', 'Prova', 'Uzun Dönem'],
-    desc: "Sekiz ay boyunca bir oyunu inşa edersiniz — metnini çözersiniz, karakterini bulursunuz, provalar yaparsınız ve Mayıs'ta gerçek bir seyircinin karşısına çıkarsınız. Bu sadece bir atölye değil; İngilizce bir prodüksiyon deneyimi.",
-    blocks: [
-      { title: 'Metin & Dramaturji', span: 'Ekim–Aralık', body: 'Oyun seçimi, metin çözümleme, karakter dağılımı. İngilizce dramaturgik okuma ve analiz. Dilin sahne üzerindeki katmanları.' },
-      { title: 'Prova Süreci', span: 'Ocak–Mart', body: 'Sahne pratiği, partner çalışması, blokaj ve sahne dili. Haftadan haftaya büyüyen sahneler, gerçek prova disiplini.' },
-      { title: 'Final Prodüksiyon', span: 'Nisan–Mayıs', body: 'Kostüm, ışık ve ses tasarımıyla tam prodüksiyon prova süreci. Seyircinin karşısında, hazır.' },
-    ],
-    images: ['english-drama-6', 'english-drama-7', 'english-drama-8', 'english-drama-9', 'english-drama-10'],
-    edlFamily: ['english-drama-lab', 'english-drama-acting-focus', 'english-drama-youth'],
-    seoTitle: 'English Drama Lab: Final Performance Project',
-    seoDesc: '8 aylık İngilizce tiyatro projesi. Ekim–Mayıs. Seyircili bitirme performanslı. Techne Lab İstanbul.',
-  },
-
-  // ── 07 — ENGLISH DRAMA LAB: 14–17 YAŞ ────────────────────────────
-  {
-    id: 9, slug: 'english-drama-youth', code: '07',
+    id: 9, slug: 'english-drama-youth', code: '06',
     title: 'ENGLISH DRAMA LAB', sub: '14–17 Yaş · Final Performanslı',
     tagline: 'Yaratıcı Drama & Sahne — Gençler İçin',
     instructor: 'Techne Lab', instructorBio: '',
@@ -201,14 +177,14 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Final Gösterisi', span: 'Nisan–Mayıs', body: 'Prova süreci ve seyircili final performansı. Gerçek bir sahne deneyimi, gerçek bir seyirciyle.' },
     ],
     images: ['english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-4', 'english-drama-5'],
-    edlFamily: ['english-drama-lab', 'english-drama-acting-focus', 'english-drama-final-performance'],
+    edlFamily: ['english-drama-lab', 'english-drama-final-project'],
     seoTitle: 'English Drama Lab 14–17 Yaş — Gençlere Yönelik Tiyatro Programı',
     seoDesc: '14–17 yaş İngilizce yaratıcı drama programı. 8 ay, haftada 1 gün. Final gösterisi. Techne Lab İstanbul.',
   },
 
   // ── 08 — TECHNE MUSICAL LAB ────────────────────────────────────────
   {
-    id: 5, slug: 'techne-musical-lab', code: '08',
+    id: 5, slug: 'techne-musical-lab', code: '07',
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Sitare Bilge',
@@ -232,7 +208,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 09 — BROADWAY MUSICAL DANCE ────────────────────────────────────
   {
-    id: 6, slug: 'broadway-musical-dance', code: '09',
+    id: 6, slug: 'broadway-musical-dance', code: '08',
     title: 'BROADWAY MUSICAL DANCE', sub: 'Broadway Müzikal Dansı',
     tagline: 'Jazz · Theatre Dance · Showmanship',
     instructor: 'Köksal Ünal',
@@ -260,6 +236,15 @@ export const SITE_META = {
   instagram: '@technelabistanbul',
   email: 'techne.lab.istanbul@gmail.com',
   address: 'İstanbul, Türkiye',
+  // Google Form kayıt linkleri — slug bazında (aktif programlar için)
+  formUrls: {
+    'auteur-lab':                  'https://forms.gle/technelab',
+    'english-drama-lab':           'https://forms.gle/technelab',
+    'english-drama-final-project': 'https://forms.gle/technelab',
+    'english-drama-youth':         'https://forms.gle/technelab',
+    'techne-musical-lab':          'https://forms.gle/technelab',
+    'broadway-musical-dance':      'https://forms.gle/technelab',
+  } as Record<string, string>,
 }
 
 export const DISCOUNT_THRESHOLD = 2
@@ -318,7 +303,6 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   { src: '/images/gallery/musical-02.jpg', alt: 'Musical Lab sahne', category: 'performans' },
   { src: '/images/gallery/dslr-zl5a1045.jpg', alt: 'Yazarlık laboratuvarı', category: 'atölye' },
   { src: '/images/gallery/musical-03.jpg', alt: 'Musical Lab performans', category: 'performans' },
-  { src: '/images/gallery/photo-2026-04-30-16-35-10.jpg', alt: 'Nisan 2026 atölye', category: 'atölye' },
   { src: '/images/gallery/english-drama-16.jpg', alt: 'English Drama Lab — stüdyoda çember çalışması', category: 'english', wide: true },
   { src: '/images/gallery/english-drama-17.jpg', alt: 'English Drama Lab — sahne üzerinde çalışma', category: 'english' },
 ]

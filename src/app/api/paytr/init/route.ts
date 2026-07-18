@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     if (basketSum !== total && basket[0]) basket[0].price += total - basketSum
 
     // Gerçek IP al
-    const headersList = headers()
+    const headersList = await headers()
     const ip =
       headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ||
       headersList.get('x-real-ip') ||

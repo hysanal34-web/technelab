@@ -241,34 +241,50 @@ export function TiyatroBot() {
   }
 
   function handleOption(value: string) {
-    if (step === 'menu') {
-      if (value === 'quiz') {
-        const shuffled = [...QUIZ].sort(() => Math.random() - 0.5).slice(0, SHUFFLE_SIZE)
-        setQuizPool(shuffled)
-        setQIdx(0)
-        setScore(0)
-        setAnswered(null)
-        setStep('quiz')
-        addMsg({ from: 'user', text: 'Tiyatro tarihi quizi' })
-        setTimeout(() => addMsg({
-          from: 'bot',
-          text: `Harika! ${SHUFFLE_SIZE} soruluk bir tur başlıyor. Hazır mısın?`,
-          options: [{ label: 'Başla', value: 'start-quiz' }]
-        }), 400)
-      } else if (value === 'guide') {
-        addMsg({ from: 'user', text: 'Bana uygun programı bul' })
-        setStep('guide-exp')
-        setTimeout(() => addMsg({
-          from: 'bot',
-          text: 'Sana en uygun programı bulmak için birkaç soru soracağım.\n\nDaha önce sahne veya tiyatro deneyimin var mı?',
-          options: [
-            { label: 'Hiç yok', value: 'yok' },
-            { label: 'Biraz var', value: 'biraz' },
-            { label: 'Deneyimliyim', value: 'var' },
-          ]
-        }), 400)
-      }
-    } else if (step === 'quiz' && value === 'start-quiz') {
+    // ── Global handlers — step bağımsız ──────────────────────────────────
+    if (value.startsWith('go:')) {
+      const target = value.replace('go:', '')
+      window.location.href = target.startsWith('/') ? target : `/atolyeler/${target}`
+      return
+    }
+    if (value === 'restart') {
+      setMsgs([])
+      setStep('idle')
+      setTimeout(() => startBot(), 100)
+      return
+    }
+    if (value === 'quiz') {
+      const shuffled = [...QUIZ].sort(() => Math.random() - 0.5).slice(0, SHUFFLE_SIZE)
+      setQuizPool(shuffled)
+      setQIdx(0)
+      setScore(0)
+      setAnswered(null)
+      setStep('quiz')
+      addMsg({ from: 'user', text: 'Tiyatro tarihi quizi' })
+      setTimeout(() => addMsg({
+        from: 'bot',
+        text: `Harika! ${SHUFFLE_SIZE} soruluk bir tur başlıyor. Hazır mısın?`,
+        options: [{ label: 'Başla', value: 'start-quiz' }]
+      }), 400)
+      return
+    }
+    if (value === 'guide') {
+      addMsg({ from: 'user', text: 'Bana uygun programı bul' })
+      setStep('guide-exp')
+      setTimeout(() => addMsg({
+        from: 'bot',
+        text: 'Sana en uygun programı bulmak için birkaç soru soracağım.\n\nDaha önce sahne veya tiyatro deneyimin var mı?',
+        options: [
+          { label: 'Hiç yok', value: 'yok' },
+          { label: 'Biraz var', value: 'biraz' },
+          { label: 'Deneyimliyim', value: 'var' },
+        ]
+      }), 400)
+      return
+    }
+
+    // ── Step-based handlers ───────────────────────────────────────────────
+    if (step === 'quiz' && value === 'start-quiz') {
       showQuestion(0, [])
     } else if (step === 'quiz' && value === 'next') {
       const nextIdx = qIdx + 1
@@ -277,7 +293,6 @@ export function TiyatroBot() {
         setAnswered(null)
         showQuestion(nextIdx, [])
       } else {
-        // Bitir
         setStep('menu')
         const pct = Math.round((score / quizPool.length) * 100)
         setTimeout(() => addMsg({
@@ -338,39 +353,6 @@ export function TiyatroBot() {
           ]
         })
       }, 500)
-    } else if (value.startsWith('go:')) {
-      const target = value.replace('go:', '')
-      window.location.href = target.startsWith('/') ? target : `/atolyeler/${target}`
-    } else if (value === 'restart') {
-      setMsgs([])
-      setStep('idle')
-      setTimeout(() => startBot(), 100)
-    } else if (value === 'quiz') {
-      // Retry quiz from menu state
-      const shuffled = [...QUIZ].sort(() => Math.random() - 0.5).slice(0, SHUFFLE_SIZE)
-      setQuizPool(shuffled)
-      setQIdx(0)
-      setScore(0)
-      setAnswered(null)
-      setStep('quiz')
-      addMsg({ from: 'user', text: 'Tekrar quiz' })
-      setTimeout(() => addMsg({
-        from: 'bot',
-        text: `${SHUFFLE_SIZE} yeni soru geliyor!`,
-        options: [{ label: 'Başla', value: 'start-quiz' }]
-      }), 400)
-    } else if (value === 'guide') {
-      addMsg({ from: 'user', text: 'Program bul' })
-      setStep('guide-exp')
-      setTimeout(() => addMsg({
-        from: 'bot',
-        text: 'Sahne veya tiyatro deneyimin var mı?',
-        options: [
-          { label: 'Hiç yok', value: 'yok' },
-          { label: 'Biraz var', value: 'biraz' },
-          { label: 'Deneyimliyim', value: 'var' },
-        ]
-      }), 400)
     }
   }
 

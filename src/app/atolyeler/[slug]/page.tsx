@@ -137,7 +137,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
             {!w.active ? (
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">Satışa Kapalı</p>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">Kayıt Kapalı</p>
                 <p className="font-mono text-[11px] text-dim leading-relaxed mb-4">
                   Bu program şu an aktif kayıt almıyor. Bilgi almak için bize ulaşın.
                 </p>
@@ -149,6 +149,16 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   bilgi al →
                 </a>
               </div>
+            ) : SITE_META.formUrls[w.slug] ? (
+              <a
+                href={SITE_META.formUrls[w.slug]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg border border-neon text-center py-4 transition-all duration-200"
+                data-hover
+              >
+                başvur →
+              </a>
             ) : (
               <a
                 href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Başvuru`)}`}

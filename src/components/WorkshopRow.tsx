@@ -10,8 +10,7 @@ const ROW_IMAGES: Record<string, string> = {
   'camera-praxis':                   '/images/instructor-2.jpg',
   'techne-musical-lab':              '/images/gallery/musical-01.jpg',
   'oyuncunun-mevcudiyeti':           '/images/gallery/mevcudiyet-03.jpg',
-  'english-drama-acting-focus':      '/images/gallery/english-drama-11.jpg',
-  'english-drama-final-performance': '/images/gallery/english-drama-6.jpg',
+  'english-drama-final-project':     '/images/gallery/english-drama-11.jpg',
 }
 
 export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {

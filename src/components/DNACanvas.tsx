@@ -52,7 +52,7 @@ export function DNACanvas() {
 
     // ── resize ──────────────────────────────────────────────────────
     function resize() {
-      if (!canvas.parentElement) return
+      if (!canvas || !canvas.parentElement) return
       canvas.width  = canvas.parentElement.clientWidth  * window.devicePixelRatio
       canvas.height = canvas.parentElement.clientHeight * window.devicePixelRatio
       canvas.style.width  = canvas.parentElement.clientWidth  + 'px'
@@ -64,6 +64,7 @@ export function DNACanvas() {
 
     // ── mouse ────────────────────────────────────────────────────────
     function onMouse(e: MouseEvent) {
+      if (!canvas) return
       const rect = canvas.getBoundingClientRect()
       mouseRef.current.x =  (e.clientX - rect.left) / rect.width  - 0.5
       mouseRef.current.y =  (e.clientY - rect.top)  / rect.height - 0.5
@@ -91,6 +92,7 @@ export function DNACanvas() {
       rotRef.current.y += (targetY - rotRef.current.y) * 0.04
       rotRef.current.x += (targetX - rotRef.current.x) * 0.04
 
+      if (!canvas) return
       const W  = canvas.clientWidth
       const H  = canvas.clientHeight
       const cx = W / 2

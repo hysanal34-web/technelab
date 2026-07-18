@@ -12,6 +12,7 @@
   --font-bebas: 'Bebas Neue', Impact, sans-serif;
   --font-dm-mono: 'DM Mono', 'Courier New', monospace;
   --neon: #B8F000;
+  --neon-rgb: 184 240 0;
   --ink: #0A0A0C;
 
   /* Space-separated channels — required for rgb(var() / alpha) Tailwind syntax */
@@ -44,6 +45,7 @@
 /* LIGHT MODE */
 html.light {
   --neon: #3D8B00;
+  --neon-rgb: 61 139 0;
   --bg-rgb: 248 247 242;
   --bg-alt-rgb: 239 237 230;
   --bg-hi-rgb: 232 229 220;
