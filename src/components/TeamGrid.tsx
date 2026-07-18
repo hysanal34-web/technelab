@@ -1,16 +1,32 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export type TeamMember = {
   name: string
   role: string
   bio: string
+  slug: string
   programs: { label: string; slug: string }[]
 }
 
-export function TeamGrid({ members }: { members: TeamMember[] }) {
+export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; initialOpen?: string }) {
   const [open, setOpen] = useState<string | null>(null)
+
+  // Auto-open card when ?open= param is present (passed from server component)
+  useEffect(() => {
+    if (initialOpen) {
+      const match = members.find((m) => m.slug === initialOpen)
+      if (match) {
+        setOpen(match.name)
+        // Scroll to the card after a short delay
+        setTimeout(() => {
+          const el = document.getElementById(`team-${initialOpen}`)
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }, 200)
+      }
+    }
+  }, [initialOpen, members])
 
   function toggle(name: string) {
     setOpen((prev) => (prev === name ? null : name))
@@ -23,6 +39,7 @@ export function TeamGrid({ members }: { members: TeamMember[] }) {
         return (
           <div
             key={m.name}
+            id={`team-${m.slug}`}
             className="bg-bg group relative overflow-hidden cursor-pointer"
             onClick={() => toggle(m.name)}
           >

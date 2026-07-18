@@ -78,6 +78,26 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      {/* ── Eylül 2025 Sezon Duyuru Bandı ── */}
+      <Link
+        href="/atolyeler"
+        className="group flex items-center justify-between w-full bg-neon text-bg px-4 md:px-14 py-3.5 hover:bg-fg transition-colors duration-300"
+        aria-label="Eylül 2025 Sezonu atölyelerimiz"
+      >
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-60">
+            <T tr="Yeni Sezon" en="New Season" />
+          </span>
+          <span className="w-px h-3 bg-bg/30" aria-hidden="true" />
+          <span className="font-mono text-[11px] tracking-[0.18em] uppercase font-medium">
+            <T tr="Eylül 2025 Atölyeleri Açıldı" en="September 2025 Workshops Open" />
+          </span>
+        </div>
+        <span className="font-mono text-[11px] tracking-[0.14em] uppercase group-hover:translate-x-1 transition-transform duration-200">
+          <T tr="Programlar →" en="See programs →" />
+        </span>
+      </Link>
+
       {/* ════════════════════════════════════════════════════════════
           HERO — Full-width, Techne Lab ön planda
       ════════════════════════════════════════════════════════════ */}
@@ -210,29 +230,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* CTAs + tags */}
+            {/* Discipline tags */}
             <div>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <Link
-                  href="/atolyeler"
-                  className="font-mono text-[11px] tracking-[0.18em] uppercase bg-fg text-bg px-7 py-3.5 hover:bg-neon hover:text-fg border border-fg transition-all duration-200"
-                >
-                  <T tr="atölyeler →" en="workshops →" />
-                </Link>
-                <Link
-                  href="/hakkinda"
-                  className="font-mono text-[11px] tracking-[0.18em] uppercase border border-fg/30 text-stone px-7 py-3.5 hover:border-fg hover:text-fg transition-all duration-200"
-                >
-                  <T tr="hakkımızda" en="about us" />
-                </Link>
-                <Link
-                  href="/galeri"
-                  className="font-mono text-[11px] tracking-[0.18em] uppercase border border-fg/20 text-dim px-7 py-3.5 hover:border-fg/50 hover:text-stone transition-all duration-200"
-                >
-                  <T tr="galeri" en="gallery" />
-                </Link>
-              </div>
-
               {/* Discipline tags */}
               <div className="flex flex-wrap gap-x-5 gap-y-2">
                 {[

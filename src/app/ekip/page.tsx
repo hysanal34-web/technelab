@@ -18,50 +18,60 @@ export const metadata: Metadata = {
 const TEAM: TeamMember[] = [
   {
     name: 'Sitare Bilge',
+    slug: 'sitare-bilge',
     role: 'Ses & Şan Eğitmeni',
     bio: 'Sesi bir araç olarak görür, şanı sadece teknikten değil dramaturjiden de okur. Müzikal sahnede kişisel sesin nasıl var olduğuyla ilgilenir.',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {
     name: 'Yeşim Çelebi',
+    slug: 'yesim-celebi',
     role: 'Oyuncu · Yaratıcı Drama Eğitmeni',
     bio: 'Oyunculuk ve yaratıcı drama pratiğini gündelik dilin içinde arar. Sınıfı bir oyun alanı olarak görür; kurguyu ciddiye alırken oyunu da kaybetmez.',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
     name: 'Ece Ertez',
+    slug: 'ece-ertez',
     role: 'Oyuncu · İngilizce Tiyatro Eğitmeni',
     bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır. Oyunculuğu İngilizce üzerinden çalışmak isteyenler için.',
-    programs: [{ label: 'EDL Final Project', slug: 'english-drama-final-project' }],
+    programs: [
+      { label: 'English Acting Praxis', slug: 'english-drama-final-project' },
+    ],
   },
   {
     name: 'Burcu Halaçoğlu',
+    slug: 'burcu-halacoglu',
     role: 'Oyuncu · Beden Çalışması Eğitmeni',
     bio: 'Sahne mevcudiyetini beden üzerinden araştırır. Sessizlikle, nefesle ve zemin ile ilişkiyle çalışır. Fiziksel farkındalık onun için bir başlangıç noktası.',
     programs: [{ label: 'Oyuncunun Mevcudiyeti', slug: 'oyuncunun-mevcudiyeti' }],
   },
   {
     name: 'Alara Lokum',
+    slug: 'alara-lokum',
     role: 'Oyuncu · Yaratıcı Drama Eğitmeni',
     bio: 'İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışan oyuncu-eğitmen. Grubu bir sahne topluluğu gibi kurar.',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
     name: 'Halil Yağız Şanal',
+    slug: 'halil-yagiz-sanal',
     role: 'Genel Sanat Yönetmeni',
-    bio: 'Techne Lab\'ın kurucusu. Oyun yazmayı ve yönetmeyi aynı sorunun iki yüzü olarak gören dramaturg. Yılın Oyunu ödüllü oyun yazarı.',
+    bio: 'Techne Lab\'ın kurucusu. İstanbul Üniversitesi Felsefe\'den tiyatroya geçen, GalataPerform\'da iki yıl oyun yazarlığı çalışan dramaturg. "Bir Yaz Gecesi Çöküşü" ile YeniMetin Festivali\'nden İKSV Senenin Oyunu ödülü.',
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
     name: 'Selen Uçer',
+    slug: 'selen-ucer',
     role: 'Oyuncu · Kamera Önü Eğitmeni',
     bio: 'Lens önündeki oyuncuyu tanıyan biri — çerçeveyi, enerjiyi, zamanlamayı. Kamera ve sahne arasındaki geçişi öğretir.',
     programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
   },
   {
     name: 'Köksal Ünal',
+    slug: 'koksal-unal',
     role: 'Oyuncu · Koreograf · Hareket Eğitmeni',
-    bio: 'Broadway dans eğitmeni ve koreograf. Hareketi sahnelemenin bir dili olarak öğretir. Jazz, theatre dance ve showmanship üzerine kapsamlı deneyim.',
+    bio: 'YTÜ Sahne Sanatları ve İÜ Konservatuvar müzikal tiyatro sertifikası. Bahçeşehir Üniversitesi Konservatuvarı\'nda öğretim görevlisi. İBB Şehir Tiyatroları, Trabzon Devlet Tiyatrosu koreografı. En İyi Koreografi ödüllü.',
     programs: [
       { label: 'Techne Musical Lab', slug: 'techne-musical-lab' },
       { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
@@ -82,7 +92,11 @@ const jsonLd = {
   })),
 }
 
-export default function EkipPage() {
+type Props = { searchParams: Promise<{ open?: string }> }
+
+export default async function EkipPage({ searchParams }: Props) {
+  const { open } = await searchParams
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -117,7 +131,7 @@ export default function EkipPage() {
 
       {/* Card grid */}
       <section className="pb-24">
-        <TeamGrid members={TEAM} />
+        <TeamGrid members={TEAM} initialOpen={open} />
       </section>
     </>
   )

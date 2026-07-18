@@ -5,12 +5,12 @@ import Image from 'next/image'
 import type { Workshop } from '@/lib/data'
 
 const WORKSHOP_IMAGES: Record<string, string> = {
-  'auteur-lab':                    '/images/yagiz-color.jpg',
-  'camera-praxis':                 '/images/instructor-2.jpg',
-  'english-drama-lab':             '/images/gallery/english-drama-3.jpg',
-  'oyuncunun-mevcudiyeti':         '/images/gallery/mevcudiyet-03.jpg',
+  'auteur-lab':                    '/images/covers/auteur-lab.png',
+  'camera-praxis':                 '/images/covers/camera-praxis.png',
+  'english-drama-lab':             '/images/covers/english-drama-lab.png',
+  'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.png',
   'english-drama-final-project':   '/images/gallery/english-drama-11.jpg',
-  'english-drama-youth':           '/images/gallery/english-drama-1.jpg',
+  'english-drama-youth':           '/images/covers/english-drama-youth.png',
   'techne-musical-lab':            '/images/gallery/musical-01.jpg',
   'broadway-musical-dance':        '/images/gallery/dslr-zl5a1044.jpg',
 }
