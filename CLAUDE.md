@@ -121,11 +121,11 @@ type Workshop = {
 
 ## Yapılacaklar (Bekleyen)
 
-- [ ] Scroll-triggered animasyonlar (Intersection Observer)
-- [ ] Küçük yazı boyutları artırımı (text-[8px] → text-[11px])
-- [ ] SEO metin revizyonu (H1/H2 hiyerarşi)
-- [ ] Ana sayfada Camera Praxis TR/EN revizesi
-- [ ] Fal.ai görsel üretimi entegrasyonu
+- [x] Scroll-triggered animasyonlar (Intersection Observer) — `RevealSection.tsx` mevcut
+- [x] Küçük yazı boyutları artırımı (text-[8px] → text-[11px]) — tüm dosyalarda güncellendi
+- [x] SEO metin revizyonu (H1/H2 hiyerarşi) — başlık kısaltıldı, H2'ler eklendi
+- [x] Ana sayfada Camera Praxis TR/EN revizesi — `data.ts` güncellendi, `descEn` eklendi
+- [x] Fal.ai görsel üretimi entegrasyonu — `FalImageGenerator.tsx` + galeri sayfasına entegre edildi
 
 ---
 
