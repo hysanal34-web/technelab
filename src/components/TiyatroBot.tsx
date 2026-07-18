@@ -500,7 +500,7 @@ export function TiyatroBot() {
           <span className="font-mono text-[12px] text-fg leading-snug block">
             Sana uygun programı 30 saniyede bulayım mı?
           </span>
-          <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-neon mt-1.5 block">sahne bot →</span>
+          <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mt-1.5 block">sahne bot →</span>
         </button>
       )}
 
@@ -532,7 +532,7 @@ export function TiyatroBot() {
                 <span className="font-display text-fg leading-none" style={{ fontSize: 20, letterSpacing: '0.04em' }}>SAHNE BOT</span>
                 <span className="w-1.5 h-1.5 bg-neon rounded-full animate-pulse" aria-hidden="true" />
               </div>
-              <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim mt-0.5">τέχνη asistanı · çevrimiçi</p>
+              <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim mt-0.5">τέχνη asistanı · çevrimiçi</p>
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -603,8 +603,8 @@ export function TiyatroBot() {
 
           {/* Footer */}
           <div className="px-4 py-1.5 border-t border-border flex-shrink-0 flex items-center justify-between">
-            <p className="font-mono text-[9px] text-dim/60 tracking-[0.1em]">TECHNE LAB İSTANBUL</p>
-            <p className="font-mono text-[9px] text-dim/60 tracking-[0.1em]">τέχνη</p>
+            <p className="font-mono text-[11px] text-dim/60 tracking-[0.1em]">TECHNE LAB İSTANBUL</p>
+            <p className="font-mono text-[11px] text-dim/60 tracking-[0.1em]">τέχνη</p>
           </div>
         </div>
       )}

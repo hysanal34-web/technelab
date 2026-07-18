@@ -42,7 +42,7 @@ function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => vo
               className="group px-8 py-9 border-r border-border hover:bg-bgAlt transition-colors duration-200"
               data-hover
             >
-              <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-dim group-hover:text-neon transition-colors duration-200 block mb-2">
+              <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim group-hover:text-neon transition-colors duration-200 block mb-2">
                 0{i + 1} · {cnt} program
               </span>
               <span className="font-display text-fg group-hover:text-neon transition-colors duration-200 leading-none block"
@@ -181,7 +181,7 @@ export function Nav() {
         >
           sepet
           {count > 0 && (
-            <span className="absolute -top-2 -right-3 w-4 h-4 bg-neon text-bg text-[9px] flex items-center justify-center font-mono font-medium">
+            <span className="absolute -top-2 -right-3 w-4 h-4 bg-neon text-bg text-[11px] flex items-center justify-center font-mono font-medium">
               {count}
             </span>
           )}
@@ -203,10 +203,10 @@ export function Nav() {
 
       {/* Mobile: cart + hamburger */}
       <div className="md:hidden flex items-center gap-4">
-        <Link href="/sepet" className="relative font-mono text-[10px] text-stone" data-hover>
+        <Link href="/sepet" className="relative font-mono text-[11px] text-stone" data-hover>
           sepet
           {count > 0 && (
-            <span className="absolute -top-1.5 -right-2.5 w-3.5 h-3.5 bg-neon text-bg text-[9px] flex items-center justify-center">
+            <span className="absolute -top-1.5 -right-2.5 w-3.5 h-3.5 bg-neon text-bg text-[11px] flex items-center justify-center">
               {count}
             </span>
           )}
@@ -238,10 +238,10 @@ export function Nav() {
             ))}
             {/* Programs by category in mobile */}
             <div className="pt-4 border-t border-border">
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-neon mb-4">programlar</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-4">programlar</p>
               {CATEGORIES.map((cat) => (
                 <div key={cat.key} className="mb-4">
-                  <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim mb-2">{cat.label}</p>
+                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim mb-2">{cat.label}</p>
                   {WORKSHOPS.filter(w => w.category === cat.key).map((w) => (
                     <Link
                       key={w.slug}
@@ -250,7 +250,7 @@ export function Nav() {
                       className="block font-mono text-[11px] text-stone py-1 hover:text-fg transition-colors"
                     >
                       {w.title === 'ENGLISH DRAMA LAB' ? `EDL — ${w.sub}` : w.title}
-                      {!w.active && <span className="ml-2 text-[10px] text-stone/50">(kapalı)</span>}
+                      {!w.active && <span className="ml-2 text-[11px] text-stone/50">(kapalı)</span>}
                     </Link>
                   ))}
                 </div>

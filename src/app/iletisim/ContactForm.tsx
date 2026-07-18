@@ -21,7 +21,7 @@ export function ContactForm() {
         { name: 'konu',   label: 'konu',     placeholder: 'Konu',     type: 'text' },
       ].map(({ name, label, placeholder, type }) => (
         <div key={name}>
-          <label htmlFor={name} className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
+          <label htmlFor={name} className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
           <input
             id={name}
             name={name}
@@ -33,7 +33,7 @@ export function ContactForm() {
         </div>
       ))}
       <div>
-        <label htmlFor="mesaj" className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-2">mesaj</label>
+        <label htmlFor="mesaj" className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">mesaj</label>
         <textarea
           id="mesaj"
           name="mesaj"
@@ -45,7 +45,7 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="self-start font-mono text-[10px] tracking-[0.16em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 mt-2"
+        className="self-start font-mono text-[11px] tracking-[0.16em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 mt-2"
         data-hover
       >
         gönder

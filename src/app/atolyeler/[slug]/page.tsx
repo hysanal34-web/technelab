@@ -132,7 +132,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 ['kontenjan', `max. ${w.maxStudents} kişi`],
               ].map(([k, v]) => (
                 <div key={k} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
-                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-stone w-16 shrink-0 pt-0.5">{k}</span>
+                  <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone w-16 shrink-0 pt-0.5">{k}</span>
                   <span className="font-mono text-[13px] text-fg">{v}</span>
                 </div>
               ))}
@@ -143,13 +143,13 @@ export default async function WorkshopDetailPage({ params }: Props) {
               {w.priceEarlyBird && (
                 <div className="mb-3 px-3 py-2 border border-neon/40 bg-neon/5">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-neon">Erken Kayıt</span>
+                    <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon">Erken Kayıt</span>
                     <span className="font-display text-neon" style={{ fontSize: 'clamp(20px,2.5vw,28px)', letterSpacing: '0.02em' }}>
                       {w.priceEarlyBird.toLocaleString('tr-TR')} ₺
                     </span>
                   </div>
                   {w.earlyBirdSlots && (
-                    <p className="font-mono text-[10px] text-neon/60 mt-1">
+                    <p className="font-mono text-[11px] text-neon/60 mt-1">
                       İlk {w.earlyBirdSlots} kontenjan için geçerlidir.
                     </p>
                   )}
@@ -157,12 +157,12 @@ export default async function WorkshopDetailPage({ params }: Props) {
               )}
               {w.priceCash && (
                 <div className="mb-3 px-3 py-1.5 border border-border flex items-center justify-between">
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-stone">Peşin / Havale</span>
+                  <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone">Peşin / Havale</span>
                   <span className="font-mono text-[15px] text-fg">{w.priceCash.toLocaleString('tr-TR')} ₺</span>
                 </div>
               )}
               <div className="flex items-baseline justify-between pt-1">
-                <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-dim">
+                <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-dim">
                   {w.installments ? `${w.installments} taksit · faizsiz` : 'program ücreti'}
                 </span>
                 <div>
@@ -226,7 +226,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
           {w.blocks.map((b) => (
             <div key={b.title} className="bg-bg p-8 border-t-2 border-neon">
               {b.span && (
-                <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-stone mb-4">{b.span}</p>
+                <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-stone mb-4">{b.span}</p>
               )}
               <h3 className="font-display text-fg mb-4" style={{ fontSize: 'clamp(18px,2vw,24px)', letterSpacing: '0.02em' }}>
                 {b.title}
@@ -276,9 +276,9 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   href={`/atolyeler/${r.slug}`}
                   className="group border border-border p-6 hover:border-neon/50 transition-colors duration-200 block"
                 >
-                  <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-stone mb-2 group-hover:text-neon transition-colors duration-200">{r.code} · {r.duration}</p>
+                  <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-2 group-hover:text-neon transition-colors duration-200">{r.code} · {r.duration}</p>
                   <h3 className="font-display text-fg mb-1" style={{ fontSize: 'clamp(17px,2vw,24px)', letterSpacing: '0.02em' }}>{r.sub}</h3>
-                  <p className="font-mono text-[10px] italic text-stone mb-4">{r.tagline}</p>
+                  <p className="font-mono text-[11px] italic text-stone mb-4">{r.tagline}</p>
                   <p className="font-mono text-[11px] text-dim leading-relaxed mb-5 line-clamp-3">{r.desc}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[11px] text-fg">{(r.priceEarlyBird ?? r.price).toLocaleString('tr-TR')} ₺{r.priceEarlyBird ? ' — erken kayıt' : ''}</span>
@@ -294,7 +294,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       {/* Tags */}
       <section className="px-4 md:px-10 py-10 flex flex-wrap items-center gap-3 border-b border-border" aria-label="Kategoriler">
         {w.tags.map((t) => (
-          <span key={t} className="font-mono text-[10px] tracking-[0.14em] uppercase text-stone border border-border px-3 py-1.5">
+          <span key={t} className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone border border-border px-3 py-1.5">
             {t}
           </span>
         ))}

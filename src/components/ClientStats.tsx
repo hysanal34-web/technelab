@@ -43,7 +43,7 @@ export function ClientStats() {
               {n}
             </div>
             <div className="font-mono text-[11px] text-fg tracking-[0.16em] uppercase mb-1 relative z-10">{l}</div>
-            <div className="font-mono text-[10px] text-dim relative z-10">{sub}</div>
+            <div className="font-mono text-[11px] text-dim relative z-10">{sub}</div>
             <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-neon group-hover:w-full transition-all duration-500" />
           </div>
         )

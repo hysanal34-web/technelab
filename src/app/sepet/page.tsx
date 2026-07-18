@@ -71,7 +71,7 @@ export default function CartPage() {
       <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-10 text-center">
         <div className="font-display text-dim mb-6" style={{ fontSize: 'clamp(48px,8vw,96px)', letterSpacing: '0.02em' }}>SEPET BOŞ</div>
         <p className="font-mono text-[14px] text-stone mb-8">Henüz sepetinize atölye eklemediniz.</p>
-        <Link href="/atolyeler" className="font-mono text-[10px] tracking-[0.14em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200" data-hover>
+        <Link href="/atolyeler" className="font-mono text-[11px] tracking-[0.14em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200" data-hover>
           atölyelere git
         </Link>
       </div>
@@ -108,7 +108,7 @@ export default function CartPage() {
                       </span>
                       <button
                         onClick={() => remove(item.id)}
-                        className="font-mono text-[10px] tracking-[0.12em] uppercase text-dim hover:text-red-400 transition-colors duration-200"
+                        className="font-mono text-[11px] tracking-[0.12em] uppercase text-dim hover:text-red-400 transition-colors duration-200"
                         data-hover
                       >
                         kaldır
@@ -119,7 +119,7 @@ export default function CartPage() {
               </div>
               <button
                 onClick={() => setStep('form')}
-                className="w-full font-mono text-[10px] tracking-[0.16em] uppercase bg-neon text-bg py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200"
+                className="w-full font-mono text-[11px] tracking-[0.16em] uppercase bg-neon text-bg py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200"
                 data-hover
               >
                 bilgilere geç →
@@ -145,7 +145,7 @@ export default function CartPage() {
                   { key: 'address', label: 'adres', type: 'text', placeholder: 'İstanbul' },
                 ].map(({ key, label, type, placeholder }) => (
                   <div key={key}>
-                    <label className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
+                    <label className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
                     <input
                       type={type}
                       placeholder={placeholder}
@@ -162,7 +162,7 @@ export default function CartPage() {
                   { key: 'source', label: 'bizi nereden duydun', options: ['Instagram', 'Google araması', 'Arkadaş tavsiyesi', 'Diğer'] },
                 ].map(({ key, label, options }) => (
                   <div key={key}>
-                    <label className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
+                    <label className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">{label}</label>
                     <select
                       value={form[key as keyof typeof form]}
                       onChange={(e) => setForm((f) => ({ ...f, [key]: e.target.value }))}
@@ -206,7 +206,7 @@ export default function CartPage() {
               <button
                 onClick={handleProceed}
                 disabled={loading}
-                className="w-full font-mono text-[10px] tracking-[0.16em] uppercase bg-neon text-bg py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 disabled:opacity-50"
+                className="w-full font-mono text-[11px] tracking-[0.16em] uppercase bg-neon text-bg py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 disabled:opacity-50"
                 data-hover
               >
                 {loading ? 'hazırlanıyor...' : 'ödemeye geç →'}
@@ -275,7 +275,7 @@ export default function CartPage() {
           </div>
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 border border-neon/40 flex items-center justify-center">
-              <span className="text-neon text-[10px]">✓</span>
+              <span className="text-neon text-[11px]">✓</span>
             </div>
             <span className="font-mono text-[11px] text-dim">256-bit SSL şifreleme</span>
           </div>

@@ -107,7 +107,7 @@ export default function EkipPage() {
                     <Link
                       key={p.slug + p.label}
                       href={`/atolyeler/${p.slug}`}
-                      className="font-mono text-[10px] tracking-[0.10em] uppercase text-dim hover:text-fg border-b border-transparent hover:border-neon transition-colors duration-200"
+                      className="font-mono text-[11px] tracking-[0.10em] uppercase text-dim hover:text-fg border-b border-transparent hover:border-neon transition-colors duration-200"
                       data-hover
                     >
                       {p.label} →

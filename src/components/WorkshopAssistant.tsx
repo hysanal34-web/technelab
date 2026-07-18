@@ -92,7 +92,7 @@ export function WorkshopAssistant() {
         style={{ borderColor: focused ? 'var(--neon)' : undefined }}
       >
         {/* Label */}
-        <span className="flex-shrink-0 pl-5 pr-4 font-mono text-[10px] tracking-[0.22em] uppercase text-neon select-none border-r border-fg/10 py-4">
+        <span className="flex-shrink-0 pl-5 pr-4 font-mono text-[11px] tracking-[0.22em] uppercase text-neon select-none border-r border-fg/10 py-4">
           BUL
         </span>
 
@@ -112,7 +112,7 @@ export function WorkshopAssistant() {
         {hasQuery && (
           <button
             onClick={() => { setQuery(''); inputRef.current?.focus() }}
-            className="flex-shrink-0 pr-5 font-mono text-[10px] text-dim/50 hover:text-dim transition-colors"
+            className="flex-shrink-0 pr-5 font-mono text-[11px] text-dim/50 hover:text-dim transition-colors"
             data-hover
             tabIndex={-1}
           >
@@ -128,7 +128,7 @@ export function WorkshopAssistant() {
             <button
               key={ex}
               onClick={() => { setQuery(ex); inputRef.current?.focus() }}
-              className="font-mono text-[10px] tracking-[0.12em] uppercase border border-fg/10 text-dim px-3 py-1 hover:border-neon/50 hover:text-stone transition-all duration-150"
+              className="font-mono text-[11px] tracking-[0.12em] uppercase border border-fg/10 text-dim px-3 py-1 hover:border-neon/50 hover:text-stone transition-all duration-150"
               data-hover
             >
               {ex}
@@ -150,7 +150,7 @@ export function WorkshopAssistant() {
               >
                 {/* Sol: kod + isim */}
                 <div className="flex items-baseline gap-3 min-w-0">
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-neon flex-shrink-0">
+                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon flex-shrink-0">
                     {w.code}
                   </span>
                   <div className="min-w-0">
@@ -160,7 +160,7 @@ export function WorkshopAssistant() {
                     >
                       {w.title}
                     </span>
-                    <span className="font-mono text-[10px] italic text-stone ml-2 hidden sm:inline">
+                    <span className="font-mono text-[11px] italic text-stone ml-2 hidden sm:inline">
                       — {w.sub}
                     </span>
                   </div>
@@ -168,7 +168,7 @@ export function WorkshopAssistant() {
 
                 {/* Sağ: süre + fiyat */}
                 <div className="text-right flex-shrink-0 ml-4">
-                  <div className="font-mono text-[10px] tracking-[0.1em] text-dim">{w.duration}</div>
+                  <div className="font-mono text-[11px] tracking-[0.1em] text-dim">{w.duration}</div>
                   <div
                     className="font-display text-neon"
                     style={{ fontSize: '14px', letterSpacing: '0.02em' }}
@@ -196,7 +196,7 @@ export function WorkshopAssistant() {
             <div className="px-5 py-2 flex justify-end">
               <Link
                 href="/atolyeler"
-                className="font-mono text-[10px] tracking-[0.14em] uppercase text-dim hover:text-stone transition-colors"
+                className="font-mono text-[11px] tracking-[0.14em] uppercase text-dim hover:text-stone transition-colors"
                 data-hover
               >
                 tüm programları gör →

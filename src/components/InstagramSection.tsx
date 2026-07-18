@@ -18,7 +18,7 @@ export function InstagramSection() {
       {/* Header */}
       <div className="px-10 md:px-14 py-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border">
         <div>
-          <p className="font-mono text-[10px] tracking-widest2 uppercase text-stone mb-3">
+          <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone mb-3">
             — instagram
           </p>
           <a
@@ -30,7 +30,7 @@ export function InstagramSection() {
           >
             {IG_HANDLE}
           </a>
-          <p className="font-mono text-[10px] text-stone mt-2">
+          <p className="font-mono text-[11px] text-stone mt-2">
             Atölyeler, gösteriler, sahne arkası &amp; duyurular.
           </p>
         </div>

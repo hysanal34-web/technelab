@@ -57,14 +57,14 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
           >
             {w.title}
           </h3>
-          <p className="font-mono text-[10px] italic text-stone">{w.sub}</p>
+          <p className="font-mono text-[11px] italic text-stone">{w.sub}</p>
           {/* Fiyat — sadece mobilde */}
           <div className="flex items-center gap-3 md:hidden mt-2">
             <span className="font-display text-neon" style={{ fontSize: '18px', letterSpacing: '0.02em' }}>
               {displayPrice.toLocaleString('tr-TR')} ₺
             </span>
             {isEarlyBird && (
-              <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-neon/60">erken kayıt</span>
+              <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon/60">erken kayıt</span>
             )}
           </div>
         </div>
@@ -80,7 +80,7 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
           <div className="font-mono text-[11px] text-dim mb-1">{w.venue}</div>
           <div className="font-mono text-[11px] text-dim mb-4">{w.duration}</div>
           {isEarlyBird && (
-            <div className="font-mono text-[10px] tracking-[0.1em] uppercase text-neon/60 mb-0.5">erken kayıt</div>
+            <div className="font-mono text-[11px] tracking-[0.1em] uppercase text-neon/60 mb-0.5">erken kayıt</div>
           )}
           <div
             className="font-display text-neon mb-4"

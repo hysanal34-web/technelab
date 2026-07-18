@@ -100,7 +100,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
             {w.tags.slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-[10px] tracking-[0.14em] uppercase px-2 py-0.5"
+                className="font-mono text-[11px] tracking-[0.14em] uppercase px-2 py-0.5"
                 style={{
                   border: `1px solid rgba(184,240,0,0.4)`,
                   color: '#0A0A0C',
@@ -127,7 +127,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
           >
             {w.title}
           </h3>
-          <p className="font-mono text-[10px] italic text-stone mb-3">{w.sub}</p>
+          <p className="font-mono text-[11px] italic text-stone mb-3">{w.sub}</p>
 
           {/* Divider */}
           <div className="w-8 h-[2px] mb-4 bg-neon" />

@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: Props) {
             {meta.title}
           </h1>
           <div className="flex flex-wrap items-center gap-6 mb-6">
-            <span className="font-mono text-[10px] text-stone">{meta.author}</span>
+            <span className="font-mono text-[11px] text-stone">{meta.author}</span>
             <span className="font-mono text-[11px] text-dim">{meta.date}</span>
             <span className="font-mono text-[11px] text-fg tracking-[0.1em] uppercase">{meta.readTime}</span>
           </div>
@@ -79,7 +79,7 @@ export default async function ArticlePage({ params }: Props) {
         </div>
         <footer className="px-4 md:px-10 pb-12 flex flex-wrap gap-3 border-t border-border pt-8">
           {meta.tags.map((t) => (
-            <span key={t} className="font-mono text-[10px] tracking-[0.14em] uppercase text-stone border border-border px-3 py-1.5">{t}</span>
+            <span key={t} className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone border border-border px-3 py-1.5">{t}</span>
           ))}
         </footer>
       </article>

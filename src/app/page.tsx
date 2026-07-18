@@ -14,10 +14,10 @@ import { T } from '@/components/LangText'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Techne Lab İstanbul — Tiyatro, Oyunculuk, Yaratıcı Drama & İngilizce Drama Atölyeleri',
+    absolute: 'Techne Lab İstanbul — Tiyatro & Drama Atölyeleri',
   },
   description:
-    'İstanbul\'da oyunculuk, yaratıcı drama, İngilizce drama, İngilizce tiyatro, yazarlık, müzikal ve dans atölyeleri. Taksim & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
+    'İstanbul\'da oyunculuk, yaratıcı drama, İngilizce drama, yazarlık ve müzikal atölyeleri. Taksim & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
   alternates: { canonical: SITE_META.url },
   keywords: [
     'yaratıcı drama istanbul',
@@ -97,7 +97,7 @@ export default function HomePage() {
           {/* Eyebrow */}
           <div className="hero-rise hero-rise-1 flex items-center gap-3 mb-8">
             <div className="w-6 h-px bg-fg/30" />
-            <p className="font-mono text-[10px] tracking-widest2 uppercase text-stone">
+            <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone">
               <T tr="Bağımsız Tiyatro · Taksim · Kadıköy · 2026—" en="Independent Theatre · Taksim · Kadıköy · 2026—" />
             </p>
           </div>
@@ -215,19 +215,19 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 mb-6">
                 <Link
                   href="/atolyeler"
-                  className="font-mono text-[10px] tracking-[0.18em] uppercase bg-fg text-bg px-7 py-3.5 hover:bg-neon hover:text-fg border border-fg transition-all duration-200"
+                  className="font-mono text-[11px] tracking-[0.18em] uppercase bg-fg text-bg px-7 py-3.5 hover:bg-neon hover:text-fg border border-fg transition-all duration-200"
                 >
                   <T tr="atölyeler →" en="workshops →" />
                 </Link>
                 <Link
                   href="/hakkinda"
-                  className="font-mono text-[10px] tracking-[0.18em] uppercase border border-fg/30 text-stone px-7 py-3.5 hover:border-fg hover:text-fg transition-all duration-200"
+                  className="font-mono text-[11px] tracking-[0.18em] uppercase border border-fg/30 text-stone px-7 py-3.5 hover:border-fg hover:text-fg transition-all duration-200"
                 >
                   <T tr="hakkımızda" en="about us" />
                 </Link>
                 <Link
                   href="/galeri"
-                  className="font-mono text-[10px] tracking-[0.18em] uppercase border border-fg/20 text-dim px-7 py-3.5 hover:border-fg/50 hover:text-stone transition-all duration-200"
+                  className="font-mono text-[11px] tracking-[0.18em] uppercase border border-fg/20 text-dim px-7 py-3.5 hover:border-fg/50 hover:text-stone transition-all duration-200"
                 >
                   <T tr="galeri" en="gallery" />
                 </Link>
@@ -257,7 +257,7 @@ export default function HomePage() {
 
         {/* Scroll cue */}
         <div className="absolute bottom-8 right-14 hidden md:flex flex-col items-end gap-2 z-10" aria-hidden="true">
-          <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-dim/60">scroll</span>
+          <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-dim/60">scroll</span>
           <div className="w-px h-10 bg-gradient-to-b from-transparent to-fg/20" />
         </div>
       </section>
@@ -275,7 +275,7 @@ export default function HomePage() {
           <div className="relative z-10 grid md:grid-cols-[1fr_1fr] min-h-[360px]">
             {/* Left: metin */}
             <div className="px-4 md:px-14 py-20 flex flex-col justify-center border-r border-border">
-              <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-6">
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-6">
                 <T tr="— neyiz biz" en="— who we are" />
               </p>
               <h2
@@ -325,7 +325,8 @@ export default function HomePage() {
           STATS
       ════════════════════════════════════════════════════════════ */}
       <RevealSection>
-        <section className="border-b border-border" aria-label="İstatistikler">
+        <section className="border-b border-border" aria-label="Techne Lab rakamları">
+          <h2 className="sr-only">Techne Lab'ı Anlatan Rakamlar</h2>
           <div className="grid grid-cols-2 md:grid-cols-4">
             <ClientStats />
           </div>
@@ -340,7 +341,7 @@ export default function HomePage() {
           <div className="flex items-end justify-between mb-6">
             <div className="relative">
               <div className="section-number absolute -top-10 -left-6" aria-hidden="true">02</div>
-              <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-3 relative z-10">çalışma atölyeleri</p>
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-3 relative z-10">çalışma atölyeleri</p>
               <h2
                 id="workshops-heading"
                 className="font-display text-fg relative z-10"
@@ -395,7 +396,7 @@ export default function HomePage() {
           <div className="px-4 md:px-14 py-16 flex items-end justify-between">
             <div className="relative">
               <div className="section-number absolute -top-10 -left-6" aria-hidden="true">03</div>
-              <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-3 relative z-10">fotoğraf arşivi</p>
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-3 relative z-10">fotoğraf arşivi</p>
               <h2
                 id="gallery-heading"
                 className="font-display text-fg relative z-10"
@@ -419,7 +420,7 @@ export default function HomePage() {
 
           {/* More link */}
           <div className="px-4 md:px-10 py-8 border-t border-border flex items-center justify-between">
-            <p className="font-mono text-[10px] text-stone">
+            <p className="font-mono text-[11px] text-stone">
               Atölyelerden ve gösterilerden kareler.
             </p>
             <Link
@@ -447,7 +448,7 @@ export default function HomePage() {
           <section className="px-4 md:px-14 py-24 bg-bg border-b border-border" aria-labelledby="articles-heading">
             <div className="flex items-end justify-between mb-14">
               <div>
-                <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-3">makale &amp; araştırma</p>
+                <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-3">makale &amp; araştırma</p>
                 <h2
                   id="articles-heading"
                   className="font-display text-fg"
@@ -474,7 +475,7 @@ export default function HomePage() {
           CTA
       ════════════════════════════════════════════════════════════ */}
       <RevealSection>
-        <section className="relative overflow-hidden px-4 md:px-14 py-24 bg-ink" aria-label="İletişim">
+        <section className="relative overflow-hidden px-4 md:px-14 py-24 bg-ink" aria-labelledby="contact-heading">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-neon/15 blur-3xl pointer-events-none" aria-hidden="true" />
           <div
             className="section-number absolute top-0 right-0 opacity-20"
@@ -486,14 +487,15 @@ export default function HomePage() {
 
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
             <div>
-              <p className="font-mono text-[10px] tracking-widest2 uppercase text-fg/50 mb-4">iletişim</p>
-              <div
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-fg/50 mb-4">iletişim</p>
+              <h2
+                id="contact-heading"
                 className="font-display text-fg leading-none mb-4"
                 style={{ fontSize: 'clamp(28px, 5.5vw, 80px)', letterSpacing: '0.02em' }}
               >
                 BİRLİKTE<br />
                 <span style={{ color: '#B8F000' }}>ÜRETELİM</span>
-              </div>
+              </h2>
               <p className="font-mono text-[11px] text-fg/50 max-w-xs">
                 Atölyeler, işbirlikleri, prodüksiyonlar.
               </p>
@@ -501,7 +503,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/iletisim"
-                className="font-mono text-[10px] tracking-[0.18em] uppercase bg-neon text-ink px-10 py-4 hover:bg-fg hover:text-ink border border-neon transition-all duration-200 text-center whitespace-nowrap"
+                className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-ink px-10 py-4 hover:bg-fg hover:text-ink border border-neon transition-all duration-200 text-center whitespace-nowrap"
               >
                 iletişime geç
               </Link>

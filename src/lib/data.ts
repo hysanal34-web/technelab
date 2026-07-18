@@ -9,8 +9,8 @@ export type Workshop = {
   installments?: number      // max faizsiz taksit sayısı
   earlyBirdSlots?: number    // erken kayıt kontenjanı (ilk N kişi)
   maxStudents: number; active: boolean; nextDate?: string
-  tags: string[]; desc: string
-  blocks: { title: string; span: string; body: string }[]
+  tags: string[]; desc: string; descEn?: string
+  blocks: { title: string; span?: string; body: string }[]
   images?: string[]
   edlFamily?: string[]
   category: 'yazarlık' | 'oyunculuk' | 'ingilizce-drama' | 'dans-muzikal'
@@ -56,35 +56,37 @@ export const WORKSHOPS: Workshop[] = [
   // ── 02 — CAMERA PRAXIS ─────────────────────────────────────────────
   {
     id: 2, slug: 'camera-praxis', code: '02',
-    title: 'CAMERA PRAXIS', sub: 'Kamera Önü Oyunculuk · On Camera Acting',
-    tagline: 'Karakter · Kamera · Audition / Character · Camera · Audition',
+    title: 'CAMERA PRAXIS',
+    sub: 'Kamera Önü Oyunculuk — On Camera Acting',
+    tagline: 'Karakter · Kamera · Audition',
     instructor: 'Selen Uçer',
-    instructorBio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve sahne deneyimini atölye pratiğiyle buluşturuyor.',
+    instructorBio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve sahne deneyimini atölye pratiğiyle buluşturuyor. / Actor and on-camera acting trainer, merging screen and stage experience in workshop practice.',
     venue: 'Taksim & Kadıköy', duration: '4 hafta', price: 16000,
     maxStudents: 10, active: false,
     category: 'oyunculuk',
-    tags: ['Kamera', 'Audition', 'Karakter'],
-    desc: 'Sahne pratiğini kameranın diline çeviren yoğun atölye. Karakter inşası, çerçeve bilinci ve audition teknikleri. Dersler Türkçe ve İngilizce yürütülür (B1+). / An intensive workshop translating stage craft to the language of camera. Character building, frame awareness and audition techniques. Classes conducted in both Turkish and English (B1+).',
+    tags: ['Kamera', 'Audition', 'Karakter', 'TR / EN'],
+    desc: 'Sahne pratiğini kameranın diline çeviren yoğun bir atölye. Karakter inşası, çerçeve bilinci ve audition teknikleri üzerine dört haftalık program. Dersler Türkçe ve İngilizce yürütülür — her iki dilde de takip edebilecek katılımcılara açıktır (B1+).',
+    descEn: 'An intensive workshop that translates stage craft into the language of camera. Four weeks covering character building, frame awareness and audition technique. Sessions run in both Turkish and English — open to participants who can follow in either language (B1+).',
     blocks: [
       {
-        title: 'Karakter / Character',
+        title: 'Karakter — Character',
         span: '1. Hafta',
-        body: 'Karakter analizi, hedef ve engel çalışması. / Character analysis, objective and obstacle work.',
+        body: 'Karakter analizi, hedef ve engel çalışması. Sahne metninden kamera metnine geçiş.\n\nCharacter analysis, objective and obstacle work. Transition from stage text to screen text.',
       },
       {
-        title: 'Kamera / Camera',
+        title: 'Kamera — Camera',
         span: '2—3. Hafta',
-        body: 'Çerçeve bilinci, close-up teknikleri, enerji yönetimi. / Frame awareness, close-up techniques, energy management.',
+        body: 'Çerçeve bilinci, close-up teknikleri, enerji yönetimi ve çekim sürecinin anatomisi.\n\nFrame awareness, close-up technique, energy management and the anatomy of a shoot.',
       },
       {
         title: 'Audition',
         span: '4. Hafta',
-        body: 'Soğuk okuma, casting simülasyonu, showreel. / Cold reading, casting simulation, showreel.',
+        body: 'Soğuk okuma, casting simülasyonu, self-tape ve showreel çekimi.\n\nCold reading, casting simulation, self-tape and showreel recording.',
       },
     ],
     images: ['dslr-zl5a1093', 'dslr-zl5a1076', 'dslr-zl5a1091', 'dslr-zl5a1094'],
-    seoTitle: 'Camera Praxis — Kamera Önü Oyunculuk & Audition',
-    seoDesc: 'Selen Uçer ile 4 haftalık kamera önü oyunculuk ve audition atölyesi. Taksim & Kadıköy. Türkçe / İngilizce.',
+    seoTitle: 'Camera Praxis — Kamera Önü Oyunculuk & Audition İstanbul',
+    seoDesc: 'Selen Uçer ile 4 haftalık kamera önü oyunculuk ve audition atölyesi. İstanbul, Taksim & Kadıköy. Türkçe ve İngilizce.',
   },
 
   // ── 03 — MEVCUDİYET ────────────────────────────────────────────────

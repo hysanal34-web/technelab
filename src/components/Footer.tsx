@@ -38,7 +38,7 @@ export function Footer() {
 
       <div className="px-4 md:px-10 pb-5 flex items-center justify-between border-t border-border pt-4">
         <span className="font-mono text-[11px] text-dim tracking-[0.1em]">© 2026 TECHNE LAB İSTANBUL</span>
-        <span className="font-mono text-[10px] text-dim/60 tracking-[0.14em] uppercase hidden md:block" title="τέχνη — zanaat">τέχνη · zanaat · istanbul</span>
+        <span className="font-mono text-[11px] text-dim/60 tracking-[0.14em] uppercase hidden md:block" title="τέχνη — zanaat">τέχνη · zanaat · istanbul</span>
         <span className="font-mono text-[11px] text-dim tracking-[0.1em] uppercase">Tüm Hakları Saklıdır</span>
       </div>
     </footer>

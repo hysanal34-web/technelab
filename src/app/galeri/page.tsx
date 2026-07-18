@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GALLERY_IMAGES, SITE_META } from '@/lib/data'
 import { Gallery } from '@/components/Gallery'
+import { FalImageGenerator } from '@/components/FalImageGenerator'
 
 export const metadata: Metadata = {
   title: 'Galeri — Atölye & Sahne Fotoğrafları',
@@ -54,6 +55,9 @@ export default function GaleriPage() {
         <Gallery images={GALLERY_IMAGES} />
       </section>
 
+      {/* ── AI Görsel Üretimi ─────────────────────────────────── */}
+      <FalImageGenerator />
+
       {/* ── Kapanış ──────────────────────────────────────────── */}
       <section className="px-4 md:px-10 py-16 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
@@ -64,7 +68,7 @@ export default function GaleriPage() {
         </div>
         <Link
           href="/atolyeler"
-          className="font-mono text-[10px] tracking-[0.18em] uppercase bg-neon text-bg px-8 py-4 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap"
+          className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-bg px-8 py-4 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap"
           data-hover
         >
           atölyeleri gör →

@@ -71,10 +71,10 @@ export function Gallery({ images, preview = 0 }: Props) {
             />
             {/* Alt bilgi şeridi — hover */}
             <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-bg/90 backdrop-blur-sm px-3 py-2 flex items-baseline justify-between gap-2">
-              <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-fg leading-tight line-clamp-1">
+              <span className="font-mono text-[11px] tracking-[0.1em] uppercase text-fg leading-tight line-clamp-1">
                 {img.alt}
               </span>
-              <span className="font-mono text-[10px] text-neon shrink-0">
+              <span className="font-mono text-[11px] text-neon shrink-0">
                 {String(i + 1).padStart(2, '0')}
               </span>
             </div>
@@ -100,7 +100,7 @@ export function Gallery({ images, preview = 0 }: Props) {
           </div>
           <button
             onClick={close}
-            className="absolute top-4 right-6 font-mono text-[10px] tracking-[0.2em] uppercase text-stone hover:text-neon transition-colors z-20"
+            className="absolute top-4 right-6 font-mono text-[11px] tracking-[0.2em] uppercase text-stone hover:text-neon transition-colors z-20"
             aria-label="Kapat"
             data-hover
           >

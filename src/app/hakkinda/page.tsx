@@ -46,7 +46,7 @@ export default function AboutPage() {
               τέχνη
             </span>
             <span className="font-mono text-[13px] text-stone">/tékʰ.nɛː/</span>
-            <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim">isim · Antik Yunanca</span>
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim">isim · Antik Yunanca</span>
           </div>
           <ol className="space-y-4">
             {[
@@ -88,7 +88,7 @@ export default function AboutPage() {
             ['ARAŞTIRMA', "Dramaturjik düşünce ve çağdaş sahne pratiği. Sophokles'ten Kane'e — metnin altında ne yattığını sormak."],
             ['ATÖLYE', 'Oyuncular, yazarlar, dansçılar ve sahneye ilk kez adım atanlar için yoğun, küçük gruplu programlar.']].map(([l, t]) => (
             <div key={l} className="py-5 border-b border-border last:border-0">
-              <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-2">{l}</p>
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-2">{l}</p>
               <p className="font-mono text-[14px] text-stone leading-relaxed">{t}</p>
             </div>
           ))}
@@ -108,7 +108,7 @@ export default function AboutPage() {
             className={`group px-4 md:px-10 py-12 hover:bg-bgAlt transition-colors duration-200 ${i < 2 ? 'md:border-r border-b md:border-b-0 border-border' : ''}`}
             data-hover
           >
-            <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-dim mb-3 group-hover:text-neon transition-colors duration-200">{x.sub}</p>
+            <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim mb-3 group-hover:text-neon transition-colors duration-200">{x.sub}</p>
             <span className="font-display text-fg group-hover:text-neon transition-colors duration-200" style={{ fontSize: 'clamp(24px,3vw,40px)', letterSpacing: '0.02em' }}>
               {x.label} <span className="text-neon">→</span>
             </span>
@@ -119,14 +119,14 @@ export default function AboutPage() {
       {/* ── CTA ────────────────────────────────────────────────── */}
       <section className="px-4 md:px-10 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
-          <p className="font-mono text-[10px] tracking-widest2 uppercase text-neon mb-3">başla</p>
+          <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-3">başla</p>
           <div className="font-display text-fg" style={{ fontSize: 'clamp(22px, 3.5vw, 52px)', letterSpacing: '0.02em', lineHeight: 1 }}>
             SAHNE SENİ<br />BEKLEMEZ.
           </div>
         </div>
         <Link
           href="/atolyeler"
-          className="font-mono text-[10px] tracking-[0.18em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 whitespace-nowrap"
+          className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-bg px-8 py-4 hover:bg-transparent hover:text-neon border border-neon transition-all duration-200 whitespace-nowrap"
           data-hover
         >
           programı seç →

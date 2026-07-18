@@ -42,7 +42,7 @@ export function WorkshopsFilter() {
               data-hover
             >
               {tr}
-              <span className={`ml-2 text-[10px] ${cat === key ? 'text-neon/50' : 'text-dim/40'}`}>{cnt}</span>
+              <span className={`ml-2 text-[11px] ${cat === key ? 'text-neon/50' : 'text-dim/40'}`}>{cnt}</span>
             </button>
           )
         })}
@@ -59,7 +59,7 @@ export function WorkshopsFilter() {
               İki farklı program seçip sepete eklediğinizde indirim otomatik uygulanır.
             </p>
           </div>
-          <Link href="/sepet" className="font-mono text-[10px] tracking-[0.14em] uppercase bg-bg text-fg px-5 py-3 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap" data-hover>
+          <Link href="/sepet" className="font-mono text-[11px] tracking-[0.14em] uppercase bg-bg text-fg px-5 py-3 hover:bg-fg hover:text-bg transition-all duration-200 whitespace-nowrap" data-hover>
             sepete git →
           </Link>
         </div>
