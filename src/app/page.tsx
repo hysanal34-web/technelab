@@ -302,17 +302,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: performans fotoğrafı */}
-            <div className="relative hidden md:block overflow-hidden">
+            {/* Right: Erken Kayıt posteri */}
+            <div className="relative hidden md:block overflow-hidden bg-[#f5f5f0] flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/gallery/auteur-02.jpg"
-                alt="Techne Lab atölye"
+                src="/images/erken-kayit-poster.png"
+                alt="Eylül 2025 Sezonu — Erken Kayıt İndirimi"
                 loading="lazy"
                 decoding="async"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', opacity: 0.85 }}
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center center' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-bgAlt/30" />
               <div className="absolute top-0 right-0 w-px h-20 bg-fg/20" />
               <div className="absolute top-0 right-0 h-px w-20 bg-fg/20" />
             </div>
