@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 10, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Yoğun, sonuç odaklı. Ece Ertez ile on iki hafta boyunca bir İngilizce metin üzerinde çalışır, karakterini inşa eder ve sınıf seyircisinin karşısında sahneye çıkarsınız. Dili bilen, sahneyi tanıyan katılımcılar için.',
+    desc: 'Yoğun, sonuç odaklı. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakterini inşa eder ve sınıf seyircisinin karşısında sahneye çıkarsınız. Profesyonel oyuncular ve sahneye meraklılar için — İngilizceyi sahne dili olarak keşfetmek isteyenlere açık.',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
