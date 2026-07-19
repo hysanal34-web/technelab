@@ -182,24 +182,14 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   bilgi al →
                 </a>
               </div>
-            ) : SITE_META.formUrls[w.slug] ? (
-              <a
-                href={SITE_META.formUrls[w.slug]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg border border-neon text-center py-4 transition-all duration-200"
-                data-hover
-              >
-                başvur →
-              </a>
             ) : (
-              <a
-                href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Başvuru`)}`}
+              <Link
+                href={`/atolyeler/${w.slug}/kayit`}
                 className="block font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg border border-neon text-center py-4 transition-all duration-200"
                 data-hover
               >
                 başvur →
-              </a>
+              </Link>
             )}
           </aside>
         </div>
