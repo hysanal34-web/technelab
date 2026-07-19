@@ -126,7 +126,7 @@ export const WORKSHOPS: Workshop[] = [
     blocks: [
       { title: 'Isınma & Keşif', span: '1—4. Hafta', body: 'Oyun ve güven egzersizleri, dil oyunları, beden-ses-hayal gücü üçgeni. İngilizce sezginin açılması.' },
       { title: 'Doğaçlama & Karakter', span: '5—8. Hafta', body: 'Anlık sahne çalışması, status oyunları, karakter doğaçlamaları. Dili düşünmeden konuşmak.' },
-      { title: 'Gösterim Hazırlığı', span: '9—12. Hafta', body: 'Grup doğaçlama gösterisi için prova ve sahne süreci. Sınıf içi performans sunumu.' },
+      { title: 'Bütünleşme & Uygulama', span: '9—12. Hafta', body: 'Edinilen araçların sahnede bütünleştirilmesi. Grup doğaçlamaları ve anlık sahne çalışmasının derinleşmesi.' },
     ],
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-final-project', 'english-drama-youth'],
@@ -138,7 +138,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: 8, slug: 'english-drama-final-project', code: '05',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez ile Sahne',
-    tagline: 'Pratik · Dil · Oyunculuk — Performanssız, Süreç Odaklı',
+    tagline: 'Yoğun Pratik · Sahne Dili · Karakter Çalışması',
     instructor: 'Ece Ertez',
     instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
     venue: 'Taksim / Kadıköy', duration: '12 hafta', price: 18000,
@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 10, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Final performansı yok — sadece pratik. Uluslararası projeler için dilini sıcak tutmak isteyen oyuncular, oyunculuğu İngilizce deneyimlemek isteyenler ve meraklılar için. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakter kurar, sahne dilini içselleştirirsiniz.',
+    desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Uluslararası projeler için dilini sıcak tutmak isteyen oyuncular, oyunculuğu İngilizce deneyimlemek isteyenler ve meraklılar için.',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
