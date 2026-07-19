@@ -138,7 +138,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: 8, slug: 'english-drama-final-project', code: '05',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez ile Sahne',
-    tagline: 'Bir Metin · Bir Sahne · Gerçek Seyirci',
+    tagline: 'Metin · Karakter · Sahne Çalışması',
     instructor: 'Ece Ertez',
     instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
     venue: 'Taksim / Kadıköy', duration: '12 hafta', price: 18000,
@@ -146,16 +146,16 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 10, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Yoğun, sonuç odaklı. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakterini inşa eder ve sınıf seyircisinin karşısında sahneye çıkarsınız. Profesyonel oyuncular ve sahneye meraklılar için — İngilizceyi sahne dili olarak keşfetmek isteyenlere açık.',
+    desc: 'Yoğun, süreç odaklı. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakterini inşa eder, prova disiplinini öğrenirsiniz. Profesyonel oyuncular ve sahneye meraklılar için — İngilizceyi sahne dili olarak keşfetmek isteyenlere açık.',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
-      { title: 'Final Performansı', span: '9—12. Hafta', body: 'Sahne bütünlüğü, kostüm ve sınıf sunumu. Kişisel geri bildirim seansı.' },
+      { title: 'Bütünleşme & Yansıma', span: '9—12. Hafta', body: 'Tüm metinler ve karakterler üzerinden bütünleşme çalışması. Kişisel geri bildirim seansları ve süreç değerlendirmesi.' },
     ],
     images: ['english-drama-17', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
     seoTitle: 'English Acting Praxis — Ece Ertez ile Sahne',
-    seoDesc: 'Ece Ertez ile 6 haftalık İngilizce sahne projesi. Metin, prova ve sınıf performansı. Techne Lab İstanbul.',
+    seoDesc: 'Ece Ertez ile 12 haftalık İngilizce sahne çalışması. Metin analizi, karakter ve prova disiplini. Profesyonel oyuncular ve meraklılar için. Techne Lab İstanbul.',
   },
 
   // ── 06 — ENGLISH DRAMA LAB: 14–17 YAŞ ────────────────────────────
