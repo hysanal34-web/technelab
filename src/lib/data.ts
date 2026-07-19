@@ -189,7 +189,7 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Sitare Bilge',
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
-    venue: 'Taksim / Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 96000,
+    venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 96000,
     priceEarlyBird: 80000, priceCash: 72000, installments: 9, monthlyPrice: 10667,
     earlyBirdSlots: 5,
     maxStudents: 12, active: true, nextDate: 'Ekim 2026',
