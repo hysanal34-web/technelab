@@ -81,7 +81,7 @@ export default function HomePage() {
       {/* ── Eylül 2025 Sezon Duyuru Bandı ── */}
       <Link
         href="/atolyeler"
-        className="group flex items-center justify-between w-full bg-neon text-bg px-4 md:px-14 py-3.5 hover:bg-fg transition-colors duration-300"
+        className="group flex items-center justify-between w-full bg-neon text-bg px-4 md:px-14 py-3.5 hover:bg-fg transition-colors duration-300 mt-[64px]"
         aria-label="Eylül 2025 Sezonu atölyelerimiz"
       >
         <div className="flex items-center gap-4">
@@ -302,18 +302,47 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Erken Kayıt posteri */}
-            <div className="relative hidden md:block overflow-hidden bg-[#f5f5f0] flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/erken-kayit-poster.png"
-                alt="Eylül 2025 Sezonu — Erken Kayıt İndirimi"
-                loading="lazy"
-                decoding="async"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center center' }}
-              />
-              <div className="absolute top-0 right-0 w-px h-20 bg-fg/20" />
-              <div className="absolute top-0 right-0 h-px w-20 bg-fg/20" />
+            {/* Right: Erken Kayıt promo paneli */}
+            <div className="relative hidden md:flex flex-col items-center justify-center overflow-hidden bg-bg gap-5 py-12 px-10">
+              {/* Neon üst çizgi */}
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-neon" aria-hidden="true" />
+
+              {/* Etiket */}
+              <p className="font-mono text-[10px] tracking-[0.32em] uppercase text-neon self-start">
+                — eylül 2025 · aktif kayıt
+              </p>
+
+              {/* Poster — neon çerçevede */}
+              <Link href="/atolyeler" className="relative block w-full max-w-[320px] group" data-hover>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/erken-kayit-poster.png"
+                  alt="Eylül 2025 Sezonu — Erken Kayıt İndirimi"
+                  loading="lazy"
+                  decoding="async"
+                  width={640}
+                  height={900}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  className="group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ border: '1px solid rgba(200,255,0,0.35)', boxShadow: '0 0 32px rgba(200,255,0,0.08)' }}
+                />
+              </Link>
+
+              {/* CTA */}
+              <Link
+                href="/atolyeler"
+                className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon border-b border-neon/40 hover:border-neon pb-0.5 transition-colors duration-200 self-start"
+                data-hover
+              >
+                programları incele →
+              </Link>
+
+              {/* Köşe dekor */}
+              <div className="absolute bottom-0 right-0 w-px h-20 bg-fg/10" aria-hidden="true" />
+              <div className="absolute bottom-0 right-0 h-px w-20 bg-fg/10" aria-hidden="true" />
             </div>
           </div>
         </section>
