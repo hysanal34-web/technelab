@@ -19,22 +19,22 @@ const TEAM: TeamMember[] = [
   {
     name: 'Sitare Bilge',
     slug: 'sitare-bilge',
-    role: 'Ses & Şan Eğitmeni',
+    role: 'Eğitmen',
     bio: 'Sesi bir araç olarak görür, şanı sadece teknikten değil dramaturjiden de okur. Müzikal sahnede kişisel sesin nasıl var olduğuyla ilgilenir.',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {
     name: 'Yeşim Çelebi',
     slug: 'yesim-celebi',
-    role: 'Oyuncu · Yaratıcı Drama Eğitmeni',
-    bio: 'Oyunculuk ve yaratıcı drama pratiğini gündelik dilin içinde arar. Sınıfı bir oyun alanı olarak görür; kurguyu ciddiye alırken oyunu da kaybetmez.',
+    role: 'Eğitmen',
+    bio: 'Yale Üniversitesi Tiyatro ve Performans Sanatları lisansının ardından LAMDA (Londra), Stella Adler ve Lee Strasberg (New York) programlarını tamamladı. Show TV ve Netflix yapımlarında oynadı. Sınıfı bir oyun alanı olarak görür; kurguyu ciddiye alırken oyunu da kaybetmez.',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
     name: 'Ece Ertez',
     slug: 'ece-ertez',
-    role: 'Oyuncu · İngilizce Tiyatro Eğitmeni',
-    bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır. Oyunculuğu İngilizce üzerinden çalışmak isteyenler için.',
+    role: 'Eğitmen',
+    bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır.',
     programs: [
       { label: 'English Acting Praxis', slug: 'english-drama-final-project' },
     ],
@@ -42,42 +42,42 @@ const TEAM: TeamMember[] = [
   {
     name: 'Burcu Halaçoğlu',
     slug: 'burcu-halacoglu',
-    role: 'Oyuncu · Beden Çalışması Eğitmeni',
-    bio: 'Sahne mevcudiyetini beden üzerinden araştırır. Sessizlikle, nefesle ve zemin ile ilişkiyle çalışır. Fiziksel farkındalık onun için bir başlangıç noktası.',
+    role: 'Eğitmen',
+    bio: 'Sahne mevcudiyetini beden üzerinden araştırır. Sessizlik, nefes ve zemin ile ilişki onun için bir başlangıç noktası.',
     programs: [{ label: 'Oyuncunun Mevcudiyeti', slug: 'oyuncunun-mevcudiyeti' }],
   },
   {
     name: 'Alara Lokum',
     slug: 'alara-lokum',
-    role: 'Oyuncu · Yaratıcı Drama Eğitmeni',
-    bio: 'İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışan oyuncu-eğitmen. Grubu bir sahne topluluğu gibi kurar.',
+    role: 'Eğitmen',
+    bio: 'Kadir Has Üniversitesi Tiyatro Bölümü mezunu. Şahika Tekand Stüdyo Oyuncuları\'nda çalıştı. Sahne ve ekran deneyimini eğitim pratiğine taşır. İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışır.',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
     name: 'Halil Yağız Şanal',
     slug: 'halil-yagiz-sanal',
     role: 'Genel Sanat Yönetmeni',
-    bio: 'Techne Lab\'ın kurucusu. İstanbul Üniversitesi Felsefe\'den tiyatroya geçen, GalataPerform\'da iki yıl oyun yazarlığı çalışan dramaturg. "Bir Yaz Gecesi Çöküşü" ile YeniMetin Festivali\'nden İKSV Senenin Oyunu ödülü.',
+    bio: 'Felsefe eğitimine paralel olarak tiyatroya yöneldi. GalataPerform\'da çağdaş oyun yazarlığı eğitimi aldı; Dramatik Yazarlık ve Dramaturji alanında lisans çalışmalarını sürdürdü. "Bir Yaz Gecesi Çöküşü" ile İKSV Senenin Oyunu ödüllü. 2026\'da Techne Lab İstanbul\'u kurdu.',
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
-  },
-  {
-    name: 'Selen Uçer',
-    slug: 'selen-ucer',
-    role: 'Oyuncu · Kamera Önü Eğitmeni',
-    bio: 'Lens önündeki oyuncuyu tanıyan biri — çerçeveyi, enerjiyi, zamanlamayı. Kamera ve sahne arasındaki geçişi öğretir.',
-    programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
   },
   {
     name: 'Köksal Ünal',
     slug: 'koksal-unal',
-    role: 'Oyuncu · Koreograf · Hareket Eğitmeni',
-    bio: 'YTÜ Sahne Sanatları ve İÜ Konservatuvar müzikal tiyatro sertifikası. Bahçeşehir Üniversitesi Konservatuvarı\'nda öğretim görevlisi. İBB Şehir Tiyatroları, Trabzon Devlet Tiyatrosu koreografı. En İyi Koreografi ödüllü.',
+    role: 'Eğitmen',
+    bio: 'Yıldız Teknik Üniversitesi Sahne Sanatları mezunu; Haliç Üniversitesi\'nde Tiyatro alanında yüksek lisanslı. İÜ Devlet Konservatuvarı Müzikal Tiyatro sertifikalı. İBB Şehir Tiyatroları ve Trabzon Devlet Tiyatrosu\'nda oyuncu ve koreograf olarak çalıştı. Bahçeşehir Üniversitesi Konservatuvarı ve İÜ Devlet Konservatuvarı öğretim görevlisi. En İyi Koreografi ödüllü.',
     programs: [
       { label: 'Techne Musical Lab', slug: 'techne-musical-lab' },
       { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
     ],
   },
 ]
+
+// Selen Uçer — arşivde, program kesinleşmedi
+// {
+//   name: 'Selen Uçer', slug: 'selen-ucer', role: 'Eğitmen',
+//   bio: 'Roosevelt Üniversitesi (Chicago) Tiyatro yüksek lisanslı. Boğaziçi Üniversitesi\'nde Kimya lisansının ardından sahneye geçti. New York\'ta off-Broadway projelerde yer aldı. Çok sayıda ulusal ve uluslararası ödüllü film ve tiyatro çalışması var.',
+//   programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
+// }
 
 const jsonLd = {
   '@context': 'https://schema.org',
