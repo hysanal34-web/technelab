@@ -56,7 +56,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Halil Yağız Şanal',
     slug: 'halil-yagiz-sanal',
-    role: 'Genel Sanat Yönetmeni',
+    role: 'Kurucu · Genel Sanat Yönetmeni · Eğitmen',
     bio: 'Felsefe eğitimine paralel olarak tiyatroya yöneldi. GalataPerform\'da çağdaş oyun yazarlığı eğitimi aldı; Dramatik Yazarlık ve Dramaturji alanında lisans çalışmalarını sürdürdü. "Bir Yaz Gecesi Çöküşü" ile İKSV Senenin Oyunu ödüllü. 2026\'da Techne Lab İstanbul\'u kurdu.',
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
