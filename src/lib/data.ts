@@ -138,7 +138,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: 8, slug: 'english-drama-final-project', code: '05',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez ile Sahne',
-    tagline: 'Metin · Karakter · Sahne Çalışması',
+    tagline: 'Pratik · Dil · Oyunculuk — Performanssız, Süreç Odaklı',
     instructor: 'Ece Ertez',
     instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
     venue: 'Taksim / Kadıköy', duration: '12 hafta', price: 18000,
@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 10, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Yoğun, süreç odaklı. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakterini inşa eder, prova disiplinini öğrenirsiniz. Profesyonel oyuncular ve sahneye meraklılar için — İngilizceyi sahne dili olarak keşfetmek isteyenlere açık.',
+    desc: 'Final performansı yok — sadece pratik. Uluslararası projeler için dilini sıcak tutmak isteyen oyuncular, oyunculuğu İngilizce deneyimlemek isteyenler ve meraklılar için. Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde çalışır, karakter kurar, sahne dilini içselleştirirsiniz.',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
