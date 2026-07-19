@@ -69,15 +69,8 @@ export function Gallery({ images, preview = 0 }: Props) {
               sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
               className="object-cover transition-all duration-700 ease-out grayscale-[0.85] contrast-[1.06] brightness-[0.92] group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.03]"
             />
-            {/* Alt bilgi şeridi — hover */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-bg/90 backdrop-blur-sm px-3 py-2 flex items-baseline justify-between gap-2">
-              <span className="font-mono text-[11px] tracking-[0.1em] uppercase text-fg leading-tight line-clamp-1">
-                {img.alt}
-              </span>
-              <span className="font-mono text-[11px] text-neon shrink-0">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-            </div>
+            {/* Neon alt çizgi — hover */}
+            <div className="absolute inset-x-0 bottom-0 h-[2px] bg-neon opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
             {/* Neon köşe — hover */}
             <div className="absolute top-0 left-0 w-5 h-[2px] bg-neon opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
             <div className="absolute top-0 left-0 h-5 w-[2px] bg-neon opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
