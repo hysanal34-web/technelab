@@ -134,10 +134,10 @@ export const WORKSHOPS: Workshop[] = [
     seoDesc: 'İngilizce yaratıcı drama ve doğaçlama atölyesi. 12 hafta, Taksim & Kadıköy. Techne Lab İstanbul.',
   },
 
-  // ── 05 — ENGLISH DRAMA LAB: FINAL PROJECT ─────────────────────────
+  // ── 05 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
   {
     id: 8, slug: 'english-drama-final-project', code: '05',
-    title: 'ENGLISH DRAMA LAB', sub: 'Final Project',
+    title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez ile Sahne',
     tagline: 'Bir Metin · Bir Sahne · Gerçek Seyirci',
     instructor: 'Ece Ertez',
     instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
@@ -154,7 +154,7 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-drama-17', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
-    seoTitle: 'English Drama Lab: Final Project — Ece Ertez ile Sahne',
+    seoTitle: 'English Acting Praxis — Ece Ertez ile Sahne',
     seoDesc: 'Ece Ertez ile 6 haftalık İngilizce sahne projesi. Metin, prova ve sınıf performansı. Techne Lab İstanbul.',
   },
 

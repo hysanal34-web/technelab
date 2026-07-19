@@ -9,10 +9,10 @@ const WORKSHOP_IMAGES: Record<string, string> = {
   'camera-praxis':                 '/images/covers/camera-praxis.png',
   'english-drama-lab':             '/images/covers/english-drama-lab.png',
   'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.png',
-  'english-drama-final-project':   '/images/gallery/english-drama-11.jpg',
+  'english-drama-final-project':   '/images/covers/english-drama-final-project.png',
   'english-drama-youth':           '/images/covers/english-drama-youth.png',
   'techne-musical-lab':            '/images/covers/techne-musical-lab.png',
-  'broadway-musical-dance':        '/images/gallery/dslr-zl5a1044.jpg',
+  'broadway-musical-dance':        '/images/covers/broadway-musical-dance.png',
 }
 
 // Bauhaus accent colours per card (border + number tint)
