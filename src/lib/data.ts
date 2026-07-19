@@ -48,7 +48,7 @@ export const WORKSHOPS: Workshop[] = [
         body: 'Sinema ve dizi sahneleri. Soğuk okuma, kamera önü. Showreel ve kariyer yönetimi.',
       },
     ],
-    images: ['auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
+    images: ['auteur-hero', 'auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
     seoTitle: 'The Auteur Lab — Dramaturji & Oyunculuk Atölyesi',
     seoDesc: 'Metin çözümleme, dramaturji ve sahne pratiği. Halil Yağız Şanal ile 8 haftalık laboratuvar. İstanbul.',
   },
