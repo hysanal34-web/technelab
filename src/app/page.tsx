@@ -467,31 +467,32 @@ export default function HomePage() {
             05
           </div>
 
+          {/* bg-ink is always #0A0A0C — all text must be hardcoded light to survive light-mode */}
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
             <div>
-              <p className="font-mono text-[11px] tracking-widest2 uppercase text-fg/50 mb-4">iletişim</p>
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-[#E8E5DF]/50 mb-4">iletişim</p>
               <h2
                 id="contact-heading"
-                className="font-display text-fg leading-none mb-4"
+                className="font-display text-[#E8E5DF] leading-none mb-4"
                 style={{ fontSize: 'clamp(28px, 5.5vw, 80px)', letterSpacing: '0.02em' }}
               >
                 BİRLİKTE<br />
                 <span style={{ color: '#B8F000' }}>ÜRETELİM</span>
               </h2>
-              <p className="font-mono text-[11px] text-fg/50 max-w-xs">
+              <p className="font-mono text-[11px] text-[#E8E5DF]/50 max-w-xs">
                 Atölyeler, işbirlikleri, prodüksiyonlar.
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <Link
                 href="/iletisim"
-                className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-ink px-10 py-4 hover:bg-fg hover:text-ink border border-neon transition-all duration-200 text-center whitespace-nowrap"
+                className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-bg px-10 py-4 hover:bg-[#E8E5DF] hover:text-ink border border-neon transition-all duration-200 text-center whitespace-nowrap"
               >
                 iletişime geç
               </Link>
               <a
                 href={`mailto:${SITE_META.email}`}
-                className="font-mono text-[11px] tracking-[0.12em] text-fg/40 hover:text-fg/70 transition-colors text-center"
+                className="font-mono text-[11px] tracking-[0.12em] text-[#E8E5DF]/40 hover:text-[#E8E5DF]/70 transition-colors text-center"
               >
                 {SITE_META.email}
               </a>
