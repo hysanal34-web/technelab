@@ -188,6 +188,16 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               ))}
             </SelectField>
           </FieldGroup>
+          <FieldGroup label="Portfolyo / Fotoğraf / Demo Linki">
+            <Input
+              name="portfolyoLink"
+              type="url"
+              placeholder="https://drive.google.com/…  veya  https://dropbox.com/…"
+            />
+            <p className="font-mono text-[10px] text-dim mt-2 leading-relaxed">
+              Öğrenciye ait fotoğraf, video veya herhangi bir dosyayı Drive ya da Dropbox'a yükleyip bağlantı paylaşabilirsiniz. İsteğe bağlı; linkin herkese açık olduğundan emin olun.
+            </p>
+          </FieldGroup>
         </Section>
 
         {/* Bölüm 4: Onaylar */}

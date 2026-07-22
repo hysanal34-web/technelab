@@ -27,9 +27,10 @@ export async function submitRegistration(
   // Guardian fields (Youth program)
   const guardianName  = (formData.get('guardianName')  as string | null)?.trim() ?? ''
   const guardianRel   = (formData.get('guardianRel')   as string | null)?.trim() ?? ''
-  const guardianPhone = (formData.get('guardianPhone') as string | null)?.trim() ?? ''
-  const guardianEmail = (formData.get('guardianEmail') as string | null)?.trim() ?? ''
-  const kvkk       = formData.get('kvkk')
+  const guardianPhone  = (formData.get('guardianPhone')  as string | null)?.trim() ?? ''
+  const guardianEmail  = (formData.get('guardianEmail')  as string | null)?.trim() ?? ''
+  const portfolyoLink  = (formData.get('portfolyoLink')  as string | null)?.trim() ?? ''
+  const kvkk           = formData.get('kvkk')
 
   // Youth: validate guardian too
   const isYouth = slug === 'english-drama-youth'
@@ -77,6 +78,8 @@ export async function submitRegistration(
     ...(guardianRel   ? [['Veli Yakınlığı',  guardianRel]   as [string, string]] : []),
     ...(guardianPhone ? [['Veli Telefon',    guardianPhone] as [string, string]] : []),
     ...(guardianEmail ? [['Veli E-posta',    guardianEmail] as [string, string]] : []),
+    // Portfolio / Drive link
+    ...(portfolyoLink ? [['Portfolyo / Drive Linki', portfolyoLink] as [string, string]] : []),
   ]
 
   const tableRows = rows

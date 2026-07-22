@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techne Lab — Kayıt Formu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0C;
+    --fg: #F5F5F0;
+    --stone: #6B6B6B;
+    --dim: #3A3A3A;
+    --border: #2A2A2E;
+    --neon: #C8FF00;
+    --mono: 'Space Mono', 'Courier New', monospace;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* ── Header ─────────────────────────────── */
+  .header {
+    border-bottom: 2px solid var(--neon);
+    padding: 40px 48px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .header-left {}
+  .logo {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--neon);
+    margin-bottom: 10px;
+  }
+  .doc-title {
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .doc-sub {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-top: 8px;
+  }
+  .header-right {
+    text-align: right;
+  }
+  .header-right p {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    line-height: 2;
+  }
+  .header-right a {
+    color: var(--neon);
+    text-decoration: none;
+  }
+
+  /* ── Program seçim kutusu ─────────────────── */
+  .program-box {
+    margin: 0 48px;
+    border: 1px solid var(--border);
+    background: #111114;
+  }
+  .program-box-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--neon);
+  }
+  .program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .program-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  .program-item:nth-child(even) { border-right: 0; }
+  .program-item:nth-last-child(-n+2) { border-bottom: 0; }
+  .checkbox-sq {
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--stone);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .program-name {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg);
+    line-height: 1.4;
+  }
+  .program-code {
+    display: block;
+    font-size: 9px;
+    color: var(--stone);
+    margin-top: 2px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Form body ──────────────────────────── */
+  .form-body {
+    padding: 40px 48px 48px;
+  }
+
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--neon);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+
+  .field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+  }
+  .field-grid.single { grid-template-columns: 1fr; }
+  .field-grid.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field.full { grid-column: 1 / -1; }
+
+  .field label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .field label .req { color: var(--neon); margin-left: 2px; }
+
+  .field-line {
+    border: 0;
+    border-bottom: 1px solid var(--dim);
+    background: transparent;
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 6px 2px;
+    width: 100%;
+    outline: none;
+  }
+
+  .field-area {
+    border: 1px solid var(--dim);
+    background: transparent;
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 8px 10px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    height: 80px;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .radio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .radio-sq {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--stone);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .radio-label {
+    font-size: 10px;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  /* ── İmza ────────────────────────────────── */
+  .signature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .sig-field label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .sig-line {
+    border-bottom: 1px solid var(--dim);
+    height: 1px;
+  }
+
+  /* ── Footer ──────────────────────────────── */
+  .footer {
+    border-top: 1px solid var(--border);
+    margin: 0 48px;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer p {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .footer a { color: var(--stone); text-decoration: none; }
+
+  /* ── KVKK notu ────────────────────────────── */
+  .kvkk-note {
+    font-size: 9px;
+    color: var(--dim);
+    line-height: 1.7;
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+
+  /* ── Onay kutuları ────────────────────────── */
+  .consent-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .consent-item .checkbox-sq { margin-top: 2px; }
+  .consent-item p {
+    font-size: 10px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* ── Print ───────────────────────────────── */
+  @media print {
+    body { background: #fff; color: #000; }
+    :root {
+      --bg: #fff; --fg: #000; --stone: #555; --dim: #999;
+      --border: #ccc; --neon: #4a7c00;
+    }
+    .header { padding: 24px 32px 20px; }
+    .form-body { padding: 24px 32px 32px; }
+    .program-box, .footer { margin: 0 32px; }
+    .field-line, .field-area { color: #000; border-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-left">
+    <p class="logo">Techne Lab İstanbul</p>
+    <h1 class="doc-title">Kayıt Formu</h1>
+    <p class="doc-sub">2025–2026 · Eylül Sezonu</p>
+  </div>
+  <div class="header-right">
+    <p>technelab.ist</p>
+    <p><a href="mailto:techne.lab.istanbul@gmail.com">techne.lab.istanbul@gmail.com</a></p>
+    <p>instagram: @techne.lab</p>
+    <p style="margin-top:8px; color: var(--neon)">Form No: _______________</p>
+    <p>Tarih: _______________</p>
+  </div>
+</header>
+
+<!-- ── PROGRAM SEÇİMİ ──────────────────────────────────── -->
+<div class="program-box">
+  <div class="program-box-header">01 — Başvurulan Program</div>
+  <div class="program-grid">
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">Auteur Lab</p>
+        <span class="program-code">01 · Oyun Yazarlığı · Halil Yağız Şanal</span>
+      </div>
+    </div>
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">English Drama Lab</p>
+        <span class="program-code">04 · İngilizce Drama · Selen Uçer</span>
+      </div>
+    </div>
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">English Drama: Acting Focus</p>
+        <span class="program-code">05 · İngilizce Drama · Selen Uçer</span>
+      </div>
+    </div>
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">English Drama: Final Performance</p>
+        <span class="program-code">06 · İngilizce Drama · Selen Uçer</span>
+      </div>
+    </div>
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">English Drama Youth!</p>
+        <span class="program-code">07 · 14–17 Yaş · Selen Uçer</span>
+      </div>
+    </div>
+    <div class="program-item">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">Techne Musical Lab</p>
+        <span class="program-code">08 · Dans & Müzikal · Yeşim Çelebi</span>
+      </div>
+    </div>
+    <div class="program-item" style="grid-column: 1/-1; border-right:0;">
+      <div class="checkbox-sq"></div>
+      <div>
+        <p class="program-name">Broadway Musical Dance</p>
+        <span class="program-code">09 · Dans & Müzikal · Alara Lokum</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM BODY ─────────────────────────────────────────── -->
+<div class="form-body">
+
+  <!-- 02 — Katılımcı Bilgileri -->
+  <div class="section">
+    <p class="section-label">02 — Katılımcı Bilgileri</p>
+    <div class="field-grid">
+      <div class="field">
+        <label>Ad Soyad <span class="req">*</span></label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Doğum Tarihi / Yılı <span class="req">*</span></label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>E-posta Adresi <span class="req">*</span></label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Telefon Numarası <span class="req">*</span></label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Meslek / Öğrenci ise Okul & Sınıf</label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Lokasyon Tercihi (varsa)</label>
+        <div class="field-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 — Arka Plan -->
+  <div class="section">
+    <p class="section-label">03 — Tiyatro &amp; Sanat Geçmişi</p>
+    <div class="field-grid single">
+      <div class="field">
+        <label>Daha önce tiyatro / oyunculuk / dans eğitimi aldınız mı? Kısaca anlatın.</label>
+        <div class="field-area"></div>
+      </div>
+      <div class="field" style="margin-top:16px;">
+        <label>Neden bu programa katılmak istiyorsunuz?</label>
+        <div class="field-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 — İngilizce Seviyesi (EDL programları için) -->
+  <div class="section">
+    <p class="section-label">04 — İngilizce Seviyesi <span style="color: var(--stone); font-size:8px; letter-spacing:0.1em;">(EDL programları için — diğerleri boş bırakabilir)</span></p>
+    <div class="radio-group">
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Orta (B1–B2): Günlük diyalogları anlar, kendini ifade edebilir</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">İleri (C1–C2): Akıcı konuşur, metinleri rahatça kavrar</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Anadil Seviyesi (Native / Bilingual)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 — Veli Bilgileri -->
+  <div class="section">
+    <p class="section-label">05 — Veli / Yasal Vasi Bilgileri <span style="color: var(--stone); font-size:8px; letter-spacing:0.1em;">(18 yaş altı katılımcılar için zorunlu)</span></p>
+    <div class="field-grid">
+      <div class="field">
+        <label>Veli Adı Soyadı</label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Yakınlık Derecesi</label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Veli Telefonu</label>
+        <div class="field-line"></div>
+      </div>
+      <div class="field">
+        <label>Veli E-posta</label>
+        <div class="field-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 — Portfolyo / Dosya -->
+  <div class="section">
+    <p class="section-label">06 — Portfolyo / Dosya Paylaşımı <span style="color: var(--stone); font-size:8px; letter-spacing:0.1em;">(isteğe bağlı)</span></p>
+    <div class="field-grid single">
+      <div class="field">
+        <label>Google Drive, Dropbox veya portfolyo linki</label>
+        <div class="field-line" style="margin-bottom:8px;"></div>
+        <p style="font-size:9px; color:var(--dim); margin-top:4px; line-height:1.6;">
+          Özgeçmiş, portfolyo, demo video, fotoğraf veya ilgili gördüğünüz her türlü dosyayı Drive ya da Dropbox'a yükleyip
+          bağlantıyı buraya yazabilirsiniz. Linkin herkese açık (Public) veya görüntüleme iznine sahip olduğundan emin olun.
+        </p>
+      </div>
+      <div class="field" style="margin-top:12px;">
+        <label>Paylaştığınız dosyanın kısa açıklaması</label>
+        <div class="field-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 — Nasıl Duydunuz -->
+  <div class="section">
+    <p class="section-label">07 — Bizi Nasıl Duydunuz?</p>
+    <div class="radio-group" style="flex-direction: row; flex-wrap: wrap; gap: 12px 32px;">
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Instagram</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Arkadaş tavsiyesi</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Google</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Daha önce Techne Lab'daydım</span>
+      </div>
+      <div class="radio-item">
+        <div class="radio-sq"></div>
+        <span class="radio-label">Diğer: ___________________</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 — Onay -->
+  <div class="section">
+    <p class="section-label">08 — Onay ve İmza</p>
+
+    <div class="kvkk-note">
+      Bu formda paylaşılan kişisel veriler, Techne Lab İstanbul tarafından başvuru ve kayıt süreçlerinin yürütülmesi,
+      program bilgilendirmeleri ve iletişim amacıyla işlenecektir. Verileriniz üçüncü şahıslarla paylaşılmaz.
+      KVKK kapsamındaki haklarınız için: techne.lab.istanbul@gmail.com
+    </div>
+
+    <div class="consent-item">
+      <div class="checkbox-sq"></div>
+      <p>Yukarıdaki KVKK aydınlatma metnini okudum; kişisel verilerimin belirtilen amaçlarla işlenmesine onay veriyorum. <strong>*</strong></p>
+    </div>
+
+    <div class="consent-item">
+      <div class="checkbox-sq"></div>
+      <p>Program sürecinde çekilen fotoğraf ve video görsellerinin Techne Lab'ın sosyal medya ve tanıtım materyallerinde kullanılmasına onay veriyorum.</p>
+    </div>
+
+    <div class="consent-item">
+      <div class="checkbox-sq"></div>
+      <p>(18 yaş altı için) Çocuğumun / yasal sorumluluğumu taşıdığım öğrencinin programa katılmasına ve yılsonu temsilinde yer almasına onay veriyorum. <strong>*</strong></p>
+    </div>
+  </div>
+
+  <!-- İmza alanları -->
+  <div class="signature-row">
+    <div class="sig-field">
+      <label>Katılımcı İmzası</label>
+      <div class="sig-line"></div>
+    </div>
+    <div class="sig-field">
+      <label>Veli İmzası (varsa)</label>
+      <div class="sig-line"></div>
+    </div>
+    <div class="sig-field">
+      <label>Tarih</label>
+      <div class="sig-line"></div>
+    </div>
+  </div>
+
+</div><!-- /form-body -->
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer class="footer">
+  <p>Techne Lab İstanbul · technelab.ist · 2025–2026 Sezonu</p>
+  <p>Dolu formları: <a href="mailto:techne.lab.istanbul@gmail.com">techne.lab.istanbul@gmail.com</a></p>
+</footer>
+
+</body>
+</html>

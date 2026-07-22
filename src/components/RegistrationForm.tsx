@@ -170,6 +170,18 @@ export default function RegistrationForm({ workshop, action }: Props) {
           />
         </FieldGroup>
 
+        {/* Portfolyo / Dosya Linki */}
+        <FieldGroup label="Portfolyo / CV / Demo Linki">
+          <Input
+            name="portfolyoLink"
+            type="url"
+            placeholder="https://drive.google.com/…  veya  https://dropbox.com/…"
+          />
+          <p className="font-mono text-[10px] text-dim mt-2 leading-relaxed">
+            Özgeçmiş, portfolyo, fotoğraf veya video — her türlü dosyayı Google Drive ya da Dropbox'a yükleyip bağlantıyı paylaşabilirsiniz. Linkin herkese açık olduğundan emin olun.
+          </p>
+        </FieldGroup>
+
         {/* Nasıl Duydu */}
         <FieldGroup label="Techne Lab'ı Nasıl Duydunuz?">
           <SelectField name="source" defaultValue="">
