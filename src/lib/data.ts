@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: '10–14', active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Programın sonunda Cast Direktörü Harika Uygur bir günlük masterclass vererek katılımcıların canlı performanslarını izler; bu performanslar kayıt altına alınarak katılımcılara teslim edilir. Başvurular: techne.lab.istanbul@gmail.com',
+    desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Programın sonunda Cast Direktörü Harika Uygur bir günlük masterclass vererek katılımcıların canlı performanslarını izler; bu performanslar kayıt altına alınarak katılımcılara teslim edilir.',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
