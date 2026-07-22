@@ -101,7 +101,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
         </h2>
         <p className="font-mono text-[14px] italic text-stone mb-4">{workshop.sub}</p>
         <p className="font-mono text-[12px] text-dim leading-relaxed">
-          Ekim ayının ilk haftası başlıyoruz! Haftada bir gün Kadıköy ve Taksim (Pera) lokasyonlarında gerçekleşecek.
+          Haftada bir gün Kadıköy ve Taksim (Pera) lokasyonlarında gerçekleşecek.
           Yıl sonunda bir sahne gösterisiyle taçlanacak bu süreç için lütfen formu veli / yasal vasi eşliğinde doldurunuz.
         </p>
       </div>

@@ -115,11 +115,6 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
 
         {/* ── Content area ───────────────────────────────────────────── */}
         <div className="p-6 pb-7">
-          {/* Instructor */}
-          <p className="font-mono text-[11px] tracking-[0.16em] uppercase mb-2 text-stone">
-            {w.instructor}
-          </p>
-
           {/* Title */}
           <h3
             className="font-display leading-none text-fg mb-1"

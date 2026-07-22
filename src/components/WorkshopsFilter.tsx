@@ -17,9 +17,8 @@ const CATS: { key: Cat; tr: string }[] = [
 export function WorkshopsFilter() {
   const [cat, setCat] = useState<Cat>('tümü')
 
-  const visible  = cat === 'tümü' ? WORKSHOPS : WORKSHOPS.filter(w => w.category === cat)
-  const active   = visible.filter(w => w.active)
-  const passive  = visible.filter(w => !w.active)
+  const all     = WORKSHOPS.filter(w => !w.archived)
+  const visible = cat === 'tümü' ? all : all.filter(w => w.category === cat)
 
   return (
     <>
@@ -27,8 +26,8 @@ export function WorkshopsFilter() {
       <div className="flex flex-wrap items-stretch border-b border-border">
         {CATS.map(({ key, tr }) => {
           const cnt = key === 'tümü'
-            ? WORKSHOPS.length
-            : WORKSHOPS.filter(w => w.category === key).length
+            ? all.length
+            : all.filter(w => w.category === key).length
           return (
             <button
               key={key}
@@ -47,23 +46,10 @@ export function WorkshopsFilter() {
         })}
       </div>
 
-      {/* Aktif programlar */}
-      {active.length > 0 && (
-        <section className="px-4 md:px-10 pb-8">
-          {active.map((w) => (
-            <WorkshopRow key={w.id} workshop={w} />
-          ))}
-        </section>
-      )}
-
-      {/* Pasif (satışa kapalı) programlar */}
-      {passive.length > 0 && (
+      {/* Programlar */}
+      {visible.length > 0 && (
         <section className="px-4 md:px-10 pb-20">
-          <div className="flex items-center gap-4 py-5 border-t border-border mb-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-stone/40" />
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone/60">Satışa Kapalı Programlar</p>
-          </div>
-          {passive.map((w) => (
+          {visible.map((w) => (
             <WorkshopRow key={w.id} workshop={w} />
           ))}
         </section>

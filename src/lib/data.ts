@@ -8,7 +8,7 @@ export type Workshop = {
   monthlyPrice?: number      // aylık taksit
   installments?: number      // max faizsiz taksit sayısı
   earlyBirdSlots?: number    // erken kayıt kontenjanı (ilk N kişi)
-  maxStudents: number; active: boolean; nextDate?: string
+  maxStudents: number | string; active: boolean; archived?: boolean; nextDate?: string
   tags: string[]; desc: string; descEn?: string
   blocks: { title: string; span?: string; body: string }[]
   images?: string[]
@@ -27,7 +27,7 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji ana sanat dalında öğrenimini sürdürdü. Yılın Oyunu ödüllü oyun yazarı.",
     venue: 'Taksim / Kadıköy', duration: '8 hafta', price: 24000,
     installments: 3, monthlyPrice: 8000,
-    maxStudents: 14, active: true,
+    maxStudents: 8, active: true,
     category: 'yazarlık',
     tags: ['Dramaturji', 'Yazarlık'],
     desc: 'Yazmak için yaratıcı bir alan. Kendi metnini kurmanın temel dinamiklerine odaklanıyoruz — karakter, çatışma, sahne. İlhamı beklemeden, üreterek.',
@@ -62,7 +62,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Selen Uçer',
     instructorBio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve sahne deneyimini atölye pratiğiyle buluşturuyor. / Actor and on-camera acting trainer, merging screen and stage experience in workshop practice.',
     venue: 'Taksim & Kadıköy', duration: '4 hafta', price: 16000,
-    maxStudents: 10, active: false,
+    maxStudents: 10, active: false, archived: true,
     category: 'oyunculuk',
     tags: ['Kamera', 'Audition', 'Karakter', 'TR / EN'],
     desc: 'Sahne pratiğini kameranın diline çeviren yoğun bir atölye. Karakter inşası, çerçeve bilinci ve audition teknikleri üzerine dört haftalık program. Dersler Türkçe ve İngilizce yürütülür — her iki dilde de takip edebilecek katılımcılara açıktır (B1+).',
@@ -119,7 +119,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Taksim & Kadıköy', duration: '12 hafta', price: 36000,
     priceEarlyBird: 30000, priceCash: 27000, installments: 9, monthlyPrice: 4000,
     earlyBirdSlots: 5,
-    maxStudents: 14, active: true,
+    maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
     desc: 'İngilizce dili yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberlemeden uzak, anlık tepki ve hayal gücüne dayalı bu program katılımcıları İngilizce ifadeyle doğrudan temas kurmaya davet eder.',
@@ -137,20 +137,20 @@ export const WORKSHOPS: Workshop[] = [
   // ── 05 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
   {
     id: 8, slug: 'english-drama-final-project', code: '05',
-    title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez ile Sahne',
+    title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez · Harika Uygur Masterclass',
     tagline: 'Yoğun Pratik · Sahne Dili · Karakter Çalışması',
     instructor: 'Ece Ertez',
-    instructorBio: 'Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.',
+    instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen. Cast Direktörü / Süpervizör: Harika Uygur.',
     venue: 'Taksim / Kadıköy', duration: '12 hafta', price: 18000,
     priceCash: 15000, installments: 2, monthlyPrice: 9000,
-    maxStudents: 10, active: true,
+    maxStudents: '10–14', active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
-    desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Uluslararası projeler için dilini sıcak tutmak isteyen oyuncular, oyunculuğu İngilizce deneyimlemek isteyenler ve meraklılar için.',
+    desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Programın sonunda Cast Direktörü Harika Uygur bir günlük masterclass vererek katılımcıların canlı performanslarını izler; bu performanslar kayıt altına alınarak katılımcılara teslim edilir. Başvurular: techne.lab.istanbul@gmail.com',
     blocks: [
       { title: 'Metin & Karakter', span: '1—4. Hafta', body: 'Metin seçimi, analiz, karakter motivasyonu. Alt metin ve sahne niyeti.' },
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
-      { title: 'Bütünleşme & Yansıma', span: '9—12. Hafta', body: 'Tüm metinler ve karakterler üzerinden bütünleşme çalışması. Kişisel geri bildirim seansları ve süreç değerlendirmesi.' },
+      { title: 'Bütünleşme & Harika Uygur Masterclass', span: '9—12. Hafta', body: 'Bütünleşme çalışması ve kişisel geri bildirim seansları. Program finalinde Cast Direktörü Harika Uygur\'un bir günlük masterclass\'ı: canlı performanslar izlenir, kayıt altına alınır ve katılımcılara teslim edilir.' },
     ],
     images: ['english-drama-17', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
@@ -167,7 +167,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Taksim & Kadıköy', duration: '8 ay · Haftada 1 gün (Ekim–Mayıs)', price: 60000,
     priceEarlyBird: 50000, priceCash: 45000, installments: 8, monthlyPrice: 7500,
     earlyBirdSlots: 5,
-    maxStudents: 12, active: true, nextDate: 'Ekim 2026',
+    maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '14–17 Yaş'],
     desc: 'Yaratıcı drama ve sahne çalışmasını İngilizce öğrenimiyle birleştiren gençlere yönelik program. 14–17 yaş arasındaki katılımcılar için tasarlanan bu program, yılın sonunda seyircili bir final gösterisiyle kapanır. Ekim–Mayıs, haftada bir gün.',
@@ -192,10 +192,10 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 96000,
     priceEarlyBird: 80000, priceCash: 72000, installments: 9, monthlyPrice: 10667,
     earlyBirdSlots: 5,
-    maxStudents: 12, active: true, nextDate: 'Ekim 2026',
+    maxStudents: 12, active: true,
     category: 'dans-muzikal',
     tags: ['Müzikal', 'Drama', 'Tiyatro', 'Uzun Dönem'],
-    desc: 'Drama ve tiyatro temelinin üzerine müzikal sahneleme eklenen 8 aylık kapsamlı program. Oyunculuk egzersizleri ve dramaturgik çalışma ile başlayan program, şan ve dans disiplinleriyle sahne bütünlüğünü tamamlar. Dönem sonunda seyircili bitirme performansıyla kapanır.',
+    desc: 'Drama ve tiyatro temelinin üzerine müzikal sahneleme eklenen 8 aylık kapsamlı program. Oyunculuk egzersizleri ve dramaturgik çalışma ile başlayan program, şan ve dans disiplinleriyle sahne bütünlüğünü tamamlar. Dönem sonunda seyircili bitirme performansıyla kapanır. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
     blocks: [
       { title: 'Drama & Oyunculuk', span: 'Ekim–Aralık', body: 'Sahne varlığı, karakter inşası ve dramaturgik çalışma. Tiyatronun temel araçları: beden, ses ve metin. Şan tekniğiyle buluşan oyuncu sesi.' },
       { title: 'Müzikal Sahneleme', span: 'Ocak–Mart', body: 'Müzikal ritim, Broadway dans temelleri ve sahne uzamı. Drama zeminine oturan koreografi ve müzikal metin çalışması.' },
@@ -217,7 +217,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 15, active: true,
     category: 'dans-muzikal',
     tags: ['Dans', 'Broadway', 'Koreografi'],
-    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten 12 haftalık yoğun program. Jazz, tap ve theatre dance teknikleriyle sahne koreografisi, showmanship ve performans bütünlüğü.',
+    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten 12 haftalık yoğun program. Jazz, tap ve theatre dance teknikleriyle sahne koreografisi, showmanship ve performans bütünlüğü. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
     blocks: [
       { title: 'Teknik Temel', span: '1—4. Hafta', body: 'Jazz ve theatre dance temelleri. Beden hizalaması, ritim, koordinasyon ve müzikle ilişki.' },
       { title: 'Koreografi & Stil', span: '5—8. Hafta', body: 'Broadway repertuarından sahneler. Stil çalışması, grup koreografisi ve sahne dinamiği.' },

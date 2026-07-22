@@ -78,11 +78,11 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── Eylül 2025 Sezon Duyuru Bandı ── */}
+      {/* ── Sezon Duyuru Bandı ── */}
       <Link
         href="/atolyeler"
         className="group flex items-center justify-between w-full bg-neon text-bg px-4 md:px-14 py-3.5 hover:bg-fg transition-colors duration-300 mt-[64px]"
-        aria-label="Eylül 2025 Sezonu atölyelerimiz"
+        aria-label="Techne Lab atölyeleri"
       >
         <div className="flex items-center gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-60">
@@ -90,7 +90,7 @@ export default function HomePage() {
           </span>
           <span className="w-px h-3 bg-bg/30" aria-hidden="true" />
           <span className="font-mono text-[11px] tracking-[0.18em] uppercase font-medium">
-            <T tr="Eylül 2025 Atölyeleri Açıldı" en="September 2025 Workshops Open" />
+            <T tr="Atölyelerimiz Açık" en="Workshops Open" />
           </span>
         </div>
         <span className="font-mono text-[11px] tracking-[0.14em] uppercase group-hover:translate-x-1 transition-transform duration-200">
@@ -309,7 +309,7 @@ export default function HomePage() {
 
               {/* Etiket */}
               <p className="font-mono text-[10px] tracking-[0.32em] uppercase text-neon self-start">
-                — eylül 2025 · aktif kayıt
+                — aktif kayıt
               </p>
 
               {/* Poster — neon çerçevede */}
@@ -317,7 +317,7 @@ export default function HomePage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/erken-kayit-poster.png"
-                  alt="Eylül 2025 Sezonu — Erken Kayıt İndirimi"
+                  alt="Techne Lab — Erken Kayıt İndirimi"
                   loading="lazy"
                   decoding="async"
                   width={640}

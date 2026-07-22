@@ -217,7 +217,7 @@ export function Nav() {
               {CATEGORIES.map((cat) => (
                 <div key={cat.key} className="mb-4">
                   <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim mb-2">{cat.label}</p>
-                  {WORKSHOPS.filter(w => w.category === cat.key).map((w) => (
+                  {WORKSHOPS.filter(w => w.category === cat.key && !w.archived).map((w) => (
                     <Link
                       key={w.slug}
                       href={`/atolyeler/${w.slug}`}

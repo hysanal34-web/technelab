@@ -74,7 +74,7 @@ export default function AboutPage() {
           <p className="font-mono text-[14px] text-stone leading-relaxed mb-8">
             2026&apos;da İstanbul&apos;da kurulduk. Taksim ve Kadıköy&apos;de, en fazla 12–14 kişilik
             gruplarla çalışıyoruz — çünkü kalabalıkta kimse görünmez.
-            Yazarlıktan müzikale dokuz program, hepsi aynı omurgaya bağlı:{' '}
+            Yazarlıktan müzikale sekiz program, hepsi aynı omurgaya bağlı:{' '}
             <span className="text-neon">disiplin özgürlüktür.</span>
           </p>
           <div className="flex items-center gap-3">
@@ -98,8 +98,8 @@ export default function AboutPage() {
       {/* ── İç linkler — keşfe devam ───────────────────────────── */}
       <section className="grid md:grid-cols-3 border-b border-border" aria-label="Keşfet">
         {[
-          { href: '/atolyeler', label: 'ATÖLYELER', sub: '9 program · 4 disiplin' },
-          { href: '/ekip', label: 'EKİP', sub: '8 eğitmen · tek sahne' },
+          { href: '/atolyeler', label: 'ATÖLYELER', sub: '8 program · 4 disiplin' },
+          { href: '/ekip', label: 'EKİP', sub: '7 eğitmen · tek sahne' },
           { href: '/galeri', label: 'GALERİ', sub: 'Provadan sahneye kareler' },
         ].map((x, i) => (
           <Link

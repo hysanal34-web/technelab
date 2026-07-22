@@ -102,9 +102,8 @@ export default function RegistrationForm({ workshop, action }: Props) {
 
         <div className="space-y-3">
           {[
-            ['mekân',  workshop.venue],
-            ['süre',   workshop.duration],
-            ...(workshop.instructor ? [['eğitmen', workshop.instructor]] : []),
+            ['mekân', workshop.venue],
+            ['süre',  workshop.duration],
           ].map(([k, v]) => (
             <div key={k} className="flex gap-6 pb-3 border-b border-border">
               <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-stone w-16 shrink-0 pt-0.5">{k}</span>

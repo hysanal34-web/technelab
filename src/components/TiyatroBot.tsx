@@ -151,10 +151,8 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
   const long = duration === 'uzun'
 
   if (interest === 'ingilizce') {
-    if (long) {
-      recs.push({ slug: 'english-drama-final-performance', title: 'EDL Final Performance', sub: 'İngilizce Prodüksiyon', duration: '8 ay (Ekim–Mayıs)', tip: "Mayıs'ta gerçek seyirci karşısında final performansı." })
-    } else if (exp === 'var') {
-      recs.push({ slug: 'english-drama-acting-focus', title: 'EDL Acting Focus', sub: 'İngilizce Oyunculuk', duration: '12 hafta', tip: 'Dili bilenler için metin ve sahne odaklı çalışma.' })
+    if (long || exp === 'var') {
+      recs.push({ slug: 'english-drama-final-project', title: 'English Acting Praxis', sub: 'İngilizce Sahne', duration: '12 hafta', tip: 'Dili bilenler için metin ve sahne odaklı çalışma; Harika Uygur masterclass.' })
     } else {
       recs.push({ slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: '12 hafta', tip: 'Doğaçlama temelli; başlangıç için ideal.' })
     }
@@ -414,7 +412,7 @@ export function TiyatroBot() {
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
       return { from: 'bot', text: '14–17 yaş için English Drama Lab Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
     if (has('ingilizce', 'english', 'dil'))
-      return { from: 'bot', text: 'English Drama Lab ailesi 4 programdan oluşuyor: temel yaratıcı drama (12 hafta), Acting Focus (12 hafta), Final Performance Project (8 ay) ve Youth (14–17 yaş).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
+      return { from: 'bot', text: 'English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12 hafta), English Acting Praxis (12 hafta) ve English Drama Youth 14–17 yaş (8 ay, haftada 1 gün).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
       return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Sitare Bilge yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
     if (has('dans', 'koreografi', 'broadway'))

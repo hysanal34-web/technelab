@@ -15,10 +15,9 @@ const ROW_IMAGES: Record<string, string> = {
 
 export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
   const imgSrc = ROW_IMAGES[w.slug]
-  const isPassive = !w.active
 
   return (
-    <article className={`border-b border-border last:border-b-0 first:border-t border-t-0 group ${isPassive ? 'opacity-60' : ''}`}>
+    <article className="border-b border-border last:border-b-0 first:border-t border-t-0 group">
       <Link
         href={`/atolyeler/${w.slug}`}
         className="grid grid-cols-[48px_56px_1fr] md:grid-cols-[64px_80px_1fr_2fr_auto] gap-x-4 md:gap-x-8 gap-y-0 items-center py-7 px-4 md:px-0 hover:bg-bgAlt transition-colors duration-200"
@@ -67,15 +66,9 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
         <div className="text-right hidden md:block">
           <div className="font-mono text-[11px] text-dim mb-1">{w.venue}</div>
           <div className="font-mono text-[11px] text-dim mb-4">{w.duration}</div>
-          {isPassive ? (
-            <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone border border-stone/40 px-3 py-1.5">
-              yakında
-            </span>
-          ) : (
-            <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon border border-neon px-3 py-1.5 group-hover:bg-neon group-hover:text-bg transition-all duration-200">
-              detay →
-            </span>
-          )}
+          <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon border border-neon px-3 py-1.5 group-hover:bg-neon group-hover:text-bg transition-all duration-200">
+            detay →
+          </span>
         </div>
       </Link>
     </article>

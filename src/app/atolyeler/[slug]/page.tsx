@@ -5,17 +5,6 @@ import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 type Props = { params: Promise<{ slug: string }> }
 
-// Eğitmen adı → ekip sayfası slug eşlemesi
-const INSTRUCTOR_SLUGS: Record<string, string> = {
-  'Halil Yağız Şanal': 'halil-yagiz-sanal',
-  'Selen Uçer':        'selen-ucer',
-  'Burcu Halaçoğlu':   'burcu-halacoglu',
-  'Ece Ertez':         'ece-ertez',
-  'Yeşim Çelebi':      'yesim-celebi',
-  'Alara Lokum':       'alara-lokum',
-  'Sitare Bilge':      'sitare-bilge',
-  'Köksal Ünal':       'koksal-unal',
-}
 
 export async function generateStaticParams() {
   return WORKSHOPS.map((w) => ({ slug: w.slug }))
@@ -134,28 +123,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
           {/* Satın alma kutusu */}
           <aside className="sticky top-20 border border-border bg-bgAlt p-8" aria-label="Kayıt bilgileri">
             <div className="space-y-4 mb-8">
-              {/* Eğitmen — tıklanabilir link */}
-              {(() => {
-                const instructorName = w.instructor || 'Techne Lab'
-                const instructorSlug = INSTRUCTOR_SLUGS[instructorName]
-                return (
-                  <div className="flex gap-4 pb-4 border-b border-border">
-                    <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone w-16 shrink-0 pt-0.5">eğitmen</span>
-                    {instructorSlug ? (
-                      <Link
-                        href={`/ekip?open=${instructorSlug}`}
-                        className="font-mono text-[13px] text-neon hover:text-fg border-b border-neon/40 hover:border-fg/40 transition-colors duration-200 leading-tight"
-                        data-hover
-                      >
-                        {instructorName} ↗
-                      </Link>
-                    ) : (
-                      <span className="font-mono text-[13px] text-fg">{instructorName}</span>
-                    )}
-                  </div>
-                )
-              })()}
-              {/* Diğer bilgiler */}
               {[
                 ['mekân', w.venue],
                 ['süre', w.duration],
