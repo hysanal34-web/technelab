@@ -41,9 +41,7 @@ const TEAM: TeamMember[] = [
     slug: 'ece-ertez',
     role: 'Eğitmen',
     bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır.',
-    programs: [
-      { label: 'English Acting Praxis', slug: 'english-drama-final-project' },
-    ],
+    programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
     name: 'Burcu Halaçoğlu',
@@ -57,7 +55,10 @@ const TEAM: TeamMember[] = [
     slug: 'alara-lokum',
     role: 'Eğitmen',
     bio: 'Kadir Has Üniversitesi Tiyatro Bölümü mezunu. Şahika Tekand Stüdyo Oyuncuları\'nda çalıştı. Sahne ve ekran deneyimini eğitim pratiğine taşır. İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışır.',
-    programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
+    programs: [
+      { label: 'English Drama Lab', slug: 'english-drama-lab' },
+      { label: 'English Drama Youth', slug: 'english-drama-youth' },
+    ],
   },
   {
     name: 'Köksal Ünal',
