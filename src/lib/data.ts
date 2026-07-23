@@ -55,7 +55,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 03 — MEVCUDİYET ────────────────────────────────────────────────
   {
-    id: 4, slug: 'oyuncunun-mevcudiyeti', code: '03',
+    id: 4, slug: 'oyuncunun-mevcudiyeti', code: '02',
     title: 'OYUNCUNUN MEVCUDİYETİ', sub: 'Presence',
     tagline: 'Sahne Üzerinde Var Olmak',
     instructor: 'Burcu Halaçoğlu', instructorBio: 'Oyuncu ve beden çalışması eğitmeni. Sahne mevcudiyeti, ses-nefes ve fiziksel farkındalık üzerine uzmanlaşmış pratisyen.',
@@ -76,7 +76,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 04 — ENGLISH DRAMA LAB (Yetişkin · 12 hafta) ──────────────────
   {
-    id: 3, slug: 'english-drama-lab', code: '04',
+    id: 3, slug: 'english-drama-lab', code: '03',
     title: 'ENGLISH DRAMA LAB', sub: 'English Creative Drama',
     tagline: 'Yaratıcı Drama · Doğaçlama · İngilizce',
     instructor: 'Techne Lab', instructorBio: '',
@@ -100,7 +100,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 05 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
   {
-    id: 8, slug: 'english-drama-final-project', code: '05',
+    id: 8, slug: 'english-drama-final-project', code: '04',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez · Harika Uygur Masterclass',
     tagline: 'Yoğun Pratik · Sahne Dili · Karakter Çalışması',
     instructor: 'Ece Ertez',
@@ -124,7 +124,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 06 — ENGLISH DRAMA LAB: 14–17 YAŞ ────────────────────────────
   {
-    id: 9, slug: 'english-drama-youth', code: '06',
+    id: 9, slug: 'english-drama-youth', code: '05',
     title: 'ENGLISH DRAMA YOUTH (14-17)', sub: 'Yıl Sonu Temsili · Final Performanslı',
     tagline: 'Yaratıcı Drama & Sahne — Gençler İçin',
     instructor: 'Techne Lab', instructorBio: '',
@@ -148,7 +148,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 08 — TECHNE MUSICAL LAB ────────────────────────────────────────
   {
-    id: 5, slug: 'techne-musical-lab', code: '07',
+    id: 5, slug: 'techne-musical-lab', code: '06',
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Sitare Bilge',
@@ -172,7 +172,7 @@ export const WORKSHOPS: Workshop[] = [
 
   // ── 09 — BROADWAY MUSICAL DANCE ────────────────────────────────────
   {
-    id: 6, slug: 'broadway-musical-dance', code: '08',
+    id: 6, slug: 'broadway-musical-dance', code: '07',
     title: 'BROADWAY MUSICAL DANCE', sub: 'Broadway Müzikal Dansı',
     tagline: 'Jazz · Theatre Dance · Showmanship',
     instructor: 'Köksal Ünal',
@@ -217,11 +217,11 @@ export const DISCOUNT_RATE = 0.25
 export const DNA_NODES = [
   { label: 'Oyunculuk',   sub: 'Acting',       href: '/atolyeler/auteur-lab' },
   { label: 'Yazarlık',    sub: 'Playwriting',   href: '/atolyeler/auteur-lab' },
-  { label: 'Kamera',      sub: 'Camera',        href: '/atolyeler/camera-praxis' },
   { label: 'Mevcudiyet',  sub: 'Presence',      href: '/atolyeler/oyuncunun-mevcudiyeti' },
   { label: 'Dramaturji',  sub: 'Dramaturgy',    href: '/hakkinda' },
   { label: 'İngilizce',   sub: 'English Drama', href: '/atolyeler/english-drama-lab' },
   { label: 'Müzikal',     sub: 'Musical Lab',   href: '/atolyeler/techne-musical-lab' },
+  { label: 'Dans',        sub: 'Broadway',      href: '/atolyeler/broadway-musical-dance' },
 ]
 
 export type GalleryImage = {

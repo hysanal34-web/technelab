@@ -32,7 +32,7 @@ export default function ArticlesPage() {
         <div className="h-0.5 w-full bg-neon mb-8" />
         <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-4">makale & araştırma</p>
         <h1 className="font-display text-fg mb-6" style={{ fontSize: 'clamp(44px,7.5vw,108px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
-          DÜŞÜNCELERİMİZ
+          BLOG
         </h1>
         <p className="font-mono text-[14px] text-stone max-w-lg leading-relaxed">
           Dramaturji, oyunculuk pedagojisi, çağdaş sahne pratiği ve bağımsız tiyatro üzerine.

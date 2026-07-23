@@ -112,7 +112,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       <section className="relative border-b border-border">
         {(!w.images || !w.images[0]) && <div className="absolute top-0 inset-x-0 h-0.5 bg-neon" />}
         <div className="px-4 md:px-10 pt-12 pb-16 grid md:grid-cols-[1fr_320px] gap-16 items-start">
-          <div>
+          <div className="order-2 md:order-1">
             {w.images && w.images[0] && (
               <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-4">atölye · {w.code}</p>
             )}
@@ -121,7 +121,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
           </div>
 
           {/* Satın alma kutusu */}
-          <aside className="sticky top-20 border border-border bg-bgAlt p-8" aria-label="Kayıt bilgileri">
+          <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-8" aria-label="Kayıt bilgileri">
             <div className="space-y-4 mb-8">
               {[
                 ['mekân', w.venue],

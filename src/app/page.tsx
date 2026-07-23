@@ -465,7 +465,7 @@ export default function HomePage() {
                   className="font-display text-fg"
                   style={{ fontSize: 'clamp(28px, 4.5vw, 60px)', letterSpacing: '0.02em', lineHeight: 1 }}
                 >
-                  DÜŞÜNCELERİMİZ
+                  BLOG
                 </h2>
               </div>
               <Link
