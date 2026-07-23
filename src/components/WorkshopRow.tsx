@@ -9,7 +9,7 @@ const ROW_IMAGES: Record<string, string> = {
   'broadway-musical-dance':          '/images/gallery/dslr-zl5a1044.jpg',
   'techne-musical-lab':              '/images/gallery/musical-01.jpg',
   'oyuncunun-mevcudiyeti':           '/images/gallery/mevcudiyet-03.jpg',
-  'english-drama-final-project':     '/images/gallery/english-drama-11.jpg',
+  'english-drama-final-project':     '/images/gallery/english-acting-praxis-poster.jpg',
 }
 
 export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {

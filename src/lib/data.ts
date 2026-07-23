@@ -116,7 +116,7 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Prova Süreci', span: '5—8. Hafta', body: 'Partner çalışması, blocking, sahne dinamiği. Gerçek prova disiplini.' },
       { title: 'Bütünleşme & Harika Uygur Masterclass', span: '9—12. Hafta', body: 'Bütünleşme çalışması ve kişisel geri bildirim seansları. Program finalinde Cast Direktörü Harika Uygur\'un bir günlük masterclass\'ı: canlı performanslar izlenir, kayıt altına alınır ve katılımcılara teslim edilir.' },
     ],
-    images: ['english-drama-17', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
+    images: ['english-acting-praxis-poster', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
     seoTitle: 'English Acting Praxis — Ece Ertez ile Sahne',
     seoDesc: 'Ece Ertez ile 12 haftalık İngilizce sahne çalışması. Metin analizi, karakter ve prova disiplini. Profesyonel oyuncular ve meraklılar için. Techne Lab İstanbul.',
