@@ -70,7 +70,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
       {/* Hero Görsel */}
       {w.images && w.images[0] && (
-        <div className="relative w-full overflow-hidden" style={{ height: 'clamp(320px,52vh,600px)' }}>
+        <div className="relative w-full overflow-hidden" style={{ height: 'clamp(460px,65vh,740px)' }}>
           <Image
             src={`/images/gallery/${w.images[0]}.jpg`}
             alt={`${w.title} — ${w.sub}`}
@@ -78,18 +78,38 @@ export default async function WorkshopDetailPage({ params }: Props) {
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ filter: 'brightness(0.6)' }}
+            style={{
+              filter: 'brightness(0.42)',
+              objectPosition: w.slug === 'english-drama-final-project' ? 'center top' : 'center center',
+            }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 30%, rgba(10,10,12,0.92) 100%)' }} />
+          {/* Gradient: üst hafif, alt yoğun — metin okuma konforu */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,10,12,0.15) 0%, rgba(10,10,12,0.45) 45%, rgba(10,10,12,0.96) 100%)' }} />
+          {/* Neon üst çizgi */}
           <div className="absolute top-0 inset-x-0 h-0.5 bg-neon" />
-          <div className="absolute bottom-8 left-4 right-4 md:left-10 md:right-10 flex items-end justify-between">
-            <div>
-              <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-3">atölye · {w.code}</p>
-              <h1 className="font-display text-white" style={{ fontSize: 'clamp(38px,6vw,88px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
-                {w.title}
-              </h1>
-              <p className="font-mono text-[15px] italic text-white/60 mt-2">{w.sub}</p>
-            </div>
+
+          {/* ── Merkez metin bloku ── */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-16">
+            <p className="font-mono text-[11px] tracking-[0.32em] uppercase text-neon mb-5">
+              atölye · {w.code}
+            </p>
+            <h1
+              className="font-display text-white mb-4"
+              style={{ fontSize: 'clamp(44px,7.5vw,108px)', letterSpacing: '0.01em', lineHeight: 0.88 }}
+            >
+              {w.title}
+            </h1>
+            <p className="font-mono text-[14px] md:text-[16px] italic text-white/55 mb-6">
+              {w.sub}
+            </p>
+            {w.instructor && w.instructor !== 'Techne Lab' && (
+              <>
+                <div className="h-px w-10 bg-neon/50 mb-5" />
+                <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-white/70">
+                  {w.instructor}
+                </p>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -103,7 +123,10 @@ export default async function WorkshopDetailPage({ params }: Props) {
             <h1 className="font-display text-fg mb-3" style={{ fontSize: 'clamp(40px,6.5vw,96px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
               {w.title}
             </h1>
-            <p className="font-mono text-[16px] italic text-stone mb-4">{w.sub}</p>
+            <p className="font-mono text-[16px] italic text-stone mb-3">{w.sub}</p>
+            {w.instructor && w.instructor !== 'Techne Lab' && (
+              <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-stone mt-4">{w.instructor}</p>
+            )}
           </div>
         </div>
       )}
