@@ -14,8 +14,14 @@ export const metadata: Metadata = {
   },
 }
 
-// Türkçe alfabetik sıraya göre soyadı
 const TEAM: TeamMember[] = [
+  {
+    name: 'Halil Yağız Şanal',
+    slug: 'halil-yagiz-sanal',
+    role: 'Kurucu · Genel Sanat Yönetmeni · Eğitmen',
+    bio: 'Felsefe eğitimine paralel olarak tiyatroya yöneldi. GalataPerform\'da çağdaş oyun yazarlığı eğitimi aldı; Dramatik Yazarlık ve Dramaturji alanında lisans çalışmalarını sürdürdü. "Bir Yaz Gecesi Çöküşü" ile İKSV Senenin Oyunu ödüllü. 2026\'da Techne Lab İstanbul\'u kurdu.',
+    programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
+  },
   {
     name: 'Sitare Bilge',
     slug: 'sitare-bilge',
@@ -52,13 +58,6 @@ const TEAM: TeamMember[] = [
     role: 'Eğitmen',
     bio: 'Kadir Has Üniversitesi Tiyatro Bölümü mezunu. Şahika Tekand Stüdyo Oyuncuları\'nda çalıştı. Sahne ve ekran deneyimini eğitim pratiğine taşır. İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışır.',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
-  },
-  {
-    name: 'Halil Yağız Şanal',
-    slug: 'halil-yagiz-sanal',
-    role: 'Kurucu · Genel Sanat Yönetmeni · Eğitmen',
-    bio: 'Felsefe eğitimine paralel olarak tiyatroya yöneldi. GalataPerform\'da çağdaş oyun yazarlığı eğitimi aldı; Dramatik Yazarlık ve Dramaturji alanında lisans çalışmalarını sürdürdü. "Bir Yaz Gecesi Çöküşü" ile İKSV Senenin Oyunu ödüllü. 2026\'da Techne Lab İstanbul\'u kurdu.',
-    programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
     name: 'Köksal Ünal',
