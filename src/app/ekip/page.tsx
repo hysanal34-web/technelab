@@ -41,7 +41,10 @@ const TEAM: TeamMember[] = [
     slug: 'ece-ertez',
     role: 'Eğitmen',
     bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır.',
-    programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
+    programs: [
+      { label: 'English Drama Lab', slug: 'english-drama-lab' },
+      { label: 'English Acting Praxis', slug: 'english-drama-final-project' },
+    ],
   },
   {
     name: 'Burcu Halaçoğlu',
