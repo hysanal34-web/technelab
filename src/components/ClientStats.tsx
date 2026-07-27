@@ -19,6 +19,7 @@ const STATS = [
   },
   {
     n: '∞',
+    infinity: true,
     tr: { l: 'Pratik',    sub: 'Laboratuvar ruhu' },
     en: { l: 'Practice',  sub: 'Laboratory spirit' },
   },
@@ -28,7 +29,7 @@ export function ClientStats() {
   const { lang } = useLang()
   return (
     <>
-      {STATS.map(({ n, tr, en }, i) => {
+      {STATS.map(({ n, tr, en, infinity: isInfinity }, i) => {
         const { l, sub } = lang === 'en' ? en : tr
         return (
           <div
@@ -37,7 +38,7 @@ export function ClientStats() {
           >
             <div className="absolute inset-0 bauhaus-grid opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div
-              className="font-display text-neon mb-2 relative z-10"
+              className={`${isInfinity ? 'font-mono' : 'font-display'} text-neon mb-2 relative z-10`}
               style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', letterSpacing: '0.02em', lineHeight: 1 }}
             >
               {n}
