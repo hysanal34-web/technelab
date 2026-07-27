@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export type TeamMember = {
@@ -7,19 +8,18 @@ export type TeamMember = {
   role: string
   bio: string
   slug: string
+  image?: string
   programs: { label: string; slug: string }[]
 }
 
 export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; initialOpen?: string }) {
   const [open, setOpen] = useState<string | null>(null)
 
-  // Auto-open card when ?open= param is present (passed from server component)
   useEffect(() => {
     if (initialOpen) {
       const match = members.find((m) => m.slug === initialOpen)
       if (match) {
-        setOpen(match.name)
-        // Scroll to the card after a short delay
+        setOpen(match.slug)
         setTimeout(() => {
           const el = document.getElementById(`team-${initialOpen}`)
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -28,67 +28,94 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
     }
   }, [initialOpen, members])
 
-  function toggle(name: string) {
-    setOpen((prev) => (prev === name ? null : name))
+  function toggle(slug: string) {
+    setOpen((prev) => (prev === slug ? null : slug))
   }
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-border">
-      {members.map((m) => {
-        const isOpen = open === m.name
+      {members.map((m, idx) => {
+        const isOpen = open === m.slug
         return (
           <div
-            key={m.name}
+            key={m.slug}
             id={`team-${m.slug}`}
             className="bg-bg group relative overflow-hidden cursor-pointer"
-            onClick={() => toggle(m.name)}
+            style={{ aspectRatio: '3/4' }}
+            onClick={() => toggle(m.slug)}
           >
-            {/* Neon top edge on hover/open */}
+            {/* Photo */}
+            {m.image ? (
+              <Image
+                src={m.image}
+                alt={m.name}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                className={`object-cover object-top transition-all duration-500 ${isOpen ? 'scale-105 brightness-[0.25]' : 'group-hover:scale-105 group-hover:brightness-75'}`}
+              />
+            ) : (
+              /* Placeholder — görsel yoksa zemin rengi */
+              <div className="absolute inset-0 bg-bg-alt" />
+            )}
+
+            {/* Neon top edge */}
             <div
-              className={`absolute top-0 left-0 h-[2px] bg-neon transition-all duration-300 ${isOpen ? 'w-full' : 'w-0 group-hover:w-full'}`}
+              className={`absolute top-0 left-0 h-[2px] bg-neon z-10 transition-all duration-300 ${isOpen ? 'w-full' : 'w-0 group-hover:w-full'}`}
             />
 
-            {/* Card body */}
-            <div className="px-5 pt-8 pb-6 min-h-[180px] flex flex-col justify-between">
-              {/* Index */}
-              <span className="font-mono text-[10px] tracking-[0.18em] text-dim/40 block mb-4">
-                {String(members.indexOf(m) + 1).padStart(2, '0')}
-              </span>
+            {/* Index */}
+            <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.18em] text-fg/30 z-10">
+              {String(idx + 1).padStart(2, '0')}
+            </span>
 
-              {/* Name */}
-              <div className="flex-1">
+            {/* Bottom name/role — hidden when open */}
+            <div
+              className={`absolute bottom-0 left-0 right-0 z-10 transition-opacity duration-200 ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)' }}
+            >
+              <div className="px-5 pb-5 pt-12">
                 <h2
-                  className={`font-display leading-none mb-2 transition-colors duration-200 ${isOpen ? 'text-neon' : 'text-fg group-hover:text-neon'}`}
-                  style={{ fontSize: 'clamp(16px, 1.6vw, 22px)', letterSpacing: '0.01em' }}
+                  className="font-display text-fg leading-none mb-1"
+                  style={{ fontSize: 'clamp(14px, 1.4vw, 20px)', letterSpacing: '0.01em' }}
                 >
                   {m.name}
                 </h2>
-                <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-stone leading-relaxed">
-                  {m.role}
+                <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-fg/60">
+                  {m.role.split('·')[0].trim()}
                 </p>
-              </div>
-
-              {/* Toggle hint */}
-              <div className={`font-mono text-[10px] tracking-[0.14em] text-dim mt-5 transition-opacity duration-200 ${isOpen ? 'opacity-0' : 'opacity-60 group-hover:opacity-100'}`}>
-                bak →
               </div>
             </div>
 
             {/* Expanded bio overlay */}
             <div
-              className={`absolute inset-0 bg-bg border-neon transition-all duration-300 overflow-hidden ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
-              style={{ borderTop: isOpen ? '2px solid var(--neon)' : 'none' }}
+              className={`absolute inset-0 z-20 flex flex-col p-5 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
-              <div className="px-5 pt-6 pb-5 h-full flex flex-col justify-between">
-                <div>
-                  <p className="font-mono text-[11px] leading-relaxed text-stone">
-                    {m.bio}
-                  </p>
-                </div>
+              {/* Header: name + role (fixed) */}
+              <div className="flex-shrink-0 mb-3">
+                <h2
+                  className="font-display text-neon leading-none mb-1"
+                  style={{ fontSize: 'clamp(14px, 1.4vw, 20px)', letterSpacing: '0.01em' }}
+                >
+                  {m.name}
+                </h2>
+                <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-fg/50">
+                  {m.role}
+                </p>
+              </div>
 
-                {/* Program links */}
+              {/* Scrollable bio */}
+              <div className="flex-1 overflow-y-auto min-h-0 mb-3 pr-1"
+                style={{ scrollbarWidth: 'none' }}
+              >
+                <p className="font-mono text-[11px] leading-relaxed text-fg/80">
+                  {m.bio}
+                </p>
+              </div>
+
+              {/* Bottom: program links + kapat (fixed) */}
+              <div className="flex-shrink-0">
                 {m.programs.length > 0 && (
-                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-4">
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3">
                     {m.programs.map((p) => (
                       <Link
                         key={p.slug}
@@ -102,10 +129,9 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
                     ))}
                   </div>
                 )}
-
                 <button
                   onClick={(e) => { e.stopPropagation(); setOpen(null) }}
-                  className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim hover:text-fg mt-4 self-start transition-colors"
+                  className="font-mono text-[10px] tracking-[0.16em] uppercase text-fg/40 hover:text-fg transition-colors"
                 >
                   ✕ kapat
                 </button>

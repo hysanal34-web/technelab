@@ -20,6 +20,7 @@ const TEAM: TeamMember[] = [
     slug: 'halil-yagiz-sanal',
     role: 'Kurucu · Genel Sanat Yönetmeni · Eğitmen',
     bio: 'Felsefe eğitimine paralel olarak tiyatroya yöneldi. GalataPerform\'da çağdaş oyun yazarlığı eğitimi aldı; Dramatik Yazarlık ve Dramaturji alanında lisans çalışmalarını sürdürdü. "Bir Yaz Gecesi Çöküşü" ile İKSV Senenin Oyunu ödüllü. 2026\'da Techne Lab İstanbul\'u kurdu.',
+    image: '/images/team/halil-yagiz.jpg',
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
@@ -27,6 +28,7 @@ const TEAM: TeamMember[] = [
     slug: 'sitare-bilge',
     role: 'Eğitmen',
     bio: 'Sesi bir araç olarak görür, şanı sadece teknikten değil dramaturjiden de okur. Müzikal sahnede kişisel sesin nasıl var olduğuyla ilgilenir.',
+    image: '/images/team/sitare-bilge.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {
@@ -34,6 +36,7 @@ const TEAM: TeamMember[] = [
     slug: 'yesim-celebi',
     role: 'Eğitmen',
     bio: 'Yale Üniversitesi Tiyatro ve Performans Sanatları lisansının ardından LAMDA (Londra), Stella Adler ve Lee Strasberg (New York) programlarını tamamladı. Show TV ve Netflix yapımlarında oynadı. Sınıfı bir oyun alanı olarak görür; kurguyu ciddiye alırken oyunu da kaybetmez.',
+    image: '/images/team/yesim-celebi.jpg',
     programs: [{ label: 'English Drama Lab', slug: 'english-drama-lab' }],
   },
   {
@@ -41,6 +44,7 @@ const TEAM: TeamMember[] = [
     slug: 'ece-ertez',
     role: 'Eğitmen',
     bio: 'İngilizce metni bir sahne dili olarak ele alır. Dili öğretmez — dili kullanır.',
+    image: '/images/team/ece-ertez.jpg',
     programs: [
       { label: 'English Drama Lab', slug: 'english-drama-lab' },
       { label: 'English Acting Praxis', slug: 'english-drama-final-project' },
@@ -51,6 +55,7 @@ const TEAM: TeamMember[] = [
     slug: 'burcu-halacoglu',
     role: 'Eğitmen',
     bio: 'Sahne mevcudiyetini beden üzerinden araştırır. Sessizlik, nefes ve zemin ile ilişki onun için bir başlangıç noktası.',
+    image: '/images/team/burcu-halacoglu.jpg',
     programs: [{ label: 'Oyuncunun Mevcudiyeti', slug: 'oyuncunun-mevcudiyeti' }],
   },
   {
@@ -58,6 +63,7 @@ const TEAM: TeamMember[] = [
     slug: 'alara-lokum',
     role: 'Eğitmen',
     bio: 'Kadir Has Üniversitesi Tiyatro Bölümü mezunu. Şahika Tekand Stüdyo Oyuncuları\'nda çalıştı. Sahne ve ekran deneyimini eğitim pratiğine taşır. İngilizce yaratıcı anlatım ve doğaçlama üzerine çalışır.',
+    image: '/images/team/alara-lokum.jpg',
     programs: [
       { label: 'English Drama Lab', slug: 'english-drama-lab' },
       { label: 'English Drama Youth', slug: 'english-drama-youth' },
@@ -68,6 +74,7 @@ const TEAM: TeamMember[] = [
     slug: 'koksal-unal',
     role: 'Eğitmen',
     bio: 'Yıldız Teknik Üniversitesi Sahne Sanatları mezunu; Haliç Üniversitesi\'nde Tiyatro alanında yüksek lisanslı. İÜ Devlet Konservatuvarı Müzikal Tiyatro sertifikalı. İBB Şehir Tiyatroları ve Trabzon Devlet Tiyatrosu\'nda oyuncu ve koreograf olarak çalıştı. Bahçeşehir Üniversitesi Konservatuvarı ve İÜ Devlet Konservatuvarı öğretim görevlisi. En İyi Koreografi ödüllü.',
+    image: '/images/team/koksal-unal.jpg',
     programs: [
       { label: 'Techne Musical Lab', slug: 'techne-musical-lab' },
       { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
