@@ -74,6 +74,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
               src={imgSrc}
               alt={w.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               className="object-cover opacity-65 group-hover:opacity-85 transition-opacity duration-700 scale-105 group-hover:scale-100"
             />
           ) : (

@@ -144,7 +144,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
           </div>
 
           {/* Satın alma kutusu */}
-          <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-8" aria-label="Kayıt bilgileri">
+          <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-6 md:p-8" aria-label="Kayıt bilgileri">
             <div className="space-y-4 mb-8">
               {[
                 ['mekân', w.venue],
@@ -209,7 +209,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       {/* Foto Strip */}
       {w.images && w.images.length > 1 && (
         <section className="border-b border-border" aria-label="Atölye görselleri">
-          <div className="grid grid-cols-4 gap-px bg-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
             {w.images.slice(1, 5).map((img, i) => (
               <div
                 key={img}

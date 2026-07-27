@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GALLERY_IMAGES, SITE_META } from '@/lib/data'
 import { Gallery } from '@/components/Gallery'
-import { FalImageGenerator } from '@/components/FalImageGenerator'
 
 export const metadata: Metadata = {
   title: 'Galeri — Atölye & Sahne Fotoğrafları',
@@ -40,9 +39,6 @@ export default function GaleriPage() {
             </h1>
           </div>
           <div className="md:text-right md:pb-2">
-            <p className="font-mono text-[13px] text-stone leading-relaxed max-w-xs md:ml-auto">
-              Provadan sahneye, tek akış. Karelerin üzerine gel — renk geri gelsin.
-            </p>
             <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-dim mt-2">
               {GALLERY_IMAGES.length} kare · 2026—
             </p>
@@ -54,9 +50,6 @@ export default function GaleriPage() {
       <section className="pb-10" aria-label="Fotoğraf galerisi">
         <Gallery images={GALLERY_IMAGES} />
       </section>
-
-      {/* ── AI Görsel Üretimi ─────────────────────────────────── */}
-      <FalImageGenerator />
 
       {/* ── Kapanış ──────────────────────────────────────────── */}
       <section className="px-4 md:px-10 py-16 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

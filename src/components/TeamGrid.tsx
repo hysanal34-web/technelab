@@ -56,7 +56,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
               )}
 
               {/* İndeks numarası */}
-              <span className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.18em] text-white/50 z-10 mix-blend-overlay">
+              <span className="absolute top-3 left-3 font-mono text-[11px] tracking-[0.18em] text-white/50 z-10 mix-blend-overlay">
                 {String(idx + 1).padStart(2, '0')}
               </span>
 
@@ -77,7 +77,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
               >
                 {m.name}
               </h2>
-              <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-stone mb-3">
+              <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-stone mb-3">
                 {m.role.split('·')[0].trim()}
               </p>
 
@@ -95,7 +95,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
                 {m.bio.length > 120 && (
                   <button
                     onClick={() => setOpen(isOpen ? null : m.slug)}
-                    className="font-mono text-[10px] tracking-[0.12em] uppercase text-neon/60 hover:text-neon transition-colors duration-200 mt-2"
+                    className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon/60 hover:text-neon transition-colors duration-200 mt-2"
                   >
                     {isOpen ? '↑ kapat' : '↓ devamı'}
                   </button>
@@ -109,7 +109,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
                     <Link
                       key={p.slug}
                       href={`/atolyeler/${p.slug}`}
-                      className="font-mono text-[10px] tracking-[0.08em] uppercase text-dim hover:text-neon transition-colors duration-200"
+                      className="font-mono text-[11px] tracking-[0.08em] uppercase text-dim hover:text-neon transition-colors duration-200"
                       data-hover
                     >
                       {p.label} →

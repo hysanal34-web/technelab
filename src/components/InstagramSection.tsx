@@ -16,7 +16,7 @@ export function InstagramSection() {
   return (
     <section className="border-b border-border bg-bgAlt" aria-label="Instagram">
       {/* Header */}
-      <div className="px-10 md:px-14 py-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border">
+      <div className="px-4 md:px-14 py-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border">
         <div>
           <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone mb-3">
             — instagram
@@ -85,7 +85,7 @@ export function InstagramSection() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="px-10 md:px-14 py-6 flex items-center justify-between">
+      <div className="px-4 md:px-14 py-6 flex items-center justify-between">
         <span className="font-mono text-[11px] text-dim tracking-[0.1em] uppercase">
           güncel içerik için bizi takip edin
         </span>

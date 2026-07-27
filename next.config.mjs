@@ -16,7 +16,11 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
-  images: { domains: ['images.unsplash.com'] },
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
+  },
   poweredByHeader: false, // X-Powered-By başlığını gizle
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]

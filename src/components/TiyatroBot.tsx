@@ -500,7 +500,7 @@ export function TiyatroBot() {
       {open && (
         <div
           className="fixed bottom-[84px] right-6 z-[9998] w-[380px] max-w-[calc(100vw-24px)] bg-bg border border-border flex flex-col"
-          style={{ height: 'min(560px, calc(100vh - 120px))', boxShadow: '0 24px 64px rgba(0,0,0,0.55)' }}
+          style={{ height: 'min(560px, calc(100dvh - 120px))', boxShadow: '0 24px 64px rgba(0,0,0,0.55)' }}
         >
           {/* Neon top rule — perde çizgisi */}
           <div className="h-[2px] w-full bg-neon flex-shrink-0" aria-hidden="true" />

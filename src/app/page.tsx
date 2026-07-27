@@ -86,7 +86,7 @@ export default function HomePage() {
         aria-label="Techne Lab atölyeleri"
       >
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-60">
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase opacity-60">
             <T tr="Yeni Sezon" en="New Season" />
           </span>
           <span className="w-px h-3 bg-bg/30" aria-hidden="true" />
@@ -231,7 +231,7 @@ export default function HomePage() {
                 {[
                   { label: 'Oyunculuk',      href: '/atolyeler/auteur-lab' },
                   { label: 'Yazarlık',       href: '/atolyeler/auteur-lab' },
-                  { label: 'Kamera',         href: '/atolyeler/camera-praxis' },
+                  { label: 'Kamera',         href: '/atolyeler' },
                   { label: 'Dans',           href: '/atolyeler/broadway-musical-dance' },
                   { label: 'Müzikal',        href: '/atolyeler/techne-musical-lab' },
                   { label: 'İngilizce Drama',href: '/atolyeler/english-drama-lab' },
@@ -302,7 +302,7 @@ export default function HomePage() {
               <div className="absolute top-0 inset-x-0 h-[2px] bg-neon" aria-hidden="true" />
 
               {/* Etiket */}
-              <p className="font-mono text-[10px] tracking-[0.32em] uppercase text-neon self-start">
+              <p className="font-mono text-[11px] tracking-[0.32em] uppercase text-neon self-start">
                 — aktif kayıt
               </p>
 

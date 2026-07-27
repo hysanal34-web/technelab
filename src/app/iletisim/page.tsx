@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'İletişim — Techne Lab İstanbul',
   description: 'Techne Lab İstanbul ile iletişime geçin. Atölye başvurusu, prodüksiyon işbirliği, kurumsal projeler.',
   alternates: { canonical: `${SITE_META.url}/iletisim` },
+  openGraph: {
+    title: 'İletişim — Techne Lab İstanbul',
+    description: 'Atölye başvurusu, prodüksiyon işbirliği veya kurumsal projeler için bize ulaşın.',
+    url: `${SITE_META.url}/iletisim`,
+    images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab İstanbul' }],
+  },
 }
 
 const instagramHandle = SITE_META.instagram.replace(/^@/, '')

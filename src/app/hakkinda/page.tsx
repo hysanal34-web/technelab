@@ -85,7 +85,7 @@ export default function AboutPage() {
         <div>
           <div className="w-7 h-px bg-neon mb-6" />
           {[['ÜRETİM', 'Özgün oyunlar, sahneleme projeleri, seyircili bitirme performansları. Atölye burada biter: sahnede.'],
-            ['ARAŞTIRMA', "Dramaturjik düşünce ve çağdaş sahne pratiği. Sophokles'ten Kane'e — metnin altında ne yattığını sormak."],
+            ['ARAŞTIRMA', "Dramaturjik düşünce ve çağdaş sahne pratiği. Metnin altında ne yattığını sormak."],
             ['ATÖLYE', 'Oyuncular, yazarlar, dansçılar ve sahneye ilk kez adım atanlar için yoğun, küçük gruplu programlar.']].map(([l, t]) => (
             <div key={l} className="py-5 border-b border-border last:border-0">
               <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-2">{l}</p>

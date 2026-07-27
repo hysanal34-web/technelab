@@ -34,7 +34,13 @@ export function ClientStats() {
         return (
           <div
             key={i}
-            className={`relative px-8 py-12 group overflow-hidden bg-bg hover:bg-bgAlt transition-colors duration-300 ${i < 3 ? 'border-r border-border' : ''}`}
+            className={`relative px-8 py-12 group overflow-hidden bg-bg hover:bg-bgAlt transition-colors duration-300 ${
+              i % 2 === 0 && i < 3
+                ? 'border-r border-border'
+                : i % 2 !== 0 && i < 3
+                ? 'md:border-r md:border-border'
+                : ''
+            }`}
           >
             <div className="absolute inset-0 bauhaus-grid opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div

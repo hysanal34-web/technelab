@@ -17,13 +17,13 @@ const CATS: { key: Cat; tr: string }[] = [
 export function WorkshopsFilter() {
   const [cat, setCat] = useState<Cat>('tümü')
 
-  const all     = WORKSHOPS.filter(w => !w.archived)
+  const all     = WORKSHOPS.filter(w => w.active)
   const visible = cat === 'tümü' ? all : all.filter(w => w.category === cat)
 
   return (
     <>
       {/* Category filter */}
-      <div className="flex flex-wrap items-stretch border-b border-border">
+      <div className="flex items-stretch border-b border-border overflow-x-auto scrollbar-none">
         {CATS.map(({ key, tr }) => {
           const cnt = key === 'tümü'
             ? all.length

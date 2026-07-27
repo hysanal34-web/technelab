@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: 'Makale & Araştırma — Tiyatro, Dramaturji, Performans',
   description: 'Dramaturji, oyunculuk, sahne tasarımı ve çağdaş tiyatro üzerine makaleler. Techne Lab İstanbul araştırma yazıları.',
   alternates: { canonical: `${SITE_META.url}/makaleler` },
+  openGraph: {
+    title: 'Makale & Araştırma — Tiyatro, Dramaturji, Performans',
+    description: 'Dramaturji, oyunculuk, sahne tasarımı ve çağdaş tiyatro üzerine makaleler. Techne Lab İstanbul araştırma yazıları.',
+    url: `${SITE_META.url}/makaleler`,
+    images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab Makaleler' }],
+  },
   keywords: [
     'tiyatro',
     'çağdaş tiyatro',
