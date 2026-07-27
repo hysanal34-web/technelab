@@ -33,19 +33,19 @@ export const WORKSHOPS: Workshop[] = [
     desc: 'Yazmak için yaratıcı bir alan. Kendi metnini kurmanın temel dinamiklerine odaklanıyoruz — karakter, çatışma, sahne. İlhamı beklemeden, üreterek.',
     blocks: [
       {
-        title: '1. Modül: Temel Dinamikler',
+        title: '1. Modül: Antik\'ten Modern\'e',
         span: '1—4. Hafta',
-        body: 'Sophokles, Shakespeare, Çehov, Ibsen. Dramatik yapı, alt metin, karakter arkı. Beden, ses, nefes ve duyu çalışması. Dramaturgik düşüncenin temelleri.',
+        body: 'Sophokles\'ten Ibsen\'e: dramatik yapının temelleri. Metin analizi, karakter arkı, çatışma ve alt metin. Batı tiyatrosunun kökleri — yazarlık gözüyle.',
       },
       {
         title: '2. Modül: Çağdaş Yazın',
         span: '5—6. Hafta',
-        body: 'Beckett, Kane, Zeller, Williams. Parçalanmış yapılar ve suskunluk. Meisner temelli dinleme, temas, anlık tepki. Çağdaş dramaturjiye analitik bakış.',
+        body: 'Beckett, Kane, Zeller, Williams. Parçalanmış yapılar, suskunluk ve çoğul anlatı. Çağdaş dramaturjiye analitik ve yaratıcı bir bakış.',
       },
       {
-        title: 'Audition & Sektör',
+        title: '3. Modül: Kendi Sesin',
         span: '7—8. Hafta',
-        body: 'Sinema ve dizi sahneleri. Soğuk okuma, kamera önü. Showreel ve kariyer yönetimi.',
+        body: 'Kişisel yazarlık sesinin keşfi. Kısa oyun taslakları ve dramaturgik geri bildirim. Antik Yunan\'dan günümüze izlediğimiz yolun ardından: kendi anlatı kimliğinin inşası.',
       },
     ],
     images: ['auteur-hero', 'auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
@@ -102,7 +102,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: 8, slug: 'english-drama-final-project', code: '04',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez · Harika Uygur Masterclass',
-    tagline: 'Yoğun Pratik · Sahne Dili · Karakter Çalışması',
+    tagline: 'Oyunculuğunu Uluslararası Arenaya Taşımak İsteyenler İçin',
     instructor: 'Ece Ertez',
     instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen. Cast Direktörü / Süpervizör: Harika Uygur.',
     venue: 'Taksim', duration: '12 hafta', price: 18000,

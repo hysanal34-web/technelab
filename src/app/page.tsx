@@ -11,6 +11,7 @@ import { Gallery } from '@/components/Gallery'
 import { ClientStats } from '@/components/ClientStats'
 import { InstagramSection } from '@/components/InstagramSection'
 import { T } from '@/components/LangText'
+import { CycleDisciplines } from '@/components/CycleDisciplines'
 
 export const metadata: Metadata = {
   title: {
@@ -152,17 +153,10 @@ export default function HomePage() {
 
           {/* Dönen disiplinler — τέχνη'nin halleri */}
           <div className="hero-rise hero-rise-4 flex items-baseline gap-3 mt-6" aria-hidden="true">
-            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">bu sezon →</span>
-            <span className="cycle-wrap font-display text-neon" style={{ fontSize: 'clamp(24px, 3vw, 42px)', letterSpacing: '0.03em' }}>
-              <span className="cycle-list">
-                <span>YAZARLIK</span>
-                <span>OYUNCULUK</span>
-                <span>İNGİLİZCE DRAMA</span>
-                <span>MÜZİKAL</span>
-                <span>BROADWAY DANS</span>
-                <span>YAZARLIK</span>
-              </span>
+            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">
+              <T tr="bu sezon →" en="this season →" />
             </span>
+            <CycleDisciplines />
           </div>
         </div>
 

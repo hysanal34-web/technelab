@@ -80,6 +80,15 @@ export function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Menü açıkken body scroll'u kilitle
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  // Sayfa değişince menüyü kapat
+  useEffect(() => { setMenuOpen(false) }, [path])
+
   const openMega = () => {
     if (megaTimer.current) clearTimeout(megaTimer.current)
     setMegaOpen(true)
@@ -197,52 +206,69 @@ export function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — overlay arkası kapatan + scroll kilit */}
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-bg/98 backdrop-blur-md border-b border-border md:hidden z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
-          <nav className="px-8 py-6 flex flex-col gap-5">
-            {links.map(({ href, tr, en }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className={`font-mono text-[13px] tracking-[0.1em] lowercase ${path.startsWith(href) ? 'text-neon' : 'text-stone'}`}
-              >
-                {lang === 'en' ? en : tr}
-              </Link>
-            ))}
-            {/* Programs by category in mobile */}
-            <div className="pt-4 border-t border-border">
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-4">programlar</p>
-              {CATEGORIES.map((cat) => (
-                <div key={cat.key} className="mb-4">
-                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim mb-2">{cat.label}</p>
-                  {WORKSHOPS.filter(w => w.category === cat.key && !w.archived).map((w) => (
-                    <Link
-                      key={w.slug}
-                      href={`/atolyeler/${w.slug}`}
-                      onClick={() => setMenuOpen(false)}
-                      className="block font-mono text-[11px] text-stone py-1 hover:text-fg transition-colors"
-                    >
-                      {w.title === 'ENGLISH DRAMA LAB' ? `EDL — ${w.sub}` : w.title}
-                      {!w.active && <span className="ml-2 text-[11px] text-stone/50">(kapalı)</span>}
-                    </Link>
-                  ))}
-                </div>
+        <>
+          {/* Koyu overlay — tıklayınca kapanır */}
+          <div
+            className="fixed inset-0 bg-bg/60 md:hidden"
+            style={{ top: 64, zIndex: 49 }}
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute top-full left-0 right-0 bg-bg border-b border-border md:hidden z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
+            <nav className="px-8 py-6 flex flex-col gap-5">
+              {links.map(({ href, tr, en }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`font-mono text-[13px] tracking-[0.1em] lowercase ${path.startsWith(href) ? 'text-neon' : 'text-stone'}`}
+                >
+                  {lang === 'en' ? en : tr}
+                </Link>
               ))}
-            </div>
-            {/* Language + theme in mobile menu */}
-            <div className="flex items-center justify-between pt-2 border-t border-border">
-              <button
-                onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
-                className="font-mono text-[11px] tracking-[0.12em] uppercase text-dim hover:text-neon transition-colors text-left"
-              >
-                {lang === 'tr' ? '→ English' : '→ Türkçe'}
-              </button>
-              <ThemeToggle />
-            </div>
-          </nav>
-        </div>
+              {/* Programs by category in mobile */}
+              <div className="pt-4 border-t border-border">
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-4">
+                  {lang === 'en' ? 'programs' : 'programlar'}
+                </p>
+                {CATEGORIES.map((cat) => (
+                  <div key={cat.key} className="mb-4">
+                    <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim mb-2">
+                      {lang === 'en' ? cat.en : cat.label}
+                    </p>
+                    {WORKSHOPS.filter(w => w.category === cat.key && !w.archived).map((w) => (
+                      <Link
+                        key={w.slug}
+                        href={`/atolyeler/${w.slug}`}
+                        onClick={() => setMenuOpen(false)}
+                        className="block font-mono text-[11px] text-stone py-1 hover:text-fg transition-colors"
+                      >
+                        {w.title === 'ENGLISH DRAMA LAB' ? `EDL — ${w.sub}` : w.title}
+                        {!w.active && (
+                          <span className="ml-2 text-[11px] text-stone/50">
+                            {lang === 'en' ? '(closed)' : '(kapalı)'}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              {/* Language + theme in mobile menu */}
+              <div className="flex items-center justify-between pt-2 border-t border-border">
+                <button
+                  onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-dim hover:text-neon transition-colors text-left"
+                >
+                  {lang === 'tr' ? '→ English' : '→ Türkçe'}
+                </button>
+                <ThemeToggle />
+              </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   )

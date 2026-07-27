@@ -7,45 +7,15 @@
 
 /* ── Base — Dual Theme ──────────────────────────────────────────────── */
 
-/* DARK MODE (default) */
+/* LIGHT MODE (default) */
 :root {
   --font-bebas: 'Bebas Neue', Impact, sans-serif;
   --font-dm-mono: 'DM Mono', 'Courier New', monospace;
-  --neon: #B8F000;
-  --neon-rgb: 184 240 0;
+  --neon: #3D8B00;
+  --neon-rgb: 61 139 0;
   --ink: #0A0A0C;
 
   /* Space-separated channels — required for rgb(var() / alpha) Tailwind syntax */
-  --bg-rgb: 20 20 20;
-  --bg-alt-rgb: 28 28 28;
-  --bg-hi-rgb: 37 37 37;
-  --fg-rgb: 232 229 223;
-  --stone-rgb: 184 181 173;
-  --dim-rgb: 138 135 129;
-  --mid-rgb: 45 45 45;
-  --border-rgb: 232 229 223;
-
-  /* Derived shortcuts used directly in CSS (not via Tailwind) */
-  --fg:     rgb(232, 229, 223);
-  --bg:     rgb(20, 20, 20);
-  --bg-alt: rgb(28, 28, 28);
-  --stone:  rgb(184, 181, 173);
-  --dim:    rgb(138, 135, 129);
-  --border: rgba(232, 229, 223, 0.12);
-
-  /* Theme-aware decoration colors */
-  --grid-line:      rgba(232, 229, 223, 0.07);
-  --grid-fine:      rgba(232, 229, 223, 0.05);
-  --section-stroke: rgba(232, 229, 223, 0.08);
-  --diag-line:      rgba(232, 229, 223, 0.15);
-  --card-bg:        #1C1C1C;
-  --cursor-glow:    rgba(184, 240, 0, 0.85);
-}
-
-/* LIGHT MODE */
-html.light {
-  --neon: #3D8B00;
-  --neon-rgb: 61 139 0;
   --bg-rgb: 248 247 242;
   --bg-alt-rgb: 239 237 230;
   --bg-hi-rgb: 232 229 220;
@@ -55,6 +25,7 @@ html.light {
   --mid-rgb: 216 213 206;
   --border-rgb: 10 10 12;
 
+  /* Derived shortcuts used directly in CSS (not via Tailwind) */
   --fg:     rgb(10, 10, 12);
   --bg:     rgb(248, 247, 242);
   --bg-alt: rgb(239, 237, 230);
@@ -62,12 +33,41 @@ html.light {
   --dim:    rgb(128, 125, 118);
   --border: rgba(10, 10, 12, 0.1);
 
+  /* Theme-aware decoration colors */
   --grid-line:      rgba(10, 10, 12, 0.07);
   --grid-fine:      rgba(10, 10, 12, 0.04);
   --section-stroke: rgba(10, 10, 12, 0.06);
   --diag-line:      rgba(10, 10, 12, 0.15);
   --card-bg:        #FFFFFF;
   --cursor-glow:    rgba(61, 139, 0, 0.7);
+}
+
+/* DARK MODE (opt-in) */
+html.dark {
+  --neon: #B8F000;
+  --neon-rgb: 184 240 0;
+  --bg-rgb: 20 20 20;
+  --bg-alt-rgb: 28 28 28;
+  --bg-hi-rgb: 37 37 37;
+  --fg-rgb: 232 229 223;
+  --stone-rgb: 184 181 173;
+  --dim-rgb: 138 135 129;
+  --mid-rgb: 45 45 45;
+  --border-rgb: 232 229 223;
+
+  --fg:     rgb(232, 229, 223);
+  --bg:     rgb(20, 20, 20);
+  --bg-alt: rgb(28, 28, 28);
+  --stone:  rgb(184, 181, 173);
+  --dim:    rgb(138, 135, 129);
+  --border: rgba(232, 229, 223, 0.12);
+
+  --grid-line:      rgba(232, 229, 223, 0.07);
+  --grid-fine:      rgba(232, 229, 223, 0.05);
+  --section-stroke: rgba(232, 229, 223, 0.08);
+  --diag-line:      rgba(232, 229, 223, 0.15);
+  --card-bg:        #1C1C1C;
+  --cursor-glow:    rgba(184, 240, 0, 0.85);
 }
 
 html { scroll-behavior: smooth; cursor: none; overflow-x: clip; }
@@ -99,17 +99,17 @@ button { cursor: none; }
               height 0.22s cubic-bezier(.16,1,.3,1),
               background 0.18s, border 0.18s, opacity 0.18s;
   will-change: transform;
-  box-shadow: 0 0 12px var(--cursor-glow), 0 0 24px rgba(184,240,0,0.3);
+  box-shadow: 0 0 12px var(--cursor-glow), 0 0 24px rgb(var(--neon-rgb) / 0.3);
 }
 .cursor-dot.hovering {
   width: 52px; height: 52px;
   background: transparent;
   border: 1.5px solid var(--neon);
-  box-shadow: 0 0 16px rgba(184,240,0,0.5);
+  box-shadow: 0 0 16px rgb(var(--neon-rgb) / 0.5);
 }
 .cursor-dot.clicking {
   transform: translate(-50%,-50%) scale(0.7);
-  box-shadow: 0 0 20px rgba(184,240,0,1);
+  box-shadow: 0 0 20px rgb(var(--neon-rgb) / 1);
 }
 
 /* ── Grain overlay ──────────────────────────────────────────────────── */
@@ -182,8 +182,8 @@ html { scrollbar-color: var(--neon) var(--bg); scrollbar-width: thin; }
 
 /* ── Bot nefesi — yumuşak neon parlaması ───────────────────────────── */
 @keyframes botBreath {
-  0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 0 rgba(184,240,0,0); }
-  50%      { box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 18px 2px rgba(184,240,0,0.35); }
+  0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 0 rgb(var(--neon-rgb) / 0); }
+  50%      { box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 18px 2px rgb(var(--neon-rgb) / 0.35); }
 }
 .bot-breath { animation: botBreath 3s ease-in-out infinite; }
 @keyframes teaserIn {
@@ -239,7 +239,7 @@ html { scrollbar-color: var(--neon) var(--bg); scrollbar-width: thin; }
 .neon-card:hover {
   border-color: var(--neon);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(184,240,0,0.15);
+  box-shadow: 0 8px 32px rgb(var(--neon-rgb) / 0.15);
 }
 .neon-card::after {
   content: ''; position: absolute; bottom: 0; left: 0;
