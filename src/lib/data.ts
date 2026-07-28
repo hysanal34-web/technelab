@@ -195,10 +195,10 @@ export const WORKSHOPS: Workshop[] = [
 
 export const SITE_META = {
   name: 'Techne Lab İstanbul',
-  url: 'https://technelab.ist',
+  url: 'https://www.technelabistanbul.com',
   description: 'İstanbul\'da bağımsız bir tiyatro. Oyunculuk, yazarlık, kamera, dramaturji, dans ve müzikal üzerine yoğun, küçük gruplu atölyeler. Taksim ve Kadıköy.',
   instagram: '@technelabistanbul',
-  email: 'techne.lab.istanbul@gmail.com',
+  email: 'technelabistanbul@gmail.com',
   address: 'İstanbul, Türkiye',
   // Google Form kayıt linkleri — slug bazında (aktif programlar için)
   formUrls: {
