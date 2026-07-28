@@ -1,6 +1,6 @@
 'use server'
 
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 
 export type FormState = {
@@ -114,22 +114,16 @@ export async function submitRegistration(
 </html>`
 
   // Dev fallback — log and succeed when env vars not configured
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    console.log('[kayıt] E-posta yok — konsola yazdı:', { slug, name, email, phone })
+  if (!process.env.RESEND_API_KEY) {
+    console.log('[kayıt] RESEND_API_KEY yok — konsola yazdı:', { slug, name, email, phone })
     return { status: 'success' }
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    })
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
-    await transporter.sendMail({
-      from:    `"Techne Lab Başvuru" <${process.env.GMAIL_USER}>`,
+    await resend.emails.send({
+      from:    'Techne Lab Başvuru <onboarding@resend.dev>',
       to:      SITE_META.email,
       replyTo: contactEmail || email,
       subject: `Yeni Başvuru — ${programName}`,
