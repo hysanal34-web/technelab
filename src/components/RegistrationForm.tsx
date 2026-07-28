@@ -31,6 +31,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
   const [state, setState] = useState<FormState>({ status: 'idle' })
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
+  const errRef = useRef<HTMLParagraphElement>(null)
 
   const isYouth = workshop.category === 'ingilizce-drama' && workshop.slug.includes('youth')
 
@@ -42,6 +43,21 @@ export default function RegistrationForm({ workshop, action }: Props) {
       setState(result)
       if (result.status === 'success') {
         formRef.current?.reset()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (result.status === 'error') {
+        // Hatalı alana odaklan, yoksa hata mesajını göster
+        requestAnimationFrame(() => {
+          const el = result.field
+            ? formRef.current?.querySelector<HTMLElement>(`[name="${result.field}"]`)
+            : null
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            el.focus({ preventScroll: true })
+          } else {
+            errRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            errRef.current?.focus({ preventScroll: true })
+          }
+        })
       }
     })
   }
@@ -59,7 +75,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
             className="font-display text-fg mb-6"
             style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}
           >
-            TEŞEKKÜRLERİ
+            TEŞEKKÜRLER
           </h2>
           <p className="font-mono text-[13px] text-stone leading-relaxed mb-8">
             Başvurunuz iletildi. En kısa sürede sizinle iletişime geçeceğiz.
@@ -114,25 +130,25 @@ export default function RegistrationForm({ workshop, action }: Props) {
       </div>
 
       {/* Right — form */}
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" noValidate>
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
 
         {/* Ad Soyad */}
-        <FieldGroup label="Ad Soyad" required>
+        <FieldGroup htmlFor="name" label="Ad Soyad" required>
           <Input name="name" placeholder="Adınız ve soyadınız" required autoComplete="name" />
         </FieldGroup>
 
         {/* E-posta */}
-        <FieldGroup label="E-posta" required>
+        <FieldGroup htmlFor="email" label="E-posta" required>
           <Input name="email" type="email" placeholder="ornek@mail.com" required autoComplete="email" />
         </FieldGroup>
 
         {/* Telefon */}
-        <FieldGroup label="Telefon" required>
+        <FieldGroup htmlFor="phone" label="Telefon" required>
           <Input name="phone" type="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" />
         </FieldGroup>
 
         {/* Doğum Yılı — always show, required for Youth */}
-        <FieldGroup label={isYouth ? 'Doğum Yılı' : 'Doğum Yılı'} required={isYouth}>
+        <FieldGroup htmlFor="birthYear" label="Doğum Yılı" required={isYouth}>
           <Input
             name="birthYear"
             type="number"
@@ -142,17 +158,17 @@ export default function RegistrationForm({ workshop, action }: Props) {
             required={isYouth}
           />
           {isYouth && (
-            <p className="font-mono text-[10px] text-dim mt-1">Bu program 14–17 yaş grubuna yöneliktir.</p>
+            <p className="font-mono text-[11px] text-dim mt-1">Bu program 14–17 yaş grubuna yöneliktir.</p>
           )}
         </FieldGroup>
 
         {/* Meslek */}
-        <FieldGroup label="Meslek / Çalışma Alanı">
+        <FieldGroup htmlFor="occupation" label="Meslek / Çalışma Alanı">
           <Input name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" autoComplete="organization-title" />
         </FieldGroup>
 
         {/* Deneyim */}
-        <FieldGroup label="Sahne / Tiyatro Deneyiminiz">
+        <FieldGroup htmlFor="experience" label="Sahne / Tiyatro Deneyiminiz">
           <Textarea
             name="experience"
             placeholder="Varsa önceki tiyatro, dans veya sahne deneyiminizden kısaca bahsedebilirsiniz."
@@ -161,7 +177,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
         </FieldGroup>
 
         {/* Motivasyon */}
-        <FieldGroup label="Neden Bu Program?">
+        <FieldGroup htmlFor="motivation" label="Neden Bu Program?">
           <Textarea
             name="motivation"
             placeholder="Bu programı neden seçtiniz? Beklentileriniz neler?"
@@ -170,19 +186,19 @@ export default function RegistrationForm({ workshop, action }: Props) {
         </FieldGroup>
 
         {/* Portfolyo / Dosya Linki */}
-        <FieldGroup label="Portfolyo / CV / Demo Linki">
+        <FieldGroup htmlFor="portfolyoLink" label="Portfolyo / CV / Demo Linki">
           <Input
             name="portfolyoLink"
             type="url"
             placeholder="https://drive.google.com/…  veya  https://dropbox.com/…"
           />
-          <p className="font-mono text-[10px] text-dim mt-2 leading-relaxed">
+          <p className="font-mono text-[11px] text-dim mt-2 leading-relaxed">
             Özgeçmiş, portfolyo, fotoğraf veya video — her türlü dosyayı Google Drive ya da Dropbox'a yükleyip bağlantıyı paylaşabilirsiniz. Linkin herkese açık olduğundan emin olun.
           </p>
         </FieldGroup>
 
         {/* Nasıl Duydu */}
-        <FieldGroup label="Techne Lab'ı Nasıl Duydunuz?">
+        <FieldGroup htmlFor="source" label="Techne Lab'ı Nasıl Duydunuz?">
           <SelectField name="source" defaultValue="">
             <option value="" disabled>Seçiniz…</option>
             {SOURCE_OPTIONS.map((o) => (
@@ -202,7 +218,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
             className="mt-0.5 accent-neon shrink-0 cursor-pointer"
           />
           <label htmlFor="kvkk" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-            <Link href="/kvkk" target="_blank" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
+            <Link href="/kvkk" target="_blank" rel="noopener noreferrer" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
               KVKK Aydınlatma Metni
             </Link>
             {"'ni okudum, kişisel verilerimin Techne Lab İstanbul tarafından işlenmesini kabul ediyorum."}
@@ -211,7 +227,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
 
         {/* Error message */}
         {state.status === 'error' && state.message && (
-          <p className="font-mono text-[11px] text-red-400 border border-red-400/30 px-4 py-3 bg-red-400/5">
+          <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3 bg-red-400/10 leading-relaxed">
             {state.message}
           </p>
         )}
@@ -226,7 +242,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
           {isPending ? 'gönderiliyor…' : 'başvur →'}
         </button>
 
-        <p className="font-mono text-[10px] text-dim text-center leading-relaxed">
+        <p className="font-mono text-[11px] text-dim text-center leading-relaxed">
           Başvurunuz tarafımıza iletilir. Kontenjan onayı sonrası e-posta ile bilgilendirilirsiniz.
         </p>
       </form>
@@ -237,19 +253,22 @@ export default function RegistrationForm({ workshop, action }: Props) {
 // ── Alt bileşenler ──────────────────────────────────────────────────────────
 
 function FieldGroup({
+  htmlFor,
   label,
   required,
   children,
 }: {
+  htmlFor: string
   label: string
   required?: boolean
   children: React.ReactNode
 }) {
   return (
     <div>
-      <label className="block font-mono text-[10px] tracking-[0.18em] uppercase text-stone mb-2">
+      <label htmlFor={htmlFor} className="block font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-2">
         {label}
-        {required && <span className="text-neon ml-1">*</span>}
+        {required && <span className="text-neon ml-1" aria-hidden="true">*</span>}
+        {required && <span className="sr-only"> (zorunlu)</span>}
       </label>
       {children}
     </div>
@@ -275,14 +294,17 @@ function Input({
 }) {
   return (
     <input
+      id={name}
       name={name}
       type={type}
       placeholder={placeholder}
       required={required}
+      aria-required={required || undefined}
       autoComplete={autoComplete}
+      inputMode={type === 'tel' ? 'tel' : type === 'email' ? 'email' : undefined}
       min={min}
       max={max}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim/50 focus:outline-none focus:border-neon/60 transition-colors duration-200"
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200"
     />
   )
 }
@@ -298,10 +320,11 @@ function Textarea({
 }) {
   return (
     <textarea
+      id={name}
       name={name}
       placeholder={placeholder}
       rows={rows}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim/50 focus:outline-none focus:border-neon/60 transition-colors duration-200 resize-none"
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200 resize-none"
     />
   )
 }
@@ -317,9 +340,10 @@ function SelectField({
 }) {
   return (
     <select
+      id={name}
       name={name}
       defaultValue={defaultValue}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 focus:outline-none focus:border-neon/60 transition-colors duration-200 appearance-none"
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200 appearance-none"
     >
       {children}
     </select>

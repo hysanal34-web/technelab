@@ -53,6 +53,10 @@ export function WorkshopRow({ workshop: w }: { workshop: Workshop }) {
             {w.title}
           </h3>
           <p className="font-mono text-[11px] italic text-stone">{w.sub}</p>
+          {/* Mobilde mekân + süre — masaüstünde sağ sütunda */}
+          <p className="font-mono text-[11px] text-dim mt-2 md:hidden">
+            {w.venue} · {w.duration}
+          </p>
         </div>
 
         {/* ── Tagline + desc — sadece masaüstü ── */}

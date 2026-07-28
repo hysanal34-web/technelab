@@ -10,7 +10,7 @@ const ALIASES: Record<string, string[]> = {
   müzikal:     ['musical', 'şan', 'broadway', 'techne musical'],
   şan:         ['şan', 'ses', 'müzikal', 'musical'],
   ses:         ['şan', 'ses', 'müzikal'],
-  kamera:      ['camera', 'kamera önü', 'sinema', 'audition', 'praxis'],
+  kamera:      ['praxis', 'audition', 'cast'],
   oyunculuk:   ['auteur', 'mevcudiyet', 'presence', 'beden', 'sahne', 'acting'],
   yazarlık:    ['auteur', 'dramaturg', 'metin', 'yazan oyuncu'],
   dramaturji:  ['auteur', 'dramaturg', 'metin'],
@@ -29,7 +29,7 @@ const ALIASES: Record<string, string[]> = {
   ileri:       ['auteur', 'broadway', 'techne musical'],
   // Genel
   performans:  ['sahne', 'showcase', 'gösteri', 'performance'],
-  audition:    ['camera', 'kamera önü', 'audition', 'praxis'],
+  audition:    ['praxis', 'audition', 'cast'],
   broadway:    ['broadway', 'jazz', 'dans', 'koreografi'],
   sahne:       ['sahne', 'performans', 'gösteri', 'showcase'],
 }
@@ -59,7 +59,7 @@ function scoreWorkshop(w: Workshop, tokens: string[]): number {
 const EXAMPLES = [
   'dans ve müzikal',
   'kısa program',
-  'kamera önü oyunculuk',
+  'İngilizce sahne oyunculuğu',
   'ingilizce drama',
   'uzun dönem',
 ]
@@ -103,7 +103,7 @@ export function WorkshopAssistant() {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setFocused(true)}
           onBlur={() => setTimeout(() => setFocused(false), 150)}
-          placeholder="dans, müzikal, kamera önü, ingilizce, kısa program..."
+          placeholder="dans, müzikal, yazarlık, ingilizce, kısa program..."
           className="flex-1 bg-transparent pl-5 pr-5 py-4 font-mono text-[12px] text-fg placeholder:text-dim/50 outline-none"
           data-hover
           autoComplete="off"

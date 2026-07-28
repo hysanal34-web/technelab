@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Image from 'next/image'
 
 const IG_IMAGES = [
   '/images/gallery/auteur-01.jpg',
@@ -61,11 +61,13 @@ export function InstagramSection() {
             className="relative aspect-square overflow-hidden group bg-bg"
             aria-label={`Instagram'da gör — ${IG_HANDLE}`}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={src}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              fill
+              sizes="(max-width: 768px) 33vw, 16vw"
+              quality={70}
+              className="object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
             />
             {/* Overlay on hover */}
             <div className="absolute inset-0 bg-bg/0 group-hover:bg-bg/20 transition-colors duration-300" />

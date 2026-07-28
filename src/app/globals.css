@@ -11,8 +11,8 @@
 :root {
   --font-bebas: 'Bebas Neue', Impact, sans-serif;
   --font-dm-mono: 'DM Mono', 'Courier New', monospace;
-  --neon: #3D8B00;
-  --neon-rgb: 61 139 0;
+  --neon: #2D6A00;
+  --neon-rgb: 45 106 0;
   --ink: #0A0A0C;
 
   /* Space-separated channels — required for rgb(var() / alpha) Tailwind syntax */
@@ -21,7 +21,7 @@
   --bg-hi-rgb: 232 229 220;
   --fg-rgb: 10 10 12;
   --stone-rgb: 90 87 80;
-  --dim-rgb: 128 125 118;
+  --dim-rgb: 102 99 89;
   --mid-rgb: 216 213 206;
   --border-rgb: 10 10 12;
 
@@ -30,7 +30,7 @@
   --bg:     rgb(248, 247, 242);
   --bg-alt: rgb(239, 237, 230);
   --stone:  rgb(90, 87, 80);
-  --dim:    rgb(128, 125, 118);
+  --dim:    rgb(102, 99, 89);
   --border: rgba(10, 10, 12, 0.1);
 
   /* Theme-aware decoration colors */
@@ -39,7 +39,7 @@
   --section-stroke: rgba(10, 10, 12, 0.06);
   --diag-line:      rgba(10, 10, 12, 0.15);
   --card-bg:        #FFFFFF;
-  --cursor-glow:    rgba(61, 139, 0, 0.7);
+  --cursor-glow:    rgba(45, 106, 0, 0.75);
 }
 
 /* DARK MODE (opt-in) */
@@ -78,6 +78,13 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
   overflow-x: clip;
 }
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
 ::selection { background: var(--neon); color: var(--ink); }
 input, textarea, select { font-family: var(--font-dm-mono); }
 input::placeholder, textarea::placeholder { color: var(--dim); }
@@ -228,7 +235,18 @@ html { scrollbar-color: var(--neon) var(--bg); scrollbar-width: thin; }
   }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+  html, a, button { cursor: auto !important; }
+  .cursor-dot { display: none !important; }
 }
+
+/* Dokunmatik / kaba işaretçi cihazlarda özel imleç kapalı */
+@media (hover: none), (pointer: coarse) {
+  html, a, button { cursor: auto; }
+  .cursor-dot { display: none; }
+}
+
+/* JS yoksa reveal bölümleri görünür kalsın */
+.no-js .reveal { opacity: 1 !important; transform: none !important; }
 
 /* ── Card hover ─────────────────────────────────────────────────────── */
 .neon-card {

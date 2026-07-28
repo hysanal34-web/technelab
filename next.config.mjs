@@ -9,13 +9,12 @@ const securityHeaders = [
   // Kullanılmayan tarayıcı API'lerini kapat
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
   // Clickjacking koruması — sadece kendi sitemiz ve PayTR (ödeme dönüş sayfası) frame'leyebilir
-  { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://www.paytr.com" },
+  { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://www.paytr.com; base-uri 'self'; form-action 'self'; object-src 'none'" },
+  { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
 ]
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },

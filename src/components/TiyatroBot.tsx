@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect, useCallback } from 'react'
-import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
+import { SITE_META } from '@/lib/data'
 
 /* ─────────────────────────────────────────────────────────────────────────
    100+ TİYATRO TARİHİ SORUSU
@@ -15,7 +16,7 @@ const QUIZ: Array<{
   { q: 'Antik Yunan tragedyasının "babası" olarak kabul edilen dramaturg kimdir?', options: ['Sophokles', 'Aiskhylos', 'Euripides', 'Aristophanes'], answer: 1, fact: 'Aiskhylos (MÖ 525–456), koroyu ikinci aktörle genişleterek gerçek dramatik diyaloğu mümkün kıldı.' },
   { q: 'Antik Yunan tiyatrosunda "orchestra" ne anlama gelir?', options: ['Müzisyenlerin bulunduğu alan', 'Koronun dans ettiği dairesel alan', 'Seyircilerin oturduğu yer', 'Oyunların sergilendiği yüksek sahne'], answer: 1, fact: 'Orchestradan "orchestrate" (orkestrasyon) kelimesi de türemiştir.' },
   { q: '"Kral Oidipus" adlı ünlü eserin yazarı kimdir?', options: ['Aiskhylos', 'Euripides', 'Sophokles', 'Aristophanes'], answer: 2, fact: 'Sophokles\'in Kral Oidipus\'u, Aristoteles tarafından Poetika\'da mükemmel tragedyanın örneği olarak gösterilmiştir.' },
-  { q: 'Aristoteles\'in tiyatro üzerine yazdığı yapıtın adı nedir?', options: ['Retorik', 'Politika', 'Poetika', 'Nikhomakhos\'a Etik'], answer: 2, fact: 'Aristoteles\'in Poetika\'sı (MÖ 335), tragedyanın katharsis ve mimesis üzerine kurulu analizini sunar.' },
+  { q: 'Aristoteles\'in tiyatro üzerine yazdığı yapıtın adı nedir?', options: ['Retorik', 'Politika', 'Poetika', 'Nikomakhos\'a Etik'], answer: 2, fact: 'Aristoteles\'in Poetika\'sı (MÖ 335), tragedyanın katharsis ve mimesis üzerine kurulu analizini sunar.' },
   { q: '"Katharsis" kavramı Aristoteles\'te ne anlama gelir?', options: ['Sahne süslemesi', 'İzleyicide arınma ve duygusal boşalım', 'Oyunun finali', 'Koro şarkısı'], answer: 1, fact: 'Aristoteles, tragedyanın korku ve acıma yoluyla izleyicinin duygularını arındırdığını savunur.' },
   { q: 'Antik Yunan\'da Dionysos festivallerinde kaç tragedya yarışırdı?', options: ['Bir', 'Üç', 'Beş', 'On'], answer: 1, fact: 'Her dramaturg üç tragedya ve bir satirik oyundan oluşan bir tetralojiyle yarışırdı.' },
   { q: '"Medeia" adlı eseri kim yazmıştır?', options: ['Sophokles', 'Aiskhylos', 'Euripides', 'Menandros'], answer: 2, fact: 'Euripides\'in Medeia\'sı (MÖ 431), kadın kahramanın psikolojik derinliğiyle dönemine göre oldukça sıradışıydı.' },
@@ -31,8 +32,8 @@ const QUIZ: Array<{
   { q: 'Roma tiyatrosunda "scaena frons" nedir?', options: ['Koronun çıkış kapısı', 'Süslü mimari arka fon duvarı', 'Perde sistemi', 'Zemin altı tünel'], answer: 1, fact: 'Scaena frons, Roma sahnelerinin iki veya üç katlı anıtsal arka duvarıdır; Efes ve Orange tiyatroları iyi örnekler sunar.' },
 
   // ORTA ÇAĞ
-  { q: 'Ortaçağ Avrupası\'nda kilise törenleri içinde gelişen ilk dramatik biçim hangisidir?', options: ['Ahlak oyunları', 'Mucizeleri (Miracle plays)', 'Quem Quaeritis trope', 'İnterlude'], answer: 2, fact: '"Quem Quaeritis" (Kimi arıyorsunuz?) 10. yüzyılda Paskalya ayinlerine eklenen kısa dramatik diyalogdur; modern tiyatronun filizleri burada başlar.' },
-  { q: 'Ortaçağ\'da büyük şehirlerde lonca mensuplarının sergilediği İncil sahnelerine ne ad verilir?', options: ['Söyle oyunları (Morality plays)', 'Mucize oyunları (Mystery plays)', 'Yanlış anlama oyunları (Farce)', 'Söyleşi (Interlude)'], answer: 1, fact: 'Mystery plays (veya Corpus Christi cycles), York, Chester ve Wakefield gibi şehirlerde arabalar üzerinde gezici sahnelerle oynandı.' },
+  { q: 'Ortaçağ Avrupası\'nda kilise törenleri içinde gelişen ilk dramatik biçim hangisidir?', options: ['Ahlak oyunları', 'Mucize oyunları (Miracle plays)', 'Quem Quaeritis trope', 'Interlude'], answer: 2, fact: '"Quem Quaeritis" (Kimi arıyorsunuz?) 10. yüzyılda Paskalya ayinlerine eklenen kısa dramatik diyalogdur; modern tiyatronun filizleri burada başlar.' },
+  { q: 'Ortaçağ\'da büyük şehirlerde lonca mensuplarının sergilediği İncil sahnelerine ne ad verilir?', options: ['Ahlak oyunları (Morality plays)', 'Mucize oyunları (Mystery plays)', 'Güldürü / Fars (Farce)', 'Söyleşi (Interlude)'], answer: 1, fact: 'Mystery plays (veya Corpus Christi cycles), York, Chester ve Wakefield gibi şehirlerde arabalar üzerinde gezici sahnelerle oynandı.' },
   { q: '"Everyman" hangi tür Ortaçağ oyununa örnektir?', options: ['Mystery play', 'Miracle play', 'Morality play', 'Farce'], answer: 2, fact: 'Morality plays\'de soyut değerler kişileştirilirdi: "Everyman"da İnsanlık ölümle yüzleşirken Tanrı\'nın huzuruna Kim eşlik edecek sorusunu işler.' },
   { q: 'Commedia dell\'arte hangi ülkede doğmuştur?', options: ['İspanya', 'Fransa', 'İtalya', 'İngiltere'], answer: 2, fact: 'Commedia dell\'arte, 16. yüzyılda İtalya\'da ortaya çıkmış; doğaçlama, maske ve tip karakterlere dayalı profesyonel tiyatro geleneğidir.' },
   { q: 'Commedia dell\'arte\'nin temel "zanni" (uşak) tiplerinden biri kimdir?', options: ['Pantalone', 'Arlecchino', 'Il Dottore', 'Colombina'], answer: 1, fact: 'Arlecchino (Harlequin), çok renkli yamalı kostümü ve çubuk sopasıyla Commedia\'nın en tanınan figürüdür.' },
@@ -45,16 +46,16 @@ const QUIZ: Array<{
   { q: '"Lear Kralı"nda Lear\'ın kaç kızı vardır?', options: ['İki', 'Üç', 'Dört', 'Bir'], answer: 1, fact: 'Goneril, Regan ve Cordelia — Lear\'ın üç kızı, sadakati ve gücü üzerine kurulu bu tragedyanın merkezi çatışmasını oluşturur.' },
   { q: 'Shakespeare\'in yazarlığına uzun süre itiraz eden teorisyenler kimin yazmış olabileceğini öne sürmüştür?', options: ['Marlowe, Bacon ya da Oxford Kontu', 'Ben Jonson ya da Thomas Kyd', 'John Donne ya da Middleton', 'Webster ya da Ford'], answer: 0, fact: '"Shakespeare Yazarlık Sorunu" akademisyenlerin büyük çoğunluğu tarafından reddedilmektedir; Shakespeare\'in bizzat yazdığına dair kanıtlar güçlüdür.' },
   { q: 'Marlowe\'un Dr. Faustus\'ta işlediği ana tema hangisidir?', options: ['Siyasi hırs', 'Şeytanla anlaşma ve bilgi hırsı', 'Romantik aşk', 'Askeri zafer'], answer: 1, fact: 'Christopher Marlowe\'un Dr. Faustus\'u (1592), sonsuz bilgiyi elde etmek için ruhunu şeytana satan bir bilgenin hikâyesidir.' },
-  { q: 'Shakespeare\'in en çok oynanan komedyalarından "Bir Yaz Gecesi Rüyası"nda aşıklar nereye kaçar?', options: ['Bir şatoya', 'Bir ormana', 'Denize', 'Tapınağa'], answer: 1, fact: 'Orman, Bir Yaz Gecesi Rüyası\'nda rüya, büyü ve kimlik karışıklığının yaşandığı karşı-dünya (counter-world) olarak işlev görür.' },
+  { q: 'Shakespeare\'in en çok oynanan komedyalarından "Bir Yaz Gecesi Rüyası"nda âşıklar nereye kaçar?', options: ['Bir şatoya', 'Bir ormana', 'Denize', 'Tapınağa'], answer: 1, fact: 'Orman, Bir Yaz Gecesi Rüyası\'nda rüya, büyü ve kimlik karışıklığının yaşandığı karşı-dünya (counter-world) olarak işlev görür.' },
   { q: 'Rönesans döneminde İspanya\'nın en büyük dramatistlerinden biri kimdir?', options: ['Cervantes', 'Lope de Vega', 'Quevedo', 'Gracián'], answer: 1, fact: 'Lope de Vega (1562–1635), tahminen 1.800 oyun yazmış olup bunların 400\'ü günümüze ulaşmıştır.' },
 
   // 17-18. YÜZYIL
-  { q: 'Molière\'nin gerçek adı nedir?', options: ['Jean-Baptiste Poquelin', 'Pierre Corneille', 'Jean Racine', 'Nicolas Boileau'], answer: 0, fact: 'Molière (1622–1673), Fransız klasisizminin komedya ustasıdır; Tartuffe, Kibir Budalası ve Cimri başlıca yapıtlarıdır.' },
-  { q: '"Tartuffe" hangi sosyal kurumu hicveder?', options: ['Ordu', 'Burjuvazi', 'Dini ikiyüzlülük', 'Aristocrasi'], answer: 2, fact: 'Tartuffe (1664) ilk sahnelenmesinden itibaren kilise tarafından sansürlendi; dini gösteriş ve ikiyüzlülüğü eleştirir.' },
+  { q: 'Molière\'nin gerçek adı nedir?', options: ['Jean-Baptiste Poquelin', 'Pierre Corneille', 'Jean Racine', 'Nicolas Boileau'], answer: 0, fact: 'Molière (1622–1673), Fransız klasisizminin komedya ustasıdır; Tartuffe, Kibarlık Budalası ve Cimri başlıca yapıtlarıdır.' },
+  { q: '"Tartuffe" hangi sosyal kurumu hicveder?', options: ['Ordu', 'Burjuvazi', 'Dini ikiyüzlülük', 'Aristokrasi'], answer: 2, fact: 'Tartuffe (1664) ilk sahnelenmesinden itibaren kilise tarafından sansürlendi; dini gösteriş ve ikiyüzlülüğü eleştirir.' },
   { q: 'Fransız klasisizminde "üç birlik kuralı" neyi ifade eder?', options: ['Karakter, diyalog ve aksiyonun birliği', 'Mekân, zaman ve eylem birliği', 'Perde, sahne ve koro birliği', 'Trajik, komik ve epik birliği'], answer: 1, fact: 'Aristoteles\'ten türetilen bu kurallar, 17. yüzyıl Fransız tiyatrosunda dogmaya dönüştü: tek mekân, 24 saat ve tek olay örgüsü.' },
   { q: 'İngiltere\'de Püriten hükümet tiyatroları kaç yıl kapattı?', options: ['5 yıl', '18 yıl', '36 yıl', '50 yıl'], answer: 1, fact: '1642–1660 yılları arasında Püriten Parlamentosu tiyatroları kapattı. Restorasyon dönemiyle birlikte sahneler yeniden açıldı.' },
   { q: 'Fransız sahnelerinde ilk profesyonel kadın aktörlerin göründüğü dönem hangisidir?', options: ['1610\'lar', '1640\'lar', '1680\'ler', '1720\'ler'], answer: 1, fact: 'Paris\'teki İtalyan kumpanyası 1640\'larda profesyonel kadın oyuncuları sahneye çıkardı; Fransız grupları kısa süre sonra bunu benimsedi.' },
-  { q: '"İçkin etkinin gücü" kavramını sahneye taşıyan 18. yüzyıl İngiliz aktörü kimdir?', options: ['David Garrick', 'Thomas Betterton', 'Colley Cibber', 'Richard Burbage'], answer: 0, fact: 'David Garrick (1717–1779) abartılı deklarasyonun yerini doğal ve içsel bir oyunculuk anlayışıyla değiştirerek Modern İngiliz sahnesini şekillendirdi.' },
+  { q: '"İçkin etkinin gücü" kavramını sahneye taşıyan 18. yüzyıl İngiliz aktörü kimdir?', options: ['David Garrick', 'Thomas Betterton', 'Colley Cibber', 'Richard Burbage'], answer: 0, fact: 'David Garrick (1717–1779) abartılı deklarasyonun yerini doğal ve içsel bir oyunculuk anlayışıyla değiştirerek modern İngiliz sahnesini şekillendirdi.' },
   { q: 'Kabuki tiyatrosu hangi ülkede gelişmiştir?', options: ['Çin', 'Kore', 'Japonya', 'Tayland'], answer: 2, fact: 'Kabuki, 17. yüzyıl başı Japonya\'sında sahne savaş sanatları, dans ve drama birleştiren anlatı biçimiyle ortaya çıktı.' },
   { q: 'Noh tiyatrosu nasıl bir yapıya sahiptir?', options: ['Hızlı diyalog ve akrobasi', 'Yavaş, stilize hareket ve maske geleneği', 'Gerçekçi oyunculuk ve dekor', 'Kalabalık koro ve dans'], answer: 1, fact: 'Noh, 14. yüzyılda Zeami Motokiyo tarafından teorize edilmiş; yüksek stilize hareket, maskeler ve çoğunlukla doğaüstü temalar içerir.' },
   { q: 'Pekin Operası\'nın teknik adı nedir?', options: ['Jingju', 'Kunqu', 'Huangmei', 'Cantonese Opera'], answer: 0, fact: 'Jingju (Pekin Operası) 18. yüzyılda ortaya çıkmış; şarkı, akrobasi, konuşma ve dans dört temel unsurunu oluşturur.' },
@@ -63,18 +64,18 @@ const QUIZ: Array<{
   { q: '"Modern tiyatronun babası" olarak anılan Norveçli yazar kimdir?', options: ['August Strindberg', 'Henrik Ibsen', 'Bjørnstjerne Bjørnson', 'Holberg'], answer: 1, fact: 'Henrik Ibsen (1828–1906), Nora (Bebek Evi), Hedda Gabler ve Hayaletler gibi yapıtlarıyla sosyal gerçekçi tiyatronun kurucu ismidir.' },
   { q: '"Bebek Evi" (Et Dukkehjem)\'nin baş karakteri kimdir?', options: ['Hedda', 'Nora', 'Rebekka', 'Aase'], answer: 1, fact: 'Nora\'nın finalde kapıyı çarparak evi terk etmesi, 19. yüzyıl sonu Avrupa tiyatrosunda dev bir skandal ve tartışma yarattı.' },
   { q: 'August Strindberg\'in "Baba" adlı oyunu hangi akımla ilişkilidir?', options: ['Natüralizm', 'Sembolizm', 'Ekspresyonizm', 'Sürrealizm'], answer: 0, fact: 'Strindberg\'in ilk dönem yapıtları (1887–1888) Zola\'nın natüralist manifesto anlayışını sahneye taşır.' },
-  { q: 'Emile Zola, tiyatroda natüralizmi savunduğu manifestosunu ne zaman yayımladı?', options: ['1860', '1873', '1881', '1895'], answer: 2, fact: 'Zola\'nın "Le Naturalisme au théâtre" (1881) manifestosu, sahneye bilimsel gözlem ve toplumsal gerçekçilik talep etti.' },
-  { q: '"Kiraz Bahçesi" kimdir?', options: ['Lev Tolstoy', 'Anton Çehov', 'Maksim Gorki', 'İvan Turgenyev'], answer: 1, fact: 'Kiraz Bahçesi (1904), Çehov\'un son oyunudur. Sahiplerinin taşınamadığı evi temsil eden bahçe, yıkılan aristokrasinin sembolüdür.' },
+  { q: 'Émile Zola, tiyatroda natüralizmi savunduğu manifestosunu ne zaman yayımladı?', options: ['1860', '1873', '1881', '1895'], answer: 2, fact: 'Zola\'nın "Le Naturalisme au théâtre" (1881) manifestosu, sahneye bilimsel gözlem ve toplumsal gerçekçilik talep etti.' },
+  { q: '"Kiraz Bahçesi"nin yazarı kimdir?', options: ['Lev Tolstoy', 'Anton Çehov', 'Maksim Gorki', 'İvan Turgenyev'], answer: 1, fact: 'Kiraz Bahçesi (1904), Çehov\'un son oyunudur. Sahiplerinin taşınamadığı evi temsil eden bahçe, yıkılan aristokrasinin sembolüdür.' },
   { q: 'Stanislavski\'nin kurucusu olduğu tiyatro hangisidir?', options: ['Bolşoy Tiyatrosu', 'Moskova Sanat Tiyatrosu', 'Maly Tiyatrosu', 'Taganka Tiyatrosu'], answer: 1, fact: 'Moskova Sanat Tiyatrosu (MAT), 1898\'de Konstantin Stanislavski ve Vladimir Nemirovich-Danchenko tarafından kurulmuştur.' },
   { q: 'Stanislavski sistemi oyunculardan ne ister?', options: ['Abartılı beden dili ve güçlü ses', 'Karakterin iç dünyasına ve geçmişine derin odak', 'Minimal fiziksel ifade', 'Seyirciye doğrudan hitap'], answer: 1, fact: 'Stanislavski sistemi; duygusal bellek, "eğer böyle olsaydım", super-amaç ve sahne eylemleri gibi araçlarla içten gelen doğal oyunculuğu hedefler.' },
   { q: 'André Antoine\'in 1887\'de Paris\'te kurduğu tiyatronun adı nedir?', options: ['Odéon', 'Comédie-Française', 'Théâtre Libre', 'Théâtre du Soleil'], answer: 2, fact: 'Théâtre Libre (Özgür Tiyatro), dördüncü duvarı yıkmaması için oyuncularını eğitmiş ve sahneyi bilimsel gerçekçiliğe yöneltmiştir.' },
   { q: 'Melodramı popüler kılan 19. yüzyıl geleneğinde temel çatışma nedir?', options: ['Sınıf ve devrim', 'Erdem ve şeytanlık yalın karşıtlığı', 'Kadın-erkek eşitsizliği', 'İmparatorluk ve koloni'], answer: 1, fact: 'Melodramda karakterler net iyi/kötü kutuplarına ayrılır; suç ve erdem temaları duygusal müzikle birleştirilir.' },
 
   // STANİSLAVSKİ / RUS TİYATROSU
-  { q: 'Stanislavski sistemi İngilizce\'ye hangi çevirmenin kitabıyla yayıldı?', options: ['Richard Boleslavsky', 'Elizabeth Hapgood', 'Lee Strasberg', 'Stella Adler'], answer: 1, fact: 'Elizabeth Hapgood\'un çevirileri "An Actor Prepares" (1936) ve "Building a Character"ı Amerikan tiyatrosuna kazandırdı.' },
+  { q: 'Stanislavski sistemi İngilizceye hangi çevirmenin kitabıyla yayıldı?', options: ['Richard Boleslavsky', 'Elizabeth Hapgood', 'Lee Strasberg', 'Stella Adler'], answer: 1, fact: 'Elizabeth Hapgood\'un çevirileri "An Actor Prepares" (1936) ve "Building a Character"ı Amerikan tiyatrosuna kazandırdı.' },
   { q: 'Lee Strasberg\'in geliştirdiği Stanislavski yorumunun adı nedir?', options: ['Biyomekanik', 'Yöntem Oyunculuğu (The Method)', 'Fiziksel Eylemler Yöntemi', 'Epik Tiyatro'], answer: 1, fact: 'Strasberg\'in The Method\'u duygusal belleği merkezine alır; Marlon Brando, James Dean ve Al Pacino bu geleneğin ürünleridir.' },
   { q: 'Vsevolod Meyerhold\'un sahne yaklaşımının adı nedir?', options: ['Biyomekanik', 'Fiziksel Eylem', 'Metot Oyunculuğu', 'Happenings'], answer: 0, fact: 'Meyerhold\'un biyomekaniği (1920\'ler), oyuncunun bedenini verimli bir makineye dönüştürmeyi hedefler; duygular eylemden türer.' },
-  { q: 'Growtowski\'nin "yoksul tiyatro" konsepti ne anlama gelir?', options: ['Ekonomik kısıtlamalarla üretim', 'Dekor, kostüm ve ışığı minuma indirip oyuncu-izleyici ilişkisini temele koymak', 'Yoksullar için üretilen tiyatro', 'Minimal diyalog kullanan tiyatro'], answer: 1, fact: 'Jerzy Grotowski (1933–1999), "tiyatro sahneyi değil, aktör-seyirci ilişkisini gerektirir" diyerek "yoksul tiyatro"yu tanımladı.' },
+  { q: 'Grotowski\'nin "yoksul tiyatro" konsepti ne anlama gelir?', options: ['Ekonomik kısıtlamalarla üretim', 'Dekor, kostüm ve ışığı minimuma indirip oyuncu-izleyici ilişkisini temele koymak', 'Yoksullar için üretilen tiyatro', 'Minimal diyalog kullanan tiyatro'], answer: 1, fact: 'Jerzy Grotowski (1933–1999), "tiyatro sahneyi değil, aktör-seyirci ilişkisini gerektirir" diyerek "yoksul tiyatro"yu tanımladı.' },
 
   // BRECHT / EPİK TİYATRO
   { q: 'Bertolt Brecht\'in tiyatro teorisinin adı nedir?', options: ['Epik Tiyatro', 'Epik Drama', 'Dramaturjik Yöntem', 'Diyalektik Sahne'], answer: 0, fact: 'Epik Tiyatro, Aristoteles\'in duygusal özdeşleşme anlayışına karşı eleştirel düşünce ve yabancılaştırma etkisini (Verfremdungseffekt) öne çıkarır.' },
@@ -88,12 +89,12 @@ const QUIZ: Array<{
   { q: '"Saçma (Absürd) Tiyatro" terimini kim kavramsallaştırdı?', options: ['Martin Esslin', 'Albert Camus', 'Jean-Paul Sartre', 'Simone de Beauvoir'], answer: 0, fact: 'Martin Esslin\'in "The Theatre of the Absurd" (1961) adlı kitabı Beckett, Ionesco, Genet ve Pinter\'ı tek çatı altında tanımladı.' },
   { q: 'Ionesco\'nun "Kel Şarkıcı"sının en belirgin özelliği nedir?', options: ['Melodramatik duygusal patlama', 'Mantıksal tutarsızlık ve dilin anlamsızlaşması', 'Doğa sahneleri ve şiirsel dil', 'Gerçekçi karakter psikolojisi'], answer: 1, fact: 'La Cantatrice chauve (1950), dilin iletişim işlevini kaybetmesini absürd sahne durumlarıyla gösterir; hiçbir zaman kel bir şarkıcı çıkmaz.' },
   { q: '"Balkon" adlı oyunun yazarı kimdir?', options: ['Beckett', 'Arrabal', 'Jean Genet', 'Adamov'], answer: 2, fact: 'Jean Genet\'nin Le Balcon\'u (1956), bir genelev ortamında iktidar, fantezi ve temsil ilişkilerini iç içe geçirir.' },
-  { q: 'Harold Pinter\'ın dramatik diline özgü sessizlikler ne anlama gelir?', options: ['Metin yazarının hatası', 'Güç ilişkilerini ve söylenmeyeni barındıran dramatik gerilim', 'Müzik arası', 'Yönetmen yorumu'], answer: 1, fact: '"Pinter pause", tehdit ve belirsizlikle dolu sözaltı gerilimininin fiziksel ifadesidir — karakterler söylemek istediklerini çoğunlukla söylemez.' },
+  { q: 'Harold Pinter\'ın dramatik diline özgü sessizlikler ne anlama gelir?', options: ['Metin yazarının hatası', 'Güç ilişkilerini ve söylenmeyeni barındıran dramatik gerilim', 'Müzik arası', 'Yönetmen yorumu'], answer: 1, fact: '"Pinter pause", tehdit ve belirsizlikle dolu söz altı geriliminin fiziksel ifadesidir — karakterler söylemek istediklerini çoğunlukla söylemez.' },
 
   // ARTAUD / PERFORMANS
   { q: 'Antonin Artaud\'nun tiyatro manifestosunun adı nedir?', options: ['Epik Tiyatro', 'Yoksul Tiyatro', 'Vahşet Tiyatrosu', 'Happenings'], answer: 2, fact: '"Le Théâtre et son Double" (1938)\'de Artaud, seyirciyi sarıp sarmalayan, sözcükleri değil enerjiyi ön plana çıkaran bir tiyatro manifestosu yayımladı.' },
   { q: 'Artaud\'nun "çift" (double) kavramıyla kastettiği nedir?', options: ['İki aktörün sahne paylaşımı', 'Tiyatronun veba gibi toplumu sarsan ikinci gerçekliği', 'Çift perdeli yapı', 'Metinle oyununun ikiliği'], answer: 1, fact: 'Artaud için tiyatronun "çifti" (double) gündelik gerçekliğin altındaki karanlık, bilinçdışı ve ruhsal düzeydir.' },
-  { q: '1960\'larda ABD\'de ortaya çıkan "Happenings" akımının öncüsü kimdir?', options: ['Alan Kaprow', 'Richard Schechner', 'Julian Beck', 'Peter Brook'], answer: 0, fact: 'Allan Kaprow, 1950\'lerin sonunda tiyatro-performans sınırını yıkan, müze ve galeri mekânlarında gerçekleşen "18 Happenings in 6 Parts" (1959) ile öncülük etti.' },
+  { q: '1960\'larda ABD\'de ortaya çıkan "Happenings" akımının öncüsü kimdir?', options: ['Allan Kaprow', 'Richard Schechner', 'Julian Beck', 'Peter Brook'], answer: 0, fact: 'Allan Kaprow, 1950\'lerin sonunda tiyatro-performans sınırını yıkan, müze ve galeri mekânlarında gerçekleşen "18 Happenings in 6 Parts" (1959) ile öncülük etti.' },
   { q: 'Peter Brook\'un "boş mekan" (empty space) teorisi ne anlama gelir?', options: ['Seyircisiz sahne', 'Sahneleme için yeterli koşulun bir adam ile bir boş yer olması', 'Minimal dekor tercihi', 'Aydınlatılmamış sahne'], answer: 1, fact: 'Brook\'un "The Empty Space" (1968) şöyle açar: "Bir adam boş bir mekânı geçiyor, bir diğeri onu izliyor — tiyatro bu kadar basittir."' },
 
   // ÇAĞDAŞ / POSTMODERN
@@ -106,32 +107,32 @@ const QUIZ: Array<{
   { q: 'Osmanlı\'da geleneksel halk tiyatrosunun en önemli iki biçimi hangisidir?', options: ['Ortaoyunu ve Meddah', 'Karagöz ve Hacivat', 'Hem Karagöz-Hacivat hem de Ortaoyunu ve Meddah', 'Köy seyirlik oyunları ve Meddah'], answer: 2, fact: 'Karagöz (gölge tiyatrosu), Ortaoyunu (açık meydanda canlandırma), Meddah (sözlü anlatı) ve köy seyirlik oyunları Osmanlı-Türk halk sahnesinin dört temel geleneğidir.' },
   { q: 'Türkiye\'de modern Batı tarzı tiyatronun kurulmasında öncü olan ve "Türk tiyatrosunun babası" sayılan isim kimdir?', options: ['Namık Kemal', 'Güllü Agop', 'Muhsin Ertuğrul', 'Şinasi'], answer: 2, fact: 'Muhsin Ertuğrul (1892–1979), Türkiye\'de çağdaş sahne sanatının kurucu ismidir; Şehir ve Devlet Tiyatroları\'nı kurumsal zemine oturttu.' },
   { q: 'Güllü Agop\'un 1868\'de kurduğu tiyatro hangisidir?', options: ['İstanbul Şehir Tiyatroları', 'Osmanlı Dram Kumpanyası', 'Bursa Devlet Tiyatrosu', 'Darülbedayi'], answer: 1, fact: 'Güllü Agop Fasulyeciyan\'ın Osmanlı Dram Kumpanyası, Osmanlı döneminde Türkçe tiyatronun kurumsallaşmasında kritik rol oynadı.' },
-  { q: '"Darülbedayi" hangi yıl kurulmuştur?', options: ['1885', '1914', '1923', '1934'], answer: 1, fact: 'İstanbul Şehir Tiyatroları\'nın çekirdeği olan Darülbedayi, 1914\'te André Antoine\'in öğrencisi Réjane Güllü Agop\'un desteğiyle kuruldu.' },
+  { q: '"Darülbedayi" hangi yıl kurulmuştur?', options: ['1885', '1914', '1923', '1934'], answer: 1, fact: 'İstanbul Şehir Tiyatroları\'nın çekirdeği olan Darülbedayi, 1914\'te, André Antoine ekolünden gelen Fransız yönetmen André Antoine\'in izinden giden bir kadroyla, Güllü Agop geleneğinin ardından kuruldu.' },
   { q: 'Devlet Tiyatroları Türkiye\'de hangi yılda kurulmuştur?', options: ['1940', '1949', '1956', '1960'], answer: 1, fact: 'Devlet Tiyatroları 1949\'da kurumsallaşarak Ankara merkezli yapısını kurdu; Muhsin Ertuğrul\'un öncülüğünde Türk sahne sanatı ülke genelinde örgütlendi.' },
-  { q: 'Haldun Taner\'in "Keşanlı Ali Destanı" hangi türde öne çıkmaktadır?', options: ['Natüralist dram', 'Epik geekonu tiyatrosu', 'Absürd oyun', 'Müzikal'], answer: 1, fact: 'Haldun Taner\'in Keşanlı Ali Destanı (1964), Brechtçi epik tiyatroyu gecekondu gerçekliğiyle birleştiren Türk dramaturjisinin kilometre taşlarından biridir.' },
-  { q: 'Türk tiyatrosunda "şehir efsaneleri" ve mitolojik unsurları sahneye taşımasıyla tanınan tiyatro topluluğu hangisidir?', options: ['Kenter Tiyatrosu', 'BKM', 'Dostlar Tiyatrosu', 'Tiyatro İstanbul'], answer: 2, fact: 'Genco Erkal\'ın kurucusu olduğu Dostlar Tiyatrosu, 1969\'dan bu yana siyasi ve mitolojik metinleri sahnelemesi ile öne çıkar.' },
+  { q: 'Haldun Taner\'in "Keşanlı Ali Destanı" hangi türde öne çıkmaktadır?', options: ['Natüralist dram', 'Epik gecekondu tiyatrosu', 'Absürd oyun', 'Müzikal'], answer: 1, fact: 'Haldun Taner\'in Keşanlı Ali Destanı (1964), Brechtçi epik tiyatroyu gecekondu gerçekliğiyle birleştiren Türk dramaturjisinin kilometre taşlarından biridir.' },
+  { q: 'Türk tiyatrosunda siyasi ve mitolojik metinleri sahneye taşımasıyla tanınan tiyatro topluluğu hangisidir?', options: ['Kenter Tiyatrosu', 'BKM', 'Dostlar Tiyatrosu', 'Tiyatro İstanbul'], answer: 2, fact: 'Genco Erkal\'ın kurucusu olduğu Dostlar Tiyatrosu, 1969\'dan bu yana siyasi ve mitolojik metinleri sahnelemesi ile öne çıkar.' },
   { q: 'Türk tiyatrosunda "sivil tiyatro" hareketinin güçlendiği on yıl hangisidir?', options: ['1950\'ler', '1970\'ler', '1990\'lar', '2010\'lar'], answer: 2, fact: '1990\'lardan itibaren Kenter, BKM ve pek çok bağımsız sahne yapısıyla özel tiyatro sektörü büyüdü; İstanbul bağımsız tiyatro sahnelerinin merkezi haline geldi.' },
-  { q: 'Türkiye\'de müzikaller sektörünün canlandığı dönem hangisidir?', options: ['1980\'ler', '1990\'lar', '2000\'ler', '2010\'lar'], answer: 3, fact: '2010\'ların başından itibaren yabancı lisanslı müzikaller (Chicago, Mamma Mia, Phantoma of Opera) ve Türk özgün prodüksiyonların sayısı hızla arttı.' },
+  { q: 'Türkiye\'de müzikaller sektörünün canlandığı dönem hangisidir?', options: ['1980\'ler', '1990\'lar', '2000\'ler', '2010\'lar'], answer: 3, fact: '2010\'ların başından itibaren yabancı lisanslı müzikaller (Chicago, Mamma Mia, The Phantom of the Opera) ve Türk özgün prodüksiyonların sayısı hızla arttı.' },
   { q: 'Türkiye\'de "bağımsız tiyatro" için en canlı şehirler hangisidir?', options: ['Ankara ve İzmir', 'İstanbul ve Ankara', 'İstanbul ve İzmir', 'İstanbul, Ankara ve İzmir'], answer: 3, fact: 'Her üç şehirde de aktif bağımsız tiyatro ekosistemi var; ancak sayı ve çeşitlilik açısından İstanbul açık arayla öndedir.' },
-  { q: 'Karagöz ve Hacivat\'ın kökeni hangi bölgeyle ilişkilendirilir?', options: ['Edirne', 'Bursa', 'Konya', 'İstanbul'], answer: 1, fact: 'Gölge tiyatrosunun İki ikonik karakteri Karagöz ve Hacivat\'ın, Bursa\'da aynı cami inşaatında çalışmış tarihi kişilerden ilham aldığı söylenir.' },
-  { q: 'Bir tiyatro sahnesi üzerinde "proskyenion" ne anlama gelir?', options: ['Arka sahne deposu', 'Antik Yunan sahnesinin ön bölümü', 'Kostüm odası', 'Mevsimlik kapak'], answer: 1, fact: 'Proskeniyon (proskenion), Helenistik dönemde koronun önüne uzayan yükseltilmiş oyun platformudur; modern "proscenium arch" buradan gelir.' },
+  { q: 'Karagöz ve Hacivat\'ın kökeni hangi bölgeyle ilişkilendirilir?', options: ['Edirne', 'Bursa', 'Konya', 'İstanbul'], answer: 1, fact: 'Gölge tiyatrosunun iki ikonik karakteri Karagöz ve Hacivat\'ın, Bursa\'da aynı cami inşaatında çalışmış tarihi kişilerden ilham aldığı söylenir.' },
+  { q: 'Bir tiyatro sahnesi üzerinde "proskenion" ne anlama gelir?', options: ['Arka sahne deposu', 'Antik Yunan sahnesinin ön bölümü', 'Kostüm odası', 'Mevsimlik kapak'], answer: 1, fact: 'Proskenion, Helenistik dönemde koronun önüne uzayan yükseltilmiş oyun platformudur; modern "proscenium arch" buradan gelir.' },
 
   // TEKNİK VE KAVRAMSAL
-  { q: '"Çevre tiyatrosu" (environmental theatre) kavramını kim geliştirdi?', options: ['Peter Brook', 'Richard Schechner', 'Jerzy Grotowski', 'Robert Wilson'], answer: 1, fact: 'Richard Schechner ve Performance Group, 1967\'de seyircinin sahne içinde serbest dolaşabildiği çevre tiyatrosunu Garage Tiyatrosu\'nda hayata geçirdi.' },
-  { q: '"Thrust stage" (üç tarafı seyirciye açık sahne) neyi ifade eder?', options: ['Tamamen çevrelenmiş sahne', 'Arkası duvar, üç yanı seyirciye açık sahne', 'Arkası kurtaydınlatılmış sahne', 'İki tarafı açık arena sahnesi'], answer: 1, fact: 'Elizabethan dönemi sahneleri bu yapıya sahipti; Shakespearian reprodüksiyonların çoğu bu sahne biçimini tercih eder.' },
+  { q: '"Çevre tiyatrosu" (environmental theatre) kavramını kim geliştirdi?', options: ['Peter Brook', 'Richard Schechner', 'Jerzy Grotowski', 'Robert Wilson'], answer: 1, fact: 'Richard Schechner ve Performance Group, 1967\'de seyircinin sahne içinde serbest dolaşabildiği çevre tiyatrosunu Performing Garage\'da hayata geçirdi.' },
+  { q: '"Thrust stage" (üç tarafı seyirciye açık sahne) neyi ifade eder?', options: ['Tamamen çevrelenmiş sahne', 'Arkası duvar, üç yanı seyirciye açık sahne', 'Arkası aydınlatılmış sahne', 'İki tarafı açık arena sahnesi'], answer: 1, fact: 'Elizabethan dönemi sahneleri bu yapıya sahipti; Shakespearian reprodüksiyonların çoğu bu sahne biçimini tercih eder.' },
   { q: 'Dramaturginin temel işlevi nedir?', options: ['Sahne dekorunu tasarlamak', 'Metnin dramatik ve tarihsel bağlamını analiz etmek ve yapımı desteklemek', 'Yönetmenin yerine reji yapmak', 'Oyuncuların fiziksel antrenmanını yönetmek'], answer: 1, fact: 'Dramaturg, tarihsel araştırma, metin analizi, seyirciyle iletişim ve yazarla diyalog gibi işlevlerle yapımın düşünsel sütununu oluşturur.' },
-  { q: '"Tableux vivants" ne demektir?', options: ['Dans sahne öğesi', 'Canlı tablo — oyuncuların hareketsiz pose verdiği sahneler', 'Perde arası gösteri', 'Işık deneyi'], answer: 1, fact: 'Tableux vivants (canlı tablolar), 18-19. yüzyılda tanınmış resim ya da heykel kompozisyonlarını oyuncuların hareketsiz biçimde beden simgeyle canlandırdığı bir gösteri biçimiydi.' },
+  { q: '"Tableaux vivants" ne demektir?', options: ['Dans sahne öğesi', 'Canlı tablo — oyuncuların hareketsiz poz verdiği sahneler', 'Perde arası gösteri', 'Işık deneyi'], answer: 1, fact: 'Tableaux vivants (canlı tablolar), 18-19. yüzyıllarda tanınmış resim ya da heykel kompozisyonlarını oyuncuların hareketsiz biçimde bedenleriyle canlandırdığı bir gösteri biçimiydi.' },
   { q: 'Tiyatroda "blocking" (oyun yönetimi/blokaj) ne anlama gelir?', options: ['Bilet engellemesi', 'Yönetmenin sahne hareketlerini tasarlaması', 'Perde öncesi hazırlık', 'Ses mühendisi tasarımı'], answer: 1, fact: 'Blokaj, yönetmenin oyuncuların sahnedeki konumlarını, hareketlerini ve birbirleriyle ilişkilerini prova sürecinde belirleme pratiğidir.' },
   { q: '"Site-specific theatre" ne anlama gelir?', options: ['Özel bir sahne için yazılmış oyun', 'Belirli bir mekânla anlam ilişkisi kuran tiyatro', 'Devlet sübvansiyonlu tiyatro', 'Online tiyatro'], answer: 1, fact: 'Site-specific yapımlar tiyatro binası dışında gerçekleşir: fabrikalar, terk edilmiş binalar, dere yatakları ya da sokaklar sahneye dönüşür.' },
   { q: '"Devising theatre" (toplu yaratıcılık süreci) ne demektir?', options: ['Bir yazarın metnini sahnelemek', 'Grup halinde sıfırdan performans üretmek', 'Yabancı dil oyununu uyarlamak', 'Film senaryosunu sahneye taşımak'], answer: 1, fact: 'Devising, tek bir yazar ya da metin olmaksızın oyuncu topluluğunun doğaçlama, araştırma ve prova süreciyle performans ürettiği çağdaş bir yaratım yöntemidir.' },
-  { q: 'Koreograf Jerome Robbins hangi ünlü müzikaL\'in sahne koreografisini yapmıştır?', options: ['West Side Story', 'Chicago', 'A Chorus Line', 'Cats'], answer: 0, fact: 'Jerome Robbins, West Side Story\'nin (1957) hem koreograflığını hem de yönetmenliğini üstlenmiş; eserin efsane statüsüne giden yolun en önemli mimarlarından biridir.' },
+  { q: 'Koreograf Jerome Robbins hangi ünlü müzikalin sahne koreografisini yapmıştır?', options: ['West Side Story', 'Chicago', 'A Chorus Line', 'Cats'], answer: 0, fact: 'Jerome Robbins, West Side Story\'nin (1957) hem koreograflığını hem de yönetmenliğini üstlenmiş; eserin efsane statüsüne giden yolun en önemli mimarlarından biridir.' },
   { q: '"Method acting" ile "Meisner tekniği" arasındaki temel fark nedir?', options: ['Biri ses diğeri beden odaklı', 'Method duygusal bellekle, Meisner anlık karşılıklı tepkiyle çalışır', 'İkisi aynı şeydir', 'Biri Brecht diğeri Stanislavski geleneğine aittir'], answer: 1, fact: 'Sanford Meisner, "yaşanmış hayatın gerçeği" diyerek öğrencilerini sahne ortağına odaklanmaya yöneltti; geçmiş duygular değil, anlık uyarı esastır.' },
 
   // EKSTRA / ÇAĞDAŞ
-  { q: 'August Boal\'ın "Ezilenlerin Tiyatrosu"nda "forum tiyatrosu" ne yapar?', options: ['Tiyatroyu devlet desteğiyle üretir', 'Seyircilerin sahnedeki ezilen karakterin yerine geçip alternatif çözümler denemesine olanak tanır', 'Çocuklara yönelik eğitici drama üretir', 'Tarihsel belgelere dayalı sahne araştırması yapar'], answer: 1, fact: 'Boal\'ın Forum Tiyatrosu\'nda "joker" adlı kolaylaştırıcı, seyirciyi sahnedeki ezilmeye müdahale etmeye davet eder — izleyici "spect-actor"a dönüşür.' },
+  { q: 'Augusto Boal\'ın "Ezilenlerin Tiyatrosu"nda "forum tiyatrosu" ne yapar?', options: ['Tiyatroyu devlet desteğiyle üretir', 'Seyircilerin sahnedeki ezilen karakterin yerine geçip alternatif çözümler denemesine olanak tanır', 'Çocuklara yönelik eğitici drama üretir', 'Tarihsel belgelere dayalı sahne araştırması yapar'], answer: 1, fact: 'Augusto Boal\'ın Forum Tiyatrosu\'nda "joker" adlı kolaylaştırıcı, seyirciyi sahnedeki ezilmeye müdahale etmeye davet eder — izleyici "spect-actor"a dönüşür.' },
   { q: 'Robert Wilson\'un estetik anlayışının merkezinde ne yer alır?', options: ['Hızlı diyalog ve yoğun aksiyon', 'Yavaş, görsel şiirsellik ve zaman deneyimi', 'Doğaçlama ve seyirci katılımı', 'Yoksul tiyatro ve soyutluk'], answer: 1, fact: 'Robert Wilson\'un sahneleri, saniyeler içinde değil saatler içinde açılan görsel tablolar gibidir; zamanın yavaşlatılması sahnenin kendisi haline gelir.' },
   { q: 'Tadeusz Kantor\'un "ölü sınıf" performansında asıl öne çıkan unsur nedir?', options: ['Gerçekçi kostümler', 'Manken ve ölü figürleriyle yaşayanların iç içe geçmesi', 'Büyük kalabalık sahneler', 'Dijital video projeksiyonu'], answer: 1, fact: 'Kantor\'un Umarłej Klasy (1975), sahne varlığının sınırını sorgular; oyuncular çocukluk mannekenleriyle yaşlı bedenler arasında gidip gelir.' },
-  { q: 'Anne Bogart\'ın sahne metodu olan "Viewpoints" hangi kategorilerden oluşur?', options: ['Diyalog, kostüm, ışık, ses', 'Zaman (tempo, süre) ve mekân (jestür, şekil, mimari) boyutları', 'Karakter, çatışma ve çözüm', 'Renk, müzik ve hareket'], answer: 1, fact: 'Viewpoints (Mary Overlie\'den geliştirilen), oyuncuların zaman ve mekân içindeki varoluşsal seçimlere odaklandığı somatik-estetik bir egzersiz sistemidir.' },
+  { q: 'Anne Bogart\'ın sahne metodu olan "Viewpoints" hangi kategorilerden oluşur?', options: ['Diyalog, kostüm, ışık, ses', 'Zaman (tempo, süre) ve mekân (jest, şekil, mimari) boyutları', 'Karakter, çatışma ve çözüm', 'Renk, müzik ve hareket'], answer: 1, fact: 'Viewpoints (Mary Overlie\'den geliştirilen), oyuncuların zaman ve mekân içindeki varoluşsal seçimlere odaklandığı somatik-estetik bir egzersiz sistemidir.' },
   { q: 'Tim Etchells ve Forced Entertainment\'ın öne sürdüğü tiyatro biçimi nasıl tanımlanır?', options: ['Natüralist psikoloji çalışması', 'Bağlamsal oyun, ironik mesafe ve popüler kültür', 'Klasik metin yeniden sahnelemeleri', 'Bale ve sahne sanatlarının sentezi'], answer: 1, fact: 'Forced Entertainment, şiddet, kitlesel eğlence ve tüketim kültürünü sahneye ironik bir mesafeyle yerleştiren postmodern tiyatronun en etkili gruplarından biridir.' },
 ]
 
@@ -162,9 +163,6 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
   }
   if (interest === 'muzikalsini') {
     recs.push({ slug: 'techne-musical-lab', title: 'Techne Musical Lab', sub: 'Drama + Şan + Dans', duration: '8 ay (Ekim–Mayıs)', tip: 'Üç disiplin tek programda; seyircili bitirme performansıyla.' })
-  }
-  if (interest === 'kamera') {
-    recs.push({ slug: 'camera-praxis', title: 'Camera Praxis', sub: 'Kamera Önü & Audition', duration: '4 hafta', tip: 'Şu an satışa kapalı — yeni dönem duyurusu için bize yaz.' })
   }
   if (interest === 'oyunculuk') {
     if (long) {
@@ -197,6 +195,8 @@ const SHUFFLE_SIZE = 10 // Her quiz turunda kaç soru çekilsin
    ANA COMPONENT
 ───────────────────────────────────────────────────────────────────────── */
 export function TiyatroBot() {
+  const router = useRouter()
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [msgs, setMsgs] = useState<Msg[]>([])
   const [step, setStep] = useState<Step>('idle')
@@ -206,7 +206,6 @@ export function TiyatroBot() {
   const [answered, setAnswered] = useState<number | null>(null)
   const [guideExp, setGuideExp] = useState('')
   const [guideInterest, setGuideInterest] = useState('')
-  const [pulsing, setPulsing] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
 
   const addMsg = useCallback((msg: Msg) => {
@@ -216,12 +215,6 @@ export function TiyatroBot() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [msgs])
-
-  // Pulse butonu 5 saniyede bir
-  useEffect(() => {
-    const timer = setInterval(() => setPulsing(p => !p), 5000)
-    return () => clearInterval(timer)
-  }, [])
 
   function startBot() {
     if (msgs.length === 0) {
@@ -242,7 +235,7 @@ export function TiyatroBot() {
     // ── Global handlers — step bağımsız ──────────────────────────────────
     if (value.startsWith('go:')) {
       const target = value.replace('go:', '')
-      window.location.href = target.startsWith('/') ? target : `/atolyeler/${target}`
+      router.push(target.startsWith('/') ? target : `/atolyeler/${target}`)
       return
     }
     if (value === 'restart') {
@@ -313,7 +306,6 @@ export function TiyatroBot() {
           { label: 'Oyunculuk', value: 'oyunculuk' },
           { label: 'Dans & Koreografi', value: 'dans' },
           { label: 'Müzikal (Şan+Dans+Oyun)', value: 'muzikalsini' },
-          { label: 'Kamera Önü / Set', value: 'kamera' },
           { label: 'Yazarlık & Dramaturji', value: 'yazarlik' },
           { label: 'İngilizce Drama', value: 'ingilizce' },
         ]
@@ -406,11 +398,11 @@ export function TiyatroBot() {
     if (has('indirim', 'kampanya', 'erken kayıt', 'erken kayit'))
       return { from: 'bot', text: 'Kayıt ve koşullar hakkında bilgi almak için bize mail atabilirsin.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('iletişim', 'iletisim', 'mail', 'e-posta', 'eposta', 'instagram', 'ulaş', 'ulas', 'telefon'))
-      return { from: 'bot', text: 'Bize techne.lab.istanbul@gmail.com adresinden ya da Instagram\'da @technelabistanbul üzerinden ulaşabilirsin.', options: [{ label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: `Bize ${SITE_META.email} adresinden ya da Instagram\'da ${SITE_META.instagram} üzerinden ulaşabilirsin.`, options: [{ label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))
-      return { from: 'bot', text: 'Atölyelerimiz Taksim ve Kadıköy\'de — İstanbul\'un iki yakasında da sahnedeyiz.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: 'Kendi binamız yok — mobil çalışıyoruz. Programlarımız Pera ve Kadıköy\'deki üç partner mekânda: Pod Pera, Beden İşleri ve Soft Sanat.', options: [{ label: 'İşbirliklerimiz →', value: 'go:/isbirlikleri' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
-      return { from: 'bot', text: '14–17 yaş için English Drama Lab Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
+      return { from: 'bot', text: '14–17 yaş için English Drama Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
     if (has('ingilizce', 'english', 'dil'))
       return { from: 'bot', text: 'English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12 hafta), English Acting Praxis (12 hafta) ve English Drama Youth 14–17 yaş (8 ay, haftada 1 gün).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
@@ -418,11 +410,11 @@ export function TiyatroBot() {
     if (has('dans', 'koreografi', 'broadway'))
       return { from: 'bot', text: 'Broadway Musical Dance: jazz, tap ve theatre dance temelli 12 haftalık koreografi programı. Deneyim şart değil.', options: [{ label: 'Broadway Dance →', value: 'go:broadway-musical-dance' }] }
     if (has('kamera', 'dizi', 'film', 'audition', 'cast', 'set'))
-      return { from: 'bot', text: 'Camera Praxis kamera önü oyunculuk ve audition tekniklerine odaklanır. Şu an satışa kapalı — yeni dönem için mail listesine yazabilirsin.', options: [{ label: 'Detay →', value: 'go:camera-praxis' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: 'Kamera önü programımız şu an açık değil. Ama English Acting Praxis\'in finalinde Cast Direktörü Harika Uygur masterclass veriyor — casting gözüyle geri bildirim almanın en yakın yolu bu.', options: [{ label: 'Acting Praxis →', value: 'go:english-drama-final-project' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yazar', 'dramaturji', 'metin', 'oyun yazma'))
       return { from: 'bot', text: 'The Auteur Lab: dramaturji, yazarlık ve oyunculuğu birleştiren 8 haftalık laboratuvar. Halil Yağız Şanal yönetiminde.', options: [{ label: 'Auteur Lab →', value: 'go:auteur-lab' }] }
     if (has('kayıt', 'kayit', 'başvur', 'basvur', 'katıl', 'katil', 'nasıl alırım', 'satın'))
-      return { from: 'bot', text: 'Başvuru için program sayfasından e-posta ile ulaşabilirsin. Kontenjanlar 10–14 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: 'Başvuru için program sayfasından e-posta ile ulaşabilirsin. Kontenjanlar programa göre 8–15 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('deneyim', 'hiç', 'hic', 'yeni başl', 'yeni basl', 'sıfır', 'sifir'))
       return { from: 'bot', text: 'Deneyim şart değil — birçok programımız sıfırdan başlayanlara açık. Sana en uygununu bulalım mı?', options: [{ label: 'Program bul', value: 'guide' }] }
     if (has('quiz', 'soru', 'bilgi yarış'))
@@ -459,9 +451,17 @@ export function TiyatroBot() {
   const [teaser, setTeaser] = useState(false)
   useEffect(() => {
     if (open) { setTeaser(false); return }
-    const t = setTimeout(() => setTeaser(true), 4000)
+    // Kayıt formunda dikkat dağıtma
+    if (pathname?.endsWith('/kayit')) return
+    try {
+      if (sessionStorage.getItem('techne-teaser') === 'gosterildi') return
+    } catch { /* private mode */ }
+    const t = setTimeout(() => {
+      setTeaser(true)
+      try { sessionStorage.setItem('techne-teaser', 'gosterildi') } catch { /* yok say */ }
+    }, 6000)
     return () => clearTimeout(t)
-  }, [open])
+  }, [open, pathname])
 
   const lastMsg = msgs[msgs.length - 1]
   const hasOptions = lastMsg?.options && lastMsg.options.length > 0
@@ -472,7 +472,7 @@ export function TiyatroBot() {
       {teaser && !open && (
         <button
           onClick={startBot}
-          className="teaser-in fixed bottom-[86px] right-6 z-[9999] bg-bgAlt border border-border border-l-2 border-l-neon px-4 py-3 text-left max-w-[240px]"
+          className="teaser-in fixed bottom-[86px] right-6 z-[8000] bg-bgAlt border border-border border-l-2 border-l-neon px-4 py-3 text-left max-w-[240px]"
           style={{ boxShadow: '0 12px 32px rgba(0,0,0,0.45)' }}
           aria-label="Sahne asistanını aç"
           data-hover
@@ -488,7 +488,7 @@ export function TiyatroBot() {
       <button
         onClick={startBot}
         aria-label="Sahne asistanını aç"
-        className="bot-breath group fixed bottom-6 right-6 z-[9999] flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95"
+        className="bot-breath group fixed bottom-6 right-6 z-[8000] flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95"
         data-hover
       >
         <span className="text-[15px] leading-none" aria-hidden="true">✳</span>

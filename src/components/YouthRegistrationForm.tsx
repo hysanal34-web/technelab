@@ -36,6 +36,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
   const [state, setState] = useState<FormState>({ status: 'idle' })
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
+  const errRef = useRef<HTMLParagraphElement>(null)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -45,6 +46,20 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
       setState(result)
       if (result.status === 'success') {
         formRef.current?.reset()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (result.status === 'error') {
+        requestAnimationFrame(() => {
+          const el = result.field
+            ? formRef.current?.querySelector<HTMLElement>(`[name="${result.field}"]`)
+            : null
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            el.focus({ preventScroll: true })
+          } else {
+            errRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            errRef.current?.focus({ preventScroll: true })
+          }
+        })
       }
     })
   }
@@ -62,7 +77,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
             className="font-display text-fg mb-6"
             style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}
           >
-            TEŞEKKÜRLERİ
+            TEŞEKKÜRLER
           </h2>
           <p className="font-mono text-[13px] text-stone leading-relaxed mb-8">
             Başvurunuz alındı! Yanıtlarınızı inceledikten sonra veli iletişim bilgileriniz üzerinden en kısa sürede sizinle iletişime geçeceğiz.
@@ -101,29 +116,29 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
         </h2>
         <p className="font-mono text-[14px] italic text-stone mb-4">{workshop.sub}</p>
         <p className="font-mono text-[12px] text-dim leading-relaxed">
-          Haftada bir gün Kadıköy ve Taksim (Pera) lokasyonlarında gerçekleşecek.
+          Haftada bir gün Kadıköy ve Pera lokasyonlarında gerçekleşecek.
           Yıl sonunda bir sahne gösterisiyle taçlanacak bu süreç için lütfen formu veli / yasal vasi eşliğinde doldurunuz.
         </p>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-10" noValidate>
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
 
         {/* Bölüm 1: Öğrenci Bilgileri */}
         <Section label="01 — Katılımcı Bilgileri">
-          <FieldGroup label="Öğrencinin Adı ve Soyadı" required>
+          <FieldGroup htmlFor="name" label="Öğrencinin Adı ve Soyadı" required>
             <Input name="name" placeholder="Adı ve soyadı" required autoComplete="name" />
           </FieldGroup>
-          <FieldGroup label="Öğrencinin Doğum Tarihi" required>
+          <FieldGroup htmlFor="birthDate" label="Öğrencinin Doğum Tarihi" required>
             <Input name="birthDate" type="date" required />
           </FieldGroup>
-          <FieldGroup label="Öğrencinin Eğitim Gördüğü Okul ve Sınıfı" required>
+          <FieldGroup htmlFor="school" label="Öğrencinin Eğitim Gördüğü Okul ve Sınıfı" required>
             <Input name="school" placeholder="örn. Kadıköy Anadolu Lisesi, 10. Sınıf" required />
           </FieldGroup>
-          <FieldGroup label="Katılmak İstediğiniz Lokasyon" required>
+          <FieldGroup htmlFor="location" label="Katılmak İstediğiniz Lokasyon" required>
             <SelectField name="location" defaultValue="">
               <option value="" disabled>Seçiniz…</option>
               <option value="Kadıköy">Kadıköy</option>
-              <option value="Taksim (Pera)">Taksim (Pera)</option>
+              <option value="Pera">Pera</option>
               <option value="Her ikisi de bana uyar">Her ikisi de bana uyar</option>
             </SelectField>
           </FieldGroup>
@@ -146,18 +161,18 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
                 </span>
               </label>
             ))}
-            <p className="font-mono text-[10px] text-dim mt-3 leading-relaxed">
+            <p className="font-mono text-[11px] text-dim mt-3 leading-relaxed">
               Programın akışı için temel iletişim becerisi aranmaktadır.
             </p>
           </FieldGroup>
-          <FieldGroup label="Öğrencinin Tiyatro / Oyunculuk / Yaratıcı Drama Geçmişi">
+          <FieldGroup htmlFor="experience" label="Öğrencinin Tiyatro / Oyunculuk / Yaratıcı Drama Geçmişi">
             <Textarea
               name="experience"
               placeholder="Daha önce eğitim aldı mı, okul kulübünde sahneye çıktı mı, yoksa ilk defa mı deneyimleyecek? Kısaca bahsedebilirsiniz."
               rows={3}
             />
           </FieldGroup>
-          <FieldGroup label="Neden Bu Programa Katılmak İstiyorsunuz?">
+          <FieldGroup htmlFor="motivation" label="Neden Bu Programa Katılmak İstiyorsunuz?">
             <Textarea
               name="motivation"
               placeholder="Bu soruyu öğrencinin yanıtlamasını rica ederiz. Bu süreçten beklentiniz nedir?"
@@ -168,19 +183,19 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
 
         {/* Bölüm 3: Veli Bilgileri */}
         <Section label="03 — Veli / Yasal Vasi Bilgileri">
-          <FieldGroup label="Veli Adı ve Soyadı" required>
+          <FieldGroup htmlFor="guardianName" label="Veli Adı ve Soyadı" required>
             <Input name="guardianName" placeholder="Veli adı soyadı" required />
           </FieldGroup>
-          <FieldGroup label="Yakınlık Derecesi" required>
+          <FieldGroup htmlFor="guardianRel" label="Yakınlık Derecesi" required>
             <Input name="guardianRel" placeholder="Anne, Baba, vb." required />
           </FieldGroup>
-          <FieldGroup label="Veli Telefon Numarası" required>
+          <FieldGroup htmlFor="guardianPhone" label="Veli Telefon Numarası" required>
             <Input name="guardianPhone" type="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" />
           </FieldGroup>
-          <FieldGroup label="Veli E-posta Adresi" required>
+          <FieldGroup htmlFor="guardianEmail" label="Veli E-posta Adresi" required>
             <Input name="guardianEmail" type="email" placeholder="veli@mail.com" required autoComplete="email" />
           </FieldGroup>
-          <FieldGroup label="Techne Lab'ı Nasıl Duydunuz?">
+          <FieldGroup htmlFor="source" label="Techne Lab'ı Nasıl Duydunuz?">
             <SelectField name="source" defaultValue="">
               <option value="" disabled>Seçiniz…</option>
               {SOURCE_OPTIONS.map((o) => (
@@ -188,13 +203,13 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               ))}
             </SelectField>
           </FieldGroup>
-          <FieldGroup label="Portfolyo / Fotoğraf / Demo Linki">
+          <FieldGroup htmlFor="portfolyoLink" label="Portfolyo / Fotoğraf / Demo Linki">
             <Input
               name="portfolyoLink"
               type="url"
               placeholder="https://drive.google.com/…  veya  https://dropbox.com/…"
             />
-            <p className="font-mono text-[10px] text-dim mt-2 leading-relaxed">
+            <p className="font-mono text-[11px] text-dim mt-2 leading-relaxed">
               Öğrenciye ait fotoğraf, video veya herhangi bir dosyayı Drive ya da Dropbox'a yükleyip bağlantı paylaşabilirsiniz. İsteğe bağlı; linkin herkese açık olduğundan emin olun.
             </p>
           </FieldGroup>
@@ -212,7 +227,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               className="mt-0.5 accent-neon shrink-0 cursor-pointer"
             />
             <label htmlFor="parentConsent" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-              14–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth!" programına katılmasına,
+              14–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth" programına katılmasına,
               provalarda ve yılsonu temsilinde yer almasına onay veriyorum.
               <span className="text-neon ml-1">*</span>
             </label>
@@ -227,7 +242,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               className="mt-0.5 accent-neon shrink-0 cursor-pointer"
             />
             <label htmlFor="kvkk" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-              <Link href="/kvkk" target="_blank" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
+              <Link href="/kvkk" target="_blank" rel="noopener noreferrer" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
                 KVKK Aydınlatma Metni
               </Link>
               {"'ni okudum; bu formda paylaşılan kişisel verilerin başvuru ve kayıt süreçlerinin yürütülmesi amacıyla işlenmesini onaylıyorum."}
@@ -238,7 +253,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
 
         {/* Error */}
         {state.status === 'error' && state.message && (
-          <p className="font-mono text-[11px] text-red-400 border border-red-400/30 px-4 py-3 bg-red-400/5">
+          <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3 bg-red-400/10 leading-relaxed">
             {state.message}
           </p>
         )}
@@ -253,7 +268,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
           {isPending ? 'gönderiliyor…' : 'başvuruyu gönder →'}
         </button>
 
-        <p className="font-mono text-[10px] text-dim text-center leading-relaxed">
+        <p className="font-mono text-[11px] text-dim text-center leading-relaxed">
           Başvurunuz incelendikten sonra veli iletişim bilgileriniz üzerinden en kısa sürede yanıt verilecektir.
         </p>
       </form>
@@ -266,7 +281,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
 function Section({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <fieldset className="space-y-5 border-t border-border pt-8">
-      <legend className="font-mono text-[10px] tracking-[0.22em] uppercase text-neon mb-6 block">
+      <legend className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-6">
         {label}
       </legend>
       {children}
@@ -275,19 +290,22 @@ function Section({ label, children }: { label: string; children: React.ReactNode
 }
 
 function FieldGroup({
+  htmlFor,
   label,
   required,
   children,
 }: {
+  htmlFor?: string
   label: string
   required?: boolean
   children: React.ReactNode
 }) {
   return (
     <div>
-      <label className="block font-mono text-[10px] tracking-[0.16em] uppercase text-stone mb-2">
+      <label htmlFor={htmlFor} className="block font-mono text-[11px] tracking-[0.16em] uppercase text-stone mb-2">
         {label}
-        {required && <span className="text-neon ml-1">*</span>}
+        {required && <span className="text-neon ml-1" aria-hidden="true">*</span>}
+        {required && <span className="sr-only"> (zorunlu)</span>}
       </label>
       {children}
     </div>
@@ -309,12 +327,15 @@ function Input({
 }) {
   return (
     <input
+      id={name}
       name={name}
       type={type}
       placeholder={placeholder}
       required={required}
+      aria-required={required || undefined}
       autoComplete={autoComplete}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim/50 focus:outline-none focus:border-neon/60 transition-colors duration-200"
+      inputMode={type === 'tel' ? 'tel' : type === 'email' ? 'email' : undefined}
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200"
     />
   )
 }
@@ -322,10 +343,11 @@ function Input({
 function Textarea({ name, placeholder, rows = 3 }: { name: string; placeholder?: string; rows?: number }) {
   return (
     <textarea
+      id={name}
       name={name}
       placeholder={placeholder}
       rows={rows}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim/50 focus:outline-none focus:border-neon/60 transition-colors duration-200 resize-none"
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200 resize-none"
     />
   )
 }
@@ -333,9 +355,10 @@ function Textarea({ name, placeholder, rows = 3 }: { name: string; placeholder?:
 function SelectField({ name, defaultValue, children }: { name: string; defaultValue: string; children: React.ReactNode }) {
   return (
     <select
+      id={name}
       name={name}
       defaultValue={defaultValue}
-      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 focus:outline-none focus:border-neon/60 transition-colors duration-200 appearance-none"
+      className="w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200 appearance-none"
     >
       {children}
     </select>

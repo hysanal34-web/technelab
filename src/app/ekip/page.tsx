@@ -5,7 +5,7 @@ import { TeamGrid, type TeamMember } from '@/components/TeamGrid'
 export const metadata: Metadata = {
   title: 'Ekip — Eğitmenler & Sanatçılar',
   description:
-    'Techne Lab İstanbul ekibi: oyuncular, yönetmenler, koreograflar ve eğitmenler. Yedi sanatçı, dört disiplin, tek sahne. Taksim & Kadıköy.',
+    'Techne Lab İstanbul ekibi: oyuncular, yönetmenler, koreograflar ve eğitmenler. Yedi sanatçı, dört disiplin, tek sahne. Pera & Kadıköy.',
   alternates: { canonical: `${SITE_META.url}/ekip` },
   openGraph: {
     title: 'Ekip — Techne Lab İstanbul',

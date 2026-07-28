@@ -3,7 +3,7 @@ import { useLang } from '@/contexts/LanguageContext'
 
 const STATS = [
   {
-    n: '8+',
+    n: '6',
     tr: { l: 'Atölye',    sub: 'Bu sezon aktif' },
     en: { l: 'Workshops', sub: 'Active this season' },
   },
@@ -13,9 +13,9 @@ const STATS = [
     en: { l: 'Founded',   sub: 'March 1, Istanbul' },
   },
   {
-    n: '2',
-    tr: { l: 'Lokasyon',  sub: 'Taksim & Kadıköy' },
-    en: { l: 'Locations', sub: 'Taksim & Kadıköy' },
+    n: '3',
+    tr: { l: 'Mekân',     sub: 'Pera & Kadıköy' },
+    en: { l: 'Venues',    sub: 'Pera & Kadıköy' },
   },
   {
     n: '∞',

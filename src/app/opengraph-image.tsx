@@ -98,7 +98,7 @@ export default function OgImage() {
               fontFamily: 'monospace', fontSize: '11px',
               letterSpacing: '0.1em', color: 'rgba(232,229,223,0.4)',
             }}>
-              technelab.ist
+              technelabistanbul.com
             </span>
           </div>
         </div>

@@ -24,7 +24,7 @@ export const WORKSHOPS: Workshop[] = [
     title: 'THE AUTEUR LAB', sub: 'Dramaturji · Yazarlık',
     tagline: 'Dürtüden Tasarıma — Tasarımdan Eyleme',
     instructor: 'Halil Yağız Şanal',
-    instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji ana sanat dalında öğrenimini sürdürdü. Yılın Oyunu ödüllü oyun yazarı.",
+    instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji Anasanat Dalı'nda öğrenimini sürdürdü. İKSV Senenin Oyunu ödüllü oyun yazarı.",
     venue: 'Kadıköy', duration: '8 hafta', price: 24000,
     installments: 3, monthlyPrice: 8000,
     maxStudents: 8, active: true,
@@ -33,7 +33,7 @@ export const WORKSHOPS: Workshop[] = [
     desc: 'Yazmak için yaratıcı bir alan. Kendi metnini kurmanın temel dinamiklerine odaklanıyoruz — karakter, çatışma, sahne. İlhamı beklemeden, üreterek.',
     blocks: [
       {
-        title: '1. Modül: Antik\'ten Modern\'e',
+        title: '1. Modül: Antikten Moderne',
         span: '1—4. Hafta',
         body: 'Sophokles\'ten Ibsen\'e: dramatik yapının temelleri. Metin analizi, karakter arkı, çatışma ve alt metin. Batı tiyatrosunun kökleri — yazarlık gözüyle.',
       },
@@ -49,17 +49,17 @@ export const WORKSHOPS: Workshop[] = [
       },
     ],
     images: ['auteur-hero', 'auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
-    seoTitle: 'The Auteur Lab — Dramaturji & Oyunculuk Atölyesi',
-    seoDesc: 'Metin çözümleme, dramaturji ve sahne pratiği. Halil Yağız Şanal ile 8 haftalık laboratuvar. İstanbul.',
+    seoTitle: 'The Auteur Lab — Oyun Yazarlığı Atölyesi',
+    seoDesc: 'Kendi oyununu yazmak isteyenler için 8 haftalık dramaturji laboratuvarı. Sophokles\'ten Beckett\'e metin analizi, karakter ve çatışma. Halil Yağız Şanal ile Kadıköy\'de.',
   },
 
-  // ── 03 — MEVCUDİYET ────────────────────────────────────────────────
+  // ── 02 — MEVCUDİYET ────────────────────────────────────────────────
   {
     id: 4, slug: 'oyuncunun-mevcudiyeti', code: '02',
     title: 'OYUNCUNUN MEVCUDİYETİ', sub: 'Presence',
     tagline: 'Sahne Üzerinde Var Olmak',
     instructor: 'Burcu Halaçoğlu', instructorBio: 'Oyuncu ve beden çalışması eğitmeni. Sahne mevcudiyeti, ses-nefes ve fiziksel farkındalık üzerine uzmanlaşmış pratisyen.',
-    venue: 'Taksim / Kadıköy', duration: 'Yoğun program', price: 16000,
+    venue: 'Pera & Kadıköy', duration: '4 hafta · yoğun', price: 16000,
     maxStudents: 12, active: false,
     category: 'oyunculuk',
     tags: ['Beden', 'Ses', 'Mevcudiyet'],
@@ -70,17 +70,17 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Anda Kalmak', span: '', body: 'Gerçek tepki, partneri görme, burada ve şimdi.' },
     ],
     images: ['mevcudiyet-01', 'mevcudiyet-02', 'mevcudiyet-03', 'mevcudiyet-04', 'mevcudiyet-05', 'mevcudiyet-06', 'mevcudiyet-07', 'mevcudiyet-08'],
-    seoTitle: 'Oyuncunun Mevcudiyeti — Presence Atölyesi',
-    seoDesc: 'Sahne mevcudiyeti, beden farkındalığı ve ses çalışması. Burcu Halaçoğlu ile Techne Lab İstanbul.',
+    seoTitle: 'Oyuncunun Mevcudiyeti — Sahne Presence',
+    seoDesc: 'Sahnede var olmanın tekniği: beden farkındalığı, ses-nefes ve anda kalma. Dr. Burcu Halaçoğlu ile Michael Chekhov temelli yoğun çalışma. Pera ve Kadıköy.',
   },
 
-  // ── 04 — ENGLISH DRAMA LAB (Yetişkin · 12 hafta) ──────────────────
+  // ── 03 — ENGLISH DRAMA LAB (Yetişkin · 12 hafta) ──────────────────
   {
     id: 3, slug: 'english-drama-lab', code: '03',
     title: 'ENGLISH DRAMA LAB', sub: 'English Creative Drama',
     tagline: 'Yaratıcı Drama · Doğaçlama · İngilizce',
     instructor: 'Techne Lab', instructorBio: '',
-    venue: 'Taksim & Kadıköy', duration: '12 hafta', price: 36000,
+    venue: 'Pera & Kadıköy', duration: '12 hafta', price: 36000,
     priceEarlyBird: 30000, priceCash: 27000, installments: 9, monthlyPrice: 4000,
     earlyBirdSlots: 5,
     maxStudents: 12, active: true,
@@ -94,20 +94,20 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-final-project', 'english-drama-youth'],
-    seoTitle: 'English Drama Lab — English Creative Drama',
-    seoDesc: 'İngilizce yaratıcı drama ve doğaçlama atölyesi. 12 hafta, Taksim & Kadıköy. Techne Lab İstanbul.',
+    seoTitle: 'English Drama Lab — İngilizce Drama',
+    seoDesc: 'İngilizceyi ezberleyerek değil oynayarak öğrenin. 12 haftalık yaratıcı drama ve doğaçlama atölyesi; 12 kişilik gruplar. Pera ve Kadıköy — Techne Lab İstanbul.',
   },
 
-  // ── 05 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
+  // ── 04 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
   {
     id: 8, slug: 'english-drama-final-project', code: '04',
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez · Harika Uygur Masterclass',
     tagline: 'Oyunculuğunu Uluslararası Arenaya Taşımak İsteyenler İçin',
     instructor: 'Ece Ertez',
     instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen. Cast Direktörü / Süpervizör: Harika Uygur.',
-    venue: 'Taksim', duration: '12 hafta', price: 18000,
+    venue: 'Pera', duration: '12 hafta', price: 18000,
     priceCash: 15000, installments: 2, monthlyPrice: 9000,
-    maxStudents: '10–14', active: true,
+    maxStudents: 14, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
     desc: 'Ece Ertez ile on iki hafta boyunca birden fazla İngilizce metin üzerinde yoğun pratik. Karakter kurar, sahne dilini içselleştirir, prova disiplinini öğrenirsiniz. Programın sonunda Cast Direktörü Harika Uygur bir günlük masterclass vererek katılımcıların canlı performanslarını izler; bu performanslar kayıt altına alınarak katılımcılara teslim edilir.',
@@ -118,14 +118,14 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-acting-praxis-poster', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
-    seoTitle: 'English Acting Praxis — Ece Ertez ile Sahne',
-    seoDesc: 'Ece Ertez ile 12 haftalık İngilizce sahne çalışması. Metin analizi, karakter ve prova disiplini. Profesyonel oyuncular ve meraklılar için. Techne Lab İstanbul.',
+    seoTitle: 'English Acting Praxis — İngilizce Sahne',
+    seoDesc: 'Ece Ertez ile 12 haftalık İngilizce sahne çalışması: metin analizi, karakter ve prova disiplini. Finalde Cast Direktörü Harika Uygur masterclass\'ı. Pera, İstanbul.',
   },
 
-  // ── 06 — ENGLISH DRAMA LAB: 14–17 YAŞ ────────────────────────────
+  // ── 05 — ENGLISH DRAMA YOUTH: 14–17 YAŞ ────────────────────────────
   {
     id: 9, slug: 'english-drama-youth', code: '05',
-    title: 'ENGLISH DRAMA YOUTH (14-17)', sub: 'Yıl Sonu Temsili · Final Performanslı',
+    title: 'ENGLISH DRAMA YOUTH (14–17)', sub: 'Yıl Sonu Temsili · Final Performanslı',
     tagline: 'Yaratıcı Drama & Sahne — Gençler İçin',
     instructor: 'Techne Lab', instructorBio: '',
     venue: 'Kadıköy', duration: '8 ay · Haftada 1 gün (Ekim–Mayıs)', price: 60000,
@@ -140,13 +140,13 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Karakter & Metin', span: 'Ocak–Mart', body: 'Sahne metni çalışması, karakter inşası, partner çalışması. Sözlü ve bedensel anlatım. İngilizce dramatik metin.' },
       { title: 'Final Gösterisi', span: 'Nisan–Mayıs', body: 'Prova süreci ve seyircili final performansı. Gerçek bir sahne deneyimi, gerçek bir seyirciyle.' },
     ],
-    images: ['english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-4', 'english-drama-5'],
+    images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-lab', 'english-drama-final-project'],
-    seoTitle: 'English Drama Lab 14–17 Yaş — Gençlere Yönelik Tiyatro Programı',
-    seoDesc: '14–17 yaş İngilizce yaratıcı drama programı. 8 ay, haftada 1 gün. Final gösterisi. Techne Lab İstanbul.',
+    seoTitle: 'English Drama Youth — 14–17 Yaş Tiyatro',
+    seoDesc: '14–17 yaş gençler için 8 aylık İngilizce tiyatro programı. Haftada 1 gün, Ekim–Mayıs, yıl sonunda seyircili final gösterisi. Kadıköy — Techne Lab İstanbul.',
   },
 
-  // ── 08 — TECHNE MUSICAL LAB ────────────────────────────────────────
+  // ── 06 — TECHNE MUSICAL LAB ────────────────────────────────────────
   {
     id: 5, slug: 'techne-musical-lab', code: '06',
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
@@ -154,7 +154,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Köksal Ünal & Sitare Bilge',
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 96000,
-    priceEarlyBird: 80000, priceCash: 72000, installments: 9, monthlyPrice: 10667,
+    priceEarlyBird: 80000, priceCash: 72000, installments: 8, monthlyPrice: 12000,
     earlyBirdSlots: 5,
     maxStudents: 12, active: true,
     category: 'dans-muzikal',
@@ -166,11 +166,11 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Bitirme Performansı', span: 'Nisan–Mayıs', body: 'Tam sahne uygulaması — kostüm, ışık, seyirci. Kişisel parça geliştirme ve toplu prodüksiyon sunumu.' },
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
-    seoTitle: 'Techne Musical Lab — Drama, Tiyatro & Müzikal Programı',
-    seoDesc: 'Drama ve tiyatro temelli 8 aylık müzikal program. Köksal Ünal & Sitare Bilge. Ekim–Mayıs. Seyircili bitirme performanslı.',
+    seoTitle: 'Techne Musical Lab — Müzikal Tiyatro',
+    seoDesc: 'Oyunculuk, şan ve dans tek programda: 8 aylık müzikal tiyatro laboratuvarı. Köksal Ünal & Sitare Bilge ile Ekim–Mayıs, seyircili bitirme performansı. Kadıköy.',
   },
 
-  // ── 09 — BROADWAY MUSICAL DANCE ────────────────────────────────────
+  // ── 07 — BROADWAY MUSICAL DANCE ────────────────────────────────────
   {
     id: 6, slug: 'broadway-musical-dance', code: '07',
     title: 'BROADWAY MUSICAL DANCE', sub: 'Broadway Müzikal Dansı',
@@ -178,38 +178,70 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Köksal Ünal',
     instructorBio: 'Oyuncu, yönetmen ve Broadway dans eğitmeni. Sahne koreografisi ve tiyatro dansı üzerine kapsamlı deneyim.',
     venue: 'Kadıköy', duration: '12 hafta', price: 24000,
+    installments: 3, monthlyPrice: 8000,
     maxStudents: 15, active: true,
     category: 'dans-muzikal',
     tags: ['Dans', 'Broadway', 'Koreografi'],
-    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten 12 haftalık yoğun program. Jazz, tap ve theatre dance teknikleriyle sahne koreografisi, showmanship ve performans bütünlüğü. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
+    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten 12 haftalık yoğun program. Jazz ve theatre dance teknikleriyle sahne koreografisi, showmanship ve performans bütünlüğü. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
     blocks: [
       { title: 'Teknik Temel', span: '1—4. Hafta', body: 'Jazz ve theatre dance temelleri. Beden hizalaması, ritim, koordinasyon ve müzikle ilişki.' },
       { title: 'Koreografi & Stil', span: '5—8. Hafta', body: 'Broadway repertuarından sahneler. Stil çalışması, grup koreografisi ve sahne dinamiği.' },
       { title: 'Sahne & Showmanship', span: '9—12. Hafta', body: 'Performans bütünlüğü, kostümle çalışma ve final koreografisi sunumu.' },
     ],
     images: ['dslr-zl5a1044', 'dslr-zl5a1043', 'dslr-zl5a1064', 'dslr-zl5a1092'],
-    seoTitle: 'Broadway Musical Dance — Broadway Müzikal Dansı Atölyesi',
-    seoDesc: 'Köksal Ünal ile 12 haftalık Broadway müzikal dans programı. Jazz, theatre dance, showmanship. Techne Lab İstanbul.',
+    seoTitle: 'Broadway Musical Dance — Müzikal Dansı',
+    seoDesc: 'Köksal Ünal ile 12 haftalık Broadway müzikal dansı: jazz, theatre dance ve showmanship. Dans deneyimi şart değil. Kadıköy — Techne Lab İstanbul.',
   },
 ]
 
 export const SITE_META = {
   name: 'Techne Lab İstanbul',
   url: 'https://www.technelabistanbul.com',
-  description: 'İstanbul\'da bağımsız bir tiyatro. Oyunculuk, yazarlık, kamera, dramaturji, dans ve müzikal üzerine yoğun, küçük gruplu atölyeler. Taksim ve Kadıköy.',
+  description: 'İstanbul\'da bağımsız bir tiyatro. Oyunculuk, yazarlık, dramaturji, dans ve müzikal üzerine yoğun, küçük gruplu atölyeler. Pera ve Kadıköy\'deki üç partner mekânda.',
   instagram: '@technelabistanbul',
   email: 'technelabistanbul@gmail.com',
   address: 'İstanbul, Türkiye',
-  // Google Form kayıt linkleri — slug bazında (aktif programlar için)
-  formUrls: {
-    'auteur-lab':                  'https://forms.gle/technelab',
-    'english-drama-lab':           'https://forms.gle/technelab',
-    'english-drama-final-project': 'https://forms.gle/technelab',
-    'english-drama-youth':         'https://forms.gle/technelab',
-    'techne-musical-lab':          'https://forms.gle/technelab',
-    'broadway-musical-dance':      'https://forms.gle/technelab',
-  } as Record<string, string>,
 }
+
+// ── İŞBİRLİĞİ YAPILAN MEKÂNLAR ──────────────────────────────────────
+// Techne Lab mobil çalışan bir ekip — kendi mekânı yok.
+// Programlar bu üç partner mekânda gerçekleşiyor.
+export type Venue = {
+  key: string
+  name: string
+  district: string
+  side: 'Avrupa' | 'Anadolu'
+  blurb: string
+  instagram?: string
+  mapsUrl?: string
+}
+
+export const VENUES: Venue[] = [
+  {
+    key: 'pod-pera',
+    name: 'Pod Pera',
+    district: 'Pera · Beyoğlu',
+    side: 'Avrupa',
+    blurb: 'Pera\'nın merkezinde, tarihi dokunun içinde bir çalışma alanı. İngilizce sahne programlarımızın ve yoğun atölyelerimizin Avrupa yakasındaki evi.',
+    instagram: '@podpera',
+  },
+  {
+    key: 'beden-isleri',
+    name: 'Beden İşleri',
+    district: 'Rasimpaşa · Kadıköy',
+    side: 'Anadolu',
+    blurb: 'Bedeni merkeze alan bir hareket stüdyosu. Dans, müzikal ve fiziksel tiyatro çalışmalarımız burada — geniş zemin, yüksek tavan, aynasız sahne disiplini.',
+    instagram: '@bedenisleri',
+  },
+  {
+    key: 'soft-sanat',
+    name: 'Soft Sanat',
+    district: 'Kadıköy',
+    side: 'Anadolu',
+    blurb: 'Küçük gruplarla derinlemesine çalışmaya uygun, sıcak bir sanat alanı. Yazarlık ve dramaturji laboratuvarlarımızın Anadolu yakasındaki durağı.',
+    instagram: '@softsanat',
+  },
+]
 
 export const DISCOUNT_THRESHOLD = 2
 export const DISCOUNT_RATE = 0.25

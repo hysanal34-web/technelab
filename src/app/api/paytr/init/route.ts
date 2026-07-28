@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     // Benzersiz sipariş ID
     const merchantOid = `TL-${Date.now()}-${crypto.randomBytes(4).toString('hex').toUpperCase()}`
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://technelab.ist'
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.technelabistanbul.com'
 
     const { token } = await createPayTRToken({
       merchantOid,

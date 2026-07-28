@@ -5,7 +5,7 @@ import { SITE_META } from '@/lib/data'
 export const metadata: Metadata = {
   title: 'Hakkında — Bağımsız Tiyatro Laboratuvarı',
   description:
-    "Adını Antik Yunanca 'techne' (zanaat) sözcüğünden alan bağımsız tiyatro. Taksim ve Kadıköy'de oyunculuk, yazarlık, İngilizce drama, dans ve müzikal atölyeleri.",
+    "Adını Antik Yunanca 'techne' (zanaat) sözcüğünden alan bağımsız tiyatro. Pera ve Kadıköy'de oyunculuk, yazarlık, İngilizce drama, dans ve müzikal atölyeleri.",
   alternates: { canonical: `${SITE_META.url}/hakkinda` },
   openGraph: {
     title: 'Hakkında — Bağımsız Tiyatro Laboratuvarı',
@@ -26,7 +26,7 @@ export default function AboutPage() {
           style={{ fontSize: 'clamp(80px,14vw,200px)', color: 'transparent', WebkitTextStroke: '1px rgba(200,255,0,0.07)' }}
           aria-hidden="true"
         >
-          ΤΈΧΝΗ
+          ΤΕΧΝΗ
         </div>
         <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-4 relative z-10">hakkında</p>
         <h1
@@ -72,14 +72,14 @@ export default function AboutPage() {
             Sahne bir mucize değildir; nefes, beden, metin ve provayla kurulan bir yapıdır.
           </p>
           <p className="font-mono text-[14px] text-stone leading-relaxed mb-8">
-            2026&apos;da İstanbul&apos;da kurulduk. Taksim ve Kadıköy&apos;de, en fazla 12–14 kişilik
+            2026&apos;da İstanbul&apos;da kurulduk. Pera ve Kadıköy&apos;deki üç partner mekânda, en fazla 8–15 kişilik
             gruplarla çalışıyoruz — çünkü kalabalıkta kimse görünmez.
-            Yazarlıktan müzikale sekiz program, hepsi aynı omurgaya bağlı:{' '}
+            Yazarlıktan müzikale yedi program, hepsi aynı omurgaya bağlı:{' '}
             <span className="text-neon">disiplin özgürlüktür.</span>
           </p>
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-neon rounded-full" />
-            <span className="font-mono text-[13px] text-stone tracking-[0.08em]">Taksim &amp; Kadıköy — İstanbul</span>
+            <span className="font-mono text-[13px] text-stone tracking-[0.08em]">Pera &amp; Kadıköy — İstanbul</span>
           </div>
         </div>
         <div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
       {/* ── İç linkler — keşfe devam ───────────────────────────── */}
       <section className="grid md:grid-cols-3 border-b border-border" aria-label="Keşfet">
         {[
-          { href: '/atolyeler', label: 'ATÖLYELER', sub: '8 program · 4 disiplin' },
+          { href: '/atolyeler', label: 'ATÖLYELER', sub: '7 program · 4 disiplin' },
           { href: '/ekip', label: 'EKİP', sub: '7 eğitmen · tek sahne' },
           { href: '/galeri', label: 'GALERİ', sub: 'Provadan sahneye kareler' },
         ].map((x, i) => (

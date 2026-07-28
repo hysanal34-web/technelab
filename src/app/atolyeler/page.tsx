@@ -4,11 +4,11 @@ import { WorkshopsFilter } from '@/components/WorkshopsFilter'
 
 export const metadata: Metadata = {
   title: 'Atölyeler — Tiyatro & Performans Programları',
-  description: 'Oyunculuk, yazarlık, kamera önü, dans, müzikal ve İngilizce drama atölyeleri. Küçük gruplar, yoğun pratik. Taksim ve Kadıköy.',
+  description: 'Oyunculuk, yazarlık, dramaturji, dans, müzikal ve İngilizce drama atölyeleri. Küçük gruplar, yoğun pratik. Pera ve Kadıköy.',
   alternates: { canonical: `${SITE_META.url}/atolyeler` },
   openGraph: {
     title: 'Techne Lab Atölyeleri — Tiyatro & Performans',
-    description: 'İstanbul\'da oyunculuk, yazarlık, kamera, dans, müzikal ve İngilizce drama atölyeleri.',
+    description: 'İstanbul\'da oyunculuk, yazarlık, dramaturji, dans, müzikal ve İngilizce drama atölyeleri.',
     url: `${SITE_META.url}/atolyeler`,
   },
 }
@@ -43,7 +43,7 @@ export default function WorkshopsPage() {
             ATÖLYELER
           </h1>
           <p className="font-mono text-[14px] text-stone max-w-xl leading-relaxed">
-            Oyunculuk, yazarlık, kamera, dans, müzikal ve İngilizce drama. Küçük gruplar, yoğun pratik. Taksim ve Kadıköy.
+            Oyunculuk, yazarlık, dramaturji, dans, müzikal ve İngilizce drama. Küçük gruplar, yoğun pratik. Pera ve Kadıköy.
           </p>
         </div>
       </section>

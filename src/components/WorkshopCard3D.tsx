@@ -6,7 +6,6 @@ import type { Workshop } from '@/lib/data'
 
 const WORKSHOP_IMAGES: Record<string, string> = {
   'auteur-lab':                    '/images/covers/auteur-lab.png',
-  'camera-praxis':                 '/images/covers/camera-praxis.png',
   'english-drama-lab':             '/images/covers/english-drama-lab.png',
   'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.png',
   'english-drama-final-project':   '/images/covers/english-drama-final-project.png',
@@ -144,7 +143,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
             <span
               className="font-mono text-[11px] tracking-[0.14em] uppercase px-3 py-2 transition-all duration-200 border border-fg/20 text-stone group-hover:border-neon group-hover:text-bg group-hover:bg-neon"
             >
-              detay →
+              {w.active ? 'detay →' : 'kapalı'}
             </span>
           </div>
         </div>

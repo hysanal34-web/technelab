@@ -11,6 +11,7 @@ const links = [
   { href: '/atolyeler', tr: 'atölyeler', en: 'workshops', hasMega: true },
   { href: '/ekip',      tr: 'ekip',      en: 'team',      hasMega: false },
   { href: '/galeri',    tr: 'galeri',    en: 'gallery',   hasMega: false },
+  { href: '/isbirlikleri', tr: 'işbirlikleri', en: 'venues', hasMega: false },
   { href: '/hakkinda',  tr: 'hakkında',  en: 'about',     hasMega: false },
   { href: '/iletisim',  tr: 'iletişim',  en: 'contact',   hasMega: false },
 ]
@@ -36,7 +37,7 @@ function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => vo
           return (
             <Link
               key={cat.key}
-              href="/atolyeler"
+              href={`/atolyeler?kategori=${cat.key}`}
               onClick={onClose}
               className="group px-8 py-9 border-r border-border hover:bg-bgAlt transition-colors duration-200"
               data-hover
@@ -89,6 +90,9 @@ export function Nav() {
   // Sayfa değişince menüyü kapat
   useEffect(() => { setMenuOpen(false) }, [path])
 
+  // Zamanlayıcıyı unmount'ta temizle
+  useEffect(() => () => { if (megaTimer.current) clearTimeout(megaTimer.current) }, [])
+
   const openMega = () => {
     if (megaTimer.current) clearTimeout(megaTimer.current)
     setMegaOpen(true)
@@ -130,7 +134,7 @@ export function Nav() {
       </Link>
 
       {/* Desktop links */}
-      <nav className="hidden md:flex items-center gap-9 relative" aria-label="Ana navigasyon">
+      <nav className="hidden md:flex items-center gap-7 relative" aria-label="Ana navigasyon">
         {links.map(({ href, tr, en, hasMega }) =>
           hasMega ? (
             <div
@@ -138,9 +142,14 @@ export function Nav() {
               className="relative"
               onMouseEnter={openMega}
               onMouseLeave={closeMega}
+              onFocus={openMega}
+              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setMegaOpen(false) }}
+              onKeyDown={(e) => { if (e.key === 'Escape') setMegaOpen(false) }}
             >
               <Link
                 href={href}
+                aria-haspopup="true"
+                aria-expanded={megaOpen}
                 className={`relative font-mono text-[13px] tracking-[0.1em] lowercase transition-colors duration-200 group ${
                   path.startsWith(href) ? 'text-neon' : 'text-fg/70 hover:text-fg'
                 }`}
@@ -182,7 +191,7 @@ export function Nav() {
         {/* TR / EN toggle */}
         <button
           onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
-          className="font-mono text-[11px] tracking-[0.12em] uppercase text-fg/50 hover:text-neon transition-colors duration-200 border border-fg/20 hover:border-neon px-2 py-0.5"
+          className="font-mono text-[11px] tracking-[0.12em] uppercase text-fg/70 hover:text-neon transition-colors duration-200 border border-fg/25 hover:border-neon px-3 min-h-[44px] flex items-center"
           aria-label="Dil / Language"
           data-hover
         >
@@ -197,8 +206,10 @@ export function Nav() {
       <div className="md:hidden flex items-center gap-4">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex flex-col gap-1 w-6"
+          className="flex flex-col justify-center items-center gap-1 w-11 h-11 -mr-2"
           aria-label="Menü"
+          aria-expanded={menuOpen}
+          aria-controls="mobil-menu"
         >
           <span className={`h-px bg-fg transition-all duration-200 ${menuOpen ? 'w-6 rotate-45 translate-y-1.5' : 'w-6'}`} />
           <span className={`h-px bg-neon transition-all duration-200 ${menuOpen ? 'w-0 opacity-0' : 'w-4'}`} />
@@ -216,14 +227,14 @@ export function Nav() {
             onClick={() => setMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="absolute top-full left-0 right-0 bg-bg border-b border-border md:hidden z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
-            <nav className="px-8 py-6 flex flex-col gap-5">
+          <div id="mobil-menu" className="absolute top-full left-0 right-0 bg-bg border-b border-border md:hidden z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
+            <nav className="px-8 py-4 flex flex-col gap-1">
               {links.map(({ href, tr, en }) => (
                 <Link
                   key={href}
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className={`font-mono text-[13px] tracking-[0.1em] lowercase ${path.startsWith(href) ? 'text-neon' : 'text-stone'}`}
+                  className={`font-mono text-[13px] tracking-[0.1em] lowercase py-3 ${path.startsWith(href) ? 'text-neon' : 'text-stone'}`}
                 >
                   {lang === 'en' ? en : tr}
                 </Link>
@@ -243,12 +254,12 @@ export function Nav() {
                         key={w.slug}
                         href={`/atolyeler/${w.slug}`}
                         onClick={() => setMenuOpen(false)}
-                        className="block font-mono text-[11px] text-stone py-1 hover:text-fg transition-colors"
+                        className="block font-mono text-[12px] text-stone py-2.5 hover:text-fg transition-colors"
                       >
                         {w.title === 'ENGLISH DRAMA LAB' ? `EDL — ${w.sub}` : w.title}
                         {!w.active && (
-                          <span className="ml-2 text-[11px] text-stone/50">
-                            {lang === 'en' ? '(closed)' : '(kapalı)'}
+                          <span className="ml-2 text-[11px] text-dim border border-dim/40 px-1.5 py-px">
+                            {lang === 'en' ? '· closed' : '· kapalı'}
                           </span>
                         )}
                       </Link>
@@ -260,7 +271,7 @@ export function Nav() {
               <div className="flex items-center justify-between pt-2 border-t border-border">
                 <button
                   onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase text-dim hover:text-neon transition-colors text-left"
+                  className="font-mono text-[12px] tracking-[0.12em] uppercase text-stone hover:text-neon transition-colors text-left py-3"
                 >
                   {lang === 'tr' ? '→ English' : '→ Türkçe'}
                 </button>

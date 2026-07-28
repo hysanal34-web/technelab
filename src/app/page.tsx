@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { WORKSHOPS, SITE_META, GALLERY_IMAGES } from '@/lib/data'
 import { getAllArticles } from '@/lib/mdx'
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     absolute: 'Techne Lab İstanbul — Tiyatro & Drama Atölyeleri',
   },
   description:
-    'İstanbul\'da oyunculuk, yaratıcı drama, İngilizce drama, yazarlık ve müzikal atölyeleri. Taksim & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
+    'İstanbul\'da oyunculuk, yaratıcı drama, İngilizce drama, yazarlık ve müzikal atölyeleri. Pera & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
   alternates: { canonical: SITE_META.url },
   keywords: [
     'yaratıcı drama istanbul',
@@ -33,7 +34,6 @@ export const metadata: Metadata = {
     'drama kursu istanbul',
     'müzikal tiyatro kursu',
     'broadway dans istanbul',
-    'kamera önü oyunculuk',
     'bağımsız tiyatro istanbul',
     'yetişkinler için drama',
     'gençler için ingilizce drama',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Techne Lab İstanbul — Tiyatro & Performans Atölyeleri',
-    description: 'Oyunculuk, yazarlık, kamera ve dramaturji. İstanbul\'un bağımsız tiyatro laboratuvarı.',
+    description: 'Oyunculuk, yazarlık, dramaturji, dans ve müzikal. İstanbul\'un bağımsız tiyatro laboratuvarı.',
     url: SITE_META.url,
     images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab İstanbul' }],
   },
@@ -147,7 +147,7 @@ export default function HomePage() {
           <div className="hero-rise hero-rise-3 flex items-center gap-3 mt-5 mb-2">
             <div className="w-6 h-px bg-fg/30" />
             <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone">
-              <T tr="Bağımsız Tiyatro · Taksim · Kadıköy · 2026—" en="Independent Theatre · Taksim · Kadıköy · 2026—" />
+              <T tr="Bağımsız Tiyatro · Pera · Kadıköy · 2026—" en="Independent Theatre · Pera · Kadıköy · 2026—" />
             </p>
           </div>
 
@@ -197,8 +197,7 @@ export default function HomePage() {
               '/images/gallery/dslr-zl5a1077.jpg',
             ].map((src, i) => (
               <div key={i} className="relative flex-shrink-0 overflow-hidden" style={{ width: '220px', height: '130px' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt="" loading={i > 7 ? 'lazy' : undefined} decoding="async" width={220} height={130} className="opacity-55 hover:opacity-80 transition-opacity duration-500" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                <Image src={src} alt="" fill sizes="220px" priority={i < 3} quality={65} className="opacity-55 hover:opacity-80 transition-opacity duration-500 object-cover" />
               </div>
             ))}
           </div>
@@ -212,13 +211,13 @@ export default function HomePage() {
             <div className="max-w-md">
               <p className="font-mono text-[14px] text-stone leading-relaxed mb-3">
                 <T
-                  tr={<>İstanbul&apos;da bağımsız bir tiyatro.{' '}<span className="text-fg font-medium">Oyunculuk, yazarlık, kamera ve dramaturji</span>{' '}üzerine yoğun, küçük gruplu atölyeler.</>}
-                  en={<>An independent theatre in Istanbul.{' '}<span className="text-fg font-medium">Acting, playwriting, camera and dramaturgy</span>{' '}— intensive, small-group workshops.</>}
+                  tr={<>İstanbul&apos;da bağımsız bir tiyatro.{' '}<span className="text-fg font-medium">Oyunculuk, yazarlık, dramaturji ve müzikal</span>{' '}üzerine yoğun, küçük gruplu atölyeler.</>}
+                  en={<>An independent theatre in Istanbul.{' '}<span className="text-fg font-medium">Acting, playwriting, dramaturgy and musical theatre</span>{' '}— intensive, small-group workshops.</>}
                 />
               </p>
               <p className="font-mono text-[12px] text-dim leading-relaxed">
                 <T
-                  tr="Küçük gruplar. Yoğun pratik. Metin, beden ve kamera — aynı anda."
+                  tr="Küçük gruplar. Yoğun pratik. Metin, beden ve ses — aynı anda."
                   en="Small groups. Intense practice. Text, body and camera — simultaneously."
                 />
               </p>
@@ -231,7 +230,7 @@ export default function HomePage() {
                 {[
                   { label: 'Oyunculuk',      href: '/atolyeler/auteur-lab' },
                   { label: 'Yazarlık',       href: '/atolyeler/auteur-lab' },
-                  { label: 'Kamera',         href: '/atolyeler' },
+                  { label: 'Dramaturji',     href: '/atolyeler/auteur-lab' },
                   { label: 'Dans',           href: '/atolyeler/broadway-musical-dance' },
                   { label: 'Müzikal',        href: '/atolyeler/techne-musical-lab' },
                   { label: 'İngilizce Drama',href: '/atolyeler/english-drama-lab' },
@@ -283,12 +282,12 @@ export default function HomePage() {
               </h2>
               <p className="font-mono text-[12px] leading-relaxed text-stone max-w-md mb-6">
                 <T
-                  tr="Techne Lab İstanbul; yazarlık, oyunculuk, yaratıcı drama, kamera, dans, müzikal ve gençlere yönelik atölyelerle Taksim ve Kadıköy'de faaliyetlerini yürüten bağımsız bir ekiptir."
-                  en="Techne Lab Istanbul is an independent team running workshops in acting, playwriting, creative drama, camera, dance, musical theatre and youth programmes across Taksim and Kadıköy."
+                  tr="Techne Lab İstanbul; yazarlık, oyunculuk, yaratıcı drama, dans, müzikal ve gençlere yönelik atölyelerle Pera ve Kadıköy'de faaliyetlerini yürüten bağımsız bir ekiptir."
+                  en="Techne Lab Istanbul is an independent team running workshops in acting, playwriting, creative drama, dance, musical theatre and youth programmes across Pera and Kadıköy."
                 />
               </p>
               <div className="flex flex-wrap gap-x-5 gap-y-2">
-                {['Oyunculuk', 'Yazarlık', 'Kamera', 'Dans', 'Müzikal', 'Dramaturji'].map((d) => (
+                {['Oyunculuk', 'Yazarlık',  'Dans', 'Müzikal', 'Dramaturji'].map((d) => (
                   <span key={d} className="font-mono text-[11px] tracking-[0.14em] uppercase text-fg/50">
                     {d}
                   </span>
@@ -297,7 +296,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: Erken Kayıt promo paneli */}
-            <div className="relative hidden md:flex flex-col items-center justify-center overflow-hidden bg-bg gap-5 py-12 px-10">
+            <div className="relative flex flex-col items-center justify-center overflow-hidden bg-bg gap-5 py-12 px-6 md:px-10">
               {/* Neon üst çizgi */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-neon" aria-hidden="true" />
 
@@ -308,14 +307,12 @@ export default function HomePage() {
 
               {/* Poster — neon çerçevede */}
               <Link href="/atolyeler" className="relative block w-full max-w-[320px] group" data-hover>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/erken-kayit-poster.png"
                   alt="Techne Lab — Erken Kayıt İndirimi"
-                  loading="lazy"
-                  decoding="async"
                   width={640}
                   height={900}
+                  sizes="(max-width: 768px) 90vw, 320px"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                   className="group-hover:scale-[1.02] transition-transform duration-500"
                 />
