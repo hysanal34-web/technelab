@@ -147,7 +147,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
           <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-6 md:p-8" aria-label="Kayıt bilgileri">
             <div className="space-y-4 mb-8">
               {[
-                ['mekân', w.venue],
+                ['mekân', `${w.venue} — kayıt sonrası adres iletilir`],
                 ['süre', w.duration],
                 ['kontenjan', `max. ${w.maxStudents} kişi`],
               ].map(([k, v]) => (
