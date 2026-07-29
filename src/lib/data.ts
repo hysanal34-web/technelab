@@ -226,15 +226,17 @@ export const VENUES: Venue[] = [
     side: 'Avrupa',
     blurb: 'Pera\'nın merkezinde, tarihi dokunun içinde bir çalışma alanı. İngilizce sahne programlarımızın ve yoğun atölyelerimizin Avrupa yakasındaki evi.',
     instagram: '@podpera',
+    photo: '/images/venues/pod-pera-photo.jpg',
   },
   {
     key: 'beden-isleri',
     name: 'Beden İşleri',
     district: 'Rasimpaşa · Kadıköy',
     side: 'Anadolu',
-    blurb: 'Bedeni merkeze alan bir hareket stüdyosu. Dans, müzikal ve fiziksel tiyatro çalışmalarımız burada — geniş zemin, yüksek tavan, aynasız sahne disiplini.',
+    blurb: 'Bedeni merkeze alan bir hareket stüdyosu. Dans, müzikal ve fiziksel tiyatro çalışmalarımız burada — geniş zemin, yüksek tavan, doğal ışık.',
     instagram: '@bedenisleri',
     logo: '/images/venues/beden-isleri.jpg',
+    photo: '/images/venues/beden-isleri-photo.jpg',
   },
   {
     key: 'soft-sanat',
@@ -244,6 +246,7 @@ export const VENUES: Venue[] = [
     blurb: 'Küçük gruplarla derinlemesine çalışmaya uygun, sıcak bir sanat alanı. Yazarlık ve dramaturji laboratuvarlarımızın Anadolu yakasındaki durağı.',
     instagram: '@softsanat',
     logo: '/images/venues/soft-sanat.jpg',
+    photo: '/images/venues/soft-sanat-photo.jpg',
   },
 ]
 

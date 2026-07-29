@@ -112,24 +112,39 @@ export default function CollaborationsPage() {
         <ul className="border-t border-border">
           {VENUES.map((v, i) => (
             <li key={v.key} className="border-b border-border group">
-              <div className="px-4 md:px-10 py-10 md:py-12 grid md:grid-cols-[auto_180px_1fr_auto] gap-6 md:gap-10 items-start hover:bg-bgAlt transition-colors duration-200">
-                {/* Numara */}
-                <span
-                  className="font-display text-neon leading-none select-none"
-                  style={{ fontSize: 'clamp(32px,4vw,56px)', letterSpacing: '0.02em' }}
-                  aria-hidden="true"
-                >
-                  0{i + 1}
-                </span>
+              {/* Mekân fotoğrafı — tam genişlik */}
+              {v.photo && (
+                <div className="relative w-full overflow-hidden" style={{ height: 'clamp(220px, 32vw, 480px)' }}>
+                  <Image
+                    src={v.photo}
+                    alt={`${v.name} — mekân`}
+                    fill
+                    sizes="100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    style={{ filter: 'brightness(0.75)' }}
+                  />
+                  {/* Neon alt çizgi */}
+                  <div className="absolute bottom-0 inset-x-0 h-[2px] bg-neon" />
+                  {/* Numara overlay */}
+                  <span
+                    className="absolute top-4 left-4 md:top-6 md:left-10 font-display text-neon leading-none select-none"
+                    style={{ fontSize: 'clamp(36px,5vw,72px)', letterSpacing: '0.02em', textShadow: '0 0 20px rgba(200,255,0,0.4)' }}
+                    aria-hidden="true"
+                  >
+                    0{i + 1}
+                  </span>
+                </div>
+              )}
 
+              <div className="px-4 md:px-10 py-8 md:py-10 grid md:grid-cols-[160px_1fr_auto] gap-6 md:gap-10 items-start hover:bg-bgAlt transition-colors duration-200">
                 {/* Mekân logosu */}
-                <div className="relative w-full max-w-[180px] aspect-[4/3] bg-[#0A0A0C] border border-border overflow-hidden">
+                <div className="relative w-full max-w-[160px] aspect-[4/3] bg-[#0A0A0C] border border-border overflow-hidden shrink-0">
                   {v.logo ? (
                     <Image
                       src={v.logo}
                       alt={`${v.name} logosu`}
                       fill
-                      sizes="180px"
+                      sizes="160px"
                       className="object-contain p-4"
                     />
                   ) : (
@@ -143,9 +158,18 @@ export default function CollaborationsPage() {
 
                 {/* İçerik */}
                 <div className="min-w-0">
+                  {!v.photo && (
+                    <span
+                      className="block font-display text-neon leading-none select-none mb-3"
+                      style={{ fontSize: 'clamp(32px,4vw,56px)', letterSpacing: '0.02em' }}
+                      aria-hidden="true"
+                    >
+                      0{i + 1}
+                    </span>
+                  )}
                   <h3
                     className="font-display text-fg mb-2 group-hover:text-neon transition-colors duration-200"
-                    style={{ fontSize: 'clamp(26px,3.2vw,44px)', letterSpacing: '0.02em', lineHeight: 1 }}
+                    style={{ fontSize: 'clamp(24px,3vw,40px)', letterSpacing: '0.02em', lineHeight: 1 }}
                   >
                     {v.name.toUpperCase()}
                   </h3>
