@@ -226,6 +226,36 @@ html { scrollbar-color: var(--neon) var(--bg); scrollbar-width: thin; }
   100%      { transform: translateY(-83.333%); }
 }
 
+/* ── MOBİL OKUNABİLİRLİK ────────────────────────────────────────────
+   Site tipografisi masaüstü için kalibre edilmiş sabit px değerleri
+   kullanıyor (198 yerde text-[11px]). Telefonda bunlar okumayı
+   zorluyor. Arbitrary Tailwind sınıflarını tek noktadan büyütüyoruz —
+   tasarım hiyerarşisi korunur, yalnızca ölçek yukarı kayar.        */
+@media (max-width: 640px) {
+  .text-\[11px\] { font-size: 12px; }
+  .text-\[12px\] { font-size: 13px; }
+  .text-\[13px\] { font-size: 15px;  line-height: 1.65; }
+  .text-\[14px\] { font-size: 16px;  line-height: 1.7;  }
+  .text-\[15px\] { font-size: 16.5px; line-height: 1.75; }
+  .text-\[16px\] { font-size: 17px;  line-height: 1.7;  }
+
+  /* Geniş harf aralıklı uzun etiketler mobilde satır taşırıyor */
+  .tracking-\[0\.22em\] { letter-spacing: 0.16em; }
+  .tracking-\[0\.32em\] { letter-spacing: 0.2em; }
+  .tracking-widest2       { letter-spacing: 0.16em; }
+
+  /* Kenar boşluğu: 16px metin ağırlıklı sayfada dar kalıyor */
+  .px-4 { padding-left: 20px; padding-right: 20px; }
+
+  /* Paragraflar arası nefes */
+  p + p { margin-top: 0.35em; }
+}
+
+/* Çok dar telefonlarda (iPhone SE vb.) devasa başlıklar taşmasın */
+@media (max-width: 380px) {
+  .px-4 { padding-left: 16px; padding-right: 16px; }
+}
+
 /* ── Reduced motion — animasyon tercihine saygı ────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
