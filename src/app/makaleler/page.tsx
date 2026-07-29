@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Makale & Araştırma — Tiyatro, Dramaturji, Performans',
     description: 'Dramaturji, oyunculuk, sahne tasarımı ve çağdaş tiyatro üzerine makaleler. Techne Lab İstanbul araştırma yazıları.',
     url: `${SITE_META.url}/makaleler`,
-    images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab Makaleler' }],
+    images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: 'Techne Lab Makaleler' }],
   },
   keywords: [
     'tiyatro',

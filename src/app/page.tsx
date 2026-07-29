@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'Techne Lab İstanbul — Tiyatro & Performans Atölyeleri',
     description: 'Oyunculuk, yazarlık, dramaturji, dans ve müzikal. İstanbul\'un bağımsız tiyatro laboratuvarı.',
     url: SITE_META.url,
-    images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab İstanbul' }],
+    images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: 'Techne Lab İstanbul — Bağımsız Tiyatro' }],
   },
 }
 

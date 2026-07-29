@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'İletişim — Techne Lab İstanbul',
     description: 'Atölye başvurusu, prodüksiyon işbirliği veya kurumsal projeler için bize ulaşın.',
     url: `${SITE_META.url}/iletisim`,
-    images: [{ url: `${SITE_META.url}/images/yagiz-bw.jpg`, width: 1200, height: 800, alt: 'Techne Lab İstanbul' }],
+    images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: 'Techne Lab İstanbul' }],
   },
 }
 
