@@ -243,7 +243,7 @@ export const VENUES: Venue[] = [
     name: 'Soft Sanat',
     district: 'Kadıköy',
     side: 'Anadolu',
-    blurb: 'Küçük gruplarla derinlemesine çalışmaya uygun, sıcak bir sanat alanı. Yazarlık ve dramaturji laboratuvarlarımızın Anadolu yakasındaki durağı.',
+    blurb: 'Kadıköy\'de müzikal ve broadway programlarımızın evi. Geniş zemin, yüksek tavan — dans, şan ve sahne çalışması için tam donanımlı bir sanat alanı.',
     instagram: '@softsanat',
     logo: '/images/venues/soft-sanat.jpg',
     photo: '/images/venues/soft-sanat-photo.jpg',
