@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_META, VENUES } from '@/lib/data'
 
@@ -111,7 +112,7 @@ export default function CollaborationsPage() {
         <ul className="border-t border-border">
           {VENUES.map((v, i) => (
             <li key={v.key} className="border-b border-border group">
-              <div className="px-4 md:px-10 py-10 md:py-12 grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-start hover:bg-bgAlt transition-colors duration-200">
+              <div className="px-4 md:px-10 py-10 md:py-12 grid md:grid-cols-[auto_180px_1fr_auto] gap-6 md:gap-10 items-start hover:bg-bgAlt transition-colors duration-200">
                 {/* Numara */}
                 <span
                   className="font-display text-neon leading-none select-none"
@@ -120,6 +121,25 @@ export default function CollaborationsPage() {
                 >
                   0{i + 1}
                 </span>
+
+                {/* Mekân logosu */}
+                <div className="relative w-full max-w-[180px] aspect-[4/3] bg-[#0A0A0C] border border-border overflow-hidden">
+                  {v.logo ? (
+                    <Image
+                      src={v.logo}
+                      alt={`${v.name} logosu`}
+                      fill
+                      sizes="180px"
+                      className="object-contain p-4"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-display text-dim" style={{ fontSize: 24, letterSpacing: '0.04em' }}>
+                        {v.name.split(' ').map((w) => w[0]).join('')}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
                 {/* İçerik */}
                 <div className="min-w-0">

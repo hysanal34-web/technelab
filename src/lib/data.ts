@@ -214,6 +214,8 @@ export type Venue = {
   blurb: string
   instagram?: string
   mapsUrl?: string
+  logo?: string    // partner mekânın kendi logosu
+  photo?: string   // mekân fotoğrafı
 }
 
 export const VENUES: Venue[] = [
@@ -232,6 +234,7 @@ export const VENUES: Venue[] = [
     side: 'Anadolu',
     blurb: 'Bedeni merkeze alan bir hareket stüdyosu. Dans, müzikal ve fiziksel tiyatro çalışmalarımız burada — geniş zemin, yüksek tavan, aynasız sahne disiplini.',
     instagram: '@bedenisleri',
+    logo: '/images/venues/beden-isleri.jpg',
   },
   {
     key: 'soft-sanat',
@@ -240,6 +243,7 @@ export const VENUES: Venue[] = [
     side: 'Anadolu',
     blurb: 'Küçük gruplarla derinlemesine çalışmaya uygun, sıcak bir sanat alanı. Yazarlık ve dramaturji laboratuvarlarımızın Anadolu yakasındaki durağı.',
     instagram: '@softsanat',
+    logo: '/images/venues/soft-sanat.jpg',
   },
 ]
 
