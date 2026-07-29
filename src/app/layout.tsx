@@ -60,7 +60,7 @@ const jsonLd = {
   image: `${SITE_META.url}/images/techne-logo.png`,
   description: SITE_META.description,
   email: SITE_META.email,
-  priceRange: '₺₺',
+
   foundingDate: '2026',
   address: {
     '@type': 'PostalAddress',

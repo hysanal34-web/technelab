@@ -42,8 +42,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
     provider: { '@type': 'Organization', name: SITE_META.name, url: SITE_META.url },
     offers: {
       '@type': 'Offer',
-      price: w.priceEarlyBird ?? w.price,
-      priceCurrency: 'TRY',
       availability: w.active ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
       url: `${SITE_META.url}/atolyeler/${w.slug}`,
       validFrom: new Date().toISOString().slice(0, 10),
@@ -171,61 +169,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
-
-            {/* Ücret */}
-            {w.active && (
-              <div className="border-t border-border pt-6 mb-8">
-                <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-4">ücret</p>
-
-                {w.priceEarlyBird ? (
-                  <>
-                    <div className="flex items-baseline gap-3 mb-1">
-                      <span
-                        className="font-display text-neon leading-none"
-                        style={{ fontSize: 'clamp(30px,3.4vw,44px)', letterSpacing: '0.02em' }}
-                      >
-                        {w.priceEarlyBird.toLocaleString('tr-TR')} ₺
-                      </span>
-                      <span className="font-mono text-[14px] text-dim line-through">
-                        {w.price.toLocaleString('tr-TR')} ₺
-                      </span>
-                    </div>
-                    <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-5">
-                      erken kayıt{w.earlyBirdSlots ? ` · ilk ${w.earlyBirdSlots} kişi` : ''}
-                    </p>
-                  </>
-                ) : (
-                  <div
-                    className="font-display text-fg leading-none mb-5"
-                    style={{ fontSize: 'clamp(30px,3.4vw,44px)', letterSpacing: '0.02em' }}
-                  >
-                    {w.price.toLocaleString('tr-TR')} ₺
-                  </div>
-                )}
-
-                <ul className="space-y-2.5">
-                  {w.priceCash && (
-                    <li className="flex justify-between gap-4 font-mono text-[12px]">
-                      <span className="text-stone">Peşin / havale</span>
-                      <span className="text-fg whitespace-nowrap">{w.priceCash.toLocaleString('tr-TR')} ₺</span>
-                    </li>
-                  )}
-                  {w.installments && w.monthlyPrice && (
-                    <li className="flex justify-between gap-4 font-mono text-[12px]">
-                      <span className="text-stone">{w.installments} taksit</span>
-                      <span className="text-fg whitespace-nowrap">
-                        ayda {w.monthlyPrice.toLocaleString('tr-TR')} ₺
-                      </span>
-                    </li>
-                  )}
-                </ul>
-
-                <p className="font-mono text-[11px] text-dim leading-relaxed mt-5">
-                  Tüm ücretlere program materyalleri ve dönem sonu sahne çalışması dâhildir.
-                  Ödeme planı kayıt sırasında netleşir.
-                </p>
-              </div>
-            )}
 
             {!w.active ? (
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
