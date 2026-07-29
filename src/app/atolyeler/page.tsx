@@ -3,12 +3,31 @@ import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { WorkshopsFilter } from '@/components/WorkshopsFilter'
 
 export const metadata: Metadata = {
-  title: 'Atölyeler — Tiyatro & Performans Programları',
-  description: 'Oyunculuk, yazarlık, dramaturji, dans, müzikal ve İngilizce drama atölyeleri. Küçük gruplar, yoğun pratik. Pera ve Kadıköy.',
+  title: 'Atölyeler — Oyunculuk, Dans, Müzikal, Yazarlık Kursları',
+  description: 'İstanbul\'da oyunculuk kursu, acting workshop, yaratıcı drama, İngilizce drama, Broadway müzikal dansı, oyun yazarlığı, dramaturji ve senaryo atölyeleri. Küçük gruplar, yoğun pratik. Pera ve Kadıköy.',
   alternates: { canonical: `${SITE_META.url}/atolyeler` },
+  keywords: [
+    'oyunculuk kursu istanbul',
+    'oyunculuk atölyeleri',
+    'acting workshop istanbul',
+    'yaratıcı drama atölyesi',
+    'ingilizce drama atölyesi',
+    'english acting workshop',
+    'dans kursu istanbul',
+    'jazz dans atölyesi',
+    'broadway müzikal dansı',
+    'müzikal tiyatro kursu',
+    'oyun yazarlığı atölyesi',
+    'yaratıcı yazarlık kursu',
+    'dramaturji atölyesi',
+    'senaryo atölyesi istanbul',
+    'sanat okulu istanbul',
+    'art academy istanbul',
+    'tiyatro kursu kadıköy',
+  ],
   openGraph: {
-    title: 'Techne Lab Atölyeleri — Tiyatro & Performans',
-    description: 'İstanbul\'da oyunculuk, yazarlık, dramaturji, dans, müzikal ve İngilizce drama atölyeleri.',
+    title: 'Techne Lab Atölyeleri — Oyunculuk, Dans, Müzikal, Yazarlık',
+    description: 'İstanbul\'da oyunculuk kursu, acting workshop, yaratıcı drama, İngilizce drama, Broadway dans, müzikal, oyun yazarlığı ve dramaturji atölyeleri.',
     url: `${SITE_META.url}/atolyeler`,
   },
 }
