@@ -49,8 +49,8 @@ export const WORKSHOPS: Workshop[] = [
       },
     ],
     images: ['auteur-hero', 'auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
-    seoTitle: 'The Auteur Lab — Oyun Yazarlığı Atölyesi',
-    seoDesc: 'Kendi oyununu yazmak isteyenler için 8 haftalık dramaturji laboratuvarı. Sophokles\'ten Beckett\'e metin analizi, karakter ve çatışma. Halil Yağız Şanal ile Kadıköy\'de.',
+    seoTitle: 'Oyun Yazarlığı & Dramaturji Atölyesi İstanbul — Auteur Lab',
+    seoDesc: 'İstanbul\'da oyun yazarlığı ve dramaturji atölyesi: 8 hafta metin analizi, karakter, çatışma. Sophokles\'ten Beckett\'e. Halil Yağız Şanal ile yaratıcı yazarlık, senaryo ve kurmaca kursu. Kadıköy.',
   },
 
   // ── 02 — MEVCUDİYET ────────────────────────────────────────────────
@@ -70,8 +70,8 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Anda Kalmak', span: '', body: 'Gerçek tepki, partneri görme, burada ve şimdi.' },
     ],
     images: ['mevcudiyet-01', 'mevcudiyet-02', 'mevcudiyet-03', 'mevcudiyet-04', 'mevcudiyet-05', 'mevcudiyet-06', 'mevcudiyet-07', 'mevcudiyet-08'],
-    seoTitle: 'Oyuncunun Mevcudiyeti — Sahne Presence',
-    seoDesc: 'Sahnede var olmanın tekniği: beden farkındalığı, ses-nefes ve anda kalma. Dr. Burcu Halaçoğlu ile Michael Chekhov temelli yoğun çalışma. Pera ve Kadıköy.',
+    seoTitle: 'Oyunculuk Atölyesi İstanbul — Beden, Ses & Mevcudiyet',
+    seoDesc: 'İstanbul oyunculuk atölyesi: beden farkındalığı, ses-nefes ve anda kalma. Acting workshop ve tiyatro kursu — Burcu Halaçoğlu ile Pera ve Kadıköy\'de. Fiziksel tiyatro, presence çalışması.',
   },
 
   // ── 03 — ENGLISH DRAMA LAB (Yetişkin · 12 hafta) ──────────────────
@@ -86,7 +86,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
-    desc: 'İngilizce dili yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberlemeden uzak, anlık tepki ve hayal gücüne dayalı bu program katılımcıları İngilizce ifadeyle doğrudan temas kurmaya davet eder.',
+    desc: 'İngilizce dili yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberlemeden uzak, anlık tepki ve hayal gücüne dayalı bu program katılımcıları İngilizce ifadeyle doğrudan temas kurmaya davet eder. Bir konuşma kulübünün pratiğini yaratıcı dramanın araçlarıyla birleştiriyoruz: konuşma sahnede, bedenle ve oyunla açılıyor.',
     blocks: [
       { title: 'Isınma & Keşif', span: '1—4. Hafta', body: 'Oyun ve güven egzersizleri, dil oyunları, beden-ses-hayal gücü üçgeni. İngilizce sezginin açılması.' },
       { title: 'Doğaçlama & Karakter', span: '5—8. Hafta', body: 'Anlık sahne çalışması, status oyunları, karakter doğaçlamaları. Dili düşünmeden konuşmak.' },
@@ -94,8 +94,8 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-final-project', 'english-drama-youth'],
-    seoTitle: 'English Drama Lab — İngilizce Drama',
-    seoDesc: 'İngilizceyi ezberleyerek değil oynayarak öğrenin. 12 haftalık yaratıcı drama ve doğaçlama atölyesi; 12 kişilik gruplar. Pera ve Kadıköy — Techne Lab İstanbul.',
+    seoTitle: 'İngilizce Drama & Konuşma Kulübü İstanbul — English Drama Lab',
+    seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, 12 hafta.',
   },
 
   // ── 04 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
@@ -118,8 +118,8 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-acting-praxis-poster', 'english-drama-11', 'english-drama-12', 'english-drama-13', 'english-drama-15'],
     edlFamily: ['english-drama-lab', 'english-drama-youth'],
-    seoTitle: 'English Acting Praxis — İngilizce Sahne',
-    seoDesc: 'Ece Ertez ile 12 haftalık İngilizce sahne çalışması: metin analizi, karakter ve prova disiplini. Finalde Cast Direktörü Harika Uygur masterclass\'ı. Pera, İstanbul.',
+    seoTitle: 'İngilizce Oyunculuk Atölyesi İstanbul — English Acting Praxis',
+    seoDesc: 'İngilizce acting workshop İstanbul: 12 hafta metin analizi, karakter ve prova disiplini. English acting kursu, Ece Ertez ile — Harika Uygur masterclass finali. Pera, Beyoğlu.',
   },
 
   // ── 05 — ENGLISH DRAMA YOUTH: 14–17 YAŞ ────────────────────────────
@@ -142,8 +142,8 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-lab', 'english-drama-final-project'],
-    seoTitle: 'English Drama Youth — 14–17 Yaş Tiyatro',
-    seoDesc: '14–17 yaş gençler için 8 aylık İngilizce tiyatro programı. Haftada 1 gün, Ekim–Mayıs, yıl sonunda seyircili final gösterisi. Kadıköy — Techne Lab İstanbul.',
+    seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 14–17 Yaş Drama',
+    seoDesc: 'İstanbul 14–17 yaş tiyatro kursu: İngilizce yaratıcı drama, sahne çalışması ve konuşma pratiği. Gençler için drama atölyesi, youth theatre, seyircili final gösterisi. Kadıköy, 8 ay.',
   },
 
   // ── 06 — TECHNE MUSICAL LAB ────────────────────────────────────────
@@ -166,8 +166,8 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Bitirme Performansı', span: 'Nisan–Mayıs', body: 'Tam sahne uygulaması — kostüm, ışık, seyirci. Kişisel parça geliştirme ve toplu prodüksiyon sunumu.' },
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
-    seoTitle: 'Techne Musical Lab — Müzikal Tiyatro',
-    seoDesc: 'Oyunculuk, şan ve dans tek programda: 8 aylık müzikal tiyatro laboratuvarı. Köksal Ünal & Sitare Bilge ile Ekim–Mayıs, seyircili bitirme performansı. Kadıköy.',
+    seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Oyunculuk, Şan & Dans',
+    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Sitare Bilge ile. Seyircili bitirme performansı. Kadıköy.',
   },
 
   // ── 07 — BROADWAY MUSICAL DANCE ────────────────────────────────────
@@ -189,8 +189,8 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Sahne & Showmanship', span: '9—12. Hafta', body: 'Performans bütünlüğü, kostümle çalışma ve final koreografisi sunumu.' },
     ],
     images: ['dslr-zl5a1044', 'dslr-zl5a1043', 'dslr-zl5a1064', 'dslr-zl5a1092'],
-    seoTitle: 'Broadway Musical Dance — Müzikal Dansı',
-    seoDesc: 'Köksal Ünal ile 12 haftalık Broadway müzikal dansı: jazz, theatre dance ve showmanship. Dans deneyimi şart değil. Kadıköy — Techne Lab İstanbul.',
+    seoTitle: 'Dans Kursu İstanbul — Broadway Müzikal Dansı & Jazz Dance',
+    seoDesc: 'İstanbul dans kursu: Broadway müzikal dansı, jazz dance ve theatre dance. 12 hafta sahne koreografisi ve showmanship. Köksal Ünal ile dans atölyesi — Kadıköy, dans deneyimi şart değil.',
   },
 ]
 
@@ -220,15 +220,6 @@ export type Venue = {
 
 export const VENUES: Venue[] = [
   {
-    key: 'pod-pera',
-    name: 'Pod Pera',
-    district: 'Pera · Beyoğlu',
-    side: 'Avrupa',
-    blurb: 'Pera\'nın merkezinde, tarihi dokunun içinde bir çalışma alanı. İngilizce sahne programlarımızın ve yoğun atölyelerimizin Avrupa yakasındaki evi.',
-    instagram: '@podpera',
-    photo: '/images/venues/pod-pera-photo.jpg',
-  },
-  {
     key: 'beden-isleri',
     name: 'Beden İşleri',
     district: 'Rasimpaşa · Kadıköy',
@@ -239,11 +230,21 @@ export const VENUES: Venue[] = [
     photo: '/images/venues/beden-isleri-photo.jpg',
   },
   {
+    key: 'pod-pera',
+    name: 'Pod Pera',
+    district: 'Pera · Beyoğlu',
+    side: 'Avrupa',
+    blurb: 'Pera\'nın merkezinde, tarihi dokunun içinde bir çalışma alanı.',
+    instagram: '@podpera',
+    logo: '/images/venues/pod-pera.png',
+    photo: '/images/venues/pod-pera-photo.jpg',
+  },
+  {
     key: 'soft-sanat',
     name: 'Soft Sanat',
     district: 'Kadıköy',
     side: 'Anadolu',
-    blurb: 'Küçük gruplarla derinlemesine çalışmaya uygun, sıcak bir sanat alanı. Yazarlık ve dramaturji laboratuvarlarımızın Anadolu yakasındaki durağı.',
+    blurb: 'Kadıköy\'de müzikal ve broadway programlarımızın evi. Geniş zemin, yüksek tavan — dans, şan ve sahne çalışması için tam donanımlı bir sanat alanı.',
     instagram: '@softsanat',
     logo: '/images/venues/soft-sanat.jpg',
     photo: '/images/venues/soft-sanat-photo.jpg',

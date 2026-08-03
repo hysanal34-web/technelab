@@ -3,10 +3,20 @@ import Link from 'next/link'
 import { SITE_META } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Hakkında — Bağımsız Tiyatro Laboratuvarı',
+  title: 'Hakkında — Sahne Sanatları Akademisi & Tiyatro Laboratuvarı',
   description:
-    "Adını Antik Yunanca 'techne' (zanaat) sözcüğünden alan bağımsız tiyatro. Pera ve Kadıköy'de oyunculuk, yazarlık, İngilizce drama, dans ve müzikal atölyeleri.",
+    "Adını Antik Yunanca 'techne' (zanaat) sözcüğünden alan bağımsız bir sahne sanatları laboratuvarı. Pera ve Kadıköy'de oyunculuk kursu, oyun yazarlığı, dramaturji, İngilizce drama, dans ve müzikal atölyeleri.",
   alternates: { canonical: `${SITE_META.url}/hakkinda` },
+  keywords: [
+    'sanat okulu istanbul',
+    'sanat akademisi istanbul',
+    'art academy istanbul',
+    'acting academy istanbul',
+    'tiyatro okulu istanbul',
+    'performans sanatları okulu',
+    'bağımsız tiyatro istanbul',
+    'sahne sanatları eğitimi',
+  ],
   openGraph: {
     title: 'Hakkında — Bağımsız Tiyatro Laboratuvarı',
     description: "Techne: zanaat. Sahnenin öğrenilebilir olduğuna dair inat. İstanbul'da bağımsız bir tiyatro laboratuvarı.",

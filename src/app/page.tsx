@@ -16,32 +16,89 @@ import { CycleDisciplines } from '@/components/CycleDisciplines'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Techne Lab İstanbul — Tiyatro & Drama Atölyeleri',
+    absolute: 'Techne Lab İstanbul — Oyunculuk, Dans, Müzikal & Yazarlık Atölyeleri',
   },
   description:
-    'İstanbul\'da oyunculuk, yaratıcı drama, İngilizce drama, yazarlık ve müzikal atölyeleri. Pera & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
+    'İstanbul\'da oyunculuk kursu, yaratıcı drama, İngilizce drama ve konuşma kulübü, Broadway müzikal dansı, oyun yazarlığı ve dramaturji atölyeleri. Pera & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
   alternates: { canonical: SITE_META.url },
   keywords: [
+    // — Oyunculuk
+    'oyunculuk kursu istanbul',
+    'oyunculuk atölyesi',
+    'oyunculuk atölyeleri istanbul',
+    'acting workshop istanbul',
+    'acting academy istanbul',
+    'profesyonel oyunculuk eğitimi',
+    'kamera önü oyunculuk',
+    'sahne oyunculuğu kursu',
+    'oyunculuk dersi kadıköy',
+
+    // — Yaratıcı drama
     'yaratıcı drama istanbul',
+    'drama kursu istanbul',
+    'yetişkinler için drama',
+    'drama atölyesi kadıköy',
+
+    // — İngilizce drama & konuşma
     'ingilizce drama',
     'ingilizce yaratıcı drama',
     'ingilizce tiyatro istanbul',
-    'tiyatro atölyesi istanbul',
-    'oyunculuk kursu istanbul',
-    'oyunculuk atölyesi',
-    'yazarlık atölyesi istanbul',
-    'dramaturji',
-    'drama kursu istanbul',
-    'müzikal tiyatro kursu',
-    'broadway dans istanbul',
-    'bağımsız tiyatro istanbul',
-    'yetişkinler için drama',
+    'english drama istanbul',
+    'english acting workshop',
+    'english acting istanbul',
+    'ingilizce konuşma kulübü',
+    'konuşma kulübü istanbul',
+    'ingilizce konuşma pratiği istanbul',
     'gençler için ingilizce drama',
+
+    // — Dans
+    'dans kursu istanbul',
+    'dans atölyesi istanbul',
+    'modern dans kursu',
+    'jazz dans istanbul',
+    'theatre dance istanbul',
+    'street dance istanbul',
+    'sokak dansı kursu',
+    'koreografi atölyesi',
+    'dans dersi kadıköy',
+
+    // — Müzikal & Broadway
+    'müzikal tiyatro kursu',
+    'müzikal kursu istanbul',
+    'broadway dans istanbul',
+    'broadway müzikal dansı',
+    'musical theatre istanbul',
+    'şan ve dans atölyesi',
+
+    // — Yazarlık & dramaturji
+    'yazarlık atölyesi istanbul',
+    'yaratıcı yazarlık atölyesi',
+    'oyun yazarlığı kursu',
+    'dramaturji',
+    'dramaturji atölyesi',
+    'kurmaca yazarlık atölyesi',
+    'senaryo atölyesi istanbul',
+    'senaryo yazarlığı kursu',
+    'metin yazarlığı atölyesi',
+
+    // — Akademi & okul
+    'sanat okulu istanbul',
+    'sanat akademisi istanbul',
+    'art academy istanbul',
+    'performans sanatları okulu',
+    'tiyatro okulu istanbul',
+    'özel tiyatro atölyesi',
+
+    // — Genel & marka
+    'tiyatro atölyesi istanbul',
+    'bağımsız tiyatro istanbul',
+    'sahne sanatları atölyesi',
     'techne lab',
+    'techne lab istanbul',
   ],
   openGraph: {
-    title: 'Techne Lab İstanbul — Tiyatro & Performans Atölyeleri',
-    description: 'Oyunculuk, yazarlık, dramaturji, dans ve müzikal. İstanbul\'un bağımsız tiyatro laboratuvarı.',
+    title: 'Techne Lab İstanbul — Oyunculuk, Dans, Müzikal & Yazarlık Atölyeleri',
+    description: 'Oyunculuk kursu, yaratıcı drama, İngilizce drama, oyun yazarlığı, dramaturji, dans ve müzikal. İstanbul\'un bağımsız tiyatro laboratuvarı — Pera & Kadıköy.',
     url: SITE_META.url,
     images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: 'Techne Lab İstanbul — Bağımsız Tiyatro' }],
   },

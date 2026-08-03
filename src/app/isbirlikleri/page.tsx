@@ -114,14 +114,13 @@ export default function CollaborationsPage() {
             <li key={v.key} className="border-b border-border group">
               {/* Mekân fotoğrafı — tam genişlik */}
               {v.photo && (
-                <div className="relative w-full overflow-hidden" style={{ height: 'clamp(220px, 32vw, 480px)' }}>
+                <div className="relative w-full overflow-hidden bg-bgAlt" style={{ height: 'clamp(260px, 38vw, 560px)' }}>
                   <Image
                     src={v.photo}
                     alt={`${v.name} — mekân`}
                     fill
                     sizes="100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                    style={{ filter: 'brightness(0.75)' }}
+                    className="object-contain"
                   />
                   {/* Neon alt çizgi */}
                   <div className="absolute bottom-0 inset-x-0 h-[2px] bg-neon" />

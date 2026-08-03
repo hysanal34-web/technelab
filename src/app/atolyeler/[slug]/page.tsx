@@ -33,13 +33,27 @@ export default async function WorkshopDetailPage({ params }: Props) {
   const w = WORKSHOPS.find((w) => w.slug === slug)
   if (!w) notFound()
 
+  const courseImage = w.images?.[0]
+    ? `${SITE_META.url}/images/gallery/${w.images[0]}.jpg`
+    : `${SITE_META.url}/images/og-techne-lab.png`
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Course',
+    '@id': `${SITE_META.url}/atolyeler/${w.slug}#course`,
     name: `${w.title} — ${w.sub}`,
     description: w.desc,
     url: `${SITE_META.url}/atolyeler/${w.slug}`,
-    provider: { '@type': 'Organization', name: SITE_META.name, url: SITE_META.url },
+    image: courseImage,
+    inLanguage: w.category === 'ingilizce-drama' ? ['tr', 'en'] : 'tr',
+    teaches: w.tags.join(', '),
+    keywords: w.tags.join(', '),
+    provider: {
+      '@type': 'Organization',
+      '@id': `${SITE_META.url}#organization`,
+      name: SITE_META.name,
+      url: SITE_META.url,
+    },
     offers: {
       '@type': 'Offer',
       availability: w.active ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
@@ -50,9 +64,10 @@ export default async function WorkshopDetailPage({ params }: Props) {
       '@type': 'CourseInstance',
       courseMode: 'Onsite',
       courseWorkload: w.duration,
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
         '@type': 'Place',
-        name: w.venue,
+        name: `Techne Lab — ${w.venue}`,
         address: {
           '@type': 'PostalAddress',
           addressLocality: w.venue.includes('Pera') ? 'Beyoğlu' : 'Kadıköy',
@@ -60,7 +75,11 @@ export default async function WorkshopDetailPage({ params }: Props) {
           addressCountry: 'TR',
         },
       },
-      instructor: { '@type': 'Person', name: w.instructor },
+      instructor: {
+        '@type': 'Person',
+        name: w.instructor !== 'Techne Lab' ? w.instructor : 'Techne Lab',
+        description: w.instructor !== 'Techne Lab' ? w.instructorBio : undefined,
+      },
       maximumAttendeeCapacity: typeof w.maxStudents === 'number' ? w.maxStudents : undefined,
     },
   }
