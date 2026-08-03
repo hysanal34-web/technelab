@@ -9,6 +9,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 
 const links = [
   { href: '/atolyeler', tr: 'atölyeler', en: 'workshops', hasMega: true },
+  { href: '/kaynaklar', tr: 'kaynaklar', en: 'resources', hasMega: false },
   { href: '/ekip',      tr: 'ekip',      en: 'team',      hasMega: false },
   { href: '/galeri',    tr: 'galeri',    en: 'gallery',   hasMega: false },
   { href: '/isbirlikleri', tr: 'işbirlikleri', en: 'venues', hasMega: false },

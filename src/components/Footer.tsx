@@ -37,6 +37,54 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Kaynaklar & lokasyonlar — SEO iç bağlantı ağı */}
+      <div className="px-4 md:px-10 py-8 border-t border-border grid md:grid-cols-3 gap-8">
+        <div>
+          <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-3">ücretsiz kaynaklar</span>
+          <div className="flex flex-col gap-1">
+            {[
+              ['/kaynaklar/monologlar', 'monolog kütüphanesi'],
+              ['/kaynaklar/sozluk', 'tiyatro sözlüğü'],
+              ['/kaynaklar/ses-nefes', 'ses & nefes egzersizleri'],
+              ['/atolye-testi', 'hangi atölye sana uygun?'],
+            ].map(([href, label]) => (
+              <Link key={href} href={href} className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 py-0.5">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-3">lokasyonlar</span>
+          <div className="flex flex-col gap-1">
+            {[
+              ['/kadikoy-tiyatro-kursu', 'kadıköy tiyatro kursu'],
+              ['/beyoglu-tiyatro-kursu', 'beyoğlu · pera tiyatro kursu'],
+              ['/isbirlikleri', 'partner mekânlar'],
+            ].map(([href, label]) => (
+              <Link key={href} href={href} className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 py-0.5">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-neon block mb-3">english</span>
+          <div className="flex flex-col gap-1">
+            {[
+              ['/en', 'acting classes in istanbul'],
+              ['/en/english-drama-istanbul', 'english drama istanbul'],
+            ].map(([href, label]) => (
+              <Link key={href} href={href} className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 py-0.5">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="px-4 md:px-10 pb-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-border pt-4">
         <span className="font-mono text-[11px] text-dim tracking-[0.1em]">© 2026 TECHNE LAB İSTANBUL</span>
         <Link href="/kvkk" className="font-mono text-[11px] text-dim hover:text-neon transition-colors duration-200 tracking-[0.1em] lowercase py-2">

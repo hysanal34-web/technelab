@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { getAllArticles } from '@/lib/mdx'
+import { DISTRICTS } from '@/lib/semtler'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_META.url
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const statik: { path: string; priority: number; freq: 'daily' | 'weekly' | 'monthly' }[] = [
     { path: '',               priority: 1.0, freq: 'weekly' },
     { path: '/atolyeler',     priority: 0.9, freq: 'weekly' },
+    { path: '/atolye-testi',  priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar',            priority: 0.8, freq: 'weekly' },
+    { path: '/kaynaklar/monologlar', priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/sozluk',     priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/ses-nefes',  priority: 0.8, freq: 'monthly' },
+    { path: '/en',                        priority: 0.8, freq: 'weekly' },
+    { path: '/en/english-drama-istanbul', priority: 0.8, freq: 'weekly' },
     { path: '/isbirlikleri',  priority: 0.7, freq: 'monthly' },
     { path: '/ekip',          priority: 0.7, freq: 'monthly' },
     { path: '/galeri',        priority: 0.6, freq: 'monthly' },
@@ -23,6 +31,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: s.freq,
     priority: s.priority,
+  }))
+
+  // Semt landing sayfaları — lokal SEO
+  const semtler: MetadataRoute.Sitemap = DISTRICTS.map((d) => ({
+    url: `${base}/${d.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.85,
   }))
 
   const programlar: MetadataRoute.Sitemap = WORKSHOPS
@@ -42,5 +58,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...sayfalar, ...programlar, ...makaleler]
+  return [...sayfalar, ...semtler, ...programlar, ...makaleler]
 }

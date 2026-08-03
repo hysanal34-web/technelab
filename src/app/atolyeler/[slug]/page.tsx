@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
+import { getWorkshopFaq } from '@/lib/faq'
 type Props = { params: Promise<{ slug: string }> }
 
 
@@ -94,10 +95,23 @@ export default async function WorkshopDetailPage({ params }: Props) {
     ],
   }
 
+  // Programa özel SSS — Google "Bunlar da soruldu" kutuları için
+  const faq = getWorkshopFaq(w)
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* Hero Görsel */}
       {w.images && w.images[0] && (
@@ -291,6 +305,28 @@ export default async function WorkshopDetailPage({ params }: Props) {
         )
       })()}
 
+      {/* SSS — Google "Bunlar da soruldu" kutuları */}
+      <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="sss-heading">
+        <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-3">merak edilenler</p>
+        <h2 id="sss-heading" className="font-display text-fg mb-10" style={{ fontSize: 'clamp(22px,3vw,40px)', letterSpacing: '0.02em', lineHeight: 1 }}>
+          SIKÇA SORULAN SORULAR
+        </h2>
+        <div className="max-w-3xl space-y-8">
+          {faq.map((f) => (
+            <div key={f.q} className="border-t border-border pt-6">
+              <h3 className="font-display text-fg text-[18px] mb-3 leading-snug">{f.q}</h3>
+              <p className="font-mono text-[13px] text-stone leading-relaxed">{f.a}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 pt-8 border-t border-border">
+          <p className="font-mono text-[12px] text-dim mb-4">Sorunun cevabı burada yoksa doğrudan yaz — hızlı dönüyoruz.</p>
+          <Link href="/iletisim" className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon hover:text-fg transition-colors">
+            iletişime geç →
+          </Link>
+        </div>
+      </section>
+
       {/* Tags */}
       <section className="px-4 md:px-10 py-10 flex flex-wrap items-center gap-3 border-b border-border" aria-label="Kategoriler">
         {w.tags.map((t) => (
@@ -298,6 +334,22 @@ export default async function WorkshopDetailPage({ params }: Props) {
             {t}
           </span>
         ))}
+      </section>
+
+      {/* Lokasyon bağlantıları — lokal SEO iç link */}
+      <section className="px-4 md:px-10 py-10 border-b border-border">
+        <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">bu bölgedeki diğer programlar</span>
+        <div className="flex flex-wrap gap-x-8 gap-y-2">
+          <Link href="/kadikoy-tiyatro-kursu" className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
+            Kadıköy tiyatro kursları →
+          </Link>
+          <Link href="/beyoglu-tiyatro-kursu" className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
+            Beyoğlu · Pera tiyatro kursları →
+          </Link>
+          <Link href="/atolye-testi" className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
+            Hangi atölye sana uygun? →
+          </Link>
+        </div>
       </section>
     </>
   )

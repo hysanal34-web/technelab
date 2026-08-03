@@ -72,8 +72,25 @@ export const metadata: Metadata = {
     description: SITE_META.description,
     images: [`${SITE_META.url}/images/og-techne-lab.png`],
   },
-  robots: { index: true, follow: true },
-  alternates: { canonical: SITE_META.url },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_META.url,
+    languages: {
+      'tr-TR': SITE_META.url,
+      'en-US': `${SITE_META.url}/en`,
+      'x-default': SITE_META.url,
+    },
+  },
 }
 
 const jsonLd = {
@@ -98,6 +115,32 @@ const jsonLd = {
   areaServed: ['Beyoğlu', 'Pera', 'Kadıköy', 'İstanbul'],
   knowsLanguage: ['tr', 'en'],
   sameAs: [`https://instagram.com/${SITE_META.instagram.replace('@', '')}`],
+  founder: {
+    '@type': 'Person',
+    name: 'Halil Yağız Şanal',
+    jobTitle: 'Oyun Yazarı & Yönetmen',
+  },
+  knowsAbout: [
+    'Oyunculuk eğitimi', 'Oyun yazarlığı', 'Dramaturji', 'Müzikal tiyatro',
+    'İngilizce drama', 'Broadway dansı', 'Sahne sanatları', 'Bağımsız tiyatro',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Techne Lab Atölyeleri',
+    url: `${SITE_META.url}/atolyeler`,
+  },
+}
+
+// WebSite schema — Google sitelinks arama kutusu ve marka tanıma için
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_META.url}#website`,
+  url: SITE_META.url,
+  name: SITE_META.name,
+  description: SITE_META.description,
+  inLanguage: ['tr-TR', 'en-US'],
+  publisher: { '@id': `${SITE_META.url}#organization` },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -107,6 +150,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
         />
         {/* Anti-flash theme script — must be synchronous, before any render */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
