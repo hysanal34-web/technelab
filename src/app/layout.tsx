@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
@@ -178,6 +179,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <TiyatroBot />
         </LanguageProvider>
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   )
