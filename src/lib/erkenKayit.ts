@@ -40,7 +40,12 @@ export function parseDeadline(text: string, now = new Date()): Date | null {
 // olarak listeye döner, hiçbir sayfada elle düzeltme gerekmez.
 // ══════════════════════════════════════════════════════════════════
 export const CAMPAIGN = {
-  active: true,
+  // 24 Ağustos 2026 — kapatıldı. Eylül fiyat yapısında erken kayıt
+  // indirimi zaten programın kendi priceEarlyBird alanında; Praxis,
+  // Youth ve Musical Lab'de ise tek bedel duyuruluyor ve indirim
+  // görüşmede uygulanıyor. Otomatik %15 bu üçünde yanlış rakam
+  // üretiyordu (59.000 → 50.150 gibi), o yüzden devre dışı.
+  active: false,
   percent: 15,
   label: 'ağustos indirimi',
   /** Kampanyanın son günü — bu günün sonuna kadar geçerli. */

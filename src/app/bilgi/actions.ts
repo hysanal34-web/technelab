@@ -52,7 +52,7 @@ function priceRows(w: (typeof WORKSHOPS)[number]): [string, string][] {
   }
   if (w.priceCash) rows.push(['Peşin / havale', TL(w.priceCash)])
   if (w.monthlyPrice) rows.push(['Aylık ödeme', `${TL(w.monthlyPrice)} / ay`])
-  if (w.installments) rows.push(['Taksit', `${w.installments} taksite kadar`])
+  rows.push(['Ödeme', 'Kredi kartına taksit seçenekleri mevcuttur'])
   if (w.earlyBirdDeadline) rows.push(['Erken kayıt son tarih', w.earlyBirdDeadline])
   return rows
 }
