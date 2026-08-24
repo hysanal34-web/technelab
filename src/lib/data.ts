@@ -118,6 +118,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Ece Ertez',
     instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.\n\nCast Direktörü / Süpervizör: Harika Uygur — Avrupa\'nın en iyi cast direktörü seçilen (ICDN, "Mustang"), Amerikan Film Akademisi (AMPAS), Casting Society of America (CSA) ve Avrupa Film Akademisi üyesi. Türkiye\'de casting direktörlüğünü uluslararası standartta kuran isim.',
     venue: 'Pera', duration: '12 hafta', price: 59000,
+    priceEarlyBird: 50000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
     schedule: [{ place: 'Pera', date: '19 Eylül Cumartesi', time: '11:00' }],
     maxStudents: 14, active: true,
     category: 'ingilizce-drama',
@@ -142,6 +143,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Alara Lokum',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ders olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
     venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 128000,
+    priceEarlyBird: 108000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
     schedule: [
       { place: 'Pera', date: '27 Eylül Pazar' },
       { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
@@ -169,6 +171,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Köksal Ünal & Sitare Bilge',
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Eylül–Mayıs)', price: 165000,
+    priceEarlyBird: 140000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
     schedule: [{ place: 'Kadıköy', date: '28 Eylül Pazartesi' }],
     maxStudents: 12, active: true,
     category: 'dans-muzikal',

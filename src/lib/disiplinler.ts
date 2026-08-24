@@ -74,10 +74,6 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Oyunculuk kursu İstanbul\'da nerede yapılıyor?',
         a: 'Kadıköy tarafında iki partner stüdyo (Rasimpaşa ve Kadıköy merkez), Avrupa yakasında Pera\'da bir mekân. Aynı program bazen iki yakada da açılıyor — kayıt sırasında sana yakın olanı seçiyorsun.',
       },
-      {
-        q: 'Sertifika veriyor musunuz?',
-        a: 'Techne Lab bir MEB kursu değil, bağımsız bir tiyatro topluluğunun atölye programı. Sertifika yerine sahne çıktısı üretiyoruz: dönem sonu gösterileri, kayıt altına alınan performanslar, showreel materyali.',
-      },
     ],
     related: ['kamera-onu-oyunculuk-istanbul', 'yaratici-drama-istanbul', 'muzikal-tiyatro-kursu-istanbul'],
   },
