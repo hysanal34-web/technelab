@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { getAllArticles } from '@/lib/mdx'
 import { DISTRICTS } from '@/lib/semtler'
+import { DISCIPLINES } from '@/lib/disiplinler'
+import { EN_PAGES } from '@/lib/enDisciplines'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_META.url
@@ -41,6 +43,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
+  // Disiplin landing sayfaları — "oyunculuk kursu istanbul" vb.
+  // Semt sayfalarından yüksek öncelik: arama hacmi daha büyük.
+  const disiplinler: MetadataRoute.Sitemap = DISCIPLINES.map((d) => ({
+    url: `${base}/${d.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }))
+
+  // İngilizce landing sayfaları — expat & uluslararası kitle
+  const ingilizce: MetadataRoute.Sitemap = EN_PAGES.map((p) => ({
+    url: `${base}/en/${p.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }))
+
   const programlar: MetadataRoute.Sitemap = WORKSHOPS
     .filter((w) => !w.archived)
     .map((w) => ({
@@ -58,5 +77,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...sayfalar, ...semtler, ...programlar, ...makaleler]
+  return [...sayfalar, ...disiplinler, ...ingilizce, ...semtler, ...programlar, ...makaleler]
 }

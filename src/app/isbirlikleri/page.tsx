@@ -112,15 +112,19 @@ export default function CollaborationsPage() {
         <ul className="border-t border-border">
           {VENUES.map((v, i) => (
             <li key={v.key} className="border-b border-border group">
-              {/* Mekân fotoğrafı — tam genişlik */}
+              {/* Mekân fotoğrafı — tam genişlik.
+                  Görseller 16:9; kutu da 16:9 olunca object-cover hiçbir yeri
+                  kırpmıyor ve kenarlarda boş bant kalmıyor. Önceki sabit
+                  yükseklik + object-contain kombinasyonu görseli kutunun
+                  ortasına sıkıştırıp iki yanında boşluk bırakıyordu. */}
               {v.photo && (
-                <div className="relative w-full overflow-hidden bg-bgAlt" style={{ height: 'clamp(260px, 38vw, 560px)' }}>
+                <div className="relative w-full aspect-[16/9] overflow-hidden bg-bgAlt">
                   <Image
                     src={v.photo}
                     alt={`${v.name} — mekân`}
                     fill
                     sizes="100vw"
-                    className="object-contain"
+                    className="object-cover"
                   />
                   {/* Neon alt çizgi */}
                   <div className="absolute bottom-0 inset-x-0 h-[2px] bg-neon" />

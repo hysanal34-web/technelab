@@ -15,6 +15,11 @@ const WORKSHOP_IMAGES: Record<string, string> = {
 }
 
 // Bauhaus accent colours per card (border + number tint)
+// Görsel hizalama — bazı fotoğraflar varsayılan orta kroptan kayıyor
+const IMAGE_POSITIONS: Record<string, string> = {
+  'camera-praxis': 'center 20%',  // kadının yüzü çerçevede kalsın
+}
+
 const ACCENTS = ['#C8FF00', '#C8FF00', '#C8FF00', '#C8FF00']
 const BG_PATTERNS = [
   'radial-gradient(ellipse at 80% 20%, rgba(200,255,0,0.06) 0%, transparent 60%)',
@@ -75,6 +80,7 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               className="object-cover opacity-65 group-hover:opacity-85 transition-opacity duration-700 scale-105 group-hover:scale-100"
+              style={{ objectPosition: IMAGE_POSITIONS[w.slug] ?? 'center center' }}
             />
           ) : (
             <div className="absolute inset-0 bauhaus-grid" />

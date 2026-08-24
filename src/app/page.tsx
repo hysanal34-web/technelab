@@ -13,6 +13,8 @@ import { ClientStats } from '@/components/ClientStats'
 import { InstagramSection } from '@/components/InstagramSection'
 import { T } from '@/components/LangText'
 import { CycleDisciplines } from '@/components/CycleDisciplines'
+import { DisciplineGrid } from '@/components/DisciplineGrid'
+import { Yorumlar } from '@/components/Yorumlar'
 
 export const metadata: Metadata = {
   title: {
@@ -144,11 +146,11 @@ export default function HomePage() {
       >
         <div className="flex items-center gap-4">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase opacity-60">
-            <T tr="Yeni Sezon" en="New Season" />
+            <T tr="2026—27 Sezonu" en="2026—27 Season" />
           </span>
           <span className="w-px h-3 bg-bg/30" aria-hidden="true" />
           <span className="font-mono text-[11px] tracking-[0.18em] uppercase font-medium">
-            <T tr="Atölyelerimiz Açık" en="Workshops Open" />
+            <T tr="Eylül Kayıtları Açık" en="September Enrolment Open" />
           </span>
         </div>
         <span className="font-mono text-[11px] tracking-[0.14em] uppercase group-hover:translate-x-1 transition-transform duration-200">
@@ -311,45 +313,56 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════════════════
+          DİSİPLİNLER — hero'nun hemen altı.
+          Sayfanın en değerli SEO alanı burası; keyword'ler dipteki
+          bir metin yığınında değil, tıklanabilir navigasyonda duruyor.
+      ════════════════════════════════════════════════════════════ */}
+      <DisciplineGrid />
+
       {/* ── Marquee ── */}
       <MarqueeStrip />
 
       {/* ════════════════════════════════════════════════════════════
-          HAKKINDA — Kısa tanıtım
+          NASIL ÇALIŞIRIZ — Metodoloji (kimlik tekrarı değil)
       ════════════════════════════════════════════════════════════ */}
       <RevealSection>
-        <section className="relative overflow-hidden border-y border-border bg-bgAlt" aria-label="Hakkında">
+        <section className="relative overflow-hidden border-y border-border bg-bgAlt" aria-label="Metodoloji">
           <div className="section-number absolute -top-6 -left-4 select-none" aria-hidden="true">01</div>
 
           <div className="relative z-10 grid md:grid-cols-[1fr_1fr] min-h-[360px]">
-            {/* Left: metin */}
+            {/* Left: metodoloji */}
             <div className="px-4 md:px-14 py-20 flex flex-col justify-center border-r border-border">
               <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-6">
-                <T tr="— neyiz biz" en="— who we are" />
+                <T tr="— nasıl çalışırız" en="— how we work" />
               </p>
               <h2
                 className="font-display text-fg mb-5 leading-none"
                 style={{ fontSize: 'clamp(26px, 4vw, 52px)', letterSpacing: '0.02em' }}
               >
-                TECHNE LAB<br />
-                <span className="relative">
-                  İSTANBUL
-                  <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-neon -mb-1" aria-hidden="true" />
-                </span>
+                <T tr={<>KÜÇÜK GRUPLAR,<br />YOĞUN PRATİK.</>} en={<>SMALL GROUPS,<br />DEEP PRACTICE.</>} />
               </h2>
-              <p className="font-mono text-[12px] leading-relaxed text-stone max-w-md mb-6">
+              <p className="font-mono text-[12px] leading-relaxed text-stone max-w-md mb-8">
                 <T
-                  tr="Techne Lab İstanbul; yazarlık, oyunculuk, yaratıcı drama, dans, müzikal ve gençlere yönelik atölyelerle Pera ve Kadıköy'de faaliyetlerini yürüten bağımsız bir ekiptir."
-                  en="Techne Lab Istanbul is an independent team running workshops in acting, playwriting, creative drama, dance, musical theatre and youth programmes across Pera and Kadıköy."
+                  tr="Her program seyircili bir final performansıyla noktalanır. Metin, beden ve ses — aynı anda, aynı stüdyoda."
+                  en="Every programme ends with a live final performance. Text, body and voice — simultaneously, in the same studio."
                 />
               </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2">
-                {['Oyunculuk', 'Yazarlık',  'Dans', 'Müzikal', 'Dramaturji'].map((d) => (
-                  <span key={d} className="font-mono text-[11px] tracking-[0.14em] uppercase text-fg/50">
-                    {d}
-                  </span>
+              <ul className="flex flex-col gap-2.5">
+                {[
+                  { tr: 'Maksimum 12 kişilik gruplar', en: 'Max 12 per group' },
+                  { tr: 'Haftada 1–2 gün yoğun pratik', en: '1–2 sessions per week' },
+                  { tr: 'Seyircili final performansı', en: 'Live final performance' },
+                  { tr: 'Pera ve Kadıköy stüdyoları', en: 'Pera & Kadıköy studios' },
+                ].map((item) => (
+                  <li key={item.tr} className="flex items-center gap-3">
+                    <span className="w-1 h-1 rounded-full bg-neon flex-shrink-0" aria-hidden="true" />
+                    <span className="font-mono text-[11px] tracking-[0.1em] text-stone">
+                      <T tr={item.tr} en={item.en} />
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Right: Erken Kayıt promo paneli */}
@@ -490,6 +503,13 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
+      </RevealSection>
+
+      {/* ════════════════════════════════════════════════════════════
+          KATILIMCI YORUMLARI
+      ════════════════════════════════════════════════════════════ */}
+      <RevealSection>
+        <Yorumlar />
       </RevealSection>
 
       {/* ════════════════════════════════════════════════════════════

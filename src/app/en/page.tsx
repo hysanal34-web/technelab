@@ -97,13 +97,7 @@ const PROGRAMS = [
     tag: 'For B1+ · Pera & Kadıköy',
   },
   {
-    slug: 'english-drama-acting-focus',
-    en: 'English Drama — Acting Focus',
-    line: 'For those who want the acting to go deeper. Character construction, text analysis and scene work, all in English.',
-    tag: 'Some experience helpful',
-  },
-  {
-    slug: 'english-drama-final-performance',
+    slug: 'english-drama-final-project',
     en: 'English Drama — Final Performance',
     line: 'Ends with a performance in front of an audience. The full arc: rehearsal room to stage.',
     tag: 'Advanced track',
@@ -158,6 +152,34 @@ export default function EnglishHome() {
           <Link href="/iletisim" data-hover className="font-mono text-[12px] tracking-widest2 uppercase border border-border text-fg px-8 py-4 hover:border-neon hover:text-neon transition-colors">
             get in touch →
           </Link>
+        </div>
+
+        {/* Alt sayfalara giriş — hem gezinme hem iç bağlantı ağı.
+            Bu dört sayfa aksi halde yalnızca sitemap'ten erişilebilir kalıyordu. */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim block mb-5">
+            explore in english
+          </span>
+          <ul className="grid sm:grid-cols-2 gap-x-8 border-t border-border">
+            {[
+              ['/en/acting-classes-istanbul', 'Acting Classes', 'All levels · no experience needed'],
+              ['/en/musical-theatre-classes-istanbul', 'Musical Theatre & Dance', 'Broadway, jazz, voice'],
+              ['/en/drama-classes-for-kids-istanbul', 'Drama for Kids & Teens', 'Ages 10–17 · year-end show'],
+              ['/en/theatre-workshops-for-expats-istanbul', 'For Expats', 'Meet people, work on something real'],
+            ].map(([href, label, sub]) => (
+              <li key={href} className="border-b border-border">
+                <Link href={href} data-hover className="group flex items-baseline justify-between gap-4 py-4">
+                  <div className="min-w-0">
+                    <span className="font-display text-fg group-hover:text-neon transition-colors block leading-none" style={{ fontSize: 18, letterSpacing: '0.01em' }}>
+                      {label}
+                    </span>
+                    <span className="font-mono text-[11px] text-dim mt-1.5 block">{sub}</span>
+                  </div>
+                  <span className="font-mono text-[13px] text-dim group-hover:text-neon group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

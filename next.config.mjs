@@ -24,5 +24,18 @@ const nextConfig = {
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },
+  // www olmayan adresi www'ye 301 ile yönlendir.
+  // Site iki adreste birden yayınlanırsa Google bunu yinelenen içerik
+  // olarak görüyor ve sıralama gücü ikiye bölünüyor. Kanonik adres www.
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'technelabistanbul.com' }],
+        destination: 'https://www.technelabistanbul.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 export default nextConfig

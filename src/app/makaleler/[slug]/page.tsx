@@ -4,6 +4,7 @@ import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import { getArticle, getArticleSlugs } from '@/lib/mdx'
 import { SITE_META } from '@/lib/data'
+import { ArticleCTA } from '@/components/ArticleCTA'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -17,7 +18,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return {}
   const { meta } = data
   return {
-    title: meta.title,
+    // absolute: makale başlıklarına marka eki eklenmiyor.
+    // Bunlar iki parçalı editoryal başlıklar; kısaltmak anlamı bozuyor,
+    // marka eki de Google'ın kestiği alandan yer yiyor.
+    title: { absolute: meta.title },
     description: meta.excerpt,
     authors: [{ name: meta.author }],
     openGraph: { title: meta.title, description: meta.excerpt, type: 'article',
@@ -82,6 +86,11 @@ export default async function ArticlePage({ params }: Props) {
             <span key={t} className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone border border-border px-3 py-1.5">{t}</span>
           ))}
         </footer>
+
+        {/* Makaleyi bitiren okuru ilgili programa taşı.
+            Bu bileşen yazılmıştı ama sayfaya hiç eklenmemişti — 67 makale
+            trafik alıyor, hiçbiri bir programa yönlendirmiyordu. */}
+        <ArticleCTA tags={meta.tags} category={meta.category} />
       </article>
     </>
   )

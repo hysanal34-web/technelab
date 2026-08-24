@@ -4,6 +4,11 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { getWorkshopFaq } from '@/lib/faq'
+import { yorumlarFor } from '@/lib/yorumlar'
+import { ProgramYorumlari } from '@/components/Yorumlar'
+import { TrackProgramView } from '@/components/PixelEvents'
+import { StickyApplyBar } from '@/components/StickyApplyBar'
+import { priceSummary, CAMPAIGN } from '@/lib/erkenKayit'
 type Props = { params: Promise<{ slug: string }> }
 
 
@@ -55,6 +60,8 @@ export default async function WorkshopDetailPage({ params }: Props) {
       name: SITE_META.name,
       url: SITE_META.url,
     },
+    // Fiyat sitede gösterilmiyor; schema'da da rakam vermiyoruz.
+    // Google, sayfada olmayan bir fiyatı schema'da görürse uyuşmazlık uyarısı veriyor.
     offers: {
       '@type': 'Offer',
       availability: w.active ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
@@ -97,6 +104,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
   // Programa özel SSS — Google "Bunlar da soruldu" kutuları için
   const faq = getWorkshopFaq(w)
+  const yorumlar = yorumlarFor(w.slug)
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -112,6 +120,9 @@ export default async function WorkshopDetailPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+
+      {/* Meta: program görüntülendi — yeniden pazarlama havuzu */}
+      <TrackProgramView name={w.title} price={priceSummary(w)?.current ?? w.price} slug={w.slug} />
 
       {/* Hero Görsel */}
       {w.images && w.images[0] && (
@@ -190,6 +201,24 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
           {/* Satın alma kutusu */}
           <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-6 md:p-8" aria-label="Kayıt bilgileri">
+            {/* Başlangıç tarihi — karar anındaki ilk soru */}
+            {(w.schedule?.length || w.scheduleNote) && (
+              <div className="mb-6 pb-6 border-b border-border">
+                <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-3">başlangıç</p>
+                {w.schedule?.length ? (
+                  w.schedule.map((s) => (
+                    <div key={`${s.place}-${s.date}`} className="flex items-baseline gap-2 mb-1.5 last:mb-0">
+                      <span className="font-display text-fg leading-none" style={{ fontSize: 17 }}>{s.date}</span>
+                      {s.time && <span className="font-mono text-[11px] text-stone">{s.time}</span>}
+                      {s.place && <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon">· {s.place}</span>}
+                    </div>
+                  ))
+                ) : (
+                  <p className="font-mono text-[12px] text-stone">{w.scheduleNote}</p>
+                )}
+              </div>
+            )}
+
             <div className="space-y-4 mb-8">
               {[
                 ['mekân', `${w.venue} — kayıt sonrası adres iletilir`],
@@ -202,6 +231,51 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
+
+            {/* Katılım koşulları — rakam yerine kontenjan ve kapsam.
+                Fiyat başvuru sonrası birebir paylaşılıyor; sitede etiket yok. */}
+            {w.active && (
+              <div className="border-t border-border pt-6 mb-6">
+                <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-4">
+                  katılım
+                </p>
+                <ul className="flex flex-col gap-2 mb-4">
+                  {[
+                    typeof w.maxStudents === 'number' ? `Kontenjan ${w.maxStudents} kişiyle sınırlı` : null,
+                    w.duration,
+                    w.venue,
+                  ].filter(Boolean).map((line) => (
+                    <li key={line as string} className="flex items-start gap-2.5">
+                      <span className="w-1 h-1 rounded-full bg-neon flex-shrink-0 mt-2" aria-hidden="true" />
+                      <span className="font-mono text-[12px] text-stone leading-relaxed">{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                {/* Erken kayıt — rakamsız aciliyet.
+                    Fiyat sitede gösterilmiyor; burada yalnızca tarih ve kontenjan
+                    var. Tarih karar hızlandırıyor, rakam ise pazarlık masası kuruyor. */}
+                {w.priceEarlyBird && w.earlyBirdDeadline && (
+                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
+                    <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
+                      erken kayıt · {w.earlyBirdDeadline}&apos;e kadar
+                    </p>
+                    <p className="font-mono text-[11px] text-stone leading-relaxed">
+                      Bu tarihe kadar başvuranlar için ayrı koşullar geçerli
+                      {typeof w.earlyBirdSlots === 'number' ? ` — ilk ${w.earlyBirdSlots} kişi` : ''}.
+                    </p>
+                  </div>
+                )}
+
+                <p className="font-mono text-[11px] text-dim leading-relaxed">
+                  Katılım koşulları ve ödeme seçenekleri başvuru sonrası sizinle
+                  birebir paylaşılır — ya da{' '}
+                  <Link href={`/bilgi?program=${w.slug}`} className="text-stone underline hover:text-neon transition-colors">
+                    ücret tablosunu mailine iste
+                  </Link>
+                  .
+                </p>
+              </div>
+            )}
 
             {!w.active ? (
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
@@ -305,6 +379,13 @@ export default async function WorkshopDetailPage({ params }: Props) {
         )
       })()}
 
+      {/* Katılımcı yorumları — SSS'ten önce, karar anına yakın */}
+      {yorumlar.length > 0 && (
+        <div className="px-4 md:px-10">
+          <ProgramYorumlari yorumlar={yorumlar} />
+        </div>
+      )}
+
       {/* SSS — Google "Bunlar da soruldu" kutuları */}
       <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="sss-heading">
         <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-3">merak edilenler</p>
@@ -351,6 +432,9 @@ export default async function WorkshopDetailPage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      {/* Mobil alt bar: tek dokunuşla ara + başvur. Aktif olmayan programda render olmaz. */}
+      <StickyApplyBar w={w} />
     </>
   )
 }

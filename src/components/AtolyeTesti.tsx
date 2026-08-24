@@ -17,7 +17,7 @@ const QUESTIONS: Question[] = [
       {
         label: 'Sahnede olmak istiyorum',
         detail: 'Oyunculuk, karakter, sahne varlığı',
-        scores: { 'oyuncunun-mevcudiyeti': 3, 'camera-praxis': 2, 'english-drama-acting-focus': 1 },
+        scores: { 'oyuncunun-mevcudiyeti': 3, 'camera-praxis': 2 },
       },
       {
         label: 'Yazmak istiyorum',
@@ -27,7 +27,7 @@ const QUESTIONS: Question[] = [
       {
         label: 'İngilizcemi açmak istiyorum',
         detail: 'Konuşma pratiği ama sıkıcı olmayan bir yolla',
-        scores: { 'english-drama-lab': 4, 'english-drama-acting-focus': 2, 'english-drama-youth': 1 },
+        scores: { 'english-drama-lab': 4, 'english-drama-youth': 1 },
       },
       {
         label: 'Dans ve müzik istiyorum',
@@ -43,12 +43,12 @@ const QUESTIONS: Question[] = [
       {
         label: 'Birkaç ay deneyeyim',
         detail: '8–12 hafta',
-        scores: { 'english-drama-lab': 2, 'broadway-musical-dance': 2, 'auteur-lab': 2, 'oyuncunun-mevcudiyeti': 2, 'english-drama-acting-focus': 2 },
+        scores: { 'english-drama-lab': 2, 'broadway-musical-dance': 2, 'auteur-lab': 2, 'oyuncunun-mevcudiyeti': 2 },
       },
       {
         label: 'Uzun soluklu bir şey arıyorum',
         detail: 'Bir sezon boyunca, düzenli',
-        scores: { 'techne-musical-lab': 4, 'english-drama-final-performance': 2 },
+        scores: { 'techne-musical-lab': 4, 'english-drama-final-project': 2 },
       },
       {
         label: 'Yoğun ve kısa olsun',
@@ -68,7 +68,7 @@ const QUESTIONS: Question[] = [
       {
         label: 'İngilizce',
         detail: 'Dil pratiği de kazanmak istiyorum',
-        scores: { 'english-drama-lab': 3, 'english-drama-acting-focus': 2, 'english-drama-final-performance': 2, 'english-drama-youth': 1 },
+        scores: { 'english-drama-lab': 3, 'english-drama-final-project': 2, 'english-drama-youth': 1 },
       },
       {
         label: 'Fark etmez',
@@ -86,11 +86,11 @@ const QUESTIONS: Question[] = [
       },
       {
         label: 'Biraz — kurs, okul kulübü, amatör',
-        scores: { 'english-drama-acting-focus': 2, 'oyuncunun-mevcudiyeti': 2, 'techne-musical-lab': 2, 'auteur-lab': 1 },
+        scores: { 'oyuncunun-mevcudiyeti': 2, 'techne-musical-lab': 2, 'auteur-lab': 1 },
       },
       {
         label: 'Deneyimliyim, derinleşmek istiyorum',
-        scores: { 'camera-praxis': 3, 'english-drama-final-performance': 3, 'techne-musical-lab': 2 },
+        scores: { 'camera-praxis': 3, 'english-drama-final-project': 3, 'techne-musical-lab': 2 },
       },
     ],
   },
@@ -101,7 +101,7 @@ const QUESTIONS: Question[] = [
       {
         label: 'Seyirci önünde bir şey göstermek',
         detail: 'Bitirme performansı olsun',
-        scores: { 'techne-musical-lab': 3, 'english-drama-final-performance': 3 },
+        scores: { 'techne-musical-lab': 3, 'english-drama-final-project': 3 },
       },
       {
         label: 'Kendimi geliştirmek yeterli',
@@ -127,7 +127,7 @@ const QUESTIONS: Question[] = [
       {
         label: 'Avrupa Yakası',
         detail: 'Pera, Beyoğlu ve çevresi',
-        scores: { 'auteur-lab': 2, 'english-drama-lab': 1, 'english-drama-acting-focus': 1, 'english-drama-final-performance': 1 },
+        scores: { 'auteur-lab': 2, 'english-drama-lab': 1, 'english-drama-final-project': 1 },
       },
       {
         label: 'İkisi de olur',

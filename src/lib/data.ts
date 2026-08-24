@@ -8,6 +8,11 @@ export type Workshop = {
   monthlyPrice?: number      // aylık taksit
   installments?: number      // max faizsiz taksit sayısı
   earlyBirdSlots?: number    // erken kayıt kontenjanı (ilk N kişi)
+  earlyBirdPercent?: number  // erken kayıt indirim yüzdesi
+  earlyBirdDeadline?: string // erken kayıt son tarihi (gösterim metni)
+  schedule?: { place?: string; date: string; time?: string }[]  // başlangıç tarih(ler)i
+  scheduleNote?: string      // tarih henüz netleşmediyse ("Tarih yakında açıklanacak")
+  // price: 0 → fiyat henüz yayınlanmadı; fiyat bloğu gizlenir, CTA "ön kayıt" olur
   maxStudents: number | string; active: boolean; archived?: boolean; nextDate?: string
   tags: string[]; desc: string; descEn?: string
   blocks: { title: string; span?: string; body: string }[]
@@ -21,36 +26,37 @@ export const WORKSHOPS: Workshop[] = [
   // ── 01 — AUTEUR LAB ────────────────────────────────────────────────
   {
     id: 1, slug: 'auteur-lab', code: '01',
-    title: 'THE AUTEUR LAB', sub: 'Dramaturji · Yazarlık',
+    title: 'THE AUTEUR LAB', sub: 'Yaratıcı Yazarlık · Dramaturji',
     tagline: 'Dürtüden Tasarıma — Tasarımdan Eyleme',
     instructor: 'Halil Yağız Şanal',
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji Anasanat Dalı'nda öğrenimini sürdürdü. İKSV Senenin Oyunu ödüllü oyun yazarı.",
-    venue: 'Kadıköy', duration: '8 hafta', price: 24000,
-    installments: 3, monthlyPrice: 8000,
-    maxStudents: 8, active: true,
+    venue: 'Kadıköy', duration: '8 hafta (modül başına)', price: 18000,
+    priceEarlyBird: 15300, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    schedule: [{ place: 'Kadıköy', date: '7 Ekim Çarşamba' }],
+    maxStudents: 10, active: true,
     category: 'yazarlık',
-    tags: ['Dramaturji', 'Yazarlık'],
-    desc: 'Yazmak için yaratıcı bir alan. Kendi metnini kurmanın temel dinamiklerine odaklanıyoruz — karakter, çatışma, sahne. İlhamı beklemeden, üreterek.',
+    tags: ['Yaratıcı Yazarlık', 'Dramaturji', 'Roman & Senaryo'],
+    desc: 'Sophokles\'ten Beckett\'e uzanan bir okuma hattı. Metinlerin nasıl kurulduğunu, anlatının yüzyıllar içinde neyi koruyup neyi bıraktığını izliyoruz. Bu bir başlangıç programı ama teknikle başlamıyor: önce bir metnin neden işlediğini görebilmek gerekiyor. O bakış yerleştiğinde hangi biçimde yazdığınız ikincil kalıyor — roman, senaryo ve oyun aynı zeminden besleniyor.\n\nProgram üç modülden oluşuyor, her biri sekiz hafta. Modüller ayrı ayrı alınabiliyor: birinciyle başlayıp devam kararını sonra verebilirsiniz.',
     blocks: [
       {
         title: '1. Modül: Antikten Moderne',
-        span: '1—4. Hafta',
+        span: '1—8. Hafta',
         body: 'Sophokles\'ten Ibsen\'e: dramatik yapının temelleri. Metin analizi, karakter arkı, çatışma ve alt metin. Batı tiyatrosunun kökleri — yazarlık gözüyle.',
       },
       {
         title: '2. Modül: Çağdaş Yazın',
-        span: '5—6. Hafta',
+        span: '9—16. Hafta',
         body: 'Beckett, Kane, Zeller, Williams. Parçalanmış yapılar, suskunluk ve çoğul anlatı. Çağdaş dramaturjiye analitik ve yaratıcı bir bakış.',
       },
       {
         title: '3. Modül: Kendi Sesin',
-        span: '7—8. Hafta',
+        span: '17—24. Hafta',
         body: 'Kişisel yazarlık sesinin keşfi. Kısa oyun taslakları ve dramaturgik geri bildirim. Antik Yunan\'dan günümüze izlediğimiz yolun ardından: kendi anlatı kimliğinin inşası.',
       },
     ],
     images: ['auteur-hero', 'auteur-01', 'auteur-02', 'auteur-03', 'auteur-04'],
-    seoTitle: 'Oyun Yazarlığı & Dramaturji Atölyesi İstanbul — Auteur Lab',
-    seoDesc: 'İstanbul\'da oyun yazarlığı ve dramaturji atölyesi: 8 hafta metin analizi, karakter, çatışma. Sophokles\'ten Beckett\'e. Halil Yağız Şanal ile yaratıcı yazarlık, senaryo ve kurmaca kursu. Kadıköy.',
+    seoTitle: 'Yaratıcı Yazarlık Atölyesi İstanbul — Roman, Senaryo & Oyun',
+    seoDesc: 'İstanbul yaratıcı yazarlık atölyesi: metin analizi, karakter, çatışma ve yapı. Sophokles\'ten Beckett\'e sekiz haftalık okuma ve yazma programı. Roman, senaryo ve oyun için. Halil Yağız Şanal ile Kadıköy.',
   },
 
   // ── 02 — MEVCUDİYET ────────────────────────────────────────────────
@@ -59,7 +65,9 @@ export const WORKSHOPS: Workshop[] = [
     title: 'OYUNCUNUN MEVCUDİYETİ', sub: 'Presence',
     tagline: 'Sahne Üzerinde Var Olmak',
     instructor: 'Burcu Halaçoğlu', instructorBio: 'Oyuncu ve beden çalışması eğitmeni. Sahne mevcudiyeti, ses-nefes ve fiziksel farkındalık üzerine uzmanlaşmış pratisyen.',
-    venue: 'Pera & Kadıköy', duration: '4 hafta · yoğun', price: 16000,
+    venue: 'Pera & Kadıköy', duration: '4 hafta · yoğun', price: 19000,
+    priceEarlyBird: 16000, earlyBirdPercent: 16, earlyBirdDeadline: '10 Eylül',
+    scheduleNote: 'Tarih yakında açıklanacak',
     maxStudents: 12, active: false,
     category: 'oyunculuk',
     tags: ['Beden', 'Ses', 'Mevcudiyet'],
@@ -79,10 +87,14 @@ export const WORKSHOPS: Workshop[] = [
     id: 3, slug: 'english-drama-lab', code: '03',
     title: 'ENGLISH DRAMA LAB', sub: 'English Creative Drama',
     tagline: 'Yaratıcı Drama · Doğaçlama · İngilizce',
-    instructor: 'Techne Lab', instructorBio: '',
-    venue: 'Pera & Kadıköy', duration: '12 hafta', price: 36000,
-    priceEarlyBird: 30000, priceCash: 27000, installments: 9, monthlyPrice: 4000,
-    earlyBirdSlots: 5,
+    instructor: 'Alara Lokum, Ece Ertez & Yeşim Çelebi',
+    instructorBio: "Alara Lokum: Şehir Tiyatroları'nda başlayan sahne pratiğini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu; Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Ece Ertez: Oyunculuk pratiğini Şahika Tekand Studio Oyuncuları'nın fiziksel tiyatro ekolünde inşa etti; Şahmaran ve Erşan Kuneri gibi projelerde yer aldı, Chubbuck Metodu'nda uzmanlaştı. Yeşim Çelebi: Yale Üniversitesi Tiyatro ve Performans Sanatları mezunu; LAMDA disiplini ile Stella Adler ve Lee Strasberg metotlarını Bahar, Kızılcık Şerbeti ve Mezarlık gibi yapımlardaki set deneyimiyle birleştiriyor.",
+    venue: 'Pera & Kadıköy', duration: '12 hafta', price: 30000, installments: 3, monthlyPrice: 12000,
+    priceEarlyBird: 25500, earlyBirdPercent: 15, earlyBirdSlots: 5, earlyBirdDeadline: '10 Eylül',
+    schedule: [
+      { place: 'Pera', date: '12 Eylül Cumartesi', time: '15:00' },
+      { place: 'Kadıköy', date: '14 Eylül Pazartesi', time: '20:00' },
+    ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
@@ -104,9 +116,10 @@ export const WORKSHOPS: Workshop[] = [
     title: 'ENGLISH ACTING PRAXIS', sub: 'Ece Ertez · Harika Uygur Masterclass',
     tagline: 'Oyunculuğunu Uluslararası Arenaya Taşımak İsteyenler İçin',
     instructor: 'Ece Ertez',
-    instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen. Cast Direktörü / Süpervizör: Harika Uygur.',
-    venue: 'Pera', duration: '12 hafta', price: 18000,
-    priceCash: 15000, installments: 2, monthlyPrice: 9000,
+    instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.\n\nCast Direktörü / Süpervizör: Harika Uygur — Avrupa\'nın en iyi cast direktörü seçilen (ICDN, "Mustang"), Amerikan Film Akademisi (AMPAS), Casting Society of America (CSA) ve Avrupa Film Akademisi üyesi. Türkiye\'de casting direktörlüğünü uluslararası standartta kuran isim.',
+    venue: 'Pera', duration: '12 hafta', price: 69000,
+    priceEarlyBird: 59000, earlyBirdPercent: 14, earlyBirdDeadline: '10 Eylül', installments: 3,
+    schedule: [{ place: 'Pera', date: '19 Eylül Cumartesi', time: '11:00' }],
     maxStudents: 14, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
@@ -122,19 +135,23 @@ export const WORKSHOPS: Workshop[] = [
     seoDesc: 'İngilizce acting workshop İstanbul: 12 hafta metin analizi, karakter ve prova disiplini. English acting kursu, Ece Ertez ile — Harika Uygur masterclass finali. Pera, Beyoğlu.',
   },
 
-  // ── 05 — ENGLISH DRAMA YOUTH: 14–17 YAŞ ────────────────────────────
+  // ── 05 — ENGLISH DRAMA YOUTH: 10–17 YAŞ ────────────────────────────
   {
     id: 9, slug: 'english-drama-youth', code: '05',
-    title: 'ENGLISH DRAMA YOUTH (14–17)', sub: 'Yıl Sonu Temsili · Final Performanslı',
+    title: 'ENGLISH DRAMA YOUTH (10–17)', sub: 'Yıl Sonu Temsili · Final Performanslı',
     tagline: 'Yaratıcı Drama & Sahne — Gençler İçin',
-    instructor: 'Techne Lab', instructorBio: '',
-    venue: 'Kadıköy', duration: '8 ay · Haftada 1 gün (Ekim–Mayıs)', price: 60000,
-    priceEarlyBird: 50000, priceCash: 45000, installments: 8, monthlyPrice: 7500,
-    earlyBirdSlots: 5,
+    instructor: 'Alara Lokum',
+    instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ders olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
+    venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 150000,
+    priceEarlyBird: 128000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    schedule: [
+      { place: 'Pera', date: '27 Eylül Pazar' },
+      { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
+    ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
-    tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '14–17 Yaş'],
-    desc: 'Yaratıcı drama ve sahne çalışmasını İngilizce öğrenimiyle birleştiren gençlere yönelik program. 14–17 yaş arasındaki katılımcılar için tasarlanan bu program, yılın sonunda seyircili bir final gösterisiyle kapanır. Ekim–Mayıs, haftada bir gün.',
+    tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '10–17 Yaş'],
+    desc: 'Yaratıcı drama ve sahne çalışmasını İngilizce öğrenimiyle birleştiren gençlere yönelik program. 10–17 yaş arasındaki katılımcılar için tasarlanan bu program, yılın sonunda seyircili bir final gösterisiyle kapanır. Ekim–Mayıs, haftada bir gün.',
     blocks: [
       { title: 'Keşif & Oyun', span: 'Ekim–Aralık', body: 'Doğaçlama, beden-ses-hayal gücü egzersizleri. İngilizce dil güveni. Grup dinamiği ve sahne güvencesi.' },
       { title: 'Karakter & Metin', span: 'Ocak–Mart', body: 'Sahne metni çalışması, karakter inşası, partner çalışması. Sözlü ve bedensel anlatım. İngilizce dramatik metin.' },
@@ -142,8 +159,8 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-lab', 'english-drama-final-project'],
-    seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 14–17 Yaş Drama',
-    seoDesc: 'İstanbul 14–17 yaş tiyatro kursu: İngilizce yaratıcı drama, sahne çalışması ve konuşma pratiği. Gençler için drama atölyesi, youth theatre, seyircili final gösterisi. Kadıköy, 8 ay.',
+    seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 10–17 Yaş Drama',
+    seoDesc: 'İstanbul 10–17 yaş tiyatro kursu: İngilizce yaratıcı drama, sahne çalışması ve konuşma pratiği. Gençler için drama atölyesi, youth theatre, seyircili final gösterisi. Kadıköy, 8 ay.',
   },
 
   // ── 06 — TECHNE MUSICAL LAB ────────────────────────────────────────
@@ -153,9 +170,9 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Sitare Bilge',
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
-    venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 96000,
-    priceEarlyBird: 80000, priceCash: 72000, installments: 8, monthlyPrice: 12000,
-    earlyBirdSlots: 5,
+    venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Eylül–Mayıs)', price: 195000,
+    priceEarlyBird: 165000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    schedule: [{ place: 'Kadıköy', date: '28 Eylül Pazartesi' }],
     maxStudents: 12, active: true,
     category: 'dans-muzikal',
     tags: ['Müzikal', 'Drama', 'Tiyatro', 'Uzun Dönem'],
@@ -163,7 +180,7 @@ export const WORKSHOPS: Workshop[] = [
     blocks: [
       { title: 'Drama & Oyunculuk', span: 'Ekim–Aralık', body: 'Sahne varlığı, karakter inşası ve dramaturgik çalışma. Tiyatronun temel araçları: beden, ses ve metin. Şan tekniğiyle buluşan oyuncu sesi.' },
       { title: 'Müzikal Sahneleme', span: 'Ocak–Mart', body: 'Müzikal ritim, Broadway dans temelleri ve sahne uzamı. Drama zeminine oturan koreografi ve müzikal metin çalışması.' },
-      { title: 'Bitirme Performansı', span: 'Nisan–Mayıs', body: 'Tam sahne uygulaması — kostüm, ışık, seyirci. Kişisel parça geliştirme ve toplu prodüksiyon sunumu.' },
+      { title: 'Bitirme Performansı', span: 'Nisan–Mayıs', body: 'Şarkı kolajı değil, sahnelenmiş bir müzikal. Kostüm, ışık, dekor ve seyirci önünde tam prodüksiyon. Kişisel parça geliştirme ve toplu sahneleme birlikte yürür.' },
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
     seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Oyunculuk, Şan & Dans',
@@ -174,23 +191,48 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: 6, slug: 'broadway-musical-dance', code: '07',
     title: 'BROADWAY MUSICAL DANCE', sub: 'Broadway Müzikal Dansı',
-    tagline: 'Jazz · Theatre Dance · Showmanship',
+    tagline: 'Jazz · Theatre Dance · Koreografi',
     instructor: 'Köksal Ünal',
     instructorBio: 'Oyuncu, yönetmen ve Broadway dans eğitmeni. Sahne koreografisi ve tiyatro dansı üzerine kapsamlı deneyim.',
-    venue: 'Kadıköy', duration: '12 hafta', price: 24000,
+    venue: 'Kadıköy', duration: '3 ay · 12 hafta', price: 22500,
+    priceEarlyBird: 19000, earlyBirdPercent: 16, earlyBirdDeadline: '10 Eylül',
     installments: 3, monthlyPrice: 8000,
+    schedule: [{ place: 'Kadıköy', date: '12 Eylül Cumartesi', time: '19:00 – 21:00' }],
     maxStudents: 15, active: true,
     category: 'dans-muzikal',
     tags: ['Dans', 'Broadway', 'Koreografi'],
-    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten 12 haftalık yoğun program. Jazz ve theatre dance teknikleriyle sahne koreografisi, showmanship ve performans bütünlüğü. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
+    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten yoğun program. Jazz ve theatre dance teknikleriyle sahne koreografisi ve kombinasyon çalışması. Üç aylık tam program; dilerseniz aylık katılımla başlayıp devam kararınızı sonra verebilirsiniz. Dans deneyimi şart değil — teknik temelden başlıyoruz.',
     blocks: [
       { title: 'Teknik Temel', span: '1—4. Hafta', body: 'Jazz ve theatre dance temelleri. Beden hizalaması, ritim, koordinasyon ve müzikle ilişki.' },
       { title: 'Koreografi & Stil', span: '5—8. Hafta', body: 'Broadway repertuarından sahneler. Stil çalışması, grup koreografisi ve sahne dinamiği.' },
-      { title: 'Sahne & Showmanship', span: '9—12. Hafta', body: 'Performans bütünlüğü, kostümle çalışma ve final koreografisi sunumu.' },
+      { title: 'İleri Koreografi', span: '9—12. Hafta', body: 'Uzun kombinasyonlar, tempo ve senkron çalışması. Repertuvardan seçilen bir koreografinin baştan sona kurulması.' },
     ],
     images: ['dslr-zl5a1044', 'dslr-zl5a1043', 'dslr-zl5a1064', 'dslr-zl5a1092'],
     seoTitle: 'Dans Kursu İstanbul — Broadway Müzikal Dansı & Jazz Dance',
-    seoDesc: 'İstanbul dans kursu: Broadway müzikal dansı, jazz dance ve theatre dance. 12 hafta sahne koreografisi ve showmanship. Köksal Ünal ile dans atölyesi — Kadıköy, dans deneyimi şart değil.',
+    seoDesc: 'İstanbul dans kursu: Broadway müzikal dansı, jazz dance ve theatre dance. Üç aylık program, aylık katılım seçeneğiyle. Köksal Ünal ile dans atölyesi — Kadıköy, dans deneyimi şart değil.',
+  },
+
+  // ── 08 — CAMERA PRAXIS (tarih & fiyat henüz açıklanmadı) ──────────
+  {
+    id: 2, slug: 'camera-praxis', code: '08',
+    title: 'CAMERA PRAXIS', sub: 'Kamera Önü Oyunculuk',
+    tagline: 'Karakter · Kamera · Audition',
+    instructor: 'Selen Uçer',
+    instructorBio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve tiyatroda uzun yıllara dayanan oyunculuk pratiğini kamera önü tekniğiyle birleştiriyor.',
+    venue: 'Pera', duration: '4 hafta', price: 23500,
+    priceEarlyBird: 20000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    scheduleNote: 'Tarih yakında açıklanacak',
+    maxStudents: 10, active: false,
+    category: 'oyunculuk',
+    tags: ['Kamera', 'Audition', 'Türkçe & İngilizce'],
+    desc: 'Sahne pratiğini kameranın diline çeviren yoğun atölye. Karakter inşası, çerçeve bilinci ve audition teknikleri. Sahnede işleyen oyunculuk kamerada aynı şekilde işlemiyor — bu atölye tam olarak o farkı çalışıyor. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor; iki dilde de kamera önü deneyimi kazanıyorsun.',
+    blocks: [
+      { title: 'Karakter', span: '1. Hafta', body: 'Karakter analizi, hedef ve engel çalışması. Metni kamera için okumak.' },
+      { title: 'Kamera', span: '2—3. Hafta', body: 'Çerçeve bilinci, close-up tekniği, enerji yönetimi. Sahnenin büyüklüğünü kameraya göre ayarlamak.' },
+      { title: 'Audition', span: '4. Hafta', body: 'Soğuk okuma, casting simülasyonu, self-tape çekimi ve showreel için kayıt.' },
+    ],
+    seoTitle: 'Kamera Önü Oyunculuk Atölyesi İstanbul — Türkçe & İngilizce',
+    seoDesc: 'Selen Uçer ile 4 haftalık kamera önü oyunculuk atölyesi. Türkçe ve İngilizce metinlerle karakter, çerçeve bilinci, audition ve self-tape. Pera, İstanbul.',
   },
 ]
 
@@ -199,8 +241,12 @@ export const SITE_META = {
   url: 'https://www.technelabistanbul.com',
   description: 'İstanbul\'da bağımsız bir tiyatro. Oyunculuk, yazarlık, dramaturji, dans ve müzikal üzerine yoğun, küçük gruplu atölyeler. Pera ve Kadıköy\'deki üç partner mekânda.',
   instagram: '@technelabistanbul',
-  email: 'technelabistanbul@gmail.com',
+  email: 'info@technelabistanbul.com',
   address: 'İstanbul, Türkiye',
+  /** Görüntülenen biçim — sayfalarda bu yazılır. */
+  phone: '0552 242 59 71',
+  /** tel: ve wa.me için E.164 — tek kaynak, WhatsApp butonu da bunu kullanır. */
+  phoneE164: '+905522425971',
 }
 
 // ── İŞBİRLİĞİ YAPILAN MEKÂNLAR ──────────────────────────────────────

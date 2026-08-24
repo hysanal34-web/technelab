@@ -1,16 +1,19 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { MetaPixel } from '@/components/MetaPixel'
+import { CallTracker } from '@/components/CallTracker'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { Cursor } from '@/components/Cursor'
 import { TiyatroBot } from '@/components/TiyatroBot'
+import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { SITE_META } from '@/lib/data'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 // Anti-flash: run before paint to apply saved theme class
-const themeScript = `(function(){document.documentElement.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})()`
+const themeScript = `(function(){document.documentElement.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(!t||t==='dark')document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})()`
 
 // Perde arkasına bakanlar için — console easter egg
 const curtainScript = `console.log("%c\\n  ┌─────────────────────────────────┐\\n  │   TECHNE LAB İSTANBUL           │\\n  │   τέχνη — zanaat, sanat, hüner  │\\n  │                                 │\\n  │   DISCIPLINE IS FREEDOM.        │\\n  │                                 │\\n  │   Perde arkasına hoş geldin.    │\\n  │   Sahne tozu yutanlar buraya:   │\\n  │   technelabistanbul.com/iletisim      │\\n  └─────────────────────────────────┘\\n","color:#B8F000;font-family:monospace;font-size:12px")`
@@ -19,9 +22,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_META.url),
   title: {
     default: SITE_META.name,
-    template: `%s | ${SITE_META.name}`,
+    // Kısa marka eki: Google arama sonucunda başlığı ~60 karakterde kesiyor.
+    // "| Techne Lab İstanbul" 23 karakter yiyordu ve sayfa başlıklarının
+    // çoğunda "İstanbul" zaten geçtiği için kelime tekrar ediyordu.
+    template: '%s | Techne Lab',
   },
   description: SITE_META.description,
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    shortcut: '/favicon.ico',
+  },
   keywords: [
     'tiyatro atölyesi istanbul',
     'oyunculuk kursu istanbul',
@@ -46,7 +60,7 @@ export const metadata: Metadata = {
     'bağımsız tiyatro istanbul',
     'Techne Lab istanbul',
     'gençler tiyatro kursu istanbul',
-    '14 17 yaş drama kursu',
+    '10 17 yaş drama kursu',
     'sanat okulu istanbul',
     'art school istanbul',
   ],
@@ -96,15 +110,30 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': ['PerformingGroup', 'LocalBusiness'],
+  '@type': ['Organization', 'PerformingGroup', 'LocalBusiness'],
   '@id': `${SITE_META.url}#organization`,
   name: SITE_META.name,
   alternateName: 'Techne Lab',
   url: SITE_META.url,
-  logo: `${SITE_META.url}/images/techne-logo.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_META.url}/images/techne-logo.png`,
+    width: 512,
+    height: 512,
+  },
   image: `${SITE_META.url}/images/techne-logo.png`,
   description: SITE_META.description,
   email: SITE_META.email,
+  telephone: SITE_META.phoneE164,
+  // contactPoint, Google'ın knowledge panel ve arama uzantısı eşleştirmesi
+  // için telephone'dan ayrı bir sinyal — ikisini birden veriyoruz.
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE_META.phoneE164,
+    contactType: 'customer service',
+    areaServed: 'TR',
+    availableLanguage: ['Turkish', 'English'],
+  },
 
   foundingDate: '2026',
   address: {
@@ -177,9 +206,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="icerik" className="page-enter">{children}</main>
           <Footer />
           <TiyatroBot />
+          {/* Reklamsız telefon stratejisi: WhatsApp butonu site genelinde görünür.
+              Numara tek kaynaktan (SITE_META.phoneE164) — hat değişince data.ts yeter. */}
+          <WhatsAppButton />
         </LanguageProvider>
         <Analytics />
         <GoogleAnalytics />
+        <MetaPixel />
+        <CallTracker />
       </body>
     </html>
   )

@@ -4,17 +4,42 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { SITE_META, WORKSHOPS, VENUES } from '@/lib/data'
 import { DISTRICTS } from '@/lib/semtler'
+import { DISCIPLINES, getDiscipline } from '@/lib/disiplinler'
+import { DisciplinePage } from '@/components/DisciplinePage'
 
-// Yalnızca tanımlı semt slug'ları render edilir — diğer tüm path'ler 404.
-// Bu, root-level dinamik rotanın statik sayfalarla çakışmasını önler.
+// Bu rota iki tür SEO sayfasını birden servis ediyor:
+//   • Semt sayfaları     → /kadikoy-tiyatro-kursu      (lokal sorgular)
+//   • Disiplin sayfaları → /oyunculuk-kursu-istanbul   (disiplin sorguları)
+// Next.js aynı seviyede iki dinamik segment kabul etmediği için tek
+// rotada birleştiler; hangi tür olduğuna slug'a bakarak karar veriyoruz.
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return DISTRICTS.map((d) => ({ semt: d.slug }))
+  return [
+    ...DISTRICTS.map((d) => ({ semt: d.slug })),
+    ...DISCIPLINES.map((d) => ({ semt: d.slug })),
+  ]
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ semt: string }> }): Promise<Metadata> {
   const { semt } = await params
+
+  const disc = getDiscipline(semt)
+  if (disc) {
+    return {
+      title: { absolute: disc.seoTitle },
+      description: disc.seoDesc,
+      keywords: disc.keywords,
+      alternates: { canonical: `${SITE_META.url}/${disc.slug}` },
+      openGraph: {
+        title: disc.seoTitle,
+        description: disc.seoDesc,
+        url: `${SITE_META.url}/${disc.slug}`,
+        images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: disc.seoTitle }],
+      },
+    }
+  }
+
   const d = DISTRICTS.find((x) => x.slug === semt)
   if (!d) return {}
   return {
@@ -33,6 +58,11 @@ export async function generateMetadata({ params }: { params: Promise<{ semt: str
 
 export default async function SemtPage({ params }: { params: Promise<{ semt: string }> }) {
   const { semt } = await params
+
+  // Disiplin sayfası mı?
+  const disc = getDiscipline(semt)
+  if (disc) return <DisciplinePage d={disc} />
+
   const d = DISTRICTS.find((x) => x.slug === semt)
   if (!d) notFound()
 

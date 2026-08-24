@@ -81,8 +81,7 @@ export const DISTRICTS: District[] = [
     workshopSlugs: [
       'english-drama-lab',
       'auteur-lab',
-      'english-drama-acting-focus',
-      'english-drama-final-performance',
+      'english-drama-final-project',
     ],
     seoTitle: 'Beyoğlu Tiyatro Kursu & Oyunculuk Atölyesi — Pera · Techne Lab',
     seoDesc: 'Beyoğlu Pera\'da oyunculuk, oyun yazarlığı ve İngilizce drama atölyeleri. İstiklal Caddesi\'ne yürüme mesafesinde, küçük gruplar.',
@@ -119,6 +118,121 @@ export const DISTRICTS: District[] = [
       {
         q: 'Aynı program hem Pera hem Kadıköy\'de mi açılıyor?',
         a: 'Bazıları evet. Özellikle İngilizce Drama Lab her iki yakada da grup açıyor. Kayıt sırasında sana yakın olan lokasyonu seçebilirsin; kontenjan durumunu program sayfasından takip edebilirsin.',
+      },
+    ],
+  },
+
+  // ── TAKSİM ────────────────────────────────────────────────────────
+  // Beyoğlu'ndan ayrı sayfa: "taksim oyunculuk kursu" bağımsız bir sorgu
+  // ve arayan kişi çoğu zaman metroya göre düşünüyor, ilçeye göre değil.
+  {
+    slug: 'taksim-oyunculuk-kursu',
+    name: 'Taksim',
+    displayName: 'TAKSİM',
+    side: 'Avrupa Yakası',
+    venueKeys: ['pod-pera'],
+    workshopSlugs: [
+      'english-drama-lab',
+      'camera-praxis',
+      'auteur-lab',
+      'english-drama-final-project',
+    ],
+    seoTitle: 'Taksim Oyunculuk Kursu & Tiyatro Atölyesi — Techne Lab İstanbul',
+    seoDesc:
+      'Taksim ve çevresinde oyunculuk, kamera önü, İngilizce drama ve oyun yazarlığı atölyeleri. M2 metro Taksim–Şişhane hattında, Pera\'da. Küçük gruplar, akşam saatleri.',
+    keywords: [
+      'taksim oyunculuk kursu', 'taksim tiyatro kursu', 'taksim drama kursu',
+      'taksim oyunculuk atölyesi', 'taksim sahne sanatları',
+      'gümüşsuyu oyunculuk kursu', 'cihangir tiyatro kursu', 'cihangir oyunculuk',
+      'şişhane tiyatro kursu', 'galata oyunculuk kursu', 'karaköy tiyatro kursu',
+      'istiklal caddesi tiyatro kursu', 'beyoğlu oyunculuk kursu',
+      'avrupa yakası oyunculuk kursu', 'şişli oyunculuk kursu',
+      'nişantaşı tiyatro kursu', 'taksim kamera önü oyunculuk',
+    ],
+    intro:
+      'Taksim ve çevresi İstanbul tiyatrosunun kalbi — İstiklal boyunca sıralanan sahneler, festivaller ve bağımsız topluluklar. Techne Lab\'ın Avrupa yakasındaki programları buraya yürüme mesafesinde, Pera\'daki çalışma alanında yürüyor.',
+    character:
+      'Taksim çevresinde çalışmanın pratik bir avantajı var: her yerden ulaşılabilir. M2 metro hattı Yenikapı\'dan Hacıosman\'a, füniküler Kabataş\'tan, otobüsler şehrin her yerinden buraya bağlanıyor. Metin merkezli çalışmalar — oyun yazarlığı, dramaturji, kamera önü — bu bölgenin yoğun kültürel dokusunda doğal bir yer buluyor.',
+    transport: [
+      { label: 'Metro (M2)', detail: 'Taksim ve Şişhane durakları — ikisi de yürüme mesafesinde.' },
+      { label: 'Füniküler (F1)', detail: 'Kabataş–Taksim hattı, iki dakika.' },
+      { label: 'Tünel', detail: 'Karaköy–Beyoğlu tarihi füniküler.' },
+      { label: 'Otobüs', detail: 'Taksim Meydanı ve Tepebaşı duraklarından yoğun hat bağlantısı.' },
+    ],
+    nearby: ['Cihangir', 'Gümüşsuyu', 'Galatasaray', 'Tepebaşı', 'Şişhane', 'Galata', 'Karaköy', 'Şişli', 'Nişantaşı', 'Harbiye'],
+    faq: [
+      {
+        q: 'Taksim\'de hangi Techne Lab programları var?',
+        a: 'Pera\'daki mekânımızda kamera önü oyunculuk (Camera Praxis), İngilizce drama programları ve oyun yazarlığı atölyesi (Auteur Lab) yürüyor. Mekân Taksim ve Şişhane metro duraklarına yürüme mesafesinde.',
+      },
+      {
+        q: 'Taksim\'deki derslere hangi saatlerde geliniyor?',
+        a: 'Programların çoğu akşam saatlerinde — çalışanlar için planlanmış. Hafta sonu grupları da var. Kesin gün ve saat her program sayfasında yazıyor.',
+      },
+      {
+        q: 'Taksim oyunculuk kursu ücretleri ne kadar?',
+        a: 'Program ve süreye göre değişiyor: dört haftalık yoğun atölyeler ile sekiz aylık kapsamlı programların fiyatları farklı. Güncel ücretler ve indirimler program sayfalarında açıkça yazılı — sormanıza gerek yok.',
+      },
+      {
+        q: 'Anadolu yakasından Taksim\'e gelmek zor mu?',
+        a: 'Kabataş\'a vapurla geçip füniküler ile iki dakikada Taksim\'desiniz. Yine de bazı programlarımız hem Pera hem Kadıköy\'de açılıyor — kayıt sırasında size yakın olanı seçebilirsiniz.',
+      },
+    ],
+  },
+
+  // ── ANADOLU YAKASI (hub) ─────────────────────────────────────────
+  {
+    slug: 'anadolu-yakasi-tiyatro-kursu',
+    name: 'Anadolu Yakası',
+    displayName: 'ANADOLU YAKASI',
+    side: 'Anadolu Yakası',
+    venueKeys: ['beden-isleri', 'soft-sanat'],
+    workshopSlugs: [
+      'english-drama-lab',
+      'techne-musical-lab',
+      'broadway-musical-dance',
+      'english-drama-youth',
+      'oyuncunun-mevcudiyeti',
+    ],
+    seoTitle: 'Anadolu Yakası Tiyatro & Oyunculuk Kursu — Kadıköy · Techne Lab',
+    seoDesc:
+      'Anadolu yakasında oyunculuk, müzikal, dans ve İngilizce drama atölyeleri. Kadıköy merkezli iki stüdyo — Üsküdar, Ataşehir, Bostancı ve Maltepe\'den kolay ulaşım.',
+    keywords: [
+      'anadolu yakası tiyatro kursu', 'anadolu yakası oyunculuk kursu',
+      'anadolu yakası drama kursu', 'anadolu yakası dans kursu',
+      'anadolu yakası müzikal kursu', 'anadolu yakası sahne sanatları',
+      'üsküdar tiyatro kursu', 'ataşehir oyunculuk kursu', 'bostancı tiyatro kursu',
+      'maltepe oyunculuk kursu', 'kartal tiyatro kursu', 'göztepe drama kursu',
+      'acıbadem oyunculuk', 'koşuyolu tiyatro', 'kadıköy tiyatro kursu',
+      'anadolu yakası ingilizce drama',
+    ],
+    intro:
+      'Anadolu yakasında yaşıyorsan sanat eğitimi için köprü geçmen gerekmiyor. Techne Lab\'ın programlarının çoğu bu tarafta yürüyor ve katılımcılarımız Üsküdar\'dan Kartal\'a kadar geniş bir alandan geliyor. Bu sayfa, yakanın hangi semtinden hangi programa nasıl ulaşacağını tek yerde topluyor.',
+    character:
+      'Yakanın ulaşım omurgası tek noktada kesişiyor: Marmaray ve M4 metro hattı, Gebze\'den Üsküdar\'a kadar tüm ilçeleri aynı merkeze bağlıyor. Bu yüzden Ataşehir\'de oturan biriyle Maltepe\'de oturan biri aynı derse benzer sürede yetişiyor. Akşam saatlerinde raylı sistem trafikten etkilenmiyor — çalışan katılımcılar için belirleyici olan da bu.',
+    transport: [
+      { label: 'Marmaray', detail: 'Ayrılık Çeşmesi ve Söğütlüçeşme — Gebze\'den Halkalı\'ya tüm hat.' },
+      { label: 'Metro (M4)', detail: 'Kadıköy–Tavşantepe hattı; Kartal, Maltepe, Bostancı doğrudan bağlantılı.' },
+      { label: 'Vapur', detail: 'Eminönü, Karaköy, Beşiktaş ve Adalar\'dan Kadıköy iskelesine düzenli sefer.' },
+      { label: 'Metrobüs', detail: 'Söğütlüçeşme durağı — Avrupa yakasıyla doğrudan bağlantı.' },
+    ],
+    nearby: ['Kadıköy', 'Moda', 'Üsküdar', 'Ataşehir', 'Bostancı', 'Maltepe', 'Kartal', 'Göztepe', 'Acıbadem', 'Koşuyolu', 'Erenköy', 'Suadiye'],
+    faq: [
+      {
+        q: 'Hangi semtten ne kadar sürede geliniyor?',
+        a: 'Üsküdar ve Acıbadem\'den 10–15 dakika, Göztepe ve Erenköy\'den 15 dakika, Ataşehir ve Bostancı\'dan 20–25 dakika, Maltepe ve Kartal\'dan 25–35 dakika. Süreler raylı sistemle; akşam saatlerinde trafik etkisi yok.',
+      },
+      {
+        q: 'Üsküdar\'da ya da Ataşehir\'de şubeniz var mı?',
+        a: 'Hayır. Kendi binamız yok, partner stüdyolarda çalışıyoruz ve Anadolu yakasındaki iki stüdyomuz da Kadıköy\'de. Üsküdar, Ataşehir ve çevresinden gelen katılımcılarımız çok — ulaşım bu yüzden bu sayfada ayrıntılı anlatılıyor.',
+      },
+      {
+        q: 'Çocuğum için Anadolu yakasında program var mı?',
+        a: 'Evet. 10–17 yaş İngilizce drama programı Kadıköy stüdyosunda yürüyor, haftada bir gün, Eylül–Mayıs. Gruplar yaşa göre ayrılıyor: 10–14 ve 15–17 ayrı sınıflarda.',
+      },
+      {
+        q: 'Avrupa yakasında da programınız var mı?',
+        a: 'Evet, Pera\'da bir mekânımız var; kamera önü oyunculuk, oyun yazarlığı ve İngilizce drama programları orada yürüyor. Bazı programlar iki yakada da açılıyor.',
       },
     ],
   },

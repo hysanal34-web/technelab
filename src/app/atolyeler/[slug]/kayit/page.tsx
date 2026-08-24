@@ -4,6 +4,8 @@ import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { submitRegistration } from './actions'
 import RegistrationForm from '@/components/RegistrationForm'
 import YouthRegistrationForm from '@/components/YouthRegistrationForm'
+import { TrackApplicationStart } from '@/components/PixelEvents'
+import { priceSummary } from '@/lib/erkenKayit'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -40,12 +42,16 @@ export default async function KayitPage({ params }: Props) {
     venue:      w.venue,
     duration:   w.duration,
     instructor: w.instructor,
+    price:      priceSummary(w)?.current ?? w.price,
   }
 
   return (
     <>
       {/* Neon top rule */}
       <div className="h-[2px] w-full bg-neon" />
+
+      {/* Meta: başvuru formu açıldı — niyet sinyali */}
+      <TrackApplicationStart name={w.title} price={workshopMin.price} slug={w.slug} />
 
       {w.slug === 'english-drama-youth' ? (
         <YouthRegistrationForm workshop={workshopMin} action={boundAction} />

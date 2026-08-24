@@ -227,7 +227,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               className="mt-0.5 accent-neon shrink-0 cursor-pointer"
             />
             <label htmlFor="parentConsent" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-              14–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth" programına katılmasına,
+              10–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth" programına katılmasına,
               provalarda ve yılsonu temsilinde yer almasına onay veriyorum.
               <span className="text-neon ml-1">*</span>
             </label>

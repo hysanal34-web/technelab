@@ -2,6 +2,9 @@
 
 import { Resend } from 'resend'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
+import { headers, cookies } from 'next/headers'
+import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
+import { priceSummary } from '@/lib/erkenKayit'
 
 export type FormState = {
   status: 'idle' | 'success' | 'error'
@@ -86,7 +89,7 @@ export async function submitRegistration(
     }
   }
 
-  // Youth: 14–17 yaş kontrolü
+  // Youth: 10–17 yaş kontrolü
   if (isYouth && birthDate) {
     const d = new Date(birthDate)
     if (!Number.isNaN(d.getTime())) {
@@ -95,7 +98,7 @@ export async function submitRegistration(
         return {
           status: 'error',
           field: 'birthDate',
-          message: `Bu program 14–17 yaş grubuna yönelik. Girilen doğum tarihine göre yaş ${age}. Farklı bir program için bize yazabilirsiniz.`,
+          message: `Bu program 10–17 yaş grubuna yönelik. Girilen doğum tarihine göre yaş ${age}. Farklı bir program için bize yazabilirsiniz.`,
         }
       }
     }
@@ -193,6 +196,11 @@ export async function submitRegistration(
       html,
     })
 
+    // Meta Conversions API — sunucudan Lead olayı.
+    // Tarayıcı pikseli engellenirse bu yine ulaşır; ikisi event_id ile eşleşip tek sayılır.
+    // await ediyoruz ki serverless fonksiyon kapanmadan istek çıksın.
+    await sendLeadToMeta({ slug, workshop, email: contactEmail || email, phone: contactPhone || phone })
+
     return { status: 'success' }
   } catch (err) {
     console.error('[kayıt] Mail gönderilemedi:', err)
@@ -200,5 +208,42 @@ export async function submitRegistration(
       status: 'error',
       message: `Bir hata oluştu. Lütfen tekrar deneyin ya da doğrudan ${SITE_META.email} adresine yazın.`,
     }
+  }
+}
+
+
+/**
+ * Başvuruyu Meta'ya bildirir.
+ * Hata fırlatmaz — reklam takibi başvuru akışını asla bozmamalı.
+ */
+async function sendLeadToMeta(args: {
+  slug: string
+  workshop: (typeof WORKSHOPS)[number] | undefined
+  email: string
+  phone: string
+}): Promise<void> {
+  try {
+    const h = await headers()
+    const c = await cookies()
+    const w = args.workshop
+    const price = w ? (priceSummary(w)?.current ?? w.price) : undefined
+
+    await sendCapiEvent({
+      eventName: 'Lead',
+      eventId: newEventId(),
+      eventSourceUrl: `${SITE_META.url}/atolyeler/${args.slug}/kayit`,
+      email: args.email || undefined,
+      phone: args.phone || undefined,
+      fbp: c.get('_fbp')?.value,
+      fbc: c.get('_fbc')?.value,
+      clientIp: h.get('x-forwarded-for')?.split(',')[0]?.trim(),
+      userAgent: h.get('user-agent') ?? undefined,
+      value: price,
+      currency: 'TRY',
+      contentName: w?.title,
+      contentId: args.slug,
+    })
+  } catch (err) {
+    console.error('[kayıt] CAPI atlandı:', err)
   }
 }

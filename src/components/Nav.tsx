@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 import { useLang } from '@/contexts/LanguageContext'
 import { WORKSHOPS } from '@/lib/data'
+import { DISCIPLINES } from '@/lib/disiplinler'
 import { ThemeToggle } from '@/components/ThemeToggle'
 
 const links = [
@@ -63,6 +64,25 @@ function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => vo
             tümü →
           </span>
         </Link>
+      </div>
+
+      {/* Disiplin sayfaları — hem gezinme hem iç bağlantı ağı.
+          Kategori filtresi programları süzer; bunlar ayrı landing sayfaları. */}
+      <div className="px-8 py-5 border-t border-border flex flex-wrap items-center gap-x-6 gap-y-2">
+        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">
+          eğitimler →
+        </span>
+        {DISCIPLINES.map((d) => (
+          <Link
+            key={d.slug}
+            href={`/${d.slug}`}
+            onClick={onClose}
+            data-hover
+            className="font-mono text-[11px] tracking-[0.1em] lowercase text-stone hover:text-neon transition-colors duration-200"
+          >
+            {d.label.toLocaleLowerCase('tr-TR')}
+          </Link>
+        ))}
       </div>
     </div>
   )

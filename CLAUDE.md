@@ -7,7 +7,7 @@ Yeni bir sohbet açtığında bu dosyayı oku — projenin tüm bağlamı burada
 
 ## Proje
 
-**technelab.ist** — İstanbul'da bağımsız tiyatro şirketi.
+**technelabistanbul.com** — İstanbul'da bağımsız tiyatro şirketi.
 Stack: Next.js 15 App Router · TypeScript · Tailwind CSS · Vercel
 
 Kurucu: Halil Yağız Şanal (playwright & yönetmen)
@@ -98,7 +98,7 @@ type Workshop = {
 | 04 | english-drama-lab | ingilizce-drama | aktif | earlyBird:5 |
 | 05 | english-drama-acting-focus | ingilizce-drama | aktif | — |
 | 06 | english-drama-final-performance | ingilizce-drama | aktif | earlyBird:5 |
-| 07 | english-drama-youth | ingilizce-drama | aktif | 60.000₺ · 14-17 yaş |
+| 07 | english-drama-youth | ingilizce-drama | aktif | 60.000₺ · 10-17 yaş |
 | 08 | techne-musical-lab | dans-muzikal | aktif | earlyBird:5 |
 | 09 | broadway-musical-dance | dans-muzikal | aktif | — |
 

@@ -65,7 +65,12 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     },
     {
       q: 'Sahne performansı yapmam gerekecek mi?',
-      a: `${w.slug === 'english-drama-final-performance' ? 'Evet — bu programın yapısı seyirci önünde bir performansla bitiyor.' : 'Hayır. Çalışma grup içinde kalıyor. Seyircili performansla biten ayrı bir program var, ama bu programda kimse sahneye itilmiyor.'}`,
+      // Seyircili finalle biten programlar: Acting Praxis, Youth ve Musical Lab.
+      // Önceden yalnızca Acting Praxis kontrol ediliyordu; Youth ve Musical Lab
+      // için "kimse sahneye itilmiyor" cevabı veriliyordu — yanlış bilgiydi.
+      a: `${['english-drama-final-project', 'english-drama-youth', 'techne-musical-lab'].includes(w.slug)
+        ? 'Evet — bu program seyirci önünde bir final gösterisiyle kapanıyor. Sahnedeki payın kendi hızına göre belirleniyor, kimse hazır olmadığı bir yere itilmiyor.'
+        : 'Hayır. Çalışma grup içinde kalıyor. Seyircili final gösterisiyle biten ayrı programlarımız var, ama bu programda sahneye çıkma zorunluluğu yok.'}`,
     },
   ],
 

@@ -3,6 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
+import { trackLead } from '@/components/MetaPixel'
 
 type WorkshopMin = {
   slug: string
@@ -12,6 +13,7 @@ type WorkshopMin = {
   venue: string
   duration: string
   instructor?: string
+  price?: number
 }
 
 type Props = {
@@ -42,6 +44,9 @@ export default function RegistrationForm({ workshop, action }: Props) {
       const result = await action(formData)
       setState(result)
       if (result.status === 'success') {
+        // Meta'ya dönüşüm sinyali — value sayesinde Meta pahalı programa
+        // gelen başvuruyu ucuz olandan ayırt edip bütçeyi ona kaydırıyor.
+        trackLead(workshop.title, workshop.price ?? 0, workshop.slug)
         formRef.current?.reset()
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (result.status === 'error') {
@@ -158,7 +163,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
             required={isYouth}
           />
           {isYouth && (
-            <p className="font-mono text-[11px] text-dim mt-1">Bu program 14–17 yaş grubuna yöneliktir.</p>
+            <p className="font-mono text-[11px] text-dim mt-1">Bu program 10–17 yaş grubuna yöneliktir.</p>
           )}
         </FieldGroup>
 

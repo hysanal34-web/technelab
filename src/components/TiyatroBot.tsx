@@ -159,7 +159,7 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
     }
   }
   if (interest === 'dans') {
-    recs.push({ slug: 'broadway-musical-dance', title: 'Broadway Musical Dance', sub: 'Sahne Koreografisi', duration: '12 hafta', tip: 'Jazz ve theatre dance — deneyim şart değil.' })
+    recs.push({ slug: 'broadway-musical-dance', title: 'Broadway Musical Dance', sub: 'Sahne Koreografisi', duration: '3 ay · 12 hafta', tip: 'Jazz ve theatre dance — deneyim şart değil.' })
   }
   if (interest === 'muzikalsini') {
     recs.push({ slug: 'techne-musical-lab', title: 'Techne Musical Lab', sub: 'Drama + Şan + Dans', duration: '8 ay (Ekim–Mayıs)', tip: 'Üç disiplin tek programda; seyircili bitirme performansıyla.' })
@@ -402,13 +402,13 @@ export function TiyatroBot() {
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))
       return { from: 'bot', text: 'Kendi binamız yok — mobil çalışıyoruz. Programlarımız Pera ve Kadıköy\'deki üç partner mekânda: Pod Pera, Beden İşleri ve Soft Sanat.', options: [{ label: 'İşbirliklerimiz →', value: 'go:/isbirlikleri' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
-      return { from: 'bot', text: '14–17 yaş için English Drama Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
+      return { from: 'bot', text: '10–17 yaş için English Drama Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
     if (has('ingilizce', 'english', 'dil'))
-      return { from: 'bot', text: 'English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12 hafta), English Acting Praxis (12 hafta) ve English Drama Youth 14–17 yaş (8 ay, haftada 1 gün).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
+      return { from: 'bot', text: 'English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12 hafta), English Acting Praxis (12 hafta) ve English Drama Youth 10–17 yaş (8 ay, haftada 1 gün).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
       return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Sitare Bilge yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
     if (has('dans', 'koreografi', 'broadway'))
-      return { from: 'bot', text: 'Broadway Musical Dance: jazz, tap ve theatre dance temelli 12 haftalık koreografi programı. Deneyim şart değil.', options: [{ label: 'Broadway Dance →', value: 'go:broadway-musical-dance' }] }
+      return { from: 'bot', text: 'Broadway Musical Dance: jazz, tap ve theatre dance temelli koreografi programı. 6 haftalık temel blok ya da 12 haftalık tam program olarak katılabilirsin. Deneyim şart değil.', options: [{ label: 'Broadway Dance →', value: 'go:broadway-musical-dance' }] }
     if (has('kamera', 'dizi', 'film', 'audition', 'cast', 'set'))
       return { from: 'bot', text: 'Kamera önü programımız şu an açık değil. Ama English Acting Praxis\'in finalinde Cast Direktörü Harika Uygur masterclass veriyor — casting gözüyle geri bildirim almanın en yakın yolu bu.', options: [{ label: 'Acting Praxis →', value: 'go:english-drama-final-project' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yazar', 'dramaturji', 'metin', 'oyun yazma'))

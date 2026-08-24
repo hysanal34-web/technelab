@@ -33,6 +33,19 @@ export default function ContactPage() {
             Prodüksiyon işbirliği, atölye başvurusu veya kurumsal projeler için iletişime geçin.
           </p>
 
+          {/* Telefon en üstte: aramanın form doldurmaktan daha yüksek
+              dönüşen kanal olduğu net, o yüzden ilk sırada duruyor. */}
+          <div className="flex gap-6 py-3.5 border-b border-border">
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon w-16 shrink-0 pt-0.5">telefon</span>
+            <a
+              href={`tel:${SITE_META.phoneE164}`}
+              data-call-cta="iletisim"
+              className="font-mono text-[13px] text-fg hover:text-neon transition-colors duration-200"
+            >
+              {SITE_META.phone}
+            </a>
+          </div>
+
           <div className="flex gap-6 py-3.5 border-b border-border">
             <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon w-16 shrink-0 pt-0.5">e-posta</span>
             <a
