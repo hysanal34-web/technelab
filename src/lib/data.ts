@@ -197,7 +197,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Kadıköy', duration: '3 ay · 12 hafta', price: 22500,
     priceEarlyBird: 19000, earlyBirdPercent: 16, earlyBirdDeadline: '10 Eylül',
     monthlyPrice: 8000,
-    schedule: [{ place: 'Kadıköy', date: '12 Eylül Cumartesi', time: '19:00 – 21:00' }],
+    schedule: [{ place: 'Kadıköy', date: '17 Eylül Perşembe', time: '19:00 – 21:00' }],
     maxStudents: 15, active: true,
     category: 'dans-muzikal',
     tags: ['Dans', 'Broadway', 'Koreografi'],
