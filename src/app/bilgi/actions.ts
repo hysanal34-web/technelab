@@ -45,13 +45,13 @@ function priceRows(w: (typeof WORKSHOPS)[number]): [string, string][] {
     return rows
   }
   if (p && p.current < w.price) {
-    rows.push(['Güncel fiyat', `${TL(p.current)} (${p.urgency ?? 'indirimli dönem'})`])
-    rows.push(['Liste fiyatı', TL(w.price)])
+    rows.push(['Güncel fiyat', `${TL(p.current)} — KDV dahil (${p.urgency ?? 'indirimli dönem'})`])
+    rows.push(['Liste fiyatı', `${TL(w.price)} — KDV dahil`])
   } else {
-    rows.push(['Program ücreti', TL(w.price)])
+    rows.push(['Program ücreti', `${TL(w.price)} — KDV dahil`])
   }
-  if (w.priceCash) rows.push(['Peşin / havale', TL(w.priceCash)])
-  if (w.monthlyPrice) rows.push(['Aylık ödeme', `${TL(w.monthlyPrice)} / ay`])
+  if (w.priceCash) rows.push(['Peşin / havale', `${TL(w.priceCash)} — KDV dahil`])
+  if (w.monthlyPrice) rows.push(['Aylık ödeme', `${TL(w.monthlyPrice)} / ay — KDV dahil`])
   rows.push(['Ödeme', 'Kredi kartına taksit seçenekleri mevcuttur'])
   if (w.earlyBirdDeadline) rows.push(['Erken kayıt son tarih', w.earlyBirdDeadline])
   return rows
