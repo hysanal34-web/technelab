@@ -14,25 +14,77 @@ birinci sayfa o program, ikinci sayfa tüm programlar.
 
 ---
 
-## 0 · KARŞILAMA (ilk mesaj, otomatik)
+## 0 · KARŞILAMA — **KAPATILDI (24 Ağustos)**
 
-Instagram'ın otomatik yanıt özelliğine kur: Ayarlar → İşletme araçları
-→ Kayıtlı yanıtlar / Hoş geldin mesajı.
+Karşılama mesajı artık gönderilmiyor. Sebep: kişinin ilk mesajı bir
+program adı içerdiğinde Meta hem karşılamayı hem program yanıtını aynı
+anda gönderiyordu — iki mesaj üst üste biniyordu.
+
+Şimdiki akış: kişi mesajında program adını ya da numarasını yazarsa o
+programın yanıtı gider. Başka bir şey yazarsa (ör. sadece "merhaba")
+otomatik yanıt gitmez, konuşmayı sen açarsın.
+
+Aşağıdaki metin arşiv olarak duruyor:
 
 ```
 Merhaba! Techne Lab İstanbul'a yazdığınız için teşekkürler.
+En kısa sürede size dönüş yapacağız.
 
-Hangi programla ilgileniyorsunuz?
-
-1 · English Drama Lab — yetişkin, İngilizce konuşma
-2 · English Acting Praxis — İngilizce oyunculuk, 18+
-3 · English Drama Youth — 10-17 yaş
-4 · Techne Musical Lab — şan, dans, oyunculuk
-5 · Broadway Musical Dance — dans
-6 · The Auteur Lab — yaratıcı yazarlık, mitten moderne
-
-Numarayı yazmanız yeterli, detayları hemen ileteyim.
+Hangi programla ilgilendiğinizi yazarsanız detayları hemen iletelim:
+English Drama Lab · English Acting Praxis · English Drama Youth ·
+Techne Musical Lab · Broadway Musical Dance · The Auteur Lab
 ```
+
+**24 Ağustos'ta kısaltıldı.** Sebep: kişinin ilk mesajı bir program
+adı içerdiğinde Meta hem bu karşılamayı hem de program yanıtını aynı
+anda gönderiyor. Uzun numaralı menü, arkasından gelen program
+detayıyla üst üste biniyordu. Kısa hâli iki mesaj birlikte gitse de
+akıcı okunuyor.
+
+---
+
+## 0b · PROGRAM YANITLARI (anahtar kelime, otomatik)
+
+24 Ağustos 2026'da kuruldu. Altı ayrı otomasyon, hepsi **açık**,
+kanal **yalnızca Instagram**. Kişi karşılama menüsünden numara ya da
+program adı yazdığında ilgili yanıt otomatik gider.
+
+| Otomasyon | Tetikleyici anahtarlar |
+|---|---|
+| 1 – English Drama Lab | `1` · `drama lab` · `english drama` |
+| 2 – English Acting Praxis | `2` · `acting praxis` · `ingilizce oyunculuk` |
+| 3 – English Drama Youth | `3` · `youth` · `çocuk` |
+| 4 – Techne Musical Lab | `4` · `musical lab` · `müzikal` |
+| 5 – Broadway Musical Dance | `5` · `broadway` · `dans` |
+| 6 – The Auteur Lab | `6` · `auteur` · `yazarlık` |
+
+**Her yanıtın altında bir düğme var:** "Program dosyası (PDF)".
+Kişi tıklayınca o programın iki sayfalık dosyası açılıyor.
+
+| Program | Düğmenin gittiği adres |
+|---|---|
+| Auteur Lab | technelabistanbul.com/dosyalar/auteur.pdf |
+| Drama Lab | technelabistanbul.com/dosyalar/drama-lab.pdf |
+| Acting Praxis | technelabistanbul.com/dosyalar/praxis.pdf |
+| Youth | technelabistanbul.com/dosyalar/youth.pdf |
+| Musical Lab | technelabistanbul.com/dosyalar/musical.pdf |
+| Broadway | technelabistanbul.com/dosyalar/broadway.pdf |
+
+⚠️ **Bu adresler siteye deploy edilmeden çalışmaz.** Dosyalar
+`public/dosyalar/` altında hazır ve commit edildi; deploy edildiği
+anda linkler canlanır.
+
+**Meta'nın iki kuralı:**
+
+1. Eşleşme **tam** olmalı — anahtar kelimenin kendisi mesajda geçmeli.
+2. Otomatik yanıt, **sohbet 15 dakikadır sessizse** gider. Kişi
+   karşılama mesajının hemen ardından numara yazarsa yanıt gecikebilir.
+   Yani bu sistem seni ikame etmiyor; sen uyurken ya da meşgulken
+   devreye giriyor.
+
+Yanıt metinleri aşağıdaki program başlıklarının kısaltılmış hâli
+(Meta 500 karakterle sınırlıyor). Fiyat değişirse **hem burayı hem
+Meta'daki otomasyonu** güncelle.
 
 ---
 
@@ -48,7 +100,7 @@ Katılım bedeli 30.000 TL, KDV dahil.
 10 Eylül'e kadar erken kayıt: 25.500 TL — ilk 5 kişi için geçerli.
 
 Ödeme:
-· Bonus kart ile 3 taksit, vade farksız (10.000 TL × 3)
+· Kredi kartına taksit seçenekleri mevcuttur
 · Ya da aylık 12.000 TL ile ay ay katılım — önce deneyip
   karar vermek isterseniz bu seçenek var
 · Arkadaşınızla gelirseniz ikinize de %10 indirim
@@ -67,16 +119,25 @@ Program dosyasını ekliyorum. Hangi semt ve gün size uygun?
 ```
 English Acting Praxis için detaylar:
 
-12 hafta · Pera · 14 kişilik grup · 19 Eylül Cumartesi 11:00
+12 hafta · Pera · 14 kişilik grup · 26 Eylül Cumartesi 11:00
 Ece Ertez yürütücülüğünde, tamamen İngilizce.
 
-Programın finalinde uluslararası cast direktörü Harika Uygur ile
-bir günlük masterclass var. Performanslar kayıt altına alınıp
-size teslim ediliyor.
+Oyunculuğunu uluslararası bir zeminde denemek isteyenler için bir
+uğrak. Profesyonel bir oyuncu da olabilirsiniz, eğitimine devam
+eden bir öğrenci de, sahneyi merak eden biri de — günlük hayatta
+kendini ifade edebilecek kadar, B1 seviyesinde İngilizceniz
+varsa yeterli.
 
-Katılım bedeli 69.000 TL, KDV dahil.
-10 Eylül'e kadar erken kayıt: 59.000 TL.
-Bonus kart ile 3 taksit, vade farksız (19.667 TL × 3).
+On iki hafta boyunca iki şey birden çalışıyor: oyuncunun
+enstrümanı ve dilin pası.
+
+Finalde cast direktörü Harika Uygur ile bir günlük masterclass ve
+çekim günü var. Performanslar kayıt altına alınıp size teslim
+ediliyor.
+
+Katılım bedeli 59.000 TL, KDV dahil.
+10 Eylül'e kadar erken kayıt: 50.000 TL (%15 indirim).
+Kredi kartına taksit seçenekleri mevcuttur.
 Arkadaşınızla gelirseniz ikinize de %10 indirim.
 
 %25 burs imkânı: 1 dakikalık performans videonuzu
@@ -109,9 +170,9 @@ sınav yok, not baskısı yok. Mayıs'ta seyirci önünde bir final
 gösterisi var — çocuk yılın sonunda sahnede duruyor ve
 İngilizce konuşuyor.
 
-Katılım bedeli 150.000 TL, KDV dahil.
-10 Eylül'e kadar erken kayıt: 128.000 TL.
-Bonus kart ile 3 taksit, vade farksız.
+Katılım bedeli 128.000 TL, KDV dahil.
+10 Eylül'e kadar erken kayıt: 108.000 TL (%15 indirim).
+Kredi kartına taksit seçenekleri mevcuttur.
 Arkadaşıyla birlikte kayıtta ikisine de %10 indirim.
 
 %25 burs imkânı: çocuğunuzun 1 dakikalık performans videosunu
@@ -136,9 +197,9 @@ Köksal Ünal ve Sitare Bilge ile şan, dans ve oyunculuk tek
 programda. Sekiz ayın sonunda şarkı kolajı değil, kostümü ve
 ışığıyla sahnelenmiş bir müzikal çıkıyor.
 
-Katılım bedeli 195.000 TL, KDV dahil.
-10 Eylül'e kadar erken kayıt: 165.000 TL.
-Bonus kart ile 3 taksit, vade farksız.
+Katılım bedeli 165.000 TL, KDV dahil.
+10 Eylül'e kadar erken kayıt: 140.000 TL (%15 indirim).
+Kredi kartına taksit seçenekleri mevcuttur.
 Arkadaşınızla gelirseniz ikinize de %10 indirim.
 
 %25 burs imkânı: 1 dakikalık performans videonuzu
@@ -168,7 +229,7 @@ teknik temelden başlıyoruz.
 
 Katılım bedeli 22.500 TL, KDV dahil.
 10 Eylül'e kadar erken kayıt: 19.000 TL.
-Bonus kart ile 3 taksit, vade farksız (6.333 TL × 3).
+Kredi kartına taksit seçenekleri mevcuttur.
 
 Emin değilseniz aylık 8.000 TL ile ay ay da katılabilirsiniz —
 önce deneyip devam kararını sonra verirsiniz.
@@ -199,16 +260,13 @@ senaryo da, oyun da aynı çekirdekten besleniyor.
 
 Katılım bedeli 18.000 TL, KDV dahil.
 10 Eylül'e kadar erken kayıt: 15.300 TL (%15 indirim).
-Bonus kart ile 3 taksit, vade farksız.
+Kredi kartına taksit seçenekleri mevcuttur.
 Arkadaşınızla gelirseniz ikinize de %10 indirim.
 
 %25 burs imkânı: en fazla 5 sayfalık bir yazınızı
 info@technelabistanbul.com adresine gönderin, değerlendirelim.
 
 Portfolyo aranmıyor, yaş sınırı yok.
-
-Mekân Kadıköy'de, Ayrılıkçeşme Marmaray'a 7-8 dakika yürüme
-mesafesinde.
 
 Dosyayı ekliyorum.
 ```
@@ -224,22 +282,26 @@ Dosyayı ekliyorum.
 Doğrudan rakamı ver. Oyalama, güveni kırıyor.
 
 ```
-[Program adı] normal fiyatı [X] TL, KDV dahil.
-10 Eylül'e kadar erken kayıt fiyatı [Y] TL.
-Bonus kart ile 3 taksit, vade farksız.
+[Program adı] katılım bedeli [X] TL, KDV dahil.
+10 Eylül'e kadar erken kayıt fiyatı [Y] TL (%15 indirim).
+Kredi kartına taksit seçenekleri mevcuttur.
 Detaylı dosyayı ekliyorum.
 ```
 
-**Güncel fiyat tablosu** (normal / erken kayıt · 10 Eylül'e kadar):
+**Güncel fiyat tablosu** — altı programda da 10 Eylül'e kadar **%15
+erken kayıt indirimi** geçerli.
 
-| Program | Normal | Erken kayıt |
-|---|---|---|
-| The Auteur Lab | 18.000 | **15.300** |
-| Broadway Musical Dance | 22.500 | **19.000** |
-| English Drama Lab | 30.000 | **25.500** |
-| English Acting Praxis | 69.000 | **59.000** |
-| English Drama Youth | 150.000 | **128.000** |
-| Techne Musical Lab | 195.000 | **165.000** |
+| Program | Katılım bedeli | Erken kayıt (10 Eylül) | Kazanç |
+|---|---|---|---|
+| The Auteur Lab | 18.000 | **15.300** | 2.700 |
+| Broadway Musical Dance | 22.500 | **19.000** | 3.500 |
+| English Drama Lab | 30.000 | **25.500** | 4.500 |
+| English Acting Praxis | 59.000 | **50.000** | 9.000 |
+| English Drama Youth | 128.000 | **108.000** | 20.000 |
+| Techne Musical Lab | 165.000 | **140.000** | 25.000 |
+
+%25 burs ve %10 arkadaş indirimi bu rakamların üzerine ayrıca
+konuşuluyor.
 
 Aylık katılım: English Drama Lab 12.000 TL/ay · Broadway 8.000 TL/ay
 
@@ -259,11 +321,14 @@ size dönelim.
 ## "Taksit var mı?"
 
 ```
-Evet. Bonus kart ile 3 taksit, vade farksız — ek ücret yok.
+Evet, kredi kartına taksit seçenekleri mevcuttur.
 [English Drama Lab / Broadway ise:] Ayrıca aylık ödeyerek
 ay ay katılma seçeneği de var, önce deneyip karar
 verebilirsiniz.
 ```
+
+Taksit sayısını ve bankayı önden taahhüt etme — komisyon oranları
+değişiyor. "Taksit seçenekleri var" de, ödeme aşamasında netleştir.
 
 ## "Hiç deneyimim yok, olur mu?"
 
@@ -300,23 +365,11 @@ katılabiliyorsunuz. Gruplar küçük olduğu için bunu
 esnek yürütebiliyoruz.
 ```
 
-## "Sertifika veriyor musunuz?"
-
-```
-Program sonunda katılım belgesi veriyoruz. Ama asıl çıktı
-belge değil: [Musical Lab / Youth için] sahnelenen bir
-gösteri, [Acting Praxis için] cast direktörü önünde çekilmiş
-kayıtlı performansınız.
-```
-
 ## "Nerede yapılıyor?"
 
 ```
 Pera (Beyoğlu) ve Kadıköy'de çalışıyoruz. Programa göre
 değişiyor — [program adı] [semt]'te.
-
-[Auteur Lab ise:] Kadıköy, Ayrılıkçeşme Marmaray'a 7-8
-dakika yürüme mesafesinde.
 ```
 
 ## Cevap gelmeyen / soğuyan konuşma — 2 gün sonra

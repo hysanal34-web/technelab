@@ -119,7 +119,7 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.\n\nCast Direktörü / Süpervizör: Harika Uygur — Avrupa\'nın en iyi cast direktörü seçilen (ICDN, "Mustang"), Amerikan Film Akademisi (AMPAS), Casting Society of America (CSA) ve Avrupa Film Akademisi üyesi. Türkiye\'de casting direktörlüğünü uluslararası standartta kuran isim.',
     venue: 'Pera', duration: '12 hafta', price: 59000,
     priceEarlyBird: 50000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
-    schedule: [{ place: 'Pera', date: '19 Eylül Cumartesi', time: '11:00' }],
+    schedule: [{ place: 'Pera', date: '26 Eylül Cumartesi', time: '11:00' }],
     maxStudents: 14, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
