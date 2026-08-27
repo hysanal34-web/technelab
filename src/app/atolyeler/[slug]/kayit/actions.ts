@@ -104,6 +104,23 @@ export async function submitRegistration(
     }
   }
 
+  // Doğum yılı — tüm programlarda zorunlu.
+  if (!birthYear) {
+    return { status: 'error', field: 'birthYear', message: 'Doğum yılı gerekli.' }
+  }
+  {
+    const y = Number(birthYear)
+    const thisYear = new Date().getFullYear()
+    if (!Number.isInteger(y) || y < 1950 || y > thisYear) {
+      return { status: 'error', field: 'birthYear', message: `Doğum yılını 1950–${thisYear} aralığında girin.` }
+    }
+  }
+
+  // Meslek — zorunlu.
+  if (!occupation) {
+    return { status: 'error', field: 'occupation', message: 'Meslek / çalışma alanı gerekli.' }
+  }
+
   if (!kvkk) {
     return { status: 'error', field: 'kvkk', message: 'Devam etmek için KVKK aydınlatma metnini onaylamanız gerekiyor.' }
   }

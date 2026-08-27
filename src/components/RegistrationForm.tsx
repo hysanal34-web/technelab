@@ -152,24 +152,24 @@ export default function RegistrationForm({ workshop, action }: Props) {
           <Input name="phone" type="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" />
         </FieldGroup>
 
-        {/* Doğum Yılı — always show, required for Youth */}
-        <FieldGroup htmlFor="birthYear" label="Doğum Yılı" required={isYouth}>
+        {/* Doğum Yılı — tüm programlarda zorunlu (yaş grubu ve kontenjan planlaması için) */}
+        <FieldGroup htmlFor="birthYear" label="Doğum Yılı" required>
           <Input
             name="birthYear"
             type="number"
             placeholder="örn. 2005"
             min={1950}
             max={new Date().getFullYear()}
-            required={isYouth}
+            required
           />
           {isYouth && (
             <p className="font-mono text-[11px] text-dim mt-1">Bu program 10–17 yaş grubuna yöneliktir.</p>
           )}
         </FieldGroup>
 
-        {/* Meslek */}
-        <FieldGroup htmlFor="occupation" label="Meslek / Çalışma Alanı">
-          <Input name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" autoComplete="organization-title" />
+        {/* Meslek — zorunlu */}
+        <FieldGroup htmlFor="occupation" label="Meslek / Çalışma Alanı" required>
+          <Input name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" required autoComplete="organization-title" />
         </FieldGroup>
 
         {/* Deneyim */}

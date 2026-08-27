@@ -72,9 +72,9 @@ export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?
         </div>
         <div>
           <label htmlFor="bilgi-phone" className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone block mb-2">
-            telefon <span className="text-dim normal-case">(seni arayalım istersen)</span>
+            telefon <span className="text-neon" aria-hidden="true">*</span>
           </label>
-          <input id="bilgi-phone" name="phone" type="tel" maxLength={40} autoComplete="tel" className={INPUT} placeholder="05xx xxx xx xx" />
+          <input id="bilgi-phone" name="phone" type="tel" required maxLength={40} autoComplete="tel" className={INPUT} placeholder="05xx xxx xx xx" />
         </div>
         {validDefault ? (
           <input type="hidden" name="program" value={validDefault} />

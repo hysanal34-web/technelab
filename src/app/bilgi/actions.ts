@@ -132,6 +132,8 @@ export async function submitBilgiForm(formData: FormData): Promise<BilgiFormStat
 
   if (!name) return { status: 'error', message: 'Adını yazar mısın?' }
   if (!EMAIL_RE.test(email)) return { status: 'error', message: 'E-posta adresi geçerli görünmüyor.' }
+  // Telefon zorunlu: numarası olmayan lead'e geri dönüş yapılamıyor.
+  if (!phone) return { status: 'error', message: 'Telefon numaranı yazar mısın? Sana dönebilmemiz için gerekli.' }
   if (!slug) return { status: 'error', message: 'Hangi programla ilgilendiğini seç.' }
   if (!kvkk) return { status: 'error', message: 'Devam etmek için KVKK metnini onaylaman gerekiyor.' }
 
