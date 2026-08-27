@@ -151,16 +151,9 @@ export async function submitBilgiForm(formData: FormData): Promise<BilgiFormStat
   const from = process.env.RESEND_FROM || 'Techne Lab <onboarding@resend.dev>'
 
   try {
-    // 1 — Kullanıcıya fiyat & içerik maili
-    await resend.emails.send({
-      from,
-      to: email,
-      replyTo: SITE_META.email,
-      subject: `${w.title} — Program Bilgisi & Ücretler | Techne Lab`,
-      html: infoMailHtml(w, name),
-    })
-
-    // 2 — Bize lead bildirimi
+    // 1 — ÖNCE bize lead bildirimi.
+    // Sıra kritik: kullanıcıya giden mail (yabancı bir adrese, bounce olabilir)
+    // başarısız olursa lead bildirimi de düşmesin. Lead kaybı en pahalı hata.
     await resend.emails.send({
       from,
       to: SITE_META.email,
@@ -173,9 +166,21 @@ export async function submitBilgiForm(formData: FormData): Promise<BilgiFormStat
           Ad: ${esc(name)}<br/>
           E-posta: ${esc(email)}<br/>
           Telefon: ${esc(phone) || '—'}<br/>
-          <br/>Fiyat maili otomatik gönderildi. 24 saat içinde aranması önerilir.
         </div>`,
     })
+
+    // 2 — Kullanıcıya fiyat & içerik maili.
+    // Bu adım kırılgan (alıcı adresi bizim kontrolümüzde değil); patlarsa
+    // logla ve devam et — lead bildirimi yukarıda zaten gitti.
+    await resend.emails
+      .send({
+        from,
+        to: email,
+        replyTo: SITE_META.email,
+        subject: `${w.title} — Program Bilgisi & Ücretler | Techne Lab`,
+        html: infoMailHtml(w, name),
+      })
+      .catch((e) => console.error('[bilgi] Kullanıcıya bilgi maili gönderilemedi:', email, e))
 
     // 3 — Lead veritabanı: Resend audience (varsa)
     const audienceId = process.env.RESEND_LEADS_AUDIENCE_ID || process.env.RESEND_AUDIENCE_ID

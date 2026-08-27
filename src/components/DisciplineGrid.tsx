@@ -70,7 +70,7 @@ export function DisciplineGrid() {
           İSTANBUL&apos;DA TİYATRO,<br />DANS &amp; YAZARLIK ATÖLYELERİ
         </h2>
         <p className="font-mono text-[13px] text-stone max-w-2xl leading-relaxed">
-          Pera ve Kadıköy&apos;de, on iki kişiyi geçmeyen gruplarda — dört alan, yedi program.
+          Pera ve Kadıköy&apos;de, on iki kişiyi geçmeyen gruplarda — dört alan, altı program.
         </p>
       </div>
 

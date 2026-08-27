@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
+import { DISCIPLINES } from '@/lib/disiplinler'
 import { getWorkshopFaq } from '@/lib/faq'
 import { yorumlarFor } from '@/lib/yorumlar'
 import { ProgramYorumlari } from '@/components/Yorumlar'
@@ -39,6 +40,23 @@ export default async function WorkshopDetailPage({ params }: Props) {
   const w = WORKSHOPS.find((w) => w.slug === slug)
   if (!w) notFound()
 
+  // SEO: bu programı listeleyen disiplin sayfaları (spoke → hub iç bağlantısı)
+  const hubs = DISCIPLINES.filter((d) => d.workshopSlugs.includes(w.slug))
+
+  // Schema startDate: '7 Ekim Çarşamba' gibi Türkçe tarihleri ISO'ya çevir.
+  // Çevrilemezse startDate hiç yazılmaz — yanlış tarih vermekten iyidir.
+  const TR_MONTHS: Record<string, string> = {
+    ocak: '01', şubat: '02', mart: '03', nisan: '04', mayıs: '05', haziran: '06',
+    temmuz: '07', ağustos: '08', eylül: '09', ekim: '10', kasım: '11', aralık: '12',
+  }
+  const toIsoDate = (tr: string): string | undefined => {
+    const m = tr.toLocaleLowerCase('tr-TR').match(/(\d{1,2})\s+([a-zçğıöşü]+)/)
+    if (!m || !TR_MONTHS[m[2]]) return undefined
+    const year = new Date().getFullYear()
+    return `${year}-${TR_MONTHS[m[2]]}-${m[1].padStart(2, '0')}`
+  }
+  const startDate = w.schedule?.[0] ? toIsoDate(w.schedule[0].date) : undefined
+
   const courseImage = w.images?.[0]
     ? `${SITE_META.url}/images/gallery/${w.images[0]}.jpg`
     : `${SITE_META.url}/images/og-techne-lab.png`
@@ -72,6 +90,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       '@type': 'CourseInstance',
       courseMode: 'Onsite',
       courseWorkload: w.duration,
+      ...(startDate ? { startDate } : {}),
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
         '@type': 'Place',
@@ -149,15 +168,18 @@ export default async function WorkshopDetailPage({ params }: Props) {
             <p className="font-mono text-[11px] tracking-[0.32em] uppercase text-neon mb-5">
               atölye · {w.code}
             </p>
-            <h1
-              className="font-display text-white mb-4"
-              style={{ fontSize: 'clamp(44px,7.5vw,108px)', letterSpacing: '0.01em', lineHeight: 0.88 }}
-            >
-              {w.title}
+            {/* SEO: alt başlık (anahtar kelimeler) H1'in içinde — görsel aynı */}
+            <h1 className="mb-6">
+              <span
+                className="font-display text-white block mb-4"
+                style={{ fontSize: 'clamp(44px,7.5vw,108px)', letterSpacing: '0.01em', lineHeight: 0.88 }}
+              >
+                {w.title}
+              </span>
+              <span className="font-mono font-normal text-[14px] md:text-[16px] italic text-white/55 block">
+                {w.sub}
+              </span>
             </h1>
-            <p className="font-mono text-[14px] md:text-[16px] italic text-white/55 mb-6">
-              {w.sub}
-            </p>
             {w.instructor && w.instructor !== 'Techne Lab' && (
               <>
                 <div className="h-px w-10 bg-neon/50 mb-5" />
@@ -176,10 +198,12 @@ export default async function WorkshopDetailPage({ params }: Props) {
           <div className="absolute top-0 inset-x-0 h-0.5 bg-neon" />
           <div className="px-4 md:px-10 pt-24 pb-8">
             <p className="font-mono text-[11px] tracking-widest2 uppercase text-neon mb-4">atölye · {w.code}</p>
-            <h1 className="font-display text-fg mb-3" style={{ fontSize: 'clamp(40px,6.5vw,96px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
-              {w.title}
+            <h1 className="mb-3">
+              <span className="font-display text-fg block mb-3" style={{ fontSize: 'clamp(40px,6.5vw,96px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
+                {w.title}
+              </span>
+              <span className="font-mono font-normal text-[16px] italic text-stone block">{w.sub}</span>
             </h1>
-            <p className="font-mono text-[16px] italic text-stone mb-3">{w.sub}</p>
             {w.instructor && w.instructor !== 'Techne Lab' && (
               <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-stone mt-4">{w.instructor}</p>
             )}
@@ -417,8 +441,20 @@ export default async function WorkshopDetailPage({ params }: Props) {
         ))}
       </section>
 
-      {/* Lokasyon bağlantıları — lokal SEO iç link */}
+      {/* Lokasyon + disiplin bağlantıları — iç link (spoke → hub) */}
       <section className="px-4 md:px-10 py-10 border-b border-border">
+        {hubs.length > 0 && (
+          <>
+            <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">bu programın alanı</span>
+            <div className="flex flex-wrap gap-x-8 gap-y-2 mb-8">
+              {hubs.map((d) => (
+                <Link key={d.slug} href={`/${d.slug}`} className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
+                  {d.label} — İstanbul →
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
         <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">bu bölgedeki diğer programlar</span>
         <div className="flex flex-wrap gap-x-8 gap-y-2">
           <Link href="/kadikoy-tiyatro-kursu" className="font-mono text-[12px] text-stone hover:text-neon transition-colors">

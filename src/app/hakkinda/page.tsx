@@ -84,7 +84,7 @@ export default function AboutPage() {
           <p className="font-mono text-[14px] text-stone leading-relaxed mb-8">
             2026&apos;da İstanbul&apos;da kurulduk. Pera ve Kadıköy&apos;deki üç partner mekânda, en fazla 8–15 kişilik
             gruplarla çalışıyoruz — çünkü kalabalıkta kimse görünmez.
-            Yazarlıktan müzikale yedi program, hepsi aynı omurgaya bağlı:{' '}
+            Yazarlıktan müzikale altı program, hepsi aynı omurgaya bağlı:{' '}
             <span className="text-neon">disiplin özgürlüktür.</span>
           </p>
           <div className="flex items-center gap-3">
