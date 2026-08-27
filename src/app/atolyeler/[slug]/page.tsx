@@ -268,6 +268,8 @@ export default async function WorkshopDetailPage({ params }: Props) {
                     typeof w.maxStudents === 'number' ? `Kontenjan ${w.maxStudents} kişiyle sınırlı` : null,
                     w.duration,
                     w.venue,
+                    // Tüm programlarda görünür — fiyat gizli olsa da ödeme kolaylığı satın alma engelini düşürüyor.
+                    'Kredi kartına taksit seçenekleri mevcuttur',
                   ].filter(Boolean).map((line) => (
                     <li key={line as string} className="flex items-start gap-2.5">
                       <span className="w-1 h-1 rounded-full bg-neon flex-shrink-0 mt-2" aria-hidden="true" />

@@ -89,8 +89,8 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Yaratıcı Drama · Doğaçlama · İngilizce',
     instructor: 'Alara Lokum, Ece Ertez & Yeşim Çelebi',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda başlayan sahne pratiğini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu; Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Ece Ertez: Oyunculuk pratiğini Şahika Tekand Studio Oyuncuları'nın fiziksel tiyatro ekolünde inşa etti; Şahmaran ve Erşan Kuneri gibi projelerde yer aldı, Chubbuck Metodu'nda uzmanlaştı. Yeşim Çelebi: Yale Üniversitesi Tiyatro ve Performans Sanatları mezunu; LAMDA disiplini ile Stella Adler ve Lee Strasberg metotlarını Bahar, Kızılcık Şerbeti ve Mezarlık gibi yapımlardaki set deneyimiyle birleştiriyor.",
-    venue: 'Pera & Kadıköy', duration: '12 hafta', price: 30000, monthlyPrice: 12000,
-    priceEarlyBird: 25500, earlyBirdPercent: 15, earlyBirdSlots: 5, earlyBirdDeadline: '10 Eylül',
+    venue: 'Pera & Kadıköy', duration: '3 ay · 12 hafta', price: 29000,
+    priceEarlyBird: 24650, earlyBirdPercent: 15, earlyBirdSlots: 5, earlyBirdDeadline: '10 Eylül',
     schedule: [
       { place: 'Pera', date: '12 Eylül Cumartesi', time: '15:00' },
       { place: 'Kadıköy', date: '14 Eylül Pazartesi', time: '20:00' },
@@ -196,7 +196,6 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: 'Oyuncu, yönetmen ve Broadway dans eğitmeni. Sahne koreografisi ve tiyatro dansı üzerine kapsamlı deneyim.',
     venue: 'Kadıköy', duration: '3 ay · 12 hafta', price: 22500,
     priceEarlyBird: 19500, earlyBirdPercent: 13, earlyBirdDeadline: '10 Eylül',
-    monthlyPrice: 12000,
     schedule: [{ place: 'Kadıköy', date: '17 Eylül Perşembe', time: '19:00 – 21:00' }],
     maxStudents: 15, active: true,
     category: 'dans-muzikal',
