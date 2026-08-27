@@ -2,27 +2,25 @@
 
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
-import { WORKSHOPS } from '@/lib/data'
 import { submitBilgiForm, type BilgiFormState } from '@/app/bilgi/actions'
+import { SITE_META } from '@/lib/data'
 
 const INPUT =
   'w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200'
 
 /**
- * Fiyat & Program Bilgisi formu.
+ * Genel iletişim formu.
  *
- * Fiyat sitede görünmüyor (bilinçli karar) — bu form o merakı lead'e çeviriyor:
- * bilgini bırak, fiyat ve içerik tablosu mailine gelsin. `defaultProgram`
- * verilirse (atölye sayfası) program seçili gelir ve select gizlenir.
+ * Program ve ücret soruları buraya değil WhatsApp'a yönlendiriliyor — fiyat
+ * hiçbir otomatik kanalda paylaşılmıyor. Bu form soru, öneri, iş birliği gibi
+ * serbest mesajlar için; mesaj doğrudan bize düşüyor, otomatik yanıt gitmiyor.
  */
-export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?: string; compact?: boolean }) {
+export function BilgiForm({ compact = false }: { compact?: boolean }) {
   const [state, setState] = useState<BilgiFormState>({ status: 'idle' })
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
 
-  const active = WORKSHOPS.filter((w) => w.active)
   // Geçersiz ya da pasif slug geldiyse select'e düş — form çıkmaza girmesin.
-  const validDefault = defaultProgram && active.some((w) => w.slug === defaultProgram) ? defaultProgram : undefined
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -39,19 +37,37 @@ export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?
       <div className="border border-neon p-6 md:p-8" role="status">
         <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">gönderildi ✓</span>
         <p className="text-fg text-[15px] leading-relaxed">
-          Program bilgisi ve ücret tablosu e-postana yola çıktı — birkaç dakika içinde gelmezse spam klasörüne bak.
-          Sorun olursa telefonla da ulaşabilirsin.
+          Mesajın bize ulaştı. En kısa sürede döneceğiz. Acelesi varsa telefonla ya da
+          WhatsApp&apos;tan doğrudan ulaşabilirsin.
         </p>
       </div>
     )
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className="space-y-4" aria-label="Fiyat ve program bilgisi isteme formu">
+    <form ref={formRef} onSubmit={onSubmit} className="space-y-4" aria-label="İletişim formu">
       {!compact && (
-        <p className="text-stone text-[14px] leading-relaxed">
-          Ücret tablosu ve program içeriğini e-postana gönderelim. Form otuz saniye; mail anında gidiyor.
-        </p>
+        <>
+          <p className="text-stone text-[14px] leading-relaxed">
+            Bize iletmek istediğin her şey için: soru, öneri, iş birliği. Mesajın doğrudan bize düşüyor.
+          </p>
+          <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3">
+            <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
+              programlar ve ücretler için
+            </p>
+            <p className="font-mono text-[11px] text-stone leading-relaxed">
+              Program içerikleri, kontenjan ve ücret bilgisi için WhatsApp&apos;tan yazman en hızlısı —{' '}
+              <a
+                href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neon underline underline-offset-2 hover:text-fg transition-colors"
+              >
+                {SITE_META.phone}
+              </a>
+            </p>
+          </div>
+        </>
       )}
 
       {/* Honeypot — insanlar görmez, botlar doldurur */}
@@ -76,25 +92,29 @@ export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?
           </label>
           <input id="bilgi-phone" name="phone" type="tel" required maxLength={40} autoComplete="tel" className={INPUT} placeholder="05xx xxx xx xx" />
         </div>
-        {validDefault ? (
-          <input type="hidden" name="program" value={validDefault} />
-        ) : (
-          <div>
-            <label htmlFor="bilgi-program" className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone block mb-2">
-              ilgilendiğin program *
-            </label>
-            <select id="bilgi-program" name="program" required defaultValue="" className={INPUT}>
-              <option value="" disabled>
-                seç…
-              </option>
-              {active.map((w) => (
-                <option key={w.slug} value={w.slug}>
-                  {w.title} — {w.sub}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
+        {/* Program seçimi kaldırıldı: bu form artık genel iletişim kutusu.
+            Program ve ücret soruları WhatsApp'a yönlendiriliyor. */}
+        <div>
+          <label htmlFor="bilgi-occupation" className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone block mb-2">
+            meslek <span className="text-dim normal-case">(isteğe bağlı)</span>
+          </label>
+          <input id="bilgi-occupation" name="occupation" maxLength={160} autoComplete="organization-title" className={INPUT} placeholder="Oyuncu, öğrenci, mühendis…" />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="bilgi-message" className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone block mb-2">
+          bize ne iletmek istersin? *
+        </label>
+        <textarea
+          id="bilgi-message"
+          name="message"
+          required
+          rows={5}
+          maxLength={2000}
+          className={INPUT}
+          placeholder="Soru, öneri, iş birliği teklifi ya da aklından geçen herhangi bir şey…"
+        />
       </div>
 
       <label className="flex items-start gap-3 cursor-pointer group">
@@ -108,7 +128,7 @@ export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?
           <Link href="/kvkk" className="underline hover:text-neon" target="_blank">
             KVKK aydınlatma metnini
           </Link>{' '}
-          okudum; bilgilerimin program bilgilendirmesi için işlenmesine onay veriyorum. *
+          okudum; bilgilerimin bana geri dönüş yapılması amacıyla işlenmesine onay veriyorum. *
         </span>
       </label>
 
@@ -123,7 +143,7 @@ export function BilgiForm({ defaultProgram, compact = false }: { defaultProgram?
         disabled={isPending}
         className="font-mono text-[12px] tracking-[0.14em] uppercase bg-neon text-bg px-8 py-3.5 hover:bg-fg transition-colors duration-200 disabled:opacity-50 disabled:cursor-wait"
       >
-        {isPending ? 'gönderiliyor…' : 'fiyat & içerik bilgisini mailime gönder →'}
+        {isPending ? 'gönderiliyor…' : 'mesajı gönder →'}
       </button>
     </form>
   )

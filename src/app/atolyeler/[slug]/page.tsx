@@ -292,13 +292,24 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   </div>
                 )}
 
+                {/* Ücret sitede yayınlanmıyor — merak eden WhatsApp'a yönlendiriliyor. */}
                 <p className="font-mono text-[11px] text-dim leading-relaxed">
-                  Katılım koşulları ve ödeme seçenekleri başvuru sonrası sizinle
-                  birebir paylaşılır — ya da{' '}
-                  <Link href={`/bilgi?program=${w.slug}`} className="text-stone underline hover:text-neon transition-colors">
-                    ücret tablosunu mailine iste
-                  </Link>
-                  .
+                  Ücret ve ödeme seçenekleri için{' '}
+                  <a
+                    href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent(
+                      `Merhaba, ${w.title} programı hakkında bilgi alabilir miyim?`,
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone underline hover:text-neon transition-colors"
+                  >
+                    WhatsApp&apos;tan yaz
+                  </a>{' '}
+                  ya da{' '}
+                  <a href={`tel:${SITE_META.phoneE164}`} className="text-stone underline hover:text-neon transition-colors">
+                    {SITE_META.phone}
+                  </a>{' '}
+                  numarasını ara.
                 </p>
               </div>
             )}

@@ -44,11 +44,13 @@ export function DisciplinePage({ d }: { d: Discipline }) {
           name: SITE_META.name,
           '@id': `${SITE_META.url}#organization`,
         },
+        // Fiyat bilinçli olarak yayınlanmıyor — sitede hiçbir yerde, structured
+        // data'da da görünmemeli. schema.org Offer içinde price alanı Google'ın
+        // arama sonucunda rakam göstermesine yol açıyordu; kaldırıldı.
+        // Yalnızca stok durumu bırakıldı.
         ...(w.price > 0 && {
           offers: {
             '@type': 'Offer',
-            price: w.priceEarlyBird ?? w.price,
-            priceCurrency: 'TRY',
             availability: w.active
               ? 'https://schema.org/InStock'
               : 'https://schema.org/SoldOut',

@@ -33,6 +33,8 @@ export type Discipline = {
   faq: { q: string; a: string }[]
   /** İlgili diğer disiplinler (iç bağlantı). */
   related: string[]
+  /** true → mega menüde listelenmez (semt × disiplin kombinasyon sayfaları). */
+  navHidden?: boolean
 }
 
 export const DISCIPLINES: Discipline[] = [
@@ -249,7 +251,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Cumartesi 19:00–21:00, Kadıköy\'de. Program 12 hafta sürüyor ve 12 Eylül\'de başlıyor.',
       },
     ],
-    related: ['muzikal-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['muzikal-tiyatro-kursu-istanbul', 'kadikoy-dans-kursu', 'oyunculuk-kursu-istanbul'],
   },
 
   // ── MÜZİKAL & ŞAN ────────────────────────────────────────────────
@@ -268,6 +270,7 @@ export const DISCIPLINES: Discipline[] = [
       'müzikal tiyatro kadıköy', 'broadway müzikal eğitimi',
       'anadolu yakası müzikal kursu', 'sahne şarkıcılığı kursu',
       'vokal eğitimi istanbul', 'müzikal tiyatro atölyesi',
+      'istanbul müzikal atölyesi', 'müzikal atölyesi istanbul', 'müzikal atölyesi',
     ],
     intro:
       'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı dersler olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Sitare Bilge ile Kadıköy\'de, sekiz ay, haftada iki gün.',
@@ -291,7 +294,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Broadway Musical Dance sadece dansa odaklı; üç aylık bir program ve dilersen aylık katılımla başlayabilirsin. Techne Musical Lab 8 aylık ve üç disiplini birden kapsıyor — oyunculuk, şan, dans — ve seyircili bir bitirme performansıyla kapanıyor.',
       },
     ],
-    related: ['dans-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['dans-kursu-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'oyunculuk-kursu-istanbul'],
   },
 
   // ── OYUN YAZARLIĞI & DRAMATURJİ ──────────────────────────────────
@@ -774,6 +777,179 @@ export const DISCIPLINES: Discipline[] = [
       },
     ],
     related: ['muzikal-tiyatro-kursu-istanbul', 'gencler-icin-ingilizce-drama-istanbul', 'dans-kursu-istanbul'],
+  },
+  // ══════════════════════════════════════════════════════════════
+  // SEMT × DİSİPLİN KOMBİNASYONLARI — müzikal/dans satış hattı.
+  // Mega menüde görünmezler (navHidden); sitemap + iç link ağıyla
+  // beslenirler. Kural: her sayfa yalnızca DOĞRU olanı söyler —
+  // dans stüdyoları Kadıköy'de; Beyoğlu/Taksim sayfaları bunu
+  // saklamaz, ulaşımı anlatır.
+  // ══════════════════════════════════════════════════════════════
+
+  // ── KADIKÖY × MÜZİKAL ────────────────────────────────────────────
+  {
+    slug: 'kadikoy-muzikal-tiyatro-kursu',
+    label: 'Müzikal · Kadıköy',
+    navHidden: true,
+    h1: 'KADIKÖY MÜZİKAL\nTİYATRO KURSU',
+    eyebrow: 'Oyunculuk · Şan · Dans — Kadıköy',
+    seoTitle: 'Kadıköy Müzikal Tiyatro Kursu — Müzikal Atölyesi, Şan & Dans',
+    seoDesc:
+      'Kadıköy müzikal tiyatro kursu: oyunculuk, şan ve dans tek çatıda. 8 aylık müzikal atölyesi ve 12 haftalık Broadway dans programı — Rasimpaşa ve Kadıköy merkez stüdyolarında, Marmaray\'a yürüme mesafesinde.',
+    keywords: [
+      'kadıköy müzikal tiyatro kursu', 'kadıköy müzikal kursu', 'kadıköy müzikal atölyesi',
+      'müzikal atölyesi kadıköy', 'kadıköy şan ve dans kursu', 'kadıköy müzikal oyunculuk',
+      'moda müzikal kursu', 'rasimpaşa müzikal', 'yeldeğirmeni müzikal atölyesi',
+      'üsküdar müzikal kursu', 'ataşehir müzikal kursu', 'bostancı müzikal kursu',
+      'anadolu yakası müzikal atölyesi', 'kadıköy musical theatre',
+    ],
+    intro:
+      'Müzikal çalışmak için Kadıköy\'den daha doğru bir yer düşünmek zor: geniş stüdyolar, bağımsız sahne kültürü ve her akşam bir yerlerde açık bir perde. Techne Lab\'ın iki müzikal programı da burada yürüyor — Rasimpaşa\'daki Beden İşleri ve Kadıköy merkezdeki Soft Sanat stüdyolarında, Marmaray Ayrılık Çeşmesi durağına yürüme mesafesinde.',
+    what:
+      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor — 28 Eylül\'de başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi — 17 Eylül Perşembe akşamı başlıyor, dilersen aylık katılımla deneyebilirsin.',
+    who:
+      'Şarkı söylüyor ama sahnede ne yapacağını bilmiyorsan; dans ediyorsun ama "oynamayı" hiç denemediysen; ya da üçünü aynı anda öğrenmek istiyorsan — program tam bunun için kurgulandı. Konservatuvar mezunu olman gerekmiyor. Anadolu yakasında oturuyorsan (Moda, Üsküdar, Ataşehir, Bostancı) stüdyolar zaten yanı başında; Avrupa yakasından gelenler için Marmaray tek aktarma.',
+    workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    faq: [
+      {
+        q: 'Kadıköy\'de tam olarak neredesiniz?',
+        a: 'İki partner stüdyoda çalışıyoruz: Beden İşleri (Rasimpaşa) ve Soft Sanat (Kadıköy merkez). İkisi de Marmaray Ayrılık Çeşmesi ve Söğütlüçeşme duraklarına yürüme mesafesinde. Kayıt sonrası adres ve kroki iletilir.',
+      },
+      {
+        q: 'Müzikal programı ile dans programı arasında nasıl seçim yapmalıyım?',
+        a: 'Amacın sahnede söyleyip oynamaksa Techne Musical Lab: 8 ay, oyunculuk + şan + dans, seyircili final. Önceliğin beden ve koreografiyse Broadway Musical Dance: 12 hafta, sadece dans, aylık katılım seçeneği var. Kararsızsan telefonla ara — programın hangisi olduğunu beş dakikada netleştiririz.',
+      },
+      {
+        q: 'Hiç şan ya da dans eğitimi almadım, katılabilir miyim?',
+        a: 'Evet. Broadway Musical Dance teknik temelden başlıyor, dans deneyimi şart değil. Musical Lab başvurusunda istenen şarkı videosu bir eleme sınavı değil — seviyeni görüp grubu dengelemek için.',
+      },
+    ],
+    related: ['muzikal-tiyatro-kursu-istanbul', 'kadikoy-dans-kursu', 'dans-kursu-istanbul'],
+  },
+
+  // ── KADIKÖY × DANS ───────────────────────────────────────────────
+  {
+    slug: 'kadikoy-dans-kursu',
+    label: 'Dans · Kadıköy',
+    navHidden: true,
+    h1: 'KADIKÖY\nDANS KURSU',
+    eyebrow: 'Jazz · Theatre Dance · Broadway — Kadıköy',
+    seoTitle: 'Kadıköy Dans Kursu — Broadway Müzikal Dansı & Jazz Dance Atölyesi',
+    seoDesc:
+      'Kadıköy dans kursu: Broadway müzikal dansı, jazz ve theatre dance. 12 haftalık program, aylık katılım seçeneği, dans deneyimi şart değil. Rasimpaşa\'da stüdyo — Marmaray\'a yürüme mesafesi.',
+    keywords: [
+      'kadıköy dans kursu', 'kadıköy dans atölyesi', 'kadıköy dans dersi',
+      'kadıköy broadway dans', 'kadıköy jazz dans', 'kadıköy theatre dance',
+      'moda dans kursu', 'yeldeğirmeni dans atölyesi', 'rasimpaşa dans stüdyosu',
+      'kadıköy yetişkin dans kursu', 'kadıköy başlangıç dans', 'sıfırdan dans kadıköy',
+      'anadolu yakası broadway dans', 'kadıköy koreografi atölyesi', 'kadıköy sahne dansı',
+    ],
+    intro:
+      'Kadıköy\'de dans kursu arayanın önünde iki tür kapı var: spor salonu mantığıyla çalışan stüdyolar ve sahneye bakan atölyeler. Techne Lab ikincisi — burada dans bir fitness rutini değil, bir anlatım biçimi. Broadway müzikal dansını jazz ve theatre dance teknikleriyle çalışıyoruz; amaç adım ezberlemek değil, sahnede bir hikâye taşıyabilen bir beden kurmak.',
+    what:
+      'Program 12 hafta: teknik temel (duruş, izolasyon, jazz vokabüleri), ardından kombinasyon ve koreografi, son bölümde sahne performansı kalitesinde çalışılan tam bir Broadway numarası. Perşembe akşamları 19:00–21:00, Rasimpaşa\'daki stüdyoda; yeni dönem 17 Eylül\'de başlıyor. Üç aylık programa tek seferde yazılabilir ya da aylık katılımla başlayıp devam kararını sonra verebilirsin. Dansın müzikal sahnesiyle buluştuğu tam sürüm için sekiz aylık Techne Musical Lab da aynı stüdyoda.',
+    who:
+      '"Dansa kaç yaşında başlanır" diye arayıp duran yetişkinler: cevap, bu grupta. Katılımcıların çoğu sıfırdan ya da yıllar önce bırakmış olarak geliyor. Bale altyapısı, esneklik şartı, seçme yok — teknik temelden başlıyoruz. Moda\'dan, Yeldeğirmeni\'nden yürüyerek; Üsküdar, Ataşehir ve Bostancı\'dan Marmaray ya da M4 ile kolay ulaşım.',
+    workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    faq: [
+      {
+        q: 'Hiç dans etmedim, gerçekten katılabilir miyim?',
+        a: 'Evet — program bunun için tasarlandı. İlk haftalar teknik temel: duruş, ağırlık aktarımı, temel jazz adımları. Grup 12 kişiyi geçmiyor, herkes bireysel düzeltme alıyor. Seçme ya da seviye sınavı yok.',
+      },
+      {
+        q: 'Dersler hangi gün ve saatte?',
+        a: 'Perşembe akşamları 19:00–21:00, Kadıköy Rasimpaşa\'daki stüdyoda. Yeni dönem 17 Eylül Perşembe başlıyor. Mesai sonrası yetişilebilir bir saat — katılımcıların çoğu çalışan yetişkinler.',
+      },
+      {
+        q: 'Üç aya taahhüt vermek istemiyorum, deneme şansı var mı?',
+        a: 'Var: aylık katılımla başlayabilirsin. İlk ayın sonunda devam edip etmeyeceğine sen karar verirsin. Detaylı koşullar için telefon ya da WhatsApp üzerinden ulaş — hızlı dönüyoruz.',
+      },
+    ],
+    related: ['dans-kursu-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'muzikal-tiyatro-kursu-istanbul'],
+  },
+
+  // ── BEYOĞLU · PERA × DANS/MÜZİKAL ────────────────────────────────
+  {
+    slug: 'beyoglu-dans-kursu',
+    label: 'Dans · Beyoğlu',
+    navHidden: true,
+    h1: 'BEYOĞLU · PERA\nDANS & MÜZİKAL',
+    eyebrow: 'Broadway Dans · Müzikal — Avrupa Yakası',
+    seoTitle: 'Beyoğlu & Pera Dans Kursu — Broadway Müzikal Dansı | Techne Lab',
+    seoDesc:
+      'Beyoğlu/Pera\'dan dans ve müzikal kursu arayanlar için: Techne Lab\'ın Broadway dans ve müzikal programları Kadıköy stüdyosunda — Karaköy\'den vapur, Marmaray\'la tek aktarma. Pera\'da İngilizce drama ve oyunculuk atölyeleri.',
+    keywords: [
+      'beyoğlu dans kursu', 'pera dans kursu', 'pera dans atölyesi', 'galata dans kursu',
+      'cihangir dans kursu', 'beyoğlu müzikal kursu', 'pera müzikal atölyesi',
+      'avrupa yakası dans kursu', 'avrupa yakası müzikal kursu', 'karaköy dans kursu',
+      'beyoğlu broadway dans', 'şişhane dans atölyesi',
+    ],
+    intro:
+      'Dürüst olalım: Techne Lab\'ın dans ve müzikal stüdyosu Beyoğlu\'nda değil, Kadıköy Rasimpaşa\'da. Ama bu sayfa yine de senin için — çünkü Pera\'dan o stüdyoya ulaşmak, Beyoğlu içinde akşam trafiğine girmekten çoğu zaman daha hızlı: Karaköy\'den vapurla karşıya geç, iskeleden stüdyo yürüme mesafesinde. Marmaray kullananlar için Ayrılık Çeşmesi durağı da öyle. Beyoğlu\'nda kalmak istersen: İngilizce drama ve oyunculuk atölyelerimiz Pera\'daki partner stüdyoda yürüyor.',
+    what:
+      'Dans hattında Broadway Musical Dance var: 12 hafta, Perşembe 19:00–21:00, jazz ve theatre dance teknikleriyle sahne koreografisi — 17 Eylül\'de başlıyor, aylık katılım mümkün. Müzikal hattında Techne Musical Lab: sekiz ay, oyunculuk + şan + dans, seyircili bitirme performansı. İkisi de Kadıköy stüdyosunda; vapur ya da Marmaray ile Avrupa yakasından düzenli gelen katılımcılar her dönem var.',
+    who:
+      'Galata, Cihangir, Şişhane, Karaköy hattında yaşayıp "dans kursu beyoğlu" diye arayan; iş çıkışı Karaköy\'den vapura atlayabilecek olan; ya da dansı değil de sahneyi Pera\'da isteyen (o zaman İngilizce drama programlarına bak) herkes. Vapur yolculuğunu dert değil ritüel sayanlar için ekstra puan.',
+    workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu'],
+    faq: [
+      {
+        q: 'Beyoğlu\'nda dans stüdyonuz var mı?',
+        a: 'Hayır — dans ve müzikal programlarımız Kadıköy Rasimpaşa\'daki stüdyoda yürüyor. Beyoğlu\'ndaki partner stüdyomuz Pera\'da; orada İngilizce drama ve oyunculuk atölyeleri var. Sayfalarımızda mekân bilgisini her zaman açık yazarız.',
+      },
+      {
+        q: 'Beyoğlu\'ndan Kadıköy stüdyosuna nasıl giderim?',
+        a: 'En keyifli yol Karaköy–Kadıköy vapuru; iskeleden stüdyo yürüme mesafesinde. Alternatif: Marmaray ile Ayrılık Çeşmesi durağı. Ders Perşembe 19:00\'da — iş çıkışı Avrupa yakasından yetişen katılımcılar her grupta var.',
+      },
+      {
+        q: 'Pera\'daki atölyelerde dans ya da müzikal içerik yok mu?',
+        a: 'Pera hattında İngilizce drama ve oyunculuk çalışıyoruz; dans-müzikal stüdyo gereksinimleri (zemin, ayna, piyano) nedeniyle Kadıköy\'de. Müzikal sahnelemeye merakın varsa Musical Lab\'ın final döneminde sahne pratiği en yoğun haliyle var.',
+      },
+    ],
+    related: ['dans-kursu-istanbul', 'taksim-dans-kursu', 'kadikoy-dans-kursu'],
+  },
+
+  // ── TAKSİM × DANS/MÜZİKAL ────────────────────────────────────────
+  {
+    slug: 'taksim-dans-kursu',
+    label: 'Dans · Taksim',
+    navHidden: true,
+    h1: 'TAKSİM\nDANS & MÜZİKAL',
+    eyebrow: 'Broadway Dans · Müzikal — Taksim\'den Ulaşım',
+    seoTitle: 'Taksim Dans Kursu Arayanlara — Broadway Dans & Müzikal | Techne Lab',
+    seoDesc:
+      'Taksim\'de dans kursu mu arıyorsun? Techne Lab\'ın Broadway dans ve müzikal programları Kadıköy\'de — Kabataş\'tan vapur, Marmaray\'la tek aktarma. Taksim çevresinde ise Pera stüdyosunda oyunculuk ve İngilizce drama.',
+    keywords: [
+      'taksim dans kursu', 'taksim dans atölyesi', 'taksim müzikal kursu',
+      'taksim jazz dans', 'istiklal dans kursu', 'taksim broadway dans',
+      'harbiye dans kursu', 'cihangir dans atölyesi', 'taksim yakını dans kursu',
+      'taksim müzikal tiyatro', 'elmadağ dans kursu',
+    ],
+    intro:
+      'Taksim civarında dans kursu çok; sahneye bakanı az. Techne Lab\'ın Broadway dans ve müzikal programları Kadıköy Rasimpaşa\'da yürüyor — ve Taksim\'den oraya ulaşım sanıldığından kolay: füniküleyle Kabataş\'a in, vapurla Kadıköy\'e geç; ya da metro + Marmaray ile Ayrılık Çeşmesi. Perşembe 19:00 dersine İstiklal\'den çıkıp rahat yetişirsin. Taksim tarafında kalmak istersen Pera\'daki partner stüdyoda oyunculuk ve İngilizce drama atölyeleri seni bekliyor.',
+    what:
+      'Dans: Broadway Musical Dance — 12 hafta, jazz ve theatre dance, sahne koreografisi, 17 Eylül başlangıç, aylık katılım seçeneği. Müzikal: Techne Musical Lab — sekiz ay, oyunculuk + şan + dans, Mayıs\'ta seyircili bitirme performansı, başvuru kısa bir şarkı videosuyla. İki program da dans zemini, ayna ve müzik altyapısı olan Kadıköy stüdyosunda.',
+    who:
+      'Harbiye, Elmadağ, Cihangir, Gümüşsuyu hattında yaşayanlar; Taksim\'de çalışıp akşam dersine vapurla gitmeyi dert etmeyecekler; müzikal tiyatroya merakı olup nereden başlayacağını bilmeyenler. Dans deneyimi şart değil — teknik temelden başlıyoruz, grup 12 kişiyi geçmiyor.',
+    workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
+    districtSlugs: ['taksim-oyunculuk-kursu', 'kadikoy-tiyatro-kursu'],
+    faq: [
+      {
+        q: 'Taksim\'de dans dersi veriyor musunuz?',
+        a: 'Hayır — dans ve müzikal programlarımız Kadıköy Rasimpaşa\'daki stüdyoda. Taksim çevresindeki partner stüdyomuz Pera\'da ve orada oyunculuk ile İngilizce drama atölyeleri yürüyor. Bunu açıkça yazıyoruz; "her semtte şube" iddiasında olan bir kurum değiliz.',
+      },
+      {
+        q: 'Taksim\'den derse ulaşım gerçekçi mi?',
+        a: 'Evet. Füniküler + Kabataş–Kadıköy vapuru en rahat rota; metro + Marmaray (Ayrılık Çeşmesi) alternatif. Ders Perşembe 19:00–21:00 — Avrupa yakasından gelen katılımcılar her dönem grubun düzenli bir parçası.',
+      },
+      {
+        q: 'Önce denemek istesem?',
+        a: 'Broadway Musical Dance\'e aylık katılımla başlayabilirsin; ilk ayın sonunda karar senin. Sorularını telefon ya da WhatsApp\'tan sor — fiyat ve koşulları başvuru sonrası birebir paylaşıyoruz.',
+      },
+    ],
+    related: ['dans-kursu-istanbul', 'beyoglu-dans-kursu', 'muzikal-tiyatro-kursu-istanbul'],
   },
 ]
 

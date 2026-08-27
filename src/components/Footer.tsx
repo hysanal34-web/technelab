@@ -40,7 +40,7 @@ export function Footer() {
             {SITE_META.phone}
           </a>
           <Link href="/bilgi" className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 block py-1">
-            fiyat &amp; program bilgisi iste →
+            bize yaz →
           </Link>
           <a href={`https://instagram.com/${SITE_META.instagram.replace('@','')}`} target="_blank" rel="noopener noreferrer"
             className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 block py-1">

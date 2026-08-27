@@ -72,7 +72,7 @@ function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => vo
         <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">
           eğitimler →
         </span>
-        {DISCIPLINES.map((d) => (
+        {DISCIPLINES.filter((d) => !d.navHidden).map((d) => (
           <Link
             key={d.slug}
             href={`/${d.slug}`}

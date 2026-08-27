@@ -43,7 +43,6 @@ export function ArticleCTA({ tags, category }: { tags: string[]; category?: stri
     )
   }
 
-  const price = w.priceEarlyBird ?? w.price
   const start = w.schedule?.[0]
 
   return (
