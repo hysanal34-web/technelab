@@ -83,7 +83,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
             TEŞEKKÜRLER
           </h2>
           <p className="font-mono text-[13px] text-stone leading-relaxed mb-8">
-            Başvurunuz iletildi. En kısa sürede sizinle iletişime geçeceğiz.
+            Başvurunuz alınmıştır. Ekibimiz sizinle en kısa zamanda iletişime geçecektir.
           </p>
           <div className="flex gap-6">
             <Link
@@ -248,7 +248,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
         </button>
 
         <p className="font-mono text-[11px] text-dim text-center leading-relaxed">
-          Başvurunuz tarafımıza iletilir. Kontenjan onayı sonrası e-posta ile bilgilendirilirsiniz.
+          Başvurunuz tarafımıza iletilir. Ekibimiz sizinle en kısa zamanda iletişime geçer.
         </p>
       </form>
     </div>

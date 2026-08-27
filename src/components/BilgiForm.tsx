@@ -37,8 +37,7 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
       <div className="border border-neon p-6 md:p-8" role="status">
         <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon block mb-2">gönderildi ✓</span>
         <p className="text-fg text-[15px] leading-relaxed">
-          Mesajın bize ulaştı. En kısa sürede döneceğiz. Acelesi varsa telefonla ya da
-          WhatsApp&apos;tan doğrudan ulaşabilirsin.
+          Mesajınız alınmıştır. Ekibimiz sizinle en kısa zamanda iletişime geçecektir.
         </p>
       </div>
     )
