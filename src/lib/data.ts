@@ -10,10 +10,15 @@ export type Workshop = {
   earlyBirdSlots?: number    // erken kayıt kontenjanı (ilk N kişi)
   earlyBirdPercent?: number  // erken kayıt indirim yüzdesi
   earlyBirdDeadline?: string // erken kayıt son tarihi (gösterim metni)
+  // Burs — erken kayıtla birlikte KULLANILMAZ, onun yerine geçer.
+  // Başvuru değerlendirmesiyle veriliyor; tarih ya da kontenjan taahhüdü yok.
+  // Sitede yalnızca oran görünür (rakam değil) — bkz. fiyat gizleme kararı.
+  scholarshipPercent?: number
   schedule?: { place?: string; date: string; time?: string }[]  // başlangıç tarih(ler)i
   scheduleNote?: string      // tarih henüz netleşmediyse ("Tarih yakında açıklanacak")
   // price: 0 → fiyat henüz yayınlanmadı; fiyat bloğu gizlenir, CTA "ön kayıt" olur
   maxStudents: number | string; active: boolean; archived?: boolean; nextDate?: string
+  ageRange?: string          // yaş aralığı olan programlar için ('12–55 yaş')
   tags: string[]; desc: string; descEn?: string
   blocks: { title: string; span?: string; body: string }[]
   images?: string[]
@@ -31,7 +36,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Halil Yağız Şanal',
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji Anasanat Dalı'nda öğrenimini sürdürdü. İKSV Senenin Oyunu ödüllü oyun yazarı.",
     venue: 'Kadıköy', duration: '8 hafta (modül başına)', price: 18000,
-    priceEarlyBird: 15300, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    scholarshipPercent: 25,
     schedule: [{ place: 'Kadıköy', date: '7 Ekim Çarşamba' }],
     maxStudents: 10, active: true,
     category: 'yazarlık',
@@ -143,7 +148,7 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Alara Lokum',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ders olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
     venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 128000,
-    priceEarlyBird: 108000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    scholarshipPercent: 25,
     schedule: [
       { place: 'Pera', date: '27 Eylül Pazar' },
       { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
@@ -171,12 +176,12 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Köksal Ünal & Sitare Bilge',
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Eylül–Mayıs)', price: 165000,
-    priceEarlyBird: 140000, earlyBirdPercent: 15, earlyBirdDeadline: '10 Eylül',
+    scholarshipPercent: 25,
     schedule: [{ place: 'Kadıköy', date: '28 Eylül Pazartesi' }],
-    maxStudents: 12, active: true,
+    maxStudents: 12, active: true, ageRange: '15–55 yaş',
     category: 'dans-muzikal',
     tags: ['Müzikal', 'Drama', 'Tiyatro', 'Uzun Dönem'],
-    desc: 'Drama ve tiyatro temelinin üzerine müzikal sahneleme eklenen 8 aylık kapsamlı program. Oyunculuk egzersizleri ve dramaturgik çalışma ile başlayan program, şan ve dans disiplinleriyle sahne bütünlüğünü tamamlar. Dönem sonunda seyircili bitirme performansıyla kapanır. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
+    desc: 'Drama ve tiyatro temelinin üzerine müzikal sahneleme eklenen 8 aylık kapsamlı program. Oyunculuk egzersizleri ve dramaturgik çalışma ile başlayan program, şan ve dans disiplinleriyle sahne bütünlüğünü tamamlar. Dönem sonunda seyircili bitirme performansıyla kapanır. Program 15–55 yaş arası katılımcılara açıktır. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenmektedir; kabul video incelemesiyle yapılır.',
     blocks: [
       { title: 'Drama & Oyunculuk', span: 'Ekim–Aralık', body: 'Sahne varlığı, karakter inşası ve dramaturgik çalışma. Tiyatronun temel araçları: beden, ses ve metin. Şan tekniğiyle buluşan oyuncu sesi.' },
       { title: 'Müzikal Sahneleme', span: 'Ocak–Mart', body: 'Müzikal ritim, Broadway dans temelleri ve sahne uzamı. Drama zeminine oturan koreografi ve müzikal metin çalışması.' },
@@ -184,7 +189,7 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
     seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Oyunculuk, Şan & Dans',
-    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Sitare Bilge ile. Seyircili bitirme performansı. Kadıköy.',
+    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Sitare Bilge ile. 15–55 yaş. Seyircili bitirme performansı. Kadıköy.',
   },
 
   // ── 07 — BROADWAY MUSICAL DANCE ────────────────────────────────────
@@ -197,10 +202,10 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Kadıköy', duration: '12 hafta ya da 6 hafta', price: 22500,
     priceEarlyBird: 19500, earlyBirdPercent: 13, earlyBirdDeadline: '10 Eylül',
     schedule: [{ place: 'Kadıköy', date: '17 Eylül Perşembe', time: '19:00 – 21:00' }],
-    maxStudents: 15, active: true,
+    maxStudents: 15, active: true, ageRange: '12–55 yaş',
     category: 'dans-muzikal',
     tags: ['Dans', 'Broadway', 'Koreografi'],
-    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten yoğun program. Jazz ve theatre dance teknikleriyle sahne koreografisi ve kombinasyon çalışması. İki seçenek var: 12 haftalık tam program ya da 6 haftalık kısa program. Dans deneyimi şart değil — teknik temelden başlıyoruz.',
+    desc: 'Broadway müzikal tiyatrosunun dans dilini öğreten yoğun program. Jazz ve theatre dance teknikleriyle sahne koreografisi ve kombinasyon çalışması. İki seçenek var: 12 haftalık tam program ya da 6 haftalık kısa program. Program 12–55 yaş arası katılımcılara açıktır. Dans deneyimi şart değil — teknik temelden başlıyoruz.',
     blocks: [
       { title: 'Teknik Temel', span: '1—4. Hafta', body: 'Jazz ve theatre dance temelleri. Beden hizalaması, ritim, koordinasyon ve müzikle ilişki.' },
       { title: 'Koreografi & Stil', span: '5—8. Hafta', body: 'Broadway repertuarından sahneler. Stil çalışması, grup koreografisi ve sahne dinamiği.' },
@@ -208,7 +213,7 @@ export const WORKSHOPS: Workshop[] = [
     ],
     images: ['dslr-zl5a1044', 'dslr-zl5a1043', 'dslr-zl5a1064', 'dslr-zl5a1092'],
     seoTitle: 'Dans Kursu İstanbul — Broadway Müzikal Dansı & Jazz Dance',
-    seoDesc: 'İstanbul dans kursu: Broadway müzikal dansı, jazz dance ve theatre dance. Üç aylık program, aylık katılım seçeneğiyle. Köksal Ünal ile dans atölyesi — Kadıköy, dans deneyimi şart değil.',
+    seoDesc: 'İstanbul dans kursu: Broadway müzikal dansı, jazz dance ve theatre dance. 12 haftalık tam ya da 6 haftalık kısa program. Köksal Ünal ile dans atölyesi — Kadıköy. 12–55 yaş, dans deneyimi şart değil.',
   },
 
   // ── 08 — CAMERA PRAXIS (tarih & fiyat henüz açıklanmadı) ──────────

@@ -25,6 +25,7 @@ const SOURCE_OPTIONS = [
   'Instagram',
   'Arkadaş tavsiyesi',
   'Google',
+  'Yapay zeka (ChatGPT, Gemini vb.)',
   'Daha önce Techne Lab\'daydım',
   'Diğer',
 ]

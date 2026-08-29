@@ -80,12 +80,14 @@ export default async function SemtPage({ params }: { params: Promise<{ semt: str
     url: `${SITE_META.url}/${d.slug}`,
     image: `${SITE_META.url}/images/techne-logo.png`,
     email: SITE_META.email,
+    telephone: SITE_META.phoneE164,
     address: {
       '@type': 'PostalAddress',
       addressLocality: d.name,
       addressRegion: 'İstanbul',
       addressCountry: 'TR',
     },
+    ...(d.geo ? { geo: { '@type': 'GeoCoordinates', latitude: d.geo.lat, longitude: d.geo.lng } } : {}),
     areaServed: d.nearby.map((n) => ({ '@type': 'Place', name: n })),
     parentOrganization: { '@id': `${SITE_META.url}#organization` },
     makesOffer: workshops.map((w) => ({

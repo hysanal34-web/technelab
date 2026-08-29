@@ -133,8 +133,10 @@ type Workshop = {
 
 ```bash
 cd /Users/macbookpro/Downloads/technelab
-npx vercel --prod --yes
+npx vercel --prod --yes --scope techne-lan
 ```
+
+`--scope techne-lan` olmadan "Not authorized" hatası verir.
 
 GitHub kurulduktan sonra: `git push origin main` → Vercel otomatik deploy eder.
 

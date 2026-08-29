@@ -10,6 +10,8 @@ export type District = {
   side: string            // Anadolu Yakası
   venueKeys: string[]     // ilgili VENUES key'leri
   workshopSlugs: string[] // burada yürüyen programlar
+  /** Semt merkezi — LocalBusiness schema'sındaki GeoCoordinates için. */
+  geo?: { lat: number; lng: number }
   seoTitle: string
   seoDesc: string
   keywords: string[]
@@ -23,6 +25,7 @@ export type District = {
 export const DISTRICTS: District[] = [
   {
     slug: 'kadikoy-tiyatro-kursu',
+    geo: { lat: 40.9903, lng: 29.027 },
     name: 'Kadıköy',
     displayName: 'KADIKÖY',
     side: 'Anadolu Yakası',
@@ -74,6 +77,7 @@ export const DISTRICTS: District[] = [
   },
   {
     slug: 'beyoglu-tiyatro-kursu',
+    geo: { lat: 41.0335, lng: 28.977 },
     name: 'Beyoğlu',
     displayName: 'BEYOĞLU · PERA',
     side: 'Avrupa Yakası',
@@ -127,6 +131,7 @@ export const DISTRICTS: District[] = [
   // ve arayan kişi çoğu zaman metroya göre düşünüyor, ilçeye göre değil.
   {
     slug: 'taksim-oyunculuk-kursu',
+    geo: { lat: 41.037, lng: 28.9857 },
     name: 'Taksim',
     displayName: 'TAKSİM',
     side: 'Avrupa Yakası',
@@ -183,6 +188,7 @@ export const DISTRICTS: District[] = [
   // ── ANADOLU YAKASI (hub) ─────────────────────────────────────────
   {
     slug: 'anadolu-yakasi-tiyatro-kursu',
+    geo: { lat: 40.9903, lng: 29.027 },
     name: 'Anadolu Yakası',
     displayName: 'ANADOLU YAKASI',
     side: 'Anadolu Yakası',

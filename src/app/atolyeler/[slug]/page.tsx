@@ -248,6 +248,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 ['mekân', `${w.venue} — kayıt sonrası adres iletilir`],
                 ['süre', w.duration],
                 ['kontenjan', `max. ${w.maxStudents} kişi`],
+                ...(w.ageRange ? [['yaş', w.ageRange]] : []),
               ].map(([k, v]) => (
                 <div key={k} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
                   <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone w-16 shrink-0 pt-0.5">{k}</span>
@@ -266,6 +267,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 <ul className="flex flex-col gap-2 mb-4">
                   {[
                     typeof w.maxStudents === 'number' ? `Kontenjan ${w.maxStudents} kişiyle sınırlı` : null,
+                    w.ageRange ?? null,
                     w.duration,
                     w.venue,
                     // Tüm programlarda görünür — fiyat gizli olsa da ödeme kolaylığı satın alma engelini düşürüyor.
@@ -288,6 +290,22 @@ export default async function WorkshopDetailPage({ params }: Props) {
                     <p className="font-mono text-[11px] text-stone leading-relaxed">
                       Bu tarihe kadar başvuranlar için ayrı koşullar geçerli
                       {typeof w.earlyBirdSlots === 'number' ? ` — ilk ${w.earlyBirdSlots} kişi` : ''}.
+                    </p>
+                  </div>
+                )}
+
+                {/* Burs — erken kaydın yerine geçer, ikisi birlikte görünmez.
+                    Oran yazılı ama tutar değil: fiyat gizleme kararıyla tutarlı.
+                    "Değerlendirmeyle" ifadesi hem seçici duruşu koruyor hem de
+                    kontenjan/tarih taahhüdü vermeden aciliyet yaratıyor. */}
+                {typeof w.scholarshipPercent === 'number' && (
+                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
+                    <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
+                      %{w.scholarshipPercent}&apos;e varan burs
+                    </p>
+                    <p className="font-mono text-[11px] text-stone leading-relaxed">
+                      Başvurunuz değerlendirildikten sonra, uygun görülen katılımcılara
+                      program bedelinde %{w.scholarshipPercent}&apos;e varan burs uygulanır.
                     </p>
                   </div>
                 )}

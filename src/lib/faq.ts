@@ -85,7 +85,9 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     },
     {
       q: 'Yaş sınırı var mı?',
-      a: 'Yetişkin programı — 18 yaş ve üzeri. Fiziksel bir çalışma olduğu için ciddi bir sakatlık ya da rahatsızlığın varsa kayıt öncesinde bize yazmanı öneriyoruz.',
+      // ageRange varsa onu yaz — sabit "18 yaş ve üzeri" metni sayfadaki
+      // yaş satırıyla çelişiyordu (Broadway 12–55, Musical Lab 15–55).
+      a: `${w.ageRange ? `Program ${w.ageRange} arası katılımcılara açık.` : 'Yetişkin programı — 18 yaş ve üzeri.'} Fiziksel bir çalışma olduğu için ciddi bir sakatlık ya da rahatsızlığın varsa kayıt öncesinde bize yazmanı öneriyoruz.`,
     },
     {
       q: 'Ne giymeliyim?',

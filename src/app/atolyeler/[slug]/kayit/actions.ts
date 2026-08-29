@@ -94,7 +94,7 @@ export async function submitRegistration(
     const d = new Date(birthDate)
     if (!Number.isNaN(d.getTime())) {
       const age = Math.floor((Date.now() - d.getTime()) / 31557600000)
-      if (age < 14 || age > 17) {
+      if (age < 10 || age > 17) {
         return {
           status: 'error',
           field: 'birthDate',
@@ -104,21 +104,30 @@ export async function submitRegistration(
     }
   }
 
-  // Doğum yılı — tüm programlarda zorunlu.
-  if (!birthYear) {
-    return { status: 'error', field: 'birthYear', message: 'Doğum yılı gerekli.' }
-  }
-  {
+  // Doğum yılı — Youth formunda ayrı bir alan yok, doğum tarihinden türetilir.
+  const effectiveBirthYear = isYouth
+    ? (birthDate ? String(new Date(birthDate).getFullYear()) : '')
+    : birthYear
+
+  if (isYouth) {
+    if (!effectiveBirthYear) {
+      return { status: 'error', field: 'birthDate', message: 'Öğrencinin doğum tarihi gerekli.' }
+    }
+  } else {
+    // Doğum yılı — yetişkin programlarında zorunlu.
+    if (!birthYear) {
+      return { status: 'error', field: 'birthYear', message: 'Doğum yılı gerekli.' }
+    }
     const y = Number(birthYear)
     const thisYear = new Date().getFullYear()
     if (!Number.isInteger(y) || y < 1950 || y > thisYear) {
       return { status: 'error', field: 'birthYear', message: `Doğum yılını 1950–${thisYear} aralığında girin.` }
     }
-  }
 
-  // Meslek — zorunlu.
-  if (!occupation) {
-    return { status: 'error', field: 'occupation', message: 'Meslek / çalışma alanı gerekli.' }
+    // Meslek — yalnızca yetişkin programlarında zorunlu (Youth formunda öğrenci alanı yok).
+    if (!occupation) {
+      return { status: 'error', field: 'occupation', message: 'Meslek / çalışma alanı gerekli.' }
+    }
   }
 
   if (!kvkk) {

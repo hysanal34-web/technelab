@@ -98,6 +98,28 @@ function gtagEvent(event: string, params?: Record<string, unknown>) {
   window.gtag('event', event, params)
 }
 
+/**
+ * Google Ads dönüşümü — doğrudan reklam etiketine.
+ *
+ * NEDEN GA4 İÇE AKTARMA DEĞİL: içe aktarılan dönüşümler saatler sonra
+ * geliyor ve modellenmiş oluyor. Doğrudan etiket anında ulaşıyor.
+ * Kısa kampanya pencerelerinde (erken kayıt gibi) bu fark önemli.
+ *
+ * Kimlik ve etiket ortam değişkeninden okunur:
+ *   NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX
+ *   NEXT_PUBLIC_ADS_LABEL_BASVURU=xxxxxxxxxxxxxxxx
+ * İkisinden biri tanımsızsa sessizce atlanır — hata fırlatmaz.
+ */
+function trackAdsConversion(label: string | undefined, value?: number) {
+  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+  if (!adsId || !label) return
+  gtagEvent('conversion', {
+    send_to: `${adsId}/${label}`,
+    value: value ?? 1.0,
+    currency: 'TRY',
+  })
+}
+
 /** Program sayfası görüntülendi — ilgi sinyali, yeniden pazarlama havuzu. */
 export function trackViewContent(name: string, price: number, slug: string) {
   gtagEvent('view_item', {
@@ -133,11 +155,17 @@ export function trackInitiateCheckout(name: string, price: number, slug: string)
  * ayırt eder ve bütçeyi değerli olana kaydırır.
  */
 export function trackLead(name: string, price: number, slug: string) {
-  // Google Ads'e içe aktarılacak ANA dönüşüm olayı.
+  // GA4 tarafı — raporlama ve kitle oluşturma.
   gtagEvent('generate_lead', {
     currency: 'TRY', value: price,
     items: [{ item_id: slug, item_name: name, item_category: 'program' }],
   })
+
+  // Google Ads tarafı — teklif optimizasyonunu besleyen BİRİNCİL dönüşüm.
+  // GA4'ten içe aktarma yerine doğrudan etiket: daha hızlı ve daha doğru.
+  // `value` program bedeli olarak gidiyor; Google 165.000₺'lik başvuruyla
+  // 18.000₺'liği ayırt edip bütçeyi değerli olana kaydırabiliyor.
+  trackAdsConversion(process.env.NEXT_PUBLIC_ADS_LABEL_BASVURU, price)
   track('Lead', {
     content_name: name,
     content_ids: slug,

@@ -100,6 +100,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_META.url,
+    types: { 'application/rss+xml': `${SITE_META.url}/feed.xml` },
     languages: {
       'tr-TR': SITE_META.url,
       'en-US': `${SITE_META.url}/en`,

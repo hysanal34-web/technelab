@@ -1,8 +1,25 @@
-# Kayıp Başvurular — 24–27 Ağustos 2026
+# Kayıp Başvurular — 23–27 Ağustos 2026
 
-Bu 7 kayıt siteden geldi ama **info@technelabistanbul.com'a ulaşmadı**.
-Resend, adresi "hard bounce" nedeniyle engel listesine aldığı için hepsi düştü.
+Bu 8 kayıt siteden geldi ama **info@technelabistanbul.com'a ulaşmadı**.
+İlk sekme (Grant Hobbs, 23 Ağustos) Resend'in adresi "hard bounce" nedeniyle
+engel listesine almasına sebep oldu; ardından gelen 7 kayıt da aynı engelden
+düştü. Engel 27 Ağustos'ta kaldırıldı, sistem artık normal çalışıyor.
 Aşağıdaki bilgiler Resend kayıtlarından kurtarıldı. **Hiçbiri aranmadı — hepsi bekliyor.**
+
+---
+
+## 0 · Grant Hobbs — ENGLISH DRAMA (ilgi/soru)
+**İLETİŞİM FORMU** · 23 Ağustos, 20:24
+
+- Telefon: —
+- **E-posta:** gh@gwhobbs.com (reply-to)
+- Konum: Cihangir (Avrupa yakası)
+
+**Mesaj:** "Hi, when is your next available acting class in English? I am on
+the European side (Cihangir)"
+
+> İngilizce konuşan, muhtemelen yabancı/expat. İngilizce yanıt gerekebilir —
+> English Drama Lab için uygun aday. Bu, susturmayı tetikleyen ilk bounce'tı.
 
 ---
 
@@ -79,9 +96,10 @@ Aşağıdaki bilgiler Resend kayıtlarından kurtarıldı. **Hiçbiri aranmadı 
 | TECHNE MUSICAL LAB | Nehir Koker (başvuru), Gizem Kunt, Alp Yıldırım |
 | BROADWAY MUSICAL DANCE | İpek Yağcı (başvuru), Fatma Nur Sünbül (başvuru), Sarp Bergiten |
 | THE AUTEUR LAB | Şeyda Bilgin |
+| ENGLISH DRAMA (genel ilgi) | Grant Hobbs |
 
-**3 tam başvuru + 4 bilgi isteği.** Telefonu olan 5 kişi doğrudan aranabilir;
-Şeyda Bilgin ve Sarp Bergiten'e mail atılmalı.
+**3 tam başvuru + 5 bilgi/iletişim isteği.** Telefonu olan 5 kişi doğrudan aranabilir;
+Şeyda Bilgin, Sarp Bergiten ve Grant Hobbs'a (İngilizce) mail atılmalı.
 
 **Not:** Bilgi isteği bırakan 4 kişiye program/ücret maili otomatik **gitti** —
 onlar bilgiyi aldı, sadece bizim haberimiz olmadı. Başvuru yapan 3 kişi ise
