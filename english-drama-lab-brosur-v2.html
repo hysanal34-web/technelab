@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Drama Lab — Techne Lab İstanbul</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0A0A0C;
+    color: #F5F5F0;
+    font-family: 'Courier New', monospace;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 0 auto 48px;
+    background: #0A0A0C;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    .page { margin: 0; page-break-after: always; }
+  }
+
+  /* ── SHARED ── */
+  .section-label {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    color: #3A3A3A;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .neon-line { width: 36px; height: 2px; background: #C8FF00; margin: 28px 0; }
+  .divider { width: 100%; height: 1px; background: #1E1E22; }
+
+  /* ══ PAGE 1 ══ */
+  .p1-header {
+    padding: 40px 56px 28px;
+    border-bottom: 1px solid #1E1E22;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .p1-brand { font-size: 9px; letter-spacing: 0.2em; color: #3A3A3A; text-transform: uppercase; line-height: 2; }
+  .p1-pgnum {
+    font-family: Georgia, serif;
+    font-size: 64px;
+    color: #111114;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .p1-hero { padding: 40px 56px 0; }
+  .p1-title {
+    font-family: Georgia, serif;
+    font-size: 58px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #F5F5F0;
+    line-height: 0.95;
+  }
+  .p1-sub {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: #6B6B6B;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+  .p1-body {
+    padding: 0 56px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 44px;
+    margin-top: 36px;
+    flex: 1;
+  }
+
+  /* LEFT */
+  .desc-text {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #9A9A95;
+    margin-bottom: 20px;
+  }
+  .curriculum-block { margin-top: 4px; }
+  .curr-item {
+    padding: 12px 0 12px 16px;
+    border-left: 1px solid #1E1E22;
+    margin-bottom: 4px;
+  }
+  .curr-week {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    color: #C8FF00;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .curr-title {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    color: #F5F5F0;
+    margin-bottom: 4px;
+  }
+  .curr-body { font-size: 10px; color: #6B6B6B; line-height: 1.6; }
+
+  .instr-block { margin-top: 24px; }
+  .instr-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #1E1E22;
+  }
+  .instr-item:first-child { border-top: 1px solid #1E1E22; }
+  .instr-name { font-family: Georgia, serif; font-size: 12px; color: #F5F5F0; margin-bottom: 2px; }
+  .instr-note { font-size: 10px; color: #6B6B6B; line-height: 1.5; }
+
+  /* RIGHT */
+  .price-card {
+    background: #111114;
+    border: 1px solid #1E1E22;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+  .price-top-label { font-size: 8px; letter-spacing: 0.2em; color: #6B6B6B; text-transform: uppercase; margin-bottom: 10px; }
+  .price-big { font-family: Georgia, serif; font-size: 40px; font-weight: 700; color: #F5F5F0; line-height: 1; }
+  .price-sub { font-size: 10px; color: #6B6B6B; margin-top: 6px; margin-bottom: 18px; }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid #1E1E22;
+  }
+  .price-row-key { font-size: 10px; color: #6B6B6B; }
+  .price-row-val { font-family: Georgia, serif; font-size: 15px; color: #F5F5F0; }
+
+  .early-card {
+    background: #0A0A0C;
+    border: 1px solid #C8FF00;
+    padding: 22px 28px;
+    margin-bottom: 16px;
+  }
+  .early-label { font-size: 8px; letter-spacing: 0.22em; color: #C8FF00; text-transform: uppercase; margin-bottom: 10px; }
+  .early-big { font-family: Georgia, serif; font-size: 32px; font-weight: 700; color: #C8FF00; line-height: 1; }
+  .early-detail { font-size: 10px; color: #6B6B6B; margin-top: 8px; line-height: 1.7; }
+  .early-detail b { color: #C8FF00; }
+  .early-badge {
+    display: inline-block;
+    background: #C8FF00;
+    color: #0A0A0C;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    margin-top: 10px;
+  }
+
+  .sched-block { margin-bottom: 16px; }
+  .sched-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #1E1E22;
+  }
+  .sched-item:first-of-type { border-top: 1px solid #1E1E22; }
+  .sched-dot { width: 5px; height: 5px; background: #C8FF00; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .sched-place { font-size: 11px; font-weight: 700; color: #F5F5F0; }
+  .sched-time { font-size: 10px; color: #6B6B6B; margin-top: 2px; }
+
+  .who-box {
+    background: #111114;
+    border-left: 2px solid #C8FF00;
+    padding: 14px 18px;
+  }
+  .who-text { font-size: 10px; color: #9A9A95; line-height: 1.7; }
+
+  .p1-footer {
+    padding: 20px 56px;
+    border-top: 1px solid #1E1E22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  .p1-footer-brand { font-size: 9px; letter-spacing: 0.2em; color: #3A3A3A; text-transform: uppercase; }
+  .p1-footer-cta { font-size: 9px; letter-spacing: 0.18em; color: #C8FF00; text-transform: uppercase; }
+  .p1-footer-url { font-size: 9px; color: #3A3A3A; }
+
+  /* ══ PAGE 2 ══ */
+  .p2-header {
+    padding: 40px 56px 28px;
+    border-bottom: 1px solid #1E1E22;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .p2-title { font-family: Georgia, serif; font-size: 22px; color: #F5F5F0; }
+  .p2-pgnum { font-family: Georgia, serif; font-size: 64px; color: #111114; line-height: 1; }
+
+  .p2-body { padding: 44px 56px; flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+
+  .faq-block { }
+  .faq-item { padding: 18px 0; border-bottom: 1px solid #1E1E22; }
+  .faq-item:first-child { border-top: 1px solid #1E1E22; }
+  .faq-q { font-family: Georgia, serif; font-size: 12px; color: #C8FF00; margin-bottom: 6px; }
+  .faq-a { font-size: 10px; color: #9A9A95; line-height: 1.7; }
+
+  .edl-family { }
+  .family-item {
+    background: #111114;
+    border: 1px solid #1E1E22;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  .family-label { font-size: 8px; letter-spacing: 0.2em; color: #3A3A3A; text-transform: uppercase; margin-bottom: 6px; }
+  .family-name { font-family: Georgia, serif; font-size: 14px; color: #F5F5F0; margin-bottom: 4px; }
+  .family-note { font-size: 10px; color: #6B6B6B; line-height: 1.6; }
+  .family-price { font-family: Georgia, serif; font-size: 18px; color: #C8FF00; margin-top: 10px; }
+
+  .contact-block { margin-top: 32px; }
+  .contact-title { font-family: Georgia, serif; font-size: 18px; color: #F5F5F0; margin-bottom: 20px; }
+  .contact-item { padding: 12px 0; border-bottom: 1px solid #1E1E22; display: flex; justify-content: space-between; }
+  .contact-key { font-size: 10px; color: #6B6B6B; }
+  .contact-val { font-size: 10px; color: #F5F5F0; }
+
+  .big-cta {
+    margin-top: 32px;
+    background: #C8FF00;
+    padding: 28px 32px;
+  }
+  .big-cta-text {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0A0A0C;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .big-cta-sub { font-size: 10px; color: #2A2A00; letter-spacing: 0.1em; }
+
+  .p2-footer {
+    padding: 20px 56px;
+    border-top: 1px solid #1E1E22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  .p2-footer-brand { font-size: 9px; letter-spacing: 0.2em; color: #3A3A3A; text-transform: uppercase; }
+  .p2-footer-url { font-size: 9px; color: #C8FF00; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ PAGE 1 -->
+<div class="page">
+
+  <div class="p1-header">
+    <div class="p1-brand">
+      Techne Lab İstanbul<br>
+      technelabistanbul.com
+    </div>
+    <div class="p1-pgnum">03</div>
+  </div>
+
+  <div class="p1-hero">
+    <div class="p1-title">ENGLISH<br>DRAMA LAB</div>
+    <div class="p1-sub">English Creative Drama · Yaratıcı Drama · Doğaçlama · İngilizce</div>
+  </div>
+
+  <div class="p1-body">
+
+    <!-- LEFT -->
+    <div>
+      <div class="neon-line"></div>
+      <div class="section-label">Program Hakkında</div>
+      <div class="desc-text">
+        İngilizce dili yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberlemeden uzak, anlık tepki ve hayal gücüne dayalı bu program katılımcıları İngilizce ifadeyle doğrudan temas kurmaya davet eder.
+      </div>
+      <div class="desc-text">
+        Bir konuşma kulübünün pratiğini yaratıcı dramanın araçlarıyla birleştiriyoruz — konuşma sahnede, bedenle ve oyunla açılıyor.
+      </div>
+
+      <div class="section-label" style="margin-top: 8px;">Müfredat · 12 Hafta</div>
+      <div class="curriculum-block">
+        <div class="curr-item">
+          <div class="curr-week">1 — 4. Hafta</div>
+          <div class="curr-title">Isınma & Keşif</div>
+          <div class="curr-body">Oyun ve güven egzersizleri, dil oyunları, beden-ses-hayal gücü üçgeni. İngilizce sezginin açılması.</div>
+        </div>
+        <div class="curr-item">
+          <div class="curr-week">5 — 8. Hafta</div>
+          <div class="curr-title">Doğaçlama & Karakter</div>
+          <div class="curr-body">Anlık sahne çalışması, status oyunları, karakter doğaçlamaları. Dili düşünmeden konuşmak.</div>
+        </div>
+        <div class="curr-item">
+          <div class="curr-week">9 — 12. Hafta</div>
+          <div class="curr-title">Bütünleşme & Uygulama</div>
+          <div class="curr-body">Edinilen araçların sahnede bütünleştirilmesi. Grup doğaçlamaları ve derinleşme.</div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top: 20px;">Eğitmenler</div>
+      <div class="instr-block">
+        <div class="instr-item">
+          <div class="instr-name">Alara Lokum</div>
+          <div class="instr-note">Şehir Tiyatroları · Kadir Has Üniversitesi · Amerika & İtalya eğitimi</div>
+        </div>
+        <div class="instr-item">
+          <div class="instr-name">Ece Ertez</div>
+          <div class="instr-note">Şahika Tekand Studio · Chubbuck Metodu</div>
+        </div>
+        <div class="instr-item">
+          <div class="instr-name">Yeşim Çelebi</div>
+          <div class="instr-note">Yale Üniversitesi · LAMDA · Stella Adler & Lee Strasberg</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="neon-line"></div>
+
+      <div class="section-label">Fiyat</div>
+      <div class="price-card">
+        <div class="price-top-label">3 Aylık Tam Ücret</div>
+        <div class="price-big">24.000 ₺</div>
+        <div class="price-sub">3 ay · 12 haftalık program</div>
+        <div class="price-row">
+          <span class="price-row-key">Aylık katılım</span>
+          <span class="price-row-val">10.000 ₺ / ay</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-key">Kredi kartı taksit</span>
+          <span class="price-row-val">Mevcut ✓</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-key">Grup büyüklüğü</span>
+          <span class="price-row-val">Maks. 12 kişi</span>
+        </div>
+      </div>
+
+      <div class="early-card">
+        <div class="early-label">⚡ Erken Kayıt · %10 İndirim</div>
+        <div class="early-big">21.600 ₺</div>
+        <div class="early-detail">
+          <b>2.400 ₺ tasarruf</b> — 10 Eylül'e kadar<br>
+          İlk 5 kontenjan · Erken kayıtta geçerli
+        </div>
+        <div class="early-badge">5 kişilik kontenjan</div>
+      </div>
+
+      <div class="section-label">Başlangıç Tarihleri</div>
+      <div class="sched-block">
+        <div class="sched-item">
+          <div class="sched-dot"></div>
+          <div>
+            <div class="sched-place">Pera / Taksim</div>
+            <div class="sched-time">12 Eylül Cumartesi · 15:00</div>
+          </div>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot"></div>
+          <div>
+            <div class="sched-place">Kadıköy</div>
+            <div class="sched-time">14 Eylül Pazartesi · 20:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="who-box" style="margin-top: 16px;">
+        <div class="section-label" style="margin-bottom: 6px;">Kimler Katılabilir?</div>
+        <div class="who-text">İngilizce konuşmak isteyen herkes. Tiyatro deneyimi gerekmiyor. B1 ve üzeri İngilizce yeterli. 18 yaş ve üzeri.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p1-footer">
+    <div class="p1-footer-brand">Techne Lab İstanbul</div>
+    <div class="p1-footer-cta">DM'den yaz → @technelab.istanbul</div>
+    <div class="p1-footer-url">technelabistanbul.com</div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════ PAGE 2 -->
+<div class="page">
+
+  <div class="p2-header">
+    <div>
+      <div class="p2-title">Sık Sorulan Sorular & Aile Programları</div>
+    </div>
+    <div class="p2-pgnum">03</div>
+  </div>
+
+  <div class="p2-body">
+
+    <!-- LEFT: FAQ -->
+    <div class="faq-block">
+      <div class="section-label">Sık Sorulan Sorular</div>
+
+      <div class="faq-item">
+        <div class="faq-q">İngilizce seviyem yeterli mi?</div>
+        <div class="faq-a">B1 seviyesi yeterli. Program dil eğitimi değil — drama araçlarıyla dili pratik etme üzerine kurulu. Yanlış yapmaktan korkmadan konuşmak burada öğreniliyor.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Tiyatro deneyimim yoksa olur mu?</div>
+        <div class="faq-a">Kesinlikle olur. Programa katılanların büyük çoğunluğunun sahne deneyimi yok. Başlangıç noktanız değil, merakınız önemli.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Pera ve Kadıköy grupları arasında fark var mı?</div>
+        <div class="faq-a">Müfredat ve kalite aynı. Tek fark gün ve saat. İstediğiniz lokasyonu seçebilirsiniz — kapasite dolana kadar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Taksit imkânı var mı?</div>
+        <div class="faq-a">Evet. Aylık katılım seçeneği mevcut: 10.000 ₺ / ay. Erken kayıt indirimi aylık katılımda da geçerli.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Programa nasıl kayıt olunur?</div>
+        <div class="faq-a">Instagram'dan DM atın ya da technelabistanbul.com üzerinden ön kayıt formunu doldurun. Kontenjanlar sınırlı.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Programın sonunda bir gösteri var mı?</div>
+        <div class="faq-a">English Drama Lab'de kamuya açık bir final gösterisi yok. Final haftalarda grup içi paylaşımlar yapılır. Final gösterisi isteyen katılımcılar için English Acting Praxis programı önerilir.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Family Programs + CTA -->
+    <div class="edl-family">
+      <div class="section-label">EDL Ailesi · Diğer Programlar</div>
+
+      <div class="family-item">
+        <div class="family-label">Program 04 · Erken Kayıt 10 Eylül'e kadar</div>
+        <div class="family-name">ENGLISH ACTING PRAXIS</div>
+        <div class="family-note">Ece Ertez & Harika Uygur masterclass finali. Metin, karakter, prova disiplini — tam İngilizce. 12 hafta, Pera.</div>
+        <div class="family-price">59.000 ₺ <span style="font-size:11px;color:#6B6B6B;">· erken kayıt: 53.100 ₺</span></div>
+      </div>
+
+      <div class="family-item">
+        <div class="family-label">Program 05 · Erken Kayıt 10 Eylül'e kadar</div>
+        <div class="family-name">ENGLISH DRAMA YOUTH (10–17)</div>
+        <div class="family-note">10–17 yaş için İngilizce yaratıcı drama. Seyircili final gösterisi. 8 ay, Kadıköy & Pera.</div>
+        <div class="family-price">128.000 ₺ <span style="font-size:11px;color:#6B6B6B;">· erken kayıt: 115.200 ₺</span></div>
+      </div>
+
+      <div class="contact-block">
+        <div class="section-label">İletişim</div>
+        <div class="contact-item">
+          <span class="contact-key">Instagram</span>
+          <span class="contact-val">@technelab.istanbul</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-key">Web</span>
+          <span class="contact-val">technelabistanbul.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-key">Kayıt</span>
+          <span class="contact-val">DM'den yaz</span>
+        </div>
+      </div>
+
+      <div class="big-cta">
+        <div class="big-cta-text">Eylül'de<br>sahnede görüşürüz.</div>
+        <div class="big-cta-sub">TECHNE LAB İSTANBUL · 2025–2026 SEZONU</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p2-footer">
+    <div class="p2-footer-brand">Techne Lab İstanbul · 2025–2026 Sezonu</div>
+    <div class="p2-footer-url">technelabistanbul.com/atolyeler/english-drama-lab</div>
+  </div>
+
+</div>
+
+</body>
+</html>

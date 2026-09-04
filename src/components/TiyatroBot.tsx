@@ -155,7 +155,7 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
     if (long || exp === 'var') {
       recs.push({ slug: 'english-drama-final-project', title: 'English Acting Praxis', sub: 'İngilizce Sahne', duration: '12 hafta', tip: 'Dili bilenler için metin ve sahne odaklı çalışma; Harika Uygur masterclass.' })
     } else {
-      recs.push({ slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: '12 hafta', tip: 'Doğaçlama temelli; başlangıç için ideal.' })
+      recs.push({ slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: 'aylık katılım', tip: 'Doğaçlama temelli; başlangıç için ideal.' })
     }
   }
   if (interest === 'dans') {
@@ -177,7 +177,7 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
   if (recs.length === 0) {
     recs.push(
       { slug: 'auteur-lab', title: 'The Auteur Lab', sub: 'Oyunculuk & Yazarlık', duration: '8 hafta', tip: 'Başlangıç için sağlam bir zemin.' },
-      { slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: '12 hafta', tip: 'Dil ve sahne birleşimi.' }
+      { slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: 'aylık katılım', tip: 'Dil ve sahne birleşimi.' }
     )
   }
   return recs.slice(0, 2)
@@ -402,9 +402,9 @@ export function TiyatroBot() {
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))
       return { from: 'bot', text: 'Kendi binamız yok — mobil çalışıyoruz. Programlarımız Pera ve Kadıköy\'deki üç partner mekânda: Pod Pera, Beden İşleri ve Soft Sanat.', options: [{ label: 'İşbirliklerimiz →', value: 'go:/isbirlikleri' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
-      return { from: 'bot', text: '10–17 yaş için English Drama Youth var: 8 ay, haftada 1 gün, yıl sonunda seyircili final gösterisi. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
+      return { from: 'bot', text: '10–17 yaş için English Drama Youth var: Dil öğretmiyoruz, dili sahnede deneyimliyoruz — B1 ve üzeri seviye önerilir, akıcı olmak gerekmez. 8 ay, haftada 1 gün, yıl sonunda seyircili bir final gösterisi/yıl sonu projesiyle kapanıyor. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
     if (has('ingilizce', 'english', 'dil'))
-      return { from: 'bot', text: 'English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12 hafta), English Acting Praxis (12 hafta) ve English Drama Youth 10–17 yaş (8 ay, haftada 1 gün).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'Program bul', value: 'guide' }] }
+      return { from: 'bot', text: 'Dil öğretmiyoruz, dili sahnede deneyimliyoruz. English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (aylık katılım, yetişkin), English Acting Praxis (12 hafta, yetişkin) ve English Drama Youth (10–17 yaş, B1 ve üzeri, 8 ay, yıl sonu final projesiyle kapanır).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'EDL Youth →', value: 'go:english-drama-youth' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
       return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Sitare Bilge yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
     if (has('dans', 'koreografi', 'broadway'))
@@ -463,6 +463,20 @@ export function TiyatroBot() {
     return () => clearTimeout(t)
   }, [open, pathname])
 
+  // Balon 14 sn sonra kendi kendine kapanır — sürekli ekranda durup
+  // içeriğin (ör. liste satırlarındaki DETAY butonu) üstünü kapatmasın.
+  useEffect(() => {
+    if (!teaser) return
+    const t = setTimeout(() => setTeaser(false), 14000)
+    return () => clearTimeout(t)
+  }, [teaser])
+
+  // Program sayfalarında mobilde altta zaten StickyApplyBar (başvur) var.
+  // Üç yüzen buton üst üste binip içeriği kapatıyordu — mobilde bot ve
+  // WhatsApp gizleniyor, tek net CTA kalıyor. Masaüstünde ikisi de duruyor.
+  const onProgramPage =
+    !!pathname && pathname.startsWith('/atolyeler/') && !pathname.endsWith('/kayit')
+
   const lastMsg = msgs[msgs.length - 1]
   const hasOptions = lastMsg?.options && lastMsg.options.length > 0
 
@@ -470,25 +484,37 @@ export function TiyatroBot() {
     <>
       {/* ── Davet balonu ── */}
       {teaser && !open && (
-        <button
-          onClick={startBot}
-          className="teaser-in fixed bottom-[86px] right-6 z-[8000] bg-bgAlt border border-border border-l-2 border-l-neon px-4 py-3 text-left max-w-[240px]"
+        <div
+          className={`teaser-in fixed bottom-[164px] right-6 z-[8000] ${onProgramPage ? 'max-md:hidden' : ''} bg-bgAlt border border-border border-l-2 border-l-neon max-w-[240px]`}
           style={{ boxShadow: '0 12px 32px rgba(0,0,0,0.45)' }}
-          aria-label="Sahne asistanını aç"
-          data-hover
         >
-          <span className="font-mono text-[12px] text-fg leading-snug block">
-            Sana uygun programı 30 saniyede bulayım mı?
-          </span>
-          <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mt-1.5 block">sahne bot →</span>
-        </button>
+          <button
+            onClick={startBot}
+            className="px-4 py-3 pr-8 text-left w-full"
+            aria-label="Sahne asistanını aç"
+            data-hover
+          >
+            <span className="font-mono text-[12px] text-fg leading-snug block">
+              Sana uygun programı 30 saniyede bulayım mı?
+            </span>
+            <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mt-1.5 block">sahne bot →</span>
+          </button>
+          <button
+            onClick={() => setTeaser(false)}
+            aria-label="Balonu kapat"
+            className="absolute top-1 right-1 w-7 h-7 flex items-center justify-center font-mono text-[13px] leading-none text-stone hover:text-neon transition-colors"
+            data-hover
+          >
+            ×
+          </button>
+        </div>
       )}
 
       {/* ── Floating Button ── */}
       <button
         onClick={startBot}
         aria-label="Sahne asistanını aç"
-        className="bot-breath group fixed bottom-6 right-6 z-[8000] flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95"
+        className={`bot-breath group fixed bottom-6 right-6 z-[8000] ${onProgramPage ? 'max-md:hidden' : 'flex'} md:flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95`}
         data-hover
       >
         <span className="text-[15px] leading-none" aria-hidden="true">✳</span>

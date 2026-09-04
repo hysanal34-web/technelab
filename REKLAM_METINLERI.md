@@ -32,16 +32,17 @@ Hangisi sana uygun, yazın birlikte bakalım.
 **Başlık:** English Drama Youth · 10–17 Yaş
 
 ```
-Dil sınıfta öğrenilir, sahnede açılır.
+Bu bir İngilizce kursu değil.
 
 English Drama Youth 10–17 yaş için sekiz aylık bir sahne çalışması.
-Alara Lokum yürütücülüğünde, hafta sonları, tamamen İngilizce.
-Doğaçlama, karakter, metin — ezber ve sınav yok.
+Dil öğretmiyoruz. Dili deneyimliyoruz. Alara Lokum yürütücülüğünde,
+hafta sonları, tamamen İngilizce. Doğaçlama, karakter, metin;
+ders kitabı, sınav ve not yok.
 
 Mayıs'ta seyirci önünde bir gösteri var. Çocuk yılın sonunda sahnede
 duruyor ve İngilizce konuşuyor.
 
-Kadıköy ve Taksim · Gruplar yaşa göre ayrı
+Kadıköy ve Taksim · Gruplar yaşa göre ayrı · B1 ve üzeri
 Erken kayıt 10 Eylül'e kadar
 
 Detaylar ve takvim için yazın.
@@ -107,7 +108,7 @@ kullanılıyor. Gramer düzeltmiyoruz; akıcılık kendiliğinden geliyor.
 Yetişkinler için · Kadıköy ve Pera · On iki kişilik gruplar
 Eylül dönemi · Erken kayıt 10 Eylül'e kadar
 
-Seviye testi yok. Detaylar için yazın.
+B1 ve üzeri seviye için. Detaylar için yazın.
 ```
 
 ---
@@ -125,7 +126,7 @@ değil, kullanarak kuruluyor.
 
 Haftada bir gün, on iki kişilik grupta, sahne üzerinden.
 
-Kadıköy ve Pera · Eylül dönemi
+Kadıköy ve Pera · Eylül dönemi · B1 ve üzeri
 Erken kayıt 10 Eylül'e kadar
 
 Yazın, konuşalım.
@@ -144,9 +145,12 @@ Köksal Ünal ile Broadway repertuvarı: ikonik koreografiler, sahne
 duruşu, ritim ve kondisyon. Dans ettiğin değil, sahnede var olduğun
 bir çalışma.
 
+İster dansa yeni başlıyor ol, ister yeni bir disiplin denemek iste —
+Broadway Musical Dance tam sana göre.
+
 6 hafta ya da 12 hafta — kendi temponu seçiyorsun.
 
-Taksim ve Kadıköy · Eylül dönemi
+Taksim ve Kadıköy · 17 Eylül Perşembe 19:00
 Erken kayıt 10 Eylül'e kadar
 
 Hangi grup sana uygun, yazın konuşalım.
@@ -167,7 +171,10 @@ Broadway Musical Dance temelden başlıyor: ritim, beden koordinasyonu,
 koreografi akışı. Altı haftada dans dinamiklerini kuruyorsun, devam
 etmek istersen on iki hafta seni bekliyor.
 
-Köksal Ünal ile · Taksim ve Kadıköy · Eylül dönemi
+İster dansa yeni başlıyor ol, ister yeni bir disiplin denemek iste —
+Broadway Musical Dance tam sana göre.
+
+Köksal Ünal ile · Taksim ve Kadıköy · 17 Eylül Perşembe 19:00
 Erken kayıt 10 Eylül'e kadar
 
 Deneyim şartı yok. Yazın konuşalım.
@@ -197,8 +204,11 @@ Köksal Ünal ile Broadway repertuvarı: ikonik koreografiler, sahne
 duruşu, ritim ve kondisyon. Dans ettiğin değil, sahnede var olduğun
 bir program.
 
+İster dansa yeni başlıyor ol, ister yeni bir disiplin denemek iste —
+Broadway Musical Dance tam sana göre.
+
 6 hafta ya da 12 hafta — kendi temponu seçiyorsun.
-Kadıköy ve Taksim · Eylül dönemi
+Kadıköy ve Taksim · 17 Eylül Perşembe 19:00
 Erken kayıt 10 Eylül'e kadar
 
 Hangi grup sana uygun, yazın konuşalım.
@@ -258,9 +268,9 @@ tepki. Düşünüp çevirecek zaman olmadığında dil kendiliğinden çıkıyor
 Gramer düzeltmiyoruz. Akıcılık çalışıyoruz.
 
 Yetişkinler için · Kadıköy ve Pera · On iki kişilik gruplar
-Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
 
-Seviye testi yok. Detaylar için yazın.
+Sohbet edebiliyorsan yeterli. Detaylar için yazın.
 ```
 
 ---
@@ -272,17 +282,20 @@ Seviye testi yok. Detaylar için yazın.
 **Not:** Metin çocuğa değil **veliye** konuşuyor — karar veren o.
 
 ```
-Çocuğunuzun İngilizcesi var ama konuşmuyor mu?
+Bu bir İngilizce kursu değil.
 
-Dil sınıfta öğrenilir, sahnede açılır. Alara Lokum yürütücülüğünde
-sekiz ay boyunca haftada bir gün: doğaçlama, karakter çalışması,
-metin — hepsi İngilizce. Ezber yok, sınav yok, not baskısı yok.
+Çocuğunuzun İngilizcesi var ama konuşmuyor mu? Sorun bilgi değil.
+Dil öğretmiyoruz. Dili deneyimliyoruz. Ders kitabı yok, sınav
+yok, not yok. Sahnede bir durumun içinde ve cevap vermesi gerekiyor;
+dil orada açılıyor.
 
-Mayıs'ta seyirci önünde bir final gösterisi var. Çocuk yılın sonunda
-sahnede duruyor ve İngilizce konuşuyor.
+Alara Lokum yürütücülüğünde sekiz ay, haftada bir gün. Mayıs'ta
+seyirci önünde bir final gösterisi var — çocuk yılın sonunda sahnede
+duruyor ve İngilizce konuşuyor.
 
 10–17 yaş · Hafta sonu sınıfları · Kadıköy ve Taksim
-Gruplar yaşa göre ayrı · Erken kayıt 10 Eylül'e kadar
+Gruplar yaşa göre ayrı · B1 ve üzeri
+Erken kayıt 10 Eylül'e kadar
 
 Detaylar ve takvim için yazın.
 ```
@@ -321,11 +334,14 @@ Detaylar için yazın.
 Dans etmeyi bilmiyorum diye erteliyorsan, program tam da onun için var.
 
 Broadway Musical Dance temelden başlıyor: ritim, beden koordinasyonu,
-koreografi akışı. Altı haftada dans dinamiklerini kuruyorsun, devam
-etmek istersen on iki hafta seni bekliyor.
+koreografi akışı. Jazz ve theatre dance tekniğiyle. Altı haftada dans
+dinamiklerini kuruyorsun, devam etmek istersen on iki hafta seni bekliyor.
 
-Köksal Ünal ile · Kadıköy ve Taksim · Eylül dönemi
-Erken kayıt 10 Eylül'e kadar
+İster dansa yeni başlıyor ol, ister yeni bir disiplin denemek iste —
+Broadway Musical Dance tam sana göre.
+
+Köksal Ünal ile · Kadıköy ve Taksim · 17 Eylül Perşembe 19:00
+12–55 yaş · Erken kayıt 10 Eylül'e kadar
 
 Deneyim şartı yok. Yazın konuşalım.
 ```
@@ -348,7 +364,7 @@ gerekiyor — düşünecek vaktin olmadan.
 Katılımcılarımızdan biri anlatıyor.
 
 English Drama Lab · Yetişkinler için · Kadıköy ve Pera
-Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
 
 Detaylar için yazın.
 ```
@@ -368,9 +384,9 @@ refleks kurmak.
 Katılımcılarımızdan biri süreci anlatıyor.
 
 English Drama Lab · On iki kişilik gruplar · Kadıköy ve Pera
-Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
 
-Seviye testi yok. Yazın, konuşalım.
+Yazın, konuşalım.
 ```
 
 ---

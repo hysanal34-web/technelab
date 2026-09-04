@@ -5,6 +5,25 @@ Sıralama: etki ÷ efor. 1 ve 2 bu hafta bitmeli — ikisi de senin hesabınla o
 
 ---
 
+## 0. AI görünürlüğü (bugün eklendi — kod tarafı tamam)
+
+Gemini'den ilk yönlendirme geldiğine göre ("Techne Lab AI Referral" — bkz. hafıza notu) bu kanalı
+büyütmeye değer. Bugün eklenenler:
+
+- **`/llms.txt`** — ChatGPT, Gemini, Claude, Perplexity gibi asistanların siteyi tek bakışta
+  özetleyebileceği yapılandırılmış bir sayfa. Tüm programlar, mekânlar, iletişim bilgisi otomatik
+  olarak `data.ts`'ten üretiliyor — elle güncelleme gerekmiyor, `technelabistanbul.com/llms.txt`
+  adresinden görülebilir.
+- **`robots.txt`'e AI tarayıcıları açıkça izinlendi** — GPTBot (ChatGPT), Google-Extended (Gemini),
+  PerplexityBot, ClaudeBot, Applebot-Extended. Önceden zaten engellenmiyorlardı ama artık niyet açık.
+- **Semt sayfaları artık müzikal/dans sayfalarına geri link veriyor** — Kadıköy, Beyoğlu, Taksim
+  sayfaları (nav'da linkli, en çok ziyaret edilen sayfalar) yeni müzikal/dans sayfalarına bağlandı.
+
+Bunların hiçbiri anlık sonuç vermez — AI modelleri siteyi zamanla yeniden tarar. Ama temel artık
+doğru: hem Google hem AI asistanları için aynı dürüst, yapılandırılmış veri kaynağı.
+
+---
+
 ## 1. Google Business Profile — "telefonum çalsın"ın en kısa yolu (≈20 dk)
 
 Harita kaydı olmadan "oyunculuk kursu kadıköy" tipi sorgularda harita paketine giremeyiz;
@@ -17,7 +36,7 @@ rakiplerin çoğu orada. Adres şartı yok — "hizmet bölgesi işletmesi" olar
 **Kategori:** Ana: *Tiyatro eğitimi* (yoksa: *Sanat okulu*). Ek: *Dans okulu*, *Drama okulu*.
 
 **Açıklama (kopyala-yapıştır, 750 karakter sınırına uygun):**
-> İstanbul'da bağımsız tiyatro ve performans atölyeleri. Oyunculuk, İngilizce yaratıcı drama, müzikal tiyatro, Broadway müzikal dansı, oyun yazarlığı ve dramaturji programları — Pera ve Kadıköy'deki partner stüdyolarda, en fazla 12 kişilik gruplarla. Her program seyircili bir final performansıyla tamamlanır. Eğitmen kadrosu sahnede ve sette aktif çalışan profesyonellerden oluşur; kurucusu İKSV Senenin Oyunu ödüllü oyun yazarı Halil Yağız Şanal'dır. Yetişkinler ve 10–17 yaş gençler için ayrı gruplar açılır. Deneyim şartı yoktur.
+> İstanbul'da bağımsız tiyatro ve performans atölyeleri. Oyunculuk, İngilizce yaratıcı drama, müzikal tiyatro, Broadway müzikal dansı, oyun yazarlığı ve dramaturji programları — Pera ve Kadıköy'deki partner stüdyolarda, en fazla 12 kişilik gruplarla. Her program seyircili bir final performansıyla tamamlanır. Eğitmen kadrosu sahnede ve sette aktif çalışan profesyonellerden oluşur; kurucusu oyun yazarı ve yönetmen Halil Yağız Şanal'dır. Yetişkinler ve 10–17 yaş gençler için ayrı gruplar açılır. Deneyim şartı yoktur.
 
 **Hizmetler bölümüne eklenecekler:** Oyunculuk atölyesi · Müzikal tiyatro kursu · Broadway müzikal dansı · İngilizce drama (yetişkin) · İngilizce drama (10–17 yaş) · Yaratıcı yazarlık & dramaturji
 
@@ -49,7 +68,7 @@ bize link versin. Hazır mesaj:
 > Merhaba! Eylül dönemi programlarımız stüdyonuzda başlıyor. Sitenizde/biyografinizde "partner topluluklar" ya da benzeri bir alanda technelabistanbul.com'a bağlantı verebilir misiniz? Biz de işbirlikleri sayfamızda size link veriyoruz: technelabistanbul.com/isbirlikleri — karşılıklı görünürlük ikimize de iyi gelir.
 
 **b) GalataPerform:** Mezunu olduğun atölyenin "mezunlarımız/katılımcılarımız ne yapıyor" tarzı bir
-alanı ya da sosyal paylaşımı varsa, İKSV ödülü + Techne Lab kuruluşu doğal bir haber. Kısa mesajla sor.
+alanı ya da sosyal paylaşımı varsa, Techne Lab'ın kuruluşu doğal bir haber konusu. Kısa mesajla sor.
 
 **c) Eğitmen biyografileri:** Alara, Ece, Yeşim, Köksal, Sitare, Burcu — kişisel site/Instagram/menajans
 sayfalarında "Techne Lab İstanbul'da eğitmen" + link. 6 eğitmen = 6 potansiyel link. Tek toplu mesajla iste.
@@ -57,9 +76,9 @@ sayfalarında "Techne Lab İstanbul'da eğitmen" + link. 6 eğitmen = 6 potansiy
 **d) Harita/dizin kayıtları (NAP tutarlılığı — marka sorgusunu da güçlendirir):** Google (GBP ile),
 Yandex Haritalar, Apple Business Connect, Foursquare. Hepsinde aynı ad-telefon-site.
 
-**e) Basın açısı:** "İKSV Senenin Oyunu ödüllü oyun yazarı, İstanbul'da fiyat pazarlığı yerine
-telefonla konuşan, seyircili finalle biten bağımsız bir atölye modeli kurdu" — kültür-sanat
-muhabirlerine 5 cümlelik tanıtım maili. Tek haber çıkarsa en değerli linkimiz olur.
+**e) Basın açısı:** "İstanbul'da fiyat pazarlığı yerine telefonla konuşan, seyircili finalle biten
+bağımsız bir atölye modeli" — kültür-sanat muhabirlerine 5 cümlelik tanıtım maili. Tek haber
+çıkarsa en değerli linkimiz olur.
 
 **Yapma:** Link satın alma, forum spam'i, kendi açtığın sözlük başlığı. 6 aylık domain'de
 Google bunlara karşı acımasız; organik büyüyen az link > toplu gelen çok link.

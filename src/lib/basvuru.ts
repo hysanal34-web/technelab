@@ -24,7 +24,6 @@ export type BasvuruConfig = {
 }
 
 const ENGLISH_LEVELS = [
-  'A2 — Temel',
   'B1 — Orta (sohbet edebiliyorum)',
   'B2 — İyi',
   'C1 — İleri',
@@ -231,14 +230,8 @@ BASVURU['camera-praxis'] = {
       name: 'englishLevel',
       label: 'İngilizce Seviyen',
       required: true,
-      options: [
-        'A2 — Temel',
-        'B1 — Orta (sohbet edebiliyorum)',
-        'B2 — İyi',
-        'C1 — İleri',
-        'C2 / Anadil seviyesi',
-      ],
-      help: 'Atölye çift dilli. İngilizcen zayıfsa da katılabilirsin — Türkçe metinlerle çalışırsın.',
+      options: ENGLISH_LEVELS,
+      help: 'Atölye çift dilli — çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor.',
     },
     {
       kind: 'url',

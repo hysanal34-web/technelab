@@ -9,7 +9,10 @@ const securityHeaders = [
   // Kullanılmayan tarayıcı API'lerini kapat
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
   // Clickjacking koruması — sadece kendi sitemiz ve PayTR (ödeme dönüş sayfası) frame'leyebilir
-  { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://www.paytr.com; base-uri 'self'; form-action 'self'; object-src 'none'" },
+  // form-action: Meta Pixel dönüşüm olaylarını facebook.com/tr/ adresine POST ediyor,
+  // 'self' tek başınayken tarayıcı bunu blokluyordu ve Meta reklam dönüşümleri düşüyordu.
+  // PayTR ödeme formu da kendi domainine post ediyor.
+  { key: 'Content-Security-Policy', value: "frame-ancestors 'self' https://www.paytr.com; base-uri 'self'; form-action 'self' https://www.facebook.com https://www.paytr.com; object-src 'none'" },
   { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
 ]
 

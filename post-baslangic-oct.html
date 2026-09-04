@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Başlangıçlar — Ekim</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0A0A0C; color: #F5F5F0; font-family: 'DejaVu Serif', serif; }
+    .container { width: 1080px; height: 1080px; background: #0A0A0C; padding: 80px 60px; display: flex; flex-direction: column; justify-content: space-between; }
+    .header { margin-bottom: 40px; }
+    .label { font-family: 'Liberation Mono', monospace; font-size: 14px; letter-spacing: 4px; color: #9A9A94; text-transform: uppercase; margin-bottom: 20px; }
+    h1 { font-size: 72px; font-weight: normal; line-height: 1.1; margin-bottom: 20px; letter-spacing: 2px; }
+    .accent { color: #C8FF00; }
+    .divider { height: 2px; background: linear-gradient(90deg, #C8FF00 0%, transparent 100%); margin: 40px 0; }
+    .programs { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+    .program { border-left: 3px solid #C8FF00; padding-left: 24px; }
+    .program-date { font-family: 'Liberation Mono', monospace; font-size: 13px; letter-spacing: 2px; color: #C8FF00; text-transform: uppercase; margin-bottom: 6px; }
+    .program-name { font-size: 28px; line-height: 1.2; margin-bottom: 8px; font-weight: normal; }
+    .program-details { font-size: 13px; color: #9A9A94; }
+    .location { display: block; margin-bottom: 2px; }
+    .footer { text-align: center; }
+    .footer-text { font-family: 'Liberation Mono', monospace; font-size: 12px; letter-spacing: 3px; color: #6B6B6B; text-transform: uppercase; }
+    .cta { font-size: 14px; color: #C8FF00; margin-top: 12px; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="label">Başlangıçlar</div>
+      <h1>Ekim Programları <span class="accent">Başlıyor</span></h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="programs">
+      <div class="program">
+        <div class="program-date">3–4 Ekim Cumartesi–Pazar</div>
+        <div class="program-name">English Drama Youth</div>
+        <div class="program-details">
+          <span class="location">Kadıköy · Cumartesi 13:00</span>
+          <span class="location">Taksim Pera · Pazar 13:00</span>
+        </div>
+      </div>
+
+      <div class="program">
+        <div class="program-date">7 Ekim Çarşamba</div>
+        <div class="program-name">The Auteur Lab</div>
+        <div class="program-details">
+          <span class="location">Kadıköy · 10:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+      <div class="footer-text">Kayıt Açık</div>
+      <div class="cta">technelabistanbul.com</div>
+    </div>
+  </div>
+</body>
+</html>

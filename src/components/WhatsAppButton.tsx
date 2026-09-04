@@ -6,6 +6,7 @@
  * Numara değişirse: WHATSAPP_NUMBER sabitini güncelle.
  */
 
+import { usePathname } from 'next/navigation'
 import { SITE_META } from '@/lib/data'
 
 // Tek kaynak: SITE_META.phoneE164. Numara değişirse orayı güncelle,
@@ -15,6 +16,13 @@ const WHATSAPP_MESSAGE = encodeURIComponent('Merhaba! Techne Lab atölyeleri hak
 
 export function WhatsAppButton() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+  const pathname = usePathname()
+
+  // Program sayfalarında mobilde altta zaten StickyApplyBar (başvur) var.
+  // Üstüne WhatsApp + Sahne Bot da eklenince üç ayrı yüzen buton içeriği
+  // (ör. ders takvimi satırlarını) kapatıyordu. Mobilde tek CTA bırakıyoruz.
+  const onProgramPage =
+    !!pathname && pathname.startsWith('/atolyeler/') && !pathname.endsWith('/kayit')
 
   return (
     <a
@@ -23,7 +31,7 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="WhatsApp ile iletişime geç"
       data-call-cta="whatsapp-float"
-      className="fixed bottom-24 right-6 z-[9000] flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
+      className={`fixed bottom-24 right-6 z-[9000] ${onProgramPage ? 'max-md:hidden' : ''} flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]`}
       style={{ backgroundColor: '#25D366' }}
     >
       {/* WhatsApp SVG */}

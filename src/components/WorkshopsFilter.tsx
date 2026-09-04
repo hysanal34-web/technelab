@@ -59,7 +59,11 @@ function FilterInner() {
               data-hover
             >
               {tr}
-              <span className={`ml-2 text-[11px] ${selected ? 'text-neon/70' : 'text-dim'}`}>{cnt}</span>
+              {/* 0 yerine "yakında": tıklamadan önce beklenti kuruluyor,
+                  ama sekme tıklanabilir kalıyor — boş durumda haber verme CTA'sı var. */}
+              <span className={`ml-2 text-[11px] ${selected ? 'text-neon/70' : 'text-dim'}`}>
+                {cnt === 0 ? 'yakında' : cnt}
+              </span>
             </button>
           )
         })}

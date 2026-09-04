@@ -1,0 +1,243 @@
+'use client'
+
+import { useState, useTransition, useRef } from 'react'
+import Link from 'next/link'
+import type { TanismaFormState } from '@/app/tanisma-gunu/actions'
+import { TANISMA_SESSIONS, ENGLISH_LEVELS } from '@/app/tanisma-gunu/sessions'
+import { trackLead } from '@/components/MetaPixel'
+
+type Props = { action: (formData: FormData) => Promise<TanismaFormState> }
+
+const SOURCE_OPTIONS = [
+  'Instagram',
+  'Arkadaş tavsiyesi',
+  'Google',
+  'Yapay zeka (ChatGPT, Gemini vb.)',
+  "Daha önce Techne Lab'daydım",
+  'Diğer',
+]
+
+const inputCls =
+  'w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200'
+
+export default function TanismaForm({ action }: Props) {
+  const [state, setState] = useState<TanismaFormState>({ status: 'idle' })
+  const [sessionId, setSessionId] = useState('')
+  const [isPending, startTransition] = useTransition()
+  const formRef = useRef<HTMLFormElement>(null)
+  const errRef = useRef<HTMLParagraphElement>(null)
+
+  const session = TANISMA_SESSIONS.find((s) => s.id === sessionId)
+  const isYouth = session?.youth ?? false
+  const askEnglish = session?.english ?? true
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    startTransition(async () => {
+      const result = await action(formData)
+      setState(result)
+      if (result.status === 'success') {
+        trackLead(`Tanışma Günü — ${session?.program ?? ''}`, 0, `tanisma-gunu-${sessionId}`)
+        formRef.current?.reset()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (result.status === 'error') {
+        requestAnimationFrame(() => {
+          const el = result.field
+            ? formRef.current?.querySelector<HTMLElement>(`[name="${result.field}"]`)
+            : null
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            el.focus({ preventScroll: true })
+          } else {
+            errRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            errRef.current?.focus({ preventScroll: true })
+          }
+        })
+      }
+    })
+  }
+
+  if (state.status === 'success') {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center px-4 py-24">
+        <div className="max-w-sm w-full">
+          <div className="h-[2px] w-12 bg-neon mb-8" />
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-4">kayıt alındı</p>
+          <h2 className="font-display text-fg mb-6" style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}>
+            GÖRÜŞMEK ÜZERE
+          </h2>
+          <p className="font-mono text-[13px] text-stone leading-relaxed mb-8">
+            Tanışma günü kaydınız alındı. Mekân adresini ve detayları size yazacağız; sorunuz olursa DM'den ulaşabilirsiniz.
+          </p>
+          <Link href="/atolyeler" className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-fg transition-colors duration-200">
+            programları incele →
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="px-4 md:px-10 py-16 grid md:grid-cols-[1fr_360px] gap-16 items-start max-w-screen-xl mx-auto">
+      {/* Sol — bilgi */}
+      <div>
+        <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-2">ücretsiz tanışma günü</p>
+        <h1 className="font-display text-fg mb-2" style={{ fontSize: 'clamp(32px,5vw,72px)', letterSpacing: '0.01em', lineHeight: 0.92 }}>
+          TECHNE LAB
+        </h1>
+
+        <div className="space-y-3">
+          {TANISMA_SESSIONS.map((s) => {
+            const [prog, when] = s.label.split(' — ')
+            return (
+              <div key={s.id} className="flex flex-col sm:flex-row sm:gap-6 pb-3 border-b border-border">
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-stone sm:w-44 shrink-0 pt-0.5">{prog}</span>
+                <span className="font-mono text-[12px] text-fg">{when}</span>
+              </div>
+            )
+          })}
+        </div>
+        <p className="font-mono text-[11px] text-dim mt-4 leading-relaxed">
+          Kayıt sonrası mekân adresini ve detayları size iletiyoruz.
+        </p>
+      </div>
+
+      {/* Sağ — form */}
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+        <Field htmlFor="session" label="Hangi Program?" required>
+          <select
+            id="session" name="session" required value={sessionId}
+            onChange={(e) => setSessionId(e.target.value)}
+            className={`${inputCls} appearance-none`}
+          >
+            <option value="" disabled>Seçiniz…</option>
+            {TANISMA_SESSIONS.map((s) => (
+              <option key={s.id} value={s.id}>{s.label}</option>
+            ))}
+          </select>
+        </Field>
+
+        <Field htmlFor="name" label={isYouth ? 'Öğrencinin Adı Soyadı' : 'Ad Soyad'} required>
+          <input id="name" name="name" placeholder={isYouth ? 'Öğrencinin adı ve soyadı' : 'Adınız ve soyadınız'} required autoComplete="name" className={inputCls} />
+        </Field>
+
+        <Field htmlFor="birthYear" label={isYouth ? 'Öğrencinin Doğum Yılı' : 'Doğum Yılı'} required>
+          <input id="birthYear" name="birthYear" type="number" placeholder={isYouth ? 'örn. 2012' : 'örn. 1995'} min={1950} max={new Date().getFullYear()} required className={inputCls} />
+        </Field>
+
+        {isYouth ? (
+          <>
+            <Field htmlFor="occupation" label="Okul / Sınıf">
+              <input id="occupation" name="occupation" placeholder="örn. 8. sınıf" className={inputCls} />
+            </Field>
+            <div className="pt-2 border-t border-border">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon mb-4">veli bilgileri</p>
+            </div>
+            <Field htmlFor="guardianName" label="Veli Adı Soyadı" required>
+              <input id="guardianName" name="guardianName" required autoComplete="name" className={inputCls} />
+            </Field>
+            <Field htmlFor="guardianPhone" label="Veli Telefon" required>
+              <input id="guardianPhone" name="guardianPhone" type="tel" inputMode="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" className={inputCls} />
+            </Field>
+            <Field htmlFor="guardianEmail" label="Veli E-posta" required>
+              <input id="guardianEmail" name="guardianEmail" type="email" inputMode="email" placeholder="ornek@mail.com" required autoComplete="email" className={inputCls} />
+            </Field>
+          </>
+        ) : (
+          <>
+            <Field htmlFor="email" label="E-posta" required>
+              <input id="email" name="email" type="email" inputMode="email" placeholder="ornek@mail.com" required autoComplete="email" className={inputCls} />
+            </Field>
+            <Field htmlFor="phone" label="Telefon" required>
+              <input id="phone" name="phone" type="tel" inputMode="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" className={inputCls} />
+            </Field>
+            <Field htmlFor="occupation" label="Meslek / Çalışma Alanı" required>
+              <input id="occupation" name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" required autoComplete="organization-title" className={inputCls} />
+            </Field>
+          </>
+        )}
+
+        {askEnglish && (
+          <Field htmlFor="englishLevel" label="İngilizce Seviyesi" required>
+            <select id="englishLevel" name="englishLevel" defaultValue="" required className={`${inputCls} appearance-none`}>
+              <option value="" disabled>Seçiniz…</option>
+              {ENGLISH_LEVELS.map((l) => (
+                <option key={l} value={l}>{l}</option>
+              ))}
+            </select>
+            <p className="font-mono text-[11px] text-dim mt-1">Program B1 ve üzeri için. Sınav yok — kendi tahmininiz yeterli.</p>
+          </Field>
+        )}
+
+        <Field htmlFor="experience" label="Sahne / Tiyatro / Dans Deneyimi">
+          <textarea id="experience" name="experience" rows={3} placeholder="Varsa kısaca. Yoksa boş bırakın — gerekmiyor." className={`${inputCls} resize-none`} />
+        </Field>
+
+        <Field htmlFor="motivation" label="Beklentiniz">
+          <textarea id="motivation" name="motivation" rows={3} placeholder="Neden gelmek istiyorsunuz? Bir cümle yeter." className={`${inputCls} resize-none`} />
+        </Field>
+
+        <Field htmlFor="source" label="Techne Lab'ı Nasıl Duydunuz?">
+          <select id="source" name="source" defaultValue="" className={`${inputCls} appearance-none`}>
+            <option value="" disabled>Seçiniz…</option>
+            {SOURCE_OPTIONS.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
+          </select>
+        </Field>
+
+        {isYouth && (
+          <div className="flex gap-3 items-start pt-2">
+            <input type="checkbox" name="parentConsent" id="parentConsent" value="evet" required className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
+            <label htmlFor="parentConsent" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+              Velisi olduğum öğrencinin tanışma dersine katılmasını onaylıyorum.
+            </label>
+          </div>
+        )}
+
+        <div className="flex gap-3 items-start pt-2">
+          <input type="checkbox" name="kvkk" id="kvkk" value="evet" required className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
+          <label htmlFor="kvkk" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+            <Link href="/kvkk" target="_blank" rel="noopener noreferrer" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
+              KVKK Aydınlatma Metni
+            </Link>
+            {"'ni okudum, kişisel verilerimin Techne Lab İstanbul tarafından işlenmesini kabul ediyorum."}
+          </label>
+        </div>
+
+        {state.status === 'error' && state.message && (
+          <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3 bg-red-400/10 leading-relaxed">
+            {state.message}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          disabled={isPending}
+          className="w-full font-mono text-[11px] tracking-[0.16em] uppercase bg-neon text-bg border border-neon py-4 hover:bg-fg hover:border-fg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          data-hover
+        >
+          {isPending ? 'gönderiliyor…' : 'kaydol →'}
+        </button>
+
+        <p className="font-mono text-[11px] text-dim text-center leading-relaxed">
+          Ücretsiz. Kayıt sonrası mekân adresi ve detaylar size iletilir.
+        </p>
+      </form>
+    </div>
+  )
+}
+
+function Field({ htmlFor, label, required, children }: { htmlFor: string; label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="block font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-2">
+        {label}
+        {required && <span className="text-neon ml-1" aria-hidden="true">*</span>}
+        {required && <span className="sr-only"> (zorunlu)</span>}
+      </label>
+      {children}
+    </div>
+  )
+}

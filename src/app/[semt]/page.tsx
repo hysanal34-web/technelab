@@ -71,6 +71,11 @@ export default async function SemtPage({ params }: { params: Promise<{ semt: str
     .map((s) => WORKSHOPS.find((w) => w.slug === s))
     .filter((w): w is NonNullable<typeof w> => Boolean(w) && !w!.archived)
 
+  // SEO: bu semtte birincil olan disiplin×semt kombinasyon sayfaları
+  // (navHidden — mega menüde yok, ama en çok linklenen semt sayfasından
+  // buraya geri link vermek indekslenmelerini hızlandırıyor).
+  const comboPages = DISCIPLINES.filter((x) => x.navHidden && x.districtSlugs[0] === d.slug)
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -262,6 +267,19 @@ export default async function SemtPage({ params }: { params: Promise<{ semt: str
             soru sor →
           </Link>
         </div>
+
+        {comboPages.length > 0 && (
+          <div className="border-t border-border pt-8 pb-8">
+            <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">{d.displayName.toLocaleLowerCase('tr-TR')}'de müzikal & dans</span>
+            <div className="flex flex-wrap gap-x-8 gap-y-2">
+              {comboPages.map((c) => (
+                <Link key={c.slug} href={`/${c.slug}`} data-hover className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
+                  {c.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="border-t border-border pt-8">
           <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">diğer lokasyon</span>
