@@ -111,8 +111,8 @@ export const WORKSHOPS: Workshop[] = [
     priceEarlyBird: 8100, priceLabel: 'ay',
     earlyBirdDeadline: '10 Eylül',
     schedule: [
-      { place: 'Pera', date: '26 Eylül Perşembe', time: '19:00' },
-      { place: 'Kadıköy', date: '26 Eylül Perşembe', time: '19:00' },
+      { place: 'Pera', date: '26 Eylül Cumartesi', time: '19:00' },
+      { place: 'Kadıköy', date: '26 Eylül Cumartesi', time: '19:00' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
