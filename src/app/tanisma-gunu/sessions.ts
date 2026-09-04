@@ -2,7 +2,7 @@
  * Tanışma günü oturumları — tek form, tüm programlar. Form seçeneği ve
  * e-posta etiketi tek kaynaktan.
  *
- * Tarih ve saatler yayında.
+ * Tarih ve saatler yayında. Başlangıçlar: Pera EDL 3 Ekim 15:00 · Praxis 3 Ekim 11:00 · Broadway 3 Ekim 19:00 · Youth 4 Ekim 13:00 | Kadıköy EDL 14 Eylül 20:00 · Broadway 26 Eylül · Musical Lab 28 Eylül · Youth 3 Ekim · Auteur 7 Ekim
  *   Kadıköy · 12 Eylül Cmt → EDL 13:00 · Youth 13:00 · Auteur 16:30 · Broadway 18:30
  *   Kadıköy · 13 Eylül Paz → Musical Lab 18:30
  *   Taksim Pera · 13 Eylül Paz → Youth 13:00

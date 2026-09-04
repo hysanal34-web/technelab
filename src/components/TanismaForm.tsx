@@ -191,7 +191,7 @@ export default function TanismaForm({ action }: Props) {
           <div className="flex gap-3 items-start pt-2">
             <input type="checkbox" name="parentConsent" id="parentConsent" value="evet" required className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
             <label htmlFor="parentConsent" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-              Velisi olduğum öğrencinin tanışma dersine katılmasını onaylıyorum.
+              Velisi olduğum öğrencinin tanışma atölyesine katılmasını onaylıyorum.
             </label>
           </div>
         )}
