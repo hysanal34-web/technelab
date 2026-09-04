@@ -34,6 +34,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   const motivation   = take(formData, 'motivation', 2000)
   const source       = take(formData, 'source', 160)
   const kvkk         = formData.get('kvkk')
+  const iletisimIzni = formData.get('iletisimIzni') === 'evet'
   // Veli alanları (Youth)
   const guardianName  = take(formData, 'guardianName', 120)
   const guardianPhone = take(formData, 'guardianPhone', 40)
@@ -100,6 +101,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
     ...(motivation ? [r('Beklenti', motivation)] : []),
     ...(source     ? [r('Nasıl Duydu', source)] : []),
     r('KVKK Onayı', `Evet — ${stamp}`),
+    r('İletişim İzni (duyuru)', iletisimIzni ? `Evet — ${stamp}` : 'Hayır'),
     ...(isYouth ? [r('Veli Onayı', `Evet — ${stamp}`)] : []),
   ]
 

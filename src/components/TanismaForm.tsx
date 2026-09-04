@@ -196,14 +196,59 @@ export default function TanismaForm({ action }: Props) {
           </div>
         )}
 
-        <div className="flex gap-3 items-start pt-2">
-          <input type="checkbox" name="kvkk" id="kvkk" value="evet" required className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
-          <label htmlFor="kvkk" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-            <Link href="/kvkk" target="_blank" rel="noopener noreferrer" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
-              KVKK Aydınlatma Metni
-            </Link>
-            {"'ni okudum, kişisel verilerimin Techne Lab İstanbul tarafından işlenmesini kabul ediyorum."}
-          </label>
+        {/* ── KVKK — aydınlatma özeti + ayrı rızalar ── */}
+        <div className="pt-4 border-t border-border space-y-4">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon">kişisel verilerin korunması</p>
+
+          <div className="font-mono text-[11px] text-dim leading-relaxed space-y-2 bg-bgAlt border border-border px-4 py-3">
+            <p>
+              <span className="text-stone">Veri sorumlusu:</span> Techne Lab İstanbul (Halil Yağız Şanal) · info@technelabistanbul.com
+            </p>
+            <p>
+              <span className="text-stone">İşlenen veriler:</span> ad soyad, doğum yılı, telefon, e-posta, meslek ya da okul bilgisi,
+              İngilizce seviyesi, sahne deneyimi ve beklenti notunuz; 18 yaş altı katılımcılar için velinin ad, telefon ve e-postası.
+            </p>
+            <p>
+              <span className="text-stone">Amaç:</span> tanışma {isYouth ? 'atölyesine' : 'atölyesine'} kaydınızı almak, mekân ve saat bilgisini iletmek,
+              programa uygunluğu (yaş, seviye) değerlendirmek ve sonrasında kayıt sürecinde sizinle iletişim kurmak.
+            </p>
+            <p>
+              <span className="text-stone">Hukuki sebep:</span> KVKK m.5/2-c (sözleşme öncesi talep) ve m.5/2-f (meşru menfaat);
+              18 yaş altı için velinin açık rızası.
+            </p>
+            <p>
+              <span className="text-stone">Aktarım:</span> Verileriniz üçüncü kişilere satılmaz. Yalnızca e-posta/form altyapı sağlayıcılarımızda
+              (Vercel, Resend) teknik olarak barındırılır.
+            </p>
+            <p>
+              <span className="text-stone">Saklama:</span> Kayıt yapmazsanız 12 ay sonra silinir; kayıt yaparsanız program bitimine kadar ve
+              yasal süre boyunca saklanır.
+            </p>
+            <p>
+              <span className="text-stone">Haklarınız:</span> KVKK m.11 uyarınca verilerinize erişme, düzeltme, silme ve itiraz hakkınız var —
+              info@technelabistanbul.com adresine yazmanız yeterli. Tam metin:{' '}
+              <Link href="/kvkk" target="_blank" rel="noopener noreferrer" className="text-neon hover:text-fg underline underline-offset-2 transition-colors">
+                KVKK Aydınlatma Metni
+              </Link>
+            </p>
+          </div>
+
+          <div className="flex gap-3 items-start">
+            <input type="checkbox" name="kvkk" id="kvkk" value="evet" required className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
+            <label htmlFor="kvkk" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+              Yukarıdaki aydınlatma metnini okudum; {isYouth ? 'velisi olduğum öğrencinin ve kendi ' : ''}kişisel verilerimin
+              belirtilen amaçlarla Techne Lab İstanbul tarafından işlenmesini kabul ediyorum.
+              <span className="text-neon ml-1" aria-hidden="true">*</span>
+            </label>
+          </div>
+
+          <div className="flex gap-3 items-start">
+            <input type="checkbox" name="iletisimIzni" id="iletisimIzni" value="evet" className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
+            <label htmlFor="iletisimIzni" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+              Techne Lab&apos;ın yeni program, atölye ve etkinlik duyurularını e-posta ve WhatsApp ile almak istiyorum.
+              <span className="block text-dim mt-0.5">İsteğe bağlı. İstediğiniz an tek mesajla çıkabilirsiniz; tanışma kaydınızı etkilemez.</span>
+            </label>
+          </div>
         </div>
 
         {state.status === 'error' && state.message && (
