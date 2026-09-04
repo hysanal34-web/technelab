@@ -25,12 +25,16 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/sepet', '/odeme-basarili', '/*/kayit'],
+        // /p/ = broşür kısa linkleri (Instagram DM/reklam mesajlarında kullanılıyor,
+        // Drive'daki fiyatlı PDF'e yönlendiriyor). Sitede hiçbir yerden linklenmiyor;
+        // yine de tarayıcılar denk gelirse indekslemesin — fiyat yalnızca linkin
+        // kendisine sahip kişiye görünmeli, rastgele site ziyaretçisine değil.
+        disallow: ['/api/', '/sepet', '/odeme-basarili', '/*/kayit', '/p/'],
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: '/',
-        disallow: ['/api/', '/sepet', '/odeme-basarili', '/*/kayit'],
+        disallow: ['/api/', '/sepet', '/odeme-basarili', '/*/kayit', '/p/'],
       })),
     ],
     sitemap: `${SITE_META.url}/sitemap.xml`,
