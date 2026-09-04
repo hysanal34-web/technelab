@@ -19,7 +19,7 @@
 | 1 | **"Ders" kelimesi hiçbir metinde geçmez** | Her yerde "atölye" / "workshop" / "çalışma". Metinler tarandı, sıfır "ders". |
 | 2 | **"Gençler / genç / gençlik" Google Ads'te yasak** | Youth grubunda yalnız "10–17 yaş", "lise çağı", "ortaokul", "teen" (EN), "youth" (EN). |
 | 3 | **Fiyat rakamı geçmez** | Rakam yok. "Erken kayıt dönemi", "burs imkânı", "kontenjan sınırlı". |
-| 4 | **Telefon numarası yazılmaz** | Arama uzantısı kullanılmıyor. Yönlendirme: site formu ve DM. |
+| 4 | **Telefon açık — direkt ulaşım isteniyor** | Arama uzantısı her kampanyada açık, Meta'da "Ara" CTA'lı reklam var. Numara: **0552 242 59 71**. Ayrıntı: A8 ve B7. |
 | 5 | **Ödül / unvan öne çıkarılmaz** | "İKSV ödüllü" hiçbir metinde yok. Eğitmen adı sade geçiyor. |
 | 6 | **"Ücretsiz" kelimesi reklam metnine yazılmaz** | Tanışma atölyeleri "Tanışma Atölyesi" diye duyuruluyor. Sebep 0.3'te. |
 | 7 | Ton: iddiasız, ünlemsiz, klişesiz | — |
@@ -905,6 +905,59 @@ bütçe ayarından daha önemli.
 ---
 ---
 
+## A8 · Arama uzantısı — telefonla direkt ulaşım
+
+Numara: **0552 242 59 71** · uluslararası biçim `+90 552 242 59 71`
+
+Arama uzantısı, arama ağı reklamının altına dokunulabilir bir telefon satırı ekler.
+Mobilde tıklanma oranını belirgin biçimde yükseltir; bu kitlede (veli, çalışan yetişkin)
+form doldurmak yerine "iki dakika konuşayım" diyen kesim küçük değil.
+
+### A8.1 Kurulum
+
+| Ayar | Değer | Sebep |
+|---|---|---|
+| Uzantı seviyesi | **Hesap seviyesi** (beş kampanyaya birden) | Tek yerden yönetilir |
+| Telefon | 0552 242 59 71 | — |
+| Ülke | Türkiye | — |
+| **Arama raporlaması** | **Açık** | Kaç arama geldiğini ancak böyle görürsün |
+| **Yayın planı** | Aşağıdaki tablo | Kritik — bkz. A8.2 |
+| Cihaz tercihi | Mobil | Masaüstünde numara görünür ama tıklanmaz |
+
+### A8.2 Saat kısıtı — bu ayar atlanırsa uzantı zarar verir
+
+Uzantı 7/24 açık kaldığında gece 02:00'de gelen cevapsız arama, o tıklamanın parasını
+ödediğin ama kimseye ulaşamayan bir kayıp olur. Arayan da bir daha aramaz.
+
+| Gün | Saat | Not |
+|---|---|---|
+| Pazartesi–Cuma | 10:00 – 20:00 | |
+| Cumartesi | 10:00 – 18:00 | Tanışma atölyesi günleri — burada arama yoğunlaşır |
+| Pazar | Kapalı | Ya da telefona bakabileceğin bir aralık aç |
+
+> Bu saatler varsayım. Telefona fiilen bakabildiğin aralığa göre daralt ya da genişlet —
+> **açık olup cevaplanmayan saat, kapalı saatten kötüdür.**
+
+### A8.3 Çağrı dönüşümü (dönüşüm ölçümü açıldıktan sonra)
+
+Araçlar → Dönüşümler → **Reklamlardan gelen aramalar** → süre eşiği **60 saniye**.
+60 saniyeyi geçen arama gerçek bir görüşmedir; altındakiler yanlış tıklama.
+Bu tanımlanmadan otomatik teklif stratejisine geçilmemeli (bkz. EK.3).
+
+### A8.4 "Yalnızca arama" reklamı — şimdilik hayır
+
+Google, tıklamanın doğrudan aramayı başlattığı ayrı bir reklam türü sunuyor.
+Cazip ama şu an erken: siteye hiç uğramadan arayan kişi programı bilmeden arar,
+görüşme "fiyat nedir" ile başlar ve kapanır. **Önce uzantıyla 30 gün veri topla.**
+Aramaların çoğu Broadway ve Youth'tan geliyorsa, o iki grup için ayrıca denenebilir.
+
+### A8.5 Metinlerde telefon
+
+RSA başlık/açıklamalarına numara **yazılmaz** — Google zaten uzantıda gösteriyor,
+metinde tekrar etmek karakter israfı ve onay riski. Numara yalnızca uzantıda.
+
+---
+
 # B · META — THE AUTEUR LAB KAMPANYASI
 
 **Hesap:** YenireklamHesabıTechneLab (1943993929852674)
@@ -1198,6 +1251,33 @@ Eldeki varlıklar: `auteur-hero.jpg`, `auteur-01.jpg`, `auteur-02.jpg`, `auteur-
 ---
 ---
 
+## B7 · "Ara" CTA'sı — Meta tarafında telefon
+
+Auteur Lab kitlesi (yazmak isteyen yetişkin) mesajla temas etmeye yatkın, ama
+telefonu da açık tutuyoruz. Kurgu şöyle:
+
+| Reklam | CTA | Gerekçe |
+|---|---|---|
+| R1 · Nereden Başlarım | **Ara** | En yüksek niyetli metin — telefonu buraya koy |
+| R2 · Yapı Sorunu | Mesaj Gönder | |
+| R3 · Dramaturji | Mesaj Gönder | |
+| R4 · Modül Esnekliği | **Ara** | Fiyat/takvim sorusu telefonla daha hızlı kapanır |
+| R5 · Tanışma Atölyesi | Mesaj Gönder | |
+
+Kurulumu: reklam düzeyinde **Eylem çağrısı → Ara** seçilir, telefon alanına
+`+90 552 242 59 71` girilir. Kampanya hedefini değiştirmeye gerek yok.
+
+**Bunun ikinci faydası:** 14 gün sonra "Ara" ve "Mesaj Gönder" reklamlarının
+edinme maliyetini yan yana koyabilirsin. Hangi kanalın gerçekten kayda döndüğünü
+o zaman tahminle değil veriyle bilirsin — B6'daki faz planına bu karşılaştırmayı ekle.
+
+**Saat kısıtı Meta'da yok.** Reklamlar 7/24 dönüyor, dolayısıyla mesai dışı arama
+gelebilir. İki seçenek: (a) telefonu sessize alıp ertesi sabah geri dönmek —
+kaçan arama Meta'da Google'daki kadar pahalı değil, çünkü tıklama başına ödemiyorsun;
+(b) rahatsız olursan bu iki reklamı da Mesaj Gönder'e çevirmek.
+
+---
+
 # C · KURULUM ADIMLARI
 
 > Aşağıdaki adımların hepsini **kullanıcı kendisi** yapacak. Hiçbiri önceden uygulanmadı.
@@ -1264,7 +1344,8 @@ Aşağıdaki adımları **beş kez** tekrarla; sadece isim, bütçe, kelime ve m
     adres yaz + km gir.
 22. **Youth kampanyasında** okul yarıçaplarını ekle (10 okul × 3 km, +%40).
 23. **Uzantılar (Öğeler):** Site bağlantısı 4 adet · Açıklama metni (callout) 4 adet ·
-    Yapılandırılmış snippet. **Arama uzantısı EKLEME** (kural 1 — telefon yok).
+    Yapılandırılmış snippet · **Arama uzantısı (A8'e göre kur — saat kısıtı ve
+    arama raporlaması dahil).**
 24. Hepsi hazırsa kampanyaları **aynı anda yayına al.**
 
 ### 3. günden itibaren rutin
@@ -1311,7 +1392,7 @@ Aşağıdaki adımları **beş kez** tekrarla; sadece isim, bütçe, kelime ve m
      birleştir (VEYA)
 9. **Reklamlar:** her sette **5 reklam**. B4'teki metinleri kopyala,
    B5 tablosundaki görselleri eşleştir.
-   - CTA butonu: **Mesaj Gönder**
+   - CTA butonu: **B7 tablosuna göre** — R1 ve R4 "Ara", diğer üçü "Mesaj Gönder"
    - Her reklamın adı metnin numarasını taşısın: `R1 · Nereden Baslarim` vb.
      (Faz 2'de hangi metnin kazandığını ancak böyle görebilirsin.)
 10. **Yayınlama** — hepsi hazır olunca tek seferde. Üç setin aynı anda başlaması şart,
@@ -1324,7 +1405,7 @@ Aşağıdaki adımları **beş kez** tekrarla; sadece isim, bütçe, kelime ve m
 - ❌ Google Ads'te "genç / gençler / gençlik"
 - ❌ Herhangi bir metinde "ders"
 - ❌ Herhangi bir metinde fiyat rakamı ya da indirim yüzdesi
-- ❌ Telefon numarası / arama uzantısı
+- ❌ Arama uzantısını saat kısıtı olmadan yayına almak (A8'e bak)
 - ❌ Meta'da Advantage+ hedef kitle açık bırakmak (daraltmayı yok sayar)
 - ❌ İlk 7 gün içinde bütçe/kitle/kreatif değiştirmek
 - ❌ Eski kampanyaları silmek (duraklat, silme — geçmiş veri lazım)
