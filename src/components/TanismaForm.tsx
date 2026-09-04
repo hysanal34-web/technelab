@@ -170,6 +170,10 @@ export default function TanismaForm({ action }: Props) {
           </Field>
         )}
 
+        <Field htmlFor="instagram" label="Instagram Kullanıcı Adı">
+          <input id="instagram" name="instagram" placeholder="@kullaniciadi" autoComplete="off" className={inputCls} />
+        </Field>
+
         <Field htmlFor="experience" label="Sahne / Tiyatro / Dans Deneyimi">
           <textarea id="experience" name="experience" rows={3} placeholder="Varsa kısaca. Yoksa boş bırakın — gerekmiyor." className={`${inputCls} resize-none`} />
         </Field>

@@ -33,6 +33,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   const experience   = take(formData, 'experience', 2000)
   const motivation   = take(formData, 'motivation', 2000)
   const source       = take(formData, 'source', 160)
+  const instagram    = take(formData, 'instagram', 80).replace(/^@+/, '')
   const kvkk         = formData.get('kvkk')
   const iletisimIzni = formData.get('iletisimIzni') === 'evet'
   // Veli alanları (Youth)
@@ -92,6 +93,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
     r('Doğum Yılı', birthYear),
     ...(email        ? [r('E-posta', email)] : []),
     ...(phone        ? [r('Telefon', phone)] : []),
+    ...(instagram    ? [r('Instagram', `@${instagram}`)] : []),
     ...(occupation   ? [r(isYouth ? 'Okul / Sınıf' : 'Meslek', occupation)] : []),
     ...(englishLevel ? [r('İngilizce Seviyesi', englishLevel)] : []),
     ...(guardianName  ? [r('Veli Adı Soyadı', guardianName)] : []),
