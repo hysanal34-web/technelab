@@ -189,6 +189,8 @@ Başlangıç: Kadıköy 3 Ekim · Pera 4 Ekim Pazar 13:00
 
 Ücretsiz tanışma atölyesi (veli katılımıyla): Kadıköy 12 Eylül Cumartesi 13:00 · Pera 13 Eylül Pazar 13:00.
 
+Burs: bu programda %25'e varan burs imkânı var — kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
+
 Ücret, ödeme ve bütün ayrıntılar dosyada: technelabistanbul.com/p/youth
 Yer ayırtmak için: technelabistanbul.com/tanisma-gunu
 ```
@@ -207,6 +209,8 @@ Starts: Kadıköy 3 October · Pera Sunday 4 October, 13:00
 
 Free intro workshop (parents welcome): Kadıköy Sat 12 Sept 13:00 · Pera Sun 13 Sept 13:00.
 
+Scholarship: up to 25% is available on this programme, awarded on a short written application.
+
 Fees and full details: technelabistanbul.com/p/youth-en
 To reserve a place: technelabistanbul.com/tanisma-gunu
 ```
@@ -224,6 +228,8 @@ Kadıköy · 15–55 yaş · 8 ay, haftada 2 gün · en fazla 12 kişi
 Başlangıç: 28 Eylül Pazartesi
 
 Ücretsiz tanışma atölyesi: 12 Eylül Cumartesi 18:30, Kadıköy (Broadway Musical Dance ile aynı seans).
+
+Burs: bu programda %25'e varan burs imkânı var — kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
 
 Ücret, ödeme ve bütün ayrıntılar dosyada: technelabistanbul.com/p/musical
 Yer ayırtmak için: technelabistanbul.com/tanisma-gunu
@@ -379,6 +385,7 @@ Book: technelabistanbul.com/tanisma-gunu
 English Drama Youth — 10–17 yaş İngilizce drama.
 
 3–4 Ekim başlıyor · Ücretsiz tanışma 12 & 13 Eylül
+%25'e varan burs imkânı
 
 Detaylar: technelabistanbul.com/p/youth
 Kayıt: technelabistanbul.com/tanisma-gunu
@@ -390,6 +397,7 @@ Kayıt: technelabistanbul.com/tanisma-gunu
 English Drama Youth — drama in English, ages 10–17.
 
 Starts 3–4 Oct · Free intro 12 & 13 Sept
+Up to 25% scholarship available
 
 Details: technelabistanbul.com/p/youth-en
 Book: technelabistanbul.com/tanisma-gunu
@@ -401,6 +409,7 @@ Book: technelabistanbul.com/tanisma-gunu
 Techne Musical Lab — oyunculuk, şan ve dans bir arada.
 
 28 Eylül başlıyor · Ücretsiz tanışma 12 Eylül 18:30
+%25'e varan burs imkânı
 
 Detaylar: technelabistanbul.com/p/musical
 Kayıt: technelabistanbul.com/tanisma-gunu
