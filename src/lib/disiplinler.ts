@@ -115,7 +115,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Yaratıcı dramayı İngilizce yapıyor musunuz?',
-        a: 'Evet. English Drama Lab tam olarak bu: yaratıcı drama araçlarını İngilizce dil pratiğiyle birleştiren, aylık katılımlı açık program. Konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.',
+        a: 'Evet. English Drama Lab tam olarak bu: yaratıcı drama araçlarını İngilizce dil pratiğiyle birleştiren, 12/6/4 haftalık paketlerle açık program. Konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.',
       },
     ],
     related: ['ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],

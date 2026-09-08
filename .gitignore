@@ -31,3 +31,13 @@ next-env.d.ts
 
 # Muhasebe evraklari — repoya girmemeli (fatura/kart bilgisi)
 Muhasebe/
+
+# Video üretim dosyaları — 466 MB, repoda yeri yok (ham klipler, ara render'lar)
+video-plan/
+
+# Özel arşiv
+_ozel-arsiv/
+
+# Broşür arşiv kopyaları — canlı sürüm public/dosyalar/ altında
+brosurler-2026/
+brosurler-2026-v2/

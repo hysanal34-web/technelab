@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
-import { trackLead } from '@/components/MetaPixel'
+import { trackLead, newBrowserEventId } from '@/components/MetaPixel'
 
 type WorkshopMin = {
   slug: string
@@ -41,13 +41,16 @@ export default function RegistrationForm({ workshop, action }: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
+    // Piksel ve CAPI aynı kimliği taşısın — yoksa Meta tek başvuruyu iki sayar.
+    const eventId = newBrowserEventId()
+    formData.append('eventId', eventId)
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
       if (result.status === 'success') {
         // Meta'ya dönüşüm sinyali — value sayesinde Meta pahalı programa
         // gelen başvuruyu ucuz olandan ayırt edip bütçeyi ona kaydırıyor.
-        trackLead(workshop.title, workshop.price ?? 0, workshop.slug)
+        trackLead(workshop.title, workshop.price ?? 0, workshop.slug, eventId)
         formRef.current?.reset()
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (result.status === 'error') {

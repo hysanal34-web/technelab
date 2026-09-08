@@ -1,5 +1,5 @@
 # ENGLISH DRAMA LAB — DM / WhatsApp Metni
-*Drive linki yok, her şey mesajın içinde. 3 Eylül 2026 — aylık katılım modeline geçildi.*
+*Drive linki yok, her şey mesajın içinde. 7 Eylül 2026 — aylık katılım modelinden 12/6/4 haftalık paket modeline geçildi; indirimler tüm programlarda tek politikaya (erken kayıt %10 + arkadaşınla gel %10) sadeleşti.*
 
 ---
 
@@ -18,17 +18,17 @@ En sık duyduğumuz cümle: "İngilizcem var ama konuşurken donuyorum."
 Sorun kelime bilgisi değil, refleks. Refleks de ders çalışarak değil,
 kullanarak kuruluyor.
 
-Açık kayıt, aylık katılım — istediğiniz kadar devam edersiniz.
-▸ Aylık 9.000 ₺
-▸ Erken kayıt (10 Eylül'e kadar): aylık 8.100 ₺
-▸ Öğrenciyseniz: aylık 8.100 ₺
-▸ İkisi birlikte: aylık 7.200 ₺
-Kredi kartına taksit yapılabiliyor (vade farkı kart ve taksit sayısına göre değişir).
+Üç paket seçeneği var, istediğiniz süreyle başlıyorsunuz:
+▸ 12 hafta — 19.500 ₺ (erken kayıt 17.550 ₺)
+▸ 6 hafta — 11.000 ₺ (erken kayıt 9.900 ₺)
+▸ 4 hafta — 8.000 ₺ (erken kayıt 7.200 ₺)
+Bir arkadaşınızla birlikte kayıt olursanız ikinizin ücretinde de %10
+indirim uygulanır. Kredi kartına taksit yapılabiliyor.
 
 Erken kayıt 10 Eylül'e kadar.
 
 Başlangıç
-· Pera — 12 Eylül Cumartesi 15:00
+· Pera — 3 Ekim Cumartesi 15:00
 · Kadıköy — 14 Eylül Pazartesi 20:00
 
 Seviye: B1 ve üzeri. Akıcı olmanız gerekmiyor, sohbet edebiliyorsanız
@@ -37,8 +37,8 @@ yeterli.
 Gruplar 12 kişiyle sınırlı. Hangi şube size uygun, yazın konuşalım.
 
 ✦ Karar veremiyorsanız: aynı gün, dersten önce ücretsiz bir tanışma
-saati var — Pera'da 14:30, Kadıköy'de 19:30. Program anlatılıyor,
-örnek bir egzersiz yapılıyor; kayıt zorunluluğu yok.
+saati var. Program anlatılıyor, örnek bir egzersiz yapılıyor; kayıt
+zorunluluğu yok.
 ```
 
 ---
@@ -77,8 +77,7 @@ Sıfırdan İngilizce kurmuyoruz. Var olan bilginizi konuşmaya çeviriyoruz.
 
 ── DERSLER NASIL İŞLİYOR?
 
-Sabit bir paket ya da müfredat yok. Her ders üç eksenin karışımı,
-her ay yeni bir tema:
+Üç paket seçeneği: 12, 6 ya da 4 hafta. Her buluşma üç eksenin karışımı:
 
 Oyun ve Güven
 Doğaçlama temelleri, beden-ses-hayal gücü. Grup içinde konuşma
@@ -92,20 +91,17 @@ Sahne ve Bütünleşme
 Grup doğaçlamaları ve anlık sahne çalışması. Edinilen araçların
 sahnede birleşmesi.
 
-Ne zaman katılırsanız katılın gruba dahil olursunuz; ara verip
-dönmek mümkün.
-
 ── PRATİK BİLGİLER
 
-Süre       Açık kayıt · aylık katılım — istediğiniz kadar devam edersiniz
-Ücret      Aylık 9.000 ₺
-İndirimler Erken kayıt (10 Eylül'e kadar) %10 · Öğrenci %10 · İkisi birlikte aylık 7.200 ₺
+Süre       12, 6 ya da 4 hafta — kendi paketinizi seçiyorsunuz
+Ücret      12 hafta 19.500 ₺ · 6 hafta 11.000 ₺ · 4 hafta 8.000 ₺
+İndirimler Erken kayıt (10 Eylül'e kadar) %10 · Arkadaşınla gel %10
 Ödeme      Kredi kartına taksit yapılabiliyor — vade farkı kart ve taksit sayısına göre değişir
 Grup       En fazla 12 kişi
 Mekân      Pera ve Kadıköy — ikisinden birini seçiyorsunuz
-Başlangıç  Pera 12 Eylül Cumartesi 15:00
+Başlangıç  Pera 3 Ekim Cumartesi 15:00
            Kadıköy 14 Eylül Pazartesi 20:00
-Tanışma    Ücretsiz, aynı gün · Pera 14:30 · Kadıköy 19:30 (kayıt şartı yok)
+Tanışma    Ücretsiz, aynı gün (kayıt şartı yok)
 Seviye     B1 ve üzeri
 Erken kayıt 10 Eylül'e kadar
 
@@ -120,13 +116,12 @@ Olur. Program oyunculuk öğretmek için değil, dili deneyimlemek için
 kurulu. Sahne burada bir araç.
 
 Kayıt olmadan deneyebilir miyim?
-Evet — 12 Eylül Pera'da 14:30'da, 14 Eylül Kadıköy'de 19:30'da ücretsiz
-bir tanışma saati var. Ders değil; program anlatılıyor, örnek bir
-egzersiz yapılıyor. Kayıt zorunluluğu yok, gelip görebilirsiniz.
+Evet — ücretsiz bir tanışma saati var. Ders değil; program anlatılıyor,
+örnek bir egzersiz yapılıyor. Kayıt zorunluluğu yok, gelip görebilirsiniz.
 
-Ne kadar devam etmeliyim?
-Bir-iki ay refleksi kırmaya yetiyor; kalıcılaştırmak için birkaç ay
-daha öneriyoruz. Ama taahhüt yok — her ay yeniden karar verirsiniz.
+Hangi paketi seçmeliyim?
+Refleksi kırmaya bir-iki ay (4-6 hafta) yetiyor; kalıcılaştırmak
+isteyenler için 12 hafta öneriyoruz.
 
 Derse gelemezsem?
 Grup küçük olduğu için telafi konusunda esneğiz — önceden haber
@@ -146,25 +141,23 @@ Kayıt ve detay için buradan yazmanız yeterli.
 ## ARKADAŞINI GETİR
 
 ```
-İki kişi birlikte kayıt olursanız ikinize de %10 indirim uyguluyoruz.
+Bir arkadaşınızla birlikte kayıt olursanız ikinizin ücretinde de %10
+indirim uygulanır.
 ```
 
-**Not:** Bu indirim erken kayıt ve öğrenci indirimiyle **birleşmiyor** — kişi
-zaten en iyi fiyatı (erken kayıt + öğrenci = aylık 7.200 ₺) alıyorsa "arkadaşını
-getir" ekstra %10 olarak eklenmiyor, hangisi kişi için daha avantajlıysa o
-uygulanıyor. Karışıklık çıkarsa aylık en düşük fiyat 7.200 ₺'dir, altına inilmez.
+**Not:** Erken kayıt (%10) ve arkadaşınla gel (%10) birlikte kullanılabilir —
+Techne Lab'deki tek indirim politikası artık bu ikisi. Öğrenci indirimi ve
+diğer değişken oranlar kaldırıldı.
 
 ---
 
 ## KULLANIM NOTLARI
 
-- **Ücretsiz tanışma günü var** — 12 Eylül Pera 14:30, 14 Eylül Kadıköy 19:30.
-  Aynı gün, dersten önce, ayrı bir saat (dersin kendisi değil). Program
-  anlatılıyor + örnek egzersiz yapılıyor. Kayıt şartı yok, herkes gelebilir.
-- **Öğrenci indirimi artık var** (%10) — sorulursa öğrenci belgesi/kartı istenir.
-- Erken kayıt indirimi (%10) 10 Eylül'e kadar geçerli.
-- İkisi birleşince aylık en iyi fiyat **7.200 ₺**'dir — bu, tüm indirimlerin
-  alt sınırı; "arkadaşını getir" bununla toplanmaz.
+- **Ücretsiz tanışma günü var** — Pera 3 Ekim, Kadıköy 14 Eylül. Aynı gün,
+  dersten önce, ayrı bir saat (dersin kendisi değil). Program anlatılıyor +
+  örnek egzersiz yapılıyor. Kayıt şartı yok, herkes gelebilir.
+- İndirim politikası artık her programda aynı: erken kayıt %10 (10 Eylül'e
+  kadar) + arkadaşınla gel %10, ikisi birlikte kullanılabilir.
 - Fiyat mesajda açık veriliyor ama **sitede ve reklamlarda gizli** kalmaya devam ediyor.
 - Drive linki **paylaşılmıyor**; tüm bilgi mesajın içinde.
 - Telefon numarası yazılmaz — iletişim DM üzerinden.

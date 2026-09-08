@@ -2,7 +2,7 @@
 
 import { Resend } from 'resend'
 import { headers, cookies } from 'next/headers'
-import { SITE_META } from '@/lib/data'
+import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
 import { TANISMA_SESSIONS } from './sessions'
 
@@ -157,13 +157,19 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       html,
     })
 
-    // Meta CAPI — ücretsiz etkinlik kaydı; değer yok, sadece Lead sinyali.
+    // Meta CAPI.
+    // eventId: tarayıcıdan geliyor — piksel de aynısını gönderiyor, böylece
+    // Meta iki olayı tekilleştiriyor. Gelmezse sunucuda üretilir (eski davranış).
+    // value: tanışma kaydının tahmini değeri (program bedelinin %10'u).
+    // 8 Eylül'e kadar hiç değer gönderilmiyordu; değer bazlı teklif veren
+    // algoritma bütün kayıtları eşit değersiz görüyordu.
     try {
       const h = await headers()
       const c = await cookies()
+      const price = WORKSHOPS.find((w) => w.slug === sessionObj.slug)?.price ?? 0
       await sendCapiEvent({
         eventName: 'Lead',
-        eventId: newEventId(),
+        eventId: (formData.get('eventId') as string) || newEventId(),
         eventSourceUrl: `${SITE_META.url}/tanisma-gunu`,
         email: contactEmail,
         phone: contactPhone,
@@ -171,6 +177,8 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
         fbc: c.get('_fbc')?.value,
         clientIp: h.get('x-forwarded-for')?.split(',')[0]?.trim(),
         userAgent: h.get('user-agent') ?? undefined,
+        value: Math.round(price * 0.1),
+        currency: 'TRY',
         contentName: `Tanışma Günü — ${sessionObj.program}`,
         contentId: `tanisma-gunu-${sessionObj.id}`,
       })

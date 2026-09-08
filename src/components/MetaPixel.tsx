@@ -77,9 +77,21 @@ export function MetaPixel() {
 
 type EventParams = Record<string, string | number | undefined>
 
-function track(event: string, params?: EventParams) {
+/**
+ * `eventId`: aynı olay hem buradan (tarayıcı) hem sunucudan (CAPI) gidiyor.
+ * Meta ikisini ancak AYNI event_id ile gelirse tekilleştirir; id verilmezse
+ * tek form doldurma iki lead olarak sayılır. 8 Eylül'e kadar durum buydu.
+ */
+function track(event: string, params?: EventParams, eventId?: string) {
   if (typeof window === 'undefined' || !window.fbq) return
-  window.fbq('track', event, params)
+  if (eventId) window.fbq('track', event, params, { eventID: eventId })
+  else window.fbq('track', event, params)
+}
+
+/** Tarayıcıda üretilip forma eklenen olay kimliği — CAPI'ye de aynısı gider. */
+export function newBrowserEventId(): string {
+  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) return crypto.randomUUID()
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`
 }
 
 /**
@@ -115,7 +127,9 @@ function trackAdsConversion(label: string | undefined, value?: number) {
   if (!adsId || !label) return
   gtagEvent('conversion', {
     send_to: `${adsId}/${label}`,
-    value: value ?? 1.0,
+    // 0 da geçerli bir sayı olduğu için `??` yetmiyordu: değeri 0 gönderilen
+    // dönüşüm, değer bazlı teklif veren algoritma için hiç yok sayılıyor.
+    value: value && value > 0 ? value : 1.0,
     currency: 'TRY',
   })
 }
@@ -151,10 +165,10 @@ export function trackInitiateCheckout(name: string, price: number, slug: string)
 
 /**
  * Başvuru gönderildi — ANA HEDEF.
- * `value` parametresi kritik: Meta 165.000₺'lik başvuruyla 18.000₺'liği
+ * `value` parametresi kritik: Meta 140.000₺'lik başvuruyla 18.000₺'liği
  * ayırt eder ve bütçeyi değerli olana kaydırır.
  */
-export function trackLead(name: string, price: number, slug: string) {
+export function trackLead(name: string, price: number, slug: string, eventId?: string) {
   // GA4 tarafı — raporlama ve kitle oluşturma.
   gtagEvent('generate_lead', {
     currency: 'TRY', value: price,
@@ -163,7 +177,7 @@ export function trackLead(name: string, price: number, slug: string) {
 
   // Google Ads tarafı — teklif optimizasyonunu besleyen BİRİNCİL dönüşüm.
   // GA4'ten içe aktarma yerine doğrudan etiket: daha hızlı ve daha doğru.
-  // `value` program bedeli olarak gidiyor; Google 165.000₺'lik başvuruyla
+  // `value` program bedeli olarak gidiyor; Google 140.000₺'lik başvuruyla
   // 18.000₺'liği ayırt edip bütçeyi değerli olana kaydırabiliyor.
   trackAdsConversion(process.env.NEXT_PUBLIC_ADS_LABEL_BASVURU, price)
   track('Lead', {
@@ -171,7 +185,41 @@ export function trackLead(name: string, price: number, slug: string) {
     content_ids: slug,
     value: price,
     currency: 'TRY',
+  }, eventId)
+}
+
+/**
+ * Tanışma günü kaydı — şu an reklamlarda satılan asıl teklif.
+ *
+ * Başvurudan AYRI bir dönüşüm işlemi olarak gidiyor (NEXT_PUBLIC_ADS_LABEL_TANISMA).
+ * Sebebi: ücretsiz tanışma kaydı ile ücretli program başvurusu aynı etikete
+ * yazıldığında ne raporlanabiliyor ne de ayrı optimize edilebiliyor.
+ * Etiket tanımlı değilse başvuru etiketine düşer — ölçüm hiç kaybolmasın.
+ *
+ * `value`: programın bedeli değil, tanışma kaydının **tahmini** değeri
+ * (bedelin %10'u; bkz. TanismaForm). Gerçekleşen ciro değil — amaç
+ * programlar arası ORANI korumak. Youth kaydı (11.000) ile Broadway kaydı
+ * (1.650) arasındaki farkı gören algoritma bütçeyi kendiliğinden değerli
+ * olana kaydırıyor. 7 Eylül'e kadar bu değer 0 gönderiliyordu, yani
+ * Google ve Meta tüm kayıtları eşit değersiz görüyordu.
+ */
+export function trackTanismaLead(programName: string, value: number, slug: string, eventId?: string) {
+  gtagEvent('generate_lead', {
+    currency: 'TRY', value,
+    lead_type: 'tanisma_gunu',
+    items: [{ item_id: slug, item_name: programName, item_category: 'tanisma_gunu' }],
   })
+  trackAdsConversion(
+    process.env.NEXT_PUBLIC_ADS_LABEL_TANISMA ?? process.env.NEXT_PUBLIC_ADS_LABEL_BASVURU,
+    value,
+  )
+  track('Lead', {
+    content_name: programName,
+    content_ids: slug,
+    content_category: 'tanisma_gunu',
+    value,
+    currency: 'TRY',
+  }, eventId)
 }
 
 /** Bülten aboneliği — düşük eşikli dönüşüm, Lookalike kitle için değerli. */
@@ -186,7 +234,9 @@ declare global {
     fbq?: (
       command: 'init' | 'track' | 'trackCustom',
       eventOrId: string,
-      params?: EventParams
+      params?: EventParams,
+      /** 4. argüman: { eventID } — CAPI ile tekilleştirme için. */
+      options?: { eventID?: string }
     ) => void
   }
 }

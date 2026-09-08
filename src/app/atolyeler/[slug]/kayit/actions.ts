@@ -225,7 +225,13 @@ export async function submitRegistration(
     // Meta Conversions API — sunucudan Lead olayı.
     // Tarayıcı pikseli engellenirse bu yine ulaşır; ikisi event_id ile eşleşip tek sayılır.
     // await ediyoruz ki serverless fonksiyon kapanmadan istek çıksın.
-    await sendLeadToMeta({ slug, workshop, email: contactEmail || email, phone: contactPhone || phone })
+    await sendLeadToMeta({
+      slug,
+      workshop,
+      email: contactEmail || email,
+      phone: contactPhone || phone,
+      eventId: (formData.get('eventId') as string) || undefined,
+    })
 
     return { status: 'success' }
   } catch (err) {
@@ -247,6 +253,8 @@ async function sendLeadToMeta(args: {
   workshop: (typeof WORKSHOPS)[number] | undefined
   email: string
   phone: string
+  /** Tarayıcı pikselinin kullandığı kimlik — çift sayımı engelliyor. */
+  eventId?: string
 }): Promise<void> {
   try {
     const h = await headers()
@@ -256,7 +264,7 @@ async function sendLeadToMeta(args: {
 
     await sendCapiEvent({
       eventName: 'Lead',
-      eventId: newEventId(),
+      eventId: args.eventId || newEventId(),
       eventSourceUrl: `${SITE_META.url}/atolyeler/${args.slug}/kayit`,
       email: args.email || undefined,
       phone: args.phone || undefined,

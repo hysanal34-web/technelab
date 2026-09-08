@@ -4,9 +4,24 @@ import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { TanismaFormState } from '@/app/tanisma-gunu/actions'
 import { TANISMA_SESSIONS, ENGLISH_LEVELS } from '@/app/tanisma-gunu/sessions'
-import { trackLead } from '@/components/MetaPixel'
+import { trackTanismaLead, newBrowserEventId } from '@/components/MetaPixel'
+import { WORKSHOPS } from '@/lib/data'
 
 type Props = { action: (formData: FormData) => Promise<TanismaFormState> }
+
+/**
+ * Bir tanışma kaydının reklam platformlarına bildirilen tahmini değeri.
+ * Program bedelinin %10'u — tanışmaya gelenlerin kabaca onda birinin kayda
+ * döndüğü varsayımı. Mutlak rakam değil, programlar arası oran önemli:
+ * Youth 11.000 ₺ · Musical 14.500 ₺ · Auteur 1.800 ₺ gibi.
+ * Gerçek dönüşüm oranı ölçüldüğünde bu katsayı güncellenmeli.
+ */
+const TANISMA_LEAD_ORANI = 0.1
+
+function tanismaLeadDegeri(slug: string): number {
+  const price = WORKSHOPS.find((w) => w.slug === slug)?.price ?? 0
+  return Math.round(price * TANISMA_LEAD_ORANI)
+}
 
 const SOURCE_OPTIONS = [
   'Instagram',
@@ -34,11 +49,20 @@ export default function TanismaForm({ action }: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
+    // Aynı olay hem buradan hem sunucudaki CAPI'den Meta'ya gidiyor.
+    // İkisi aynı kimliği taşımazsa tek kayıt iki lead olarak sayılıyor.
+    const eventId = newBrowserEventId()
+    formData.append('eventId', eventId)
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
       if (result.status === 'success') {
-        trackLead(`Tanışma Günü — ${session?.program ?? ''}`, 0, `tanisma-gunu-${sessionId}`)
+        trackTanismaLead(
+          `Tanışma Günü — ${session?.program ?? ''}`,
+          session ? tanismaLeadDegeri(session.slug) : 0,
+          `tanisma-gunu-${sessionId}`,
+          eventId,
+        )
         formRef.current?.reset()
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (result.status === 'error') {

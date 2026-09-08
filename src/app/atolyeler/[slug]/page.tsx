@@ -294,10 +294,8 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   </div>
                 )}
 
-                {/* Burs — erken kaydın yerine geçer, ikisi birlikte görünmez.
-                    Oran yazılı ama tutar değil: fiyat gizleme kararıyla tutarlı.
-                    "Değerlendirmeyle" ifadesi hem seçici duruşu koruyor hem de
-                    kontenjan/tarih taahhüdü vermeden aciliyet yaratıyor. */}
+                {/* Burs — yalnızca Musical Lab'de. Erken kayıt ve arkadaş
+                    indiriminden bağımsız, başvuru değerlendirmesiyle veriliyor. */}
                 {typeof w.scholarshipPercent === 'number' && (
                   <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
                     <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
@@ -306,6 +304,20 @@ export default async function WorkshopDetailPage({ params }: Props) {
                     <p className="font-mono text-[11px] text-stone leading-relaxed">
                       Başvurunuz değerlendirildikten sonra, uygun görülen katılımcılara
                       program bedelinde %{w.scholarshipPercent}&apos;e varan burs uygulanır.
+                    </p>
+                  </div>
+                )}
+
+                {/* Arkadaşınla gel — tüm programlarda geçerli, erken kayıtla
+                    birlikte kullanılabilir. Yalnızca oran yazılı, tutar değil. */}
+                {typeof w.friendDiscountPercent === 'number' && (
+                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
+                    <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
+                      arkadaşınla gel · %{w.friendDiscountPercent} indirim
+                    </p>
+                    <p className="font-mono text-[11px] text-stone leading-relaxed">
+                      Bir arkadaşınızla birlikte kayıt olduğunuzda ikinizin ücretinde de
+                      %{w.friendDiscountPercent} indirim uygulanır.
                     </p>
                   </div>
                 )}

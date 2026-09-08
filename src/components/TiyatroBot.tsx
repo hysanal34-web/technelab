@@ -155,7 +155,7 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
     if (long || exp === 'var') {
       recs.push({ slug: 'english-drama-final-project', title: 'English Acting Praxis', sub: 'İngilizce Sahne', duration: '12 hafta', tip: 'Dili bilenler için metin ve sahne odaklı çalışma; Harika Uygur masterclass.' })
     } else {
-      recs.push({ slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: 'aylık katılım', tip: 'Doğaçlama temelli; başlangıç için ideal.' })
+      recs.push({ slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: '12/6/4 hafta', tip: 'Doğaçlama temelli; başlangıç için ideal.' })
     }
   }
   if (interest === 'dans') {
@@ -177,7 +177,7 @@ function recommend(interest: string, exp: string, duration: string): ProgramRec[
   if (recs.length === 0) {
     recs.push(
       { slug: 'auteur-lab', title: 'The Auteur Lab', sub: 'Oyunculuk & Yazarlık', duration: '8 hafta', tip: 'Başlangıç için sağlam bir zemin.' },
-      { slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: 'aylık katılım', tip: 'Dil ve sahne birleşimi.' }
+      { slug: 'english-drama-lab', title: 'English Drama Lab', sub: 'Yaratıcı Drama', duration: '12/6/4 hafta', tip: 'Dil ve sahne birleşimi.' }
     )
   }
   return recs.slice(0, 2)
@@ -404,7 +404,7 @@ export function TiyatroBot() {
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
       return { from: 'bot', text: '10–17 yaş için English Drama Youth var: Dil öğretmiyoruz, dili sahnede deneyimliyoruz — B1 ve üzeri seviye önerilir, akıcı olmak gerekmez. 8 ay, haftada 1 gün, yıl sonunda seyircili bir final gösterisi/yıl sonu projesiyle kapanıyor. Yetişkin programlarımız 18+.', options: [{ label: 'EDL Youth →', value: 'go:english-drama-youth' }] }
     if (has('ingilizce', 'english', 'dil'))
-      return { from: 'bot', text: 'Dil öğretmiyoruz, dili sahnede deneyimliyoruz. English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (aylık katılım, yetişkin), English Acting Praxis (12 hafta, yetişkin) ve English Drama Youth (10–17 yaş, B1 ve üzeri, 8 ay, yıl sonu final projesiyle kapanır).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'EDL Youth →', value: 'go:english-drama-youth' }, { label: 'Program bul', value: 'guide' }] }
+      return { from: 'bot', text: 'Dil öğretmiyoruz, dili sahnede deneyimliyoruz. English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12/6/4 hafta, yetişkin), English Acting Praxis (12 hafta, yetişkin) ve English Drama Youth (10–17 yaş, B1 ve üzeri, 8 ay, yıl sonu final projesiyle kapanır).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'EDL Youth →', value: 'go:english-drama-youth' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
       return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Sitare Bilge yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
     if (has('dans', 'koreografi', 'broadway'))

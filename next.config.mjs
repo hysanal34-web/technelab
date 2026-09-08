@@ -16,29 +16,36 @@ const securityHeaders = [
   { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
 ]
 
-// Kısa broşür linkleri — Instagram/reklam mesajlarında Drive adresi yerine bunlar kullanılıyor.
-// technelabistanbul.com/p/auteur  (30 karakter)  yerine
-// https://drive.google.com/file/d/1oJ_.../view   (70 karakter)
+// Kısa broşür linkleri — Instagram/reklam mesajlarında kullanılıyor.
+// technelabistanbul.com/p/auteur  →  PDF, kendi sitemizden.
 //
-// Dosya değişirse SADECE buradaki ID'yi güncelle — reklam metinlerine dokunmaya gerek yok.
+// ÖNEMLİ: Google Drive TAMAMEN kaldırıldı (6 Eylül). Üç adresi de denedik:
+// /view          → "anyone: reader" olsa BİLE önce hesap seçme ekranı gösteriyordu.
+// uc?export=view → giriş ekranını atlıyor ama PDF'i "indir" olarak akıtıyordu —
+//                   ziyaretçinin bilgisayarına dosya iniyordu, istenmiyor.
+// /preview       → giriş ekranı yine çıkabiliyor (tarayıcının önceki Google
+//                   oturumuna bağlı; garanti değil).
+// Üçü de Drive'ın kontrolümüz dışındaki davranışına bağımlıydı. Çözüm: PDF'leri
+// Drive'a hiç koymadan doğrudan kendi sitemizden (public/dosyalar/) servis etmek —
+// giriş yok, indirme yok, hesap durumuna bağımlılık yok. Dosya güncellenince
+// SADECE public/dosyalar/<slug>.pdf değişir, reklam metinlerine dokunulmaz.
 // permanent:false bilinçli: tarayıcı önbelleğe almasın ki hedefi sonra değiştirebilelim.
-const DRIVE = (id) => `https://drive.google.com/file/d/${id}/view`
+const BROSUR = (slug) => `/dosyalar/${slug}.pdf`
 const BROSUR_LINKLERI = {
-  'auteur':   DRIVE('1oJ_vAJJTdnkraQJdKqJ4F2QI-E0IwA06'),
-  'edl':      DRIVE('1zK7z9E46FMHE1_3PuafM_bDyONMih0pp'),
-  'praxis':   DRIVE('1fyc4tgGjCsx8tM-z23Qu5Qb799wyCNCT'),
-  'youth':    DRIVE('1kX22xIPxkE9TauJ83JhqAcJH8yDptJ6v'),
-  'musical':  DRIVE('1FhNsPA1x3mswYq520u1TFLVN17DieiKs'),
-  'broadway': DRIVE('1vFZIPouKxU2oSlYCImAbQW0Fr5M1vnI7'),
-  'edl-en':   DRIVE('1oeigvDu_u0harQFxOBflsDUwkLCWGNXc'),
-  // Drive'a yükledikçe alttaki satırların başındaki // işaretini kaldır ve ID'yi yapıştır:
-  // 'all':         DRIVE('DOSYA_ID'),   // 00-Tum-Programlar.pdf
-  // 'all-en':      DRIVE('DOSYA_ID'),   // EN/00-All-Programs-EN.pdf
-  // 'auteur-en':   DRIVE('DOSYA_ID'),
-  // 'praxis-en':   DRIVE('DOSYA_ID'),
-  // 'youth-en':    DRIVE('DOSYA_ID'),
-  // 'musical-en':  DRIVE('DOSYA_ID'),
-  // 'broadway-en': DRIVE('DOSYA_ID'),
+  'auteur':      BROSUR('auteur'),
+  'edl':         BROSUR('edl'),
+  'praxis':      BROSUR('praxis'),
+  'youth':       BROSUR('youth'),
+  'musical':     BROSUR('musical'),
+  'broadway':    BROSUR('broadway'),
+  'all':         BROSUR('all'),
+  'auteur-en':   BROSUR('auteur-en'),
+  'edl-en':      BROSUR('edl-en'),
+  'praxis-en':   BROSUR('praxis-en'),
+  'youth-en':    BROSUR('youth-en'),
+  'musical-en':  BROSUR('musical-en'),
+  'broadway-en': BROSUR('broadway-en'),
+  'all-en':      BROSUR('all-en'),
 }
 
 const nextConfig = {
@@ -56,7 +63,7 @@ const nextConfig = {
   // Site iki adreste birden yayınlanırsa Google bunu yinelenen içerik
   // olarak görüyor ve sıralama gücü ikiye bölünüyor. Kanonik adres www.
   async redirects() {
-    // /p/<slug> → ilgili programın Drive broşürü. Sadece linki elinde olan görür;
+    // /p/<slug> → ilgili programın broşürü (kendi sitemizden). Sadece linki elinde olan görür;
     // siteye normal gezinerek gelen hiçbir ziyaretçi bu adrese düşmez (nav'da yok,
     // sitemap'te yok, robots.ts /p/ öntekini disallow ediyor).
     const brosurYonlendirmeleri = Object.entries(BROSUR_LINKLERI).map(([slug, url]) => ({
