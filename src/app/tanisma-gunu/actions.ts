@@ -151,7 +151,9 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
     const resend = new Resend(process.env.RESEND_API_KEY)
     await resend.emails.send({
       from:    process.env.RESEND_FROM || 'Techne Lab Başvuru <onboarding@resend.dev>',
-      to:      SITE_META.email,
+      // İkinci alıcı: başvurular otomatik olarak masaüstündeki
+      // "TANIŞMA GÜNÜ" listelerine buradan aktarılıyor (Gmail üzerinden okunuyor).
+      to:      [SITE_META.email, 'hysanal34@gmail.com'],
       replyTo: contactEmail,
       subject: `Tanışma Günü — ${sessionObj.program} — ${name}`,
       html,
