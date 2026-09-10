@@ -27,8 +27,8 @@ Partner work, blocking, scene dynamics. Real rehearsal discipline.
 **WEEKS 9–12 · Integration & Harika Uygur Masterclass**
 Integration work and personal feedback sessions. The program closes with a one-day masterclass by casting director Harika Uygur: live performances are watched, recorded, and delivered to participants.
 
-**TUITION:** 49,000 TL · VAT included
-Early registration until September 10: 44,100 TL
+**TUITION:** 59,000 TL · VAT included
+Scholarship of up to 25% by application review
 Credit card installment options available.
 10% discount for two participants registering together.
 
@@ -47,7 +47,7 @@ technelabistanbul.com · info@technelabistanbul.com · 0552 242 59 71 · Septemb
 12 / 6 / 4 weeks · Pera & Kadıköy · 12 people · 19,500 / 11,000 / 8,000 TL
 
 **04 ENGLISH ACTING PRAXIS** — Acting in English, for the international stage
-12 weeks · Pera · 14 people · 49,000 TL (early 44,100)
+12 weeks · Pera · 14 people · 59,000 TL · up to 25% scholarship
 
 **05 ENGLISH DRAMA YOUTH (10–17)** — Drama in English, year-end showcase
 8 months, 1 day/week · Pera & Kadıköy · 12 people · 110,000 TL (early 99,000)

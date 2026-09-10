@@ -35,7 +35,7 @@ Tık maliyeti yanıltıyor — Youth en ucuz tıkı alıp en pahalı DM'i üreti
 | English Drama Youth | 255 | 110.000 | 431 | En pahalı DM ama bilet taşıyor |
 | The Auteur Lab | 230 | 54.000 | 235 | 3 modül sayesinde ayakta |
 | Broadway / Jazz | 92 | 16.500 | 179 | Ucuz DM küçük bileti kurtarıyor |
-| English Acting Praxis | 275 | 49.000 | 178 | Sınırda; soğuk trafikten çıkıyor |
+| English Acting Praxis | 275 | 59.000 | 178 | Sınırda; soğuk trafikten çıkıyor |
 | English Drama Lab | 136 | 19.500 | 143 | Zayıf ama İngilizce ailesinin girişi |
 
 **Uyarı:** Bu tablo tüm programlarda DM→kayıt oranının aynı olduğunu varsayıyor. Gerçek oran ölçülene kadar (22 Eylül) sıralama kesin değil, yön göstergesi.

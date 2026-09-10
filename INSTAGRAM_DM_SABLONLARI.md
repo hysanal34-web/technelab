@@ -50,7 +50,7 @@ Hangi semt ve paket size uygun?
 English Acting Praxis — 12 hafta, tamamen İngilizce, Pera.
 Finalde cast direktörü Harika Uygur ile masterclass ve çekim günü; performanslar kayda alınıp size teslim ediliyor. B1 yeterli.
 
-49.000 ₺ · erken kayıt 44.100 ₺ (10 Eylül'e kadar)
+59.000 ₺ · başvuru değerlendirmesiyle %25'e varan burs
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi: Pera, 19 Eylül Cmt 17:00
@@ -143,7 +143,7 @@ Auteur Lab, Techne Musical Lab ve English Drama Youth'ta erken kayıt yerine **%
 | English Drama Lab — 12 hf | 19.500 | 17.550 |
 | English Drama Lab — 6 hf | 11.000 | 9.900 |
 | English Drama Lab — 4 hf | 8.000 | 7.200 |
-| English Acting Praxis | 49.000 | 44.100 |
+| English Acting Praxis | 59.000 | — · %25'e varan burs |
 | English Drama Youth | 99.000 | — · %25'e varan burs |
 | Techne Musical Lab | 140.000 | — · %25'e varan burs |
 
