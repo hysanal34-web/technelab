@@ -71,7 +71,7 @@ Banka ve finansal hizmetler
 
 ## Musical Lab — yapılacak (öncelik 2)
 
-**Neden:** 165.000 TL'lik program, günde 800 TL harcıyor. Yanlış
+**Neden:** 140.000 TL'lik program, günde 800 TL harcıyor. Yanlış
 kitleye giden her lira burada en pahalıya patlıyor.
 
 Şu an hedeflemesi: Oyunculuk, Tiyatro, Modern dans, Sahne sanatları,

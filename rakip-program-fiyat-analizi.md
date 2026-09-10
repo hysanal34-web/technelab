@@ -32,8 +32,8 @@ Bu, Techne Lab için hem fırsat hem risk — aşağıda "Stratejik Sonuç"ta el
 | 02 | Oyuncunun Mevcudiyeti | 4 hafta yoğun | 12 | 19.000₺ | 16.000₺ | ~4.750₺/hafta |
 | 03 | English Drama Lab | 12 hafta | 12 | 30.000₺ | 25.500₺ | ~2.500₺/hafta · 12.000₺/ay |
 | 04 | English Acting Praxis | 12 hafta | 14 | 69.000₺ | 59.000₺ | ~5.750₺/hafta |
-| 05 | English Drama Youth (10–17) | 8 ay · haftada 1 | 12 | 150.000₺ | 128.000₺ | ~18.750₺/ay |
-| 06 | Techne Musical Lab | 8 ay · haftada 2 | 12 | 195.000₺ | 165.000₺ | ~24.375₺/ay |
+| 05 | English Drama Youth (10–17) | 8 ay · haftada 1 | 12 | 99.000₺ | — | ~12.375₺/ay |
+| 06 | Techne Musical Lab | 8 ay · haftada 2 | 12 | 140.000₺ | — | ~17.500₺/ay |
 | 07 | Broadway Musical Dance | 12 hafta | 15 | 22.500₺ | 19.000₺ | ~1.875₺/hafta · 8.000₺/ay |
 | 08 | Camera Praxis | 4 hafta | 10 | 23.500₺ | 20.000₺ | ~5.875₺/hafta |
 
@@ -89,7 +89,7 @@ Karşılaştırma yapabilmek için bulunabilen **tüm** açık fiyatlar:
 
 ## 02 · TECHNE MUSICAL LAB
 
-**Bizim:** 8 ay, haftada 2 gün, Kadıköy, 12 kişi, 195.000₺ (erken 165.000₺), video ile kabul, seyircili tam prodüksiyon finali. Köksal Ünal & Sitare Bilge.
+**Bizim:** 8 ay, haftada 2 gün, Kadıköy, 12 kişi, 140.000₺ (%25'e varan burs), video ile kabul, seyircili tam prodüksiyon finali. Köksal Ünal & Sitare Bilge.
 
 ### Rakipler
 
@@ -164,7 +164,7 @@ Karşılaştırma yapabilmek için bulunabilen **tüm** açık fiyatlar:
 
 ## 05 · ENGLISH DRAMA YOUTH (10–17)
 
-**Bizim:** 8 ay, haftada 1 gün, Pera & Kadıköy, 12 kişi, 150.000₺ (erken 128.000₺), seyircili final.
+**Bizim:** 8 ay, haftada 1 gün, Pera & Kadıköy, 12 kişi, 99.000₺ (%25'e varan burs), seyircili final.
 
 ### Rakipler
 

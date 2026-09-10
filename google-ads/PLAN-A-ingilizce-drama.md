@@ -29,7 +29,7 @@ Brifingdeki teşhis net: sekiz program tek kampanyanın içinde reklam grubu ola
 | 1 | **EDL eğitmenleri** | `BRIEF`: "Yeşim Çelebi & Arya Akkutlu" · `data.ts` id 3: "Alara Lokum, Ece Ertez & Yeşim Çelebi" | Reklam metinlerinde eğitmen adı **kullanılmadı**. Netleşene kadar kullanılmasın. |
 | 2 | **EDL fiyatı** | `rakip-program-fiyat-analizi.md`: 30.000₺ · `data.ts`: 24.000₺ | Reklamda fiyat geçmiyor, doğrudan etkisi yok — ama açılış sayfası/WhatsApp yanıtı tutarlı olmalı. |
 | 3 | **EAP fiyatı** | Rapor: 69.000/59.000 · `data.ts`: 59.000/50.000 | Aynı. |
-| 4 | **EDY fiyatı** | Rapor: 150.000/128.000 · `data.ts`: `price: 128000` + `scholarshipPercent: 25` | Aynı. |
+| 4 | **EDY fiyatı** | Güncel: `data.ts` → `price: 99000` + `scholarshipPercent: 25` | Aynı. |
 | 5 | **EDY mekânı** | `data.ts`: "Pera & Kadıköy" · `disiplinler.ts` çocuk/genç sayfaları: yalnızca **Kadıköy** | **Kritik.** Reklamda "Kadıköy ve Pera" yazıp Pera arayan kullanıcıyı yalnızca Kadıköy yazan sayfaya düşürmek dönüşümü kırar. Sayfalar düzeltilmeden Pera semt hedeflemesi açılmasın. |
 | 6 | **EDY dönem başlangıcı** | `duration`: "Eylül–Mayıs" · `desc` ve bloklar: "Ekim–Mayıs" | Metinlerde **"Ekim–Mayıs"** kullanıldı (blok başlıklarıyla uyumlu). Netleştir. |
 | 7 | **Başvuru URL'i** | `BRIEF`: dönüşüm `/basvuru` · Kodda böyle bir rota **yok**; gerçek rota `/atolyeler/[slug]/kayit` | Uzantı ve açılış sayfası URL'leri `/kayit` üzerinden yazıldı. `/basvuru` linki verilirse 404 olur. |

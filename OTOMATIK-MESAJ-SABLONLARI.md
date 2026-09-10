@@ -303,7 +303,7 @@ Var, üç başlıkta:
 
 Erken kayıt — 10 Eylül 2026'ya kadar kayıt olanlar için.
 Öğrenci indirimi — English Drama Lab'de geçerli; erken kayıtla birleşebiliyor.
-Burs — The Auteur Lab, Techne Musical Lab ve English Drama Youth'ta. Kısa bir başvuru metninin değerlendirilmesiyle veriliyor, erken kayıtla birleşmiyor.
+Burs — The Auteur Lab, Techne Musical Lab ve English Drama Youth'ta. Bu üç programda erken kayıt indirimi yok; yerine %25'e varan burs, kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
 
 Oranlar ve ödeme seçenekleri programın dosyasında yazıyor. Hangisi için bakalım, göndereyim.
 ```

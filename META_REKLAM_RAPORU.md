@@ -60,7 +60,7 @@ Net +389 fena değil ama yeni takipçi %16,8 düşmüş. Aynı dönemde 103 kiş
 
 ### Sorun 1 — Hedef kitle 2 milyon. Bu çok yanlış.
 
-English Drama Youth şu programa hitap ediyor: **14–17 yaş, İstanbul, yıllık 128.000₺.**
+English Drama Youth şu programa hitap ediyor: **14–17 yaş, İstanbul, yıllık 99.000₺.**
 
 Gerçek hedef kitle: İstanbul'da bu yaş aralığında çocuğu olan ve özel sanat eğitimine bu bütçeyi ayırabilecek veliler. Bu grup gerçekçi olarak **50–80 bin kişi**dir, 2 milyon değil.
 
@@ -79,7 +79,7 @@ Gerçek hedef kitle: İstanbul'da bu yaş aralığında çocuğu olan ve özel s
 
 Kanıt zaten ekranda: **40 mesajlaşma konuşması başlamış, mesajlaşmadan gelen yeni kişi sayısı 0.**
 
-128.000₺'lik bir programda doğru hedef **potansiyel müşteri (Lead)** ya da **dönüşüm**tür. Artık sitede gerçek bir başvuru formu var — bunu kullanabilirsin.
+99.000₺'lik bir programda doğru hedef **potansiyel müşteri (Lead)** ya da **dönüşüm**tür. Artık sitede gerçek bir başvuru formu var — bunu kullanabilirsin.
 
 > **Aksiyon:**
 > 1. Meta Pixel'i siteye kur (henüz yok — sitede yalnızca GA4 var)

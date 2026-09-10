@@ -81,7 +81,7 @@ En yakın başlangıç (12 Eylül), aciliyet gerçek. Hacimli kelimeler:
 `ingilizce drama istanbul` + EN kümesi (expat).
 
 **1B · Techne Musical Lab** — `/atolyeler/techne-musical-lab`
-En yüksek bedel (165.000 ₺). `müzikal tiyatro kursu istanbul`, `şan kursu istanbul`.
+En yüksek bedel (140.000 ₺). `müzikal tiyatro kursu istanbul`, `şan kursu istanbul`.
 ⚠ %25 burs vurgusunu reklam metnine KOYMA — fiyat hassasiyetli kitleyi çeker.
 Burs mesajı site ve kanalda kalsın.
 
@@ -179,7 +179,7 @@ düşük — ₺1.000 aşamasında ekle.
 ### ⚡ Yeni fırsat: Broadway (12–55) ve Musical Lab (15–55) de veli ürünü
 
 Yaş sınırları netleşince ortaya çıktı: **Broadway 12–55 yaş, 22.500 ₺.**
-Youth'un 128.000 ₺'sine göre çok daha ulaşılabilir bir giriş ürünü — velinin
+Youth'un 99.000 ₺'sine göre çok daha ulaşılabilir bir giriş ürünü — velinin
 "önce bir deneyelim" diyeceği fiyat bandı. Musical Lab ise 15–55 yaş.
 
 Kampanya 1'deki Broadway grubuna **veli kelimelerini de ekle:**

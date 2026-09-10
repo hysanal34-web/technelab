@@ -1205,7 +1205,7 @@ Bu segment veli kararına bağlı ve arama zamanı farklı: okul dönemi başın
 
 **6. Bitirme performansını bir pazarlama varlığı olarak kullan**
 Mayıs'taki seyircili bitirme performansı bugün yalnızca bir program özelliği. Kaydı alınıp `/galeri` ve program sayfasına konursa, bir sonraki dönemin reklamı için elde **kanıt** olur. Görsel uzantılarında "sınıf" değil "sahne" kareleri kullanılmalı.
-**Neden işe yarar:** 165.000 ₺ bandında bir ürünün en büyük satış engeli güven. Sekiz ay sonunda ne olduğunu **gösteren** tek şey o kayıt. Bu, bu sezon değil gelecek sezon için yapılan bir yatırım — ama şimdi planlanmazsa çekilmiyor.
+**Neden işe yarar:** 140.000 ₺ bandında bir ürünün en büyük satış engeli güven. Sekiz ay sonunda ne olduğunu **gösteren** tek şey o kayıt. Bu, bu sezon değil gelecek sezon için yapılan bir yatırım — ama şimdi planlanmazsa çekilmiyor.
 
 ---
 ---

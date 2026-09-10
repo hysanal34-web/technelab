@@ -5,7 +5,7 @@ Techne Lab program broşürleri — PDF üretici.
 NEDEN VAR: public/dosyalar/*.pdf dosyaları DM otomasyonlarının verdiği
 "detay linki". Fiyat ya da tarih değiştiğinde bunlar elle güncellenmediği
 için eskiyor (8 Eylül'de yakalanan hata: PDF'lerde Musical Lab tanışması
-13 Eylül Pazar yazıyordu, doğrusu 12 Eylül Cumartesi; fiyat 165.000 ₺
+13 Eylül Pazar yazıyordu, doğrusu 12 Eylül Cumartesi; fiyat 165.000 ₺ (o dönem)
 görünüyordu, doğrusu 140.000 ₺).
 
 Bundan sonra fiyat değişince: aşağıdaki PROGRAMLAR sözlüğünü güncelle ve
@@ -255,14 +255,14 @@ PROGRAMLAR = {
             ],
             "egitmenler": [("Alara Lokum", "Oyuncu; anadil seviyesinde İngilizce, gençlerle sahne çalışması.")],
             "baslangic": [("Kadıköy", "3 Ekim Cumartesi"), ("Taksim Pera", "4 Ekim Pazar · 13:00")],
-            "fiyat": [("110.000 ₺", "/ 8 AY")],
-            "erken": "99.000 ₺",
+            "fiyat": [("99.000 ₺", "/ 8 AY")],
+            "burs": "%25",
             "tanisma": "12 Eylül Cumartesi · 13:00 · Kadıköy — 13 Eylül Pazar · 13:00 · Taksim Pera. Veliler de katılabilir.",
             "sss": [
                 ("Çocuğumun İngilizcesi yeterli mi?", "B1 ve üzeri öneriyoruz; sohbet edebiliyorsa yeterli. Seviye testi yok."),
                 ("Gruplar yaşa göre ayrı mı?", "Evet. 10–14 ve 15–17 ayrı sınıflarda, ayrı günlerde çalışıyor."),
                 ("Final gösterisi nasıl oluyor?", "Mayıs'ta, seyirci önünde, tamamı İngilizce. Sekiz ayın sonunda çocuk sahnede duruyor ve İngilizce konuşuyor."),
-                ("Bütçe nasıl işliyor?", "8 aylık sezon 110.000 ₺. 10 Eylül'e kadar erken kayıtta %10 indirimle 99.000 ₺. Kardeş ya da arkadaşıyla birlikte kayıtta ikisine de %10."),
+                ("Bütçe nasıl işliyor?", "8 aylık sezon 99.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Kardeş ya da arkadaşıyla birlikte kayıtta ikisine de %10."),
             ],
         },
         "en": {
@@ -278,14 +278,14 @@ PROGRAMLAR = {
             ],
             "egitmenler": [("Alara Lokum", "Actor; native-level English, stage work with young people.")],
             "baslangic": [("Kadıköy", "Saturday, October 3"), ("Taksim Pera", "Sunday, October 4 · 13:00")],
-            "fiyat": [("110,000 TL", "/ 8 MONTHS")],
-            "erken": "99,000 TL",
+            "fiyat": [("99,000 TL", "/ 8 MONTHS")],
+            "burs": "25%",
             "tanisma": "Saturday, September 12 · 13:00 · Kadıköy — Sunday, September 13 · 13:00 · Taksim Pera. Parents are welcome.",
             "sss": [
                 ("Is my child's English good enough?", "We recommend B1 and above; if they can hold a conversation, that's enough. No placement test."),
                 ("Are the groups split by age?", "Yes. 10–14 and 15–17 work in separate classes on separate days."),
                 ("What is the final showcase?", "In May, in front of an audience, entirely in English."),
-                ("How does the budget work?", "110,000 TL for the 8-month season. 99,000 TL with early registration until September 10. 10% off for a sibling or friend registering together."),
+                ("How does the budget work?", "99,000 TL for the 8-month season. Scholarship of up to 25% by application review. 10% off for a sibling or friend registering together."),
             ],
         },
     },
@@ -308,14 +308,13 @@ PROGRAMLAR = {
             ],
             "baslangic": [("Kadıköy", "28 Eylül Pazartesi")],
             "fiyat": [("140.000 ₺", "/ 8 AY")],
-            "erken": "126.000 ₺",
             "burs": "%25",
             "tanisma": "12 Eylül Cumartesi · 18:30 · Kadıköy — Isınma, kısa bir şan ve hareket çalışması, programın anlatımı.",
             "sss": [
                 ("Başvuru videosu nasıl olmalı?", "Bir müzikal ya da pop şarkısından 1–2 dakika; telefonla çekilmiş olması yeterli."),
                 ("Dans ya da şan geçmişim yok.", "Program temelden başlıyor; kabul için yetenek değil, çalışma isteği ve potansiyele bakıyoruz."),
                 ("Haftada iki gün hangi günler?", "Kayıt tamamlandığında grupla birlikte netleşiyor; akşam saatleri."),
-                ("Bütçe nasıl işliyor?", "8 aylık sezon 140.000 ₺. 10 Eylül'e kadar erken kayıtta %10 indirimle 126.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Arkadaşınızla birlikte kayıtta ikinize de %10."),
+                ("Bütçe nasıl işliyor?", "8 aylık sezon 140.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -335,14 +334,13 @@ PROGRAMLAR = {
             ],
             "baslangic": [("Kadıköy", "Monday, September 28")],
             "fiyat": [("140,000 TL", "/ 8 MONTHS")],
-            "erken": "126,000 TL",
             "burs": "25%",
             "tanisma": "Saturday, September 12 · 18:30 · Kadıköy — A warm-up, a short singing and movement session, and an outline of the program.",
             "sss": [
                 ("What should the application video be?", "1–2 minutes of a musical or pop song; a phone recording is fine."),
                 ("I have no dance or singing background.", "The program starts from the basics; we look for willingness and potential, not talent."),
                 ("Which two days of the week?", "Set with the group once registration closes; evening hours."),
-                ("How does the budget work?", "140,000 TL for the 8-month season. 126,000 TL with early registration until September 10. Scholarship of up to 25% by application review. 10% off for two people together."),
+                ("How does the budget work?", "140,000 TL for the 8-month season. Scholarship of up to 25% by application review. 10% off for two people together."),
             ],
         },
     },
@@ -471,7 +469,9 @@ def sayfa1(p, d, t, kod):
                   for y, tar in d["baslangic"])
     fiy = "".join(f'<div class="fiy"><div class="r">{r}</div><div class="b">{b}</div></div>'
                   for r, b in d["fiyat"])
-    ind = f'<div class="ind"><div class="d">{t["erken"]}</div><div class="v">{d["erken"]}</div></div>'
+    ind = ""
+    if d.get("erken"):
+        ind += f'<div class="ind"><div class="d">{t["erken"]}</div><div class="v">{d["erken"]}</div></div>'
     if d.get("burs"):
         ind += f'<div class="ind"><div class="d">{t["burs"]}</div><div class="v">{d["burs"]}</div></div>'
     oran = "%10" if t is ORTAK_TR else "10%"

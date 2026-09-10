@@ -28,7 +28,7 @@
 | `InitiateCheckout` | Başvuru formu açıldığında | Niyet sinyali |
 | `Lead` | Başvuru gönderildiğinde | **Ana hedef** |
 
-`Lead` olayına program adı ve fiyat parametresi eklenmeli — böylece Meta 128.000₺'lik başvuruyla 18.000₺'liği ayırt eder ve bütçeyi değerli olana kaydırır.
+`Lead` olayına program adı ve fiyat parametresi eklenmeli — böylece Meta 99.000₺'lik başvuruyla 18.000₺'liği ayırt eder ve bütçeyi değerli olana kaydırır.
 
 > Bunu ben kurabilirim — Pixel ID'yi verirsen `layout.tsx` ve `kayit/actions.ts` tarafına ekleyip deploy ederim.
 
@@ -95,7 +95,7 @@ Görsel ve metin aynı olmalı; yoksa neyin fark yarattığını ayıramazsın.
 | Süre boyunca | **Hiçbir şeye dokunma** — her düzenleme öğrenmeyi sıfırlar |
 | Karar eşiği | Set başına en az 15–20 sonuç |
 
-4 set × 175₺ × 7 gün ≈ **4.900₺** bir tur test. Bu bir masraf değil, hangi kitlenin 128.000₺'lik program aldığını öğrenmenin bedeli. Bir kayıt bile gelse yedi katıyla çıkar.
+4 set × 175₺ × 7 gün ≈ **4.900₺** bir tur test. Bu bir masraf değil, hangi kitlenin 99.000₺'lik program aldığını öğrenmenin bedeli. Bir kayıt bile gelse yedi katıyla çıkar.
 
 Bütçe yetmiyorsa 4 yerine **2 set** kur: en güçlü tahminin + geniş kontrol.
 

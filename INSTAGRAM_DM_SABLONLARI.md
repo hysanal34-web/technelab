@@ -70,7 +70,7 @@ English Drama Youth — 10–17 yaş, tamamen İngilizce.
 Kitap yok, sınav yok. 8 ay, haftada 1 gün; Mayıs'ta seyirci önünde İngilizce bir gösteriyle bitiyor.
 10–14 ve 15–17 ayrı gruplarda. B1 ve üzeri, seviye testi yok.
 
-110.000 ₺ · erken kayıt 99.000 ₺ (10 Eylül'e kadar)
+99.000 ₺ · başvuru değerlendirmesiyle %25'e varan burs
 Arkadaşıyla birlikte kayıtta ikisine de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi, veliler de katılabilir:
@@ -87,7 +87,7 @@ Kadıköy 12 Eylül Cmt 13:00 · Pera 13 Eylül Paz 13:00
 Techne Musical Lab — 8 ay, haftada 2 gün, Kadıköy.
 Oyunculuk, şan ve dans bir arada; Mayıs'ta kostümlü, ışıklı, sahnelenmiş bir müzikalle bitiyor. 15–55 yaş.
 
-140.000 ₺ · erken kayıt 126.000 ₺ (10 Eylül'e kadar)
+140.000 ₺ · başvuru değerlendirmesiyle %25'e varan burs
 %25'e varan burs · Arkadaşınla gel, ikinize de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi: Kadıköy, 12 Eylül Cmt 18:30
@@ -132,22 +132,22 @@ Program 7 Ekim'de başlıyor · 10 kişilik grup
 
 ## Fiyat tablosu
 
-Tüm programlarda **erken kayıt %10** (10 Eylül'e kadar) ve **arkadaşınla gel %10**.
-İkisi birlikte kullanılabilir. Burs yalnızca Techne Musical Lab'de.
+Erken kayıt %10 (10 Eylül'e kadar) ve **arkadaşınla gel %10** birlikte kullanılabilir.
+Auteur Lab, Techne Musical Lab ve English Drama Youth'ta erken kayıt yerine **%25'e varan burs** var.
 
 | Program | Bedel | Erken kayıt |
 |---|---:|---:|
-| The Auteur Lab (modül) | 18.000 | 16.200 |
+| The Auteur Lab (modül) | 18.000 | — · %25'e varan burs |
 | Broadway Musical Dance — 12 hf | 16.500 | 14.850 |
 | Broadway Musical Dance — 6 hf | 9.500 | — |
 | English Drama Lab — 12 hf | 19.500 | 17.550 |
 | English Drama Lab — 6 hf | 11.000 | 9.900 |
 | English Drama Lab — 4 hf | 8.000 | 7.200 |
 | English Acting Praxis | 49.000 | 44.100 |
-| English Drama Youth | 110.000 | 99.000 |
-| Techne Musical Lab | 140.000 | 126.000 |
+| English Drama Youth | 99.000 | — · %25'e varan burs |
+| Techne Musical Lab | 140.000 | — · %25'e varan burs |
 
-Techne Musical Lab'de ayrıca **%25'e varan burs** — başvuru değerlendirmesiyle.
+Burs üç programda: The Auteur Lab · Techne Musical Lab · English Drama Youth — başvuru değerlendirmesiyle, erken kayıtla birleşmiyor.
 
 ---
 

@@ -266,8 +266,8 @@ Bu en çok atlanan şey. DM başına maliyet tek başına anlamsız:
 
 | Program | Bedel | Kabul edilebilir DM maliyeti |
 |---|---|---|
-| Techne Musical Lab | 165.000 | 600 TL'ye kadar makul |
-| English Drama Youth | 128.000 | 500 TL'ye kadar makul |
+| Techne Musical Lab | 140.000 | 600 TL'ye kadar makul |
+| English Drama Youth | 99.000 | 500 TL'ye kadar makul |
 | English Acting Praxis | 72.000 | 350 TL |
 | English Drama Lab | 30.000 | 150 TL |
 | Broadway | 25.000 | 120 TL |
