@@ -222,7 +222,7 @@ Techne Musical Lab — drama, şan ve dans bir arada.
 
 Sekiz ay boyunca oyunculuk, ses ve hareket tek bir sahne dilinde buluşuyor; sezon sonunda seyircinin karşısına çıkıyorsunuz. Dans ya da şan geçmişi şart değil — temelden başlıyoruz.
 
-Eğitmenler: Köksal Ünal (dans ve koreografi) ve Sitare Bilge (ses ve şan).
+Eğitmenler: Köksal Ünal (dans ve koreografi) ve Sitare Bilge (oyunculuk, ses ve şan).
 
 Kadıköy · 15–55 yaş · 8 ay, haftada 2 gün · en fazla 12 kişi
 Başlangıç: 28 Eylül Pazartesi

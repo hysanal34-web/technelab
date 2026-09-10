@@ -20,7 +20,8 @@ export type Workshop = {
   // 8 Eylül kararı: tek indirim politikası tüm programlarda —
   // erken kayıt %10 (priceEarlyBird/earlyBirdPercent) + arkadaşınla gel %10.
   friendDiscountPercent?: number
-  // Burs — YALNIZCA Techne Musical Lab'de (%25). Diğer programlarda kaldırıldı.
+  // Burs (%25) — Techne Musical Lab ve English Drama Youth'ta. Bu iki programda
+  // erken kayıt indirimi yok (10 Eylül kararı); burs onun yerine geçiyor.
   // Başvuru değerlendirmesiyle veriliyor; kontenjan ya da tarih taahhüdü yok.
   // Sitede yalnızca oran görünür, tutar değil (fiyat gizleme kararı).
   scholarshipPercent?: number
@@ -198,7 +199,7 @@ export const WORKSHOPS: Workshop[] = [
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Sitare Bilge',
-    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Ses ve şan eğitmeni, tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
+    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Oyunculuk, ses ve şan eğitmeni; tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Eylül–Mayıs)', price: 140000,
     friendDiscountPercent: 10, scholarshipPercent: 25,
     schedule: [{ place: 'Kadıköy', date: '28 Eylül Pazartesi' }],

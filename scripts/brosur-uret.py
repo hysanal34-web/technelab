@@ -304,7 +304,7 @@ PROGRAMLAR = {
             ],
             "egitmenler": [
                 ("Köksal Ünal", "Koreograf; Broadway dansı ve sahne koreografisi."),
-                ("Sitare Bilge", "Ses ve şan eğitmeni; tiyatro müziği."),
+                ("Sitare Bilge", "Oyunculuk, ses ve şan eğitmeni; tiyatro müziği."),
             ],
             "baslangic": [("Kadıköy", "28 Eylül Pazartesi")],
             "fiyat": [("140.000 ₺", "/ 8 AY")],
@@ -330,7 +330,7 @@ PROGRAMLAR = {
             ],
             "egitmenler": [
                 ("Köksal Ünal", "Choreographer; Broadway dance and stage choreography."),
-                ("Sitare Bilge", "Voice and singing coach; theatre music."),
+                ("Sitare Bilge", "Acting, voice and singing coach; theatre music."),
             ],
             "baslangic": [("Kadıköy", "Monday, September 28")],
             "fiyat": [("140,000 TL", "/ 8 MONTHS")],
