@@ -47,7 +47,8 @@ ORTAK_TR = {
     "erken": "Erken kayıt",
     "arkadas": "Arkadaşınla gel",
     "burs": "Burs · başvuruyla",
-    "taksit": "Erken kayıt 10 Eylül'e kadar. Kredi kartına taksit yapılabilir.",
+    "taksit": "Kredi kartına taksit yapılabilir.",
+    "taksit_erken": "Erken kayıt 10 Eylül'e kadar. ",
     "not": "Tanışma atölyesi ücretsiz ve taahhütsüz. Gruplar küçük, yer sınırlı — formu doldurup yerinizi ayırtın.",
     "kayit_alt": "Kayıt · profildeki form ya da WhatsApp",
     "form_etiket": "TANIŞMA FORMU",
@@ -72,7 +73,8 @@ ORTAK_EN = {
     "erken": "Early registration",
     "arkadas": "Bring a friend",
     "burs": "Scholarship · by application",
-    "taksit": "Early registration until September 10. Credit card installments available.",
+    "taksit": "Credit card installments available.",
+    "taksit_erken": "Early registration until September 10. ",
     "not": "The intro workshop is free, no commitment. Places are limited — fill in the form to reserve yours.",
     "kayit_alt": "Register · form in bio or WhatsApp",
     "form_etiket": "INTRO WORKSHOP FORM",
@@ -489,7 +491,7 @@ def sayfa1(p, d, t, kod):
 <div class="alt">
   <div><h2 style="margin-top:0">{t["baslangic"]}</h2>{bas}</div>
   <div><h2 style="margin-top:0">{t["ucret"]}</h2>{fiy}{ind}
-    <div class="taksit">{t["taksit"]}</div></div>
+    <div class="taksit">{(t["taksit_erken"] if d.get("erken") else "") + t["taksit"]}</div></div>
 </div>
 <div class="tanisma"><div class="et">{t["tanisma"]}</div><div class="mt">{d["tanisma"]}</div></div>
 <div class="dip"><div>{t["kayit_alt"]}</div><div>{TEL} &nbsp;·&nbsp; {IG}</div></div>
