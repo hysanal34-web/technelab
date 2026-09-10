@@ -32,9 +32,9 @@ ORTAK_TR = {
     "sezon": "2026–27 SEZONU",
     "kayit_baslik": "KAYIT NASIL İŞLİYOR?",
     "adimlar": [
-        ("Yazın", "WhatsApp ya da Instagram DM — hangi program, hangi şube. Sorularınızı alalım."),
-        ("Tanışma atölyesine gelin", "Ücretsiz ve taahhütsüz. Formu doldurun, adresi ve saati yazalım."),
-        ("Kaydınızı yapalım", "Ödeme linki ya da havale. Yeriniz ayrıldığında mekân ve saat bilgisini iletiyoruz."),
+        ("Yazın", "WhatsApp ya da Instagram DM — hangi program, hangi şube."),
+        ("Tanışma atölyesine gelin", "Ücretsiz. Formu doldurun, adresi yazalım."),
+        ("Kaydınızı yapalım", "Ödeme linki ya da havale. Yeriniz ayrılır."),
     ],
     "sss_baslik": "SIKÇA SORULAN SORULAR",
     "isleyis": "PROGRAMIN İŞLEYİŞİ",
@@ -44,11 +44,11 @@ ORTAK_TR = {
     "amac": "AMAÇ",
     "tanisma": "ÜCRETSİZ TANIŞMA",
     "meta": ["YAŞ", "SÜRE", "GRUP", "BAŞVURU"],
-    "erken": "Erken kayıt · 10 Eylül'e kadar",
-    "arkadas": "Arkadaşınla gel · iki kişi birlikte",
-    "burs": "Burs (başvuru değerlendirmesiyle)",
-    "taksit": "Kredi kartına taksit yapılabilir; vade farkı kart ve taksite göre değişir.",
-    "not": "Tanışma atölyesi ücretsiz ve taahhütsüz. Gruplar küçük olduğu için yer sınırlı; gelmeyi düşünüyorsanız formu doldurup yerinizi ayırtın.",
+    "erken": "Erken kayıt",
+    "arkadas": "Arkadaşınla gel",
+    "burs": "Burs · başvuruyla",
+    "taksit": "Erken kayıt 10 Eylül'e kadar. Kredi kartına taksit yapılabilir.",
+    "not": "Tanışma atölyesi ücretsiz ve taahhütsüz. Gruplar küçük, yer sınırlı — formu doldurup yerinizi ayırtın.",
     "kayit_alt": "Kayıt · profildeki form ya da WhatsApp",
     "form_etiket": "TANIŞMA FORMU",
 }
@@ -57,9 +57,9 @@ ORTAK_EN = {
     "sezon": "2026–27 SEASON",
     "kayit_baslik": "HOW REGISTRATION WORKS",
     "adimlar": [
-        ("Write to us", "WhatsApp or Instagram DM — which program, which location. Ask us anything."),
-        ("Come to the intro workshop", "Free, no commitment. Fill in the form and we'll send the address and time."),
-        ("We complete your registration", "Payment link or transfer. Once your place is held, we share the venue and schedule."),
+        ("Write to us", "WhatsApp or Instagram DM — which program, which location."),
+        ("Come to the intro workshop", "Free. Fill in the form, we'll send the address."),
+        ("We complete your registration", "Payment link or transfer. Your place is held."),
     ],
     "sss_baslik": "FREQUENTLY ASKED",
     "isleyis": "HOW THE PROGRAM RUNS",
@@ -69,11 +69,11 @@ ORTAK_EN = {
     "amac": "AIM",
     "tanisma": "FREE INTRO WORKSHOP",
     "meta": ["AGE", "DURATION", "GROUP", "APPLICATION"],
-    "erken": "Early registration · until September 10",
-    "arkadas": "Bring a friend · two together",
-    "burs": "Scholarship (by application review)",
-    "taksit": "Credit card installments available; interest varies by card and plan.",
-    "not": "The intro workshop is free and carries no commitment. Groups are small and places are limited — fill in the form to reserve yours.",
+    "erken": "Early registration",
+    "arkadas": "Bring a friend",
+    "burs": "Scholarship · by application",
+    "taksit": "Early registration until September 10. Credit card installments available.",
+    "not": "The intro workshop is free, no commitment. Places are limited — fill in the form to reserve yours.",
     "kayit_alt": "Register · form in bio or WhatsApp",
     "form_etiket": "INTRO WORKSHOP FORM",
 }
@@ -102,7 +102,6 @@ PROGRAMLAR = {
             "sss": [
                 ("Hiç yazmadım, olur mu?", "Olur. Program başlangıç seviyesinden kuruluyor; portfolyo ya da yayımlanmış metin aranmıyor."),
                 ("Üç modülü de almak zorunda mıyım?", "Hayır. Birinciyle başlayıp devam kararını sonra verebilirsiniz."),
-                ("Bütçe nasıl işliyor?", "Modül başına 18.000 ₺. 10 Eylül'e kadar erken kayıtta %10 indirimle 16.200 ₺. Arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -124,7 +123,6 @@ PROGRAMLAR = {
             "sss": [
                 ("I've never written before. Is that a problem?", "Not at all. The program starts from the beginning; no portfolio or published work required."),
                 ("Do I have to take all three modules?", "No. Start with the first and decide about continuing later."),
-                ("How does the budget work?", "18,000 TL per module. 16,200 TL with early registration until September 10. 10% off for two people registering together."),
             ],
         },
     },
@@ -154,7 +152,6 @@ PROGRAMLAR = {
                 ("Seviye testi var mı?", "Yok. B1 ve üzeri diyoruz; günlük bir sohbeti takip edip cevap verebiliyorsanız yeterli."),
                 ("Oyunculuk deneyimim yok.", "Gerekmiyor. Program oyunculuk öğretmek için değil, dili deneyimlemek için kurulu."),
                 ("Hangi paketi seçmeliyim?", "Refleksi kırmaya 4–6 hafta yetiyor; kalıcılaştırmak isteyenler için 12 hafta öneriyoruz."),
-                ("Bütçe nasıl işliyor?", "12 hafta 19.500 ₺ · 6 hafta 11.000 ₺ · 4 hafta 8.000 ₺. Erken kayıtta %10, arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -181,7 +178,6 @@ PROGRAMLAR = {
                 ("Is there a placement test?", "No. B1 and above — if you can follow and answer in an everyday conversation, that's enough."),
                 ("I have no acting experience.", "None needed. The program exists to make you live the language, not to teach acting."),
                 ("Which package should I choose?", "4–6 weeks breaks the freeze; 12 weeks makes it stick."),
-                ("How does the budget work?", "12 weeks 19,500 TL · 6 weeks 11,000 TL · 4 weeks 8,000 TL. 10% off with early registration, 10% off for two people together."),
             ],
         },
     },
@@ -210,7 +206,6 @@ PROGRAMLAR = {
                 ("İngilizcem yeterli mi?", "B1 ve üzeri yeterli — günlük hayatta kendinizi ifade edebiliyorsanız olur."),
                 ("Başvuru için ne gerekiyor?", "Kısa bir özgeçmiş ya da kendinizi anlattığınız birkaç satır, bir de 1 dakikalık İngilizce video. Kamera kalitesi önemli değil."),
                 ("Çekim gününde ne oluyor?", "Canlı performanslar izleniyor, kayıt altına alınıyor ve katılımcılara teslim ediliyor."),
-                ("Bütçe nasıl işliyor?", "12 haftalık program 59.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -236,7 +231,6 @@ PROGRAMLAR = {
                 ("Is my English good enough?", "B1 and above is enough — if you can express yourself in everyday life, you're fine."),
                 ("What does the application need?", "A short CV or a few lines about yourself, plus a 1-minute video in English. Camera quality doesn't matter."),
                 ("What happens on the filming day?", "Live performances are watched, recorded, and delivered to participants."),
-                ("How does the budget work?", "59,000 TL for the 12-week program. Scholarship of up to 25% by application review. 10% off for two people together."),
             ],
         },
     },
@@ -262,7 +256,6 @@ PROGRAMLAR = {
                 ("Çocuğumun İngilizcesi yeterli mi?", "B1 ve üzeri öneriyoruz; sohbet edebiliyorsa yeterli. Seviye testi yok."),
                 ("Gruplar yaşa göre ayrı mı?", "Evet. 10–14 ve 15–17 ayrı sınıflarda, ayrı günlerde çalışıyor."),
                 ("Final gösterisi nasıl oluyor?", "Mayıs'ta, seyirci önünde, tamamı İngilizce. Sekiz ayın sonunda çocuk sahnede duruyor ve İngilizce konuşuyor."),
-                ("Bütçe nasıl işliyor?", "8 aylık sezon 99.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Kardeş ya da arkadaşıyla birlikte kayıtta ikisine de %10."),
             ],
         },
         "en": {
@@ -285,7 +278,6 @@ PROGRAMLAR = {
                 ("Is my child's English good enough?", "We recommend B1 and above; if they can hold a conversation, that's enough. No placement test."),
                 ("Are the groups split by age?", "Yes. 10–14 and 15–17 work in separate classes on separate days."),
                 ("What is the final showcase?", "In May, in front of an audience, entirely in English."),
-                ("How does the budget work?", "99,000 TL for the 8-month season. Scholarship of up to 25% by application review. 10% off for a sibling or friend registering together."),
             ],
         },
     },
@@ -314,7 +306,6 @@ PROGRAMLAR = {
                 ("Başvuru videosu nasıl olmalı?", "Bir müzikal ya da pop şarkısından 1–2 dakika; telefonla çekilmiş olması yeterli."),
                 ("Dans ya da şan geçmişim yok.", "Program temelden başlıyor; kabul için yetenek değil, çalışma isteği ve potansiyele bakıyoruz."),
                 ("Haftada iki gün hangi günler?", "Kayıt tamamlandığında grupla birlikte netleşiyor; akşam saatleri."),
-                ("Bütçe nasıl işliyor?", "8 aylık sezon 140.000 ₺. Başvuru değerlendirmesiyle %25'e varan burs. Arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -340,7 +331,6 @@ PROGRAMLAR = {
                 ("What should the application video be?", "1–2 minutes of a musical or pop song; a phone recording is fine."),
                 ("I have no dance or singing background.", "The program starts from the basics; we look for willingness and potential, not talent."),
                 ("Which two days of the week?", "Set with the group once registration closes; evening hours."),
-                ("How does the budget work?", "140,000 TL for the 8-month season. Scholarship of up to 25% by application review. 10% off for two people together."),
             ],
         },
     },
@@ -366,7 +356,6 @@ PROGRAMLAR = {
                 ("Hiç dans etmedim.", "Sorun değil. Teknik temelden başlıyoruz; grubun büyük kısmı da öyle."),
                 ("Ne giymeliyim?", "Rahat kıyafet ve hareket edebileceğiniz bir ayakkabı yeterli."),
                 ("6 hafta mı 12 hafta mı?", "6 hafta tadına bakmak için; 12 hafta bir koreografiyi baştan sona kurmak için."),
-                ("Bütçe nasıl işliyor?", "12 hafta 16.500 ₺, 6 hafta 9.500 ₺. Erken kayıtta %10 indirimle 12 hafta 14.850 ₺. Arkadaşınızla birlikte kayıtta ikinize de %10."),
             ],
         },
         "en": {
@@ -389,7 +378,6 @@ PROGRAMLAR = {
                 ("I've never danced.", "That's fine. We start from technical fundamentals; most of the group does too."),
                 ("What should I wear?", "Comfortable clothes and shoes you can move in."),
                 ("6 weeks or 12?", "6 weeks to get a taste; 12 weeks to build a choreography from start to finish."),
-                ("How does the budget work?", "12 weeks 16,500 TL, 6 weeks 9,500 TL. 14,850 TL for 12 weeks with early registration. 10% off for two people together."),
             ],
         },
     },
@@ -400,54 +388,60 @@ SIRA = ["auteur", "edl", "praxis", "youth", "musical", "broadway"]
 CSS = """
 @page { size: A4; margin: 14mm 15mm 12mm 15mm; }
 * { box-sizing: border-box; }
-body { font-family: "DejaVu Sans", sans-serif; color: #14140f; font-size: 8.6pt; line-height: 1.5; margin: 0; }
+body { font-family: "DejaVu Sans", sans-serif; color: #14140f; font-size: 9.2pt; line-height: 1.62; margin: 0; }
 .ust { display: flex; justify-content: space-between; border-bottom: 1.4pt solid #14140f;
        padding-bottom: 4pt; font-size: 6.6pt; letter-spacing: 0.22em; font-weight: 700; }
 .ust .sag { color: #6b6b5e; font-weight: 400; }
-.sezon { font-size: 6.4pt; letter-spacing: 0.5em; color: #6b6b5e; margin: 16pt 0 6pt; }
+.sezon { font-size: 6.4pt; letter-spacing: 0.5em; color: #6b6b5e; margin: 13pt 0 5pt; }
 h1 { font-family: "DejaVu Serif", serif; font-size: 25pt; letter-spacing: 0.01em; margin: 0 0 4pt; line-height: 1; }
-.slogan { font-style: italic; color: #4a4a42; font-size: 9.4pt; margin-bottom: 14pt; }
+.slogan { font-style: italic; color: #4a4a42; font-size: 9.4pt; margin-bottom: 11pt; }
 .meta { display: flex; gap: 6pt; border-top: 0.6pt solid #d8d8ce; border-bottom: 0.6pt solid #d8d8ce;
         padding: 7pt 0; margin-bottom: 12pt; }
 .meta div { flex: 1; }
 .meta .k { font-size: 5.8pt; letter-spacing: 0.2em; color: #8a8a7d; margin-bottom: 2.5pt; }
-.meta .v { font-size: 8.2pt; font-weight: 700; }
+.meta .v { font-size: 8.8pt; font-weight: 700; }
 .amac { border-left: 2.2pt solid #C8FF00; background: #fafaf5; padding: 7pt 9pt; margin-bottom: 10pt; }
 .amac .k { font-size: 5.8pt; letter-spacing: 0.2em; color: #8a8a7d; margin-bottom: 3pt; }
-.aciklama p { margin: 0 0 6pt; }
+.aciklama p { margin: 0 0 5pt; }
 h2 { font-size: 6.4pt; letter-spacing: 0.32em; color: #14140f; font-weight: 700;
-     margin: 14pt 0 7pt; padding-bottom: 3pt; border-bottom: 0.6pt solid #d8d8ce; }
+     margin: 11pt 0 6pt; padding-bottom: 3pt; border-bottom: 0.6pt solid #d8d8ce; }
 .fazlar { display: flex; gap: 9pt; }
 .fazlar > div { flex: 1; }
 .fazlar .sp { font-size: 5.8pt; letter-spacing: 0.16em; color: #8a8a7d; margin-bottom: 3pt; }
 .fazlar .bs { font-family: "DejaVu Serif", serif; font-size: 9.6pt; margin-bottom: 3pt; }
-.fazlar .gv { font-size: 7.6pt; color: #4a4a42; line-height: 1.45; }
+.fazlar .gv { font-size: 8.2pt; color: #4a4a42; line-height: 1.55; }
 .egit { display: flex; margin-bottom: 4pt; }
 .egit .ad { width: 33%; font-weight: 700; }
 .egit .rol { flex: 1; color: #4a4a42; }
-.alt { display: flex; gap: 16pt; margin-top: 14pt; }
+.alt { display: flex; gap: 16pt; margin-top: 11pt; }
 .alt > div { flex: 1; }
 .bas-sat { display: flex; margin-bottom: 3pt; }
 .bas-sat .yer { width: 42%; font-weight: 700; }
 .fiy { display: flex; align-items: baseline; gap: 5pt; margin-bottom: 2pt; }
-.fiy .r { font-family: "DejaVu Serif", serif; font-size: 15pt; }
-.fiy .b { font-size: 5.8pt; letter-spacing: 0.16em; color: #8a8a7d; }
-.ind { display: flex; justify-content: space-between; gap: 10pt; font-size: 7.4pt;
-       border-top: 0.6pt solid #e6e6dc; padding-top: 3pt; margin-top: 5pt; }
-.ind .d { color: #4a4a42; }
-.ind .v { font-weight: 700; text-align: right; white-space: nowrap; }
-.taksit { font-size: 6.8pt; color: #8a8a7d; margin-top: 5pt; line-height: 1.4; }
+.fiy .r { font-family: "DejaVu Serif", serif; font-size: 21pt; line-height: 1.05; }
+.fiy .b { font-size: 6.4pt; letter-spacing: 0.16em; color: #8a8a7d; }
+.indkutu { border: 1.4pt solid #14140f; border-left: 5pt solid #C8FF00; background: #fbfbf6;
+            padding: 8pt 10pt; margin-top: 9pt; }
+.ind { display: flex; justify-content: space-between; align-items: center; gap: 10pt;
+       font-size: 9.6pt; padding: 3.5pt 0; }
+.ind.stack { flex-direction: column; align-items: flex-start; gap: 2pt; }
+.ind.stack .v { font-size: 11.5pt; text-align: left; white-space: normal; }
+.ind + .ind { border-top: 0.6pt solid #e6e6dc; }
+.ind .d { color: #14140f; font-weight: 700; white-space: nowrap; }
+.ind .v { font-family: "DejaVu Serif", serif; font-size: 15pt; text-align: right;
+          white-space: nowrap; line-height: 1; }
+.taksit { font-size: 7.4pt; color: #8a8a7d; margin-top: 7pt; line-height: 1.5; }
 .tanisma { border: 0.8pt solid #14140f; padding: 8pt 10pt; margin-top: 14pt; display: flex; gap: 12pt; }
 .tanisma .et { font-size: 6.2pt; letter-spacing: 0.2em; font-weight: 700; width: 24%; padding-top: 1pt; }
-.tanisma .mt { flex: 1; font-size: 8pt; }
+.tanisma .mt { flex: 1; font-size: 8.8pt; }
 .dip { display: flex; justify-content: space-between; border-top: 0.6pt solid #d8d8ce;
-       margin-top: 14pt; padding-top: 5pt; font-size: 6.8pt; color: #6b6b5e; }
+       margin-top: 14pt; padding-top: 5pt; font-size: 7.2pt; color: #6b6b5e; }
 .adimlar { display: flex; gap: 10pt; }
 .adimlar > div { flex: 1; }
 .adimlar .n { font-family: "DejaVu Serif", serif; font-size: 13pt; color: #C8B400; margin-bottom: 3pt; }
 .adimlar .bs { font-weight: 700; margin-bottom: 2.5pt; }
-.adimlar .gv { font-size: 7.6pt; color: #4a4a42; line-height: 1.45; }
-.sss div.q { margin-bottom: 7pt; }
+.adimlar .gv { font-size: 8.2pt; color: #4a4a42; line-height: 1.55; }
+.sss div.q { margin-bottom: 5.5pt; }
 .sss .s { font-weight: 700; margin-bottom: 1.5pt; }
 .sss .c { color: #4a4a42; }
 .notk { background: #fafaf5; border-left: 2.2pt solid #C8FF00; padding: 7pt 9pt;
@@ -471,11 +465,13 @@ def sayfa1(p, d, t, kod):
                   for r, b in d["fiyat"])
     ind = ""
     if d.get("erken"):
-        ind += f'<div class="ind"><div class="d">{t["erken"]}</div><div class="v">{d["erken"]}</div></div>'
+        st = " stack" if len(d["erken"]) > 12 else ""
+        ind += f'<div class="ind{st}"><div class="d">{t["erken"]}</div><div class="v">{d["erken"]}</div></div>'
     if d.get("burs"):
         ind += f'<div class="ind"><div class="d">{t["burs"]}</div><div class="v">{d["burs"]}</div></div>'
     oran = "%10" if t is ORTAK_TR else "10%"
     ind += f'<div class="ind"><div class="d">{t["arkadas"]}</div><div class="v">{oran}</div></div>'
+    ind = f'<div class="indkutu">{ind}</div>'
     aciklama = "".join(f"<p>{par}</p>" for par in d["aciklama"].split("\n\n"))
     return f"""
 <div class="ust"><div>TECHNE LAB · İSTANBUL</div>
