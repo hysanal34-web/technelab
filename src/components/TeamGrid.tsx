@@ -161,6 +161,14 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
                     ))}
                   </div>
                 )}
+
+                <Link
+                  href={`/ekip/${m.slug}`}
+                  className="font-mono text-[11px] tracking-[0.08em] uppercase text-neon hover:text-fg transition-colors duration-200 py-1 mt-3 inline-block"
+                  data-hover
+                >
+                  tam profil →
+                </Link>
               </div>
 
               <button

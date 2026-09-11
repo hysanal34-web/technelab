@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { DISCIPLINES } from '@/lib/disiplinler'
+import { findTeamMembersForInstructor } from '@/lib/ekip'
 import { getWorkshopFaq } from '@/lib/faq'
 import { yorumlarFor } from '@/lib/yorumlar'
 import { ProgramYorumlari } from '@/components/Yorumlar'
@@ -42,6 +43,9 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
   // SEO: bu programı listeleyen disiplin sayfaları (spoke → hub iç bağlantısı)
   const hubs = DISCIPLINES.filter((d) => d.workshopSlugs.includes(w.slug))
+
+  // Eğitmen adını /ekip/[slug] profiline bağla (varsa) — E-E-A-T iç linki
+  const instructorMembers = findTeamMembersForInstructor(w.instructor)
 
   // Schema startDate: '7 Ekim Çarşamba' gibi Türkçe tarihleri ISO'ya çevir.
   // Çevrilemezse startDate hiç yazılmaz — yanlış tarih vermekten iyidir.
@@ -184,7 +188,16 @@ export default async function WorkshopDetailPage({ params }: Props) {
               <>
                 <div className="h-px w-10 bg-neon/50 mb-5" />
                 <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-white/70">
-                  {w.instructor}
+                  {instructorMembers.length > 0
+                    ? instructorMembers.map((m, i) => (
+                        <span key={m.slug}>
+                          {i > 0 && ' · '}
+                          <Link href={`/ekip/${m.slug}`} className="hover:text-neon transition-colors" data-hover>
+                            {m.name}
+                          </Link>
+                        </span>
+                      ))
+                    : w.instructor}
                 </p>
               </>
             )}
@@ -205,7 +218,18 @@ export default async function WorkshopDetailPage({ params }: Props) {
               <span className="font-mono font-normal text-[16px] italic text-stone block">{w.sub}</span>
             </h1>
             {w.instructor && w.instructor !== 'Techne Lab' && (
-              <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-stone mt-4">{w.instructor}</p>
+              <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-stone mt-4">
+                {instructorMembers.length > 0
+                  ? instructorMembers.map((m, i) => (
+                      <span key={m.slug}>
+                        {i > 0 && ' · '}
+                        <Link href={`/ekip/${m.slug}`} className="hover:text-neon transition-colors" data-hover>
+                          {m.name}
+                        </Link>
+                      </span>
+                    ))
+                  : w.instructor}
+              </p>
             )}
           </div>
         </div>

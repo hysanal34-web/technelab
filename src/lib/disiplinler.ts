@@ -248,7 +248,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Dans dersleri hangi gün ve saatte?',
-        a: 'Perşembe 19:00–21:00, Kadıköy\'de. Yeni dönem 17 Eylül Perşembe başlıyor; 12 haftalık tam ya da 6 haftalık kısa program seçebilirsin.',
+        a: 'Perşembe 19:00–21:00, Kadıköy\'de. Yeni dönem 1 Ekim Perşembe başlıyor; 12 haftalık tam ya da 6 haftalık kısa program seçebilirsin.',
       },
     ],
     related: ['muzikal-tiyatro-kursu-istanbul', 'kadikoy-dans-kursu', 'oyunculuk-kursu-istanbul'],
@@ -806,7 +806,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal çalışmak için Kadıköy\'den daha doğru bir yer düşünmek zor: geniş stüdyolar, bağımsız sahne kültürü ve her akşam bir yerlerde açık bir perde. Techne Lab\'ın iki müzikal programı da burada yürüyor — Rasimpaşa\'daki Beden İşleri ve Kadıköy merkezdeki Soft Sanat stüdyolarında, Marmaray Ayrılık Çeşmesi durağına yürüme mesafesinde.',
     what:
-      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor — 28 Eylül\'de başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi — 17 Eylül Perşembe akşamı başlıyor, dilersen 6 haftalık kısa programla deneyebilirsin.',
+      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor — 28 Eylül\'de başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi — 1 Ekim Perşembe akşamı başlıyor, dilersen 6 haftalık kısa programla deneyebilirsin.',
     who:
       'Şarkı söylüyor ama sahnede ne yapacağını bilmiyorsan; dans ediyorsun ama "oynamayı" hiç denemediysen; ya da üçünü aynı anda öğrenmek istiyorsan — program tam bunun için kurgulandı. Konservatuvar mezunu olman gerekmiyor. Anadolu yakasında oturuyorsan (Moda, Üsküdar, Ataşehir, Bostancı) stüdyolar zaten yanı başında; Avrupa yakasından gelenler için Marmaray tek aktarma.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
@@ -848,7 +848,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Kadıköy\'de dans kursu arayanın önünde iki tür kapı var: spor salonu mantığıyla çalışan stüdyolar ve sahneye bakan atölyeler. Techne Lab ikincisi — burada dans bir fitness rutini değil, bir anlatım biçimi. Broadway müzikal dansını jazz ve theatre dance teknikleriyle çalışıyoruz; amaç adım ezberlemek değil, sahnede bir hikâye taşıyabilen bir beden kurmak.',
     what:
-      'Program 12 hafta: teknik temel (duruş, izolasyon, jazz vokabüleri), ardından kombinasyon ve koreografi, son bölümde sahne performansı kalitesinde çalışılan tam bir Broadway numarası. Perşembe akşamları 19:00–21:00, Rasimpaşa\'daki stüdyoda; yeni dönem 17 Eylül\'de başlıyor. 12 haftalık tam programa yazılabilir ya da 6 haftalık kısa programla başlayıp devam kararını sonra verebilirsin. Dansın müzikal sahnesiyle buluştuğu tam sürüm için sekiz aylık Techne Musical Lab da aynı stüdyoda.',
+      'Program 12 hafta: teknik temel (duruş, izolasyon, jazz vokabüleri), ardından kombinasyon ve koreografi, son bölümde sahne performansı kalitesinde çalışılan tam bir Broadway numarası. Perşembe akşamları 19:00–21:00, Rasimpaşa\'daki stüdyoda; yeni dönem 1 Ekim\'de başlıyor. 12 haftalık tam programa yazılabilir ya da 6 haftalık kısa programla başlayıp devam kararını sonra verebilirsin. Dansın müzikal sahnesiyle buluştuğu tam sürüm için sekiz aylık Techne Musical Lab da aynı stüdyoda.',
     who:
       '"Dansa kaç yaşında başlanır" diye arayıp duran yetişkinler: cevap, bu grupta. Katılımcıların çoğu sıfırdan ya da yıllar önce bırakmış olarak geliyor. Bale altyapısı, esneklik şartı, seçme yok — teknik temelden başlıyoruz. Moda\'dan, Yeldeğirmeni\'nden yürüyerek; Üsküdar, Ataşehir ve Bostancı\'dan Marmaray ya da M4 ile kolay ulaşım.',
     workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
@@ -860,7 +860,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Dersler hangi gün ve saatte?',
-        a: 'Perşembe akşamları 19:00–21:00, Kadıköy Rasimpaşa\'daki stüdyoda. Yeni dönem 17 Eylül Perşembe başlıyor. Mesai sonrası yetişilebilir bir saat — katılımcıların çoğu çalışan yetişkinler.',
+        a: 'Perşembe akşamları 19:00–21:00, Kadıköy Rasimpaşa\'daki stüdyoda. Yeni dönem 1 Ekim Perşembe başlıyor. Mesai sonrası yetişilebilir bir saat — katılımcıların çoğu çalışan yetişkinler.',
       },
       {
         q: '12 haftaya taahhüt vermek istemiyorum, deneme şansı var mı?',
@@ -879,7 +879,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Broadway Dans · Müzikal — Avrupa Yakası',
     seoTitle: 'Beyoğlu & Pera Dans Kursu — Broadway Müzikal Dansı | Techne Lab',
     seoDesc:
-      'Beyoğlu\'nda dans kursu: Broadway Musical Dance Taksim sınıfı 17 Eylül Perşembe 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. Pera\'da ayrıca İngilizce drama ve oyunculuk atölyeleri.',
+      'Beyoğlu\'nda dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. Pera\'da ayrıca İngilizce drama ve oyunculuk atölyeleri.',
     keywords: [
       'beyoğlu dans kursu', 'pera dans kursu', 'pera dans atölyesi', 'galata dans kursu',
       'cihangir dans kursu', 'beyoğlu müzikal kursu', 'pera müzikal atölyesi',
@@ -887,9 +887,9 @@ export const DISCIPLINES: Discipline[] = [
       'beyoğlu broadway dans', 'şişhane dans atölyesi',
     ],
     intro:
-      'Beyoğlu tarafında dans arıyorsan: Broadway Musical Dance\'in Taksim sınıfı 17 Eylül Perşembe 19:00\'da başlıyor — Galata, Cihangir, Şişhane hattından yürüme ya da tek durak mesafesinde. Aynı program aynı gün ve saatte Kadıköy stüdyosunda da açık; Karaköy\'den vapurla geçmeyi ritüel sayanlar oraya da gidebiliyor. İngilizce drama ve oyunculuk atölyelerimiz ise Pera\'daki partner stüdyoda yürüyor.',
+      'Beyoğlu tarafında dans arıyorsan: Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor — Galata, Cihangir, Şişhane hattından yürüme ya da tek durak mesafesinde. Aynı program Kadıköy stüdyosunda Perşembe akşamları da açık; Karaköy\'den vapurla geçmeyi ritüel sayanlar oraya da gidebiliyor. İngilizce drama ve oyunculuk atölyelerimiz ise Pera\'daki partner stüdyoda yürüyor.',
     what:
-      'Dans hattında Broadway Musical Dance var: jazz ve theatre dance teknikleriyle sahne koreografisi, Perşembe 19:00–21:00, 17 Eylül başlangıç, 12 haftalık tam ya da 6 haftalık kısa seçenek — Taksim ve Kadıköy sınıfları birlikte açılıyor. Müzikal hattında Techne Musical Lab: sekiz ay, oyunculuk + şan + dans, seyircili bitirme performansı; bu program stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de.',
+      'Dans hattında Broadway Musical Dance var: jazz ve theatre dance teknikleriyle sahne koreografisi, 12 haftalık tam ya da 6 haftalık kısa seçenek — Taksim sınıfı 3 Ekim Cumartesi 19:00\'da, Kadıköy sınıfı 1 Ekim Perşembe 19:00\'da başlıyor. Müzikal hattında Techne Musical Lab: sekiz ay, oyunculuk + şan + dans, seyircili bitirme performansı; bu program stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de.',
     who:
       'Galata, Cihangir, Şişhane, Karaköy hattında yaşayıp "dans kursu beyoğlu" diye arayan; iş çıkışı Karaköy\'den vapura atlayabilecek olan; ya da dansı değil de sahneyi Pera\'da isteyen (o zaman İngilizce drama programlarına bak) herkes. Vapur yolculuğunu dert değil ritüel sayanlar için ekstra puan.',
     workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
@@ -897,11 +897,11 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Beyoğlu\'nda dans dersi veriyor musunuz?',
-        a: 'Evet — Broadway Musical Dance\'in Taksim sınıfı Perşembe 19:00–21:00\'da çalışıyor, 17 Eylül\'de başlıyor. Müzikal Lab ise zemin, ayna ve piyano gereksinimleri nedeniyle yalnızca Kadıköy stüdyosunda. Mekân bilgisini her sayfada açık yazarız.',
+        a: 'Evet — Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00\'da çalışıyor, 3 Ekim\'de başlıyor. Müzikal Lab ise zemin, ayna ve piyano gereksinimleri nedeniyle yalnızca Kadıköy stüdyosunda. Mekân bilgisini her sayfada açık yazarız.',
       },
       {
         q: 'Kadıköy sınıfını tercih edersem nasıl giderim?',
-        a: 'En keyifli yol Karaköy–Kadıköy vapuru; iskeleden stüdyo yürüme mesafesinde. Alternatif: Marmaray ile Ayrılık Çeşmesi durağı. İki sınıfın günü ve saati aynı, içerik aynı.',
+        a: 'En keyifli yol Karaköy–Kadıköy vapuru; iskeleden stüdyo yürüme mesafesinde. Alternatif: Marmaray ile Ayrılık Çeşmesi durağı. Kadıköy sınıfı Perşembe, Taksim sınıfı Cumartesi çalışıyor — içerik aynı, gün farklı.',
       },
       {
         q: 'Pera\'daki atölyelerde dans ya da müzikal içerik yok mu?',
@@ -920,7 +920,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Broadway Dans · Müzikal — Taksim Sınıfı Açıldı',
     seoTitle: 'Taksim Dans Kursu — Broadway Müzikal Dansı | Techne Lab',
     seoDesc:
-      'Taksim\'de dans kursu: Broadway Musical Dance Taksim sınıfı 17 Eylül Perşembe 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. 12 ya da 6 haftalık program, dans deneyimi şart değil.',
+      'Taksim\'de dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. 12 ya da 6 haftalık program, dans deneyimi şart değil.',
     keywords: [
       'taksim dans kursu', 'taksim dans atölyesi', 'taksim müzikal kursu',
       'taksim jazz dans', 'istiklal dans kursu', 'taksim broadway dans',
@@ -928,9 +928,9 @@ export const DISCIPLINES: Discipline[] = [
       'taksim müzikal tiyatro', 'elmadağ dans kursu',
     ],
     intro:
-      'Taksim civarında dans kursu çok; sahneye bakanı az. Broadway Musical Dance\'in Taksim sınıfı 17 Eylül Perşembe 19:00\'da başlıyor — İstiklal\'den çıkıp yürüyerek yetişebileceğin bir saatte. Aynı program aynı gün ve saatte Kadıköy stüdyosunda da yürüyor; hangi yaka sana yakınsa oradan başlıyorsun. Taksim tarafında kalmak istersen Pera\'daki partner stüdyoda oyunculuk ve İngilizce drama atölyeleri de var.',
+      'Taksim civarında dans kursu çok; sahneye bakanı az. Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor — İstiklal\'den çıkıp yürüyerek yetişebileceğin bir saatte. Aynı program Kadıköy stüdyosunda Perşembe akşamları da yürüyor; hangi yaka sana yakınsa oradan başlıyorsun. Taksim tarafında kalmak istersen Pera\'daki partner stüdyoda oyunculuk ve İngilizce drama atölyeleri de var.',
     what:
-      'Dans: Broadway Musical Dance — jazz ve theatre dance teknikleriyle sahne koreografisi. 12 haftalık tam ya da 6 haftalık kısa program; Taksim ve Kadıköy sınıfları 17 Eylül Perşembe 19:00–21:00\'da başlıyor. Müzikal: Techne Musical Lab — sekiz ay, oyunculuk + şan + dans, Mayıs\'ta seyircili bitirme performansı; bu program yalnızca Kadıköy stüdyosunda, çünkü zemin, ayna ve piyano altyapısı orada.',
+      'Dans: Broadway Musical Dance — jazz ve theatre dance teknikleriyle sahne koreografisi. 12 haftalık tam ya da 6 haftalık kısa program; Taksim sınıfı 3 Ekim Cumartesi 19:00\'da, Kadıköy sınıfı 1 Ekim Perşembe 19:00\'da başlıyor. Müzikal: Techne Musical Lab — sekiz ay, oyunculuk + şan + dans, Mayıs\'ta seyircili bitirme performansı; bu program yalnızca Kadıköy stüdyosunda, çünkü zemin, ayna ve piyano altyapısı orada.',
     who:
       'Harbiye, Elmadağ, Cihangir, Gümüşsuyu hattında yaşayanlar; Taksim\'de çalışıp iş çıkışı derse yürüyerek gitmek isteyenler; müzikal tiyatroya merakı olup nereden başlayacağını bilmeyenler. Dans deneyimi şart değil — teknik temelden başlıyoruz, grup 15 kişiyi geçmiyor.',
     workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
@@ -938,11 +938,11 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Taksim\'de dans dersi veriyor musunuz?',
-        a: 'Evet. Broadway Musical Dance\'in Taksim sınıfı 17 Eylül Perşembe 19:00–21:00\'da başlıyor. Aynı program aynı gün ve saatte Kadıköy stüdyosunda da açık — ikisinden birini seçiyorsun. Müzikal Lab ise stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de; bunu açıkça yazıyoruz, "her semtte her program" iddiasında değiliz.',
+        a: 'Evet. Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00–21:00\'da, 3 Ekim\'de başlıyor. Aynı program Perşembe akşamları Kadıköy stüdyosunda da açık — ikisinden birini seçiyorsun. Müzikal Lab ise stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de; bunu açıkça yazıyoruz, "her semtte her program" iddiasında değiliz.',
       },
       {
         q: 'Kadıköy sınıfına geçmek istersem ulaşım gerçekçi mi?',
-        a: 'Evet. Füniküler + Kabataş–Kadıköy vapuru en rahat rota; metro + Marmaray (Ayrılık Çeşmesi) alternatif. İki sınıf da Perşembe 19:00–21:00 çalışıyor, içerik aynı.',
+        a: 'Evet. Füniküler + Kabataş–Kadıköy vapuru en rahat rota; metro + Marmaray (Ayrılık Çeşmesi) alternatif. Kadıköy sınıfı Perşembe, Taksim sınıfı Cumartesi 19:00–21:00 çalışıyor — içerik aynı, gün farklı.',
       },
       {
         q: 'Önce denemek istesem?',
@@ -950,6 +950,90 @@ export const DISCIPLINES: Discipline[] = [
       },
     ],
     related: ['dans-kursu-istanbul', 'beyoglu-dans-kursu', 'muzikal-tiyatro-kursu-istanbul'],
+  },
+
+  // ── KADIKÖY × İNGİLİZCE DRAMA ────────────────────────────────────
+  {
+    slug: 'kadikoy-ingilizce-drama-kursu',
+    label: 'İngilizce Drama · Kadıköy',
+    navHidden: true,
+    h1: 'KADIKÖY\nİNGİLİZCE DRAMA',
+    eyebrow: 'English Drama Lab · English Drama Youth — Kadıköy',
+    seoTitle: 'Kadıköy İngilizce Drama Kursu — English Drama Lab & Youth',
+    seoDesc:
+      'Kadıköy\'de İngilizce drama: yetişkinler için English Drama Lab (Pazartesi 20:00) ve 10-17 yaş için English Drama Youth (Cumartesi). Doğaçlama temelli, gramer yok — Anadolu yakasında.',
+    keywords: [
+      'kadıköy ingilizce drama', 'kadıköy ingilizce drama kursu', 'kadıköy english drama',
+      'anadolu yakası ingilizce drama', 'kadıköy ingilizce tiyatro', 'kadıköy ingilizce konuşma kulübü',
+      'moda ingilizce drama', 'kadıköy gençler için ingilizce drama',
+      'kadıköy çocuklar için ingilizce drama', 'üsküdar ingilizce drama',
+      'ataşehir ingilizce drama', 'bostancı ingilizce drama', 'kadıköy english drama lab',
+    ],
+    intro:
+      'Kadıköy\'de İngilizce sahnede konuşmak isteyenler için iki ayrı kapı var: yetişkinler için English Drama Lab, 10-17 yaş için English Drama Youth. İkisi de aynı yöntemle çalışıyor — gramer değil, doğaçlama ve oyun. Anadolu yakasından "ingilizce drama nerede" diye arayanların çoğu bu sayfaya düşüyor, çünkü Beyoğlu\'na geçmeden aynı kalitede bir program burada.',
+    what:
+      'Yetişkin tarafında English Drama Lab: 12, 6 ya da 4 haftalık paket seçenekleri, Kadıköy grubu Pazartesi akşamları 20:00\'de. Metin ezberi yok — doğaçlama, status oyunları, karakter çalışması. Gençlik tarafında English Drama Youth: 10-17 yaş, Cumartesi günleri, sekiz ay (Ekim-Mayıs); 10-14 ve 15-17 yaş grupları ayrı sınıflarda çalışıyor, yıl seyircili bir final gösterisiyle kapanıyor.',
+    who:
+      'İngilizcesi var ama konuşurken donan yetişkinler, yurtdışı hazırlığı yapanlar, konuşma kulübü deneyip sıkılmış olanlar — bunlar English Drama Lab\'a. Çocuğu ya da genci için oyun temelli, sınavsız bir İngilizce ortamı arayan veliler — English Drama Youth\'a. Üsküdar, Ataşehir, Bostancı\'dan gelenler için Kadıköy zaten en yakın nokta.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    faq: [
+      {
+        q: 'Kadıköy\'de İngilizce drama hangi gün?',
+        a: 'English Drama Lab yetişkin grubu Pazartesi 20:00\'de, English Drama Youth ise Cumartesi günleri çalışıyor. İkisi ayrı program, ayrı yaş grubu — kayıt sırasında hangisine katılacağını netleştiriyoruz.',
+      },
+      {
+        q: '10-17 yaş için Kadıköy\'de İngilizce drama var mı?',
+        a: 'Evet — English Drama Youth, Ekim-Mayıs arası Cumartesi günleri Kadıköy\'de yürüyor. 10-14 ve 15-17 yaş ayrı sınıflarda çalışıyor; yıl seyircili bir final gösterisiyle kapanıyor.',
+      },
+      {
+        q: 'İngilizce seviyem düşük, yine de katılabilir miyim?',
+        a: 'Yetişkin grubunda orta seviye (B1 civarı) yeterli — beklenen mükemmel gramer değil, konuşma cesareti. Gençlik grubunda da benzer: akıcı olmak değil, sohbet edebilmek yeterli.',
+      },
+    ],
+    related: ['ingilizce-drama-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'kadikoy-dans-kursu'],
+  },
+
+  // ── BEYOĞLU · PERA × İNGİLİZCE DRAMA ──────────────────────────────
+  {
+    slug: 'beyoglu-ingilizce-drama-kursu',
+    label: 'İngilizce Drama · Beyoğlu',
+    navHidden: true,
+    h1: 'BEYOĞLU · PERA\nİNGİLİZCE DRAMA',
+    eyebrow: 'English Drama Lab · English Acting Praxis — Pera',
+    seoTitle: 'Beyoğlu & Pera İngilizce Drama Kursu — English Drama Lab & Acting Praxis',
+    seoDesc:
+      'Beyoğlu Pera\'da İngilizce drama: English Drama Lab (Cumartesi 15:00, doğaçlama temelli) ve English Acting Praxis (Cumartesi 11:00, uluslararası casting hazırlığı, Harika Uygur masterclass finali).',
+    keywords: [
+      'beyoğlu ingilizce drama', 'pera ingilizce drama', 'taksim ingilizce drama',
+      'beyoğlu english drama', 'pera english acting', 'galata ingilizce drama',
+      'cihangir ingilizce drama', 'ingilizce oyunculuk beyoğlu', 'beyoğlu ingilizce tiyatro',
+      'avrupa yakası ingilizce drama', 'ingilizce audition hazırlık istanbul',
+      'pera english drama lab',
+    ],
+    intro:
+      'Pera\'da İngilizce sahne çalışmasının iki farklı katmanı var: English Drama Lab konuşma cesaretini kuruyor, English Acting Praxis o cesareti uluslararası bir oyunculuk diline taşıyor. Beyoğlu ve Taksim çevresinden "ingilizce drama" ya da "ingilizce oyunculuk" arayanların çoğu ihtiyacını bu ikisinden birinde karşılıyor.',
+    what:
+      'English Drama Lab: 12, 6 ya da 4 haftalık paket, Pera grubu Cumartesi 15:00\'de — doğaçlama ve oyun temelli, metin ezberi yok. English Acting Praxis: 12 hafta, Cumartesi 11:00\'de, B1 üzeri İngilizce yeterli; metin çalışması, karakter kurma ve prova disipliniyle ilerliyor, finalde cast direktörü Harika Uygur\'un bir günlük masterclass ve çekim günü var.',
+    who:
+      'İngilizce konuşurken donan, yurtdışı hazırlığı yapan ya da bir konuşma kulübünden fazlasını arayan yetişkinler — English Drama Lab\'a. Sahne deneyimi olan, oyunculuğunu uluslararası castinglere hazırlamak isteyen oyuncular — English Acting Praxis\'e. İkisi de Pera\'daki aynı stüdyoda, İstiklal Caddesi\'ne yürüme mesafesinde.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu'],
+    faq: [
+      {
+        q: 'Beyoğlu\'nda İngilizce drama nerede ve ne zaman?',
+        a: 'Pod Pera stüdyosunda, İstiklal Caddesi\'ne yürüme mesafesinde. English Drama Lab Cumartesi 15:00\'de, English Acting Praxis Cumartesi 11:00\'de çalışıyor — aynı gün, farklı saat, farklı program.',
+      },
+      {
+        q: 'English Drama Lab ile English Acting Praxis arasındaki fark ne?',
+        a: 'English Drama Lab doğaçlama ve oyunla İngilizce konuşma cesareti kuruyor, seviye şartı yok. English Acting Praxis ise B1 üzeri İngilizce ve genelde bir miktar sahne deneyimi bekliyor — metin, karakter ve prova disipliniyle uluslararası casting hazırlığına odaklanıyor.',
+      },
+      {
+        q: 'Harika Uygur masterclass\'ı herkese mi açık?',
+        a: 'Yalnızca English Acting Praxis\'in 12 haftasını tamamlayan katılımcılara — finalde bir günlük masterclass ve çekim günü var, performanslar kayıt altına alınıp teslim ediliyor.',
+      },
+    ],
+    related: ['ingilizce-drama-istanbul', 'kamera-onu-oyunculuk-istanbul', 'kadikoy-ingilizce-drama-kursu'],
   },
 ]
 
