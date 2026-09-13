@@ -158,6 +158,9 @@ export default function HomePage() {
             className="font-display text-fg leading-[1.02] tracking-[0.005em]"
             style={{ fontSize: 'clamp(64px, 14.5vw, 210px)' }}
           >
+            <span className="sr-only">
+              <T tr="Techne Lab İstanbul — oyunculuk, dans, müzikal ve yazarlık atölyeleri. " en="Techne Lab Istanbul — acting, dance, musical theatre and playwriting workshops. " />
+            </span>
             <T tr={<>DİSİPLİN<br /><span className="text-neon">ÖZGÜRLÜKTÜR.</span></>} en={<>DISCIPLINE<br /><span className="text-neon">IS FREEDOM.</span></>} />
           </h1>
 
@@ -183,15 +186,28 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Neon disiplin şeridi — sabit, hareketsiz */}
-        <Link href="/atolyeler" className="block bg-neon text-ink hover:bg-fg hover:text-ink transition-colors duration-200 overflow-hidden" data-hover aria-label="Programlar">
-          <div className="font-display text-[20px] md:text-[28px] tracking-[0.06em] px-6 md:px-12 py-3.5 md:py-4 whitespace-nowrap">
-            <T
-              tr="YAZARLIK · OYUNCULUK · İNGİLİZCE DRAMA · MÜZİKAL · BROADWAY DANSI · YAZARLIK · OYUNCULUK · İNGİLİZCE DRAMA · MÜZİKAL"
-              en="PLAYWRITING · ACTING · ENGLISH DRAMA · MUSICAL THEATRE · BROADWAY DANCE · PLAYWRITING · ACTING · ENGLISH DRAMA"
-            />
-          </div>
-        </Link>
+        {/* Neon disiplin şeridi — sabit, hareketsiz. Her kelime kendi sayfasına link. */}
+        <nav className="bg-neon overflow-hidden" aria-label="Disiplinler">
+          <ul className="flex font-display text-[20px] md:text-[28px] tracking-[0.06em] px-6 md:px-12 py-3.5 md:py-4 whitespace-nowrap list-none">
+            {[
+              { tr: 'YAZARLIK', en: 'PLAYWRITING', href: '/oyun-yazarligi-kursu-istanbul' },
+              { tr: 'OYUNCULUK', en: 'ACTING', href: '/oyunculuk-kursu-istanbul' },
+              { tr: 'İNGİLİZCE DRAMA', en: 'ENGLISH DRAMA', href: '/ingilizce-drama-istanbul' },
+              { tr: 'MÜZİKAL', en: 'MUSICAL THEATRE', href: '/muzikal-tiyatro-kursu-istanbul' },
+              { tr: 'BROADWAY DANSI', en: 'BROADWAY DANCE', href: '/dans-kursu-istanbul' },
+              { tr: 'YARATICI DRAMA', en: 'CREATIVE DRAMA', href: '/yaratici-drama-istanbul' },
+              { tr: 'KAMERA ÖNÜ', en: 'ON-CAMERA', href: '/kamera-onu-oyunculuk-istanbul' },
+              { tr: '10–17 YAŞ', en: 'AGES 10–17', href: '/atolyeler/english-drama-youth' },
+            ].map((d, i) => (
+              <li key={d.href} className="flex items-center">
+                {i > 0 && <span className="px-3 md:px-4 text-ink/60" aria-hidden="true">·</span>}
+                <Link href={d.href} className="text-ink hover:bg-ink hover:text-neon transition-colors duration-150 px-1" data-hover>
+                  <T tr={d.tr} en={d.en} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
