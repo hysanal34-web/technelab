@@ -4,7 +4,7 @@ import { BultenForm } from '@/components/BultenForm'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-0">
+    <footer className="surface-dark border-t-[6px] border-ink mt-0">
       <div className="px-4 md:px-10 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <div className="font-display text-2xl tracking-wider text-fg mb-1">TECHNE LAB İSTANBUL</div>

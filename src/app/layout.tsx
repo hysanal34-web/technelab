@@ -6,14 +6,15 @@ import { CallTracker } from '@/components/CallTracker'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
-import { Cursor } from '@/components/Cursor'
 import { TiyatroBot } from '@/components/TiyatroBot'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { SITE_META } from '@/lib/data'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
 // Anti-flash: run before paint to apply saved theme class
-const themeScript = `(function(){document.documentElement.classList.remove('no-js');try{var t=localStorage.getItem('theme');if(!t||t==='dark')document.documentElement.classList.add('dark');}catch(e){document.documentElement.classList.add('dark');}})()`
+// 13 Eylül 2026 — yeni tasarım: tek tema. İçerik yüzeyi beyaz, nav ve hero
+// siyah (.surface-dark). Kayıtlı 'theme' tercihi artık okunmuyor.
+const themeScript = `(function(){document.documentElement.classList.remove('no-js');document.documentElement.classList.remove('dark');})()`
 
 // Perde arkasına bakanlar için — console easter egg
 const curtainScript = `console.log("%c\\n  ┌─────────────────────────────────┐\\n  │   TECHNE LAB İSTANBUL           │\\n  │   τέχνη — zanaat, sanat, hüner  │\\n  │                                 │\\n  │   DISCIPLINE IS FREEDOM.        │\\n  │                                 │\\n  │   Perde arkasına hoş geldin.    │\\n  │   Sahne tozu yutanlar buraya:   │\\n  │   technelabistanbul.com/iletisim      │\\n  └─────────────────────────────────┘\\n","color:#B8F000;font-family:monospace;font-size:12px")`
@@ -200,9 +201,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           İçeriğe atla
         </a>
         <LanguageProvider>
-          <div className="stage-curtain" aria-hidden="true" />
-          <div className="grain-overlay" aria-hidden="true" />
-          <Cursor />
           <Nav />
           <main id="icerik" className="page-enter">{children}</main>
           <Footer />

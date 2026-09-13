@@ -17,9 +17,12 @@ const config: Config = {
         ink:    '#0A0A0C',
       },
       fontFamily: {
-        display: ['var(--font-bebas)', 'Impact', 'sans-serif'],
-        mono:    ['var(--font-dm-mono)', 'Courier New', 'monospace'],
-        body:    ['var(--font-dm-mono)', 'Courier New', 'monospace'],
+        // 13 Eylül 2026 — yeni tipografi. 'mono' sınıfı yüzlerce yerde
+        // gövde metni için kullanılıyor; adı kalsın, fontu okunaklı olsun.
+        display: ['var(--font-display)', 'Impact', 'sans-serif'],
+        mono:    ['var(--font-body)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        body:    ['var(--font-body)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        code:    ['var(--font-code)', 'Courier New', 'monospace'],
       },
       letterSpacing: {
         widest2: '0.22em',

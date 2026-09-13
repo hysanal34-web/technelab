@@ -6,7 +6,6 @@ import { useEffect, useState, useRef } from 'react'
 import { useLang } from '@/contexts/LanguageContext'
 import { WORKSHOPS } from '@/lib/data'
 import { DISCIPLINES } from '@/lib/disiplinler'
-import { ThemeToggle } from '@/components/ThemeToggle'
 
 const links = [
   { href: '/atolyeler', tr: 'atölyeler', en: 'workshops', hasMega: true },
@@ -124,33 +123,15 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-[9000] flex items-center justify-between px-8 md:px-12 transition-all duration-300 ${
-        scrolled
-          ? 'bg-bg/97 backdrop-blur-md border-b border-border'
-          : 'bg-transparent border-b border-transparent'
+      className={`surface-dark fixed top-0 inset-x-0 z-[9000] flex items-center justify-between px-6 md:px-12 border-b transition-colors duration-300 ${
+        scrolled ? 'border-border' : 'border-transparent'
       }`}
-      style={{ height: 64 }}
+      style={{ height: 64, background: 'rgb(10,10,12)' }}
     >
-      {/* Neon left accent */}
-      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-neon hidden md:block" aria-hidden="true" />
-
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2.5 group" data-hover>
-        <div className="relative w-9 h-9 flex-shrink-0">
-          <Image
-            src="/images/techne-logo.png"
-            alt="Techne Lab"
-            fill
-            sizes="32px"
-            className="object-contain rounded-full group-hover:opacity-90 transition-opacity duration-200"
-          />
-        </div>
-        <span
-          className={`font-mono text-[13px] tracking-[0.12em] transition-colors duration-200 hidden md:block ${
-            path === '/' ? 'text-neon' : 'text-fg group-hover:text-neon'
-          }`}
-        >
-          TECHNE LAB İSTANBUL
+      <Link href="/" className="flex items-center group" data-hover aria-label="Techne Lab İstanbul — ana sayfa">
+        <span className="font-display text-[24px] md:text-[26px] tracking-[0.04em] leading-none text-fg group-hover:text-neon transition-colors duration-200 whitespace-nowrap">
+          TECHNE LAB
         </span>
       </Link>
 
@@ -171,7 +152,7 @@ export function Nav() {
                 href={href}
                 aria-haspopup="true"
                 aria-expanded={megaOpen}
-                className={`relative font-mono text-[13px] tracking-[0.1em] lowercase transition-colors duration-200 group ${
+                className={`relative font-body text-[15px] font-medium transition-colors duration-200 group ${
                   path.startsWith(href) ? 'text-neon' : 'text-fg/70 hover:text-fg'
                 }`}
                 data-hover
@@ -196,7 +177,7 @@ export function Nav() {
             <Link
               key={href}
               href={href}
-              className={`relative font-mono text-[13px] tracking-[0.1em] lowercase transition-colors duration-200 group ${
+              className={`relative font-body text-[15px] font-medium transition-colors duration-200 group ${
                 path.startsWith(href) ? 'text-neon' : 'text-fg/70 hover:text-fg'
               }`}
               data-hover
@@ -212,7 +193,7 @@ export function Nav() {
         {/* TR / EN toggle */}
         <button
           onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
-          className="font-mono text-[11px] tracking-[0.12em] uppercase text-fg/70 hover:text-neon transition-colors duration-200 border border-fg/25 hover:border-neon px-3 min-h-[44px] flex items-center"
+          className="font-body text-[14px] font-semibold text-ink bg-neon hover:bg-fg transition-colors duration-200 border border-neon hover:border-fg px-3 min-h-[44px] flex items-center"
           aria-label="Dil / Language"
           data-hover
         >
@@ -220,7 +201,6 @@ export function Nav() {
         </button>
 
         {/* Tema */}
-        <ThemeToggle />
       </nav>
 
       {/* Mobile: hamburger */}
@@ -296,8 +276,7 @@ export function Nav() {
                 >
                   {lang === 'tr' ? '→ English' : '→ Türkçe'}
                 </button>
-                <ThemeToggle />
-              </div>
+                      </div>
             </nav>
           </div>
         </>

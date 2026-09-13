@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { WORKSHOPS, SITE_META, GALLERY_IMAGES } from '@/lib/data'
 import { getAllArticles } from '@/lib/mdx'
@@ -7,12 +6,10 @@ import { WorkshopCard3D } from '@/components/WorkshopCard3D'
 import { WorkshopAssistant } from '@/components/WorkshopAssistant'
 import { ArticleCard } from '@/components/ArticleCard'
 import { RevealSection } from '@/components/RevealSection'
-import { MarqueeStrip } from '@/components/MarqueeStrip'
 import { Gallery } from '@/components/Gallery'
 import { ClientStats } from '@/components/ClientStats'
 import { InstagramSection } from '@/components/InstagramSection'
 import { T } from '@/components/LangText'
-import { CycleDisciplines } from '@/components/CycleDisciplines'
 import { DisciplineGrid } from '@/components/DisciplineGrid'
 import { Yorumlar } from '@/components/Yorumlar'
 
@@ -138,179 +135,63 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── Sezon Duyuru Bandı ── */}
-      <Link
-        href="/atolyeler"
-        className="group flex items-center justify-between w-full bg-neon text-bg px-4 md:px-14 py-3.5 hover:bg-fg transition-colors duration-300 mt-[64px]"
-        aria-label="Techne Lab atölyeleri"
-      >
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase opacity-60">
-            <T tr="2026—27 Sezonu" en="2026—27 Season" />
-          </span>
-          <span className="w-px h-3 bg-bg/30" aria-hidden="true" />
-          <span className="font-mono text-[11px] tracking-[0.18em] uppercase font-medium">
-            <T tr="Eylül Kayıtları Açık" en="September Enrolment Open" />
-          </span>
-        </div>
-        <span className="font-mono text-[11px] tracking-[0.14em] uppercase group-hover:translate-x-1 transition-transform duration-200">
-          <T tr="Programlar →" en="See programs →" />
-        </span>
-      </Link>
-
       {/* ════════════════════════════════════════════════════════════
-          HERO — Full-width, Techne Lab ön planda
+          HERO — 13 Eylül 2026 yeniden tasarımı ("Siyah Kutu")
+          Siyah yüzey, Anton dev tipografi, neon tek kelimede.
+          Grid, marquee, mono etiket yok — göz yorgunluğu buradan başlıyordu.
       ════════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-bg"
+        className="surface-dark relative overflow-hidden pt-[64px]"
         aria-label="Hero"
       >
-        {/* Neon left rule */}
-        <div className="hero-rule absolute top-0 left-0 w-[3px] h-full bg-neon z-10" aria-hidden="true" />
-
-        {/* Subtle background grid */}
-        <div className="absolute inset-0 bauhaus-grid" />
-
-
-        {/* ── TOP: Eyebrow + Headline + Slogan ── */}
-        <div className="relative z-10 px-4 md:px-14 pt-28 max-w-[1400px]">
-          {/* Headline */}
-          <h1
-            className="hero-rise hero-rise-1 font-display leading-none text-fg mb-6"
-            style={{ fontSize: 'clamp(44px, 7.5vw, 110px)', letterSpacing: '0.01em' }}
+        <div className="px-6 md:px-12 pt-16 md:pt-24 pb-14 md:pb-16">
+          {/* Etiket — hafif eğik neon şerit */}
+          <Link
+            href="/atolyeler"
+            className="inline-block bg-neon text-ink font-display text-[18px] md:text-[22px] tracking-[0.06em] px-4 py-2 -rotate-2 hover:rotate-0 transition-transform duration-200 mb-8 md:mb-10"
+            data-hover
           >
-            <span className="block">TECHNE</span>
-            <span className="block">
-              <span className="inline-block bg-neon text-bg px-[0.14em] -ml-[0.06em]" style={{ lineHeight: 0.95 }}>
-                LAB
-              </span>
-              <span className="text-neon" aria-hidden="true">*</span>
-            </span>
-            <span
-              className="block"
-              style={{ fontSize: '0.34em', letterSpacing: '0.22em', color: 'transparent', WebkitTextStroke: '1.5px var(--fg)' }}
-            >
-              İSTANBUL
-            </span>
+            <T tr="2026–27 SEZONU · KAYITLAR AÇIK" en="2026–27 SEASON · ENROLMENT OPEN" />
+          </Link>
+
+          <h1
+            className="font-display text-fg leading-[1.02] tracking-[0.005em]"
+            style={{ fontSize: 'clamp(64px, 14.5vw, 210px)' }}
+          >
+            <T tr={<>DİSİPLİN<br /><span className="text-neon">ÖZGÜRLÜKTÜR.</span></>} en={<>DISCIPLINE<br /><span className="text-neon">IS FREEDOM.</span></>} />
           </h1>
 
-          {/* Slogan */}
-          <p
-            className="hero-rise hero-rise-2 font-mono text-neon/70 mt-1"
-            style={{ fontSize: 'clamp(11px, 1.1vw, 15px)', letterSpacing: '0.22em' }}
-          >
-            DISCIPLINE IS FREEDOM.<span className="cursor-blink ml-1 text-neon" aria-hidden="true">▮</span>
-          </p>
-
-          {/* Tagline — Bağımsız Tiyatro kimliği, logo bloğunun altında */}
-          <div className="hero-rise hero-rise-3 flex items-center gap-3 mt-5 mb-2">
-            <div className="w-6 h-px bg-fg/30" />
-            <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone">
-              <T tr="Bağımsız Tiyatro · Pera · Kadıköy · 2026—" en="Independent Theatre · Pera · Kadıköy · 2026—" />
+          <div className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+            <p className="font-body text-[19px] md:text-[24px] leading-[1.4] text-fg max-w-[620px]">
+              <T
+                tr="İstanbul'da bağımsız bir tiyatro laboratuvarı. Oyunculuk, yazarlık, İngilizce drama ve müzikal — küçük gruplar, seyircili final."
+                en="An independent theatre laboratory in Istanbul. Acting, playwriting, English drama and musical theatre — small groups, live final."
+              />
             </p>
-          </div>
-
-          {/* Dönen disiplinler — τέχνη'nin halleri */}
-          <div className="hero-rise hero-rise-4 flex items-baseline gap-3 mt-6" aria-hidden="true">
-            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim">
-              <T tr="bu sezon →" en="this season →" />
-            </span>
-            <CycleDisciplines />
-          </div>
-        </div>
-
-        {/* ── MID: Kaydırmalı fotoğraf şeridi ── */}
-        <div className="hero-rise hero-rise-4 relative z-10 w-full overflow-hidden py-2" aria-hidden="true">
-          <div
-            className="flex gap-2"
-            style={{
-              width: 'max-content',
-              animation: 'gallery-scroll 32s linear infinite',
-            }}
-          >
-            {[
-              '/images/gallery/dslr-zl5a1093.jpg',
-              '/images/gallery/mevcudiyet-01.jpg',
-              '/images/gallery/auteur-01.jpg',
-              '/images/gallery/mevcudiyet-08.jpg',
-              '/images/gallery/english-drama-2.jpg',
-              '/images/gallery/musical-01.jpg',
-              '/images/gallery/dslr-zl5a1079.jpg',
-              '/images/gallery/mevcudiyet-06.jpg',
-              '/images/gallery/auteur-03.jpg',
-              '/images/gallery/dslr-zl5a1044.jpg',
-              '/images/gallery/mevcudiyet-04.jpg',
-              '/images/gallery/dslr-zl5a1077.jpg',
-              // repeat for seamless loop
-              '/images/gallery/dslr-zl5a1093.jpg',
-              '/images/gallery/mevcudiyet-01.jpg',
-              '/images/gallery/auteur-01.jpg',
-              '/images/gallery/mevcudiyet-08.jpg',
-              '/images/gallery/english-drama-2.jpg',
-              '/images/gallery/musical-01.jpg',
-              '/images/gallery/dslr-zl5a1079.jpg',
-              '/images/gallery/mevcudiyet-06.jpg',
-              '/images/gallery/auteur-03.jpg',
-              '/images/gallery/dslr-zl5a1044.jpg',
-              '/images/gallery/mevcudiyet-04.jpg',
-              '/images/gallery/dslr-zl5a1077.jpg',
-            ].map((src, i) => (
-              <div key={i} className="relative flex-shrink-0 overflow-hidden" style={{ width: '220px', height: '130px' }}>
-                <Image src={src} alt="" fill sizes="220px" priority={i < 3} quality={65} className="opacity-55 hover:opacity-80 transition-opacity duration-500 object-cover" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── BOTTOM: Manifesto + CTAs ── */}
-        <div className="hero-rise hero-rise-5 relative z-10 px-4 md:px-14 pb-14 max-w-[1400px]">
-          <div className="flex flex-col md:flex-row md:items-end gap-10 md:gap-24">
-
-            {/* Manifesto */}
-            <div className="max-w-md">
-              <p className="font-mono text-[14px] text-stone leading-relaxed mb-3">
-                <T
-                  tr={<>İstanbul&apos;da bağımsız bir tiyatro.{' '}<span className="text-fg font-medium">Oyunculuk, yazarlık, dramaturji ve müzikal</span>{' '}üzerine yoğun, küçük gruplu atölyeler.</>}
-                  en={<>An independent theatre in Istanbul.{' '}<span className="text-fg font-medium">Acting, playwriting, dramaturgy and musical theatre</span>{' '}— intensive, small-group workshops.</>}
-                />
-              </p>
-              <p className="font-mono text-[12px] text-dim leading-relaxed">
-                <T
-                  tr="Küçük gruplar. Yoğun pratik. Metin, beden ve ses — aynı anda."
-                  en="Small groups. Intense practice. Text, body and camera — simultaneously."
-                />
-              </p>
-            </div>
-
-            {/* Discipline tags */}
-            <div>
-              {/* Discipline tags */}
-              <div className="flex flex-wrap gap-x-5 gap-y-2">
-                {[
-                  { label: 'Oyunculuk',      href: '/atolyeler/auteur-lab' },
-                  { label: 'Yazarlık',       href: '/atolyeler/auteur-lab' },
-                  { label: 'Dramaturji',     href: '/atolyeler/auteur-lab' },
-                  { label: 'Dans',           href: '/atolyeler/broadway-musical-dance' },
-                  { label: 'Müzikal',        href: '/atolyeler/techne-musical-lab' },
-                  { label: 'İngilizce Drama',href: '/atolyeler/english-drama-lab' },
-                ].map((n) => (
-                  <Link key={n.label} href={n.href} className="flex items-center gap-1.5 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-neon group-hover:scale-125 transition-transform duration-200" aria-hidden="true" />
-                    <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-stone group-hover:text-fg transition-colors duration-200">
-                      {n.label}
-                    </span>
-                  </Link>
-                ))}
-              </div>
+            <div className="flex gap-8 md:gap-10">
+              {[
+                { n: '12', tr: 'MAKS. KİŞİ', en: 'MAX PER GROUP' },
+                { n: String(WORKSHOPS.filter((w) => w.active).length), tr: 'PROGRAM', en: 'PROGRAMMES' },
+                { n: '2', tr: 'SEMT · PERA & KADIKÖY', en: 'DISTRICTS · PERA & KADIKÖY' },
+              ].map((f) => (
+                <div key={f.tr} className="border-l-2 border-neon pl-3.5">
+                  <span className="block font-display text-[36px] md:text-[40px] leading-none text-fg">{f.n}</span>
+                  <span className="block font-code text-[12px] tracking-[0.04em] text-dim mt-1.5 max-w-[120px] leading-snug"><T tr={f.tr} en={f.en} /></span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-8 right-14 hidden md:flex flex-col items-end gap-2 z-10" aria-hidden="true">
-          <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-dim/60">scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-transparent to-fg/20" />
-        </div>
+        {/* Neon disiplin şeridi — sabit, hareketsiz */}
+        <Link href="/atolyeler" className="block bg-neon text-ink hover:bg-fg hover:text-ink transition-colors duration-200 overflow-hidden" data-hover aria-label="Programlar">
+          <div className="font-display text-[20px] md:text-[28px] tracking-[0.06em] px-6 md:px-12 py-3.5 md:py-4 whitespace-nowrap">
+            <T
+              tr="YAZARLIK · OYUNCULUK · İNGİLİZCE DRAMA · MÜZİKAL · BROADWAY DANSI · YAZARLIK · OYUNCULUK · İNGİLİZCE DRAMA · MÜZİKAL"
+              en="PLAYWRITING · ACTING · ENGLISH DRAMA · MUSICAL THEATRE · BROADWAY DANCE · PLAYWRITING · ACTING · ENGLISH DRAMA"
+            />
+          </div>
+        </Link>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
@@ -320,8 +201,6 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════ */}
       <DisciplineGrid />
 
-      {/* ── Marquee ── */}
-      <MarqueeStrip />
 
       {/* ════════════════════════════════════════════════════════════
           NASIL ÇALIŞIRIZ — Metodoloji (kimlik tekrarı değil)
