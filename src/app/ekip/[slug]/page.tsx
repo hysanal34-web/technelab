@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { TEAM, getTeamMember } from '@/lib/ekip'
 import { DISCIPLINES } from '@/lib/disiplinler'
+import { getAllArticles } from '@/lib/mdx'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -46,14 +47,22 @@ export default async function TeamMemberPage({ params }: Props) {
 
   const others = TEAM.filter((t) => t.slug !== m.slug)
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  // Bu kişinin yazdığı makaleler — yazar sayfasında "eserleri" görünmeli
+  // (Google'ın yazar sayfası önerisi). Frontmatter `author` ile eşleşiyor.
+  const yazilar = getAllArticles().filter((a) => a.author === m.name || a.author.includes(m.name))
+  const sonYazilar = yazilar.slice(0, 9)
+
+  const pageUrl = `${SITE_META.url}/ekip/${m.slug}`
+
+  // Google'ın yazar/eğitmen sayfası için önerdiği biçim: ProfilePage → mainEntity Person.
+  // Makale şemalarındaki author.@id bu Person'a bağlanıyor (`#person`).
+  const personLd = {
     '@type': 'Person',
-    '@id': `${SITE_META.url}/ekip/${m.slug}#person`,
+    '@id': `${pageUrl}#person`,
     name: m.name,
     jobTitle: m.role,
     description: m.bio,
-    url: `${SITE_META.url}/ekip/${m.slug}`,
+    url: pageUrl,
     image: m.image ? `${SITE_META.url}${m.image}` : undefined,
     worksFor: {
       '@type': 'Organization',
@@ -61,11 +70,25 @@ export default async function TeamMemberPage({ params }: Props) {
       name: SITE_META.name,
       url: SITE_META.url,
     },
-    ...(programs.length > 0
+    hasOccupation: { '@type': 'Occupation', name: m.role.split('·').map((s) => s.trim()).pop() ?? 'Eğitmen' },
+    ...(programs.length > 0 ? { knowsAbout: programs.flatMap((w) => [w.title, ...w.tags]) } : {}),
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${pageUrl}#profile`,
+    url: pageUrl,
+    mainEntity: personLd,
+    ...(yazilar.length > 0
       ? {
-          hasOccupation: programs.map((w) => ({
-            '@type': 'EducationalOccupationalCredential',
-            name: `${w.title} — Eğitmen`,
+          hasPart: yazilar.slice(0, 20).map((a) => ({
+            '@type': 'Article',
+            '@id': `${SITE_META.url}/makaleler/${a.slug}#article`,
+            headline: a.title,
+            url: `${SITE_META.url}/makaleler/${a.slug}`,
+            datePublished: a.date,
+            author: { '@id': `${pageUrl}#person` },
           })),
         }
       : {}),
@@ -163,6 +186,37 @@ export default async function TeamMemberPage({ params }: Props) {
               </Link>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* Yazdıkları — yazar sayfası sinyali: eserler görünür olmalı */}
+      {sonYazilar.length > 0 && (
+        <section className="px-4 md:px-14 py-16 border-b border-border bg-bgAlt" aria-labelledby="yazilar-heading">
+          <p className="font-mono text-[11px] tracking-widest2 uppercase text-stone mb-4">yazdıkları · {yazilar.length} makale</p>
+          <h2
+            id="yazilar-heading"
+            className="font-display text-fg mb-10"
+            style={{ fontSize: 'clamp(24px,3.2vw,44px)', letterSpacing: '0.02em', lineHeight: 1 }}
+          >
+            MAKALELER
+          </h2>
+          <ul className="grid md:grid-cols-3 gap-px bg-border">
+            {sonYazilar.map((a) => (
+              <li key={a.slug} className="bg-bg">
+                <Link href={`/makaleler/${a.slug}`} data-hover className="group block p-6 h-full">
+                  <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-3">{a.category}</span>
+                  <span className="font-display text-fg group-hover:text-neon transition-colors block leading-snug" style={{ fontSize: 'clamp(16px,1.6vw,20px)' }}>
+                    {a.title}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {yazilar.length > sonYazilar.length && (
+            <Link href="/makaleler" className="inline-block mt-8 font-mono text-[11px] tracking-[0.14em] uppercase text-neon hover:text-fg transition-colors">
+              tüm makaleler →
+            </Link>
+          )}
         </section>
       )}
 

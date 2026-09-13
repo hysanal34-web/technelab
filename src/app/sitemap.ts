@@ -4,6 +4,7 @@ import { getAllArticles } from '@/lib/mdx'
 import { DISTRICTS } from '@/lib/semtler'
 import { DISCIPLINES } from '@/lib/disiplinler'
 import { EN_PAGES } from '@/lib/enDisciplines'
+import { TEAM } from '@/lib/ekip'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_META.url
@@ -77,5 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...sayfalar, ...disiplinler, ...ingilizce, ...semtler, ...programlar, ...makaleler]
+  // Eğitmen profilleri — E-E-A-T; program ve makale sayfalarından linkleniyor
+  const ekip: MetadataRoute.Sitemap = TEAM.map((m) => ({
+    url: `${base}/ekip/${m.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
+
+  return [...sayfalar, ...disiplinler, ...ingilizce, ...semtler, ...programlar, ...ekip, ...makaleler]
 }

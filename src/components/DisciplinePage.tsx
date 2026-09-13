@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllArticles } from '@/lib/mdx'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { getDiscipline, type Discipline } from '@/lib/disiplinler'
 import { DISTRICTS } from '@/lib/semtler'
+import { findTeamMembersForInstructor, type TeamMember } from '@/lib/ekip'
 
 /**
  * Disiplin landing sayfası — "oyunculuk kursu istanbul", "dans kursu istanbul"
@@ -22,6 +24,13 @@ export function DisciplinePage({ d }: { d: Discipline }) {
   const related = d.related
     .map((s) => getDiscipline(s))
     .filter((x): x is NonNullable<typeof x> => Boolean(x))
+
+  // Bu disiplindeki programların eğitmenleri — tekilleştirilmiş, /ekip/[slug]'a bağlı.
+  // Rakip analizi: Sinema Akademi / Drama Akademi / Kadıköy GS eğitmen adı vermiyor;
+  // Dormen veriyor ve en güçlü E-E-A-T sinyali o. Hub sayfasında isim + unvan + link.
+  const egitmenler = workshops
+    .flatMap((w) => findTeamMembersForInstructor(w.instructor))
+    .filter((m, i, arr): m is TeamMember => arr.findIndex((x) => x.slug === m.slug) === i)
 
   // ── Schema.org: Course listesi ────────────────────────────────────
   const courseListLd = {
@@ -61,6 +70,23 @@ export function DisciplinePage({ d }: { d: Discipline }) {
           '@type': 'CourseInstance',
           courseMode: 'onsite',
           courseWorkload: w.duration,
+          // Eğitmen → /ekip/[slug] Person varlığı. Eşleşme yoksa yalnızca ad.
+          ...(() => {
+            const kisiler = findTeamMembersForInstructor(w.instructor)
+            if (kisiler.length > 0) {
+              return {
+                instructor: kisiler.map((m) => ({
+                  '@type': 'Person',
+                  '@id': `${SITE_META.url}/ekip/${m.slug}#person`,
+                  name: m.name,
+                  url: `${SITE_META.url}/ekip/${m.slug}`,
+                })),
+              }
+            }
+            return w.instructor && w.instructor !== 'Techne Lab'
+              ? { instructor: { '@type': 'Person', name: w.instructor } }
+              : {}
+          })(),
           location: {
             '@type': 'Place',
             name: w.venue,
@@ -229,6 +255,48 @@ return (
           ))}
         </div>
       </section>
+
+      {/* ── Eğitmenler ── */}
+      {egitmenler.length > 0 && (
+        <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="egitmenler-heading">
+          <h2 id="egitmenler-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            KİMİNLE ÇALIŞACAKSIN?
+          </h2>
+          <p className="font-mono text-[12px] text-dim mb-10 max-w-2xl">
+            Eğitmenlerimizin adı ve geçmişi açık. &quot;Alanında uzman&quot; demiyoruz — kim olduğunu yazıyoruz.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            {egitmenler.map((m) => (
+              <Link
+                key={m.slug}
+                href={`/ekip/${m.slug}`}
+                data-hover
+                className="group bg-bg hover:bg-bgAlt transition-colors p-6 md:p-7 grid grid-cols-[64px_1fr] gap-5 items-start"
+              >
+                {m.image ? (
+                  <span className="relative w-16 h-20 overflow-hidden block">
+                    <Image src={m.image} alt={m.name} fill sizes="64px" className="object-cover object-top" />
+                  </span>
+                ) : <span className="w-16 h-20 bg-bgAlt block" />}
+                <span className="block">
+                  <span
+                    className="font-display text-fg group-hover:text-neon transition-colors block leading-tight mb-1"
+                    style={{ fontSize: 'clamp(17px,1.8vw,22px)' }}
+                  >
+                    {m.name}
+                  </span>
+                  <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon block mb-2">
+                    {m.role.split('·')[0].trim()}
+                  </span>
+                  <span className="font-mono text-[11px] text-stone leading-relaxed block line-clamp-2">
+                    {m.bio}
+                  </span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Lokasyonlar ── */}
       <section className="px-4 md:px-10 py-16 border-b border-border bg-bgAlt">

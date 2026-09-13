@@ -78,6 +78,13 @@ export function getTeamMember(slug: string) {
   return TEAM.find((m) => m.slug === slug)
 }
 
+/** Makale yazarı adını (frontmatter `author`) ekip üyesiyle eşleştir. */
+export function findTeamMemberByName(name?: string) {
+  if (!name) return undefined
+  const n = name.trim()
+  return TEAM.find((m) => m.name === n || n.includes(m.name))
+}
+
 /**
  * Bir atölyenin `instructor` metnini ("Alara Lokum, Ece Ertez & Yeşim Çelebi" gibi)
  * TEAM üyeleriyle eşleştirir. Program detay sayfasında eğitmen adını
