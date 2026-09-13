@@ -3,6 +3,9 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { SITE_META } from '@/lib/data'
 
+// Tek kaynak: SITE_META.phoneE164 — WhatsAppButton ile aynı numara/mesaj
+const WHATSAPP_URL = `https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent('Merhaba! Techne Lab atölyeleri hakkında bilgi almak istiyorum.')}`
+
 /* ─────────────────────────────────────────────────────────────────────────
    100+ TİYATRO TARİHİ SORUSU
 ───────────────────────────────────────────────────────────────────────── */
@@ -238,6 +241,10 @@ export function TiyatroBot() {
       router.push(target.startsWith('/') ? target : `/atolyeler/${target}`)
       return
     }
+    if (value === 'whatsapp') {
+      window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer')
+      return
+    }
     if (value === 'restart') {
       setMsgs([])
       setStep('idle')
@@ -394,11 +401,11 @@ export function TiyatroBot() {
       { label: 'Tiyatro tarihi quizi', value: 'quiz' },
     ]
     if (has('fiyat', 'ücret', 'ucret', 'kaç para', 'kac para', 'taksit', 'ödeme', 'odeme'))
-      return { from: 'bot', text: 'Ücret ve kayıt bilgileri için bizimle doğrudan iletişime geçebilirsin — sana en uygun programı birlikte belirleyelim.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }, ...menu.slice(0, 1)] }
+      return { from: 'bot', text: `Ücret ve ödeme seçeneklerini birebir paylaşıyoruz — WhatsApp'tan yaz ya da ${SITE_META.phone} numarasını ara, sana en uygun programı birlikte belirleyelim.`, options: [{ label: 'WhatsApp\'tan yaz →', value: 'whatsapp' }, { label: 'İletişim →', value: 'go:/iletisim' }, ...menu.slice(0, 1)] }
     if (has('indirim', 'kampanya', 'burs'))
       return { from: 'bot', text: 'İki indirimimiz var: arkadaşınla birlikte kayıt olursanız ikinize de %10, Techne Musical Lab ve English Drama Youth\'ta ise başvuru değerlendirmesiyle %25\'e varan burs. Detay için bize yazabilirsin.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('iletişim', 'iletisim', 'mail', 'e-posta', 'eposta', 'instagram', 'ulaş', 'ulas', 'telefon'))
-      return { from: 'bot', text: `Bize ${SITE_META.email} adresinden ya da Instagram\'da ${SITE_META.instagram} üzerinden ulaşabilirsin.`, options: [{ label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: `En hızlısı WhatsApp ya da telefon: ${SITE_META.phone}. E-posta: ${SITE_META.email} · Instagram: ${SITE_META.instagram}.`, options: [{ label: 'WhatsApp\'tan yaz →', value: 'whatsapp' }, { label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))
       return { from: 'bot', text: 'Kendi binamız yok — mobil çalışıyoruz. Programlarımız Pera ve Kadıköy\'deki üç partner mekânda: Pod Pera, Beden İşleri ve Soft Sanat.', options: [{ label: 'İşbirliklerimiz →', value: 'go:/isbirlikleri' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('yaş', 'yas', 'genç', 'genc', 'çocuk', 'cocuk', 'lise', '14', '15', '16', '17'))
@@ -414,7 +421,7 @@ export function TiyatroBot() {
     if (has('yazar', 'dramaturji', 'metin', 'oyun yazma'))
       return { from: 'bot', text: 'The Auteur Lab: dramaturji, yazarlık ve oyunculuğu birleştiren 8 haftalık laboratuvar. Halil Yağız Şanal yönetiminde.', options: [{ label: 'Auteur Lab →', value: 'go:auteur-lab' }] }
     if (has('kayıt', 'kayit', 'başvur', 'basvur', 'katıl', 'katil', 'nasıl alırım', 'satın'))
-      return { from: 'bot', text: 'Başvuru için program sayfasından e-posta ile ulaşabilirsin. Kontenjanlar programa göre 8–15 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }, { label: 'İletişim →', value: 'go:/iletisim' }] }
+      return { from: 'bot', text: 'Program sayfasındaki "başvur" butonuyla iki dakikada başvurabilirsin; hemen konuşmak istersen WhatsApp da açık. Kontenjanlar programa göre 8–15 kişiyle sınırlı.', options: [{ label: 'Programlar →', value: 'go:/atolyeler' }, { label: 'WhatsApp\'tan yaz →', value: 'whatsapp' }] }
     if (has('deneyim', 'hiç', 'hic', 'yeni başl', 'yeni basl', 'sıfır', 'sifir'))
       return { from: 'bot', text: 'Deneyim şart değil — birçok programımız sıfırdan başlayanlara açık. Sana en uygununu bulalım mı?', options: [{ label: 'Program bul', value: 'guide' }] }
     if (has('quiz', 'soru', 'bilgi yarış'))

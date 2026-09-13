@@ -4,6 +4,7 @@ import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
 import { trackLead, newBrowserEventId } from '@/components/MetaPixel'
+import { SITE_META } from '@/lib/data'
 
 type WorkshopMin = {
   slug: string
@@ -103,6 +104,20 @@ export default function RegistrationForm({ workshop, action }: Props) {
               tüm programlar →
             </Link>
           </div>
+          {/* Sıcak lead'i bekletme: onay ekranından doğrudan konuşmaya köprü */}
+          <p className="font-mono text-[12px] text-dim mt-8 leading-relaxed">
+            Sorunuz varsa beklemeyin —{' '}
+            <a
+              href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent(`Merhaba, ${workshop.title} programına az önce başvurdum — bir sorum var.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-call-cta="form-success-whatsapp"
+              className="text-stone underline underline-offset-2 hover:text-fg transition-colors"
+            >
+              WhatsApp&apos;tan yazın
+            </a>{' '}
+            ya da <a href={`tel:${SITE_META.phoneE164}`} className="text-stone underline underline-offset-2 hover:text-fg transition-colors">{SITE_META.phone}</a> numarasını arayın.
+          </p>
         </div>
       </div>
     )
@@ -236,7 +251,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
 
         {/* Error message */}
         {state.status === 'error' && state.message && (
-          <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3 bg-red-400/10 leading-relaxed">
+          <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-700 border border-red-700/40 px-4 py-3 bg-red-700/5 leading-relaxed">
             {state.message}
           </p>
         )}

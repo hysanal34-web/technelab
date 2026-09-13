@@ -149,7 +149,8 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
       {/* Hero Görsel */}
       {w.images && w.images[0] && (
-        <div className="relative w-full overflow-hidden" style={{ height: 'clamp(460px,65vh,740px)' }}>
+        // surface-dark: koyu fotoğraf üstünde .text-neon / hover:text-neon gerçek neon kalsın (beyaz temada siyaha düşüyordu)
+        <div className="surface-dark relative w-full overflow-hidden" style={{ height: 'clamp(460px,65vh,740px)' }}>
           <Image
             src={`/images/gallery/${w.images[0]}.jpg`}
             alt={`${w.title} — ${w.sub}`}
@@ -305,7 +306,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 </ul>
                 {/* Burs — Musical Lab ve Youth'ta. Başvuru değerlendirmesiyle veriliyor. */}
                 {typeof w.scholarshipPercent === 'number' && (
-                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
+                  <div className="border border-border bg-neon/10 px-4 py-3 mb-4">
                     <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
                       %{w.scholarshipPercent}&apos;e varan burs
                     </p>
@@ -319,7 +320,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 {/* Arkadaşınla gel — tüm programlarda geçerli.
                     Yalnızca oran yazılı, tutar değil. */}
                 {typeof w.friendDiscountPercent === 'number' && (
-                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
+                  <div className="border border-border bg-neon/10 px-4 py-3 mb-4">
                     <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
                       arkadaşınla gel · %{w.friendDiscountPercent} indirim
                     </p>
@@ -496,7 +497,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       <section className="px-4 md:px-10 py-10 border-b border-border">
         {hubs.length > 0 && (
           <>
-            <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">bu programın alanı</span>
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim block mb-4">bu programın alanı</span>
             <div className="flex flex-wrap gap-x-8 gap-y-2 mb-8">
               {hubs.map((d) => (
                 <Link key={d.slug} href={`/${d.slug}`} className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
@@ -506,7 +507,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
             </div>
           </>
         )}
-        <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-4">bu bölgedeki diğer programlar</span>
+        <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim block mb-4">bu bölgedeki diğer programlar</span>
         <div className="flex flex-wrap gap-x-8 gap-y-2">
           <Link href="/kadikoy-tiyatro-kursu" className="font-mono text-[12px] text-stone hover:text-neon transition-colors">
             Kadıköy tiyatro kursları →

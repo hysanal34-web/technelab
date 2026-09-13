@@ -78,8 +78,41 @@
 
 /* Neon zemin üstünde yazı her zaman siyah (beyaz temada text-bg beyaza düşüyordu) */
 .bg-neon:not(:hover), .bg-neon:not(:hover) .text-bg, .bg-neon:not(:hover) .text-fg { color: var(--ink) !important; }
+/* Hover'da zemini değiştirmeyen neon bloklar da (hover:bg-* sınıfı yoksa) siyah kalır */
+.bg-neon:hover:not([class*="hover:bg-"]) { color: var(--ink) !important; }
+
+/* ── Hover / focus varyantları (14 Eylül 2026 denetimi) ──────────────
+   Tailwind'in hover:text-neon, group-hover:text-neon, hover:border-neon,
+   hover:bg-neon + hover:text-bg gibi varyantları .text-neon kuralının
+   dışında kalıyordu: beyaz zeminde hover'da yazı #C8FF00'a (okunmaz),
+   neon zeminde beyaza dönüyordu. Aynı köprü mantığı varyantlara da uygulanır.
+   NOT: Tailwind varyant sınıflarını dosyanın SONUNA basar (@tailwind variants
+   yok); bu yüzden seçiciler `html` ile bir kademe daha özgül yazıldı. */
+html .hover\:text-neon:hover,
+html .group:hover .group-hover\:text-neon,
+html .focus\:text-neon:focus { color: var(--ink); }
+html .surface-dark .hover\:text-neon:hover,
+html .surface-dark .group:hover .group-hover\:text-neon,
+html .surface-dark .focus\:text-neon:focus { color: var(--neon); }
+
+html .hover\:border-neon:hover,
+html .group:hover .group-hover\:border-neon,
+html .focus\:border-neon:focus { border-color: var(--ink); }
+html .surface-dark .hover\:border-neon:hover,
+html .surface-dark .group:hover .group-hover\:border-neon,
+html .surface-dark .focus\:border-neon:focus { border-color: var(--neon); }
+
+/* Neon zemine geçen hover'larda yazı her iki yüzeyde de siyah */
+html .hover\:bg-neon:hover,
+html .hover\:bg-neon:hover *,
+html .group:hover .group-hover\:bg-neon { color: var(--ink) !important; }
+
+/* Odak halkası: beyaz zeminde neon görünmüyor (1.3:1) — siyah; siyah yüzeyde neon */
+html .focus-visible\:ring-neon:focus-visible { --tw-ring-color: var(--ink); }
+html .surface-dark .focus-visible\:ring-neon:focus-visible { --tw-ring-color: var(--neon); }
 
 /* Küçük yazı tabanı: 11–13px sınıfları her ekranda okunur ölçeğe */
+.text-\[10px\] { font-size: 12px; } /* 10px kalıntıları — minimum ölçeğin altına inmesin */
 .text-\[11px\] { font-size: 13px; }
 .text-\[12px\] { font-size: 14px; }
 .text-\[13px\] { font-size: 15px; }
@@ -94,11 +127,23 @@ body {
   overflow-x: clip;
 }
 :focus-visible {
-  outline: 2px solid var(--neon);
+  outline: 2px solid var(--ink); /* beyaz zeminde neon halka görünmüyordu */
   outline-offset: 3px;
   border-radius: 1px;
 }
+.surface-dark :focus-visible { outline-color: var(--neon); }
 :focus:not(:focus-visible) { outline: none; }
+
+/* Native select: appearance-none ok çizgisini siliyordu — açılır liste olduğu anlaşılmıyordu */
+select.appearance-none {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230A0A0C' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+.surface-dark select.appearance-none {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F2F2EC' stroke-width='1.5'/%3E%3C/svg%3E");
+}
 
 ::selection { background: var(--neon); color: var(--ink); }
 input, textarea, select { font-family: var(--font-dm-mono); }

@@ -52,6 +52,9 @@ const GROUPS: {
 export function DisciplineGrid() {
   const countFor = (slugs: string[]) =>
     slugs.filter((s) => WORKSHOPS.some((w) => w.slug === s && w.active && !w.archived)).length
+  // Toplam aktif program sayısı tek kaynaktan — metin data.ts ile çelişmesin
+  const aktifSayi = WORKSHOPS.filter((w) => w.active && !w.archived).length
+  const SAYI_TR: Record<number, string> = { 1: 'bir', 2: 'iki', 3: 'üç', 4: 'dört', 5: 'beş', 6: 'altı', 7: 'yedi', 8: 'sekiz', 9: 'dokuz' }
 
   return (
     <section
@@ -70,7 +73,7 @@ export function DisciplineGrid() {
           İSTANBUL&apos;DA TİYATRO,<br />DANS &amp; YAZARLIK ATÖLYELERİ
         </h2>
         <p className="font-mono text-[13px] text-stone max-w-2xl leading-relaxed">
-          Pera ve Kadıköy&apos;de, on iki kişiyi geçmeyen gruplarda — dört alan, altı program.
+          Pera ve Kadıköy&apos;de, on iki kişiyi geçmeyen gruplarda — dört alan, {SAYI_TR[aktifSayi] ?? aktifSayi} program.
         </p>
       </div>
 
@@ -115,7 +118,7 @@ export function DisciplineGrid() {
                   {/* İlişkili disiplin — ufak chip */}
                   {g.related.length > 0 && (
                     <div className="flex items-center gap-3 mt-2.5">
-                      <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim/60">
+                      <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim">
                         ayrıca
                       </span>
                       {g.related.map((r) => (
@@ -123,7 +126,7 @@ export function DisciplineGrid() {
                           key={r.href}
                           href={r.href}
                           data-hover
-                          className="font-mono text-[10px] tracking-[0.14em] uppercase text-stone/60 hover:text-neon border border-border hover:border-neon/50 px-2.5 py-1 transition-colors"
+                          className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-neon border border-border hover:border-neon/50 px-2.5 py-1 transition-colors"
                         >
                           {r.label} →
                         </Link>

@@ -129,6 +129,9 @@ const jsonLd = {
 export default function HomePage() {
   const articles       = getAllArticles().slice(0, 3)
   const activeWorkshops = WORKSHOPS.filter((w) => w.active)
+  // Sayfadaki "program" sayıları tek kaynaktan: hero rakamı, metodoloji metni ve DisciplineGrid aynı sayıyı söylesin
+  const SAYI_TR: Record<number, string> = { 1: 'bir', 2: 'iki', 3: 'üç', 4: 'dört', 5: 'beş', 6: 'altı', 7: 'yedi', 8: 'sekiz', 9: 'dokuz' }
+  const SAYI_EN: Record<number, string> = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' }
   const previewImages  = GALLERY_IMAGES.slice(0, 8)
 
   return (
@@ -281,8 +284,8 @@ export default function HomePage() {
                 </h3>
                 <p className="font-mono text-[12px] leading-relaxed text-stone max-w-sm">
                   <T
-                    tr="Dört disiplin, dokuz program. Kayıtlar açık — gruplar dolduğunda kapanıyor."
-                    en="Four disciplines, nine programmes. Enrolment is open — groups close when full."
+                    tr={`Dört disiplin, ${SAYI_TR[activeWorkshops.length] ?? activeWorkshops.length} program. Kayıtlar açık — gruplar dolduğunda kapanıyor.`}
+                    en={`Four disciplines, ${SAYI_EN[activeWorkshops.length] ?? activeWorkshops.length} programmes. Enrolment is open — groups close when full.`}
                   />
                 </p>
               </div>
@@ -462,7 +465,7 @@ export default function HomePage() {
           CTA
       ════════════════════════════════════════════════════════════ */}
       <RevealSection>
-        <section className="relative overflow-hidden px-4 md:px-14 py-24 bg-ink" aria-labelledby="contact-heading">
+        <section className="surface-dark relative overflow-hidden px-4 md:px-14 py-24 bg-ink" aria-labelledby="contact-heading">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-neon/15 blur-3xl pointer-events-none" aria-hidden="true" />
           <div
             className="section-number absolute top-0 right-0 opacity-20"
@@ -482,7 +485,7 @@ export default function HomePage() {
                 style={{ fontSize: 'clamp(28px, 5.5vw, 80px)', letterSpacing: '0.02em' }}
               >
                 BİRLİKTE<br />
-                <span style={{ color: '#B8F000' }}>ÜRETELİM</span>
+                <span className="text-neon">ÜRETELİM</span>
               </h2>
               <p className="font-mono text-[11px] text-[#E8E5DF]/50 max-w-xs">
                 Atölyeler, işbirlikleri, prodüksiyonlar.

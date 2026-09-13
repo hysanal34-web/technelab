@@ -81,7 +81,7 @@ export function Gallery({ images, preview = 0 }: Props) {
       {/* ── Lightbox ──────────────────────────────────────────── */}
       {selected && (
         <div
-          className="fixed inset-0 z-[9999] bg-bg/98 backdrop-blur-sm flex items-center justify-center"
+          className="surface-dark fixed inset-0 z-[9999] bg-bg/98 backdrop-blur-sm flex items-center justify-center"
           onClick={close}
           role="dialog"
           aria-modal="true"

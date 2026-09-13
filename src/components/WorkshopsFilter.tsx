@@ -45,6 +45,7 @@ function FilterInner() {
             ? all.length
             : all.filter(w => w.category === key).length
           const selected = cat === key
+          // Seçili sekme: beyaz zeminde neon alt çizgi görünmüyordu → neon tint + siyah çizgi
           return (
             <button
               key={key}
@@ -53,7 +54,7 @@ function FilterInner() {
               aria-selected={selected}
               className={`font-mono text-[11px] tracking-[0.18em] uppercase px-5 md:px-6 py-4 border-r border-border transition-all duration-150 whitespace-nowrap ${
                 selected
-                  ? 'text-neon bg-neon/5 border-b-[2px] border-b-neon -mb-px'
+                  ? 'text-fg bg-neon/15 border-b-[2px] border-b-ink -mb-px'
                   : 'text-stone hover:text-fg'
               }`}
               data-hover
@@ -61,7 +62,7 @@ function FilterInner() {
               {tr}
               {/* 0 yerine "yakında": tıklamadan önce beklenti kuruluyor,
                   ama sekme tıklanabilir kalıyor — boş durumda haber verme CTA'sı var. */}
-              <span className={`ml-2 text-[11px] ${selected ? 'text-neon/70' : 'text-dim'}`}>
+              <span className={`ml-2 text-[11px] ${selected ? 'text-stone' : 'text-dim'}`}>
                 {cnt === 0 ? 'yakında' : cnt}
               </span>
             </button>

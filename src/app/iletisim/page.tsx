@@ -47,6 +47,18 @@ export default function ContactPage() {
           </div>
 
           <div className="flex gap-6 py-3.5 border-b border-border">
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon w-16 shrink-0 pt-0.5">whatsapp</span>
+            <a
+              href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent('Merhaba! Techne Lab atölyeleri hakkında bilgi almak istiyorum.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-call-cta="iletisim-whatsapp"
+              className="font-mono text-[13px] text-fg hover:text-neon transition-colors duration-200"
+            >
+              {SITE_META.phone} — mesaj yaz →
+            </a>
+          </div>
+          <div className="flex gap-6 py-3.5 border-b border-border">
             <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon w-16 shrink-0 pt-0.5">e-posta</span>
             <a
               href={`mailto:${SITE_META.email}`}

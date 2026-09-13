@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 import { useLang } from '@/contexts/LanguageContext'
-import { WORKSHOPS } from '@/lib/data'
+import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { DISCIPLINES } from '@/lib/disiplinler'
 
 const links = [
@@ -208,7 +208,7 @@ export function Nav() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex flex-col justify-center items-center gap-1 w-11 h-11 -mr-2"
-          aria-label="Menü"
+          aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
           aria-expanded={menuOpen}
           aria-controls="mobil-menu"
         >
@@ -267,6 +267,25 @@ export function Nav() {
                     ))}
                   </div>
                 ))}
+              </div>
+              {/* Mobil: tek dokunuşla ara / yaz — reklamsız telefon stratejisi */}
+              <div className="grid grid-cols-2 gap-2 pt-4 pb-2 border-t border-border">
+                <a
+                  href={`tel:${SITE_META.phoneE164}`}
+                  data-call-cta="nav-mobile"
+                  className="font-mono text-[12px] tracking-[0.14em] uppercase bg-neon text-ink text-center py-3.5 hover:bg-fg transition-colors"
+                >
+                  ara →
+                </a>
+                <a
+                  href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent('Merhaba! Techne Lab atölyeleri hakkında bilgi almak istiyorum.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-call-cta="nav-mobile-whatsapp"
+                  className="font-mono text-[12px] tracking-[0.14em] uppercase border border-neon text-neon text-center py-3.5 hover:bg-neon transition-colors"
+                >
+                  whatsapp →
+                </a>
               </div>
               {/* Language + theme in mobile menu */}
               <div className="flex items-center justify-between pt-2 border-t border-border">

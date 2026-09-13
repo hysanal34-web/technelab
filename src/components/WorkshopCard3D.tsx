@@ -108,9 +108,9 @@ export function WorkshopCard3D({ workshop: w, index }: { workshop: Workshop; ind
                 key={tag}
                 className="font-mono text-[11px] tracking-[0.14em] uppercase px-2 py-0.5"
                 style={{
-                  border: `1px solid rgba(184,240,0,0.4)`,
+                  border: `1px solid rgba(200,255,0,0.4)`,
                   color: '#0A0A0C',
-                  background: 'rgba(184,240,0,0.92)',
+                  background: 'rgba(200,255,0,0.92)',
                 }}
               >
                 {tag}

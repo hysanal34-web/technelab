@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { SITE_META } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'Sayfa Bulunamadı',
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-[70vh] flex items-center px-4 md:px-10 py-24 relative overflow-hidden">
+    <div className="min-h-[70vh] flex items-center px-4 md:px-10 py-24 relative overflow-hidden">
       <div
         className="absolute -top-10 -right-6 font-display leading-none select-none pointer-events-none"
         style={{
@@ -60,7 +61,22 @@ export default function NotFound() {
             bize yaz →
           </Link>
         </div>
+
+        {/* Kaybolan ziyaretçiyi en kısa yoldan konuşmaya bağla */}
+        <p className="font-mono text-[12px] text-dim mt-8">
+          Aradığın bir program mıydı?{' '}
+          <a
+            href={`https://wa.me/${SITE_META.phoneE164.replace('+', '')}?text=${encodeURIComponent('Merhaba, sitede aradığım sayfayı bulamadım — programlar hakkında bilgi alabilir miyim?')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-call-cta="404-whatsapp"
+            className="text-stone underline underline-offset-2 hover:text-fg transition-colors"
+          >
+            WhatsApp&apos;tan yaz
+          </a>
+          , bir dakikada yönlendirelim.
+        </p>
       </div>
-    </main>
+    </div>
   )
 }

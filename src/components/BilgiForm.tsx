@@ -50,7 +50,7 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
           <p className="text-stone text-[14px] leading-relaxed">
             Bize iletmek istediğin her şey için: soru, öneri, iş birliği. Mesajın doğrudan bize düşüyor.
           </p>
-          <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3">
+          <div className="border border-border bg-neon/10 px-4 py-3">
             <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
               programlar ve ücretler için
             </p>
@@ -132,7 +132,7 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
       </label>
 
       {state.status === 'error' && (
-        <p role="alert" className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3">
+        <p role="alert" className="font-mono text-[12px] text-red-700 border border-red-700/40 px-4 py-3 bg-red-700/5">
           {state.message}
         </p>
       )}

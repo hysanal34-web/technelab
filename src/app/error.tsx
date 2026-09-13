@@ -15,7 +15,7 @@ export default function Error({
   }, [error])
 
   return (
-    <main className="min-h-[70vh] flex items-center px-4 md:px-10 py-24">
+    <div className="min-h-[70vh] flex items-center px-4 md:px-10 py-24">
       <div className="max-w-xl">
         <div className="h-[2px] w-12 bg-neon mb-8" />
         <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-4">
@@ -62,6 +62,6 @@ export default function Error({
           </p>
         )}
       </div>
-    </main>
+    </div>
   )
 }

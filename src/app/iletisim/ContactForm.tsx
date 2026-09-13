@@ -104,7 +104,7 @@ export function ContactForm() {
           ref={errRef}
           tabIndex={-1}
           role="alert"
-          className="font-mono text-[12px] text-red-400 border border-red-400/40 px-4 py-3 bg-red-400/10 leading-relaxed"
+          className="font-mono text-[12px] text-red-700 border border-red-700/40 px-4 py-3 bg-red-700/5 leading-relaxed"
         >
           {state.message}
         </p>

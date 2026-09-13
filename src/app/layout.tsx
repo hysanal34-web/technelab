@@ -196,7 +196,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg text-fg antialiased">
         <a
           href="#icerik"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10000] focus:bg-neon focus:text-bg focus:px-4 focus:py-3 focus:font-mono focus:text-[12px] focus:tracking-[0.16em] focus:uppercase"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10000] focus:bg-neon focus:text-ink focus:px-4 focus:py-3 focus:font-mono focus:text-[12px] focus:tracking-[0.16em] focus:uppercase"
         >
           İçeriğe atla
         </a>
