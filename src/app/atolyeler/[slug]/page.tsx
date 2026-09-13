@@ -10,7 +10,7 @@ import { yorumlarFor } from '@/lib/yorumlar'
 import { ProgramYorumlari } from '@/components/Yorumlar'
 import { TrackProgramView } from '@/components/PixelEvents'
 import { StickyApplyBar } from '@/components/StickyApplyBar'
-import { priceSummary, earlyBirdState, CAMPAIGN } from '@/lib/erkenKayit'
+import { priceSummary } from '@/lib/fiyat'
 type Props = { params: Promise<{ slug: string }> }
 
 
@@ -46,13 +46,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
   // Eğitmen adını /ekip/[slug] profiline bağla (varsa) — E-E-A-T iç linki
   const instructorMembers = findTeamMembersForInstructor(w.instructor)
-
-  // Erken kayıt bloğu yalnızca son tarih hâlâ geçerliyse gösterilsin.
-  // Önceden burada sadece priceEarlyBird/earlyBirdDeadline'ın var olup
-  // olmadığına bakılıyordu — tarih geçmiş olsa bile banner görünmeye
-  // devam ediyordu (11 Eylül'de hâlâ "10 Eylül'e kadar" yazıyordu).
-  const eb = earlyBirdState(w)
-  const earlyBirdVisible = eb.status === 'active'
 
   // Schema startDate: '7 Ekim Çarşamba' gibi Türkçe tarihleri ISO'ya çevir.
   // Çevrilemezse startDate hiç yazılmaz — yanlış tarih vermekten iyidir.
@@ -310,25 +303,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                {/* Erken kayıt — rakamsız aciliyet.
-                    Fiyat sitede gösterilmiyor; burada yalnızca tarih ve kontenjan
-                    var. Tarih karar hızlandırıyor, rakam ise pazarlık masası kuruyor.
-                    Son tarih geçtiyse (earlyBirdState 'expired' döner) blok hiç
-                    render edilmiyor — artık statik olarak her zaman görünmüyor. */}
-                {earlyBirdVisible && (
-                  <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
-                    <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
-                      erken kayıt · {w.earlyBirdDeadline ? `${w.earlyBirdDeadline}'e kadar` : eb.status === 'active' ? eb.label : ''}
-                    </p>
-                    <p className="font-mono text-[11px] text-stone leading-relaxed">
-                      Bu tarihe kadar başvuranlar için ayrı koşullar geçerli
-                      {typeof w.earlyBirdSlots === 'number' ? ` — ilk ${w.earlyBirdSlots} kişi` : ''}.
-                    </p>
-                  </div>
-                )}
-
-                {/* Burs — yalnızca Musical Lab'de. Erken kayıt ve arkadaş
-                    indiriminden bağımsız, başvuru değerlendirmesiyle veriliyor. */}
+                {/* Burs — Musical Lab ve Youth'ta. Başvuru değerlendirmesiyle veriliyor. */}
                 {typeof w.scholarshipPercent === 'number' && (
                   <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
                     <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">
@@ -341,8 +316,8 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   </div>
                 )}
 
-                {/* Arkadaşınla gel — tüm programlarda geçerli, erken kayıtla
-                    birlikte kullanılabilir. Yalnızca oran yazılı, tutar değil. */}
+                {/* Arkadaşınla gel — tüm programlarda geçerli.
+                    Yalnızca oran yazılı, tutar değil. */}
                 {typeof w.friendDiscountPercent === 'number' && (
                   <div className="border border-neon/30 bg-neon/[0.04] px-4 py-3 mb-4">
                     <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-neon mb-1">

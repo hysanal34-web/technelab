@@ -72,8 +72,6 @@ type Workshop = {
   duration: string
   maxStudents: number
   price: number
-  priceEarlyBird?: number
-  earlyBirdSlots?: number
   priceCash?: number
   monthlyPrice?: number
   installments?: number
@@ -95,11 +93,11 @@ type Workshop = {
 | 01 | auteur-lab | yazarlık | aktif | — |
 | 02 | camera-praxis | oyunculuk | **KAPALI** | 16.000₺ · TR/EN |
 | 03 | oyuncunun-mevcudiyeti | oyunculuk | **KAPALI** | 16.000₺ |
-| 04 | english-drama-lab | ingilizce-drama | aktif | earlyBird:5 |
+| 04 | english-drama-lab | ingilizce-drama | aktif | — |
 | 05 | english-drama-acting-focus | ingilizce-drama | aktif | — |
-| 06 | english-drama-final-performance | ingilizce-drama | aktif | earlyBird:5 |
+| 06 | english-drama-final-performance | ingilizce-drama | aktif | — |
 | 07 | english-drama-youth | ingilizce-drama | aktif | 60.000₺ · 10-17 yaş |
-| 08 | techne-musical-lab | dans-muzikal | aktif | earlyBird:5 |
+| 08 | techne-musical-lab | dans-muzikal | aktif | — |
 | 09 | broadway-musical-dance | dans-muzikal | aktif | — |
 
 ---

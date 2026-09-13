@@ -111,7 +111,7 @@ const COMMON_FAQ = (w: Workshop): FaqItem[] => [
   },
   {
     q: 'Kayıt nasıl yapılıyor?',
-    a: `${w.active ? 'Program sayfasındaki kayıt formunu doldurabilir ya da iletişim sayfasından bize yazabilirsin. Kontenjan sınırlı olduğu için erken kayıt öneriyoruz.' : 'Bu programın kaydı şu an kapalı. Yeni dönem açıldığında haberdar olmak için iletişim sayfasından bize yazabilirsin.'}`,
+    a: `${w.active ? 'Program sayfasındaki kayıt formunu doldurabilir ya da iletişim sayfasından bize yazabilirsin. Kontenjan sınırlı — grupların dolmadan başvurmanı öneriyoruz.' : 'Bu programın kaydı şu an kapalı. Yeni dönem açıldığında haberdar olmak için iletişim sayfasından bize yazabilirsin.'}`,
   },
 ]
 

@@ -115,7 +115,7 @@ function gtagEvent(event: string, params?: Record<string, unknown>) {
  *
  * NEDEN GA4 İÇE AKTARMA DEĞİL: içe aktarılan dönüşümler saatler sonra
  * geliyor ve modellenmiş oluyor. Doğrudan etiket anında ulaşıyor.
- * Kısa kampanya pencerelerinde (erken kayıt gibi) bu fark önemli.
+ * Kısa kampanya pencerelerinde bu fark önemli.
  *
  * Kimlik ve etiket ortam değişkeninden okunur:
  *   NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX

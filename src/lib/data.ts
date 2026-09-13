@@ -3,7 +3,6 @@ export type Workshop = {
   title: string; sub: string; tagline: string
   instructor: string; instructorBio: string
   venue: string; duration: string; price: number
-  priceEarlyBird?: number    // erken kayıt fiyatı
   priceCash?: number         // peşin / havale fiyatı
   priceShort?: number        // kısa varyant fiyatı (ör. Broadway 6 hafta)
   priceShortLabel?: string   // kısa varyant etiketi ('6 hafta')
@@ -14,14 +13,10 @@ export type Workshop = {
   priceTier3?: number; priceTier3Label?: string
   monthlyPrice?: number      // aylık taksit
   installments?: number      // max faizsiz taksit sayısı
-  earlyBirdSlots?: number    // erken kayıt kontenjanı (ilk N kişi)
-  earlyBirdPercent?: number  // erken kayıt indirim yüzdesi — tüm programlarda sabit %10
-  earlyBirdDeadline?: string // erken kayıt son tarihi (gösterim metni)
-  // 8 Eylül kararı: tek indirim politikası tüm programlarda —
-  // erken kayıt %10 (priceEarlyBird/earlyBirdPercent) + arkadaşınla gel %10.
+  // 13 Eylül kararı: erken kayıt indirimi tüm programlarda kaldırıldı.
+  // Geriye iki indirim kaldı: arkadaşınla gel %10 ve burs %25.
   friendDiscountPercent?: number
-  // Burs (%25) — Techne Musical Lab ve English Drama Youth'ta. Bu iki programda
-  // erken kayıt indirimi yok (10 Eylül kararı); burs onun yerine geçiyor.
+  // Burs (%25) — Techne Musical Lab ve English Drama Youth'ta.
   // Başvuru değerlendirmesiyle veriliyor; kontenjan ya da tarih taahhüdü yok.
   // Sitede yalnızca oran görünür, tutar değil (fiyat gizleme kararı).
   scholarshipPercent?: number
@@ -51,7 +46,6 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Halil Yağız Şanal',
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji Anasanat Dalı'nda öğrenimini sürdürdü. İKSV Senenin Oyunu ödüllü oyun yazarı.",
     venue: 'Kadıköy', duration: '8 hafta (modül başına)', price: 18000,
-    priceEarlyBird: 16200, earlyBirdPercent: 10, earlyBirdDeadline: '10 Eylül',
     friendDiscountPercent: 10,
     schedule: [{ place: 'Kadıköy', date: '7 Ekim Çarşamba' }],
     maxStudents: 10, active: true,
@@ -87,7 +81,6 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Sahne Üzerinde Var Olmak',
     instructor: 'Burcu Halaçoğlu', instructorBio: 'Oyuncu ve beden çalışması eğitmeni. Sahne mevcudiyeti, ses-nefes ve fiziksel farkındalık üzerine uzmanlaşmış pratisyen.',
     venue: 'Pera & Kadıköy', duration: '4 hafta · yoğun', price: 19000,
-    priceEarlyBird: 17100, earlyBirdPercent: 10, earlyBirdDeadline: '10 Eylül',
     friendDiscountPercent: 10,
     scheduleNote: 'Tarih yakında açıklanacak',
     maxStudents: 12, active: false,
@@ -113,11 +106,9 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda başlayan sahne pratiğini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu; Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Ece Ertez: Oyunculuk pratiğini Şahika Tekand Studio Oyuncuları'nın fiziksel tiyatro ekolünde inşa etti; Şahmaran ve Erşan Kuneri gibi projelerde yer aldı, Chubbuck Metodu'nda uzmanlaştı. Yeşim Çelebi: Yale Üniversitesi Tiyatro ve Performans Sanatları mezunu; LAMDA disiplini ile Stella Adler ve Lee Strasberg metotlarını Bahar, Kızılcık Şerbeti ve Mezarlık gibi yapımlardaki set deneyimiyle birleştiriyor.",
     // 7 Eylül: aylık katılım modelinden üç kademeli pakete geçildi.
     // price/priceLabel en üst kademe (12 hafta); priceTier2/3 alttaki kademeler.
-    // priceEarlyBird üst kademe üzerinden %10 (mekanizma erkenKayit.ts'te).
     venue: 'Pera & Kadıköy', duration: '12, 6 ya da 4 hafta', price: 19500,
     priceLabel: '12 hafta', priceTier2: 11000, priceTier2Label: '6 hafta',
     priceTier3: 8000, priceTier3Label: '4 hafta',
-    priceEarlyBird: 17550, earlyBirdPercent: 10, earlyBirdDeadline: '10 Eylül',
     friendDiscountPercent: 10,
     schedule: [
       { place: 'Pera', date: '3 Ekim Cumartesi', time: '15:00' },
@@ -225,7 +216,6 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: 'Oyuncu, yönetmen ve Broadway dans eğitmeni. Sahne koreografisi ve tiyatro dansı üzerine kapsamlı deneyim.',
     venue: 'Kadıköy & Taksim', duration: '12 hafta ya da 6 hafta', price: 16500,
     priceShort: 9500, priceShortLabel: '6 hafta', priceLabel: '12 hafta',
-    priceEarlyBird: 14850, earlyBirdPercent: 10, earlyBirdDeadline: '10 Eylül',
     friendDiscountPercent: 10,
     schedule: [
       { place: 'Kadıköy', date: '1 Ekim Perşembe' },
@@ -253,7 +243,6 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Selen Uçer',
     instructorBio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve tiyatroda uzun yıllara dayanan oyunculuk pratiğini kamera önü tekniğiyle birleştiriyor.',
     venue: 'Pera', duration: '4 hafta', price: 23500,
-    priceEarlyBird: 21150, earlyBirdPercent: 10, earlyBirdDeadline: '10 Eylül',
     friendDiscountPercent: 10,
     scheduleNote: 'Tarih yakında açıklanacak',
     maxStudents: 10, active: false,

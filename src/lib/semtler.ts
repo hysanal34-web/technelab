@@ -67,7 +67,7 @@ export const DISTRICTS: District[] = [
       },
       {
         q: 'Kadıköy tiyatro kursu ücretleri ne kadar?',
-        a: 'Program ve süreye göre değişiyor. 12 haftalık programlar ile 8 aylık kapsamlı müzikal programının fiyatları farklı. Güncel ücretleri ve erken kayıt indirimlerini ilgili program sayfasında ya da iletişim formundan öğrenebilirsin.',
+        a: 'Program ve süreye göre değişiyor. 12 haftalık programlar ile 8 aylık kapsamlı müzikal programının fiyatları farklı. Güncel ücretleri ilgili program sayfasından ya da iletişim formundan öğrenebilirsin.',
       },
       {
         q: 'Hiç deneyimim yok, Kadıköy\'deki atölyelere katılabilir miyim?',

@@ -395,8 +395,8 @@ export function TiyatroBot() {
     ]
     if (has('fiyat', 'ücret', 'ucret', 'kaç para', 'kac para', 'taksit', 'ödeme', 'odeme'))
       return { from: 'bot', text: 'Ücret ve kayıt bilgileri için bizimle doğrudan iletişime geçebilirsin — sana en uygun programı birlikte belirleyelim.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }, ...menu.slice(0, 1)] }
-    if (has('indirim', 'kampanya', 'erken kayıt', 'erken kayit'))
-      return { from: 'bot', text: 'Kayıt ve koşullar hakkında bilgi almak için bize mail atabilirsin.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
+    if (has('indirim', 'kampanya', 'burs'))
+      return { from: 'bot', text: 'İki indirimimiz var: arkadaşınla birlikte kayıt olursanız ikinize de %10, Techne Musical Lab ve English Drama Youth\'ta ise başvuru değerlendirmesiyle %25\'e varan burs. Detay için bize yazabilirsin.', options: [{ label: 'İletişim →', value: 'go:/iletisim' }] }
     if (has('iletişim', 'iletisim', 'mail', 'e-posta', 'eposta', 'instagram', 'ulaş', 'ulas', 'telefon'))
       return { from: 'bot', text: `Bize ${SITE_META.email} adresinden ya da Instagram\'da ${SITE_META.instagram} üzerinden ulaşabilirsin.`, options: [{ label: 'İletişim sayfası →', value: 'go:/iletisim' }] }
     if (has('nerede', 'adres', 'konum', 'mekan', 'mekân', 'taksim', 'kadıköy', 'kadikoy'))

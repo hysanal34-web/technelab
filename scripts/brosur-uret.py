@@ -44,11 +44,9 @@ ORTAK_TR = {
     "amac": "AMAÇ",
     "tanisma": "ÜCRETSİZ TANIŞMA",
     "meta": ["YAŞ", "SÜRE", "GRUP", "BAŞVURU"],
-    "erken": "Erken kayıt",
     "arkadas": "Arkadaşınla gel",
     "burs": "Burs · başvuruyla",
     "taksit": "Kredi kartına taksit yapılabilir.",
-    "taksit_erken": "Erken kayıt 10 Eylül'e kadar. ",
     "not": "Tanışma atölyesi ücretsiz ve taahhütsüz. Gruplar küçük, yer sınırlı — formu doldurup yerinizi ayırtın.",
     "kayit_alt": "Kayıt · profildeki form ya da WhatsApp",
     "form_etiket": "TANIŞMA FORMU",
@@ -70,11 +68,9 @@ ORTAK_EN = {
     "amac": "AIM",
     "tanisma": "FREE INTRO WORKSHOP",
     "meta": ["AGE", "DURATION", "GROUP", "APPLICATION"],
-    "erken": "Early registration",
     "arkadas": "Bring a friend",
     "burs": "Scholarship · by application",
     "taksit": "Credit card installments available.",
-    "taksit_erken": "Early registration until September 10. ",
     "not": "The intro workshop is free, no commitment. Places are limited — fill in the form to reserve yours.",
     "kayit_alt": "Register · form in bio or WhatsApp",
     "form_etiket": "INTRO WORKSHOP FORM",
@@ -99,7 +95,6 @@ PROGRAMLAR = {
             "egitmenler": [("Halil Yağız Şanal", "Oyun yazarı, yönetmen ve dramaturg.")],
             "baslangic": [("Kadıköy", "7 Ekim Çarşamba")],
             "fiyat": [("18.000 ₺", "/ MODÜL")],
-            "erken": "16.200 ₺",
             "tanisma": "12 Eylül Cumartesi · 16:30 · Kadıköy — Kısa bir okuma, örnek bir çözümleme, programın anlatımı.",
             "sss": [
                 ("Hiç yazmadım, olur mu?", "Olur. Program başlangıç seviyesinden kuruluyor; portfolyo ya da yayımlanmış metin aranmıyor."),
@@ -120,7 +115,6 @@ PROGRAMLAR = {
             "egitmenler": [("Halil Yağız Şanal", "Playwright, director and dramaturg.")],
             "baslangic": [("Kadıköy", "Wednesday, October 7")],
             "fiyat": [("18,000 TL", "/ MODULE")],
-            "erken": "16,200 TL",
             "tanisma": "Saturday, September 12 · 16:30 · Kadıköy — A short reading, a sample analysis, and an outline of the program.",
             "sss": [
                 ("I've never written before. Is that a problem?", "Not at all. The program starts from the beginning; no portfolio or published work required."),
@@ -148,7 +142,6 @@ PROGRAMLAR = {
             ],
             "baslangic": [("Kadıköy", "14 Eylül Pazartesi · 20:00"), ("Taksim Pera", "3 Ekim Cumartesi · 15:00")],
             "fiyat": [("19.500 ₺", "/ 12 HAFTA"), ("11.000 ₺", "/ 6 HAFTA"), ("8.000 ₺", "/ 4 HAFTA")],
-            "erken": "17.550 ₺ · 9.900 ₺ · 7.200 ₺",
             "tanisma": "12 Eylül Cumartesi · 14:00 · Kadıköy — 19 Eylül Cumartesi · 15:00 · Taksim Pera. Örnek bir egzersiz ve programın anlatımı.",
             "sss": [
                 ("Seviye testi var mı?", "Yok. B1 ve üzeri diyoruz; günlük bir sohbeti takip edip cevap verebiliyorsanız yeterli."),
@@ -174,7 +167,6 @@ PROGRAMLAR = {
             ],
             "baslangic": [("Kadıköy", "Monday, September 14 · 20:00"), ("Taksim Pera", "Saturday, October 3 · 15:00")],
             "fiyat": [("19,500 TL", "/ 12 WEEKS"), ("11,000 TL", "/ 6 WEEKS"), ("8,000 TL", "/ 4 WEEKS")],
-            "erken": "17,550 TL · 9,900 TL · 7,200 TL",
             "tanisma": "Saturday, September 12 · 14:00 · Kadıköy — Saturday, September 19 · 15:00 · Taksim Pera. A sample exercise and an outline of the program.",
             "sss": [
                 ("Is there a placement test?", "No. B1 and above — if you can follow and answer in an everyday conversation, that's enough."),
@@ -352,7 +344,6 @@ PROGRAMLAR = {
             "egitmenler": [("Köksal Ünal", "Oyuncu, yönetmen ve Broadway dans eğitmeni.")],
             "baslangic": [("Kadıköy", "1 Ekim Perşembe"), ("Taksim Pera", "3 Ekim Cumartesi · 19:00")],
             "fiyat": [("16.500 ₺", "/ 12 HAFTA"), ("9.500 ₺", "/ 6 HAFTA")],
-            "erken": "14.850 ₺",
             "tanisma": "12 Eylül Cumartesi · 18:30 · Kadıköy — 19 Eylül Cumartesi · 19:00 · Taksim Pera. Isınma ve kısa bir kombinasyon.",
             "sss": [
                 ("Hiç dans etmedim.", "Sorun değil. Teknik temelden başlıyoruz; grubun büyük kısmı da öyle."),
@@ -374,7 +365,6 @@ PROGRAMLAR = {
             "egitmenler": [("Köksal Ünal", "Actor, director and Broadway dance instructor.")],
             "baslangic": [("Kadıköy", "Thursday, October 1"), ("Taksim Pera", "Saturday, October 3 · 19:00")],
             "fiyat": [("16,500 TL", "/ 12 WEEKS"), ("9,500 TL", "/ 6 WEEKS")],
-            "erken": "14,850 TL",
             "tanisma": "Saturday, September 12 · 18:30 · Kadıköy — Saturday, September 19 · 19:00 · Taksim Pera. A warm-up and a short combination.",
             "sss": [
                 ("I've never danced.", "That's fine. We start from technical fundamentals; most of the group does too."),
@@ -466,9 +456,6 @@ def sayfa1(p, d, t, kod):
     fiy = "".join(f'<div class="fiy"><div class="r">{r}</div><div class="b">{b}</div></div>'
                   for r, b in d["fiyat"])
     ind = ""
-    if d.get("erken"):
-        st = " stack" if len(d["erken"]) > 12 else ""
-        ind += f'<div class="ind{st}"><div class="d">{t["erken"]}</div><div class="v">{d["erken"]}</div></div>'
     if d.get("burs"):
         ind += f'<div class="ind"><div class="d">{t["burs"]}</div><div class="v">{d["burs"]}</div></div>'
     oran = "%10" if t is ORTAK_TR else "10%"
@@ -491,7 +478,7 @@ def sayfa1(p, d, t, kod):
 <div class="alt">
   <div><h2 style="margin-top:0">{t["baslangic"]}</h2>{bas}</div>
   <div><h2 style="margin-top:0">{t["ucret"]}</h2>{fiy}{ind}
-    <div class="taksit">{(t["taksit_erken"] if d.get("erken") else "") + t["taksit"]}</div></div>
+    <div class="taksit">{t["taksit"]}</div></div>
 </div>
 <div class="tanisma"><div class="et">{t["tanisma"]}</div><div class="mt">{d["tanisma"]}</div></div>
 <div class="dip"><div>{t["kayit_alt"]}</div><div>{TEL} &nbsp;·&nbsp; {IG}</div></div>

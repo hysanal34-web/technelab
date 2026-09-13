@@ -20,7 +20,7 @@ yürütüyor — çünkü burası bir kurs değil, üreten bir tiyatro şirketi.
 Gruplar on iki kişiyi geçmiyor. Herkes her hafta iş çıkarıyor.
 
 Pera ve Kadıköy · Eylül–Ekim dönemi
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Hangisi sana uygun, yazın birlikte bakalım.
 ```
@@ -43,7 +43,7 @@ Mayıs'ta seyirci önünde bir gösteri var. Çocuk yılın sonunda sahnede
 duruyor ve İngilizce konuşuyor.
 
 Kadıköy ve Taksim · Gruplar yaşa göre ayrı · B1 ve üzeri
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Detaylar ve takvim için yazın.
 ```
@@ -85,7 +85,7 @@ hepsini karşılaması mümkün değil — o yüzden İstanbul'un iki yakasında
 işini ciddiye alan mekânlarla çalışıyoruz.
 
 Oyunculuk, İngilizce drama, müzikal, dans, yazarlık.
-Eylül–Ekim dönemi · Erken kayıt 10 Eylül'e kadar
+Eylül–Ekim dönemi · Arkadaşınla gel %10
 
 Hangi program, hangi semt — yazın konuşalım.
 ```
@@ -106,7 +106,7 @@ Doğaçlama yaparken, sahne kurarken, birbirine tepki verirken
 kullanılıyor. Gramer düzeltmiyoruz; akıcılık kendiliğinden geliyor.
 
 Yetişkinler için · Kadıköy ve Pera · On iki kişilik gruplar
-Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+Eylül dönemi · Arkadaşınla gel %10
 
 B1 ve üzeri seviye için. Detaylar için yazın.
 ```
@@ -127,7 +127,7 @@ değil, kullanarak kuruluyor.
 Haftada bir gün, on iki kişilik grupta, sahne üzerinden.
 
 Kadıköy ve Pera · Eylül dönemi · B1 ve üzeri
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Yazın, konuşalım.
 ```
@@ -151,7 +151,7 @@ Broadway Musical Dance tam sana göre.
 6 hafta ya da 12 hafta — kendi temponu seçiyorsun.
 
 Taksim ve Kadıköy · 17 Eylül Perşembe 19:00
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Hangi grup sana uygun, yazın konuşalım.
 ```
@@ -175,7 +175,7 @@ etmek istersen on iki hafta seni bekliyor.
 Broadway Musical Dance tam sana göre.
 
 Köksal Ünal ile · Taksim ve Kadıköy · 17 Eylül Perşembe 19:00
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Deneyim şartı yok. Yazın konuşalım.
 ```
@@ -188,7 +188,7 @@ Deneyim şartı yok. Yazın konuşalım.
 
 Her metin kendi gönderisine göre yazıldı. Ortak kurallar:
 fiyat yok · indirim vurgusu yok · ilk satır 125 karakterin altında
-(Instagram orada kesiyor) · çağrı butonu **Mesaj Gönder** · erken kayıt
+(Instagram orada kesiyor) · çağrı butonu **Mesaj Gönder** · arkadaş indirimi
 10 Eylül olarak geçiyor, rakamsız.
 
 ---
@@ -209,7 +209,7 @@ Broadway Musical Dance tam sana göre.
 
 6 hafta ya da 12 hafta — kendi temponu seçiyorsun.
 Kadıköy ve Taksim · 17 Eylül Perşembe 19:00
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Hangi grup sana uygun, yazın konuşalım.
 ```
@@ -228,7 +228,7 @@ sahneyi bilen insanların yürüttüğü atölyeler. Gruplar on iki kişiyi
 geçmiyor, herkes her hafta iş çıkarıyor.
 
 Pera ve Kadıköy · Eylül–Ekim dönemi
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Hangi program sana uygun, yazın birlikte bakalım.
 ```
@@ -268,7 +268,7 @@ tepki. Düşünüp çevirecek zaman olmadığında dil kendiliğinden çıkıyor
 Gramer düzeltmiyoruz. Akıcılık çalışıyoruz.
 
 Yetişkinler için · Kadıköy ve Pera · On iki kişilik gruplar
-B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Arkadaşınla gel %10
 
 Sohbet edebiliyorsan yeterli. Detaylar için yazın.
 ```
@@ -295,7 +295,7 @@ duruyor ve İngilizce konuşuyor.
 
 10–17 yaş · Hafta sonu sınıfları · Kadıköy ve Taksim
 Gruplar yaşa göre ayrı · B1 ve üzeri
-Erken kayıt 10 Eylül'e kadar
+Arkadaşınla gel, ikinize de %10
 
 Detaylar ve takvim için yazın.
 ```
@@ -341,7 +341,7 @@ dinamiklerini kuruyorsun, devam etmek istersen on iki hafta seni bekliyor.
 Broadway Musical Dance tam sana göre.
 
 Köksal Ünal ile · Kadıköy ve Taksim · 17 Eylül Perşembe 19:00
-12–55 yaş · Erken kayıt 10 Eylül'e kadar
+12–55 yaş · Arkadaşınla gel %10
 
 Deneyim şartı yok. Yazın konuşalım.
 ```
@@ -364,7 +364,7 @@ gerekiyor — düşünecek vaktin olmadan.
 Katılımcılarımızdan biri anlatıyor.
 
 English Drama Lab · Yetişkinler için · Kadıköy ve Pera
-B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Arkadaşınla gel %10
 
 Detaylar için yazın.
 ```
@@ -384,7 +384,7 @@ refleks kurmak.
 Katılımcılarımızdan biri süreci anlatıyor.
 
 English Drama Lab · On iki kişilik gruplar · Kadıköy ve Pera
-B1 ve üzeri · Eylül dönemi · Erken kayıt 10 Eylül'e kadar
+B1 ve üzeri · Eylül dönemi · Arkadaşınla gel %10
 
 Yazın, konuşalım.
 ```

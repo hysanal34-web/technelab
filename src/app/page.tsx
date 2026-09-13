@@ -365,32 +365,45 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* Right: Erken Kayıt promo paneli */}
-            <div className="relative flex flex-col items-center justify-center overflow-hidden bg-bg gap-5 py-12 px-6 md:px-10">
+            {/* Right: Sezon paneli — tipografik, görsel yok */}
+            <div className="relative flex flex-col justify-center overflow-hidden bg-bg gap-7 py-16 px-6 md:px-12">
               {/* Neon üst çizgi */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-neon" aria-hidden="true" />
 
-              {/* Etiket */}
-              <p className="font-mono text-[11px] tracking-[0.32em] uppercase text-neon self-start">
-                — aktif kayıt
+              <p className="font-mono text-[11px] tracking-[0.32em] uppercase text-neon">
+                <T tr="— aktif kayıt" en="— now enrolling" />
               </p>
 
-              {/* Poster — neon çerçevede */}
-              <Link href="/atolyeler" className="relative block w-full max-w-[320px] group" data-hover>
-                <Image
-                  src="/images/erken-kayit-poster.png"
-                  alt="Techne Lab — Erken Kayıt İndirimi"
-                  width={640}
-                  height={900}
-                  sizes="(max-width: 768px) 90vw, 320px"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                  className="group-hover:scale-[1.02] transition-transform duration-500"
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ border: '1px solid rgba(200,255,0,0.35)', boxShadow: '0 0 32px rgba(200,255,0,0.08)' }}
-                />
-              </Link>
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.28em] uppercase text-stone mb-3">
+                  2026 — 2027
+                </p>
+                <h3
+                  className="font-display text-fg leading-none mb-4"
+                  style={{ fontSize: 'clamp(24px, 3.4vw, 40px)', letterSpacing: '0.02em' }}
+                >
+                  <T tr={<>EYLÜL SEZONU<br />ATÖLYELERİ</>} en={<>SEPTEMBER<br />SEASON</>} />
+                </h3>
+                <p className="font-mono text-[12px] leading-relaxed text-stone max-w-sm">
+                  <T
+                    tr="Dört disiplin, dokuz program. Kayıtlar açık — gruplar dolduğunda kapanıyor."
+                    en="Four disciplines, nine programmes. Enrolment is open — groups close when full."
+                  />
+                </p>
+              </div>
+
+              <ul className="flex flex-col gap-2 border-l border-neon/30 pl-4">
+                {[
+                  { tr: 'Yaratıcı yazarlık · dramaturji', en: 'Playwriting · dramaturgy' },
+                  { tr: 'Oyunculuk · kamera önü', en: 'Acting · on-camera' },
+                  { tr: 'İngilizce drama · 10–17 ve yetişkin', en: 'English drama · youth & adults' },
+                  { tr: 'Müzikal · Broadway dansı', en: 'Musical theatre · Broadway dance' },
+                ].map((item) => (
+                  <li key={item.tr} className="font-mono text-[11px] tracking-[0.08em] text-stone">
+                    <T tr={item.tr} en={item.en} />
+                  </li>
+                ))}
+              </ul>
 
               {/* CTA */}
               <Link
@@ -398,7 +411,7 @@ export default function HomePage() {
                 className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon border-b border-neon/40 hover:border-neon pb-0.5 transition-colors duration-200 self-start"
                 data-hover
               >
-                programları incele →
+                <T tr="programları incele →" en="browse programmes →" />
               </Link>
 
               {/* Köşe dekor */}

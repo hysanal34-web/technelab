@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { headers, cookies } from 'next/headers'
 import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
-import { priceSummary } from '@/lib/erkenKayit'
+import { priceSummary } from '@/lib/fiyat'
 
 export type FormState = {
   status: 'idle' | 'success' | 'error'

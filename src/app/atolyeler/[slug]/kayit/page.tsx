@@ -5,7 +5,7 @@ import { submitRegistration } from './actions'
 import RegistrationForm from '@/components/RegistrationForm'
 import YouthRegistrationForm from '@/components/YouthRegistrationForm'
 import { TrackApplicationStart } from '@/components/PixelEvents'
-import { priceSummary } from '@/lib/erkenKayit'
+import { priceSummary } from '@/lib/fiyat'
 
 type Props = { params: Promise<{ slug: string }> }
 

@@ -262,7 +262,7 @@ Yer ayırtmak için: technelabistanbul.com/tanisma-gunu
 ```
 Ücretler programa göre değişiyor — süre, haftalık gün sayısı ve grup büyüklüğüne göre.
 
-Hangi programı soruyorsanız dosyasını göndereyim: ücret, ödeme seçenekleri, taksit, burs ve erken kayıt indirimi hepsi içinde yazıyor.
+Hangi programı soruyorsanız dosyasını göndereyim: ücret, ödeme seçenekleri, taksit ve burs hepsi içinde yazıyor.
 
 Programlar: The Auteur Lab · English Drama Lab · English Acting Praxis · English Drama Youth · Techne Musical Lab · Broadway Musical Dance
 ```
@@ -301,9 +301,9 @@ En doğrusu tanışma atölyesine gelip bir örnek çalışmayı görmeniz — �
 ```
 Var, üç başlıkta:
 
-Erken kayıt — 10 Eylül 2026'ya kadar kayıt olanlar için.
-Öğrenci indirimi — English Drama Lab'de geçerli; erken kayıtla birleşebiliyor.
-Burs — The Auteur Lab, Techne Musical Lab ve English Drama Youth'ta. Bu üç programda erken kayıt indirimi yok; yerine %25'e varan burs, kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
+Arkadaşınla gel — bir arkadaşınla birlikte kayıt olursanız ikinizin de ücretinde %10 indirim. Tüm programlarda geçerli.
+Burs — The Auteur Lab, Techne Musical Lab ve English Drama Youth'ta %25'e varan burs; kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
+Öğrenci indirimi — English Drama Lab'de geçerli.
 
 Oranlar ve ödeme seçenekleri programın dosyasında yazıyor. Hangisi için bakalım, göndereyim.
 ```

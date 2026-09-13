@@ -33,7 +33,7 @@ English Drama Lab — yetişkinler için İngilizce drama.
 Kitap yok, sınav yok; sahnede konuşuyorsunuz. B1 ve üzeri yeterli, seviye testi yok.
 
 12 hafta 19.500 ₺ · 6 hafta 11.000 ₺ · 4 hafta 8.000 ₺
-Erken kayıt 10 Eylül'e kadar %10 · Arkadaşınla gel, ikinize de %10
+Arkadaşınla gel, ikinize de %10
 Kredi kartına taksit var.
 
 Ücretsiz tanışma atölyesi:
@@ -104,7 +104,7 @@ Başvuru için bir şarkı söylediğiniz kısa bir video yeterli — telefonla 
 Broadway Musical Dance — jazz ve theatre dance.
 Dans deneyimi gerekmiyor, teknik temelden başlıyoruz. 12–55 yaş.
 
-12 hafta 16.500 ₺ (erken kayıt 14.850 ₺) · 6 hafta 9.500 ₺
+12 hafta 16.500 ₺ · 6 hafta 9.500 ₺
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi:
@@ -121,7 +121,7 @@ The Auteur Lab — yaratıcı yazarlık ve dramaturji, Kadıköy.
 Sophokles'ten Beckett'e: bir metnin neden işlediğini görmekle başlıyoruz. Roman, senaryo ve oyun aynı zeminden besleniyor.
 Portfolyo aranmıyor, yaş sınırı yok.
 
-Modül başına 8 hafta · 18.000 ₺ · erken kayıt 16.200 ₺
+Modül başına 8 hafta · 18.000 ₺
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi: Kadıköy, 12 Eylül Cmt 16:30
@@ -132,22 +132,22 @@ Program 7 Ekim'de başlıyor · 10 kişilik grup
 
 ## Fiyat tablosu
 
-Erken kayıt %10 (10 Eylül'e kadar) ve **arkadaşınla gel %10** birlikte kullanılabilir.
-Auteur Lab, Techne Musical Lab ve English Drama Youth'ta erken kayıt yerine **%25'e varan burs** var.
+**Arkadaşınla gel %10** tüm programlarda geçerli.
+Auteur Lab, Techne Musical Lab ve English Drama Youth'ta ayrıca **%25'e varan burs** var.
 
-| Program | Bedel | Erken kayıt |
+| Program | Bedel | Burs |
 |---|---:|---:|
-| The Auteur Lab (modül) | 18.000 | — · %25'e varan burs |
-| Broadway Musical Dance — 12 hf | 16.500 | 14.850 |
+| The Auteur Lab (modül) | 18.000 | %25'e varan |
+| Broadway Musical Dance — 12 hf | 16.500 | — |
 | Broadway Musical Dance — 6 hf | 9.500 | — |
-| English Drama Lab — 12 hf | 19.500 | 17.550 |
-| English Drama Lab — 6 hf | 11.000 | 9.900 |
-| English Drama Lab — 4 hf | 8.000 | 7.200 |
-| English Acting Praxis | 59.000 | — · %25'e varan burs |
-| English Drama Youth | 99.000 | — · %25'e varan burs |
-| Techne Musical Lab | 140.000 | — · %25'e varan burs |
+| English Drama Lab — 12 hf | 19.500 | — |
+| English Drama Lab — 6 hf | 11.000 | — |
+| English Drama Lab — 4 hf | 8.000 | — |
+| English Acting Praxis | 59.000 | %25'e varan |
+| English Drama Youth | 99.000 | %25'e varan |
+| Techne Musical Lab | 140.000 | %25'e varan |
 
-Burs üç programda: The Auteur Lab · Techne Musical Lab · English Drama Youth — başvuru değerlendirmesiyle, erken kayıtla birleşmiyor.
+Burs başvuru değerlendirmesiyle veriliyor; arkadaş indirimiyle birleşmiyor.
 
 ---
 

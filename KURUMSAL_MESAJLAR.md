@@ -104,7 +104,7 @@ niteliğiyle ilgili bir değerlendirme değil — kontenjanla ilgili
 bir sınır.
 
 Programa katılmak isterseniz kapımız açık. 10 Eylül'e kadar
-geçerli erken kayıt fiyatı [Y] TL ve kredi kartına taksit
+program bedeli [Y] TL ve kredi kartına taksit
 seçenekleri bulunuyor. Ayrıca bir sonraki dönem burs başvurularına
 tekrar katılabilirsiniz.
 ```
@@ -146,7 +146,7 @@ Sayın [Ad Soyad],
 
 [Program adı] için katılım bedeli, KDV dahil [X] TL'dir.
 
-10 Eylül tarihine kadar geçerli erken kayıt bedeli [Y] TL olarak
+program bedeli [Y] TL olarak
 uygulanmaktadır.
 
 Ödeme seçenekleri:
@@ -190,7 +190,7 @@ Sayın [Ad Soyad],
 [Program adı] kaydınız için ödeme bilgilerini paylaşıyorum.
 
 Program bedeli: [X] TL (KDV dahil)
-Erken kayıt indirimi uygulandı: [Y] TL
+Arkadaşınla gel indirimi uygulandı: [Y] TL
 
 Ödeme yöntemleri:
 · Kredi kartına taksit seçenekleri
@@ -243,8 +243,7 @@ Sayın [Ad Soyad],
 yardımcı olabilecek bir bilgi varsa iletmekten memnuniyet
 duyarız.
 
-Program [tarih] tarihinde başlıyor ve erken kayıt 10 Eylül'de
-sona eriyor.
+Program [tarih] tarihinde başlıyor ve kontenjan sınırlı.
 
 Bu dönem uygun değilse de sorun değil; bir sonraki dönem için
 haberdar etmemizi isterseniz belirtmeniz yeterli.
