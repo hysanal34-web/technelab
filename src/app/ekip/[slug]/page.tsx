@@ -136,8 +136,8 @@ export default async function TeamMemberPage({ params }: Props) {
           >
             {m.name}
           </h1>
-          <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-stone mb-8">{m.role}</p>
-          <p className="font-mono text-[14px] text-stone leading-relaxed max-w-xl">{m.bio}</p>
+          <p className="font-body text-[14px] tracking-[0.08em] uppercase text-dim mb-8">{m.role}</p>
+          <p className="font-body text-[17px] md:text-[18px] text-fg leading-[1.65] max-w-2xl">{m.bio}</p>
         </div>
       </section>
 

@@ -58,7 +58,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
   }, [])
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-border">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-border items-start">
       {members.map((m, idx) => {
         const isOpen = open === m.slug
         const isTouched = touchRevealed === m.slug
@@ -68,24 +68,27 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
           <article
             key={m.slug}
             id={`team-${m.slug}`}
-            className="bg-bg group relative overflow-hidden"
-            style={{ aspectRatio: '4/5' }}
+            className={`bg-bg group relative overflow-hidden ${isOpen ? 'col-span-2 md:col-span-1' : ''}`}
+            style={isOpen ? undefined : { aspectRatio: '4/5' }}
             onTouchStart={() => setTouchRevealed(m.slug)}
           >
             {/* ── Fotoğraf ─────────────────────────────────────────── */}
-            {m.image ? (
-              <Image
-                src={m.image}
-                alt={m.name}
-                fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                className={`object-cover object-top transition-all duration-500 ${
-                  isOpen ? 'scale-105 blur-[3px]' : 'group-hover:scale-[1.04]'
-                }`}
-              />
-            ) : (
-              <div className="absolute inset-0 bg-bgAlt" />
-            )}
+            {/* Kapalıyken kartı dolduran 4:5 fotoğraf; açıkken üstte kısa bir
+                16:9 şerit — biyografi fotoğrafın ÜSTÜNE değil ALTINA gelir,
+                kart içeriğe göre uzar. (14 Eylül: "biyografi okunmuyor" düzeltmesi) */}
+            <div className={isOpen ? 'relative w-full' : 'absolute inset-0'} style={isOpen ? { aspectRatio: '16/9' } : undefined}>
+              {m.image ? (
+                <Image
+                  src={m.image}
+                  alt={m.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  className={`object-cover ${isOpen ? 'object-[50%_20%]' : 'object-top group-hover:scale-[1.04]'} transition-all duration-500`}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-bgAlt" />
+              )}
+            </div>
 
             {/* Sıra numarası */}
             <span className="absolute top-3 left-3 font-mono text-[11px] tracking-[0.18em] text-white/45 z-20">
@@ -130,55 +133,50 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
             </button>
 
             {/* ── Katman 2: biyografi (tıklayınca) ─────────────────── */}
-            <div
-              className={`absolute inset-0 z-30 flex flex-col bg-bg/96 backdrop-blur-sm border-l-2 border-neon transition-all duration-300 ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
-              }`}
-            >
-              <div className="flex-1 overflow-y-auto px-4 pt-4 pb-2 scrollbar-none">
-                <h3
-                  className="font-display text-fg leading-tight"
-                  style={{ fontSize: 'clamp(14px, 1.4vw, 19px)', letterSpacing: '0.01em' }}
-                >
-                  {m.name}
-                </h3>
-                <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon mt-1 mb-3">
-                  {m.role}
-                </p>
-                <p className="font-mono text-[11px] leading-relaxed text-stone">{m.bio}</p>
+            {isOpen && (
+              <div className="flex flex-col border-t-[3px] border-neon">
+                <div className="px-5 pt-5 pb-2">
+                  <h3 className="font-display text-fg leading-none text-[24px] md:text-[26px] tracking-[0.01em]">
+                    {m.name}
+                  </h3>
+                  <p className="font-body text-[13px] tracking-[0.08em] uppercase text-dim mt-1.5 mb-4">
+                    {m.role}
+                  </p>
+                  <p className="font-body text-[15px] md:text-[16px] leading-[1.65] text-fg">{m.bio}</p>
 
-                {m.programs.length > 0 && (
-                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-4 pt-3 border-t border-border">
-                    {m.programs.map((p) => (
-                      <Link
-                        key={p.slug}
-                        href={`/atolyeler/${p.slug}`}
-                        className="font-mono text-[11px] tracking-[0.08em] uppercase text-dim hover:text-neon transition-colors duration-200 py-1"
-                        data-hover
-                      >
-                        {p.label} →
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                  {m.programs.length > 0 && (
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-5 pt-4 border-t border-border">
+                      {m.programs.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/atolyeler/${p.slug}`}
+                          className="font-body text-[13px] font-semibold text-fg hover:text-neon transition-colors duration-200 py-1"
+                          data-hover
+                        >
+                          {p.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  )}
 
-                <Link
-                  href={`/ekip/${m.slug}`}
-                  className="font-mono text-[11px] tracking-[0.08em] uppercase text-neon hover:text-fg transition-colors duration-200 py-1 mt-3 inline-block"
-                  data-hover
+                  <Link
+                    href={`/ekip/${m.slug}`}
+                    className="font-body text-[13px] font-semibold text-ink bg-neon px-3 py-2 mt-4 inline-block hover:bg-fg hover:text-bg transition-colors duration-200"
+                    data-hover
+                  >
+                    tam profil →
+                  </Link>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setOpen(null)}
+                  className="font-body text-[13px] tracking-[0.06em] uppercase text-dim hover:text-fg transition-colors duration-200 text-left px-5 py-3 border-t border-border"
                 >
-                  tam profil →
-                </Link>
+                  ← kapat
+                </button>
               </div>
-
-              <button
-                type="button"
-                onClick={() => setOpen(null)}
-                className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-neon transition-colors duration-200 text-left px-4 py-3 border-t border-border"
-              >
-                ← kapat
-              </button>
-            </div>
+            )}
           </article>
         )
       })}
