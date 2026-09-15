@@ -70,7 +70,7 @@ export const BASVURU: Record<string, BasvuruConfig> = {
         label: 'Grup Tercihi',
         required: true,
         options: [
-          'Pera — 12 Eylül Cumartesi 15:00',
+          'Pera — 3 Ekim Cumartesi 15:00',
           'Kadıköy — 14 Eylül Pazartesi 20:00',
           'İkisi de olur',
         ],

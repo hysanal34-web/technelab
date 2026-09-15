@@ -37,7 +37,8 @@ Arkadaşınla gel, ikinize de %10
 Kredi kartına taksit var.
 
 Ücretsiz tanışma atölyesi:
-Kadıköy 12 Eylül Cmt 14:00 · Pera 19 Eylül Cmt 15:00
+Taksim Pera 19 Eylül Cmt 15:00
+(Kadıköy grubu 14 Eylül'de başladı — katılmak isterseniz yazın.)
 
 Hangi semt ve paket size uygun?
 ```
@@ -74,7 +75,7 @@ Kitap yok, sınav yok. 8 ay, haftada 1 gün; Mayıs'ta seyirci önünde İngiliz
 Arkadaşıyla birlikte kayıtta ikisine de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi, veliler de katılabilir:
-Kadıköy 12 Eylül Cmt 13:00 · Pera 13 Eylül Paz 13:00
+Kadıköy 27 Eylül Pazar 13:00 — iki yaka için tek tanışma günü
 
 Çocuğunuzun yaşını yazarsanız hangi gruba uygun olduğunu söyleyeyim.
 ```
@@ -90,8 +91,8 @@ Oyunculuk, şan ve dans bir arada; Mayıs'ta kostümlü, ışıklı, sahnelenmi�
 140.000 ₺ · başvuru değerlendirmesiyle %25'e varan burs
 %25'e varan burs · Arkadaşınla gel, ikinize de %10 · Taksit var.
 
-Ücretsiz tanışma atölyesi: Kadıköy, 12 Eylül Cmt 18:30
 Program 28 Eylül'de başlıyor · 12 kişilik grup
+Eylül tanışma atölyeleri doldu — kontenjan için yazın, sizi arayalım.
 
 Başvuru için bir şarkı söylediğiniz kısa bir video yeterli — telefonla çekilmiş olması sorun değil.
 ```
@@ -107,8 +108,7 @@ Dans deneyimi gerekmiyor, teknik temelden başlıyoruz. 12–55 yaş.
 12 hafta 16.500 ₺ · 6 hafta 9.500 ₺
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
-Ücretsiz tanışma atölyesi:
-Kadıköy 12 Eylül Cmt 18:30 · Pera 19 Eylül Cmt 19:00
+Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cmt 19:00
 Program 1–3 Ekim'de başlıyor · 15 kişilik grup
 ```
 
@@ -124,8 +124,8 @@ Portfolyo aranmıyor, yaş sınırı yok.
 Modül başına 8 hafta · 18.000 ₺
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
-Ücretsiz tanışma atölyesi: Kadıköy, 12 Eylül Cmt 16:30
 Program 7 Ekim'de başlıyor · 10 kişilik grup
+Eylül tanışma atölyeleri doldu — yer ayırtmak için yazın.
 ```
 
 ---

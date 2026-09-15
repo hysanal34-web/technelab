@@ -9,8 +9,12 @@ içinde, rozet değil · ödül ve unvan sıralaması yok. Tarihler `sessions.ts
 
 ## Önerilen sıra
 
-Kadıköy tanışma günü **12 Eylül Cumartesi** — tek gün, beş program. Erken kayıt **10 Eylül**'de
-bitiyor. İkisi de yakın olduğu için ilk günler Kadıköy ağırlıklı gitsin:
+**Güncel tanışma günleri (15 Eylül 2026):** Taksim Pera **19 Eylül Cumartesi** (EDL 15:00 ·
+Praxis 17:00 · Broadway 19:00) ve Kadıköy **27 Eylül Pazar** (English Drama Youth 13:00 —
+iki yaka için tek gün). Auteur Lab, Techne Musical Lab ve Broadway Kadıköy'ün tanışma günü
+kalmadı; bu kartlar doğrudan kontenjana yönlendiriyor. Erken kayıt tamamen kaldırıldı.
+
+Aşağıdaki 7–10 Eylül yayın takvimi geçti — sıra referans olarak duruyor:
 
 | Gün | Kart |
 |---|---|
@@ -25,16 +29,19 @@ bitiyor. İkisi de yakın olduğu için ilk günler Kadıköy ağırlıklı gits
 
 ## Değişken satırlar — kartı yollamadan önce bak
 
-Kartların içinde köşeli parantezle işaretli iki satır var. Tarihe göre hangisini
+Kartların içinde köşeli parantezle işaretli satırlar var. Tarihe göre hangisini
 bırakacağını buradan seç:
-
-**[ERKEN KAYIT]**
-- 10 Eylül'e kadar → `Erken kayıt 10 Eylül'e kadar geçerli.`
-- 10 Eylül'den sonra → satırı tamamen sil.
 
 **[TANIŞMA]**
 - Tanışma gününden önce → kartta yazan tanışma satırını bırak.
-- Tanışma günü geçtiyse → `Kontenjan dolmadan yazman yeterli — grup en fazla [N] kişi.`
+- Tanışma günü geçtiyse → `[KONTENJAN]` satırına çevir:
+  `Kontenjan dolmadan yazman yeterli — grup en fazla [N] kişi.`
+
+**[KONTENJAN]** — tanışma günü kalmayan programlar (Auteur Lab, Techne Musical Lab,
+Broadway Kadıköy) bu satırı kullanıyor. Yeni tanışma günü açılırsa `[TANIŞMA]`'ya döner.
+
+*Erken kayıt 13 Eylül'de tüm sistemden kaldırıldı — hiçbir kartta "erken kayıt",
+"son tarih" ya da "ilk N kişi" geçmeyecek.*
 
 ---
 
@@ -68,10 +75,8 @@ edebiliyorsan yeterli.
 En fazla 12 kişi.
 
 [TANIŞMA] Önce görmek istersen tanışma atölyesi var, katılım
-ücretsiz: Kadıköy 12 Eylül Cumartesi 14:00 · Pera 19 Eylül
-Cumartesi 15:00.
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
+ücretsiz: Taksim Pera 19 Eylül Cumartesi 15:00.
+(Kadıköy grubu 14 Eylül'de başladı — katılmak istersen yaz.)
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -108,10 +113,8 @@ Seviye: B1 ve üzeri — sohbet edebiliyorsa yeterli.
 En fazla 12 kişi.
 
 [TANIŞMA] Tanışma atölyesine katılım ücretsiz, kayıt ya da
-taahhüt yok — veliler de katılabiliyor: Kadıköy 12 Eylül
-Cumartesi 13:00 · Pera 13 Eylül Pazar 13:00.
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
+taahhüt yok — veliler de katılabiliyor: Kadıköy 27 Eylül Pazar
+13:00. İki yaka için tek tanışma günü.
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -145,10 +148,8 @@ Telefonla çekilmiş video iş görür.
 📍 Kadıköy — 28 Eylül Pazartesi
 Haftada 2 gün · en fazla 12 kişi.
 
-[TANIŞMA] Tanışma atölyesi 12 Eylül Cumartesi 18:30'da
-Kadıköy'de, katılım ücretsiz.
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
+[KONTENJAN] Eylül tanışma atölyeleri doldu. Program 28 Eylül'de
+başlıyor — kontenjan için yaz, konuşalım.
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -179,10 +180,8 @@ Köksal Ünal ile. 12–55 yaş.
 📍 Taksim Pera — 3 Ekim Cumartesi 19:00
 En fazla 15 kişi.
 
-[TANIŞMA] Tanışma atölyesine katılım ücretsiz: Kadıköy
-12 Eylül Cumartesi 18:30 · Pera 19 Eylül Cumartesi 19:00.
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
+[TANIŞMA] Tanışma atölyesine katılım ücretsiz: Taksim Pera
+19 Eylül Cumartesi 19:00. (Kadıköy grubu 1 Ekim'de başlıyor.)
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -219,10 +218,8 @@ Halil Yağız Şanal ile. Portfolyo aranmıyor, yaş sınırı yok.
 📍 Kadıköy — 7 Ekim Çarşamba
 En fazla 10 kişi.
 
-[TANIŞMA] Tanışma atölyesi 12 Eylül Cumartesi 16:30'da
-Kadıköy'de, katılım ücretsiz.
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
+[KONTENJAN] Eylül tanışma atölyeleri doldu. Program 7 Ekim'de
+başlıyor, en fazla 10 kişi — yer ayırtmak için yaz.
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -261,8 +258,6 @@ En fazla 14 kişi.
 [TANIŞMA] Tanışma atölyesi 19 Eylül Cumartesi 17:00'de
 Pera'da, katılım ücretsiz.
 
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar geçerli.
-
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
 
@@ -270,9 +265,8 @@ Rezervasyon: technelabistanbul.com/tanisma-gunu
 
 ## 07 · BROADWAY + MUSICAL LAB (ortak kart)
 
-*Kadıköy'de ikisinin deneme atölyesi aynı seans — 12 Eylül Cumartesi 18:30.
-O yüzden tek mesajda birlikte anlatılıyor: kısa soluklu dans mı, sekiz aylık
-sahne programı mı.*
+*İki program aynı ekip ve aynı salon çevresinde duruyor — o yüzden tek mesajda
+birlikte anlatılıyor: kısa soluklu dans mı, sekiz aylık sahne programı mı.*
 
 ```
 ÜCRETSİZ DENEME ATÖLYESİ
@@ -302,12 +296,10 @@ telefonla çekilmiş olması sorun değil.
 📍 Kadıköy 28 Eylül Pazartesi
 15–55 yaş · en fazla 12 kişi
 
-Hangisi sana uygun, ikisini de aynı seansta görebilirsin:
-deneme atölyesi 12 Eylül Cumartesi 18:30, Kadıköy.
-Katılım ücretsiz.
-(Broadway'in Pera seansı: 19 Eylül Cumartesi 19:00)
-
-[ERKEN KAYIT] Erken kayıt 10 Eylül'e kadar.
+Broadway'i önce görmek istersen ücretsiz deneme atölyesi var:
+19 Eylül Cumartesi 19:00, Taksim Pera.
+Musical Lab ve Broadway Kadıköy için doğrudan yaz — kontenjan
+ve detayları birlikte konuşalım.
 
 Hangi grup sana uygun, yazın konuşalım.
 technelabistanbul.com/tanisma-gunu
@@ -316,32 +308,6 @@ technelabistanbul.com/tanisma-gunu
 ---
 
 ## Ara mesajlar (kart günleri arasında)
-
-**10 Eylül sabahı — erken kayıt son gün**
-```
-Erken kayıt bugün kapanıyor.
-
-Altı programın hepsinde geçerli. Hangisine bakıyorsan
-bugün yazman yeterli — gerisini birlikte konuşuruz.
-
-technelabistanbul.com/tanisma-gunu
-```
-
-**11 Eylül akşamı — Kadıköy hatırlatması**
-```
-Yarın Kadıköy'deyiz.
-
-Tek gün, beş program, hepsi arka arkaya:
-13:00 English Drama Youth (10–17)
-14:00 English Drama Lab
-16:30 The Auteur Lab
-18:30 Broadway Musical Dance & Techne Musical Lab
-
-Katılım ücretsiz, kayıt ya da taahhüt yok. Adres
-rezervasyondan sonra iletiliyor.
-
-technelabistanbul.com/tanisma-gunu
-```
 
 **18 Eylül akşamı — Pera hatırlatması**
 ```
@@ -353,6 +319,20 @@ Yarın Taksim Pera'dayız.
 
 Katılım ücretsiz. Gelip görmek, soru sormak, bir egzersiz
 denemek için — kayıt olmak zorunda değilsin.
+
+technelabistanbul.com/tanisma-gunu
+```
+
+**26 Eylül akşamı — Youth hatırlatması (Kadıköy)**
+```
+Yarın Kadıköy'deyiz.
+
+13:00 English Drama Youth (10–17)
+İki yaka için tek tanışma günü — Anadolu ya da Avrupa,
+fark etmez, bu seansa gelebilirsin.
+
+Veliler de katılabiliyor. Kayıt ya da taahhüt yok,
+adres rezervasyondan sonra iletiliyor.
 
 technelabistanbul.com/tanisma-gunu
 ```

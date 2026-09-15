@@ -115,7 +115,7 @@ gönderip vakit kaybettirme.
 
 Instagram gönderi/story metni. Takipçilere duyuru için — DM otomatik
 yanıtı değil, bunu paylaşımın kendisine koy. Amaç: kayıt baskısı
-olmadan insanları 12/14 Eylül'e çekip orada tanıştırmak.
+olmadan insanları 19 Eylül Pera tanışma gününe çekip orada tanıştırmak.
 
 ```
 English Drama Lab — Ücretsiz Tanışma Günü 🎭
@@ -125,8 +125,7 @@ English Drama Lab — Ücretsiz Tanışma Günü 🎭
 Kayıt yok, taahhüt yok — sadece gelip görün. Programı anlatıyoruz,
 birlikte kısa bir egzersiz yapıyoruz. On beş dakikanızı alır.
 
-📍 Pera — 12 Eylül Cumartesi, 14:30
-📍 Kadıköy — 14 Eylül Pazartesi, 19:30
+📍 Taksim Pera — 19 Eylül Cumartesi, 15:00
 
 Yer sınırlı, DM'den yazıp adını bırak.
 ```
@@ -137,8 +136,7 @@ Yer sınırlı, DM'den yazıp adını bırak.
 Ücretsiz tanışma günü 🎭
 English Drama Lab
 
-12 Eylül · Pera · 14:30
-14 Eylül · Kadıköy · 19:30
+19 Eylül · Taksim Pera · 15:00
 
 Kayıt şartı yok — DM'den yaz.
 ```
