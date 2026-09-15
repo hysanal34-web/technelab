@@ -10,9 +10,11 @@ içinde, rozet değil · ödül ve unvan sıralaması yok. Tarihler `sessions.ts
 ## Önerilen sıra
 
 **Güncel tanışma günleri (15 Eylül 2026):** Taksim Pera **19 Eylül Cumartesi** (EDL 15:00 ·
-Praxis 17:00 · Broadway 19:00) ve Kadıköy **27 Eylül Pazar** (English Drama Youth 13:00 —
-iki yaka için tek gün). Auteur Lab, Techne Musical Lab ve Broadway Kadıköy'ün tanışma günü
-kalmadı; bu kartlar doğrudan kontenjana yönlendiriyor. Erken kayıt tamamen kaldırıldı.
+Praxis 17:00 · Broadway Musical Dance & Techne Musical Lab 19:00 — tek seans, eğitmen
+Köksal Ünal) ve Kadıköy **27 Eylül Pazar** (English Drama Youth 13:00 — iki yaka için tek gün).
+Musical Lab'in tanışması Pera'da, programın kendisi Kadıköy'de — kartlarda bu ayrım yazılmalı.
+Sadece The Auteur Lab'in tanışma günü kalmadı; o kart doğrudan kontenjana yönlendiriyor.
+Erken kayıt tamamen kaldırıldı.
 
 Aşağıdaki 7–10 Eylül yayın takvimi geçti — sıra referans olarak duruyor:
 
@@ -148,8 +150,9 @@ Telefonla çekilmiş video iş görür.
 📍 Kadıköy — 28 Eylül Pazartesi
 Haftada 2 gün · en fazla 12 kişi.
 
-[KONTENJAN] Eylül tanışma atölyeleri doldu. Program 28 Eylül'de
-başlıyor — kontenjan için yaz, konuşalım.
+[TANIŞMA] Tanışma atölyesine katılım ücretsiz: 19 Eylül Cumartesi
+19:00, Taksim Pera — Broadway Musical Dance ile aynı seans.
+Tanışma Pera'da, programın kendisi Kadıköy'de.
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -181,7 +184,8 @@ Köksal Ünal ile. 12–55 yaş.
 En fazla 15 kişi.
 
 [TANIŞMA] Tanışma atölyesine katılım ücretsiz: Taksim Pera
-19 Eylül Cumartesi 19:00. (Kadıköy grubu 1 Ekim'de başlıyor.)
+19 Eylül Cumartesi 19:00 — Techne Musical Lab ile aynı seans.
+(Kadıköy grubu 1 Ekim'de başlıyor.)
 
 Rezervasyon: technelabistanbul.com/tanisma-gunu
 ```
@@ -265,8 +269,9 @@ Rezervasyon: technelabistanbul.com/tanisma-gunu
 
 ## 07 · BROADWAY + MUSICAL LAB (ortak kart)
 
-*İki program aynı ekip ve aynı salon çevresinde duruyor — o yüzden tek mesajda
-birlikte anlatılıyor: kısa soluklu dans mı, sekiz aylık sahne programı mı.*
+*İkisinin de dans eğitmeni Köksal Ünal ve deneme atölyeleri aynı seans —
+19 Eylül Cumartesi 19:00, Taksim Pera. O yüzden tek mesajda birlikte anlatılıyor:
+kısa soluklu dans mı, sekiz aylık sahne programı mı.*
 
 ```
 ÜCRETSİZ DENEME ATÖLYESİ
@@ -296,10 +301,10 @@ telefonla çekilmiş olması sorun değil.
 📍 Kadıköy 28 Eylül Pazartesi
 15–55 yaş · en fazla 12 kişi
 
-Broadway'i önce görmek istersen ücretsiz deneme atölyesi var:
-19 Eylül Cumartesi 19:00, Taksim Pera.
-Musical Lab ve Broadway Kadıköy için doğrudan yaz — kontenjan
-ve detayları birlikte konuşalım.
+Hangisi sana uygun, ikisini de aynı seansta görebilirsin:
+ücretsiz deneme atölyesi 19 Eylül Cumartesi 19:00, Taksim Pera.
+Musical Lab'in kendisi Kadıköy'de yürüyor — tanışma Pera'da,
+program Kadıköy'de. Broadway'in Kadıköy grubu 1 Ekim'de başlıyor.
 
 Hangi grup sana uygun, yazın konuşalım.
 technelabistanbul.com/tanisma-gunu
@@ -315,7 +320,7 @@ Yarın Taksim Pera'dayız.
 
 15:00 English Drama Lab
 17:00 English Acting Praxis
-19:00 Broadway Musical Dance
+19:00 Broadway Musical Dance & Techne Musical Lab
 
 Katılım ücretsiz. Gelip görmek, soru sormak, bir egzersiz
 denemek için — kayıt olmak zorunda değilsin.

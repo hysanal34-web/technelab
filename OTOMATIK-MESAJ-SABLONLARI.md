@@ -226,7 +226,7 @@ Eğitmenler: Köksal Ünal (dans ve koreografi) ve Sitare Bilge (oyunculuk, ses 
 Kadıköy · 15–55 yaş · 8 ay, haftada 2 gün · en fazla 12 kişi
 Başlangıç: 28 Eylül Pazartesi
 
-Eylül tanışma atölyeleri doldu. Program 28 Eylül'de başlıyor — kontenjan için buraya yazın, sizi arayalım.
+Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cumartesi 19:00 (Broadway Musical Dance ile aynı seans — ikisinin de eğitmeni Köksal Ünal). Tanışma Pera'da, programın kendisi Kadıköy'de.
 
 Burs: bu programda %25'e varan burs imkânı var — kısa bir başvuru metninin değerlendirilmesiyle veriliyor.
 
@@ -246,7 +246,7 @@ Eğitmen: Köksal Ünal — koreograf; Broadway dansı ve sahne koreografisi.
 Kadıköy & Taksim · 12–55 yaş · 12 hafta ya da 6 hafta · en fazla 15 kişi
 Başlangıç: Kadıköy 1 Ekim Perşembe · Taksim Pera 3 Ekim Cumartesi 19:00
 
-Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cumartesi 19:00. Rahat kıyafetle gelin. (Kadıköy grubu 1 Ekim'de başlıyor — kontenjan için yazın.)
+Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cumartesi 19:00 (Techne Musical Lab ile aynı seans). Rahat kıyafetle gelin. Kadıköy grubu 1 Ekim'de başlıyor — kontenjan için yazın.
 
 Ücret, ödeme ve bütün ayrıntılar dosyada: technelabistanbul.com/p/broadway
 Yer ayırtmak için: technelabistanbul.com/tanisma-gunu
@@ -272,7 +272,8 @@ Programlar: The Auteur Lab · English Drama Lab · English Acting Praxis · Engl
 Önümüzde iki tanışma günümüz var, katılım ücretsiz:
 
 19 Eylül Cumartesi · Taksim Pera
-  15:00 English Drama Lab · 17:00 English Acting Praxis · 19:00 Broadway Musical Dance
+  15:00 English Drama Lab · 17:00 English Acting Praxis
+  19:00 Broadway Musical Dance & Techne Musical Lab (aynı seans, eğitmen Köksal Ünal)
 
 27 Eylül Pazar · Kadıköy
   13:00 English Drama Youth (10–17) — iki yaka için tek tanışma günü, veliler de katılabilir
@@ -280,8 +281,8 @@ Programlar: The Auteur Lab · English Drama Lab · English Acting Praxis · Engl
 Yerinizi ayırmak için: technelabistanbul.com/tanisma-gunu
 Formu doldurduğunuzda mekân ve saat bilgisini iletiyoruz.
 
-The Auteur Lab, Techne Musical Lab ve Broadway Kadıköy için Eylül tanışma günü kalmadı —
-bu programlar için doğrudan yazın, size özel bir görüşme ayarlayalım.
+Not: Techne Musical Lab'in tanışması Pera'da, programın kendisi Kadıköy'de yürüyor.
+The Auteur Lab için Eylül tanışma günü kalmadı — doğrudan yazın, görüşme ayarlayalım.
 ```
 
 ## C3 · "Hiç deneyimim yok, olur mu?"
@@ -406,10 +407,11 @@ Book: technelabistanbul.com/tanisma-gunu
 ```
 Techne Musical Lab — oyunculuk, şan ve dans bir arada.
 
-28 Eylül başlıyor · %25'e varan burs imkânı
+28 Eylül Kadıköy'de başlıyor · %25'e varan burs imkânı
+Ücretsiz tanışma 19 Eylül Cmt 19:00, Pera (Broadway ile aynı seans)
 
 Detaylar: technelabistanbul.com/p/musical
-Kontenjan için buraya yazın.
+Kayıt: technelabistanbul.com/tanisma-gunu
 ```
 
 ## D7 · Broadway Musical Dance
@@ -417,7 +419,7 @@ Kontenjan için buraya yazın.
 ```
 Broadway Musical Dance — jazz ve theatre dance.
 
-1 Ekim Kadıköy · 3 Ekim Pera · Ücretsiz tanışma 19 Eylül Cmt 19:00, Pera
+1 Ekim Kadıköy · 3 Ekim Pera · Ücretsiz tanışma 19 Eylül Cmt 19:00, Pera (Musical Lab ile aynı seans)
 
 Detaylar: technelabistanbul.com/p/broadway
 Kayıt: technelabistanbul.com/tanisma-gunu

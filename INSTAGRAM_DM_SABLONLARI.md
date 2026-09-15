@@ -91,8 +91,9 @@ Oyunculuk, şan ve dans bir arada; Mayıs'ta kostümlü, ışıklı, sahnelenmi�
 140.000 ₺ · başvuru değerlendirmesiyle %25'e varan burs
 %25'e varan burs · Arkadaşınla gel, ikinize de %10 · Taksit var.
 
-Program 28 Eylül'de başlıyor · 12 kişilik grup
-Eylül tanışma atölyeleri doldu — kontenjan için yazın, sizi arayalım.
+Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cmt 19:00
+(Broadway ile aynı seans — ikisinin de eğitmeni Köksal Ünal)
+Tanışma Pera'da, program Kadıköy'de: 28 Eylül'de başlıyor · 12 kişilik grup
 
 Başvuru için bir şarkı söylediğiniz kısa bir video yeterli — telefonla çekilmiş olması sorun değil.
 ```
@@ -109,6 +110,7 @@ Dans deneyimi gerekmiyor, teknik temelden başlıyoruz. 12–55 yaş.
 Arkadaşınla gel, ikinize de %10 · Taksit var.
 
 Ücretsiz tanışma atölyesi: Taksim Pera 19 Eylül Cmt 19:00
+(Techne Musical Lab ile aynı seans)
 Program 1–3 Ekim'de başlıyor · 15 kişilik grup
 ```
 
