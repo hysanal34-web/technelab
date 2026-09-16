@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { displayRole } from '@/lib/roleLabel'
 
 export type TeamMember = {
   name: string
@@ -62,7 +63,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
       {members.map((m, idx) => {
         const isOpen = open === m.slug
         const isTouched = touchRevealed === m.slug
-        const shortRole = m.role.split('·')[0].trim()
+        const shortRole = displayRole(m.role)
 
         return (
           <article

@@ -97,3 +97,6 @@ export function findTeamMembersForInstructor(instructor?: string): TeamMember[] 
     .map((n) => TEAM.find((m) => m.name === n || n.includes(m.name)))
     .filter((m): m is TeamMember => Boolean(m))
 }
+
+/** Kartlarda gösterilen unvan satırı — bkz. lib/roleLabel.ts */
+export { displayRole } from './roleLabel'

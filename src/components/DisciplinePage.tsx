@@ -5,6 +5,7 @@ import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { getDiscipline, type Discipline } from '@/lib/disiplinler'
 import { DISTRICTS } from '@/lib/semtler'
 import { findTeamMembersForInstructor, type TeamMember } from '@/lib/ekip'
+import { displayRole } from '@/lib/roleLabel'
 
 /**
  * Disiplin landing sayfası — "oyunculuk kursu istanbul", "dans kursu istanbul"
@@ -262,8 +263,14 @@ return (
           <h2 id="egitmenler-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
             KİMİNLE ÇALIŞACAKSIN?
           </h2>
-          <p className="font-mono text-[12px] text-dim mb-10 max-w-2xl">
-            Eğitmenlerimizin adı ve geçmişi açık. &quot;Alanında uzman&quot; demiyoruz — kim olduğunu yazıyoruz.
+          <p className="font-mono text-[12px] text-dim mb-3 max-w-2xl leading-relaxed">
+            Eğitmenlerimizin adı ve geçmişi açık. &quot;Alanında uzman&quot; demiyoruz — kim olduğunu
+            yazıyoruz. Her isim, nerede eğitim aldığını ve sahnede ne yaptığını gösteren
+            kendi sayfasına gidiyor.
+          </p>
+          <p className="font-mono text-[11px] text-stone mb-10 max-w-2xl leading-relaxed">
+            Bir atölyeye kaydolmadan önce sorulacak ilk soru bu olmalı — sorduğunuzda
+            isim alamıyorsanız, cevabı zaten almışsınız demektir.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {egitmenler.map((m) => (
@@ -286,7 +293,7 @@ return (
                     {m.name}
                   </span>
                   <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-neon block mb-2">
-                    {m.role.split('·')[0].trim()}
+                    {displayRole(m.role)}
                   </span>
                   <span className="font-mono text-[11px] text-stone leading-relaxed block line-clamp-2">
                     {m.bio}

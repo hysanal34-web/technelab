@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { TEAM, getTeamMember } from '@/lib/ekip'
+import { displayRole } from '@/lib/roleLabel'
 import { DISCIPLINES } from '@/lib/disiplinler'
 import { getAllArticles } from '@/lib/mdx'
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const m = getTeamMember(slug)
   if (!m) return {}
-  const shortRole = m.role.split('·')[0].trim()
+  const shortRole = displayRole(m.role)
   const title = `${m.name} — ${shortRole} | Techne Lab İstanbul`
   const description = m.bio.length > 155 ? `${m.bio.slice(0, 152)}…` : m.bio
   return {
