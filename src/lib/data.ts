@@ -117,7 +117,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
-    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\nÜç paket seçeneği var: 12, 6 ya da 4 hafta. İstediğiniz süreyle başlayabilirsiniz.',
+    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\n"Anlıyorum ama konuşamıyorum" diyorsan doğru yerdesin. Sıfırdan İngilizce öğretmiyoruz; var olan ama uyuyan birikimi sahnede çalıştırıyoruz. Sohbet edebiliyorsan seviyen yeterli.\n\nÜç paket seçeneği var: 12, 6 ya da 4 hafta. İstediğiniz süreyle başlayabilirsiniz.',
     blocks: [
       { title: 'Isınma & Keşif', span: 'Eksen 01', body: 'Oyun ve güven egzersizleri, dil oyunları. İngilizce sezginin açılması.' },
       { title: 'Doğaçlama & Karakter', span: 'Eksen 02', body: 'Anlık sahne çalışması, status oyunları. Dili düşünmeden konuşmak.' },

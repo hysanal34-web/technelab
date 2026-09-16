@@ -72,6 +72,18 @@ export const TEAM: TeamMember[] = [
       { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
     ],
   },
+  {
+    // Camera Praxis'in eğitmeni. TEAM'de kaydı olmadığı için oyunculuk,
+    // kamera önü, audition ve İngilizce oyunculuk disiplin sayfalarında
+    // eğitmen kartı hiç çıkmıyordu. Biyografi data.ts'teki instructorBio
+    // metninin aynısı — yeni bir iddia eklenmedi.
+    // TODO (Yağız): fotoğraf eklenecek → /images/team/selen-ucer.jpg
+    name: 'Selen Uçer',
+    slug: 'selen-ucer',
+    role: 'Eğitmen',
+    bio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve tiyatroda uzun yıllara dayanan oyunculuk pratiğini kamera önü tekniğiyle birleştiriyor.',
+    programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
+  },
 ]
 
 export function getTeamMember(slug: string) {

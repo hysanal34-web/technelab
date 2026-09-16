@@ -31,7 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.title, description: meta.excerpt, type: 'article',
       publishedTime: meta.date, authors: [meta.author],
       url: `${SITE_META.url}/makaleler/${slug}`,
-      images: meta.image ? [{ url: meta.image, alt: meta.title }] : undefined,
+      // Görseli olmayan makalede marka görseline düş — aksi halde 32 makalenin
+      // paylaşım kartı (WhatsApp, LinkedIn, X) boş çıkıyor.
+      images: [{ url: meta.image ?? `${SITE_META.url}/images/og-techne-lab.png`, alt: meta.title }],
     },
     alternates: { canonical: `${SITE_META.url}/makaleler/${slug}` },
   }

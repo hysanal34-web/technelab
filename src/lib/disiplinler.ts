@@ -386,6 +386,10 @@ export const DISCIPLINES: Discipline[] = [
         a: 'B1 ve üzeri bekliyoruz — yani günlük bir sohbeti takip edip cevap verebiliyorsa yeterli. Akıcı olması gerekmiyor. Burası İngilizce öğretilen bir yer değil; öğrendiğinin kullanıldığı yer. Sıfırdan dil kurmuyoruz, var olan bilgiyi konuşmaya çeviriyoruz.',
       },
       {
+        q: 'Çocuğum 10 yaşından küçük, bir programınız var mı?',
+        a: 'Şu an yok. İngilizce drama programımız 10 yaşında başlıyor ve bunun bir sebebi var: sahnede doğaçlama yaparken dili kullanabilmek için önce o dilde bir sohbeti sürdürebilmek gerekiyor. Daha küçük yaşta bu eşik genellikle oluşmamış oluyor ve çocuk sahnede susmak zorunda kalıyor — kimseye faydası olmayan bir deneyim. Türkçe yaratıcı drama ise daha erken yaşta çalışılabiliyor; çocuğunuz için doğru zamanı birlikte konuşmak isterseniz arayın.',
+      },
+      {
         q: 'Küçük çocuklar büyüklerle aynı grupta mı olacak?',
         a: 'Hayır, gruplar ayrı. 10–14 yaş ve 15–17 yaş farklı sınıflarda çalışıyor. Kayıt sırasında çocuğunuzun yaşına uygun gruba yerleştiriyoruz.',
       },
