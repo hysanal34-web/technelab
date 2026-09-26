@@ -3,7 +3,7 @@ import { SITE_META } from '@/lib/data'
 import { BilgiForm } from '@/components/BilgiForm'
 
 export const metadata: Metadata = {
-  title: 'İletişim | Techne Lab İstanbul',
+  title: 'Bilgi ve İletişim',
   description:
     'Techne Lab İstanbul ile iletişime geç — soru, öneri ve iş birliği için mesaj bırak. Program içerikleri ve ücretler için WhatsApp ya da telefon.',
   alternates: { canonical: `${SITE_META.url}/bilgi` },

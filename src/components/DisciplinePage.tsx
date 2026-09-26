@@ -257,6 +257,113 @@ return (
         </div>
       </section>
 
+      {/* ── Karşılaştırma tablosu ──
+          Satırlar data.ts'teki WORKSHOPS'tan türetiliyor; elle veri girilmiyor
+          ki tek kaynak kuralı bozulmasın. Fiyat bilinçli olarak yok. */}
+      {workshops.length > 1 && (
+        <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="karsilastirma-heading">
+          <h2 id="karsilastirma-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            HANGİSİ SANA UYGUN?
+          </h2>
+          <p className="font-mono text-[12px] text-dim mb-10">
+            Süre, kontenjan ve mekân yan yana. Fiyat bilgisi için bize yaz.
+          </p>
+
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <table className="w-full border-collapse min-w-[640px]">
+              <caption className="sr-only">
+                {d.label} programlarının süre, kontenjan, mekân ve kayıt durumu karşılaştırması
+              </caption>
+              <thead>
+                <tr className="border-b border-border">
+                  {['Program', 'Süre', 'Grup', 'Mekân', 'Kayıt'].map((h) => (
+                    <th
+                      key={h}
+                      scope="col"
+                      className="text-left font-mono text-[11px] tracking-[0.16em] uppercase text-dim pb-4 pr-6"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {workshops.map((w) => (
+                  <tr key={w.slug} className="border-b border-border align-top">
+                    <th scope="row" className="text-left py-5 pr-6 font-normal">
+                      <Link
+                        href={`/atolyeler/${w.slug}`}
+                        data-hover
+                        className="font-display text-[16px] text-fg hover:text-neon transition-colors leading-tight"
+                      >
+                        {w.title}
+                      </Link>
+                      {w.instructor && w.instructor !== 'Techne Lab' && (
+                        <span className="block font-mono text-[11px] text-dim mt-1">{w.instructor}</span>
+                      )}
+                    </th>
+                    <td className="py-5 pr-6 font-mono text-[12px] text-stone">{w.duration}</td>
+                    <td className="py-5 pr-6 font-mono text-[12px] text-stone">
+                      {typeof w.maxStudents === 'number' ? `en fazla ${w.maxStudents}` : w.maxStudents}
+                    </td>
+                    <td className="py-5 pr-6 font-mono text-[12px] text-stone">{w.venue}</td>
+                    <td className="py-5 pr-6 font-mono text-[12px]">
+                      <span className={w.active ? 'text-neon' : 'text-dim'}>
+                        {w.active ? 'açık' : 'kapalı'}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* ── Kapalı program varsa bekleme listesi ──
+          Kayıt kapalı bir programa gelen ziyaretçi eli boş dönmesin. */}
+      {workshops.some((w) => !w.active) && (
+        <section className="px-4 md:px-10 py-14 border-b border-border">
+          <div className="border border-neon/30 bg-bgAlt p-7 md:p-9 max-w-3xl">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-3">
+              Aradığın dönem kapalıysa
+            </p>
+            <p className="font-body text-[14px] text-stone leading-relaxed mb-6">
+              Programların bir kısmı şu an kayıt almıyor. Yeni dönemler açılacak ama tarihleri henüz
+              netleşmedi. Bekleme listesine yazılırsan kontenjan açılmadan önce ilk sana haber veririz.
+            </p>
+            <Link
+              href="/bekleme-listesi"
+              data-hover
+              className="inline-block font-mono text-[11px] tracking-[0.16em] uppercase bg-neon text-bg px-6 py-3 hover:bg-fg transition-colors"
+            >
+              haber ver →
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ── Nasıl seçilir ── */}
+      {d.criteria && d.criteria.length > 0 && (
+        <section className="px-4 md:px-10 py-16 border-b border-border bg-bgAlt" aria-labelledby="kriter-heading">
+          <h2 id="kriter-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            NEYE BAKMALI?
+          </h2>
+          <p className="font-mono text-[12px] text-dim mb-10">
+            Bizi seçmesen de işine yarayacak ölçütler.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-10 max-w-6xl">
+            {d.criteria.map((c) => (
+              <div key={c.q}>
+                <h3 className="font-display text-fg text-[18px] leading-tight mb-3">{c.q}</h3>
+                <p className="font-body text-[14px] text-stone leading-relaxed">{c.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── Eğitmenler ── */}
       {egitmenler.length > 0 && (
         <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="egitmenler-heading">

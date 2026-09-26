@@ -4,7 +4,7 @@ import { SITE_META } from '@/lib/data'
 import { MONOLOGUES } from '@/lib/kaynaklar'
 
 const title = 'Monolog Kütüphanesi — Oyunculuk Seçmeleri İçin Ücretsiz Monologlar'
-const description = 'Oyunculuk seçmeleri ve atölye çalışması için monolog arşivi. Shakespeare, Çehov, Ibsen, Wilde. Her monolog için bağlam, ton ve çalışma notu. Ücretsiz.'
+const description = 'Oyunculuk seçmeleri ve atölye çalışması için monolog arşivi. Türkçe klasikler (Namık Kemal, Şinasi, Abdülhak Hâmid) ve dünya repertuvarı (Shakespeare, Çehov, Ibsen). Her monolog için bağlam, ton ve çalışma notu. Ücretsiz.'
 
 export const metadata: Metadata = {
   title,
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     'kadın monologları', 'erkek monologları', 'kısa monolog', 'shakespeare monolog',
     'çehov monolog', 'tiyatro monologları', 'ücretsiz monolog', 'konservatuvar sınavı monolog',
     'oyunculuk sınavı hazırlık', 'monolog önerileri',
+    'türkçe monolog', 'türk tiyatrosu monologları', 'namık kemal monolog',
+    'vatan yahut silistre monolog', 'şair evlenmesi monolog', 'türkçe klasik monolog',
+    'erkek için türkçe monolog', 'komedi monoloğu',
   ],
 }
 
@@ -38,7 +41,15 @@ const FAQ = [
   },
   {
     q: 'Bu monologları izinsiz kullanabilir miyim?',
-    a: 'Bu sayfadaki tüm metinler telif hakkı süresi dolmuş (kamu malı) eserlerden seçilmiştir — Shakespeare, Çehov, Ibsen, Wilde, antik Yunan tragedyaları. Seçmelerde, sınıf çalışmalarında ve gösterilerde serbestçe kullanabilirsin. Çağdaş metinler için yazar ya da yayıncıdan izin gerekir.',
+    a: 'Bu sayfadaki tüm eserlerin telif hakkı süresi dolmuştur, yani kamu malıdır. Türkçe tarafta Şinasi, Namık Kemal, Ahmet Vefik Paşa ve Abdülhak Hâmid Tarhan; dünya repertuvarında Shakespeare, Çehov, Ibsen, Wilde ve antik Yunan tragedyaları. Seçmelerde, sınıf çalışmalarında ve gösterilerde serbestçe kullanabilirsin. Yaşayan ya da yakın dönemde ölmüş yazarların metinleri için yazardan veya yayıncıdan izin gerekir; çeviri eserlerde çevirmenin telifi ayrıca işler.',
+  },
+  {
+    q: 'Türkçe monolog mu, yabancı metin mi getirmeliyim?',
+    a: 'Çoğu konservatuvar ve atölye seçmesi Türkçe bir metin ister, bazıları bir Türkçe bir yabancı olmak üzere iki metin sorar. Türkçe klasikler çoğunlukla Tanzimat dönemine ait olduğu için dili ağırdır; bu bir dezavantaj değil, dil hâkimiyetini göstermek için fırsattır. Pratik bir not: adayların büyük kısmı aynı birkaç metne yönelir, o yüzden daha az çalışılan bir oyundan gelmek tek başına dikkat çeker. Türkçe komedi getiren aday ise neredeyse hiç yoktur.',
+  },
+  {
+    q: 'Tanzimat metinlerinin dili ağır geliyor, nasıl çalışmalıyım?',
+    a: 'Üç adım işe yarar. Önce metni kendi kelimelerinle düzyazıya çevir; ne dediğini cümle cümle yazmadan ezberleme. Sonra bilmediğin her kelimeyi tek tek karşıla, tahminle geçme. Son olarak nefes planı çıkar: uzun cümleleri nerede böleceğini önceden işaretle, yoksa ses cümlenin ortasında düşer. Bu üçü yapıldığında metin ağır olmaktan çıkar, sadece yoğun kalır.',
   },
   {
     q: 'Monolog çalışırken nereden başlanır?',
@@ -102,7 +113,9 @@ export default function MonologlarPage() {
           taşıdığı tonu ve oyuncuya bir çalışma notunu yazdık.
         </p>
         <p className="font-mono text-[12px] text-dim max-w-2xl leading-relaxed">
-          Tüm metinler kamu malıdır — telif izni gerekmez. {MONOLOGUES.length} monolog.
+          Tüm metinler kamu malıdır, telif izni gerekmez. {MONOLOGUES.length} monolog:
+          {' '}{MONOLOGUES.filter((m) => m.lang === 'tr').length} Türkçe,
+          {' '}{MONOLOGUES.filter((m) => m.lang === 'en').length} İngilizce.
         </p>
       </section>
 

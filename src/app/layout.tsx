@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { MetaPixel } from '@/components/MetaPixel'
+import { TiklamaKimligi } from '@/components/TiklamaKimligi'
+import { SiteChrome } from '@/components/SiteChrome'
 import { CallTracker } from '@/components/CallTracker'
 import './globals.css'
 import { Nav } from '@/components/Nav'
@@ -201,18 +203,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           İçeriğe atla
         </a>
         <LanguageProvider>
-          <Nav />
+          <SiteChrome>
+            <Nav />
+          </SiteChrome>
           <main id="icerik" className="page-enter">{children}</main>
-          <Footer />
-          <TiyatroBot />
-          {/* Reklamsız telefon stratejisi: WhatsApp butonu site genelinde görünür.
-              Numara tek kaynaktan (SITE_META.phoneE164) — hat değişince data.ts yeter. */}
-          <WhatsAppButton />
+          <SiteChrome>
+            <Footer />
+            <TiyatroBot />
+            {/* Reklamsız telefon stratejisi: WhatsApp butonu site genelinde görünür.
+                Numara tek kaynaktan (SITE_META.phoneE164) — hat değişince data.ts yeter. */}
+            <WhatsAppButton />
+          </SiteChrome>
         </LanguageProvider>
-        <Analytics />
-        <GoogleAnalytics />
-        <MetaPixel />
-        <CallTracker />
+        {/* Ölçüm etiketleri de kabuğun içinde: /admin gezintisi kendi reklam
+            verimizi kirletmesin. */}
+        <SiteChrome>
+          <Analytics />
+          <GoogleAnalytics />
+          <MetaPixel />
+          <TiklamaKimligi />
+          <CallTracker />
+        </SiteChrome>
       </body>
     </html>
   )

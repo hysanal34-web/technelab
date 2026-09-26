@@ -3,7 +3,7 @@ import { SITE_META } from '@/lib/data'
 import { ContactForm } from './ContactForm'
 
 export const metadata: Metadata = {
-  title: 'İletişim — Techne Lab İstanbul',
+  title: 'İletişim',
   description: 'Techne Lab İstanbul ile iletişime geçin. Atölye başvurusu, prodüksiyon işbirliği, kurumsal projeler.',
   alternates: { canonical: `${SITE_META.url}/iletisim` },
   openGraph: {

@@ -105,19 +105,21 @@ export const WORKSHOPS: Workshop[] = [
     instructor: 'Alara Lokum, Ece Ertez & Yeşim Çelebi',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda başlayan sahne pratiğini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu; Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Ece Ertez: Oyunculuk pratiğini Şahika Tekand Studio Oyuncuları'nın fiziksel tiyatro ekolünde inşa etti; Şahmaran ve Erşan Kuneri gibi projelerde yer aldı, Chubbuck Metodu'nda uzmanlaştı. Yeşim Çelebi: Yale Üniversitesi Tiyatro ve Performans Sanatları mezunu; LAMDA disiplini ile Stella Adler ve Lee Strasberg metotlarını Bahar, Kızılcık Şerbeti ve Mezarlık gibi yapımlardaki set deneyimiyle birleştiriyor.",
     // 7 Eylül: aylık katılım modelinden üç kademeli pakete geçildi.
+    // 17 Eylül: kademeler 12/6/4 → 12/8/4 haftaya çekildi, fiyatlar güncellendi.
+    // Aylık birim 8.500 (KDV dahil): 4 hafta 8.500 · 8 hafta 17.000 · 12 hafta 21.000 (%18 taahhüt indirimi).
     // price/priceLabel en üst kademe (12 hafta); priceTier2/3 alttaki kademeler.
-    venue: 'Pera & Kadıköy', duration: '12, 6 ya da 4 hafta', price: 19500,
-    priceLabel: '12 hafta', priceTier2: 11000, priceTier2Label: '6 hafta',
-    priceTier3: 8000, priceTier3Label: '4 hafta',
+    venue: 'Pera & Kadıköy', duration: '12, 8 ya da 4 hafta', price: 21000,
+    priceLabel: '12 hafta', priceTier2: 17000, priceTier2Label: '8 hafta',
+    priceTier3: 8500, priceTier3Label: '4 hafta',
     friendDiscountPercent: 10,
     schedule: [
       { place: 'Pera', date: '3 Ekim Cumartesi', time: '15:00' },
-      { place: 'Kadıköy', date: '14 Eylül Pazartesi', time: '20:00' },
+      { place: 'Kadıköy', date: '14 Eylül’de başladı · katılım açık', time: '20:00' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
-    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\n"Anlıyorum ama konuşamıyorum" diyorsan doğru yerdesin. Sıfırdan İngilizce öğretmiyoruz; var olan ama uyuyan birikimi sahnede çalıştırıyoruz. Sohbet edebiliyorsan seviyen yeterli.\n\nÜç paket seçeneği var: 12, 6 ya da 4 hafta. İstediğiniz süreyle başlayabilirsiniz.',
+    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\n"Anlıyorum ama konuşamıyorum" diyorsan doğru yerdesin. Sıfırdan İngilizce öğretmiyoruz; var olan ama uyuyan birikimi sahnede çalıştırıyoruz. Sohbet edebiliyorsan seviyen yeterli.\n\nÜç paket seçeneği var: 12, 8 ya da 4 hafta. İstediğiniz süreyle başlayabilirsiniz.',
     blocks: [
       { title: 'Isınma & Keşif', span: 'Eksen 01', body: 'Oyun ve güven egzersizleri, dil oyunları. İngilizce sezginin açılması.' },
       { title: 'Doğaçlama & Karakter', span: 'Eksen 02', body: 'Anlık sahne çalışması, status oyunları. Dili düşünmeden konuşmak.' },
@@ -126,7 +128,7 @@ export const WORKSHOPS: Workshop[] = [
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-final-project', 'english-drama-youth'],
     seoTitle: 'İngilizce Drama & Konuşma Kulübü İstanbul — English Drama Lab',
-    seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, 12/6/4 haftalık paketler.',
+    seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, 12/8/4 haftalık paketler.',
   },
 
   // ── 04 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
@@ -161,8 +163,8 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Dil Öğretmiyoruz. Dili Deneyimliyoruz.',
     instructor: 'Alara Lokum',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ödev olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
-    venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 99000,
-    friendDiscountPercent: 10, scholarshipPercent: 25,
+    venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 125000,
+    friendDiscountPercent: 10, installments: 8,
     schedule: [
       { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
       { place: 'Pera', date: '4 Ekim Pazar', time: '13:00' },
@@ -188,23 +190,23 @@ export const WORKSHOPS: Workshop[] = [
     id: 5, slug: 'techne-musical-lab', code: '05',
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
-    instructor: 'Köksal Ünal & Sitare Bilge',
-    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Sitare Bilge: Oyunculuk, ses ve şan eğitmeni; tiyatro müziği uzmanı. İkisi birlikte sahne sanatlarının üç disiplinini tek programda buluşturuyor.',
-    venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Eylül–Mayıs)', price: 140000,
-    friendDiscountPercent: 10, scholarshipPercent: 25,
-    schedule: [{ place: 'Kadıköy', date: '28 Eylül Pazartesi' }],
+    instructor: 'Köksal Ünal & Bartu Ayaz',
+    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Bartu Ayaz: Şan ve vokal koçu. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
+    venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 135000,
+    friendDiscountPercent: 10, installments: 6,
+    schedule: [{ place: 'Kadıköy', date: '12 Ekim Pazartesi' }],
     maxStudents: 12, active: true, ageRange: '15–55 yaş',
     category: 'dans-muzikal',
     tags: ['Müzikal', 'Drama', 'Tiyatro', 'Uzun Dönem'],
-    desc: 'Drama ve tiyatro temelinin üzerine müzikal sahneleme eklenen 8 aylık program. Oyunculuk ve dramaturgik çalışmayla başlar, şan ve dansla sahne bütünlüğünü tamamlar. Dönem, seyircili bitirme performansıyla kapanır.\n\n15–55 yaş arası. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenir; kabul video incelemesiyle yapılır.',
+    desc: 'Oyunculuk, şan, vokal koçluğu ve dansı tek çatı altında birleştiren kapsamlı bir müzikal tiyatro eğitimi. Sekiz ay boyunca sahne varlığından şarkı söylemeye, vokal teknikten Broadway dansına kadar müzikal sahnelemenin bütün bileşenlerini çalışıyoruz. Dönem, seyircili bir yıl sonu gösterisiyle kapanıyor.\n\n15–55 yaş arası. Başvuru için bir müzikal ya da pop şarkının seslendirildiği kısa bir video beklenir; kabul video incelemesiyle yapılır.',
     blocks: [
-      { title: 'Drama & Oyunculuk', span: 'Ekim–Aralık', body: 'Sahne varlığı, karakter inşası ve dramaturgik çalışma. Şan tekniğiyle buluşan oyuncu sesi.' },
-      { title: 'Müzikal Sahneleme', span: 'Ocak–Mart', body: 'Müzikal ritim, Broadway dans temelleri. Drama zeminine oturan koreografi.' },
-      { title: 'Bitirme Performansı', span: 'Nisan–Mayıs', body: 'Sahnelenmiş bir müzikal — kostüm, ışık, dekor, seyirci önünde tam prodüksiyon.' },
+      { title: 'Oyunculuk & Şan', span: 'Ekim–Aralık', body: 'Sahne varlığı, karakter inşası ve vokal teknik. Şan ve vokal koçluğuyla buluşan oyuncu sesi.' },
+      { title: 'Müzikal Sahneleme', span: 'Ocak–Mart', body: 'Müzikal ritim, Broadway dans temelleri. Şarkı ve sahne hareketinin birleştiği koreografi.' },
+      { title: 'Yıl Sonu Gösterisi', span: 'Nisan–Mayıs', body: 'Sahnelenmiş bir müzikal — kostüm, ışık, dekor, seyirci önünde tam prodüksiyon.' },
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
     seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Oyunculuk, Şan & Dans',
-    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Sitare Bilge ile. 15–55 yaş. Seyircili bitirme performansı. Kadıköy.',
+    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Bartu Ayaz ile. 15–55 yaş. Seyircili yıl sonu gösterisi. Kadıköy.',
   },
 
   // ── 07 — BROADWAY MUSICAL DANCE ────────────────────────────────────

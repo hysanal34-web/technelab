@@ -3,7 +3,8 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
-import { SITE_META } from '@/lib/data'
+import { trackLead, newBrowserEventId } from '@/components/MetaPixel'
+import { SITE_META, WORKSHOPS } from '@/lib/data'
 
 type WorkshopMin = {
   slug: string
@@ -43,10 +44,20 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
+    // Aynı olay hem buradan hem sunucudaki CAPI'den gidiyor; ikisi aynı
+    // kimliği taşımazsa tek başvuru iki lead olarak sayılıyor.
+    const eventId = newBrowserEventId()
+    formData.append('eventId', eventId)
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
       if (result.status === 'success') {
+        // 21 Eylül 2026'ya kadar bu form hiçbir olay atmıyordu: Youth
+        // başvuruları, yani en yüksek bedelli program, Meta ve Google
+        // tarafında hiç görünmüyordu. Değer olmadan gönderilen dönüşüm de
+        // algoritma için değersiz sayılıyor, bu yüzden fiyat geçiliyor.
+        const price = WORKSHOPS.find((w) => w.slug === workshop.slug)?.price ?? 0
+        trackLead(workshop.title, price, workshop.slug, eventId)
         formRef.current?.reset()
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (result.status === 'error') {
@@ -263,6 +274,23 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               </Link>
               {"'ni okudum; bu formda paylaşılan kişisel verilerin başvuru ve kayıt süreçlerinin yürütülmesi amacıyla işlenmesini onaylıyorum."}
               <span className="text-neon ml-1">*</span>
+            </label>
+          </div>
+
+          {/* Reklam ölçümü — ayrı açık rıza, isteğe bağlı. */}
+          <div className="flex gap-3 items-start mt-4">
+            <input
+              type="checkbox"
+              name="reklamRizasi"
+              id="reklamRizasi"
+              value="evet"
+              className="mt-0.5 accent-neon shrink-0 cursor-pointer"
+            />
+            <label htmlFor="reklamRizasi" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+              Reklam ölçümü için veli e-posta ve telefonunun şifrelenerek (SHA-256) Meta ve Google&apos;a aktarılmasına izin veriyorum.
+              <span className="block text-dim mt-0.5">
+                İsteğe bağlı. Öğrenciye ait hiçbir bilgi aktarılmaz; işaretlemezseniz başvurunuz aynen alınır.
+              </span>
             </label>
           </div>
         </Section>

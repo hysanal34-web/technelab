@@ -41,3 +41,9 @@ _ozel-arsiv/
 # Broşür arşiv kopyaları — canlı sürüm public/dosyalar/ altında
 brosurler-2026/
 brosurler-2026-v2/
+.env*
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/

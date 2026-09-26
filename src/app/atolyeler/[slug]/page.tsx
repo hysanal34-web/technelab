@@ -357,14 +357,22 @@ export default async function WorkshopDetailPage({ params }: Props) {
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
                 <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">Kayıt Kapalı</p>
                 <p className="font-mono text-[11px] text-dim leading-relaxed mb-4">
-                  Bu program şu an aktif kayıt almıyor. Bilgi almak için bize ulaşın.
+                  Yeni dönem açılacak, tarihi henüz netleşmedi. Bekleme listesine yazıl, kontenjan
+                  açılmadan önce ilk sana haber verelim.
                 </p>
-                <a
-                  href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Bilgi Talebi`)}`}
-                  className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-fg border border-stone/40 text-center py-3 px-6 transition-colors duration-200 inline-block"
+                <Link
+                  href={`/bekleme-listesi?program=${w.slug}`}
+                  className="font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg text-center py-3 px-6 transition-colors duration-200 inline-block"
                   data-hover
                 >
-                  bilgi al →
+                  haber ver →
+                </Link>
+                <a
+                  href={`mailto:${SITE_META.email}?subject=${encodeURIComponent(`${w.title} — Bilgi Talebi`)}`}
+                  className="font-mono text-[11px] text-dim hover:text-stone transition-colors duration-200 block mt-3"
+                  data-hover
+                >
+                  ya da doğrudan yaz
                 </a>
               </div>
             ) : (

@@ -1,3 +1,6 @@
+> **ESKİ SÜRÜM — 17 Eylül 2026 itibarıyla geçersiz.**
+> Fiyatlar ve tarihler güncel değil. Geçerli şablonlar: `DM-SABLONLARI-GUNCEL.md`
+
 # Instagram DM Şablonları
 
 8 Eylül 2026 · Kısa sürüm. Meta otomatik yanıtları 500 karakterle sınırlı —

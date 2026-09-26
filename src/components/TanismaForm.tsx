@@ -3,11 +3,19 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { TanismaFormState } from '@/app/tanisma-gunu/actions'
-import { TANISMA_SESSIONS, ENGLISH_LEVELS } from '@/app/tanisma-gunu/sessions'
+import { ENGLISH_LEVELS, type TanismaSession } from '@/app/tanisma-gunu/sessions'
 import { trackTanismaLead, newBrowserEventId } from '@/components/MetaPixel'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 
-type Props = { action: (formData: FormData) => Promise<TanismaFormState> }
+/**
+ * `sessions` sunucudan geliyor: geçmiş tarihler orada eleniyor. İstemcide
+ * filtrelemek hidrasyon uyuşmazlığı riski taşır (sunucu ve tarayıcı saati
+ * gün dönümünde ayrışabilir), o yüzden liste hazır gelir.
+ */
+type Props = {
+  action: (formData: FormData) => Promise<TanismaFormState>
+  sessions: readonly TanismaSession[]
+}
 
 /**
  * Bir tanışma kaydının reklam platformlarına bildirilen tahmini değeri.
@@ -35,14 +43,14 @@ const SOURCE_OPTIONS = [
 const inputCls =
   'w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200'
 
-export default function TanismaForm({ action }: Props) {
+export default function TanismaForm({ action, sessions }: Props) {
   const [state, setState] = useState<TanismaFormState>({ status: 'idle' })
   const [sessionId, setSessionId] = useState('')
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
   const errRef = useRef<HTMLParagraphElement>(null)
 
-  const session = TANISMA_SESSIONS.find((s) => s.id === sessionId)
+  const session = sessions.find((s) => s.id === sessionId)
   const isYouth = session?.youth ?? false
   const askEnglish = session?.english ?? true
 
@@ -126,7 +134,7 @@ export default function TanismaForm({ action }: Props) {
         </h1>
 
         <div className="space-y-3">
-          {TANISMA_SESSIONS.map((s) => {
+          {sessions.map((s) => {
             const [prog, when] = s.label.split(' — ')
             return (
               <div key={s.id} className="flex flex-col sm:flex-row sm:gap-6 pb-3 border-b border-border">
@@ -137,7 +145,9 @@ export default function TanismaForm({ action }: Props) {
           })}
         </div>
         <p className="font-mono text-[11px] text-dim mt-4 leading-relaxed">
-          Kayıt sonrası mekân adresini ve detayları size iletiyoruz.
+          {sessions.length > 0
+            ? 'Kayıt sonrası mekân adresini ve detayları size iletiyoruz.'
+            : 'Şu an açık tanışma günü yok. Yeni tarihler yakında duyurulacak.'}
         </p>
       </div>
 
@@ -150,7 +160,7 @@ export default function TanismaForm({ action }: Props) {
             className={`${inputCls} appearance-none`}
           >
             <option value="" disabled>Seçiniz…</option>
-            {TANISMA_SESSIONS.map((s) => (
+            {sessions.map((s) => (
               <option key={s.id} value={s.id}>{s.label}</option>
             ))}
           </select>
@@ -260,7 +270,9 @@ export default function TanismaForm({ action }: Props) {
             </p>
             <p>
               <span className="text-stone">Aktarım:</span> Verileriniz üçüncü kişilere satılmaz. Yalnızca e-posta/form altyapı sağlayıcılarımızda
-              (Vercel, Resend) teknik olarak barındırılır.
+              (Vercel, Resend) teknik olarak barındırılır. Aşağıdaki reklam ölçümü kutusunu işaretlerseniz, e-posta ve telefonunuz
+              geri döndürülemez biçimde şifrelenerek (SHA-256) Meta ve Google&apos;a yalnızca reklam ölçümü amacıyla iletilir;
+              bu bir yurt dışına aktarımdır ve tamamen isteğe bağlıdır.
             </p>
             <p>
               <span className="text-stone">Saklama:</span> Kayıt yapmazsanız 12 ay sonra silinir; kayıt yaparsanız program bitimine kadar ve
@@ -289,6 +301,19 @@ export default function TanismaForm({ action }: Props) {
             <label htmlFor="iletisimIzni" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
               Techne Lab&apos;ın yeni program, atölye ve etkinlik duyurularını e-posta ve WhatsApp ile almak istiyorum.
               <span className="block text-dim mt-0.5">İsteğe bağlı. İstediğiniz an tek mesajla çıkabilirsiniz; tanışma kaydınızı etkilemez.</span>
+            </label>
+          </div>
+
+          {/* Reklam ölçümü ayrı rıza: duyuru almakla aynı amaç değil, KVKK
+              ikisi için ayrı açık rıza istiyor. Varsayılan kapalı. */}
+          <div className="flex gap-3 items-start">
+            <input type="checkbox" name="reklamRizasi" id="reklamRizasi" value="evet" className="mt-0.5 accent-neon shrink-0 cursor-pointer" />
+            <label htmlFor="reklamRizasi" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+              Reklam ölçümü için e-posta ve telefonumun şifrelenerek Meta ve Google&apos;a aktarılmasına izin veriyorum.
+              <span className="block text-dim mt-0.5">
+                İsteğe bağlı. Size reklam gösterilmesi için değil, hangi duyurunun işe yaradığını ölçebilmemiz için.
+                İşaretlemezseniz kaydınız aynen alınır.
+              </span>
             </label>
           </div>
         </div>

@@ -249,6 +249,24 @@ export default function RegistrationForm({ workshop, action }: Props) {
           </label>
         </div>
 
+        {/* Reklam ölçümü — ayrı açık rıza, isteğe bağlı. Başvuru onayına
+            bağlanamaz: farklı amaç, KVKK ayrı rıza istiyor. */}
+        <div className="flex gap-3 items-start">
+          <input
+            type="checkbox"
+            name="reklamRizasi"
+            id="reklamRizasi"
+            value="evet"
+            className="mt-0.5 accent-neon shrink-0 cursor-pointer"
+          />
+          <label htmlFor="reklamRizasi" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
+            Reklam ölçümü için e-posta ve telefonumun şifrelenerek (SHA-256) Meta ve Google&apos;a aktarılmasına izin veriyorum.
+            <span className="block text-dim mt-0.5">
+              İsteğe bağlı. İşaretlemezseniz başvurunuz aynen alınır.
+            </span>
+          </label>
+        </div>
+
         {/* Error message */}
         {state.status === 'error' && state.message && (
           <p ref={errRef} tabIndex={-1} role="alert" className="font-mono text-[12px] text-red-700 border border-red-700/40 px-4 py-3 bg-red-700/5 leading-relaxed">

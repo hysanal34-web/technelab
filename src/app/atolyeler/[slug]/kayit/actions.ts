@@ -5,6 +5,7 @@ import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { headers, cookies } from 'next/headers'
 import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
 import { priceSummary } from '@/lib/fiyat'
+import { basvuruKaydet } from '@/lib/basvuruStore'
 
 export type FormState = {
   status: 'idle' | 'success' | 'error'
@@ -53,6 +54,8 @@ export async function submitRegistration(
   const portfolyoLink = take(formData, 'portfolyoLink', 500)
   const kvkk          = formData.get('kvkk')
   const parentConsent = formData.get('parentConsent')
+  // Reklam platformlarına aktarım için ayrı açık rıza (bkz. basvuruStore).
+  const reklamRizasi  = formData.get('reklamRizasi') === 'evet'
 
   const isYouth = slug === 'english-drama-youth'
   const contactEmail = isYouth ? guardianEmail : email
@@ -137,6 +140,41 @@ export async function submitRegistration(
   const workshop = WORKSHOPS.find((w) => w.slug === slug)
   const programName = workshop ? `${workshop.title} — ${workshop.sub}` : slug
   const stamp = new Date().toISOString()
+
+  // Kalıcı kayıt — panelde listelenmesi için. E-postadan önce yazılıyor;
+  // gerekçe tanisma-gunu/actions.ts içinde. Hata fırlatmıyor.
+  // Tıklama kimlikleri: offline dönüşüm yüklemenin tek anahtarı, başka
+  // hiçbir yerde durmuyor. Okunamazsa boş geçiyor, akış etkilenmiyor.
+  const cerez = await cookies()
+  const cz = (ad: string) => cerez.get(ad)?.value || undefined
+
+  void basvuruKaydet({
+    kaynak: 'program',
+    program: workshop?.title ?? slug,
+    slug,
+    ad: name,
+    email: (isYouth && guardianEmail) || email,
+    telefon: (isYouth && guardianPhone) || phone,
+    gclid: cz('tl_gclid'),
+    wbraid: cz('tl_wbraid'),
+    gbraid: cz('tl_gbraid'),
+    fbc: cz('_fbc'),
+    fbp: cz('_fbp'),
+    reklamRizasi,
+    notlar: [
+      birthDate    && `Doğum tarihi: ${birthDate}`,
+      birthYear    && `Doğum yılı: ${birthYear}`,
+      school       && `Okul/sınıf: ${school}`,
+      location     && `Lokasyon tercihi: ${location}`,
+      englishLevel && `İngilizce: ${englishLevel}`,
+      occupation   && `Meslek: ${occupation}`,
+      isYouth && guardianName && `Veli: ${guardianName}${guardianRel ? ` (${guardianRel})` : ''}`,
+      portfolyoLink && `Portfolyo: ${portfolyoLink}`,
+      experience && `Deneyim: ${experience}`,
+      motivation && `Beklenti: ${motivation}`,
+      source     && `Nasıl duydu: ${source}`,
+    ].filter(Boolean).join('\n'),
+  })
 
   // ── E-posta tablosu ────────────────────────────────────────────
   const row = (k: string, v: string): [string, string] => [k, v]

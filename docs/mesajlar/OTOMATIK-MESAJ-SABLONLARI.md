@@ -1,3 +1,6 @@
+> **ESKİ SÜRÜM — 17 Eylül 2026 itibarıyla geçersiz.**
+> Fiyatlar ve tarihler güncel değil. Geçerli şablonlar: `DM-SABLONLARI-GUNCEL.md`
+
 # Techne Lab — Instagram Otomatik Mesaj Şablonları
 **2026–27 sezonu · son güncelleme 6 Eylül 2026**
 

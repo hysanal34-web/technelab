@@ -222,6 +222,20 @@ export function trackTanismaLead(programName: string, value: number, slug: strin
   }, eventId)
 }
 
+/**
+ * Bilgi / fiyat sorusu — niyet var ama başvuru değil.
+ *
+ * NEDEN `Lead` DEĞİL: 21 Eylül 2026'ya kadar bu form hiçbir olay atmıyordu,
+ * yani soru soran herkes ölçümde yok sayılıyordu. Eksiği kapatırken `Lead`
+ * kullanmak daha kötü olurdu: ücretli program başvurusuyla "fiyat ne kadar"
+ * sorusu aynı kovaya düşer, algoritma ikisini eşit değerli sanır ve ucuz
+ * olana, yani soru soranlara akar. `Contact` ayrı bir kova.
+ */
+export function trackBilgiTalebi() {
+  gtagEvent('contact', { lead_type: 'bilgi_talebi' })
+  track('Contact', { content_category: 'bilgi_talebi' })
+}
+
 /** Bülten aboneliği — düşük eşikli dönüşüm, Lookalike kitle için değerli. */
 export function trackSubscribe() {
   gtagEvent('sign_up', { method: 'newsletter' })

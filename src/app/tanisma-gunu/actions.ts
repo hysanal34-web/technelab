@@ -4,7 +4,8 @@ import { Resend } from 'resend'
 import { headers, cookies } from 'next/headers'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
 import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
-import { TANISMA_SESSIONS } from './sessions'
+import { basvuruKaydet } from '@/lib/basvuruStore'
+import { TANISMA_SESSIONS, aktifSessions } from './sessions'
 
 export type TanismaFormState = {
   status: 'idle' | 'success' | 'error'
@@ -36,14 +37,28 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   const instagram    = take(formData, 'instagram', 80).replace(/^@+/, '')
   const kvkk         = formData.get('kvkk')
   const iletisimIzni = formData.get('iletisimIzni') === 'evet'
+  // Reklam platformlarına aktarım için ayrı açık rıza. Duyuru izninden
+  // bağımsız: farklı amaç, KVKK ayrı rıza istiyor.
+  const reklamRizasi = formData.get('reklamRizasi') === 'evet'
   // Veli alanları (Youth)
   const guardianName  = take(formData, 'guardianName', 120)
   const guardianPhone = take(formData, 'guardianPhone', 40)
   const guardianEmail = take(formData, 'guardianEmail', 160)
   const parentConsent = formData.get('parentConsent')
 
-  const sessionObj = TANISMA_SESSIONS.find((s) => s.id === session)
-  if (!sessionObj) return { status: 'error', field: 'session', message: 'Hangi programın tanışma gününe katılacağınızı seçin.' }
+  // Yalnızca hâlâ geçerli seanslar kabul edilir. Sayfa önbellekten geldiyse
+  // kullanıcının elinde geçmiş bir seans kalmış olabilir; burada eleniyor.
+  const sessionObj = aktifSessions().find((s) => s.id === session)
+  if (!sessionObj) {
+    const gecmisSeans = TANISMA_SESSIONS.some((s) => s.id === session)
+    return {
+      status: 'error',
+      field: 'session',
+      message: gecmisSeans
+        ? 'Bu tanışma günü geçti. Sayfayı yenileyip güncel bir seans seçin.'
+        : 'Hangi programın tanışma gününe katılacağınızı seçin.',
+    }
+  }
   const isYouth = sessionObj.youth
 
   if (!name) return { status: 'error', field: 'name', message: isYouth ? 'Öğrencinin adı soyadı gerekli.' : 'Ad soyad alanı boş bırakılamaz.' }
@@ -85,6 +100,47 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
     return { status: 'error', field: 'kvkk', message: 'Devam etmek için KVKK aydınlatma metnini onaylamanız gerekiyor.' }
   }
 
+  // Kalıcı kayıt — panelde listelenebilmesi için.
+  // E-POSTADAN ÖNCE yazılıyor: e-posta gönderimi hata verirse kullanıcı formu
+  // tekrar dolduruyor ve o aday kayboluyordu. Mükerrer satır panelde görünür
+  // ve silinebilir; kaybolan aday geri gelmiyor.
+  // `basvuruKaydet` hiçbir koşulda hata fırlatmıyor, depo bağlı değilse
+  // sessizce false dönüyor — form akışı bundan etkilenmiyor.
+  // Reklam tıklama kimlikleri kayda YAZILIYOR: sonradan "bu kayıt hangi
+  // reklamdan geldi" sorusunun cevabı başka hiçbir yerde durmuyor.
+  // Çerezler 90 gün taşıyor; okunamazsa alanlar boş kalıyor, akış etkilenmiyor.
+  const cerez = await cookies()
+  const cz = (ad: string) => cerez.get(ad)?.value || undefined
+
+  void basvuruKaydet({
+    kaynak: 'tanisma',
+    program: sessionObj.program,
+    slug: sessionObj.slug,
+    ad: name,
+    email: contactEmail,
+    telefon: contactPhone,
+    gclid: cz('tl_gclid'),
+    wbraid: cz('tl_wbraid'),
+    gbraid: cz('tl_gbraid'),
+    fbc: cz('_fbc'),
+    fbp: cz('_fbp'),
+    reklamRizasi,
+    notlar: [
+      `Seans: ${sessionObj.label}`,
+      `Doğum yılı: ${birthYear}`,
+      occupation   && `${isYouth ? 'Okul/sınıf' : 'Meslek'}: ${occupation}`,
+      englishLevel && `İngilizce: ${englishLevel}`,
+      instagram    && `Instagram: @${instagram}`,
+      isYouth && guardianName && `Veli: ${guardianName}`,
+      isYouth && `Öğrenci: ${name}`,
+      experience && `Deneyim: ${experience}`,
+      motivation && `Beklenti: ${motivation}`,
+      source     && `Nasıl duydu: ${source}`,
+      `İletişim izni: ${iletisimIzni ? 'evet' : 'hayır'}`,
+      `Reklam ölçümü rızası: ${reklamRizasi ? 'evet' : 'hayır'}`,
+    ].filter(Boolean).join('\n'),
+  })
+
   const stamp = new Date().toISOString()
   const r = (k: string, v: string): [string, string] => [k, v]
   const rows: [string, string][] = [
@@ -104,6 +160,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
     ...(source     ? [r('Nasıl Duydu', source)] : []),
     r('KVKK Onayı', `Evet — ${stamp}`),
     r('İletişim İzni (duyuru)', iletisimIzni ? `Evet — ${stamp}` : 'Hayır'),
+    r('Reklam Ölçümü Rızası', reklamRizasi ? `Evet — ${stamp}` : 'Hayır'),
     ...(isYouth ? [r('Veli Onayı', `Evet — ${stamp}`)] : []),
   ]
 

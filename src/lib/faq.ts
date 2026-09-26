@@ -22,8 +22,8 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
       a: 'Sahne korkusu neredeyse herkeste var — deneyimli oyuncularda da. Program bunu yok etmeyi değil, yönetilebilir hale getirmeyi hedefliyor. Küçük grup ve kademeli ilerleme, ilk haftalarda kimseyi zorlamadan alanı güvenli kılıyor.',
     },
     {
-      q: 'Derslerde ne yapılıyor?',
-      a: 'Beden ve nefes ısınması, doğaçlama, metin çalışması ve sahne kurma. Her ders bir öncekinin üstüne biniyor — bu yüzden düzenli katılım önemli.',
+      q: 'Atölyelerde ne yapılıyor?',
+      a: 'Beden ve nefes ısınması, doğaçlama, metin çalışması ve sahne kurma. Her oturum bir öncekinin üstüne biniyor — bu yüzden düzenli katılım önemli.',
     },
   ],
 
@@ -91,7 +91,7 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     },
     {
       q: 'Ne giymeliyim?',
-      a: 'Hareket etmeyi engellemeyen rahat kıyafet ve zeminde kaymayan ayakkabı. Jazz ayakkabısı zorunlu değil — ilk derslerde spor ayakkabı yeterli.',
+      a: 'Hareket etmeyi engellemeyen rahat kıyafet ve zeminde kaymayan ayakkabı. Jazz ayakkabısı zorunlu değil — ilk haftalarda spor ayakkabı yeterli.',
     },
   ],
 }
@@ -103,11 +103,11 @@ const COMMON_FAQ = (w: Workshop): FaqItem[] => [
   },
   {
     q: 'Program ne kadar sürüyor?',
-    a: `${w.duration}. Ders saatleri akşam üzeri planlanıyor — çalışanlar için ulaşılabilir olsun diye.`,
+    a: `${w.duration}. Atölye saatleri akşam üzeri planlanıyor — çalışanlar için ulaşılabilir olsun diye.`,
   },
   {
-    q: 'Bir dersi kaçırırsam ne olur?',
-    a: 'Dersler birbirinin üstüne bindiği için düzenli katılım önemli. Bir iki ders kaçırmak telafi edilebilir; sürekli devamsızlık hem seni hem grubu etkiler. Önceden haber vermeni rica ediyoruz.',
+    q: 'Bir oturumu kaçırırsam ne olur?',
+    a: 'Oturumlar birbirinin üstüne bindiği için düzenli katılım önemli. Bir iki hafta kaçırmak telafi edilebilir; sürekli devamsızlık hem seni hem grubu etkiler. Önceden haber vermeni rica ediyoruz.',
   },
   {
     q: 'Kayıt nasıl yapılıyor?',

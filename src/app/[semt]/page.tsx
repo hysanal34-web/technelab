@@ -236,7 +236,7 @@ export default async function SemtPage({ params }: { params: Promise<{ semt: str
         <div className="mt-12 pt-8 border-t border-border">
           <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim block mb-3">yakın semtlerden ulaşım</span>
           <p className="font-mono text-[12px] text-stone leading-relaxed max-w-3xl">
-            {d.nearby.join(' · ')} ve çevresinden katılım yoğun. Ders saatlerimiz akşam
+            {d.nearby.join(' · ')} ve çevresinden katılım yoğun. Atölye saatlerimiz akşam
             saatlerinde planlanıyor — çalışanlar için ulaşılabilir.
           </p>
         </div>

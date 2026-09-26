@@ -1,3 +1,6 @@
+> **ESKİ SÜRÜM — 17 Eylül 2026 itibarıyla geçersiz.**
+> Fiyatlar ve tarihler güncel değil. Geçerli şablonlar: `DM-SABLONLARI-GUNCEL.md`
+
 # Yayın Kanalı — Program Güncellemeleri
 7 Eylül 2026 · Instagram yayın kanalı için kopyala-yapıştır kartlar
 Günde bir ya da iki tane paylaşılacak şekilde yazıldı; her kart tek başına ayakta duruyor.

@@ -3,6 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import { submitBilgiForm, type BilgiFormState } from '@/app/bilgi/actions'
+import { trackBilgiTalebi } from '@/components/MetaPixel'
 import { SITE_META } from '@/lib/data'
 
 const INPUT =
@@ -28,7 +29,11 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
     startTransition(async () => {
       const res = await submitBilgiForm(fd)
       setState(res)
-      if (res.status === 'success') formRef.current?.reset()
+      if (res.status === 'success') {
+        // Başvurudan ayrı bir olay: bkz. trackBilgiTalebi açıklaması.
+        trackBilgiTalebi()
+        formRef.current?.reset()
+      }
     })
   }
 

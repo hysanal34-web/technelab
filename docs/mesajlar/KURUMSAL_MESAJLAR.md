@@ -100,7 +100,7 @@ Sayın [Ad Soyad],
 
 Bu dönem için ayırdığımız burs kontenjanı sınırlıydı ve
 başvurunuz maalesef bu kontenjana giremedi. Bu, çalışmanızın
-niteliğiyle ilgili bir değerlendirme değil — kontenjanla ilgili
+niteliğiyle ilgili bir değerlendirme değil, kontenjanla ilgili
 bir sınır.
 
 Programa katılmak isterseniz kapımız açık. 10 Eylül'e kadar

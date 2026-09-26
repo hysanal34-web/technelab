@@ -71,7 +71,7 @@ https://drive.google.com/file/d/1fKsnsALvlX4HNM-9o39C-VBXj_vXc-FN/view
 
 ```
 Merhaba! 👋 İlgin için teşekkürler.
-Hangi programı sorduğunu yazarsan program dosyasını hemen ileteyim —
+Hangi programı sorduğunu yazarsan program dosyasını hemen ileteyim:
 Broadway Musical Dance, Techne Musical Lab, English Drama Lab,
 English Acting Praxis, English Drama Youth, The Auteur Lab.
 ```
@@ -88,17 +88,17 @@ markayı tek cümlede anlatmak, kişiyi doğru programa yönlendirmek.
 ```
 Merhaba, yazdığın için teşekkürler! 👋
 
-Techne Lab, İstanbul'da bağımsız bir tiyatro atölyesi — yazarlıktan
+Techne Lab, İstanbul'da bağımsız bir tiyatro atölyesi. Yazarlıktan
 oyunculuğa, İngilizce dramadan müzikal tiyatroya altı farklı program
 yürütüyoruz. Hepsi küçük gruplarla, uygulamalı.
 
 Hangisi ilgini çekiyor?
-· The Auteur Lab — yazarlık
-· English Drama Lab — yetişkinler için İngilizce drama
-· English Acting Praxis — İngilizce oyunculuk
-· English Drama Youth — 10-17 yaş İngilizce drama
-· Techne Musical Lab — müzikal tiyatro
-· Broadway Musical Dance — Broadway tarzı dans
+· The Auteur Lab: yazarlık
+· English Drama Lab: yetişkinler için İngilizce drama
+· English Acting Praxis: İngilizce oyunculuk
+· English Drama Youth: 10-17 yaş İngilizce drama
+· Techne Musical Lab: müzikal tiyatro
+· Broadway Musical Dance: Broadway tarzı dans
 
 Yazdığın an ilgili programın tüm detaylarını (içerik, akış, sıkça
 sorulanlar) sana iletiyorum.
@@ -118,14 +118,14 @@ yanıtı değil, bunu paylaşımın kendisine koy. Amaç: kayıt baskısı
 olmadan insanları 19 Eylül Pera tanışma gününe çekip orada tanıştırmak.
 
 ```
-English Drama Lab — Ücretsiz Tanışma Günü 🎭
+English Drama Lab · Ücretsiz Tanışma Günü 🎭
 
 "İngilizcem var ama konuşurken donuyorum" diyorsan, bu senin için.
 
-Kayıt yok, taahhüt yok — sadece gelip görün. Programı anlatıyoruz,
+Kayıt yok, taahhüt yok. Sadece gelip görün: programı anlatıyoruz,
 birlikte kısa bir egzersiz yapıyoruz. On beş dakikanızı alır.
 
-📍 Taksim Pera — 19 Eylül Cumartesi, 15:00
+📍 Taksim Pera · 19 Eylül Cumartesi, 15:00
 
 Yer sınırlı, DM'den yazıp adını bırak.
 ```
@@ -138,7 +138,7 @@ English Drama Lab
 
 19 Eylül · Taksim Pera · 15:00
 
-Kayıt şartı yok — DM'den yaz.
+Kayıt şartı yok, DM'den yaz.
 ```
 
 **Kullanım notu:** Bu, DM'e gelen otomatik ilk yanıttan farklı — o mesaj
@@ -155,7 +155,7 @@ zaten referans veriyor.
 ```
 Hi! 👋 Thanks for reaching out about English Acting Praxis.
 
-Twelve weeks, entirely in English — for working actors, students,
+Twelve weeks, entirely in English, for working actors, students,
 or anyone curious about the stage. B1-level English is all you need.
 
 Ece Ertez leads the process; the program closes with a one-day
@@ -164,7 +164,7 @@ masterclass and filming day with casting director Harika Uygur.
 📍 Pera · 14 seats · Starts Saturday, September 26 at 11:00
 
 Full program details, weekly breakdown, and tuition are in the file
-below: [link — bkz. not]
+below: [link · bkz. not]
 ```
 
 **Not:** Bu mesajın linki henüz yok. `English-Acting-Praxis-EN.md` dosyasını İngilizce PDF'e çevirip Drive'a yükledikten sonra linki buraya ekle — Türkçe broşürün linkini (1f4LeYzbz...) İngilizce konuşan birine göndermek kafa karıştırır.

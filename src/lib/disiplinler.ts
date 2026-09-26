@@ -31,6 +31,12 @@ export type Discipline = {
   districtSlugs: string[]
   /** Sayfaya özel SSS — FAQPage schema'ya da basılır. */
   faq: { q: string; a: string }[]
+  /**
+   * "Nasıl seçilir" karar kriterleri. Opsiyonel; yalnızca rekabetin sert
+   * olduğu sayfalarda dolduruluyor. Karşılaştırma tablosunun altında çıkar
+   * ve okuyucuya program seçerken bakacağı ölçütü verir.
+   */
+  criteria?: { q: string; a: string }[]
   /** İlgili diğer disiplinler (iç bağlantı). */
   related: string[]
   /** true → mega menüde listelenmez (semt × disiplin kombinasyon sayfaları). */
@@ -58,7 +64,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Oyunculuk bir yetenek meselesi değil, bir pratik meselesi. Techne Lab\'ın İstanbul\'daki oyunculuk atölyeleri bedenden başlıyor: nefesin nereye gittiği, ağırlığın nasıl dağıldığı, partnerin gerçekten görülüp görülmediği. Kadıköy ve Pera\'daki stüdyolarımızda haftada bir gün, on iki kişiyi geçmeyen gruplarla çalışıyoruz.',
     what:
-      'Çalışma üç eksende ilerliyor. Beden: fiziksel farkındalık, zemin çalışması, hareket kalitesi. Ses: nefes desteği, rezonans, metnin sesle taşınması. Mevcudiyet: anda kalmak, gerçek tepki vermek, sahnede var olmak. Bunların üzerine karakter inşası ve metin çalışması geliyor — ama sıra bu; teknik olmadan karakter kurulmaz. Her derste herkes sahneye çıkıyor, herkes bireysel geri bildirim alıyor.',
+      'Çalışma üç eksende ilerliyor. Beden: fiziksel farkındalık, zemin çalışması, hareket kalitesi. Ses: nefes desteği, rezonans, metnin sesle taşınması. Mevcudiyet: anda kalmak, gerçek tepki vermek, sahnede var olmak. Bunların üzerine karakter inşası ve metin çalışması geliyor — ama sıra bu; teknik olmadan karakter kurulmaz. Her oturumda herkes sahneye çıkıyor, herkes bireysel geri bildirim alıyor.',
     who:
       'Hiç sahneye çıkmamış olanlar, konservatuvar hazırlığı yapanlar, uzun süre ara verip geri dönenler ve kamera önünde çalışıp sahne tekniği eksiği hisseden oyuncular. Yaş sınırı yok; gruplar yetişkin. Gençler için ayrı bir program yürüyor.',
     workshopSlugs: ['oyuncunun-mevcudiyeti', 'camera-praxis', 'english-drama-final-project'],
@@ -75,6 +81,28 @@ export const DISCIPLINES: Discipline[] = [
       {
         q: 'Oyunculuk kursu İstanbul\'da nerede yapılıyor?',
         a: 'Kadıköy tarafında iki partner stüdyo (Rasimpaşa ve Kadıköy merkez), Avrupa yakasında Pera\'da bir mekân. Aynı program bazen iki yakada da açılıyor — kayıt sırasında sana yakın olanı seçiyorsun.',
+      },
+    ],
+    criteria: [
+      {
+        q: 'Yoğun blok mu, dönemlik program mı?',
+        a: 'Dört haftalık yoğun bloklar tekniği hızlı tanıtır ama oturmasına vakit bırakmaz; ne istediğini henüz bilmeyen biri için doğru giriş. On iki haftalık dönemlik programlar tekrarın işini görmesine izin verir ve seyircili bir kapanışa bağlanır. Sahnede kalıcı bir değişiklik arıyorsan ikincisi gerekiyor.',
+      },
+      {
+        q: 'Grup kaç kişi olmalı?',
+        a: 'Oyunculuk çalışmasında belirleyici sayı budur. On iki kişilik bir grupta herkes her hafta sahneye çıkar ve bireysel geri bildirim alır. Yirmi kişiyi geçen bir grupta çalışma sessizce izleme etkinliğine döner; sahneye ayda bir kez çıkarsın. Kontenjanı yazmayan bir yer bunu bilerek yazmıyordur.',
+      },
+      {
+        q: 'Kim yürütüyor, hangi ekolden geliyor?',
+        a: 'Oyunculuk tek bir yöntem değil. Mevcudiyet ve beden üzerinden çalışan biriyle kamera oyunculuğu çalıştıran biri farklı şeyler öğretir; ikisi de geçerli, ama aradığın şey belli olmalı. Eğitmenin adını ve nereden geldiğini söylemeyen bir programda bunu baştan bilemezsin.',
+      },
+      {
+        q: 'Sonunda seyirci var mı?',
+        a: 'Seyircili bir kapanış, çalışmayı bir noktaya bağlar. Baskı yaratır ama o baskı olmadan öğrenilen şeyin sınandığı bir an olmaz. Gösteri vaadi olmayan programlar da anlamlı; sadece neyi hedeflediklerini söyleyebilmeleri gerekir.',
+      },
+      {
+        q: 'Deneyimim yoksa ne olacak?',
+        a: 'Başlangıç seviyesine açık olduğunu söyleyen bir program, ilk haftalarda ne yaptığını da anlatabilmeli. "Herkese uygun" cümlesi tek başına bir bilgi değil. Deneyimli ve hiç sahneye çıkmamış kişilerin aynı grupta nasıl çalıştığı sorulmayı hak eden bir soru.',
       },
     ],
     related: ['kamera-onu-oyunculuk-istanbul', 'yaratici-drama-istanbul', 'muzikal-tiyatro-kursu-istanbul'],
@@ -160,6 +188,28 @@ export const DISCIPLINES: Discipline[] = [
         a: '10–17 yaş için English Drama Youth programı var: Eylül–Mayıs arası haftada bir gün, yıl sonunda seyircili bir final gösterisiyle kapanıyor. Veli onayıyla başvuru alınıyor.',
       },
     ],
+    criteria: [
+      {
+        q: 'Dil kursu mu arıyorsun, sahne çalışması mı?',
+        a: 'İkisi farklı şeyler ve ikisi de meşru. Gramerini düzeltmek, sınava hazırlanmak ya da sertifika almak istiyorsan bir dil okulu doğru adres. Drama atölyesinin çözdüğü sorun başka: İngilizceyi bildiği halde konuşurken donan, cümleyi kafasında kurup söylemeye sıra gelince vazgeçen kişinin problemi. Hangi sorunu taşıdığını baştan ayırt et, yoksa doğru programda yanlış beklentiyle oturursun.',
+      },
+      {
+        q: 'Grup seviyesi nasıl dengeleniyor?',
+        a: 'Karışık seviyeli bir grupta ileri seviye sıkılır, başlangıç seviyesi susar. Sorulacak soru şu: başvuru sırasında seviye soruluyor mu ve gruplar buna göre mi kuruluyor? Seviye sormadan herkesi aynı odaya alan bir program, sessiz kalanları fark etmez bile. Bizde başvuruda seviye belirtiliyor ve gruplar ona göre dengeleniyor; yine de bu, seviye testi anlamına gelmiyor.',
+      },
+      {
+        q: 'Yaş grupları gerçekten ayrı mı?',
+        a: 'Yetişkin, lise çağı ve çocuk grubunun aynı yöntemle çalışması mümkün değil. On dört yaşındaki biriyle otuz beş yaşındaki birini aynı doğaçlamaya sokmak ikisini de kilitler. Bir programın yaş aralığını geniş yazması (örneğin 10-40) çoğu zaman grubun henüz dolmadığı anlamına gelir. Ayrı gün, ayrı eğitmen, ayrı müfredat olup olmadığını sor.',
+      },
+      {
+        q: 'Konuşurken hata yaptığımda ne oluyor?',
+        a: 'Bu, atölyenin karakterini belirleyen soru. Her hatanın anında düzeltildiği bir odada kimse risk almaz ve akıcılık gelişmez. Hiç düzeltilmeyen bir odada da yanlış kalıplar yerleşir. Aradaki denge genellikle şu: sahne sırasında akış bölünmez, geri bildirim sonrasında toplu olarak verilir. Eğitmenin bu konudaki tercihini söyleyebilmesi gerekiyor.',
+      },
+      {
+        q: 'Sonunda elimde ne kalıyor?',
+        a: 'Sertifika bekliyorsan bunu baştan sor; sahne sanatları atölyelerinin çoğu belge vermez ve vermesi de anlamlı değildir. Kalıcı olan şey başka: yabancı bir dilde, hazırlıksız, kalabalık önünde konuşmuş olmak. Seyircili bir kapanışı olan programlar bu deneyimi garantiler. Kapanışı olmayan programlar da çalışır, ama o eşiği kendin aşmak zorunda kalırsın.',
+      },
+    ],
     related: [
       'yetiskinler-icin-ingilizce-drama-istanbul',
       'gencler-icin-ingilizce-drama-istanbul',
@@ -207,7 +257,29 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor. Uluslararası casting\'lere hazırlananlar için İngilizce sahne çalışan English Acting Praxis programı da var.',
       },
     ],
-    related: ['oyunculuk-kursu-istanbul', 'ingilizce-drama-istanbul'],
+    criteria: [
+      {
+        q: 'Kamera gerçekten kullanılıyor mu, ne sıklıkta?',
+        a: 'Kamera önü çalışmasının tamamı geri izlemeye dayanır: kendini izlemeden ölçeği ayarlayamazsın. Bazı programlarda kamera yalnızca son haftalarda çıkar. Her oturumda çekim yapılıp yapılmadığını ve kaydın sana verilip verilmediğini baştan sor.',
+      },
+      {
+        q: 'Elinde kalan bir materyal oluyor mu?',
+        a: 'Programın sonunda self-tape ya da sahne kaydı alıyorsan, o kayıt casting başvurularında doğrudan kullanılır. Hiçbir görüntü teslim edilmiyorsa, öğrendiğin şeyi kimseye gösteremezsin. Bu, kamera önü programlarında en sık atlanan ayrıntıdır.',
+      },
+      {
+        q: 'Grup kaç kişi?',
+        a: 'Kamera önünde kontenjan sahneden daha da belirleyicidir, çünkü çekim sırayla yapılır. On beş kişilik bir grupta kameraya birkaç dakika girersin. Kalan sürede başkalarını izlemek öğretici olabilir ama kendi tekrarının yerini tutmaz.',
+      },
+      {
+        q: 'Casting tarafından biri sürece dahil oluyor mu?',
+        a: 'Oyunculuk eğitmeni ile casting yönetmeni farklı şeylere bakar. İkisinin de sürece girdiği programlarda hem teknik hem de seçilme mantığı üzerine geri bildirim alırsın. Dahil oluyorsa kim olduğu açıkça yazılmalı.',
+      },
+      {
+        q: 'Türkçe mi İngilizce mi, yoksa ikisi de mi?',
+        a: 'Hedefin yerel dizi ve reklam ise Türkçe metin yeterlidir. Uluslararası casting ya da yurt dışı başvurusu düşünüyorsan İngilizce sahne çalışması ayrı bir hazırlık ister. Programın hangisini kapsadığını en baştan netleştir, çünkü ikisi aynı şey değildir.',
+      },
+    ],
+    related: ['oyunculuk-kursu-istanbul', 'audition-hazirlik-atolyesi-istanbul', 'ingilizce-oyunculuk-istanbul', 'ingilizce-drama-istanbul'],
   },
 
   // ── DANS ─────────────────────────────────────────────────────────
@@ -247,7 +319,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Broadway Musical Dance için yok — seçme ve seviye sınavı olmadan, teknik temelden başlıyoruz. Şarkı videosu yalnızca 8 aylık Techne Musical Lab başvurusunda isteniyor; o da eleme değil, grubu dengelemek için.',
       },
       {
-        q: 'Dans dersleri hangi gün ve saatte?',
+        q: 'Dans atölyeleri hangi gün ve saatte?',
         a: 'Perşembe 19:00–21:00, Kadıköy\'de. Yeni dönem 1 Ekim Perşembe başlıyor; 12 haftalık tam ya da 6 haftalık kısa program seçebilirsin.',
       },
     ],
@@ -273,7 +345,7 @@ export const DISCIPLINES: Discipline[] = [
       'istanbul müzikal atölyesi', 'müzikal atölyesi istanbul', 'müzikal atölyesi',
     ],
     intro:
-      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı dersler olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Sitare Bilge ile Kadıköy\'de, sekiz ay, haftada iki gün.',
+      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Sitare Bilge ile Kadıköy\'de, sekiz ay, haftada iki gün.',
     what:
       'Program dramadan başlıyor — çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Ekim–Aralık: sahne varlığı, karakter inşası, şan tekniğiyle buluşan oyuncu sesi. Ocak–Mart: müzikal ritim, Broadway dans temelleri, müzikal metin çalışması. Nisan–Mayıs: tam sahne uygulaması — kostüm, ışık, seyirci. Dönem seyircili bir bitirme performansıyla kapanıyor.',
     who:
@@ -283,7 +355,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Şan eğitimi programa dahil mi?',
-        a: 'Evet. Sitare Bilge ile şan ve vokal çalışması programın omurgasında — ayrı bir ders olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
+        a: 'Evet. Sitare Bilge ile şan ve vokal çalışması programın omurgasında — ayrı bir başlık olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
       },
       {
         q: 'Nota bilmem gerekiyor mu?',
@@ -292,6 +364,28 @@ export const DISCIPLINES: Discipline[] = [
       {
         q: 'Müzikal programı ile Broadway dans programı arasındaki fark ne?',
         a: 'Broadway Musical Dance sadece dansa odaklı; 12 haftalık tam ya da 6 haftalık kısa seçenekle alınabiliyor. Techne Musical Lab 8 aylık ve üç disiplini birden kapsıyor — oyunculuk, şan, dans — ve seyircili bir bitirme performansıyla kapanıyor.',
+      },
+    ],
+    criteria: [
+      {
+        q: 'Üç disiplin gerçekten birlikte mi çalışılıyor?',
+        a: 'Müzikal programlarının çoğu takvimi üçe böler: bir dönem şan, bir dönem dans, bir dönem oyunculuk. Bu, üç ayrı kursu arka arkaya almak demektir ve müzikalin asıl zorluğunu atlar. Asıl zorluk, şarkının ortasında karakterin hedefini kaybetmemek. Programın aynı sahne üzerinde üçünü birden çalıştırıp çalıştırmadığını sor.',
+      },
+      {
+        q: 'Şanı kim veriyor, hangi teknikle?',
+        a: 'Müzikal sesi klasik şan sesinden farklı çalışır; belting, mix ve konuşur gibi söyleme ayrı bir teknik gerektirir. Klasik eğitimli bir hocanın müzikal repertuvarı çalıştırması mümkün ama tekniği aktarması ayrı bir uzmanlık. Eğitmenin sahne geçmişini ve hangi repertuvarda çalıştığını öğrenmek, tanıtım metnindeki sıfatlardan daha çok şey söyler.',
+      },
+      {
+        q: 'Dans için ön deneyim isteniyor mu?',
+        a: 'Müzikal dansı bale değil; koreografiyi karakterle taşımak esas. Yine de gruptaki seviye farkı büyükse provalar ya çok yavaş ya çok hızlı ilerler. Başvuruda dans geçmişinin sorulup sorulmadığına bak. Hiç sorulmuyorsa grubun nasıl dengeleneceği belirsizdir.',
+      },
+      {
+        q: 'Ses kaydı ya da ön eleme var mı?',
+        a: 'Ön eleme kulağa caydırıcı geliyor ama koruyucudur: sesin henüz taşımadığı bir repertuvara sokulmak, sekiz ay boyunca geri kalmak demek. Kısa bir video ya da tanışma seansı isteyen programlar genellikle grubu ciddiye alıyor. Hiçbir ön değerlendirme yapmayan program, herkesi aynı anda memnun etmeye çalışır ve genellikle edemez.',
+      },
+      {
+        q: 'Sahne, kostüm ve ışık var mı?',
+        a: 'Müzikal, tekniğin seyirci önünde sınandığı yerde öğrenilir. Stüdyo içinde kalan bir kapanış da değerlidir, ama kostümlü ve ışıklı bir sahne bambaşka bir kas çalıştırır: mikrofonla söylemek, ışık altında yönünü bulmak, kalabalık önünde nefesini toparlamak. Programın kapanışının nerede ve nasıl olacağı baştan yazılı olmalı.',
       },
     ],
     related: ['dans-kursu-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'oyunculuk-kursu-istanbul'],
@@ -350,6 +444,28 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Halil Yağız Şanal — oyun yazarı, yönetmen ve Techne Lab\'ın kurucusu. Atölye bir eğitim kurumunun içinde değil, üretim yapan bir tiyatro şirketinin içinde yürüyor; yazılan metin sahneyi bilen birinin gözünden geçiyor.',
       },
     ],
+    criteria: [
+      {
+        q: 'Yazma mı çalışılıyor, okuma mı?',
+        a: 'Yalnızca teknik anlatan bir program, sekiz hafta sonunda kafanda kavram bırakır ama sayfada satır bırakmaz. Yalnızca yazdıran bir program ise neyi neden yazdığını sormadan üretir. İkisi birlikte olmalı: bir metnin neden işlediğini görmek, sonra o bakışla kendi metnini kurmak. Programın haftalık akışında hem okuma hem yazma ödevi olup olmadığına bak.',
+      },
+      {
+        q: 'Yazdığın metni kim okuyor?',
+        a: 'Yazarlık atölyesinin asıl değeri geri bildirimde. Sorulacak soru şu: metni yalnızca yürütücü mü okuyor, grup da okuyor mu, ve geri bildirim nasıl veriliyor? Sırayla övgü toplanan bir masa kimseyi ilerletmez. Yapıya, karaktere ve çatışmaya bakan somut bir okuma gerekiyor. Bunun nasıl yapıldığını soran bir soruya net cevap gelmiyorsa, muhtemelen bir yöntem yoktur.',
+      },
+      {
+        q: 'Yürütücü kendi yazıyor mu, sahneleniyor mu?',
+        a: 'Metin analizini iyi bilen bir akademisyenle, yazdığı oyun sahnelenmiş biri farklı şeyler görür. İkincisi provada neyin düştüğünü, hangi repliğin oyuncunun ağzında durmadığını bilir. Yazarlık öğrenirken bu fark önemlidir. Yürütücünün sahnelenmiş işi olup olmadığı açıkça yazılı olmalı.',
+      },
+      {
+        q: 'Sonunda tam bir oyun çıkacak mı?',
+        a: 'Sekiz haftada bitmiş bir oyun vaat eden programa temkinli yaklaş. Gerçekçi olan şu: kısa taslaklar, bir yöntem ve metni tek başına ilerletebilecek bir bakış. Tam metin sonrasında, kendi takviminde yazılır. Bir program bu beklentiyi baştan doğru kuruyorsa, gerisinde de dürüst çalışıyordur.',
+      },
+      {
+        q: 'Yaş ya da portfolyo şartı var mı?',
+        a: 'Türkiye\'deki ücretsiz yazarlık programlarının önemli bölümü belirli bir yaş bandına kontenjan ayırıyor; kırkından sonra yazmaya başlayan biri çoğu kapıyı kapalı buluyor. Başvuru koşullarını baştan oku. Portfolyo istenmesi de kendi başına kötü değil, ama hiç yazmamış birine kapalıysa bunu açıkça yazmış olmaları gerekir.',
+      },
+    ],
     related: ['oyunculuk-kursu-istanbul', 'yaratici-drama-istanbul'],
   },
 
@@ -402,7 +518,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Gösteri programın bir parçası ve tüm grup birlikte hazırlanıyor. Sahnede ne kadar öne çıkacağı çocuğun kendi hızına göre belirleniyor — kimseyi istemediği bir yere itmiyoruz.',
       },
       {
-        q: 'Dersler nerede yapılıyor?',
+        q: 'Atölyeler nerede yapılıyor?',
         a: 'Kadıköy\'deki partner stüdyomuzda. Anadolu Yakası\'nın her yerinden ulaşım kolay; Üsküdar, Ataşehir ve Maltepe\'den gelen öğrencilerimiz var.',
       },
     ],
@@ -529,7 +645,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Yetişkinlerin çoğu tiyatroya oyuncu olmak için gelmiyor. Sıkışmış hissettiği, yıllardır ertelediği bir merakı olduğu ya da kendini yeniden duymak istediği için geliyor. Techne Lab İstanbul\'un yetişkin gruplarında en genç katılımcı yirmili yaşlarında, en büyüğü ellili yaşlarında — ve ikisi de aynı egzersizi yapıyor.',
     what:
-      'Beden, ses ve metin aynı anda çalışılıyor. Isınmayla başlıyoruz, doğaçlamayla devam ediyoruz, sahne çalışmasıyla bitiyoruz. Kimse izleyici koltuğunda oturmuyor — her derste herkes ayakta. Programlar seyircili bir final performansıyla kapanıyor; bu, çalışmanın bir noktaya varması için gerekli. Deneyim aranmıyor, yaş sınırı yok, "yeteneğim var mı" sorusunun cevabı burada aranmıyor.',
+      'Beden, ses ve metin aynı anda çalışılıyor. Isınmayla başlıyoruz, doğaçlamayla devam ediyoruz, sahne çalışmasıyla bitiyoruz. Kimse izleyici koltuğunda oturmuyor — her oturumda herkes ayakta. Programlar seyircili bir final performansıyla kapanıyor; bu, çalışmanın bir noktaya varması için gerekli. Deneyim aranmıyor, yaş sınırı yok, "yeteneğim var mı" sorusunun cevabı burada aranmıyor.',
     who:
       'Ofisten çıkıp bambaşka bir şey yapmak isteyenler. Topluluk önünde konuşurken zorlananlar. Yıllar önce bırakmış, geri dönmek isteyenler. Kendini ifade etmek için bir alan arayanlar. On sekiz yaş üstü herkes — üst sınır yok.',
     workshopSlugs: ['oyuncunun-mevcudiyeti', 'english-drama-lab', 'techne-musical-lab', 'auteur-lab'],
@@ -570,13 +686,19 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce pratik yapma yerleri istanbul', 'ingilizce konuşma grubu',
       'ingilizce konuşma kursu kadıköy', 'speaking club kadıköy',
       'ingilizce akıcı konuşma', 'ingilizce konuşma korkusu',
+      // Arayanın kendi cümlesi — Google Ads arama terimi raporunda
+      // en çok tıklanan kalıplar bunlar (Eylül 2026).
+      'ingilizce anlıyorum ama konuşamıyorum', 'ingilizce konuşamıyorum ne yapmalıyım',
+      'ingilizce konuşma pratiği nasıl yapılır', 'ingilizce konuşma pratiği yapabileceğim yerler',
+      'b1 ingilizce konuşma pratiği', 'ingilizce konuşurken donup kalmak',
+      'ingilizce konuşma kulübü mü kurs mu', 'ingilizce konuşma pratiği kadıköy',
     ],
     intro:
-      'Klasik konuşma kulüplerinin sorunu şu: bir masanın etrafında oturup "bugün hava nasıl" diye konuşuyorsun ve iki hafta sonra sıkılıyorsun. Techne Lab\'ın yaklaşımı farklı — İngilizceyi sahnede kullanıyorsun. Bir karakteri canlandırırken, doğaçlama yaparken, sahne kurarken dil bir amaç değil araç oluyor. Ve araç olduğu anda korku kayboluyor.',
+      'Klasik konuşma kulüplerinin sorunu şu: bir masanın etrafında oturup "bugün hava nasıl" diye konuşuyorsun ve iki hafta sonra sıkılıyorsun. Techne Lab\'ın yaklaşımı farklı. İngilizceyi sahnede, bir eylemin içinde kullanıyorsun. Bir karakteri canlandırırken, doğaçlama yaparken, sahne kurarken dil bir amaç değil araç oluyor. Ve araç olduğu anda korku kayboluyor.',
     what:
-      'Ders tamamen İngilizce yürüyor. Ama gramer anlatılmıyor, kelime listesi ezberlenmiyor. Doğaçlama sahneleri kuruyorsun, karakterler yaratıyorsun, metinlerle çalışıyorsun. Hata yapmak sorun değil — sahnede hata zaten malzeme. Katılımcıların çoğu ilk ay içinde "düşünmeden konuşmaya" başladığını söylüyor; çünkü sahnede düşünecek vakit yok.',
+      'Atölye tamamen İngilizce yürüyor. Gramer anlatılmıyor, kelime listesi ezberlenmiyor. Doğaçlama sahneleri kuruyorsun, karakterler yaratıyorsun, metinlerle çalışıyorsun. Hata yapmak sorun değil, sahnede hata zaten malzeme. Aradaki fark yöntemsel: masada konuşurken cümleyi önce kafanda kurup sonra çeviriyorsun, sahnede ise bir şey yapmak zorundasın ve cümle o eylemin içinden çıkıyor. Bellek araştırmalarında bu farka eylem üstünlüğü deniyor: kendi yaptığın bir eyleme bağlanan bilgi, yalnızca konuşularak kodlanan bilgiden daha iyi hatırlanıyor. Pratikte karşılığı şudur, katılımcıların çoğu ilk ay içinde düşünmeden konuşmaya başladığını söylüyor, çünkü sahnede düşünecek vakit yok.',
     who:
-      'İngilizcesi kâğıt üzerinde iyi ama konuşurken donanlar. Konuşma kulüplerine gidip sıkılanlar. Yurtdışı iş görüşmesine ya da eğitimine hazırlananlar. Aksan kaygısı taşıyanlar. Orta seviye ve üzeri yeterli — akıcılık aranmıyor, zaten çalışılan şey o.',
+      'İngilizcesi kâğıt üzerinde iyi ama konuşurken donanlar. Konuşma kulüplerine gidip sıkılanlar. Yurtdışı iş görüşmesine ya da eğitimine hazırlananlar. Aksan kaygısı taşıyanlar. B1 ve üzeri yeterli, akıcılık aranmıyor, zaten çalışılan şey o.',
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu'],
     faq: [
@@ -586,7 +708,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Seviyem yeterli mi?',
-        a: 'Orta seviye yeterli. Cümle kurabiliyorsan başlayabilirsin. İlk derste seviye ölçmüyoruz — sahnede kim ne yapabiliyorsa oradan başlıyoruz.',
+        a: 'Orta seviye yeterli. Cümle kurabiliyorsan başlayabilirsin. İlk oturumda seviye ölçmüyoruz — sahnede kim ne yapabiliyorsa oradan başlıyoruz.',
       },
       {
         q: 'Oyunculuk bilmem gerekiyor mu?',
@@ -594,10 +716,44 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Konuşma kulübünden farkı ne?',
-        a: 'Konuşma kulübünde konuyu bulmakla uğraşırsın. Burada konu hazır — sahne sana bir durum veriyor, sen içinde konuşuyorsun. Sıkılma ihtimali çok daha düşük.',
+        a: 'Konuşma kulübünde konuyu bulmakla uğraşırsın ve konuşma zihinsel kalır: bir fikri savunursun, bir soruya cevap verirsin. Burada konu hazır, sahne sana bir durum veriyor ve sen o durumun içinde bir şey yapıyorsun. Fark küçük görünür ama sonucu değiştirir, çünkü dil bir eyleme bağlandığında hem daha kolay hatırlanır hem de daha hızlı geri çağrılır. Sıkılma ihtimali de çok daha düşük.',
+      },
+      {
+        q: 'Neden masada sohbet etmek yetmiyor?',
+        a: 'Yetmiyor değil, yavaş. Masadaki sohbette önce ne söyleyeceğine karar verir, sonra Türkçe düşünüp çevirir, sonra konuşursun. Bu üç adım her seferinde tekrarlanır ve çeviri alışkanlığı yerleşir. Sahnede o üç adıma vakit yoktur: karşındaki bir şey yapar, sen karşılık vermek zorundasın. Cümle mükemmel olmaz ama çeviri basamağı atlanır. Aylar içinde asıl değişen şey budur.',
+      },
+      {
+        q: 'Doğaçlama yapmayı bilmiyorum, zorlanır mıyım?',
+        a: 'Doğaçlamanın kuralı bilgi değil kabul etmektir: karşındakinin kurduğu duruma evet deyip üstüne bir şey eklersin. Bunun için ne oyunculuk geçmişi ne hazırlık gerekir. İlk haftalarda kısa ve çok yapılı oyunlarla başlıyoruz, serbest sahneler sonra geliyor. Zorlanma genelde İngilizceden değil, yanlış yapma korkusundan gelir ve grup bunu ilk ayda çözer.',
+      },
+      {
+        q: 'Kaç kişilik gruplar, ne sıklıkta?',
+        a: 'Gruplar küçük tutuluyor, çünkü konuşma süresi kişi sayısına bölünüyor. Kalabalık bir konuşma kulübünde iki saatte birkaç dakika konuşursun; sahne çalışmasında herkes her oturumda ayağa kalkar. Güncel kontenjan, gün ve mekân bilgisi için program sayfasına bak.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    criteria: [
+      {
+        q: 'Konuşma süresi kişi başına ne kadar düşüyor?',
+        a: 'Bir konuşma kulübünü değerlendirirken sorulacak ilk soru bu. On kişilik bir masada iki saatin matematiği acımasızdır. Grup ne kadar kalabalıksa, sen o kadar dinleyici olursun. Kontenjanı sormaktan çekinme.',
+      },
+      {
+        q: 'Konuşurken oturuyor musun, bir şey yapıyor musun?',
+        a: 'Oturarak yapılan pratik zihinsel kalır ve çeviri alışkanlığını besler. Ayakta, bir eylemin içinde kurulan cümle daha iyi yerleşir. Tanışma oturumunda katılımcıların ayağa kalkıp kalkmadığına bak.',
+      },
+      {
+        q: 'Hata düzeltiliyor mu, yoksa akış mı korunuyor?',
+        a: 'İkisinin de yeri var ama karışırsa ikisi de çalışmaz. Her hatanın anında düzeltildiği ortamda konuşmayı bırakırsın. Hiç geri bildirim olmayan ortamda ise yanlışlar pekişir. İyi kurgu, akışı bölmeden sonradan verilen geri bildirimdir.',
+      },
+      {
+        q: 'Seviye grupları ayrılıyor mu?',
+        a: 'B1 ile C1 aynı gruptaysa biri susar, diğeri sıkılır. Başvuru sırasında seviyenin sorulup sorulmadığı, grubun gerçekten dengelenip dengelenmediğinin işaretidir.',
+      },
+      {
+        q: 'Sonunda gösterilecek bir şey var mı?',
+        a: 'Bir bitiş noktası, hazırlığın niteliğini değiştirir. Sunum, sahne ya da kayıt gibi bir kapanışı olan programlarda katılımcı daha çok çalışır. Açık uçlu sohbet gruplarında ilerleme ölçülemez, o yüzden de çoğu kişi birkaç ay sonra bırakır.',
+      },
+    ],
+    related: ['ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
   },
 
   // ── AUDITION HAZIRLIK ────────────────────────────────────────────
@@ -728,7 +884,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Haftada iki gün ağır gelir mi?',
-        a: 'Dersler akşam saatlerinde. Sekiz ayın sonunda seyirci önüne çıkacak bir gösteri hazırlanıyor — bu yoğunluk o hedefin gereği. Çalışan katılımcılarımızın çoğu bu tempoyu sürdürüyor.',
+        a: 'Oturumlar akşam saatlerinde. Sekiz ayın sonunda seyirci önüne çıkacak bir gösteri hazırlanıyor — bu yoğunluk o hedefin gereği. Çalışan katılımcılarımızın çoğu bu tempoyu sürdürüyor.',
       },
       {
         q: 'Gençlerle aynı grupta mıyım?',
@@ -863,7 +1019,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet — program bunun için tasarlandı. İlk haftalar teknik temel: duruş, ağırlık aktarımı, temel jazz adımları. Grup 12 kişiyi geçmiyor, herkes bireysel düzeltme alıyor. Seçme ya da seviye sınavı yok.',
       },
       {
-        q: 'Dersler hangi gün ve saatte?',
+        q: 'Atölyeler hangi gün ve saatte?',
         a: 'Perşembe akşamları 19:00–21:00, Kadıköy Rasimpaşa\'daki stüdyoda. Yeni dönem 1 Ekim Perşembe başlıyor. Mesai sonrası yetişilebilir bir saat — katılımcıların çoğu çalışan yetişkinler.',
       },
       {
@@ -936,7 +1092,7 @@ export const DISCIPLINES: Discipline[] = [
     what:
       'Dans: Broadway Musical Dance — jazz ve theatre dance teknikleriyle sahne koreografisi. 12 haftalık tam ya da 6 haftalık kısa program; Taksim sınıfı 3 Ekim Cumartesi 19:00\'da, Kadıköy sınıfı 1 Ekim Perşembe 19:00\'da başlıyor. Müzikal: Techne Musical Lab — sekiz ay, oyunculuk + şan + dans, Mayıs\'ta seyircili bitirme performansı; bu program yalnızca Kadıköy stüdyosunda, çünkü zemin, ayna ve piyano altyapısı orada.',
     who:
-      'Harbiye, Elmadağ, Cihangir, Gümüşsuyu hattında yaşayanlar; Taksim\'de çalışıp iş çıkışı derse yürüyerek gitmek isteyenler; müzikal tiyatroya merakı olup nereden başlayacağını bilmeyenler. Dans deneyimi şart değil — teknik temelden başlıyoruz, grup 15 kişiyi geçmiyor.',
+      'Harbiye, Elmadağ, Cihangir, Gümüşsuyu hattında yaşayanlar; Taksim\'de çalışıp iş çıkışı atölyeye yürüyerek gitmek isteyenler; müzikal tiyatroya merakı olup nereden başlayacağını bilmeyenler. Dans deneyimi şart değil — teknik temelden başlıyoruz, grup 15 kişiyi geçmiyor.',
     workshopSlugs: ['broadway-musical-dance', 'techne-musical-lab'],
     districtSlugs: ['taksim-oyunculuk-kursu', 'kadikoy-tiyatro-kursu'],
     faq: [

@@ -45,7 +45,7 @@ function normalizePhone(raw: string): string | null {
 }
 
 export type CapiEvent = {
-  eventName: 'Lead' | 'CompleteRegistration' | 'Subscribe' | 'InitiateCheckout'
+  eventName: 'Lead' | 'CompleteRegistration' | 'Subscribe' | 'InitiateCheckout' | 'Contact'
   /** Tarayıcı olayıyla eşleşen kimlik — çift sayımı engeller. */
   eventId: string
   eventSourceUrl?: string
