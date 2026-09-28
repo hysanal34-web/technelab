@@ -15,11 +15,11 @@ export const TEAM: TeamMember[] = [
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
-    name: 'Sitare Bilge',
-    slug: 'sitare-bilge',
-    role: 'Eğitmen',
-    bio: 'Jekyll & Hyde ve Gulyabani gibi prodüksiyonlarda başrol oynadı; Grease ve Cabaret başta olmak üzere çok sayıda müzikali sahneye koydu. Uzun yıllardır müzikal tiyatro üzerine çalışıyor ve ders veriyor. Techne Musical Lab\'de vokal tekniği, şan ve müzikal oyunculuk üzerine çalışıyor.',
-    image: '/images/team/sitare-bilge.jpg',
+    name: 'Bartu Ayaz',
+    slug: 'bartu-ayaz',
+    role: 'Şan & Vokal Koçu · Eğitmen',
+    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Grease\'te Danny Zuko, Alaaddin\'in Müzikali\'nde başrol ve Damdaki Kemancı\'da Hancı gibi rollerle sahne tecrübesini genişletti. Techne Musical Lab\'de vokal tekniği, şan ve müzikal oyunculuk üzerine çalışıyor.',
+    image: '/images/team/bartu-ayaz.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {

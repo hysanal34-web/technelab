@@ -16,11 +16,11 @@ export const TEAM: TeamMember[] = [
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
-    name: 'Sitare Bilge',
-    slug: 'sitare-bilge',
-    role: 'Dr. · Öğretim Üyesi · Eğitmen',
-    bio: 'İÜDK Müzikal Tiyatro alanında doktorasını tamamlayan ve 2008\'den beri aynı kurumda öğretim üyesi olan ödüllü sanatçı Dr. Sitare Bilge; Jekyll & Hyde ve Gulyabani gibi büyük prodüksiyonlardaki başrol tecrübesini yönetmenlik vizyonuyla birleştiriyor. Grease ve Cabaret başta olmak üzere sayısız müzikali sahneye koyan, ulusal ve uluslararası prestijli ödüllere sahip Bilge; Müzikal programımızda katılımcıların vokal tekniklerini, şan ve müzikal oyunculuk performanslarını profesyonel sahne seviyesine taşıyor.',
-    image: '/images/team/sitare-bilge.jpg',
+    name: 'Bartu Ayaz',
+    slug: 'bartu-ayaz',
+    role: 'Şan & Vokal Koçu · Eğitmen',
+    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu, aynı kurumda Sahne Sanatları yüksek lisansına devam eden Bartu Ayaz; Grease\'te Danny Zuko, Alaaddin\'in Müzikali\'nde başrol ve Damdaki Kemancı\'da Hancı gibi rollerle sahne tecrübesini genişletti. Şan, piyano ve dans (hip-hop, jazz, çağdaş dans) üzerine çalışan sanatçı, Techne Musical Lab\'de vokal tekniği ve müzikal oyunculuk performansları üzerine çalışıyor.',
+    image: '/images/team/bartu-ayaz.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {

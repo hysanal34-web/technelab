@@ -9,7 +9,7 @@ import Link from 'next/link'
  */
 
 const FACES = [
-  { name: 'Sitare Bilge',      slug: 'sitare-bilge',      image: '/images/team/sitare-bilge.jpg' },
+  { name: 'Bartu Ayaz',        slug: 'bartu-ayaz',        image: '/images/team/bartu-ayaz.jpg' },
   { name: 'Köksal Ünal',       slug: 'koksal-unal',       image: '/images/team/koksal-unal.jpg' },
   { name: 'Burcu Halaçoğlu',   slug: 'burcu-halacoglu',   image: '/images/team/burcu-halacoglu.jpg' },
   { name: 'Yeşim Çelebi',      slug: 'yesim-celebi',      image: '/images/team/yesim-celebi.jpg' },

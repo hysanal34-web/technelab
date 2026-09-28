@@ -413,7 +413,7 @@ export function TiyatroBot() {
     if (has('ingilizce', 'english', 'dil'))
       return { from: 'bot', text: 'Dil öğretmiyoruz, dili sahnede deneyimliyoruz. English Drama Lab ailesi 3 programdan oluşuyor: English Drama Lab (12/6/4 hafta, yetişkin), English Acting Praxis (12 hafta, yetişkin) ve English Drama Youth (10–17 yaş, B1 ve üzeri, 8 ay, yıl sonu final projesiyle kapanır).', options: [{ label: 'English Drama Lab →', value: 'go:english-drama-lab' }, { label: 'EDL Youth →', value: 'go:english-drama-youth' }, { label: 'Program bul', value: 'guide' }] }
     if (has('müzikal', 'muzikal', 'şan', 'san eğit', 'şarkı', 'sarki', 'ses eğitimi'))
-      return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Sitare Bilge yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
+      return { from: 'bot', text: 'Techne Musical Lab: drama + şan + dans tek programda, 8 ay, seyircili bitirme performansıyla. Köksal Ünal & Bartu Ayaz yönetiminde.', options: [{ label: 'Musical Lab →', value: 'go:techne-musical-lab' }] }
     if (has('dans', 'koreografi', 'broadway'))
       return { from: 'bot', text: 'Broadway Musical Dance: jazz, tap ve theatre dance temelli koreografi programı. 6 haftalık temel blok ya da 12 haftalık tam program olarak katılabilirsin. Deneyim şart değil.', options: [{ label: 'Broadway Dance →', value: 'go:broadway-musical-dance' }] }
     if (has('kamera', 'dizi', 'film', 'audition', 'cast', 'set'))

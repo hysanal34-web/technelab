@@ -191,7 +191,7 @@ export const WORKSHOPS: Workshop[] = [
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
     instructor: 'Köksal Ünal & Bartu Ayaz',
-    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Bartu Ayaz: Şan ve vokal koçu. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
+    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Bartu Ayaz: İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Grease, Alaaddin\'in Müzikali ve Damdaki Kemancı gibi prodüksiyonlarda sahne aldı, şan ve vokal koçluğu yapıyor. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 135000,
     friendDiscountPercent: 10, installments: 6,
     schedule: [{ place: 'Kadıköy', date: '12 Ekim Pazartesi' }],

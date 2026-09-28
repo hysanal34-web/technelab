@@ -334,7 +334,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Oyunculuk · Şan · Dans',
     seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Şan, Dans & Oyunculuk Eğitimi',
     seoDesc:
-      'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. 8 aylık kapsamlı eğitim, seyircili bitirme performansı — Kadıköy. Köksal Ünal & Sitare Bilge.',
+      'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. 8 aylık kapsamlı eğitim, seyircili bitirme performansı — Kadıköy. Köksal Ünal & Bartu Ayaz.',
     keywords: [
       'müzikal tiyatro kursu istanbul', 'müzikal kursu istanbul', 'müzikal eğitimi istanbul',
       'şan kursu istanbul', 'şan eğitimi istanbul', 'şan ve dans atölyesi',
@@ -345,7 +345,7 @@ export const DISCIPLINES: Discipline[] = [
       'istanbul müzikal atölyesi', 'müzikal atölyesi istanbul', 'müzikal atölyesi',
     ],
     intro:
-      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Sitare Bilge ile Kadıköy\'de, sekiz ay, haftada iki gün.',
+      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Bartu Ayaz ile Kadıköy\'de, sekiz ay, haftada iki gün.',
     what:
       'Program dramadan başlıyor — çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Ekim–Aralık: sahne varlığı, karakter inşası, şan tekniğiyle buluşan oyuncu sesi. Ocak–Mart: müzikal ritim, Broadway dans temelleri, müzikal metin çalışması. Nisan–Mayıs: tam sahne uygulaması — kostüm, ışık, seyirci. Dönem seyircili bir bitirme performansıyla kapanıyor.',
     who:
@@ -355,7 +355,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Şan eğitimi programa dahil mi?',
-        a: 'Evet. Sitare Bilge ile şan ve vokal çalışması programın omurgasında — ayrı bir başlık olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
+        a: 'Evet. Bartu Ayaz ile şan ve vokal çalışması programın omurgasında — ayrı bir başlık olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
       },
       {
         q: 'Nota bilmem gerekiyor mu?',
@@ -868,7 +868,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal tiyatro yaş sormuyor. Techne Musical Lab\'in gruplarında yirmili yaşlarında katılımcı da var, ellili yaşlarında olan da — ve ikisi de aynı sahnede aynı işi yapıyor. Sekiz ay, haftada iki gün, Kadıköy.',
     what:
-      'Program üç disiplini aynı anda yürütüyor: oyunculuk, şan ve dans. Köksal Ünal ve Sitare Bilge yönetiminde beden, ses ve sahne birlikte çalışılıyor. Yıl seyircili bir final performansıyla kapanıyor — kurs bitirme belgesi değil, gerçek bir gösteri. Sekiz ay boyunca aynı grupla çalışmak, tek başına bir topluluk deneyimi.',
+      'Program üç disiplini aynı anda yürütüyor: oyunculuk, şan ve dans. Köksal Ünal ve Bartu Ayaz yönetiminde beden, ses ve sahne birlikte çalışılıyor. Yıl seyircili bir final performansıyla kapanıyor — kurs bitirme belgesi değil, gerçek bir gösteri. Sekiz ay boyunca aynı grupla çalışmak, tek başına bir topluluk deneyimi.',
     who:
       'Şarkı söylemeyi seven ama hiç sahneye çıkmamış olanlar. Ofisten çıkıp bambaşka bir şey yapmak isteyenler. Çocukken müzikale merak salmış, hiç fırsat bulamamış olanlar. Deneyim aranmıyor, ses eğitimi programın parçası. On sekiz yaş üstü — üst sınır elli beş.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
@@ -876,7 +876,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Şarkı söyleyemiyorum, olur mu?',
-        a: 'Olur. Şan eğitimi programın içinde — Sitare Bilge ile sesini kullanmayı öğreniyorsun. Kimse ses testinden geçmiyor.',
+        a: 'Olur. Şan eğitimi programın içinde — Bartu Ayaz ile sesini kullanmayı öğreniyorsun. Kimse ses testinden geçmiyor.',
       },
       {
         q: 'Yaşım büyük, geç mi kaldım?',
