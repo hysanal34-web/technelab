@@ -164,7 +164,7 @@ export default function HomePage() {
             <span className="sr-only">
               <T tr="Techne Lab İstanbul — oyunculuk, dans, müzikal ve yazarlık atölyeleri. " en="Techne Lab Istanbul — acting, dance, musical theatre and playwriting workshops. " />
             </span>
-            <T tr={<>DİSİPLİN<br /><span className="text-neon">ÖZGÜRLÜKTÜR.</span></>} en={<>DISCIPLINE<br /><span className="text-neon">IS FREEDOM.</span></>} />
+            <T tr={<>TECHNE LAB<br /><span className="text-neon">İSTANBUL.</span></>} en={<>TECHNE LAB<br /><span className="text-neon">ISTANBUL.</span></>} />
           </h1>
 
           <div className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
