@@ -84,7 +84,7 @@ export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; init
                   alt={m.name}
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                  className={`object-cover ${isOpen ? 'object-[50%_20%]' : 'object-top group-hover:scale-[1.04]'} transition-all duration-500`}
+                  className={`object-cover grayscale ${isOpen ? 'object-[50%_20%]' : 'object-top group-hover:scale-[1.04]'} transition-all duration-500`}
                 />
               ) : (
                 <div className="absolute inset-0 bg-bgAlt" />

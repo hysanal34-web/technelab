@@ -121,7 +121,7 @@ export default async function TeamMemberPage({ params }: Props) {
               alt={m.name}
               fill
               sizes="(max-width: 768px) 100vw, 280px"
-              className="object-cover object-top"
+              className="object-cover object-top grayscale"
               priority
             />
             <div className="absolute top-0 left-0 h-[2px] w-full bg-neon" />

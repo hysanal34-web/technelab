@@ -60,7 +60,7 @@ export function InstructorStrip() {
                   alt={p.name}
                   fill
                   sizes="(max-width: 768px) 50vw, 15vw"
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="object-cover grayscale transition-all duration-500"
                   style={{ filter: 'brightness(0.82)' }}
                 />
                 <div
