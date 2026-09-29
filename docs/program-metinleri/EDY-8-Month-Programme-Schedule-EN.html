@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>English Drama Youth · Techne Lab İstanbul</title><style>
+@page { size: A4 portrait; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg:#0A0A0C; --bgAlt:#121215; --fg:#F2F2ED; --stone:#9C9C96; --dim:#5A5A5E; --line:#26262B; --neon:#C8FF00; --ink:#0A0A0C; }
+html, body { background: var(--bg); color: var(--fg); height: 297mm; overflow: hidden; }
+body { width: 210mm; font-family: "Liberation Sans","DejaVu Sans",Arial,sans-serif; font-size: 7.7pt; line-height: 1.34; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.d { font-family: "Liberation Sans Narrow","Nimbus Sans Narrow","Arial Narrow",Impact,sans-serif; font-weight: 700; text-transform: uppercase; line-height: 0.95; letter-spacing: 0.005em; }
+.m { font-family: "Liberation Mono","DejaVu Sans Mono",monospace; text-transform: uppercase; letter-spacing: 0.14em; font-size: 6.2pt; }
+.neon { color: var(--neon); } .stone { color: var(--stone); } .dim { color: var(--dim); }
+
+.page { width: 210mm; height: 297mm; padding: 8mm 12mm 8mm; display: flex; flex-direction: column; }
+.rule { height: 2px; background: var(--neon); }
+
+/* header */
+.hd { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 10mm; padding: 3.5mm 0 3.5mm; border-bottom: 1px solid var(--line); }
+.hd .eyebrow { color: var(--neon); margin-bottom: 2.4mm; }
+.hd h1 { font-size: 40pt; }
+.hd .sub { font-size: 9.6pt; color: var(--fg); margin-top: 2.6mm; max-width: 118mm; line-height: 1.35; }
+.hd .meta { text-align: right; color: var(--stone); line-height: 2; padding-bottom: 0.5mm; }
+.hd .meta b { color: var(--fg); font-weight: 400; }
+
+/* facts */
+.facts { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--line); }
+.facts > div { padding: 2.8mm 3mm 2.8mm 0; border-right: 1px solid var(--line); margin-right: 3mm; }
+.facts > div:last-child { border-right: 0; margin-right: 0; }
+.facts .v { font-size: 12.5pt; white-space: nowrap; }
+.facts .l { margin-top: 1.1mm; color: var(--stone); }
+
+/* body */
+.bd { display: grid; grid-template-columns: 54mm 1fr; gap: 6mm; flex: 1; min-height: 0; padding-top: 4.5mm; }
+.sec + .sec { margin-top: 4mm; }
+.sec .eyebrow { color: var(--neon); margin-bottom: 1.6mm; }
+.sec h2 { font-size: 13pt; margin-bottom: 2.4mm; }
+
+.steps { display: grid; gap: 2.2mm; }
+.step { display: grid; grid-template-columns: 7mm 1fr; gap: 1.5mm; align-items: start; }
+.step .n { color: var(--neon); padding-top: 0.5mm; }
+.step b { display: block; color: var(--fg); margin-bottom: 0.3mm; }
+.step span { color: var(--stone); }
+
+.team { border-top: 1px solid var(--line); }
+.team > div { display: block; padding: 1.7mm 0; border-bottom: 1px solid var(--line); }
+.team .nm { font-size: 10.5pt; display: block; }
+.team .rl { color: var(--neon); display: block; margin-top: 0.5mm; }
+
+.note { border-left: 2px solid var(--neon); padding-left: 3mm; }
+.note p { position: relative; color: var(--fg); margin-bottom: 1.5mm; }
+.note p:last-child { margin-bottom: 0; }
+.note p span { color: var(--stone); }
+
+/* timeline table */
+.tl { width: 100%; border-collapse: collapse; border-spacing: 0; table-layout: fixed; }
+.tl th { text-align: left; color: var(--stone); font-weight: 400; padding: 0 2.5mm 2mm 0; border-bottom: 1px solid var(--neon); vertical-align: bottom; }
+.tl th:first-child { padding-left: 0; }
+.tl td { vertical-align: top; padding: 2mm 3mm 2mm 0; border-bottom: 1px solid var(--line); }
+.tl tr:last-child td { border-bottom: 0; }
+.tl .mo { width: 18mm; }
+.tl .mo .num { color: var(--dim); }
+.tl .mo .nm { font-size: 11pt; margin-top: 0.6mm; letter-spacing: 0; }
+.tl .mo .tag { display: inline-block; margin-top: 1.3mm; border: 1px solid var(--neon); color: var(--neon); padding: 0.3mm 1.2mm; font-size: 5.6pt; }
+.tl .core b { display: block; color: var(--neon); margin-bottom: 0.5mm; }
+.tl .ws { width: 50mm; }
+.tl .ws b { display: block; color: var(--fg); margin-bottom: 0.4mm; }
+.tl .ws span { color: var(--stone); }
+.tl tr.final { background: var(--neon); } .tl tr.final td { background: transparent; color: var(--ink); border: 0; }
+.tl tr.final .mo .num, .tl tr.final .ws span { color: rgba(10,10,12,0.62); }
+.tl tr.final .core b, .tl tr.final .ws b, .tl tr.final .mo .nm { color: var(--ink); }
+.tl tr.final .mo .tag { border-color: var(--ink); color: var(--ink); }
+.tl tr.final td:first-child { padding-left: 2.5mm; } .tl tr.final { outline: 0; }
+
+/* footer */
+.ft { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 3mm; margin-top: 4mm; }
+.ft .brand { font-size: 11pt; }
+.ft .q { color: var(--stone); font-style: italic; font-size: 8pt; }
+</style></head>
+<body><div class="page">
+  <div class="rule"></div>
+  <div class="hd">
+    <div>
+      <div class="eyebrow m">Techne Lab Istanbul · 2026–27 Season</div>
+      <h1 class="d">English Drama<br><span class="neon">Youth</span></h1>
+      <p class="sub">Turkey's first English-language drama and creativity programme for ages <span style="white-space:nowrap">10–17</span>. Eight-month schedule and how it works.</p>
+    </div>
+    <div class="meta m"><div><b>Ages 10–17</b> · two separate groups</div><div>Programme language · <b>English</b></div><div>Pera &amp; Kadıköy · Istanbul</div></div>
+  </div>
+  <div class="facts"><div><div class="v d">8 Months</div><div class="l m">October – May</div></div><div><div class="v d">1 Day a Week</div><div class="l m">10–14 · 15–17 separate groups</div></div><div><div class="v d">Kadıköy · Pera</div><div class="l m">Saturday · Sunday 13:00</div></div><div><div class="v d">12 Students</div><div class="l m">Maximum group size</div></div><div><div class="v d">Year-End Show</div><div class="l m">May · live audience · in English</div></div></div>
+  <div class="bd">
+    <div class="side">
+      <div class="sec"><div class="eyebrow m">Format</div><h2 class="d">How it works</h2><div class="steps"><div class="step"><div class="n m">01</div><div><b>First three weeks: drama.</b><span>Creative drama, improvisation, individual and ensemble work with Alara Lokum. English is used on stage, not in a textbook.</span></div></div><div class="step"><div class="n m">02</div><div><b>Last week: guest workshop.</b><span>Creative writing, design and jazz dance rotate. Each workshop closes with a small creative assignment for the next meeting.</span></div></div><div class="step"><div class="n m">03</div><div><b>The work becomes the show.</b><span>The children's texts, designs and movement pieces are reworked by the artists and become the material of the year-end show.</span></div></div><div class="step"><div class="n m">04</div><div><b>Rehearsal and performance.</b><span>Rehearsals begin at the end of month four. The season closes in month eight with a live, all-English year-end show.</span></div></div></div></div>
+      <div class="sec"><div class="eyebrow m">Faculty</div><h2 class="d">The Team</h2><div class="team"><div><span class="nm d">Alara Lokum</span><span class="rl m">Lead instructor · Drama</span></div><div><span class="nm d">Itır Karabulut</span><span class="rl m">Creative writing</span></div><div><span class="nm d">Özge Dağ</span><span class="rl m">Design · Jazz dance</span></div></div></div>
+      <div class="sec"><div class="eyebrow m">A note for parents</div><div class="note"><p>No placement test. <span>A parent's statement is enough; comfortable everyday English (B1 and above) is all it takes.</span></p><p>No textbooks, exams or grades. <span>Not perfect English, but the freedom to make mistakes in it.</span></p></div></div>
+    </div>
+    <div class="main">
+      <div class="sec"><div class="eyebrow m">October – May</div><h2 class="d">8-Month Schedule</h2>
+        <table class="tl"><colgroup><col style="width:20mm"><col><col style="width:45mm"></colgroup><thead><tr><th class="m">Month</th><th class="m">Drama track · Alara Lokum</th><th class="m">Last week of the month · Guest workshop and assignment</th></tr></thead><tbody><tr>
+          <td class="mo"><div class="num m">01</div><div class="nm d">October</div></td>
+          <td class="core"><b>Meeting and play</b>Group dynamics, trust, improvisation games. Using English on stage for the first time.</td>
+          <td class="ws"><b>Creative Writing · Itır Karabulut</b><span>Assignment: write a short story for your own character.</span></td></tr><tr>
+          <td class="mo"><div class="num m">02</div><div class="nm d">November</div></td>
+          <td class="core"><b>Body, voice, imagination</b>Body and voice exercises, storytelling, solo improvisation.</td>
+          <td class="ws"><b>Design · Özge Dağ</b><span>Character and mask design. Assignment: finish your own mask and character sketch.</span></td></tr><tr>
+          <td class="mo"><div class="num m">03</div><div class="nm d">December</div></td>
+          <td class="core"><b>Improvised scenes</b>Ensemble improvisation, situation work, playing with a partner.</td>
+          <td class="ws"><b>Jazz Dance · Özge Dağ</b><span>Rhythm and ensemble movement. Assignment: build a short movement phrase with your group.</span></td></tr><tr>
+          <td class="mo"><div class="num m">04</div><div class="nm d">January</div></td>
+          <td class="core"><b>Character and text</b>English stage text, building a character, partner work.</td>
+          <td class="ws"><b>Creative Writing · Itır Karabulut</b><span>Scene writing. At month's end all the work goes to the artists: the first draft of the show material.</span></td></tr><tr>
+          <td class="mo"><div class="num m">05</div><div class="nm d">February</div><div class="tag m">Rehearsal</div></td>
+          <td class="core"><b>Rehearsals begin</b>First rehearsals with scenes chosen from the children's work; drama work continues.</td>
+          <td class="ws"><b>Design · Özge Dağ</b><span>Set and costume sketches. Assignment: a design proposal for your own scene.</span></td></tr><tr>
+          <td class="mo"><div class="num m">06</div><div class="nm d">March</div><div class="tag m">Rehearsal</div></td>
+          <td class="core"><b>Staging</b>Transitions, ensemble scenes, deepening the characters. The show takes shape.</td>
+          <td class="ws"><b>Jazz Dance · Özge Dağ</b><span>Show choreography. Assignment: rehearse the choreography with your group.</span></td></tr><tr>
+          <td class="mo"><div class="num m">07</div><div class="nm d">April</div><div class="tag m">Rehearsal</div></td>
+          <td class="core"><b>Putting it together</b>Run-throughs. Text, design and movement come together in a single show.</td>
+          <td class="ws"><b>Joint workshop · Whole team</b><span>Joint rehearsal workshop with Alara Lokum, Itır Karabulut and Özge Dağ.</span></td></tr><tr class="final">
+          <td class="mo"><div class="num m">08</div><div class="nm d">May</div><div class="tag m">Final</div></td>
+          <td class="core"><b>Year-end show</b>Dress rehearsal, technical rehearsal and the year-end show, entirely in English, in front of a live audience.</td>
+          <td class="ws"><b>Families and audience invited</b><span>Date and venue will be shared with parents during the season.</span></td></tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="ft">
+    <span class="brand d">Techne <span class="neon">Lab</span> İstanbul</span>
+    <span class="q">We don't teach the language. We experience it.</span>
+    <span class="m stone">technelabistanbul.com · Pera &amp; Kadıköy</span>
+  </div>
+</div></body></html>

@@ -7,6 +7,7 @@ import { getArticle, getArticleSlugs, getAllArticles } from '@/lib/mdx'
 import { SITE_META } from '@/lib/data'
 import { findTeamMemberByName } from '@/lib/ekip'
 import { ArticleCTA, resolveArticleCta } from '@/components/ArticleCTA'
+import { ilgiliMakaleler } from '@/lib/ilgiliMakaleler'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -49,10 +50,10 @@ export default async function ArticlePage({ params }: Props) {
   const authorUrl = author ? `${SITE_META.url}/ekip/${author.slug}` : undefined
   const pageUrl = `${SITE_META.url}/makaleler/${slug}`
 
-  // Aynı kategoriden en yeni 3 yazı — konu kümesi içi bağ (topical cluster).
-  const ilgili = getAllArticles()
-    .filter((a) => a.slug !== slug && a.category === meta.category)
-    .slice(0, 3)
+  // Konu kümesi içi bağ. Seçim `ilgiliMakaleler` içinde: kümede halka gibi
+  // dolaşıp link gücünü dağıtıyor, küme küçükse komşu kategoriden tamamlıyor.
+  // Eskiden "aynı kategoriden en yeni 3" idi ve 25 makaleyi yetim bırakıyordu.
+  const ilgili = ilgiliMakaleler(getAllArticles(), slug, meta.category, 3)
 
   const { hub } = resolveArticleCta(meta.tags, meta.category)
 

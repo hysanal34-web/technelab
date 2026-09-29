@@ -62,21 +62,27 @@ export const DISCIPLINES: Discipline[] = [
       'acting workshop istanbul', 'profesyonel oyunculuk eğitimi',
     ],
     intro:
-      'Oyunculuk bir yetenek meselesi değil, bir pratik meselesi. Techne Lab\'ın İstanbul\'daki oyunculuk atölyeleri bedenden başlıyor: nefesin nereye gittiği, ağırlığın nasıl dağıldığı, partnerin gerçekten görülüp görülmediği. Kadıköy ve Pera\'daki stüdyolarımızda haftada bir gün, on iki kişiyi geçmeyen gruplarla çalışıyoruz.',
+      'Oyunculuk bir yetenek meselesi değil, bir pratik meselesi. Techne Lab\'ın İstanbul\'daki oyunculuk atölyeleri bedenden başlıyor: nefesin nereye gittiği, ağırlığın nasıl dağıldığı, partnerin gerçekten görülüp görülmediği. Kadıköy ve Pera\'daki partner stüdyolarda küçük gruplarla çalışıyoruz. Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; bu dönem oyunculuk çalışmanın açık kapıları, İngilizce yürüyen English Acting Praxis ve oyunculuğu şan ve dansla birleştiren Techne Musical Lab.',
     what:
       'Çalışma üç eksende ilerliyor. Beden: fiziksel farkındalık, zemin çalışması, hareket kalitesi. Ses: nefes desteği, rezonans, metnin sesle taşınması. Mevcudiyet: anda kalmak, gerçek tepki vermek, sahnede var olmak. Bunların üzerine karakter inşası ve metin çalışması geliyor — ama sıra bu; teknik olmadan karakter kurulmaz. Her oturumda herkes sahneye çıkıyor, herkes bireysel geri bildirim alıyor.',
     who:
       'Hiç sahneye çıkmamış olanlar, konservatuvar hazırlığı yapanlar, uzun süre ara verip geri dönenler ve kamera önünde çalışıp sahne tekniği eksiği hisseden oyuncular. Yaş sınırı yok; gruplar yetişkin. Gençler için ayrı bir program yürüyor.',
-    workshopSlugs: ['oyuncunun-mevcudiyeti', 'camera-praxis', 'english-drama-final-project'],
+    // Açık programlar önce: kapalı olanlar listede "kayıt kapalı" etiketiyle ve
+    // bekleme listesi bağlantısıyla kalıyor (29 Eylül 2026 derinleştirme).
+    workshopSlugs: ['english-drama-final-project', 'techne-musical-lab', 'oyuncunun-mevcudiyeti', 'camera-praxis'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
     faq: [
       {
         q: 'Hiç oyunculuk deneyimim yok, katılabilir miyim?',
-        a: 'Evet. Oyunculuk atölyelerimizin tamamı başlangıç seviyesine açık. Deneyim gerektiren programlar sayfasında açıkça belirtiliyor. Grupların 10–12 kişiyle sınırlı olmasının sebebi tam da bu: herkesin kendi hızında ilerleyebilmesi.',
+        a: 'Evet. Oyunculuk deneyimi şartı aramıyoruz. Programa özel koşullar sayfasında açıkça yazıyor: English Acting Praxis için B1 seviyesinde İngilizce, Techne Musical Lab için kısa bir şarkı videosu isteniyor. Grupların küçük tutulmasının sebebi de bu: herkesin kendi hızında ilerleyebilmesi.',
       },
       {
         q: 'Oyunculuk kursu ne kadar sürüyor?',
-        a: 'Yoğun atölyeler 4 hafta, dönemlik programlar 12 hafta, kapsamlı programlar 8 ay sürüyor. Haftada bir ya da iki gün, akşam saatlerinde — çalışanlar için planlanmış.',
+        a: 'Yoğun atölyeler 4 hafta, dönemlik programlar 12 hafta, kapsamlı programlar 8 ay sürüyor. Haftada bir ya da iki gün, akşam ya da hafta sonu saatlerinde; çalışanlar için planlanmış.',
+      },
+      {
+        q: 'Şu an Türkçe oyunculuk kursu açık mı?',
+        a: 'Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; açıldığında haber almak için bekleme listesine yazılabilirsin. Bu dönem kayıt alan programlar İngilizce yürüyen English Acting Praxis (Pera, cumartesi) ve oyunculuk, şan ve dansı birlikte çalışan Techne Musical Lab (Kadıköy, 12 Ekim\'de başlıyor).',
       },
       {
         q: 'Oyunculuk kursu İstanbul\'da nerede yapılıyor?',
@@ -236,12 +242,13 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce kamera önü oyunculuk', 'soğuk okuma tekniği',
     ],
     intro:
-      'Sahnede işleyen oyunculuk kamerada aynı şekilde işlemiyor. Sahne için büyütülen her şey — jest, ses, enerji — objektifin önünde fazla geliyor. Camera Praxis tam olarak bu farkı çalışan yoğun bir atölye. Selen Uçer ile Pera\'da, dört hafta.',
+      'Sahnede işleyen oyunculuk kamerada aynı şekilde işlemiyor. Sahne için büyütülen her şey — jest, ses, enerji — objektifin önünde fazla geliyor. Camera Praxis tam olarak bu farkı çalışan dört haftalık yoğun atölyemiz (Selen Uçer, Pera); şu an yeni dönem için kayıt almıyor, bekleme listesi açık. Bu dönem kamerayla çalışmanın açık kapısı English Acting Praxis: finalinde cast direktörü Harika Uygur ile bir günlük masterclass ve çekim günü var, performanslar kayda alınıp katılımcılara teslim ediliyor.',
     what:
       'Karakter analiziyle başlıyoruz: hedef, engel, alt metin — ama metni kamera için okuyarak. Sonra teknik: çerçeve bilinci, close-up\'ta enerji yönetimi, göz hattı, tekrarlanabilirlik. Son hafta tamamen audition: soğuk okuma, casting simülasyonu, self-tape çekimi. Çıkışta showreel için kullanabileceğin kayıt elinde oluyor. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor.',
     who:
       'Sahne deneyimi olup kameraya geçmek isteyenler, casting\'lere girip geri dönüş alamayanlar, self-tape hazırlaması gerekenler ve iki dilde birden çalışmak isteyen oyuncular.',
-    workshopSlugs: ['camera-praxis', 'english-drama-final-project', 'oyuncunun-mevcudiyeti'],
+    // Açık program önce (29 Eylül 2026): Camera Praxis kayıt almıyor.
+    workshopSlugs: ['english-drama-final-project', 'camera-praxis', 'oyuncunun-mevcudiyeti'],
     districtSlugs: ['beyoglu-tiyatro-kursu'],
     faq: [
       {
@@ -250,7 +257,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Self-tape kaydı alıyor muyum?',
-        a: 'Evet. Son hafta çekilen self-tape ve casting simülasyonu kayıtları katılımcılara teslim ediliyor — showreel için doğrudan kullanılabilir materyal.',
+        a: 'Evet. Camera Praxis\'te son hafta çekilen self-tape ve casting simülasyonu kayıtları katılımcılara teslim ediliyor. Şu an açık olan English Acting Praxis\'te de final çekim gününde performanslar kayda alınıp teslim ediliyor; ikisi de showreel için kullanılabilir materyal.',
       },
       {
         q: 'İngilizce audition hazırlığı yapıyor musunuz?',

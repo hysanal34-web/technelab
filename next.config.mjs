@@ -71,6 +71,15 @@ const nextConfig = {
       destination: url,
       permanent: false, // 307 — hedefi ileride değiştirebilmek için tarayıcı önbelleklemesin
     }))
+    // Yanlış yazılmış tanışma günü adresleri. GA4'te 26 Eylül 2026'da /tanıi
+    // adresine 90 günde 6 oturum düştüğü görüldü; kodda böyle bir rota yok,
+    // yani dışarıda bir yerde (reklam, post, DM) link yanlış yazılmış. Altı
+    // kişi 404 görmüş — kayıt sayfasına gelmeye çalışan altı kişi. Nereden
+    // geldiğini bulup düzeltmek yerine adresi kurtarmak daha ucuz.
+    const tanismaYanlisYazimlari = ['/tanıi', '/tanisma', '/tanışma', '/tanışma-günü', '/tanisma-günü'].map(
+      (source) => ({ source, destination: '/tanisma-gunu', permanent: false }),
+    )
+
     return [
       {
         source: '/:path*',
@@ -78,6 +87,7 @@ const nextConfig = {
         destination: 'https://www.technelabistanbul.com/:path*',
         permanent: true,
       },
+      ...tanismaYanlisYazimlari,
       ...brosurYonlendirmeleri,
     ]
   },

@@ -126,9 +126,25 @@ Kıyaslama: aynı sorguda 1. olan `sinemaakademi.com.tr/muzikal-oyunculuk-kursu`
 
 ## 5. Bu hafta yapılacak (3 madde)
 
-**1. Ads'te dışlanan kelime listesi kur (20 dakika, panel).**
+**1. ~~Ads'te dışlanan kelime listesi kur.~~ YAPILDI (26 Eylül, API ile).**
 
-> **Düzeltme.** Bu raporun ilk hâlinde `sınıf` ve `bölüm` kelimeleri geniş eşleme negatif olarak önerilmişti. İkisi de tehlikeli: `sınıf` negatifi "oyunculuk sınıfı" ve "drama sınıfı" aramalarını da keser, yani işimize yarayan trafiği öldürür. Aşağıdaki liste bu hatayı düzeltiyor; `sınıf` artık yalnızca öbek hâlinde geçiyor.
+Windsor'ın `push_negative_keywords` aksiyonuyla beş kampanyaya da uygulandı, toplam **103 negatif kelime**. Platform her çağrı için ayrı ayrı başarı döndürdü.
+
+| Kampanya | ID | Eklenen |
+|---|---|---|
+| TL - Yetiskin Programlar | 24186318918 | 20 |
+| TL - Youth Veli | 24192545915 | 20 |
+| TL - Techne Musical Lab | 24204376035 | 23 |
+| TL - English Drama Lab | 24210088271 | 20 |
+| TL - The Auteur Lab | 24204393822 | 20 |
+
+**Beş kampanyaya da giden liste.** Geniş eşleme: `ismek`, `belediye`, `sirtaki`, `zumba`, `flamenko`, `tango`, `folklor`, `bodyguard`. Öbek eşleme: `"halk oyunları"`, `"üniversitesi"`, `"tiyatro bölümü"`, `"tiyatro metinleri"`, `"drama örnekleri"`, `"egzersiz planı"`, `"ders planı"`, `"sınıf ingilizce"`, `"5 sınıf"`, `"6 sınıf"`, `"7 sınıf"`, `"8 sınıf"`.
+
+**Yalnızca Techne Musical Lab'a, tam eşleme:** `[musical istanbul]`, `[istanbul musical]`, `[musicals in istanbul]`. Bunlar bilet arayan sorgular; öbek eşleme yapılsaydı "istanbul musical theatre course" gibi işimize yarayan İngilizce aramaları da keserdi, o yüzden tam eşleme seçildi.
+
+> **İki düzeltme yapıldı.** Birincisi, bu raporun ilk hâlinde `sınıf` ve `bölüm` geniş eşleme öneriliyordu; ikisi de tehlikeliydi, çünkü `sınıf` negatifi "oyunculuk sınıfı" aramalarını da keserdi. Uygulanan listede ikisi de yalnızca öbek hâlinde geçiyor. İkincisi, ilk liste `bilet`, `ücretsiz` ve `burslu` kelimelerini de içeriyordu; bunlar arama terimi raporunda gözlenmediği için uygulanmadı. Kural basit: yalnızca gerçekten para yaktığı ölçülen sorguyu kes.
+>
+> **Hesap düzeyi yok.** API yalnızca kampanya ve reklam grubu düzeyini destekliyor, o yüzden liste beş kampanyaya ayrı ayrı gitti. Yeni bir kampanya açarsan bu listeyi ona da eklemen gerekir.
 
 **Hesap düzeyinde, geniş eşleme (tek kelime yeterli):**
 
@@ -172,8 +188,11 @@ burslu
 
 *Not: bu liste bilerek API ile otomatik uygulanmadı. CLAUDE.md'deki "okuma API'den, yazma panelden" kuralı bir yana, negatif kelimelerin hangi kampanyaya gideceği karara bağlı; hesap düzeyine yanlış kelime eklemek sessizce doğru trafiği de keser. Windsor üzerinden push etmemi istersen tek komutla yapılabilir.*
 
-**2. Dönüşümleri Ads'e bağla (6 dakika, panel).**
-Üçüncü haftadır bekliyor. GA4 → Yönetici → Etkinlikler → `generate_lead`, `whatsapp_click`, `phone_call` önemli etkinlik; sonra Google Ads → Hedefler → Dönüşümler → İçe aktar. Bu yapılmadan yukarıdaki negatif kelime çalışmasının etkisini de ölçemeyiz, çünkü Ads şu an neyin işe yaradığını görmüyor.
+**2. Dönüşümleri Ads'e bağla (6 dakika, panel). SENDE KALIYOR.**
+
+Bunu API ile yapamadım ve sebebini açık yazıyorum: Windsor'ın GA4 bağlantısı salt okunur, yazma aksiyonu yok. Tarayıcıdan denedim, Google hesap doğrulaması isteyip şifre ekranına düştü; şifre girmem. Dolayısıyla bu adım gerçekten panelden yapılmak zorunda.
+
+Dördüncü haftadır bekliyor. GA4 → Yönetici → Etkinlikler → `generate_lead`, `whatsapp_click`, `phone_call` önemli etkinlik; sonra Google Ads → Hedefler → Dönüşümler → İçe aktar. Bu yapılmadan yukarıdaki negatif kelime çalışmasının etkisini de ölçemeyiz, çünkü Ads şu an neyin işe yaradığını görmüyor.
 
 **3. ~~Konuşma kulübü hattını organik kazan.~~ YAPILDI (26 Eylül).**
 
