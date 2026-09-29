@@ -1,95 +1,69 @@
 import type { SahneProgram } from './sahneVeri'
 
 /**
- * Sahnenin durağan hâli — telefon, "hareketi azalt", WebGL yok ya da 3D henüz
- * yüklenmedi. Aynı kompozisyon: tabela, ışık konileri, numaralı beton bloklar,
- * neon sahne kenarı. Tamamen SVG; görsel dosyası yok, anında boyanır.
+ * Sahnenin durağan hâli: telefon, "hareketi azalt", WebGL yok ya da 3D henüz
+ * yüklenmedi. Aynı kompozisyon: karanlık sahne, kafesli ghost light, zeminde
+ * sıcak ışık havuzu, havada toz. Tamamen SVG; görsel dosyası yok, anında boyanır.
+ * Program listesi HTML'de (SahneHero), burada tekrar edilmez.
  */
 export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
-  const N = Math.max(programs.length, 1)
-  // Blok yerleşimi 3D ile aynı mantık: yay üzerinde, orta bloklar öne.
-  const blocks = programs.map((p, i) => {
-    const u = N === 1 ? 0.5 : i / (N - 1)
-    const cx = 185 + u * 430
-    const heights = [120, 78, 140, 100, 108, 62, 92, 126, 72]
-    const widths = [46, 54, 36, 62, 44, 68, 50, 40, 58]
-    const h = heights[i % heights.length], w = widths[i % widths.length]
-    const baseY = 268 + Math.sin(u * Math.PI) * 10
-    return { p, i, cx, w, h, baseY }
+  void programs
+  // Toz: tohumlu, her render'da aynı (hidrasyon farkı olmasın).
+  let r = 7
+  const rnd = () => (r = (r * 9301 + 49297) % 233280) / 233280
+  const dust = Array.from({ length: 70 }, () => {
+    const a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * 70
+    return { x: 400 + Math.cos(a) * d * 1.1, y: 70 + rnd() * 170, o: 0.15 + rnd() * 0.45, s: 0.5 + rnd() * 0.8 }
   })
   return (
     <svg viewBox="40 20 720 320" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full" aria-hidden="true">
       <defs>
-        <linearGradient id="sf-cone" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff3dc" stopOpacity="0.16" />
-          <stop offset="1" stopColor="#fff3dc" stopOpacity="0" />
-        </linearGradient>
-        <radialGradient id="sf-pool" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#fff3dc" stopOpacity="0.28" />
-          <stop offset="1" stopColor="#fff3dc" stopOpacity="0" />
+        <radialGradient id="gl-pool" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#ffd9a0" stopOpacity="0.32" />
+          <stop offset="0.45" stopColor="#ffd9a0" stopOpacity="0.1" />
+          <stop offset="1" stopColor="#ffd9a0" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id="sf-floor" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#1b1b1e" />
-          <stop offset="1" stopColor="#0d0d10" />
-        </linearGradient>
-        <linearGradient id="sf-block" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#8d8c86" />
-          <stop offset="1" stopColor="#5e5d58" />
-        </linearGradient>
-        <radialGradient id="sf-vignette" cx="0.5" cy="0.45" r="0.75">
-          <stop offset="0.55" stopColor="#0A0A0C" stopOpacity="0" />
-          <stop offset="1" stopColor="#0A0A0C" stopOpacity="0.85" />
+        <radialGradient id="gl-halo" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fff1d8" stopOpacity="0.95" />
+          <stop offset="0.22" stopColor="#ffdcaa" stopOpacity="0.3" />
+          <stop offset="1" stopColor="#ffdcaa" stopOpacity="0" />
         </radialGradient>
-        <filter id="sf-glow" x="-20%" y="-50%" width="140%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="b" />
+        <radialGradient id="gl-vignette" cx="0.5" cy="0.5" r="0.7">
+          <stop offset="0.5" stopColor="#0A0A0C" stopOpacity="0" />
+          <stop offset="1" stopColor="#0A0A0C" stopOpacity="0.9" />
+        </radialGradient>
+        <filter id="gl-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="2" result="b" />
           <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
-      <rect width="800" height="450" fill="#0A0A0C" />
-      {/* arka duvar + tabela */}
-      <rect x="120" y="40" width="560" height="240" fill="#070708" />
-      <g filter="url(#sf-glow)" fontFamily="Anton, Impact, 'Arial Narrow', sans-serif" textAnchor="middle" fill="#C8FF00">
-        <text x="400" y="112" fontSize="58" letterSpacing="2">TECHNE LAB</text>
-        <text x="400" y="140" fontSize="22" letterSpacing="9">ISTANBUL</text>
+      <rect x="0" y="0" width="800" height="400" fill="#0A0A0C" />
+      {/* zemin ve ışık havuzu */}
+      <rect x="0" y="252" width="800" height="150" fill="#0f0e0d" />
+      {[268, 288, 314, 346].map((y) => (
+        <line key={y} x1="0" y1={y} x2="800" y2={y} stroke="#000" strokeOpacity="0.55" strokeWidth="1" />
+      ))}
+      <ellipse cx="400" cy="300" rx="260" ry="70" fill="url(#gl-pool)" />
+      {/* kaide gölgesi, kaide, direk */}
+      <ellipse cx="400" cy="286" rx="30" ry="6" fill="#000" fillOpacity="0.7" />
+      <rect x="378" y="280" width="44" height="6" rx="2" fill="#2b2b2e" />
+      <rect x="398.6" y="112" width="2.8" height="170" fill="#232326" />
+      <rect x="396" y="104" width="8" height="10" fill="#2b2b2e" />
+      {/* hale, ampul, kafes */}
+      <circle cx="400" cy="92" r="70" fill="url(#gl-halo)" />
+      <circle cx="400" cy="92" r="8" fill="#fff6e6" filter="url(#gl-glow)" />
+      <circle cx="400" cy="92" r="2.4" fill="none" stroke="#C8FF00" strokeWidth="0.9" />
+      <g fill="none" stroke="#1d1d20" strokeWidth="0.9">
+        <circle cx="400" cy="92" r="14" />
+        <ellipse cx="400" cy="92" rx="6" ry="14" />
+        <ellipse cx="400" cy="92" rx="11" ry="14" />
+        <line x1="386" y1="92" x2="414" y2="92" />
       </g>
-      {/* ışık konileri */}
-      {blocks.map(({ cx, i }) => (
-        <polygon key={`c${i}`} points={`${400 + (cx - 400) * 0.55},20 ${cx - 70},300 ${cx + 70},300`} fill="url(#sf-cone)" />
+      {/* toz */}
+      {dust.map((d, i) => (
+        <circle key={i} cx={d.x} cy={d.y} r={d.s} fill="#ffe6c4" fillOpacity={d.o} />
       ))}
-      {/* sahne zemini */}
-      <polygon points="60,300 740,300 700,190 100,190" fill="url(#sf-floor)" />
-      {/* ışık havuzları */}
-      {blocks.map(({ cx, baseY, i }) => (
-        <ellipse key={`p${i}`} cx={cx} cy={baseY + 6} rx="60" ry="16" fill="url(#sf-pool)" />
-      ))}
-      {/* bloklar */}
-      {blocks.map(({ p, i, cx, w, h, baseY }) => {
-        const num = String(i + 1).padStart(2, '0')
-        const words = p.title.toUpperCase().split(' ')
-        return (
-          <g key={p.slug}>
-            <rect x={cx - w / 2} y={baseY - h} width={w} height={h} fill="url(#sf-block)" />
-            <rect x={cx - w / 2} y={baseY - h} width={w} height={h} fill="none" stroke="#000" strokeOpacity="0.5" />
-            <rect x={cx + w / 2} y={baseY - h + 4} width={Math.max(6, w * 0.18)} height={h} fill="#3a3936" />
-            <text x={cx - w / 2 + 4} y={baseY - h + 14} fontFamily="Anton, Impact, sans-serif" fontSize="13" fill="#C8FF00">{num}</text>
-            {words.slice(0, 3).map((wd, k) => (
-              <text key={k} x={cx - w / 2 + 4} y={baseY - h + 26 + k * 8} fontFamily="Anton, Impact, sans-serif" fontSize="6.5" fill="#0a0a0c" fillOpacity="0.85">{wd}</text>
-            ))}
-            <rect x={cx - w / 2 + 4} y={baseY - 6} width={w * 0.25} height="1.5" fill="#C8FF00" />
-          </g>
-        )
-      })}
-      {/* neon sahne kenarı */}
-      <line x1="60" y1="300" x2="740" y2="300" stroke="#C8FF00" strokeWidth="1.5" filter="url(#sf-glow)" />
-      {/* seyirci silüeti */}
-      {[0, 1, 2].map((r) => (
-        <g key={r} fill="#151517">
-          {Array.from({ length: 14 }).map((_, c) => (
-            <rect key={c} x={70 + c * 48 + r * 8} y={320 + r * 26} width="30" height="12" />
-          ))}
-        </g>
-      ))}
-      <rect width="800" height="450" fill="url(#sf-vignette)" />
+      <rect x="0" y="0" width="800" height="400" fill="url(#gl-vignette)" />
     </svg>
   )
 }

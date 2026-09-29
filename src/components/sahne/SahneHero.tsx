@@ -15,7 +15,7 @@ import type { SahneProgram } from './sahneVeri'
  * yüklenir ve hazır olunca üstüne süzülür) → HTML arayüz (başlık, numaralı
  * program listesi, odak kartı). Liste ile sahne aynı seçimi paylaşır.
  *
- * Kaydırma engellenmez: canvas tekerleği dinlemez. Sürükleme sahneyi döndürür.
+ * Kaydırma engellenmez: canvas tekerleği dinlemez. Sahne: ghost light.
  */
 const Sahne3D = dynamic(() => import('./Sahne3D'), { ssr: false, loading: () => null })
 
@@ -99,8 +99,8 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
         </h1>
         <p className="font-body text-[16px] md:text-[18px] leading-[1.4] text-fg/85 max-w-[460px] mt-4">
           <T
-            tr="İstanbul'da bağımsız bir tiyatro laboratuvarı. Sahnedeki her blok bir program: birini seç, sahneye yaklaş."
-            en="An independent theatre laboratory in Istanbul. Every block on stage is a programme: pick one, step closer."
+            tr="İstanbul'da bağımsız bir tiyatro laboratuvarı. Sahne boşken bile bir ışık yanar. Programlar ışığın içinde: birini seç, sahneye çık."
+            en="An independent theatre laboratory in Istanbul. Even on an empty stage, one light stays on. The programmes are in its glow: pick one, step on stage."
           />
         </p>
       </div>
@@ -176,7 +176,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
       {/* 5 · ipucu (yalnızca 3D açıkken) */}
       {use3d && (
         <p className={`pointer-events-none absolute bottom-4 left-1/2 z-10 hidden md:block -translate-x-1/2 font-code text-[10px] tracking-[0.2em] uppercase text-fg/35 transition-opacity duration-500 ${focused >= 0 || !ready ? 'opacity-0' : ''}`}>
-          <T tr="Sürükle · dön / Bloğa tıkla · yaklaş" en="Drag · orbit / Click a block · step closer" />
+          <T tr="Zemindeki işarete tıkla · sahneye çık" en="Click a mark on the floor · step on stage" />
         </p>
       )}
     </section>
