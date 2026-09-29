@@ -65,7 +65,7 @@ export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
       {/* bloklar */}
       {blocks.map(({ p, i, cx, w, h, baseY }) => {
         const num = String(i + 1).padStart(2, '0')
-        const words = p.title.toLocaleUpperCase('tr-TR').split(' ')
+        const words = p.title.toUpperCase().split(' ')
         return (
           <g key={p.slug}>
             <rect x={cx - w / 2} y={baseY - h} width={w} height={h} fill="url(#sf-block)" />

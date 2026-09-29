@@ -125,7 +125,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
                   data-hover
                 >
                   <span className={`font-code text-[10px] tracking-[0.18em] ${on ? 'text-neon' : 'text-fg/50'}`}>{String(i + 1).padStart(2, '0')}</span>
-                  <span className={`font-display text-[17px] tracking-[0.01em] leading-none transition-colors duration-200 ${on ? 'text-fg' : 'text-fg/70'}`}>{p.title.toLocaleUpperCase('tr-TR')}</span>
+                  <span className={`font-display text-[17px] tracking-[0.01em] leading-none transition-colors duration-200 ${on ? 'text-fg' : 'text-fg/70'}`}>{p.title.toUpperCase()}</span>
                   <span className={`font-code text-[12px] text-neon transition-all duration-200 ${on ? 'opacity-100' : '-translate-x-1.5 opacity-0'}`} aria-hidden="true">→</span>
                 </button>
               </li>
@@ -147,7 +147,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
               <T tr="Kapat ✕" en="Close ✕" />
             </button>
             <p className="font-code text-[11px] tracking-[0.2em] uppercase text-neon mb-2">{String(focused + 1).padStart(2, '0')} / {total}</p>
-            <h2 className="font-display text-fg leading-[0.92] text-[34px] md:text-[40px]">{sec.title.toLocaleUpperCase('tr-TR')}</h2>
+            <h2 className="font-display text-fg leading-[0.92] text-[34px] md:text-[40px]">{sec.title.toUpperCase()}</h2>
             <p className="font-code text-[11px] tracking-[0.18em] uppercase text-fg/60 mt-2">{sec.sub}</p>
             <p className="font-body text-[15px] leading-[1.5] text-fg/90 mt-3">{sec.desc}</p>
             <div className="mt-5 flex flex-wrap gap-2.5">

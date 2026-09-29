@@ -257,7 +257,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         x.font = `400 ${numSize}px ${FONT}`; x.fillStyle = '#C8FF00'; x.fillText(num, pad - 4, pad * 0.6)
         x.font = `400 ${titleSize}px ${FONT}`
         let y = pad * 0.6 + numSize * 1.02
-        wrapLines(x, prog.title.toLocaleUpperCase('tr-TR'), W - pad * 2).forEach((l) => { engrave(x, l, pad, y); y += titleSize * 1.02 })
+        wrapLines(x, prog.title.toUpperCase(), W - pad * 2).forEach((l) => { engrave(x, l, pad, y); y += titleSize * 1.02 })
         x.font = `700 ${subSize}px "JetBrains Mono", "Courier New", monospace`
         engrave(x, prog.sub.toLocaleUpperCase('tr-TR'), pad, y + subSize * 0.6)
         x.fillStyle = '#C8FF00'; x.fillRect(pad, H - pad * 0.9, W * 0.18, 5)

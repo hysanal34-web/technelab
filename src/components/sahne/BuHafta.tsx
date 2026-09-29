@@ -28,7 +28,7 @@ export function BuHafta() {
             <li key={r.id} className="shrink-0 bg-bg">
               <Link href={`/tanisma-gunu?seans=${r.id}`} className="group block px-5 py-4 min-w-[190px] hover:bg-bgAlt transition-colors" data-hover>
                 <span className="block font-display text-fg group-hover:text-neon transition-colors text-[20px] leading-none">{r.date}</span>
-                <span className="block font-code text-[11px] tracking-[0.12em] uppercase text-fg/60 mt-2">{r.prog}</span>
+                <span lang="en" className="block font-code text-[11px] tracking-[0.12em] uppercase text-fg/60 mt-2">{r.prog}</span>
                 <span className="block font-code text-[11px] tracking-[0.12em] uppercase text-neon mt-1">{r.place}{r.time ? ` · ${r.time}` : ''}</span>
               </Link>
             </li>
