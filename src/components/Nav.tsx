@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useLang } from '@/contexts/LanguageContext'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 import { DISCIPLINES } from '@/lib/disiplinler'
+import { aktifSessions, type TanismaSession } from '@/app/tanisma-gunu/sessions'
 
 const links = [
   { href: '/atolyeler', tr: 'atölyeler', en: 'workshops', hasMega: true },
@@ -24,7 +25,7 @@ const CATEGORIES = [
   { key: 'dans-muzikal',    label: 'Dans & Müzikal',  en: 'Dance & Musical' },
 ]
 
-function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => void }) {
+function MegaMenu({ onClose, onEnter, sessions }: { onClose: () => void; onEnter: () => void; sessions: readonly TanismaSession[] }) {
   return (
     <div
       className="fixed left-0 right-0 bg-bg/98 backdrop-blur-md border-b border-border z-40 mega-drop"
@@ -65,6 +66,31 @@ function MegaMenu({ onClose, onEnter }: { onClose: () => void; onEnter: () => vo
         </Link>
       </div>
 
+      {/* Bu hafta — açık tanışma günleri. En değerli bilgi tek hover uzağında.
+          Liste istemcide, mount sonrası hesaplanır (sunucu/tarayıcı gün farkı → hidrasyon uyuşmazlığı olmasın). */}
+      {sessions.length > 0 && (
+        <div className="px-8 py-4 border-t border-border flex flex-wrap items-center gap-x-5 gap-y-2 bg-bgAlt">
+          <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon">
+            ücretsiz tanışma →
+          </span>
+          {sessions.slice(0, 6).map((s) => {
+            const [prog, rest = ''] = s.label.split(' — ')
+            const [place, date] = rest.split(' · ')
+            return (
+              <Link
+                key={s.id}
+                href={`/tanisma-gunu?seans=${s.id}`}
+                onClick={onClose}
+                data-hover
+                className="font-mono text-[11px] tracking-[0.08em] text-stone hover:text-neon transition-colors duration-200"
+              >
+                <span className="text-fg">{date}</span> · {place} · {prog.replace(/\s*\(.*?\)\s*/g, ' ').trim()}
+              </Link>
+            )
+          })}
+        </div>
+      )}
+
       {/* Disiplin sayfaları — hem gezinme hem iç bağlantı ağı.
           Kategori filtresi programları süzer; bunlar ayrı landing sayfaları. */}
       <div className="px-8 py-5 border-t border-border flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -94,6 +120,8 @@ export function Nav() {
   const [megaOpen, setMegaOpen] = useState(false)
   const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { lang, setLang } = useLang()
+  const [sessions, setSessions] = useState<readonly TanismaSession[]>([])
+  useEffect(() => { setSessions(aktifSessions()) }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
@@ -108,7 +136,7 @@ export function Nav() {
   }, [menuOpen])
 
   // Sayfa değişince menüyü kapat
-  useEffect(() => { setMenuOpen(false) }, [path])
+  useEffect(() => { setMenuOpen(false); setMegaOpen(false) }, [path])
 
   // Zamanlayıcıyı unmount'ta temizle
   useEffect(() => () => { if (megaTimer.current) clearTimeout(megaTimer.current) }, [])
@@ -170,7 +198,7 @@ export function Nav() {
                 </span>
               </Link>
               {megaOpen && (
-                <MegaMenu onClose={closeMega} onEnter={openMega} />
+                <MegaMenu onClose={closeMega} onEnter={openMega} sessions={sessions} />
               )}
             </div>
           ) : (

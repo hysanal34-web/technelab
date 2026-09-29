@@ -10,6 +10,7 @@ import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { TiyatroBot } from '@/components/TiyatroBot'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { PerdeGecisi } from '@/components/PerdeGecisi'
 import { SITE_META } from '@/lib/data'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
@@ -19,7 +20,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 const themeScript = `(function(){document.documentElement.classList.remove('no-js');document.documentElement.classList.remove('dark');})()`
 
 // Perde arkasına bakanlar için — console easter egg
-const curtainScript = `console.log("%c\\n  ┌─────────────────────────────────┐\\n  │   TECHNE LAB İSTANBUL           │\\n  │   τέχνη — zanaat, sanat, hüner  │\\n  │                                 │\\n  │   DISCIPLINE IS FREEDOM.        │\\n  │                                 │\\n  │   Perde arkasına hoş geldin.    │\\n  │   Sahne tozu yutanlar buraya:   │\\n  │   technelabistanbul.com/iletisim      │\\n  └─────────────────────────────────┘\\n","color:#B8F000;font-family:monospace;font-size:12px")`
+const curtainScript = `console.log("%c\\n  ┌─────────────────────────────────┐\\n  │   TECHNE LAB İSTANBUL           │\\n  │   τέχνη — zanaat, sanat, hüner  │\\n  │                                 │\\n  │   Sahne öğrenilebilir.          │\\n  │                                 │\\n  │   Perde arkasına hoş geldin.    │\\n  │   Sahne tozu yutanlar buraya:   │\\n  │   technelabistanbul.com/iletisim      │\\n  └─────────────────────────────────┘\\n","color:#B8F000;font-family:monospace;font-size:12px")`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_META.url),
@@ -213,6 +214,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Reklamsız telefon stratejisi: WhatsApp butonu site genelinde görünür.
                 Numara tek kaynaktan (SITE_META.phoneE164) — hat değişince data.ts yeter. */}
             <WhatsAppButton />
+            {/* Sayfa geçişi: ışıklar kararıyor, neon çizgi, yeni oda. 30 Eylül 2026. */}
+            <PerdeGecisi />
           </SiteChrome>
         </LanguageProvider>
         {/* Ölçüm etiketleri de kabuğun içinde: /admin gezintisi kendi reklam

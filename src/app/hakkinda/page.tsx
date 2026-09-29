@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { SITE_META } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Hakkında — Sahne Sanatları Akademisi & Tiyatro Laboratuvarı',
+  // Marka sorgusu ("Techne Lab istanbul tiyatro") için marka + tiyatro aynı başlıkta (29 Eylül 2026).
+  title: { absolute: 'Techne Lab İstanbul Nedir? Bağımsız Tiyatro Şirketi & Laboratuvar' },
   description:
     "Adını Antik Yunanca 'techne' (zanaat) sözcüğünden alan bağımsız bir sahne sanatları laboratuvarı. Pera ve Kadıköy'de oyunculuk kursu, oyun yazarlığı, dramaturji, İngilizce drama, dans ve müzikal atölyeleri.",
   alternates: { canonical: `${SITE_META.url}/hakkinda` },
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     'sahne sanatları eğitimi',
   ],
   openGraph: {
-    title: 'Hakkında — Bağımsız Tiyatro Laboratuvarı',
+    title: 'Techne Lab İstanbul Nedir? Bağımsız Tiyatro Laboratuvarı',
     description: "Techne: zanaat. Sahnenin öğrenilebilir olduğuna dair inat. İstanbul'da bağımsız bir tiyatro laboratuvarı.",
     url: `${SITE_META.url}/hakkinda`,
   },
@@ -85,7 +86,7 @@ export default function AboutPage() {
             2026&apos;da İstanbul&apos;da kurulduk. Pera ve Kadıköy&apos;deki üç partner mekânda, en fazla 8–15 kişilik
             gruplarla çalışıyoruz — çünkü kalabalıkta kimse görünmez.
             Yazarlıktan müzikale altı program, hepsi aynı omurgaya bağlı:{' '}
-            <span className="text-neon">disiplin özgürlüktür.</span>
+            <span className="text-neon">küçük grup, yoğun pratik, seyircili final.</span>
           </p>
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-neon rounded-full" />
