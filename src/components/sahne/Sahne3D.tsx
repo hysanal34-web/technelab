@@ -125,7 +125,7 @@ export default function Sahne3D(props: Sahne3DProps) {
 
     ;(async () => {
       // Marka fontu: en fazla 1,5 sn bekle, gelmezse Impact ile çiz.
-      try { await Promise.race([document.fonts.load('400 100px Anton', 'TECHNE İŞ'), new Promise((r) => setTimeout(r, 1500))]) } catch { /* yoksay */ }
+      try { await Promise.race([document.fonts.load('400 100px Anton', 'TECHNE İŞ'), new Promise((r) => setTimeout(r, 700))]) } catch { /* yoksay */ }
       if (disposed) return
       const P = propsRef.current.programs
       const N = P.length
@@ -229,7 +229,7 @@ export default function Sahne3D(props: Sahne3DProps) {
           })
         }
         draw('TECHNE LAB', 400, 430, 14)
-        draw('İSTANBUL', 150, 640, 62)
+        draw('ISTANBUL', 150, 640, 62)
         void H
       })
       signTex.anisotropy = 8

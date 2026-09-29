@@ -19,17 +19,20 @@ import type { SahneProgram } from './sahneVeri'
  */
 const Sahne3D = dynamic(() => import('./Sahne3D'), { ssr: false, loading: () => null })
 
-function uc3dUygunMu(): boolean {
-  if (typeof window === 'undefined') return false
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
-  if (window.matchMedia('(max-width: 767px), (pointer: coarse)').matches) return false
-  const nav = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number }
-  if (nav.connection?.saveData) return false
-  if ((nav.hardwareConcurrency ?? 8) < 4 || (nav.deviceMemory ?? 8) < 4) return false
+/** 3D neden açılmıyor? Boş dize = açılabilir. Sebep konsola yazılır (destek için). */
+function uc3dEngel(): string {
+  if (typeof window === 'undefined') return 'ssr'
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 'hareketi-azalt'
+  if (window.matchMedia('(max-width: 767px)').matches) return 'dar-ekran'
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return 'dokunmatik'
+  const nav = navigator as Navigator & { connection?: { saveData?: boolean } }
+  if (nav.connection?.saveData) return 'veri-tasarrufu'
+  if ((nav.hardwareConcurrency ?? 8) < 4) return 'zayif-islemci'
   try {
     const c = document.createElement('canvas')
-    return Boolean(c.getContext('webgl2') || c.getContext('webgl'))
-  } catch { return false }
+    if (!(c.getContext('webgl2') || c.getContext('webgl'))) return 'webgl-yok'
+  } catch { return 'webgl-yok' }
+  return ''
 }
 
 export function SahneHero({ programs }: { programs: SahneProgram[] }) {
@@ -40,12 +43,14 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   const [focused, setFocused] = useState(-1)
 
   useEffect(() => {
-    if (!uc3dUygunMu()) return
+    const engel = uc3dEngel()
+    ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
+    if (engel) { console.info('[sahne] 3D kapalı:', engel); return }
     // İlk boyayı ve metni bekle; 3D boşta gelsin.
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
-      ? window.requestIdleCallback(() => setUse3d(true), { timeout: 1200 })
-      : window.setTimeout(() => setUse3d(true), 400)
+      ? window.requestIdleCallback(() => setUse3d(true), { timeout: 300 })
+      : window.setTimeout(() => setUse3d(true), 150)
     return () => { if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
   }, [])
 
@@ -68,7 +73,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   return (
     <section className="surface-dark relative overflow-hidden pt-[64px]" style={{ minHeight: 'max(560px, 100svh)' }} aria-label="Sahne">
       {/* 0 · durağan sahne */}
-      <div className={`absolute inset-0 transition-opacity duration-1000 ${ready ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`absolute inset-x-0 top-[64px] bottom-[40%] md:bottom-[26%] md:right-[320px] transition-opacity duration-1000 ${ready ? 'opacity-0' : 'opacity-100'}`}>
         <SahneFallback programs={programs} />
       </div>
       {/* 1 · 3D sahne */}
@@ -90,7 +95,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
             <T tr="Techne Lab İstanbul: bağımsız tiyatro laboratuvarı; oyunculuk, İngilizce drama, müzikal, dans ve yazarlık atölyeleri. " en="Techne Lab Istanbul: an independent theatre laboratory; acting, English drama, musical theatre, dance and playwriting workshops. " />
           </span>
           <span className="block">TECHNE LAB</span>
-          <span className="block text-right text-neon mt-[0.06em]"><T tr="İSTANBUL." en="ISTANBUL." /></span>
+          <span className="block text-right text-neon mt-[0.06em]">ISTANBUL.</span>
         </h1>
         <p className="font-body text-[16px] md:text-[18px] leading-[1.4] text-fg/85 max-w-[460px] mt-4">
           <T

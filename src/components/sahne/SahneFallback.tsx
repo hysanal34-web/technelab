@@ -18,7 +18,7 @@ export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
     return { p, i, cx, w, h, baseY }
   })
   return (
-    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" className="sahne-svg absolute inset-0 h-full w-full" aria-hidden="true">
+    <svg viewBox="40 20 720 320" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full" aria-hidden="true">
       <defs>
         <linearGradient id="sf-cone" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#fff3dc" stopOpacity="0.16" />
@@ -50,7 +50,7 @@ export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
       <rect x="120" y="40" width="560" height="240" fill="#070708" />
       <g filter="url(#sf-glow)" fontFamily="Anton, Impact, 'Arial Narrow', sans-serif" textAnchor="middle" fill="#C8FF00">
         <text x="400" y="112" fontSize="58" letterSpacing="2">TECHNE LAB</text>
-        <text x="400" y="140" fontSize="22" letterSpacing="9">İSTANBUL</text>
+        <text x="400" y="140" fontSize="22" letterSpacing="9">ISTANBUL</text>
       </g>
       {/* ışık konileri */}
       {blocks.map(({ cx, i }) => (
