@@ -12,10 +12,13 @@ import { InstagramSection } from '@/components/InstagramSection'
 import { T } from '@/components/LangText'
 import { DisciplineGrid } from '@/components/DisciplineGrid'
 import { Yorumlar } from '@/components/Yorumlar'
+import { SahneHero } from '@/components/sahne/SahneHero'
+import { BuHafta } from '@/components/sahne/BuHafta'
+import { sahneProgramlari } from '@/components/sahne/sahneVeri'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Techne Lab İstanbul — Oyunculuk, Dans, Müzikal & Yazarlık Atölyeleri',
+    absolute: 'Techne Lab İstanbul — Bağımsız Tiyatro · Oyunculuk, Müzikal, Dans & Yazarlık',
   },
   description:
     'İstanbul\'da oyunculuk kursu, yaratıcı drama, İngilizce drama ve konuşma kulübü, Broadway müzikal dansı, oyun yazarlığı ve dramaturji atölyeleri. Pera & Kadıköy\'de küçük gruplar, yoğun pratik, seyircili final performansları.',
@@ -96,7 +99,7 @@ export const metadata: Metadata = {
     'techne lab istanbul',
   ],
   openGraph: {
-    title: 'Techne Lab İstanbul — Oyunculuk, Dans, Müzikal & Yazarlık Atölyeleri',
+    title: 'Techne Lab İstanbul — Bağımsız Tiyatro · Oyunculuk, Müzikal, Dans & Yazarlık',
     description: 'Oyunculuk kursu, yaratıcı drama, İngilizce drama, oyun yazarlığı, dramaturji, dans ve müzikal. İstanbul\'un bağımsız tiyatro laboratuvarı — Pera & Kadıköy.',
     url: SITE_META.url,
     images: [{ url: `${SITE_META.url}/images/og-techne-lab.png`, width: 1200, height: 630, alt: 'Techne Lab İstanbul — Bağımsız Tiyatro' }],
@@ -126,6 +129,9 @@ const jsonLd = {
   },
 }
 
+// Tanışma günleri tarih okuyor (BuHafta); sayfa build zamanında donmasın.
+export const revalidate = 3600
+
 export default function HomePage() {
   const articles       = getAllArticles().slice(0, 3)
   const activeWorkshops = WORKSHOPS.filter((w) => w.active)
@@ -139,79 +145,39 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* ════════════════════════════════════════════════════════════
-          HERO — 13 Eylül 2026 yeniden tasarımı ("Siyah Kutu")
-          Siyah yüzey, Anton dev tipografi, neon tek kelimede.
-          Grid, marquee, mono etiket yok — göz yorgunluğu buradan başlıyordu.
+          HERO — 30 Eylül 2026: SAHNE.
+          Kara kutu sahne, program başına beton monolit; masaüstünde 3D
+          (boşta yüklenir), telefonda SVG. Başlık ve program listesi gerçek
+          HTML. Ayrıntı: src/components/sahne/, docs/strateji/site-konsepti-bina-*.html
+          Eski hero: git log 347bce9 (gerekirse geri alınır).
       ════════════════════════════════════════════════════════════ */}
-      <section
-        className="surface-dark relative overflow-hidden pt-[64px]"
-        aria-label="Hero"
-      >
-        <div className="px-6 md:px-12 pt-16 md:pt-24 pb-14 md:pb-16">
-          {/* Etiket — hafif eğik neon şerit */}
-          <Link
-            href="/atolyeler"
-            className="inline-block bg-neon text-ink font-display text-[18px] md:text-[22px] tracking-[0.06em] px-4 py-2 -rotate-2 hover:rotate-0 transition-transform duration-200 mb-8 md:mb-10"
-            data-hover
-          >
-            <T tr="2026–27 SEZONU · KAYITLAR AÇIK" en="2026–27 SEASON · ENROLMENT OPEN" />
-          </Link>
+      <SahneHero programs={sahneProgramlari()} />
 
-          <h1
-            className="font-display text-fg leading-[1.02] tracking-[0.005em]"
-            style={{ fontSize: 'clamp(64px, 14.5vw, 210px)' }}
-          >
-            <span className="sr-only">
-              <T tr="Techne Lab İstanbul — oyunculuk, dans, müzikal ve yazarlık atölyeleri. " en="Techne Lab Istanbul — acting, dance, musical theatre and playwriting workshops. " />
-            </span>
-            <T tr={<>TECHNE LAB<br /><span className="text-neon">İSTANBUL.</span></>} en={<>TECHNE LAB<br /><span className="text-neon">ISTANBUL.</span></>} />
-          </h1>
+      {/* Salon: açık tanışma günleri (sessions.ts, saatlik yenilenir) */}
+      <BuHafta />
 
-          <div className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-            <p className="font-body text-[19px] md:text-[24px] leading-[1.4] text-fg max-w-[620px]">
-              <T
-                tr="İstanbul'da bağımsız bir tiyatro laboratuvarı. Oyunculuk, yazarlık, İngilizce drama ve müzikal — küçük gruplar, seyircili final."
-                en="An independent theatre laboratory in Istanbul. Acting, playwriting, English drama and musical theatre — small groups, live final."
-              />
-            </p>
-            <div className="flex gap-8 md:gap-10">
-              {[
-                { n: '12', tr: 'MAKS. KİŞİ', en: 'MAX PER GROUP' },
-                { n: String(WORKSHOPS.filter((w) => w.active).length), tr: 'PROGRAM', en: 'PROGRAMMES' },
-                { n: '2', tr: 'SEMT · PERA & KADIKÖY', en: 'DISTRICTS · PERA & KADIKÖY' },
-              ].map((f) => (
-                <div key={f.tr} className="border-l-2 border-neon pl-3.5">
-                  <span className="block font-display text-[36px] md:text-[40px] leading-none text-fg">{f.n}</span>
-                  <span className="block font-code text-[12px] tracking-[0.04em] text-dim mt-1.5 max-w-[120px] leading-snug"><T tr={f.tr} en={f.en} /></span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Neon disiplin şeridi — sabit, hareketsiz. Her kelime kendi sayfasına link. */}
-        <nav className="bg-neon overflow-hidden" aria-label="Disiplinler">
-          <ul className="flex font-display text-[20px] md:text-[28px] tracking-[0.06em] px-6 md:px-12 py-3.5 md:py-4 whitespace-nowrap list-none">
-            {[
-              { tr: 'YAZARLIK', en: 'PLAYWRITING', href: '/oyun-yazarligi-kursu-istanbul' },
-              { tr: 'OYUNCULUK', en: 'ACTING', href: '/oyunculuk-kursu-istanbul' },
-              { tr: 'İNGİLİZCE DRAMA', en: 'ENGLISH DRAMA', href: '/ingilizce-drama-istanbul' },
-              { tr: 'MÜZİKAL', en: 'MUSICAL THEATRE', href: '/muzikal-tiyatro-kursu-istanbul' },
-              { tr: 'BROADWAY DANSI', en: 'BROADWAY DANCE', href: '/dans-kursu-istanbul' },
-              { tr: 'YARATICI DRAMA', en: 'CREATIVE DRAMA', href: '/yaratici-drama-istanbul' },
-              { tr: 'KAMERA ÖNÜ', en: 'ON-CAMERA', href: '/kamera-onu-oyunculuk-istanbul' },
-              { tr: '10–17 YAŞ', en: 'AGES 10–17', href: '/atolyeler/english-drama-youth' },
-            ].map((d, i) => (
-              <li key={d.href} className="flex items-center">
-                {i > 0 && <span className="px-3 md:px-4 text-ink/60" aria-hidden="true">·</span>}
-                <Link href={d.href} className="text-ink hover:bg-ink hover:text-neon transition-colors duration-150 px-1" data-hover>
-                  <T tr={d.tr} en={d.en} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </section>
+      {/* Neon disiplin şeridi — sabit, hareketsiz. Her kelime kendi sayfasına link. */}
+      <nav className="surface-dark bg-neon overflow-hidden" aria-label="Disiplinler">
+        <ul className="flex font-display text-[20px] md:text-[28px] tracking-[0.06em] px-6 md:px-12 py-3.5 md:py-4 whitespace-nowrap list-none">
+          {[
+            { tr: 'YAZARLIK', en: 'PLAYWRITING', href: '/oyun-yazarligi-kursu-istanbul' },
+            { tr: 'OYUNCULUK', en: 'ACTING', href: '/oyunculuk-kursu-istanbul' },
+            { tr: 'İNGİLİZCE DRAMA', en: 'ENGLISH DRAMA', href: '/ingilizce-drama-istanbul' },
+            { tr: 'MÜZİKAL', en: 'MUSICAL THEATRE', href: '/muzikal-tiyatro-kursu-istanbul' },
+            { tr: 'BROADWAY DANSI', en: 'BROADWAY DANCE', href: '/dans-kursu-istanbul' },
+            { tr: 'YARATICI DRAMA', en: 'CREATIVE DRAMA', href: '/yaratici-drama-istanbul' },
+            { tr: 'KAMERA ÖNÜ', en: 'ON-CAMERA', href: '/kamera-onu-oyunculuk-istanbul' },
+            { tr: '10–17 YAŞ', en: 'AGES 10–17', href: '/atolyeler/english-drama-youth' },
+          ].map((d, i) => (
+            <li key={d.href} className="flex items-center">
+              {i > 0 && <span className="px-3 md:px-4 text-ink/60" aria-hidden="true">·</span>}
+              <Link href={d.href} className="text-ink hover:bg-ink hover:text-neon transition-colors duration-150 px-1" data-hover>
+                <T tr={d.tr} en={d.en} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* ════════════════════════════════════════════════════════════
           DİSİPLİNLER — hero'nun hemen altı.

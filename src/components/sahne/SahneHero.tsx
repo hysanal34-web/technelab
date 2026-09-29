@@ -22,7 +22,7 @@ const Sahne3D = dynamic(() => import('./Sahne3D'), { ssr: false, loading: () => 
 function uc3dUygunMu(): boolean {
   if (typeof window === 'undefined') return false
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
-  if (window.matchMedia('(max-width: 899px), (pointer: coarse)').matches) return false
+  if (window.matchMedia('(max-width: 767px), (pointer: coarse)').matches) return false
   const nav = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number }
   if (nav.connection?.saveData) return false
   if ((nav.hardwareConcurrency ?? 8) < 4 || (nav.deviceMemory ?? 8) < 4) return false

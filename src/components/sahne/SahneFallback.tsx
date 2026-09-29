@@ -10,7 +10,7 @@ export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
   // Blok yerleşimi 3D ile aynı mantık: yay üzerinde, orta bloklar öne.
   const blocks = programs.map((p, i) => {
     const u = N === 1 ? 0.5 : i / (N - 1)
-    const cx = 130 + u * 540
+    const cx = 185 + u * 430
     const heights = [120, 78, 140, 100, 108, 62, 92, 126, 72]
     const widths = [46, 54, 36, 62, 44, 68, 50, 40, 58]
     const h = heights[i % heights.length], w = widths[i % widths.length]
@@ -18,7 +18,7 @@ export function SahneFallback({ programs }: { programs: SahneProgram[] }) {
     return { p, i, cx, w, h, baseY }
   })
   return (
-    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden="true">
+    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" className="sahne-svg absolute inset-0 h-full w-full" aria-hidden="true">
       <defs>
         <linearGradient id="sf-cone" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#fff3dc" stopOpacity="0.16" />

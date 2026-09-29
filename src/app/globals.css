@@ -500,6 +500,11 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
 }
 @media (prefers-reduced-motion: reduce) { .sahne-gren { animation: none; } }
 
+/* Telefonda durağan sahne: kırpma yerine üstte, tam genişlikte, başlığa yer bırakır. */
+@media (max-width: 767px) {
+  .sahne-svg { height: auto; aspect-ratio: 800 / 450; top: 64px; bottom: auto; }
+}
+
 /* ── Perde geçişi: "ışıklar kararıyor" ─────────────────────────────── */
 .perde-gecis {
   position: fixed; inset: 0; z-index: 9990; pointer-events: none;
