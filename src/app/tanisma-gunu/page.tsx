@@ -14,18 +14,35 @@ export const metadata: Metadata = {
 
 /**
  * Geçmiş seansları eleyen filtre render anında çalışıyor. Sayfa build
- * zamanında donarsa filtre de donar ve seans geçtiği hâlde yayında kalır —
- * asıl kaçınmaya çalıştığımız hata bu. Saatlik yenileme, gün dönümünden
- * sonra en fazla bir saat gecikme demek; seanslar gündüz olduğu için yeterli.
+ * zamanında donarsa filtre de donar ve seans geçtiği hâlde yayında kalır.
+ * `searchParams` okunduğu için sayfa artık her istekte render ediliyor;
+ * revalidate yedek olarak duruyor.
  */
 export const revalidate = 3600
 
-export default function TanismaGunuPage() {
-  const sessions = aktifSessions()
+type Props = { searchParams: Promise<{ program?: string; seans?: string }> }
+
+export default async function TanismaGunuPage({ searchParams }: Props) {
+  const { program, seans } = await searchParams
+  const tumu = aktifSessions()
+
+  // ?program=<slug> → liste o programa daralır (reklam ve DM linkleri için).
+  // Eşleşen aktif seans yoksa tüm liste gösterilir; boş form basılmaz.
+  const daralmis = program ? tumu.filter((s) => s.slug === program) : []
+  const sessions = daralmis.length > 0 ? daralmis : tumu
+
+  // ?seans=<id> → o seans seçili gelir (yalnızca hâlâ aktifse).
+  const secili = seans && sessions.some((s) => s.id === seans) ? seans : sessions.length === 1 ? sessions[0].id : ''
+
   return (
     <>
       <div className="h-[2px] w-full bg-neon" />
-      <TanismaForm action={submitTanisma} sessions={sessions} />
+      <TanismaForm
+        action={submitTanisma}
+        sessions={sessions}
+        initialSessionId={secili}
+        filtered={daralmis.length > 0}
+      />
     </>
   )
 }

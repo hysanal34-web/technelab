@@ -15,6 +15,10 @@ import { WORKSHOPS, SITE_META } from '@/lib/data'
 type Props = {
   action: (formData: FormData) => Promise<TanismaFormState>
   sessions: readonly TanismaSession[]
+  /** ?seans=<id> ya da tek seans kaldıysa sunucudan seçili gelir. */
+  initialSessionId?: string
+  /** ?program=<slug> ile liste daraltıldıysa "tüm tarihler" linki gösterilir. */
+  filtered?: boolean
 }
 
 /**
@@ -43,9 +47,9 @@ const SOURCE_OPTIONS = [
 const inputCls =
   'w-full bg-bgAlt border border-border text-fg font-mono text-[13px] px-4 py-3 placeholder:text-dim focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus:border-neon transition-colors duration-200'
 
-export default function TanismaForm({ action, sessions }: Props) {
+export default function TanismaForm({ action, sessions, initialSessionId = '', filtered = false }: Props) {
   const [state, setState] = useState<TanismaFormState>({ status: 'idle' })
-  const [sessionId, setSessionId] = useState('')
+  const [sessionId, setSessionId] = useState(initialSessionId)
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
   const errRef = useRef<HTMLParagraphElement>(null)
@@ -146,9 +150,14 @@ export default function TanismaForm({ action, sessions }: Props) {
         </div>
         <p className="font-mono text-[11px] text-dim mt-4 leading-relaxed">
           {sessions.length > 0
-            ? 'Kayıt sonrası mekân adresini ve detayları size iletiyoruz.'
+            ? 'Kayıt sonrası mekân adresini ve detayları size iletiyoruz. Saati yazmayan seanslarda saat bilgisi de bu mesajla gelir.'
             : 'Şu an açık tanışma günü yok. Yeni tarihler yakında duyurulacak.'}
         </p>
+        {filtered && (
+          <Link href="/tanisma-gunu" className="inline-block mt-4 font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-neon transition-colors duration-200">
+            diğer programların tanışma günleri →
+          </Link>
+        )}
       </div>
 
       {/* Sağ — form */}
@@ -161,7 +170,7 @@ export default function TanismaForm({ action, sessions }: Props) {
           >
             <option value="" disabled>Seçiniz…</option>
             {sessions.map((s) => (
-              <option key={s.id} value={s.id}>{s.label}</option>
+              <option key={s.id} value={s.id}>{s.label.replace(' — ', ' · ')}</option>
             ))}
           </select>
         </Field>

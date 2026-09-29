@@ -11,6 +11,7 @@ import { ProgramYorumlari } from '@/components/Yorumlar'
 import { TrackProgramView } from '@/components/PixelEvents'
 import { StickyApplyBar } from '@/components/StickyApplyBar'
 import { priceSummary } from '@/lib/fiyat'
+import { TANISMA_SESSIONS } from '@/app/tanisma-gunu/sessions'
 type Props = { params: Promise<{ slug: string }> }
 
 
@@ -382,6 +383,17 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 data-hover
               >
                 başvur →
+              </Link>
+            )}
+            {/* Tanışma günü linki — tarih yazılmıyor: sayfa statik, tarih
+                geçince eskir. Liste /tanisma-gunu'da render anında süzülüyor. */}
+            {w.active && TANISMA_SESSIONS.some((s) => s.slug === w.slug) && (
+              <Link
+                href={`/tanisma-gunu?program=${w.slug}`}
+                className="block font-mono text-[11px] tracking-[0.14em] uppercase text-fg border border-border hover:border-neon hover:text-neon text-center py-3 mt-3 transition-colors duration-200"
+                data-hover
+              >
+                ücretsiz tanışma gününe kaydol →
               </Link>
             )}
           </aside>
