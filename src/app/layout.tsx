@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     template: '%s | Techne Lab',
   },
   description: SITE_META.description,
+  // Google Search Console sahiplik doğrulaması (URL ön eki mülkü, info@technelabistanbul.com).
+  // Kaldırılırsa doğrulama düşer ve Search Console verisi kesilir.
+  verification: { google: 'v6vLLZ5WnSk3iS3Py3c9gmGPfVQ8FxukNReGkF-gBjY' },
   icons: {
     icon: [
       { url: '/icon.png', type: 'image/png', sizes: '512x512' },
