@@ -80,6 +80,15 @@ const nextConfig = {
       (source) => ({ source, destination: '/tanisma-gunu', permanent: false }),
     )
 
+    // Search Console'da 404 veren eski adresler (30 Eylül 2026). Google bunları hâlâ
+    // gösteriyordu; 301 ile doğru sayfaya aktarılınca biriken değer kaybolmuyor.
+    const eskiAdresler = [
+      { source: '/ekip/sitare-bilge', destination: '/ekip', permanent: true },
+      { source: '/makaleler/ingilizce-atolyesi-nedir', destination: '/makaleler/ingilizce-drama-atolyesi-nedir', permanent: true },
+      { source: '/makaleler/tiyatro-secmeleri-icin-monolog-nasil-calisilar', destination: '/makaleler/tiyatro-secmeleri-icin-monolog-nasil-calisilir', permanent: true },
+      { source: '/makaleler/yonetmen-nasil-bir-sey', destination: '/makaleler/yonetmen-olmak-nasil-bir-sey', permanent: true },
+    ]
+
     return [
       {
         source: '/:path*',
@@ -87,6 +96,7 @@ const nextConfig = {
         destination: 'https://www.technelabistanbul.com/:path*',
         permanent: true,
       },
+      ...eskiAdresler,
       ...tanismaYanlisYazimlari,
       ...brosurYonlendirmeleri,
     ]
