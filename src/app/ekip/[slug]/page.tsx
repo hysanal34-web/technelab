@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const m = getTeamMember(slug)
   if (!m) return {}
   const shortRole = displayRole(m.role)
-  const title = `${m.name} — ${shortRole} | Techne Lab İstanbul`
-  const description = m.bio.length > 155 ? `${m.bio.slice(0, 152)}…` : m.bio
+  const title = m.seoTitle ?? `${m.name} — ${shortRole} | Techne Lab İstanbul`
+  const description = m.seoDesc ?? (m.bio.length > 155 ? `${m.bio.slice(0, 152)}…` : m.bio)
   return {
     title,
     description,

@@ -59,7 +59,12 @@ export const DISTRICTS: District[] = [
     faq: [
       {
         q: 'Kadıköy\'de hangi Techne Lab programları var?',
-        a: 'Kadıköy tarafında müzikal tiyatro, Broadway müzikal dansı, İngilizce drama (yetişkin ve gençlik grupları) ve oyunculuk programları yürüyor. Programlar iki partner stüdyoda gerçekleşiyor: Beden İşleri (Rasimpaşa) ve Soft Sanat (Kadıköy merkez).',
+        a: 'Kadıköy tarafında Techne Musical Lab (oyunculuk, şan ve dans; 12 Ekim\'de başlıyor), Broadway Musical Dance, English Drama Lab ve English Drama Youth yürüyor. Programlar iki partner stüdyoda gerçekleşiyor: Beden İşleri (Rasimpaşa) ve Soft Sanat (Kadıköy merkez).',
+      },
+      {
+        // Search Console (30 Eylül 2026): "kadıköy oyunculuk kursu" aranıyor, konum ~10.
+        q: 'Kadıköy\'de oyunculuk kursu var mı?',
+        a: 'Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; açıldığında haber almak için bekleme listesine yazılabilirsin. Kadıköy\'de oyunculuğu çalışmanın açık yolu Techne Musical Lab: sekiz ay boyunca oyunculuk, şan ve dans bir arada, seyircili yıl sonu gösterisiyle. İngilizce çalışmak istersen English Drama Lab da Kadıköy\'de.',
       },
       {
         q: 'Kadıköy\'deki derslere Avrupa yakasından gelmek mantıklı mı?',

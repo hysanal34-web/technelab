@@ -42,3 +42,9 @@ Ticari sayfalar: /kadikoy-tiyatro-kursu 163 gösterim konum 9,4 · /ingilizce-dr
 - 2 hafta sonra bu 6 sayfanın TO'sunu karşılaştır (başlık değişikliğinin etkisi).
 - /kadikoy-tiyatro-kursu, /yaratici-drama-istanbul, /anadolu-yakasi-tiyatro-kursu 9-11. konumda: ilk 5'e taşımak için iç link ve içerik güçlendirme.
 - İnsan adları aranıyor: "köksal ünal" 43, "sitare bilge" 57, "yeşim çelebi" (kızılcık şerbeti ile) , "burcu halaçoğlu". Ekip sayfaları trafik kapısı.
+
+## Devam notları uygulandı (30 Eylül, ikinci tur)
+- İç link: /kadikoy-tiyatro-kursu'ya makalelerden gelen link 2'den 8'e, /anadolu-yakasi-tiyatro-kursu 0'dan 2'ye çıktı; /beyoglu-tiyatro-kursu'ya da bir link eklendi.
+- Kadıköy sayfası SSS: kapalı Türkçe oyunculuk programını "yürüyor" diye gösteren cevap düzeltildi; "Kadıköy'de oyunculuk kursu var mı?" sorusu dürüst cevabıyla eklendi.
+- Ekip sayfaları: Yeşim Çelebi, Köksal Ünal ve Burcu Halaçoğlu için aranan kelimelere göre başlık ve açıklama (yalnızca ekip.ts'teki biyografi bilgileriyle).
+- 14 Ekim 2026 için tek seferlik planlı görev kuruldu: aynı sayfaların önce/sonra karşılaştırması, rapor bu klasöre yazılacak.

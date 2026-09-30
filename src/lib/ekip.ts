@@ -26,6 +26,9 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Yeşim Çelebi',
     slug: 'yesim-celebi',
+    // Search Console (30 Eylül 2026): "yeşim çelebi kızılcık şerbeti", "yeşim çelebi mezarlık" aranıyor.
+    seoTitle: 'Yeşim Çelebi — Oyuncu & İngilizce Drama Eğitmeni | Techne Lab',
+    seoDesc: 'Oyuncu Yeşim Çelebi: Kızılcık Şerbeti, Bahar ve Netflix yapımı Mezarlık. Yale, LAMDA ve New York eğitimi; Techne Lab\'da English Drama Lab eğitmeni.',
     role: 'Eğitmen',
     bio: 'Yale Üniversitesi Tiyatro ve Performans Sanatları bölümünde başlayan sahne yolculuğunu, Londra\'da LAMDA disiplini ve New York\'ta Stella Adler & Lee Strasberg metotlarıyla global bir yetkinliğe dönüştürdü. Bu uluslararası vizyonu; Türkiye\'de Bahar, Kızılcık Şerbeti ve Netflix imzalı Mezarlık gibi prestijli projelerle ekrana taşıyan Yeşim Çelebi; İngilizce, İspanyolca ve Almanca dillerindeki hakimiyetini dans ve müzik disipliniyle harmanlayan çok yönlü bir performer. Şimdi ise akademik birikimini ve set tecrübesini Techne Lab çatısı altında paylaşıyor.',
     image: '/images/team/yesim-celebi.jpg',
@@ -45,6 +48,8 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Burcu Halaçoğlu',
     slug: 'burcu-halacoglu',
+    seoTitle: 'Dr. Burcu Halaçoğlu — Oyuncu & Oyunculuk Eğitmeni | Techne Lab',
+    seoDesc: 'Dr. Burcu Halaçoğlu: Michael Chekhov Europe eğitmeni, Michael Chekhov İstanbul kurucu ortağı; İstanbul Bilgi Üniversitesi\'nde oyunculuk dersleri veriyor.',
     role: 'Dr. · Öğretim Görevlisi · Eğitmen',
     bio: 'Doktora çalışmalarını "Çağdaş Oyunculuk Eğitiminde Mevcudiyet" kavramı üzerine tamamlayan Dr. Burcu Halaçoğlu, uluslararası Michael Chekhov Europe eğitmeni ve Michael Chekhov İstanbul\'un kurucu ortağıdır. İstanbul Bilgi Üniversitesi\'nde oyunculuk dersleri vermekte; kurucusu olduğu TiyatroPol\'deki yönetmenlik çalışmalarının yanı sıra Balat Monologlar Müzesi bünyesinde aktif oyunculuk kariyerini sürdürmektedir.',
     image: '/images/team/burcu-halacoglu.jpg',
@@ -64,6 +69,8 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Köksal Ünal',
     slug: 'koksal-unal',
+    seoTitle: 'Köksal Ünal — Koreograf & Müzikal Dans Eğitmeni | Techne Lab',
+    seoDesc: 'Koreograf Köksal Ünal: 2017 Yılın Koreografisi ödülü, İstanbul Aydın Üniversitesi öğretim görevlisi. Techne Musical Lab ve Broadway Musical Dance eğitmeni.',
     role: 'Ödüllü Koreograf · Öğretim Görevlisi · Eğitmen',
     bio: 'YTÜ Dans Bölümü ve Haliç Üniversitesi Tiyatro Yüksek Lisansı mezunu ödüllü koreograf Köksal Ünal; Devlet ve Şehir Tiyatroları\'ndaki köklü sahne tecrübesini müzikal dinamikleriyle birleştiriyor. 2017 Yılın Koreografisi ödülü sahibi olan Ünal, İstanbul Üniversitesi ve Bahçeşehir Üniversitesi konservatuvarlarındaki eğitimlerin ardından günümüzde İstanbul Aydın Üniversitesi GSF Tiyatro Bölümü\'nde hareket, çağdaş dans ve fiziksel tiyatro üzerine öğretim görevlisi olarak çalışmalarını sürdürüyor.',
     image: '/images/team/koksal-unal.jpg',

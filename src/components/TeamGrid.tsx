@@ -11,6 +11,10 @@ export type TeamMember = {
   slug: string
   image?: string
   programs: { label: string; slug: string }[]
+  /** Arama sonucu başlığı (isteğe bağlı). Yoksa "Ad — Rol" kullanılır. */
+  seoTitle?: string
+  /** Arama sonucu açıklaması (isteğe bağlı). Yoksa biyografinin ilk 152 karakteri. */
+  seoDesc?: string
 }
 
 export function TeamGrid({ members, initialOpen }: { members: TeamMember[]; initialOpen?: string }) {
