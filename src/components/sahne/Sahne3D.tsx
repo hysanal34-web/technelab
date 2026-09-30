@@ -147,7 +147,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         while (x.measureText(title).width > W - 140 && size > 40) { size -= 4; x.font = `400 ${size}px ${FONT}` }
         x.fillText(title, 124, 150)
         x.fillStyle = 'rgba(237,237,230,.55)'; x.font = '700 26px "Courier New", monospace'
-        x.fillText(p.sub.toLocaleUpperCase('tr-TR'), 128, 196)
+        x.fillText(p.facts.slice(0, 3).join(' · ').toLocaleUpperCase('tr-TR'), 128, 196)
       })
       P.forEach((p, i) => {
         // iki sıra, şaşırtmalı yay: komşu iki bant aynı sırada değil

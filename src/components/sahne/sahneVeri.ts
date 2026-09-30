@@ -15,6 +15,8 @@ export type SahneProgram = {
   sub: string
   /** Odak kartındaki iki cümle. */
   desc: string
+  /** Kartta çip olarak basılan kısa bilgiler: yaş, seviye, süre, yer. */
+  facts: string[]
   /** Bu programın açık bir tanışma günü var mı — kart butonu buna göre. */
   tanisma: boolean
 }
@@ -33,6 +35,7 @@ export function sahneProgramlari(): SahneProgram[] {
     title: w.title.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
     sub: `${w.venue} · ${w.duration}`,
     desc: kisaAciklama(w),
+    facts: w.facts ?? [w.ageRange, w.duration, w.venue].filter((x): x is string => !!x),
     tanisma: acik.has(w.slug),
   }))
 }

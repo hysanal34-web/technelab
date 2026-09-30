@@ -25,6 +25,9 @@ export type Workshop = {
   // price: 0 → fiyat henüz yayınlanmadı; fiyat bloğu gizlenir, CTA "ön kayıt" olur
   maxStudents: number | string; active: boolean; archived?: boolean; nextDate?: string
   ageRange?: string          // yaş aralığı olan programlar için ('12–55 yaş')
+  // Sahne kartında ve telefon listesinde çip olarak basılan kısa, karar verdiren
+  // bilgiler: yaş, dil seviyesi, süre, gün, yer. Grafikte değil, metinde durur.
+  facts?: string[]
   tags: string[]; desc: string; descEn?: string
   // AI arama motorları (llms.txt) için tek satırlık özet. desc çok paragraflı
   // olduğunda ilk paragraf tek başına yeterli bağlamı vermeyebilir — bu alan
@@ -47,6 +50,7 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: "1995 İstanbul doğumlu oyun yazarı, tiyatro yönetmeni ve dramaturg. İstanbul Üniversitesi Felsefe bölümünden tiyatroya geçiş yaptı. GalataPerform çağdaş oyun yazarlığı atölyelerinde eğitim aldı; Medeniyet Üniversitesi Sahne Sanatları Dramatik Yazarlık ve Dramaturji Anasanat Dalı'nda öğrenimini sürdürdü. İKSV Senenin Oyunu ödüllü oyun yazarı.",
     venue: 'Kadıköy', duration: '8 hafta (modül başına)', price: 18000,
     friendDiscountPercent: 10,
+    facts: ['Yetişkin', '3 modül × 8 hafta', 'Modüller ayrı alınır', 'Kadıköy', 'En fazla 10 kişi'],
     schedule: [{ place: 'Kadıköy', date: '7 Ekim Çarşamba' }],
     maxStudents: 10, active: true,
     category: 'yazarlık',
@@ -112,6 +116,7 @@ export const WORKSHOPS: Workshop[] = [
     priceLabel: '12 hafta', priceTier2: 17000, priceTier2Label: '8 hafta',
     priceTier3: 8500, priceTier3Label: '4 hafta',
     friendDiscountPercent: 10,
+    facts: ['Yetişkin', 'B1+ İngilizce', '12 · 8 · 4 hafta', 'Pera & Kadıköy', 'En fazla 12 kişi'],
     schedule: [
       { place: 'Pera', date: '3 Ekim Cumartesi', time: '15:00' },
       { place: 'Kadıköy', date: '14 Eylül’de başladı · katılım açık', time: '20:00' },
@@ -140,6 +145,7 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: 'Eğitmen: Ece Ertez — Oyuncu ve İngilizce tiyatro eğitmeni. İngilizce sahne oyunculuğu ve metin çalışması üzerine uzmanlaşmış pratisyen.\n\nCast Direktörü / Süpervizör: Harika Uygur — Avrupa\'nın en iyi cast direktörü seçilen (ICDN, "Mustang"), Amerikan Film Akademisi (AMPAS), Casting Society of America (CSA) ve Avrupa Film Akademisi üyesi. Türkiye\'de casting direktörlüğünü uluslararası standartta kuran isim.',
     venue: 'Pera', duration: '12 hafta', price: 59000,
     friendDiscountPercent: 10, scholarshipPercent: 25,
+    facts: ['Yetişkin', 'B1+ İngilizce', '12 hafta', 'Pera', 'Masterclass + çekim günü', 'En fazla 14 kişi'],
     schedule: [{ place: 'Pera', date: '3 Ekim Cumartesi', time: '11:00' }],
     maxStudents: 14, active: true,
     category: 'ingilizce-drama',
@@ -163,8 +169,9 @@ export const WORKSHOPS: Workshop[] = [
     tagline: 'Dil Öğretmiyoruz. Dili Deneyimliyoruz.',
     instructor: 'Alara Lokum',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ödev olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
-    venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Eylül–Mayıs)', price: 125000,
+    venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Ekim–Mayıs)', price: 125000,
     friendDiscountPercent: 10, installments: 8,
+    facts: ['10–17 yaş', 'B1+ İngilizce', '8 ay · Ekim–Mayıs', 'Haftada 1 gün', 'Pera & Kadıköy', 'Seyircili final gösterisi'],
     schedule: [
       { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
       { place: 'Pera', date: '4 Ekim Pazar', time: '13:00' },
@@ -172,17 +179,20 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '10–17 Yaş'],
-    desc: 'Dil öğretmiyoruz, dili deneyimliyoruz. Kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\n10–17 yaş için yaratıcı drama ve sahne çalışması. B1 ve üzeri seviye öneriyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrılır: 10–14 ve 15–17 ayrı sınıflarda. Ekim–Mayıs, haftada bir gün; yıl, seyircili bir final gösterisiyle kapanır.',
-    aiSummary: 'Dil öğretmiyoruz, dili sahnede deneyimliyoruz: kitap, sınav ve not yok. 10–17 yaş, B1 ve üzeri İngilizce seviyesi önerilir — akıcı olmak gerekmez, sohbet edebilmek yeterli. Ekim–Mayıs, haftada bir gün; yıl, seyircili bir final gösterisi/yıl sonu projesiyle kapanır.',
+    desc: "10–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili deneyimliyoruz: kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\nB1 ve üzeri seviye öneriyoruz. Seviye tespit sınavı yok; günlük hayatta kendini rahatça ifade edebiliyorsa uygundur. Gruplar yaşa göre ayrılır: 10–14 ve 15–17 ayrı sınıflarda. Ekim–Mayıs, haftada bir gün; yıl, seyircili ve tamamen İngilizce bir gösteriyle kapanır.\n\nHer ayın ilk üç haftası drama, son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü gelir. Çocukların ürettiği metinler, tasarımlar ve hareket parçaları yıl sonu gösterisinin malzemesi olur.",
+    aiSummary: "10–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz: kitap, sınav ve not yok. B1 ve üzeri İngilizce seviyesi önerilir; seviye sınavı yok, sohbet edebilmek yeterli. Gruplar 10–14 ve 15–17 ayrı. Ekim–Mayıs, haftada bir gün: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance). Provalar 5. aydan itibaren; Mayıs'ta seyircili, tamamen İngilizce yıl sonu gösterisi.",
     blocks: [
-      { title: 'Keşif & Oyun', span: 'Ekim–Aralık', body: 'Doğaçlama, beden-ses-hayal gücü egzersizleri. İngilizce dil güveni. Grup dinamiği ve sahne güvencesi.' },
-      { title: 'Karakter & Metin', span: 'Ocak–Mart', body: 'Sahne metni çalışması, karakter inşası, partner çalışması. Sözlü ve bedensel anlatım. İngilizce dramatik metin.' },
-      { title: 'Final Gösterisi', span: 'Nisan–Mayıs', body: 'Prova süreci ve seyircili final performansı. Gerçek bir sahne deneyimi, gerçek bir seyirciyle.' },
+      { title: 'Nasıl İşliyor', span: 'Her ay', body: 'İlk üç hafta drama: yaratıcı drama, doğaçlama, bireysel ve ensemble çalışma. Ayın son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü gelir. Her atölye küçük bir üretim ödeviyle kapanır.' },
+      { title: 'Keşif & Oyun', span: '1–3. Ay · Ekim–Aralık', body: 'Grup dinamiği, güven, doğaçlama oyunları. Beden, ses ve hayal gücü egzersizleri; hikâye anlatımı; ensemble doğaçlamaları. Konuk atölyeler: karakterine kısa hikâye yazma, karakter ve maske tasarımı, ritim ve ensemble hareket.' },
+      { title: 'Karakter & Metin', span: '4. Ay · Ocak', body: 'İngilizce sahne metni, karakter inşası, partner çalışması. Sahne yazımı atölyesi. Ay sonunda tüm üretimler sanatçılara gider: gösteri malzemesinin ilk derlemesi.' },
+      { title: 'Prova & Sahneleme', span: '5–7. Ay · Şubat–Nisan', body: 'Çocukların üretimlerinden seçilen sahnelerle provalar başlar. Sahne geçişleri, ensemble sahneleri, gösteri koreografisi; dekor ve kostüm eskizleri. Nisan\'da tüm ekiple ortak prova atölyesi: metin, tasarım ve hareket tek gösteride birleşir.' },
+      { title: 'Yıl Sonu Gösterisi', span: '8. Ay · Mayıs', body: 'Genel prova, teknik prova ve seyircili, tamamen İngilizce yıl sonu gösterisi. Aileler ve seyirci davetli; tarih ve mekân sezon içinde velilerle paylaşılır.' },
+      { title: 'Velilere Not', span: 'Seviye & Grup', body: 'Seviye tespit sınavı yok; ailenin dil beyanı yeterli (B1 ve üzeri). Kitap, sınav ve not yok. Aradığımız mükemmel İngilizce değil, hata yapma özgürlüğü. Gruplar 10–14 ve 15–17 olarak ayrı çalışır.' },
     ],
     images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-lab', 'english-drama-final-project'],
     seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 10–17 Yaş Drama',
-    seoDesc: 'İstanbul 10–17 yaş İngilizce tiyatro: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Yaratıcı drama ile İngilizce konuşma pratiği — kitap ve sınav yok. B1 ve üzeri. Seyircili final gösterisi. Kadıköy & Pera, 8 ay.',
+    seoDesc: "İstanbul 10–17 yaş İngilizce tiyatro: Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz; kitap ve sınav yok. B1 ve üzeri. Seyircili final gösterisi. Kadıköy & Pera, 8 ay.",
   },
 
   // ── 06 — TECHNE MUSICAL LAB ────────────────────────────────────────
@@ -194,6 +204,7 @@ export const WORKSHOPS: Workshop[] = [
     instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Bartu Ayaz: İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Grease, Alaaddin\'in Müzikali ve Damdaki Kemancı gibi prodüksiyonlarda sahne aldı, şan ve vokal koçluğu yapıyor. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 135000,
     friendDiscountPercent: 10, installments: 6,
+    facts: ['15–55 yaş', '8 ay · Ekim–Mayıs', 'Haftada 2 gün', 'Kadıköy', 'Video ile başvuru', 'Yıl sonu gösterisi'],
     schedule: [{ place: 'Kadıköy', date: '12 Ekim Pazartesi' }],
     maxStudents: 12, active: true, ageRange: '15–55 yaş',
     category: 'dans-muzikal',
@@ -219,6 +230,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Kadıköy & Taksim', duration: '12 hafta ya da 6 hafta', price: 16500,
     priceShort: 9500, priceShortLabel: '6 hafta', priceLabel: '12 hafta',
     friendDiscountPercent: 10,
+    facts: ['12–55 yaş', '12 ya da 6 hafta', 'Kadıköy & Taksim', 'Deneyim şart değil', 'En fazla 15 kişi'],
     schedule: [
       { place: 'Kadıköy', date: '1 Ekim Perşembe' },
       { place: 'Taksim Pera', date: '3 Ekim Cumartesi', time: '19:00' },

@@ -8,14 +8,16 @@ import { SahneFallback } from './SahneFallback'
 import type { SahneProgram } from './sahneVeri'
 
 /**
- * Ana sayfa hero'su: sahne.
+ * Ana sayfa hero'su: sahne (ghost light).
  *
- * Katmanlar (alttan üste): durağan SVG sahne (her zaman var; anında boyanır) →
- * 3D sahne (yalnızca masaüstü, WebGL var, "hareketi azalt" kapalı; boşta
- * yüklenir ve hazır olunca üstüne süzülür) → HTML arayüz (başlık, numaralı
- * program listesi, odak kartı). Liste ile sahne aynı seçimi paylaşır.
+ * Geniş ekran: tam ekran sahne; marka sol üstte, program listesi sağda, zemin
+ * bantlara kalır. Katmanlar: durağan SVG (anında) → 3D (boşta yüklenir, hazır
+ * olunca üstüne süzülür) → HTML arayüz.
  *
- * Kaydırma engellenmez: canvas tekerleği dinlemez. Sahne: ghost light.
+ * Telefon: akış düzeni. Sahne kutusu (dikey kırpım) → marka → program listesi
+ * (satırlar doğrudan program sayfasına gider). 3D yok, odak kartı yok.
+ *
+ * Kaydırma engellenmez: canvas tekerleği dinlemez.
  */
 const Sahne3D = dynamic(() => import('./Sahne3D'), { ssr: false, loading: () => null })
 
@@ -46,7 +48,6 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     const engel = uc3dEngel()
     ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
     if (engel) { console.info('[sahne] 3D kapalı:', engel); return }
-    // İlk boyayı ve metni bekle; 3D boşta gelsin.
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
       ? window.requestIdleCallback(() => setUse3d(true), { timeout: 300 })
@@ -71,12 +72,12 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   const total = String(programs.length).padStart(2, '0')
 
   return (
-    <section className="surface-dark relative overflow-hidden pt-[64px]" style={{ minHeight: 'max(560px, 100svh)' }} aria-label="Sahne">
-      {/* 0 · durağan sahne */}
-      <div className={`absolute inset-x-0 top-[64px] bottom-[40%] md:bottom-[26%] md:right-[320px] transition-opacity duration-1000 ${ready ? 'opacity-0' : 'opacity-100'}`}>
-        <SahneFallback programs={programs} />
+    <section className="sahne-hero surface-dark relative overflow-hidden pt-[64px]" aria-label="Sahne">
+      {/* 0 · durağan sahne — telefonda akışta bir kutu, geniş ekranda arka plan */}
+      <div className={`relative h-[46svh] min-h-[280px] md:absolute md:inset-x-0 md:top-[64px] md:bottom-[14%] md:right-[320px] md:h-auto md:min-h-0 transition-opacity duration-1000 ${ready ? 'opacity-0' : 'opacity-100'}`}>
+        <SahneFallback />
       </div>
-      {/* 1 · 3D sahne */}
+      {/* 1 · 3D sahne (yalnızca geniş ekran) */}
       {use3d && (
         <div className={`absolute inset-0 transition-opacity duration-1000 ${ready ? 'opacity-100' : 'opacity-0'}`}>
           <Sahne3D programs={programs} hover={hover} focused={focused} onHover={onStageHover} onSelect={onSelect} onUnfocus={onUnfocus} onReady={onReady} />
@@ -85,19 +86,19 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
       {/* film greni */}
       <div className="sahne-gren pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      {/* 2 · başlık — gerçek HTML, LCP burada */}
-      <div className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 px-6 pb-10 md:px-12 md:pb-12 transition-all duration-500 ${focused >= 0 ? 'translate-y-3 opacity-0' : ''}`}>
+      {/* 2 · marka — gerçek HTML, LCP burada. Telefonda akışta, geniş ekranda sol üstte. */}
+      <div className={`pointer-events-none relative z-10 px-6 pt-6 md:absolute md:left-12 md:top-[110px] md:max-w-[560px] md:px-0 md:pt-0 transition-all duration-500 ${focused >= 0 ? 'md:-translate-y-3 md:opacity-0' : ''}`}>
         <p className="font-code text-[11px] tracking-[0.22em] uppercase text-neon mb-3">
           <T tr="2026–27 sezonu · kayıtlar açık · Pera & Kadıköy" en="2026–27 season · enrolment open · Pera & Kadıköy" />
         </p>
-        <h1 className="font-display text-fg leading-[0.92] tracking-[0.005em] inline-block" style={{ fontSize: 'clamp(46px, 7.2vw, 112px)' }}>
+        <h1 className="font-display text-fg leading-[0.92] tracking-[0.005em] inline-block" style={{ fontSize: 'clamp(44px, 5.8vw, 92px)' }}>
           <span className="sr-only">
             <T tr="Techne Lab İstanbul: bağımsız tiyatro laboratuvarı; oyunculuk, İngilizce drama, müzikal, dans ve yazarlık atölyeleri. " en="Techne Lab Istanbul: an independent theatre laboratory; acting, English drama, musical theatre, dance and playwriting workshops. " />
           </span>
           <span className="block">TECHNE LAB</span>
           <span className="block text-right text-neon mt-[0.06em]">ISTANBUL.</span>
         </h1>
-        <p className="font-body text-[16px] md:text-[18px] leading-[1.4] text-fg/85 max-w-[460px] mt-4">
+        <p className="font-body text-[16px] md:text-[17px] leading-[1.4] text-fg/85 max-w-[460px] mt-4">
           <T
             tr="İstanbul'da bağımsız bir tiyatro laboratuvarı. Sahne boşken bile bir ışık yanar. Programlar ışığın içinde: birini seç, sahneye çık."
             en="An independent theatre laboratory in Istanbul. Even on an empty stage, one light stays on. The programmes are in its glow: pick one, step on stage."
@@ -105,7 +106,28 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
         </p>
       </div>
 
-      {/* 3 · program listesi (masaüstü) */}
+      {/* 3a · program listesi (telefon): akışta, satır doğrudan program sayfasına */}
+      <nav className="relative z-10 px-6 pt-8 pb-8 md:hidden" aria-label="Programlar">
+        <div className="flex justify-between border-b border-fg/20 pb-2.5 font-code text-[11px] tracking-[0.2em] uppercase text-fg/60">
+          <span><T tr="Programlar" en="Programmes" /></span><span>{total}</span>
+        </div>
+        <ul>
+          {programs.map((p, i) => (
+            <li key={p.slug} className="border-b border-fg/15">
+              <Link href={`/atolyeler/${p.slug}`} className="grid grid-cols-[34px_1fr_auto] items-center gap-2 py-3.5" data-hover>
+                <span className="font-code text-[10px] tracking-[0.18em] text-neon">{String(i + 1).padStart(2, '0')}</span>
+                <span>
+                  <span lang="en" className="block font-display text-[18px] tracking-[0.01em] leading-none text-fg">{p.title.toUpperCase()}</span>
+                  <span className="block font-code text-[10px] tracking-[0.14em] uppercase text-fg/55 mt-1.5">{p.facts.slice(0, 3).join(' · ')}</span>
+                </span>
+                <span className="font-code text-[12px] text-neon" aria-hidden="true">→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* 3b · program listesi (geniş ekran): sağda, sahneyle aynı seçimi paylaşır */}
       <nav
         className={`hidden md:block absolute right-10 top-1/2 z-10 w-[280px] -translate-y-[46%] transition-all duration-500 ${focused >= 0 ? 'pointer-events-none translate-x-5 opacity-0' : ''}`}
         aria-label="Programlar"
@@ -130,7 +152,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
                   data-hover
                 >
                   <span className={`font-code text-[10px] tracking-[0.18em] ${on ? 'text-neon' : 'text-fg/50'}`}>{String(i + 1).padStart(2, '0')}</span>
-                  <span className={`font-display text-[17px] tracking-[0.01em] leading-none transition-colors duration-200 ${on ? 'text-fg' : 'text-fg/70'}`}>{p.title.toUpperCase()}</span>
+                  <span lang="en" className={`font-display text-[17px] tracking-[0.01em] leading-none transition-colors duration-200 ${on ? 'text-fg' : 'text-fg/70'}`}>{p.title.toUpperCase()}</span>
                   <span className={`font-code text-[12px] text-neon transition-all duration-200 ${on ? 'opacity-100' : '-translate-x-1.5 opacity-0'}`} aria-hidden="true">→</span>
                 </button>
               </li>
@@ -139,9 +161,9 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
         </ul>
       </nav>
 
-      {/* 4 · odak kartı */}
+      {/* 4 · odak kartı (geniş ekran) */}
       <div
-        className={`absolute z-20 border-t-2 border-neon bg-bg/85 p-6 backdrop-blur-md transition-all duration-500 left-4 right-4 bottom-4 md:left-auto md:right-10 md:bottom-10 md:w-[390px] ${sec ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'}`}
+        className={`hidden md:block absolute z-20 border-t-2 border-neon bg-bg/85 p-6 backdrop-blur-md transition-all duration-500 right-10 bottom-10 w-[390px] ${sec ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'}`}
         role="dialog"
         aria-live="polite"
         aria-hidden={!sec}
@@ -152,8 +174,12 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
               <T tr="Kapat ✕" en="Close ✕" />
             </button>
             <p className="font-code text-[11px] tracking-[0.2em] uppercase text-neon mb-2">{String(focused + 1).padStart(2, '0')} / {total}</p>
-            <h2 className="font-display text-fg leading-[0.92] text-[34px] md:text-[40px]">{sec.title.toUpperCase()}</h2>
-            <p className="font-code text-[11px] tracking-[0.18em] uppercase text-fg/60 mt-2">{sec.sub}</p>
+            <h2 lang="en" className="font-display text-fg leading-[0.92] text-[34px] md:text-[40px]">{sec.title.toUpperCase()}</h2>
+            <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Program bilgileri">
+              {sec.facts.map((f) => (
+                <li key={f} className="border border-neon/50 px-2 py-1 font-code text-[11px] tracking-[0.1em] uppercase text-neon">{f}</li>
+              ))}
+            </ul>
             <p className="font-body text-[15px] leading-[1.5] text-fg/90 mt-3">{sec.desc}</p>
             <div className="mt-5 flex flex-wrap gap-2.5">
               {sec.tanisma ? (

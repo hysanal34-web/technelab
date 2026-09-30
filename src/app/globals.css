@@ -499,6 +499,8 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
   50% { transform: translate(2%,-3%); } 75% { transform: translate(-2%,-2%); } 100% { transform: translate(0,0); }
 }
 @media (prefers-reduced-motion: reduce) { .sahne-gren { animation: none; } }
+/* Hero: telefonda akış (sahne kutusu + marka + liste), geniş ekranda tam ekran sahne. */
+@media (min-width: 768px) { .sahne-hero { min-height: max(560px, 100svh); } }
 
 /* ── Perde geçişi: "ışıklar kararıyor" ─────────────────────────────── */
 .perde-gecis {
