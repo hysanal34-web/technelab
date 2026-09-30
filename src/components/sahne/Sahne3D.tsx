@@ -16,8 +16,10 @@ import type { SahneProgram } from './sahneVeri'
  * neon spike bantları: numara + ad. Bandın üstüne gelince ampul hafifçe
  * güçlenir, liste satırı yanar (onHover); tıklayınca kamera banda iner (focused).
  *
- * Yalnızca masaüstünde, tembel yüklenir (bkz. SahneHero). Tekerlek dinlenmez.
- * Dokular kod ile üretilir; dışarıdan görsel dosyası yok.
+ * Her cihazda tembel yüklenir (bkz. SahneHero); telefonda daha hafif ayarlarla
+ * (düşük DPR, küçük gölge, az toz) ve dikey kadrajla: bantlar tek sütun, kamera
+ * dik. Dokunmatikte hover yok, dokunulan noktadan ışın atılır. Tekerlek
+ * dinlenmez. Dokular kod ile üretilir; dışarıdan görsel dosyası yok.
  */
 export type Sahne3DProps = {
   programs: SahneProgram[]
@@ -72,8 +74,9 @@ export default function Sahne3D(props: Sahne3DProps) {
 
       /* ── Renderer ─────────────────────────────────────────── */
       THREE.ColorManagement.legacyMode = false
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' })
-      const DPR = Math.min(window.devicePixelRatio || 1, 1.75)
+      const hafif = window.matchMedia('(hover: none)').matches || (navigator.hardwareConcurrency ?? 8) <= 4 // telefon: daha düşük çözünürlük, küçük gölge haritası
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: !hafif, powerPreference: 'high-performance' })
+      const DPR = Math.min(window.devicePixelRatio || 1, hafif ? 1.5 : 1.75)
       renderer.setPixelRatio(DPR)
       renderer.shadowMap.enabled = true
       renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -121,7 +124,7 @@ export default function Sahne3D(props: Sahne3DProps) {
       const filMat = new THREE.MeshBasicMaterial({ color: NEON })
       const fil = new THREE.Mesh(new THREE.TorusGeometry(0.022, 0.0035, 8, 32), filMat); fil.position.y = BULB_Y; gl.add(fil)
       const lamp = new THREE.PointLight(WARM, 0, 9, 2); lamp.position.y = BULB_Y + 0.001; lamp.castShadow = true
-      lamp.shadow.mapSize.set(2048, 2048); lamp.shadow.bias = -0.0005; lamp.shadow.radius = 3; gl.add(lamp)
+      lamp.shadow.mapSize.set(hafif ? 1024 : 2048, hafif ? 1024 : 2048); lamp.shadow.bias = -0.0005; lamp.shadow.radius = 3; gl.add(lamp)
       scene.add(new THREE.HemisphereLight(0x8a8a90, 0x000000, 0.02))
       const haloTex = canvasTex(256, 256, (x, w, h) => {
         const g = x.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2)
@@ -149,24 +152,43 @@ export default function Sahne3D(props: Sahne3DProps) {
         x.fillStyle = 'rgba(237,237,230,.55)'; x.font = '700 26px "Courier New", monospace'
         x.fillText(p.facts.slice(0, 3).join(' · ').toLocaleUpperCase('tr-TR'), 128, 196)
       })
+      const meshes: THREE.Mesh[] = []
       P.forEach((p, i) => {
-        // iki sıra, şaşırtmalı yay: komşu iki bant aynı sırada değil
-        const u = N === 1 ? 0.5 : i / (N - 1)
-        const a = Math.PI * (0.18 + 0.64 * u)
-        const rr = i % 2 ? R * 1.5 : R * 0.95
-        const x = Math.cos(a) * rr * -1.15, z = Math.sin(a) * rr * 0.62 + 0.15
         const map = markTexture(i, p); map.anisotropy = 8
         const mat = new THREE.MeshStandardMaterial({ map, emissiveMap: map, emissive: 0xffffff, emissiveIntensity: 0, transparent: true, roughness: 0.7, depthWrite: false, opacity: 0 })
         const m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.55), mat)
-        m.rotation.x = -Math.PI / 2; m.rotation.z = Math.atan2(-x, 6) * 0.35
-        m.position.set(x - 0.7, 0.006, z); m.receiveShadow = true; scene.add(m)
+        m.rotation.x = -Math.PI / 2; m.receiveShadow = true; scene.add(m); meshes.push(m)
         const hit = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.4, 0.7), new THREE.MeshBasicMaterial({ visible: false }))
-        hit.position.set(x - 0.7, 0.2, z); hit.userData.i = i; scene.add(hit); hits.push(hit)
-        marks.push({ mat, level: 0, pos: new THREE.Vector3(x - 0.7, 0, z) })
+        hit.userData.i = i; scene.add(hit); hits.push(hit)
+        marks.push({ mat, level: 0, pos: new THREE.Vector3() })
       })
+      /**
+       * Bant yerleşimi kadraja göre:
+       * yatay → iki sıra şaşırtmalı yay, ampulün önünde sağa-sola yayılır;
+       * dikey (telefon) → ampulün önünde tek sütun, kameraya doğru sıralanır,
+       * bantlar biraz daralır ki ekrana sığsın.
+       */
+      const placeMarks = (portrait: boolean, aspect: number) => {
+        const sp = THREE.MathUtils.clamp((aspect - 0.6) / 1.4, 0.5, 1) // dar masaüstünde yay daralır, kenardan taşmaz
+        P.forEach((_, i) => {
+          let x: number, z: number, rz: number, sx: number
+          if (portrait) {
+            x = (i % 2 ? 0.14 : -0.14); z = 0.9 + i * 0.46; rz = (i % 2 ? -1 : 1) * 0.03; sx = 0.7
+          } else {
+            const u = N === 1 ? 0.5 : i / (N - 1)
+            const a = Math.PI * (0.18 + 0.64 * u)
+            const rr = i % 2 ? R * 1.5 : R * 0.95
+            const ax = Math.cos(a) * rr * -1.15
+            x = ax * sp - 0.7 * sp; z = Math.sin(a) * rr * 0.62 + 0.15; rz = Math.atan2(-ax, 6) * 0.35; sx = 1
+          }
+          meshes[i].position.set(x, 0.006, z); meshes[i].rotation.z = rz; meshes[i].scale.set(sx, sx, 1)
+          hits[i].position.set(x, 0.2, z); hits[i].scale.set(sx, 1, sx)
+          marks[i].pos.set(x, 0, z)
+        })
+      }
 
       /* ── Toz ───────────────────────────────────────────────── */
-      const DN = 380, dp = new Float32Array(DN * 3), ds = new Float32Array(DN)
+      const DN = hafif ? 220 : 380, dp = new Float32Array(DN * 3), ds = new Float32Array(DN)
       for (let i = 0; i < DN; i++) { const r = Math.random() * 1.3, a = Math.random() * 6.28; dp[i * 3] = Math.cos(a) * r; dp[i * 3 + 1] = Math.random() * 3; dp[i * 3 + 2] = Math.sin(a) * r; ds[i] = Math.random() * 100 }
       const dG = new THREE.BufferGeometry(); dG.setAttribute('position', new THREE.BufferAttribute(dp, 3))
       const dustMat = new THREE.PointsMaterial({ color: 0xffe6c4, size: 0.014, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })
@@ -190,8 +212,11 @@ export default function Sahne3D(props: Sahne3DProps) {
       film.renderToScreen = true; composer.addPass(film)
 
       /* ── Kamera / girdi ────────────────────────────────────── */
+      const touch = window.matchMedia('(hover: none)').matches
       const look = new THREE.Vector3(0.35, 0.95, 0.4)
+      const lookP = new THREE.Vector3(0, 0.5, 2.35) // dikey: sütunun ortasına bak
       let mx = 0, my = 0, tmx = 0, tmy = 0
+      let portrait = false
       const pointer = new THREE.Vector2(9, 9)
       const camGoal = { pos: new THREE.Vector3(), look: look.clone() }
       const camNow = { pos: new THREE.Vector3(1.2, 4.4, 12.5), look: look.clone() }
@@ -199,14 +224,26 @@ export default function Sahne3D(props: Sahne3DProps) {
       const tmpV = new THREE.Vector3()
       let hover3d = -1
 
-      on(window, 'pointermove', (e: PointerEvent) => {
+      const toNdc = (cx: number, cy: number) => {
         const r = host.getBoundingClientRect()
-        tmx = ((e.clientX - r.left) / r.width - 0.5) * 2; tmy = ((e.clientY - r.top) / r.height - 0.5) * 2
+        return [((cx - r.left) / r.width - 0.5) * 2, ((cy - r.top) / r.height - 0.5) * 2]
+      }
+      on(window, 'pointermove', (e: PointerEvent) => {
+        if (touch) return
+        ;[tmx, tmy] = toNdc(e.clientX, e.clientY)
         pointer.set(tmx, -tmy)
       })
-      on(canvas, 'click', () => {
+      const pick = (nx: number, ny: number) => {
+        ray.setFromCamera(new THREE.Vector2(nx, -ny), camera)
+        const hs = ray.intersectObjects(hits)
+        return hs.length ? (hs[0].object.userData.i as number) : -1
+      }
+      on(canvas, 'click', (e: MouseEvent) => {
         const pr = propsRef.current
-        if (hover3d >= 0) pr.onSelect(hover3d)
+        // dokunmatikte hover yok: dokunulan noktadan ışın at
+        const [nx, ny] = toNdc(e.clientX, e.clientY)
+        const i = touch ? pick(nx, ny) : hover3d
+        if (i >= 0) pr.onSelect(i)
         else if (pr.focused >= 0) pr.onUnfocus()
       })
 
@@ -215,7 +252,9 @@ export default function Sahne3D(props: Sahne3DProps) {
         if (!w || !h) return
         renderer.setSize(w, h, false); composer.setSize(w, h); bloom.setSize(w, h)
         film.uniforms.uRes.value.set(w, h)
-        camera.aspect = w / h; camera.fov = w / h < 1 ? 52 : 34; camera.updateProjectionMatrix()
+        const p = w / h < 0.9
+        camera.aspect = w / h; camera.fov = p ? 64 : w / h < 1.3 ? 42 : 34; camera.updateProjectionMatrix()
+        portrait = p; placeMarks(p, w / h)
       }
       const ro = new ResizeObserver(resize); ro.observe(host); cleanups.push(() => ro.disconnect())
       resize()
@@ -238,6 +277,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         const focused = pr.focused
         if (!ready) { ready = true; start = performance.now() + 250; pr.onReady() }
         const s = Math.max(0, (performance.now() - start) / 1000)
+        if (touch) { tmx = Math.sin(t * 0.17) * 0.35; tmy = 0 } // imleç yok: sahne kendi kendine hafifçe salınır
         mx += (tmx - mx) * 0.05; my += (tmy - my) * 0.05
 
         // ampul: kısa arızalı ateşleme, sonra nefes alan sabit ışık
@@ -247,7 +287,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         const near = 1 - Math.min(1, Math.hypot(pointer.x - tmpV.x, (pointer.y - tmpV.y) * 0.8) / 1.1)
 
         let hv = -1
-        if (focused < 0) { ray.setFromCamera(pointer, camera); const hs = ray.intersectObjects(hits); if (hs.length) hv = hs[0].object.userData.i as number }
+        if (focused < 0 && !touch) hv = pick(pointer.x, -pointer.y)
         if (hv !== hover3d) { hover3d = hv; canvas.style.cursor = hv >= 0 ? 'pointer' : ''; pr.onHover(hv) }
         const act = focused >= 0 ? focused : hover3d >= 0 ? hover3d : pr.hover
 
@@ -261,7 +301,11 @@ export default function Sahne3D(props: Sahne3DProps) {
         const intro = ease(s / 5)
         if (focused >= 0 && marks[focused]) {
           const mp = marks[focused].pos
-          camGoal.pos.set(mp.x * 0.8 + 0.6, 2.2, mp.z + 3.4); camGoal.look.set(mp.x + 0.3, 0.1, mp.z - 0.2)
+          if (portrait) { camGoal.pos.set(mp.x * 0.4, 2.7, mp.z + 2.3); camGoal.look.set(mp.x, 0.05, mp.z - 0.15) }
+          else { camGoal.pos.set(mp.x * 0.8 + 0.6, 2.2, mp.z + 3.4); camGoal.look.set(mp.x + 0.3, 0.1, mp.z - 0.2) }
+        } else if (portrait) {
+          // dikey: yüksekten, dik açıyla; ampul üstte, bant sütunu önde
+          camGoal.pos.set(mx * 0.5, 6.3 + (1 - intro) * 1.4, 6.2 + (1 - intro) * 2.2); camGoal.look.copy(lookP)
         } else {
           camGoal.pos.set(1.2 + mx * 0.9, 3.2 - my * 0.35 + (1 - intro) * 1.2, 9.2 + (1 - intro) * 3.5); camGoal.look.copy(look)
         }

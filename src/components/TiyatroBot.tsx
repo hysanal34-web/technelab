@@ -463,10 +463,17 @@ export function TiyatroBot() {
     try {
       if (sessionStorage.getItem('techne-teaser') === 'gosterildi') return
     } catch { /* private mode */ }
-    const t = setTimeout(() => {
+    const goster = () => {
       setTeaser(true)
       try { sessionStorage.setItem('techne-teaser', 'gosterildi') } catch { /* yok say */ }
-    }, 6000)
+    }
+    // Ana sayfada sahnenin üstüne binmesin: ziyaretçi hero'yu geçince çıkar.
+    if (pathname === '/' || pathname === '/en') {
+      const onScroll = () => { if (window.scrollY > window.innerHeight * 0.5) { goster(); window.removeEventListener('scroll', onScroll) } }
+      window.addEventListener('scroll', onScroll, { passive: true })
+      return () => window.removeEventListener('scroll', onScroll)
+    }
+    const t = setTimeout(goster, 6000)
     return () => clearTimeout(t)
   }, [open, pathname])
 

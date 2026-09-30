@@ -74,11 +74,11 @@ export function SahneFallback() {
   return (
     <>
       {/* telefon: dikey kırpım, kutuyu doldurur */}
-      <svg viewBox="230 30 340 320" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full md:hidden" aria-hidden="true">
+      <svg viewBox="230 30 340 320" preserveAspectRatio="xMidYMid slice" overflow="visible" className="absolute inset-0 h-full w-full md:hidden" aria-hidden="true">
         {defs}{scene}
       </svg>
       {/* geniş ekran: yatay, tamamı sığar */}
-      <svg viewBox="40 20 720 320" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 hidden h-full w-full md:block" aria-hidden="true">
+      <svg viewBox="40 20 720 320" preserveAspectRatio="xMidYMid meet" overflow="visible" className="absolute inset-0 hidden h-full w-full md:block" aria-hidden="true">
         {scene}
       </svg>
     </>
