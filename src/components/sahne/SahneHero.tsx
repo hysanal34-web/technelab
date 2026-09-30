@@ -47,10 +47,12 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     const engel = uc3dEngel()
     ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
     if (engel) { console.info('[sahne] 3D kapalı:', engel); return }
+    // Telefonda sayfa önce otursun (hidrasyon, font, ilk boya); 3D sonra gelsin.
+    const bekle = window.matchMedia('(hover: none)').matches ? 1200 : 300
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
-      ? window.requestIdleCallback(() => setUse3d(true), { timeout: 300 })
-      : window.setTimeout(() => setUse3d(true), 150)
+      ? window.requestIdleCallback(() => setUse3d(true), { timeout: bekle })
+      : window.setTimeout(() => setUse3d(true), bekle)
     return () => { if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
   }, [])
 

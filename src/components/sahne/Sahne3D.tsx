@@ -88,7 +88,8 @@ export default function Sahne3D(props: Sahne3DProps) {
       const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 80)
 
       /* ── Zemin: eski sahne tahtası ─────────────────────────── */
-      const floorTex = canvasTex(1024, 1024, (x, w, h) => {
+      const FT = hafif ? 512 : 1024
+      const floorTex = canvasTex(FT, FT, (x, w, h) => {
         x.fillStyle = '#121110'; x.fillRect(0, 0, w, h)
         const board = 64
         for (let y = 0; y < h; y += board) {
@@ -97,12 +98,12 @@ export default function Sahne3D(props: Sahne3DProps) {
           let bx = Math.random() * 300
           while (bx < w) { x.fillStyle = 'rgba(0,0,0,.45)'; x.fillRect(bx, y, 2, board); bx += 260 + Math.random() * 380 }
         }
-        for (let i = 0; i < 900; i++) {
+        for (let i = 0; i < (hafif ? 250 : 900); i++) {
           x.strokeStyle = `rgba(255,240,220,${Math.random() * 0.05})`; x.lineWidth = Math.random() * 1.4
           x.beginPath(); const sx = Math.random() * w, sy = Math.random() * h
           x.moveTo(sx, sy); x.lineTo(sx + (Math.random() - 0.5) * 120, sy + (Math.random() - 0.5) * 14); x.stroke()
         }
-        for (let i = 0; i < 20000; i++) { x.fillStyle = `rgba(255,255,255,${Math.random() * 0.035})`; x.fillRect(Math.random() * w, Math.random() * h, 1, 1) }
+        for (let i = 0; i < (hafif ? 5000 : 20000); i++) { x.fillStyle = `rgba(255,255,255,${Math.random() * 0.035})`; x.fillRect(Math.random() * w, Math.random() * h, 1, 1) }
       })
       floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping; floorTex.repeat.set(4, 4); floorTex.anisotropy = 8
       const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ map: floorTex, roughness: 0.62, metalness: 0.05 }))
@@ -266,7 +267,7 @@ export default function Sahne3D(props: Sahne3DProps) {
       /* ── Döngü ─────────────────────────────────────────────── */
       const ease = (x: number) => { x = THREE.MathUtils.clamp(x, 0, 1); return 1 - Math.pow(1 - x, 3) }
       const clock = new THREE.Clock()
-      let start = -1, ready = false
+      let start = -1, ready = false, warm = 0
 
       const frame = () => {
         if (disposed) return
@@ -275,7 +276,14 @@ export default function Sahne3D(props: Sahne3DProps) {
         const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime
         const pr = propsRef.current
         const focused = pr.focused
-        if (!ready) { ready = true; start = performance.now() + 250; pr.onReady() }
+        // Isınma: ilk kareler shader derleme ve doku yükleme yüzünden ağır. Bunlar
+        // durağan SVG hâlâ ekrandayken (canvas opacity 0) olsun; üç kare sorunsuz
+        // çizildikten sonra 3D görünür kılınır, takılma seyirciye gitmez.
+        if (!ready) {
+          warm++
+          if (warm < 4) { camera.position.copy(camNow.pos); camera.lookAt(camNow.look); composer.render(); return }
+          ready = true; start = performance.now() + 250; pr.onReady()
+        }
         const s = Math.max(0, (performance.now() - start) / 1000)
         if (touch) { tmx = Math.sin(t * 0.17) * 0.35; tmy = 0 } // imleç yok: sahne kendi kendine hafifçe salınır
         mx += (tmx - mx) * 0.05; my += (tmy - my) * 0.05
@@ -328,6 +336,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         film.uniforms.uTime.value = t
         composer.render()
       }
+      renderer.compile(scene, camera)
       frame()
     })()
 
