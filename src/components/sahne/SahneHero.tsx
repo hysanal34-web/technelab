@@ -59,15 +59,15 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     // 1) three.js chunk'ı ağdan gelsin (parse bu sırada değil, bileşen bağlanınca);
     // 2) tarayıcı boşa düşünce 3D bağlanır; kurulum Sahne3D içinde parça parça;
     // 3) hazır olunca SVG'den 3D'ye geçilir (onReady).
-    const telefon = window.matchMedia('(hover: none)').matches
-    const bekle = telefon ? 1200 : 300
-    let iptal = false
-    const t1 = window.setTimeout(() => { if (!iptal) yukle3D().catch(() => { /* bağlanınca tekrar denenir */ }) }, telefon ? 500 : 0)
+    // Kurulum Sahne3D içinde parça parça olduğu için beklemenin anlamı kalmadı:
+    // chunk hemen ağdan çekilir, bileşen ilk boş anda bağlanır. Karanlık süre
+    // ne kadar kısaysa "donmuş kare" hissi o kadar az.
+    yukle3D().catch(() => { /* bağlanınca tekrar denenir */ })
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
-      ? window.requestIdleCallback(() => setUse3d(true), { timeout: bekle })
-      : window.setTimeout(() => setUse3d(true), bekle)
-    return () => { iptal = true; window.clearTimeout(t1); if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
+      ? window.requestIdleCallback(() => setUse3d(true), { timeout: 150 })
+      : window.setTimeout(() => setUse3d(true), 150)
+    return () => { if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
   }, [])
 
   // 3D 6 sn içinde hazır olmadıysa (yavaş ağ, WebGL hatası) salon karanlık kalmasın.
@@ -87,7 +87,10 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   const onStageHover = useCallback((i: number) => setStageHover(i), [])
   const onSelect = useCallback((i: number) => setFocused(i), [])
   const onUnfocus = useCallback(() => setFocused(-1), [])
-  const onReady = useCallback(() => setReady(true), [])
+  const onReady = useCallback(() => {
+    ;(window as Window & { __sahneHazir?: number }).__sahneHazir = Math.round(performance.now()) // destek: sayfa açılışından kaç ms sonra 3D göründü
+    setReady(true)
+  }, [])
 
   const act = focused >= 0 ? focused : stageHover >= 0 ? stageHover : hover
   const sec = focused >= 0 ? programs[focused] : null

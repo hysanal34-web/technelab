@@ -121,9 +121,14 @@ export default function Sahne3D(props: Sahne3DProps) {
       el.addEventListener(k, f); cleanups.push(() => el.removeEventListener(k, f))
     }
 
+    // Destek: açılış zaman çizelgesi (ms, sayfa başından). Konsolda window.__sahneZaman.
+    const Z: Record<string, number> = ((window as unknown as { __sahneZaman?: Record<string, number> }).__sahneZaman = {})
+    const zaman = (k: string) => { Z[k] = Math.round(performance.now()) }
+    zaman('baglandi')
     ;(async () => {
       try { await Promise.race([document.fonts.load('400 100px Anton', 'TECHNE LAB'), new Promise((r) => setTimeout(r, 700))]) } catch { /* yoksay */ }
       if (disposed) return
+      zaman('font')
       const P = propsRef.current.programs
       const N = P.length
       if (N === 0) return
@@ -314,6 +319,7 @@ export default function Sahne3D(props: Sahne3DProps) {
       const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting }, { threshold: 0.05 }); io.observe(host); cleanups.push(() => io.disconnect())
       on(document, 'visibilitychange', () => { pageVisible = !document.hidden })
 
+      zaman('kurulum')
       /* ── Isınma: shader derlemesi görünmez ve küçük tuvalde ─── */
       // Kadraj belli olsun, kamera açılış konumunda dursun.
       const fullW = host.clientWidth || W0, fullH = host.clientHeight || H0
@@ -333,6 +339,7 @@ export default function Sahne3D(props: Sahne3DProps) {
       // Tam boy; gölge bir kez daha (çözünürlük değişti).
       renderer.shadowMap.needsUpdate = true
       resize()
+      zaman('derleme')
       const ro = new ResizeObserver(resize); ro.observe(host); cleanups.push(() => ro.disconnect())
 
       /* ── Döngü ─────────────────────────────────────────────── */
@@ -342,16 +349,16 @@ export default function Sahne3D(props: Sahne3DProps) {
 
       /**
        * Ampul ateşlemesi: salon karanlık başlar (durağan SVG de karanlık, geçiş
-       * görünmez), 0.35 sn sonra yazılmış kısa çift göz kırpmasıyla yanar.
+       * görünmez), 0.2 sn sonra yazılmış kısa çift göz kırpmasıyla yanar.
        * s = görünür olduktan sonraki saniye. Rastgele strob yok.
        */
       const ignition = (s: number) => {
-        if (s < 0.35) return 0
-        if (s < 0.43) return 0.85
-        if (s < 0.58) return 0.08
-        if (s < 0.66) return 1
-        if (s < 0.76) return 0.35
-        if (s < 1.05) return 0.35 + ((s - 0.76) / 0.29) * 0.65
+        if (s < 0.2) return 0
+        if (s < 0.28) return 0.85
+        if (s < 0.42) return 0.08
+        if (s < 0.5) return 1
+        if (s < 0.6) return 0.35
+        if (s < 0.88) return 0.35 + ((s - 0.6) / 0.28) * 0.65
         return 1
       }
 
@@ -375,7 +382,7 @@ export default function Sahne3D(props: Sahne3DProps) {
           composer.render()
           if (warm > 1 && frameMs < 34) smoothFrames++; else smoothFrames = 0
           if (smoothFrames < 2 && warm < 24) return
-          ready = true; start = performance.now(); pr.onReady()
+          ready = true; start = performance.now(); Z.isinmaKare = warm; zaman('hazir'); pr.onReady()
         }
         const s = Math.max(0, (performance.now() - start) / 1000)
         if (touch) { tmx = Math.sin(t * 0.17) * 0.35; tmy = 0 } // imleç yok: sahne kendi kendine hafifçe salınır
@@ -397,7 +404,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         bulbMat.emissiveIntensity = 1.4 + flick * 2.2 * boost
         haloMat.opacity = flick * 0.55
         filMat.color.setHex(NEON).multiplyScalar(0.4 + flick * 0.8)
-        dustMat.opacity = ease((s - 1.1) / 2) * 0.55
+        dustMat.opacity = ease((s - 0.9) / 2) * 0.55
 
         const intro = ease(s / 5)
         if (focused >= 0 && marks[focused]) {
@@ -412,7 +419,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
 
         marks.forEach((mk, i) => {
-          const appear = ease((s - 1.2 - i * 0.2) / 0.8)
+          const appear = ease((s - 1.0 - i * 0.2) / 0.8)
           const want = appear * (act < 0 ? 1 : act === i ? 1.35 : 0.35)
           mk.level += (want - mk.level) * (1 - Math.pow(0.004, dt))
           mk.mat.opacity = Math.min(1, mk.level)

@@ -501,6 +501,10 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
   50% { transform: translate(2%,-3%); } 75% { transform: translate(-2%,-2%); } 100% { transform: translate(0,0); }
 }
 @media (prefers-reduced-motion: reduce) { .sahne-gren { animation: none; } }
+/* Durağan sahnede 3D beklenirken ampulün hafif nefesi: kare donmuş gibi durmasın. */
+.sahne-nefes { opacity: 0; animation: sahneNefes 1.6s ease-in-out infinite; }
+@keyframes sahneNefes { 0%, 100% { opacity: 0.02; } 50% { opacity: 0.14; } }
+@media (prefers-reduced-motion: reduce) { .sahne-nefes { animation: none; opacity: 0.08; } }
 /* Hero: telefonda akış (sahne kutusu + marka + liste), geniş ekranda tam ekran sahne. */
 @media (min-width: 768px) { .sahne-hero { min-height: max(560px, 100svh); } }
 

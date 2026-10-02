@@ -34,13 +34,9 @@ export function SahneFallback({ lit }: { lit: boolean }) {
       <rect x="378" y="280" width="44" height="6" rx="2" fill="#1a1a1c" />
       <rect x="398.6" y="112" width="2.8" height="170" fill="#161618" />
       <rect x="396" y="104" width="8" height="10" fill="#1a1a1c" />
-      <g fill="none" stroke="#141416" strokeWidth="0.9">
-        <circle cx="400" cy="92" r="14" />
-        <ellipse cx="400" cy="92" rx="6" ry="14" />
-        <ellipse cx="400" cy="92" rx="11" ry="14" />
-        <line x1="386" y1="92" x2="414" y2="92" />
-      </g>
-      <circle cx="400" cy="92" r="8" fill="#2a2724" />
+      <circle cx="400" cy="92" r="8" fill="#131212" />
+      {/* 3D beklenirken salon ölü durmasın: ampulde çok hafif, yavaş bir "ısınma" nefesi (CSS) */}
+      {!lit && <circle className="sahne-nefes" cx="400" cy="92" r="46" fill="url(#gl-halo)" />}
       {/* ışık: havuz, hale, ampul, filaman, toz — yalnız lit */}
       <g style={light}>
         <ellipse cx="400" cy="300" rx="260" ry="70" fill="url(#gl-pool)" />
