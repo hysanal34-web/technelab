@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { T } from '@/components/LangText'
 import { SahneFallback } from './SahneFallback'
@@ -20,9 +19,14 @@ import type { SahneProgram } from './sahneVeri'
  *
  * Kaydırma engellenmez: canvas tekerleği dinlemez.
  */
-/** Tek import ifadesi: dynamic ile ön yükleme aynı chunk'ı paylaşır (webpack tekilleştirir). */
-const yukle3D = () => import('./Sahne3D')
-const Sahne3D = dynamic(yukle3D, { ssr: false, loading: () => null })
+/**
+ * Statik import: three.js sayfanın ilk JS paketine girer ve HTML'deki preload ile
+ * hidrasyonla aynı anda iner. Önceden dynamic() ile ikinci bir ağ turu vardı; canlıda
+ * ilk boyadan 3D'ye kadar ~1 sn karanlık kalıyordu, çoğu o chunk'ı beklemekti.
+ * Sahne her açılışın kahramanı, paket ağırlığı buna değer. Sunucuda render edilmez
+ * (use3d sunucuda false).
+ */
+import Sahne3D from './Sahne3D'
 
 /** 3D neden açılmıyor? Boş dize = açılabilir. Sebep konsola yazılır (destek için). */
 function uc3dEngel(): string {
@@ -60,9 +64,8 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     // 2) tarayıcı boşa düşünce 3D bağlanır; kurulum Sahne3D içinde parça parça;
     // 3) hazır olunca SVG'den 3D'ye geçilir (onReady).
     // Kurulum Sahne3D içinde parça parça olduğu için beklemenin anlamı kalmadı:
-    // chunk hemen ağdan çekilir, bileşen ilk boş anda bağlanır. Karanlık süre
-    // ne kadar kısaysa "donmuş kare" hissi o kadar az.
-    yukle3D().catch(() => { /* bağlanınca tekrar denenir */ })
+    // bileşen ilk boş anda bağlanır. Karanlık süre ne kadar kısaysa "donmuş
+    // kare" hissi o kadar az.
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
       ? window.requestIdleCallback(() => setUse3d(true), { timeout: 150 })
