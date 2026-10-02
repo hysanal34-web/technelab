@@ -232,8 +232,8 @@ export const WORKSHOPS: Workshop[] = [
     friendDiscountPercent: 10,
     facts: ['12–55 yaş', '12 ya da 6 hafta', 'Kadıköy & Taksim', 'Deneyim şart değil', 'En fazla 15 kişi'],
     schedule: [
-      { place: 'Kadıköy', date: '1 Ekim Perşembe' },
       { place: 'Taksim Pera', date: '3 Ekim Cumartesi', time: '19:00' },
+      { place: 'Kadıköy', date: 'Yakında · tarih için DM' },
     ],
     maxStudents: 15, active: true, ageRange: '12–55 yaş',
     category: 'dans-muzikal',

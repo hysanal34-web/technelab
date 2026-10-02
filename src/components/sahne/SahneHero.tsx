@@ -41,6 +41,12 @@ function uc3dEngel(): string {
 export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   const [use3d, setUse3d] = useState(false)
   const [ready, setReady] = useState(false)
+  /**
+   * Durağan sahnedeki ampul yanık mı? 3D bekleniyorsa sönük kalır: 3D'nin ilk
+   * karesi de karanlık, ışık 3D'nin içinde yanar; geçişte "başka bir kare"
+   * görünmez. 3D açılmayacaksa (engel) ya da 6 sn içinde hazır olmazsa burada yanar.
+   */
+  const [fbLit, setFbLit] = useState(false)
   const [hover, setHover] = useState(-1)      // listeden
   const [stageHover, setStageHover] = useState(-1) // sahneden
   const [focused, setFocused] = useState(-1)
@@ -48,7 +54,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
   useEffect(() => {
     const engel = uc3dEngel()
     ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
-    if (engel) { console.info('[sahne] 3D kapalı:', engel); return }
+    if (engel) { console.info('[sahne] 3D kapalı:', engel); const t = window.setTimeout(() => setFbLit(true), 350); return () => window.clearTimeout(t) }
     // Sayfa önce otursun (hidrasyon, font, ilk boya). Üç adım:
     // 1) three.js chunk'ı ağdan gelsin (parse bu sırada değil, bileşen bağlanınca);
     // 2) tarayıcı boşa düşünce 3D bağlanır; kurulum Sahne3D içinde parça parça;
@@ -63,6 +69,13 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
       : window.setTimeout(() => setUse3d(true), bekle)
     return () => { iptal = true; window.clearTimeout(t1); if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
   }, [])
+
+  // 3D 6 sn içinde hazır olmadıysa (yavaş ağ, WebGL hatası) salon karanlık kalmasın.
+  useEffect(() => {
+    if (ready) return
+    const t = window.setTimeout(() => setFbLit(true), 6000)
+    return () => window.clearTimeout(t)
+  }, [ready])
 
   useEffect(() => {
     if (focused < 0) return
@@ -84,12 +97,12 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     <>
     <section className="sahne-hero surface-dark relative overflow-hidden pt-[64px]" style={{ minHeight: 'max(560px, 100svh)' }} aria-label="Sahne">
       {/* 0 · durağan sahne: 3D gelene kadar (ya da hiç gelmezse) */}
-      <div className={`absolute inset-x-0 top-[64px] bottom-[34%] md:bottom-[14%] md:right-[320px] transition-opacity duration-1000 ${ready ? 'opacity-0' : 'opacity-100'}`}>
-        <SahneFallback />
+      <div className={`absolute inset-x-0 top-[64px] bottom-[34%] md:bottom-[14%] md:right-[320px] transition-opacity duration-300 ${ready ? 'opacity-0' : 'opacity-100'}`}>
+        <SahneFallback lit={fbLit} />
       </div>
-      {/* 1 · 3D sahne */}
+      {/* 1 · 3D sahne: iki katman da karanlık, geçiş kısa ve görünmez */}
       {use3d && (
-        <div className={`absolute inset-0 transition-opacity duration-1000 ${ready ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute inset-0 transition-opacity duration-300 ${ready ? 'opacity-100' : 'opacity-0'}`}>
           <Sahne3D programs={programs} hover={hover} focused={focused} onHover={onStageHover} onSelect={onSelect} onUnfocus={onUnfocus} onReady={onReady} />
         </div>
       )}

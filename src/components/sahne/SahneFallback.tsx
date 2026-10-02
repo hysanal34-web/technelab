@@ -1,12 +1,18 @@
 /**
- * Sahnenin durağan hâli: telefon, "hareketi azalt", WebGL yok ya da 3D henüz
- * yüklenmedi. Aynı kompozisyon: karanlık sahne, kafesli ghost light, zeminde
- * sıcak ışık havuzu, havada toz. Tamamen SVG; görsel dosyası yok, anında boyanır.
+ * Sahnenin durağan hâli: 3D henüz yüklenmedi, "hareketi azalt", WebGL yok.
+ * Aynı kompozisyon: karanlık sahne, kafesli ghost light, zeminde sıcak ışık
+ * havuzu, havada toz. Tamamen SVG; görsel dosyası yok, anında boyanır.
+ *
+ * İki durum:
+ * - `lit=false` (3D bekleniyor): salon karanlık, ampul sönük. 3D'nin ilk karesi
+ *   de karanlık; geçişte göze çarpan hiçbir şey olmaz. Işık 3D'nin içinde yanar.
+ * - `lit=true` (3D açılmayacak ya da gecikti): ampul burada yanar (CSS geçişi),
+ *   sahne bu hâliyle kalır.
  *
  * İki kadraj: geniş ekranda yatay (meet, tamamı sığar), telefonda dikey kırpım
  * (slice, kutuyu doldurur; kenarlarda boşluk ve kesik zemin kalmaz).
  */
-export function SahneFallback() {
+export function SahneFallback({ lit }: { lit: boolean }) {
   // Toz: tohumlu, her render'da aynı (hidrasyon farkı olmasın).
   let r = 7
   const rnd = () => (r = (r * 9301 + 49297) % 233280) / 233280
@@ -14,6 +20,7 @@ export function SahneFallback() {
     const a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * 70
     return { x: 400 + Math.cos(a) * d * 1.1, y: 70 + rnd() * 170, o: 0.15 + rnd() * 0.45, s: 0.5 + rnd() * 0.8 }
   })
+  const light = { opacity: lit ? 1 : 0, transition: 'opacity 700ms ease' }
   const scene = (
     <>
       <rect x="-200" y="-200" width="1200" height="800" fill="#0A0A0C" />
@@ -22,25 +29,36 @@ export function SahneFallback() {
       {[268, 288, 314, 346].map((y) => (
         <line key={y} x1="-200" y1={y} x2="1000" y2={y} stroke="#000" strokeOpacity="0.45" strokeWidth="1" />
       ))}
-      <ellipse cx="400" cy="300" rx="260" ry="70" fill="url(#gl-pool)" />
-      {/* kaide gölgesi, kaide, direk */}
+      {/* kaide gölgesi, kaide, direk: ışık yokken silüet */}
       <ellipse cx="400" cy="286" rx="30" ry="6" fill="#000" fillOpacity="0.7" />
-      <rect x="378" y="280" width="44" height="6" rx="2" fill="#2b2b2e" />
-      <rect x="398.6" y="112" width="2.8" height="170" fill="#232326" />
-      <rect x="396" y="104" width="8" height="10" fill="#2b2b2e" />
-      {/* hale, ampul, kafes */}
-      <circle cx="400" cy="92" r="70" fill="url(#gl-halo)" />
-      <circle cx="400" cy="92" r="8" fill="#fff6e6" filter="url(#gl-glow)" />
-      <circle cx="400" cy="92" r="2.4" fill="none" stroke="#C8FF00" strokeWidth="0.9" />
-      <g fill="none" stroke="#1d1d20" strokeWidth="0.9">
+      <rect x="378" y="280" width="44" height="6" rx="2" fill="#1a1a1c" />
+      <rect x="398.6" y="112" width="2.8" height="170" fill="#161618" />
+      <rect x="396" y="104" width="8" height="10" fill="#1a1a1c" />
+      <g fill="none" stroke="#141416" strokeWidth="0.9">
         <circle cx="400" cy="92" r="14" />
         <ellipse cx="400" cy="92" rx="6" ry="14" />
         <ellipse cx="400" cy="92" rx="11" ry="14" />
         <line x1="386" y1="92" x2="414" y2="92" />
       </g>
-      {dust.map((d, i) => (
-        <circle key={i} cx={d.x} cy={d.y} r={d.s} fill="#ffe6c4" fillOpacity={d.o} />
-      ))}
+      <circle cx="400" cy="92" r="8" fill="#2a2724" />
+      {/* ışık: havuz, hale, ampul, filaman, toz — yalnız lit */}
+      <g style={light}>
+        <ellipse cx="400" cy="300" rx="260" ry="70" fill="url(#gl-pool)" />
+        <rect x="378" y="280" width="44" height="6" rx="2" fill="#2b2b2e" />
+        <rect x="398.6" y="112" width="2.8" height="170" fill="#232326" />
+        <circle cx="400" cy="92" r="70" fill="url(#gl-halo)" />
+        <circle cx="400" cy="92" r="8" fill="#fff6e6" filter="url(#gl-glow)" />
+        <circle cx="400" cy="92" r="2.4" fill="none" stroke="#C8FF00" strokeWidth="0.9" />
+        <g fill="none" stroke="#1d1d20" strokeWidth="0.9">
+          <circle cx="400" cy="92" r="14" />
+          <ellipse cx="400" cy="92" rx="6" ry="14" />
+          <ellipse cx="400" cy="92" rx="11" ry="14" />
+          <line x1="386" y1="92" x2="414" y2="92" />
+        </g>
+        {dust.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={d.s} fill="#ffe6c4" fillOpacity={d.o} />
+        ))}
+      </g>
       <rect x="-200" y="-200" width="1200" height="800" fill="url(#gl-vignette)" />
     </>
   )

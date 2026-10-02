@@ -27,8 +27,9 @@ import type { SahneProgram } from './sahneVeri'
  *   iki kez art arda 34 ms altına inene kadar 3D görünmez kalır (SVG önde).
  * - Kamera, kadraja (dikey/yatay) göre açılış konumunda başlar; ilk görünür
  *   karede yanlış yerden süzülmez.
- * - Ampulün ateşlenmesi rastgele strob değil, yazılmış kısa bir çift göz
- *   kırpması; geçiş sırasında ışık hiç sönmez.
+ * - Salon karanlık başlar; durağan SVG de karanlık (ampul sönük). Geçişte göze
+ *   çarpan "başka bir kare" yoktur. Ampul 3D'nin içinde, yazılmış kısa bir çift
+ *   göz kırpmasıyla yanar (rastgele strob değil).
  *
  * Telefonda daha hafif ayarlar (düşük DPR, küçük gölge, az toz) ve dikey
  * kadraj: bantlar tek sütun, kamera dik. Dokunmatikte hover yok, dokunulan
@@ -340,15 +341,17 @@ export default function Sahne3D(props: Sahne3DProps) {
       let start = -1, ready = false, warm = 0, smoothFrames = 0, lastFrameAt = performance.now()
 
       /**
-       * Ampul ateşlemesi: yazılmış kısa çift göz kırpması. s = görünür olduktan
-       * sonraki saniye. Işık hiç tam sönmez; geçişte karanlık boşluk olmaz.
+       * Ampul ateşlemesi: salon karanlık başlar (durağan SVG de karanlık, geçiş
+       * görünmez), 0.35 sn sonra yazılmış kısa çift göz kırpmasıyla yanar.
+       * s = görünür olduktan sonraki saniye. Rastgele strob yok.
        */
       const ignition = (s: number) => {
-        if (s < 0.45) return 1
-        if (s < 0.53) return 0.25
-        if (s < 0.62) return 1
-        if (s < 0.70) return 0.4
-        if (s < 0.95) return 0.4 + ((s - 0.70) / 0.25) * 0.6
+        if (s < 0.35) return 0
+        if (s < 0.43) return 0.85
+        if (s < 0.58) return 0.08
+        if (s < 0.66) return 1
+        if (s < 0.76) return 0.35
+        if (s < 1.05) return 0.35 + ((s - 0.76) / 0.29) * 0.65
         return 1
       }
 
@@ -367,7 +370,8 @@ export default function Sahne3D(props: Sahne3DProps) {
           warm++
           introGoal(0); camNow.pos.copy(camGoal.pos); camNow.look.copy(camGoal.look)
           camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
-          lamp.intensity = 2.6; bulbMat.emissiveIntensity = 3.6; haloMat.opacity = 0.55
+          // Isınma kareleri karanlık: ilk görünür kare de karanlık olacak.
+          lamp.intensity = 0; bulbMat.emissiveIntensity = 0; haloMat.opacity = 0; filMat.color.setHex(NEON).multiplyScalar(0.4)
           composer.render()
           if (warm > 1 && frameMs < 34) smoothFrames++; else smoothFrames = 0
           if (smoothFrames < 2 && warm < 24) return
@@ -393,7 +397,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         bulbMat.emissiveIntensity = 1.4 + flick * 2.2 * boost
         haloMat.opacity = flick * 0.55
         filMat.color.setHex(NEON).multiplyScalar(0.4 + flick * 0.8)
-        dustMat.opacity = ease((s - 0.9) / 2) * 0.55
+        dustMat.opacity = ease((s - 1.1) / 2) * 0.55
 
         const intro = ease(s / 5)
         if (focused >= 0 && marks[focused]) {
@@ -408,7 +412,7 @@ export default function Sahne3D(props: Sahne3DProps) {
         camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
 
         marks.forEach((mk, i) => {
-          const appear = ease((s - 1.0 - i * 0.2) / 0.8)
+          const appear = ease((s - 1.2 - i * 0.2) / 0.8)
           const want = appear * (act < 0 ? 1 : act === i ? 1.35 : 0.35)
           mk.level += (want - mk.level) * (1 - Math.pow(0.004, dt))
           mk.mat.opacity = Math.min(1, mk.level)
