@@ -96,6 +96,42 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
   ],
 }
 
+// ══════════════════════════════════════════════════════════════════
+// PROGRAMA ÖZEL SSS — kategori sorularına ek, yalnızca o programda çıkar.
+// Kategori ve ortak sorularla çakışmasın: şan geçmişi, yaş sınırı, yer,
+// süre ve kayıt soruları yukarıda zaten var.
+// Kaynaklar: data.ts (blocks, facts, maxStudents, schedule), basvuru.ts
+// (video alanı), tanisma-gunu/sessions.ts. Fiyat ve burs tutarı yazılmaz.
+// ══════════════════════════════════════════════════════════════════
+const PROGRAM_FAQ: Record<string, (w: Workshop) => FaqItem[]> = {
+  'techne-musical-lab': (w) => [
+    {
+      q: 'Başvuru videosu nasıl olmalı?',
+      a: 'Bir müzikal ya da pop şarkıyı seslendirdiğin 1-2 dakikalık kısa bir video yeterli. Telefonla çekilmiş olması sorun değil; önemli olan sesinin net duyulması. Videoyu YouTube ya da Google Drive gibi bir yere yükleyip bağlantısını başvuru formuna ekliyorsun; bağlantının herkese açık olduğundan emin ol. Formda şan ve dans geçmişin de soruluyor.',
+    },
+    {
+      q: 'Video incelemesinde neye bakılıyor, bir eleme sınavı mı?',
+      a: 'Kabul video incelemesiyle yapılıyor, ama aranan şey kusursuz bir performans değil. Video, sesinin bugün nerede durduğunu görmemizi ve en fazla ' + String(w.maxStudents) + ' kişilik grubu dengeli kurmamızı sağlıyor. Şarkıyı ne anlattığını bilerek söylemen, teknik pürüzlerden daha çok şey söylüyor.',
+    },
+    {
+      q: 'Sekiz ay nasıl ilerliyor, haftada kaç gün çalışılıyor?',
+      a: 'Program Ekim\'den Mayıs\'a, haftada iki gün yürüyor ve üç bloktan oluşuyor. Ekim-Aralık: Oyunculuk & Şan; sahne varlığı, karakter inşası ve vokal teknik. Ocak-Mart: Müzikal Sahneleme; müzikal ritim, Broadway dans temelleri, şarkıyla sahne hareketinin birleştiği koreografi. Nisan-Mayıs: Yıl Sonu Gösterisi.',
+    },
+    {
+      q: 'Yıl sonu gösterisi nedir?',
+      a: 'Dönemin son bloğu (Nisan-Mayıs) sahnelenmiş bir müzikal üzerine kurulu: kostüm, ışık ve dekorla, seyirci önünde tam bir prodüksiyon. Stüdyo içi bir sunum değil; sekiz ay boyunca çalışılan oyunculuk, şan ve dansın gerçek sahne koşullarında bir araya geldiği yer.',
+    },
+    {
+      q: '15 yaşındaki bir katılımcı ile 50 yaşındaki aynı grupta mı çalışıyor?',
+      a: 'Evet. Program 15-55 yaş aralığına açık ve tek bir grup olarak, en fazla ' + String(w.maxStudents) + ' kişiyle yürüyor. Müzikal sahnesi zaten farklı yaşlardan karakterlerle kuruluyor; karma grup bu yüzden çalışmanın doğal bir parçası.',
+    },
+    {
+      q: 'Kayıt öncesi tanışma günü var mı?',
+      a: 'Evet. Programı ve eğitmenleri yakından görmek için ücretsiz tanışma günü seanslarına katılabilirsin; güncel seanslar tanışma günü sayfasında listeleniyor. Tanışma seansının yeri programın yürüdüğü yerden farklı olabilir: program Kadıköy\'de, seans yeri ve saati sayfada ayrıca yazıyor.',
+    },
+  ],
+}
+
 const COMMON_FAQ = (w: Workshop): FaqItem[] => [
   {
     q: `${w.title} nerede yapılıyor?`,
@@ -117,5 +153,6 @@ const COMMON_FAQ = (w: Workshop): FaqItem[] => [
 
 export function getWorkshopFaq(w: Workshop): FaqItem[] {
   const cat = CATEGORY_FAQ[w.category]?.(w) ?? []
-  return [...cat, ...COMMON_FAQ(w)]
+  const program = PROGRAM_FAQ[w.slug]?.(w) ?? []
+  return [...cat, ...program, ...COMMON_FAQ(w)]
 }

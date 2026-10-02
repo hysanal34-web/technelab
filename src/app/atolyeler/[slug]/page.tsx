@@ -157,6 +157,9 @@ export default async function WorkshopDetailPage({ params }: Props) {
             alt={`${w.title} — ${w.sub}`}
             fill
             priority
+            // Görsel %42 parlaklıkla karartılıyor; yüksek kalite fark edilmiyor ama
+            // LCP öğesi bu (mobil LCP 6,3 sn ölçüldü, 2 Ekim 2026). Bayt düşsün.
+            quality={60}
             sizes="100vw"
             className="object-cover"
             style={{

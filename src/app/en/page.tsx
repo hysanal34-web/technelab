@@ -6,7 +6,7 @@ const title = 'Acting Classes & Theatre Workshops in Istanbul — Techne Lab'
 const description = 'English-language theatre workshops in Istanbul. Acting, drama, musical theatre and playwriting for expats and international residents. Small groups in Pera and Kadıköy.'
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: title },
   description,
   alternates: {
     canonical: `${SITE_META.url}/en`,

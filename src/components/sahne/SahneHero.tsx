@@ -137,11 +137,10 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
         <p className="md:hidden font-body text-[13px] leading-[1.35] text-fg/80 mt-2">
           <T tr="Bağımsız tiyatro laboratuvarı. Programlar ışığın içinde: birini seç, sahneye çık." en="An independent theatre lab. The programmes are in the light: pick one, step on stage." />
         </p>
-        {use3d && (
-          <p className={`mt-2 font-code text-[10px] tracking-[0.2em] uppercase text-neon/60 md:hidden transition-opacity duration-500 ${ready ? '' : 'opacity-0'}`}>
-            <T tr="Zemindeki banda dokun · sahneye çık" en="Tap a mark on the floor · step on stage" />
-          </p>
-        )}
+        {/* Her zaman yerinde (görünmez olsa da): 3D bağlanınca yer açılıp marka yukarı zıplamasın. */}
+        <p className={`mt-2 font-code text-[10px] tracking-[0.2em] uppercase text-neon/60 md:hidden transition-opacity duration-500 ${ready ? '' : 'opacity-0'}`} aria-hidden={!ready}>
+          <T tr="Zemindeki banda dokun · sahneye çık" en="Tap a mark on the floor · step on stage" />
+        </p>
       </div>
 
       {/* 3 · program listesi (geniş ekran): sağda, sahneyle aynı seçimi paylaşır */}

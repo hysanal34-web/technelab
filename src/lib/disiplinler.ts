@@ -354,9 +354,9 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Bartu Ayaz ile Kadıköy\'de, sekiz ay, haftada iki gün.',
     what:
-      'Program dramadan başlıyor — çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Ekim–Aralık: sahne varlığı, karakter inşası, şan tekniğiyle buluşan oyuncu sesi. Ocak–Mart: müzikal ritim, Broadway dans temelleri, müzikal metin çalışması. Nisan–Mayıs: tam sahne uygulaması — kostüm, ışık, seyirci. Dönem seyircili bir bitirme performansıyla kapanıyor.',
+      'Program dramadan başlıyor, çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Sekiz ay üç bloğa ayrılıyor. Ekim-Aralık, Oyunculuk & Şan: sahne varlığı, karakter inşası ve vokal teknik; şan ve vokal koçluğuyla buluşan oyuncu sesi. Ocak-Mart, Müzikal Sahneleme: müzikal ritim, Broadway dans temelleri ve şarkıyla sahne hareketinin birleştiği koreografi. Nisan-Mayıs, Yıl Sonu Gösterisi: sahnelenmiş bir müzikal; kostüm, ışık ve dekorla, seyirci önünde tam bir prodüksiyon.\n\nİki eğitmen aynı programı birlikte yürütüyor. Bartu Ayaz, İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro bölümünden mezun; Grease, Alaaddin\'in Müzikali ve Damdaki Kemancı gibi prodüksiyonlarda sahne aldı. Programda şan, vokal koçluğu ve müzikal oyunculuk tarafını taşıyor. Köksal Ünal koreograf; 2017 Yılın Koreografisi ödülünün sahibi ve İstanbul Aydın Üniversitesi Güzel Sanatlar Fakültesi\'nde öğretim görevlisi. Hareket, dans ve sahneleme onun alanı. Şarkı ile koreografi ayrı odalarda değil, aynı sahne çalışmasının içinde buluşuyor: bir numarada nefesin, adımın ve karakterin niyetinin aynı anda nasıl taşınacağı birlikte çalışılıyor.\n\nGrup en fazla 12 kişi. Bu sınırın sebebi şan: ses, bireysel geri bildirim olmadan doğru kurulmuyor ve kalabalık bir sınıfta herkesin sesini tek tek duymak mümkün olmuyor. Çalışma haftada iki gün, Ekim\'den Mayıs\'a Kadıköy\'de sürüyor. 2026-27 dönemi 12 Ekim Pazartesi başlıyor. Sekiz ayın sonunda elinde bir katılım belgesinden fazlası oluyor: seyirci önünde baştan sona oynanmış bir müzikal ve o sahneye varana kadar biriktirilmiş bir repertuvar.',
     who:
-      'Şarkı söyleyip sahneye taşımak isteyenler, oyunculuk çalışıp müzikale geçmek isteyenler ve üç disiplini birden ciddiyetle çalışmak isteyenler. Başvuru için bir müzikal ya da pop şarkısını seslendirdiğin kısa bir video isteniyor; kabul video incelemesiyle yapılıyor.',
+      'Şarkı söyleyip bunu sahneye taşımak isteyenler; oyunculuk çalışmış ve müzikale geçmek isteyenler; dans geçmişi olup üzerine ses ve oyunculuk eklemek isteyenler. Ortak nokta, üç disiplini birden ve uzun soluklu çalışmaya hazır olmak. Program konserde şarkı söylemeyi değil, bir karakterin sesi olarak şarkı söylemeyi öğretiyor; yalnızca ses tekniği arıyorsan birebir şan dersi daha doğru bir başlangıç olabilir.\n\nProgram 15-55 yaş aralığına açık ve katılımcılar aynı grupta çalışıyor. Profesyonel şan ya da dans geçmişi beklenmiyor: ses çalışması temelden kuruluyor, dans tarafı da teknik temelden başlıyor. Beklenen şey temel bir ses kontrolü, öğrenme isteği ve sekiz ay boyunca haftada iki gün düzenli katılım. Müzikal bir ansambl işi; bir kişinin sürekli devamsızlığı bütün grubun provasını etkiliyor.\n\nBaşvuru için bir müzikal ya da pop şarkıyı seslendirdiğin 1-2 dakikalık kısa bir video isteniyor. Telefonla çekilmiş olması yeterli, sesinin net duyulması önemli. Kabul video incelemesiyle yapılıyor; video bir yetenek sınavından çok, sesinin bugün nerede durduğunu görüp grubu dengeli kurmak için. Kararsızsan önce bir tanışma günü seansına gelip programı ve eğitmenleri yakından görebilirsin.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
     districtSlugs: ['kadikoy-tiyatro-kursu'],
     faq: [
@@ -371,6 +371,18 @@ export const DISCIPLINES: Discipline[] = [
       {
         q: 'Müzikal programı ile Broadway dans programı arasındaki fark ne?',
         a: 'Broadway Musical Dance sadece dansa odaklı; 12 haftalık tam ya da 6 haftalık kısa seçenekle alınabiliyor. Techne Musical Lab 8 aylık ve üç disiplini birden kapsıyor — oyunculuk, şan, dans — ve seyircili bir bitirme performansıyla kapanıyor.',
+      },
+      {
+        q: 'Program ne zaman ve nerede başlıyor?',
+        a: 'Techne Musical Lab\'in 2026-27 dönemi 12 Ekim Pazartesi Kadıköy\'de başlıyor ve Mayıs\'a kadar haftada iki gün sürüyor. Tam adres kayıt sonrası paylaşılıyor.',
+      },
+      {
+        q: 'Başvuru videosu için hangi şarkıyı seçmeliyim?',
+        a: 'Bir müzikal ya da pop şarkı olabilir. En iyi seçim, sesine rahat oturan ve ne anlattığını bildiğin bir parça: en yüksek notayı zorlayan bir şarkı yerine, sözlerini gerçekten söyleyebildiğin bir şarkı daha çok şey gösterir. 1-2 dakika yeterli, telefon kaydı sorun değil.',
+      },
+      {
+        q: 'Kayıt olmadan önce programı görebilir miyim?',
+        a: 'Evet. Ücretsiz tanışma günü seanslarında programı ve eğitmenleri yakından görebilir, sorularını sorabilirsin. Güncel seanslar tanışma günü sayfasında listeleniyor; seans yeri programın yürüdüğü Kadıköy\'den farklı olabilir, sayfada ayrıca yazıyor.',
       },
     ],
     criteria: [
@@ -973,7 +985,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal çalışmak için Kadıköy\'den daha doğru bir yer düşünmek zor: geniş stüdyolar, bağımsız sahne kültürü ve her akşam bir yerlerde açık bir perde. Techne Lab\'ın iki müzikal programı da burada yürüyor — Rasimpaşa\'daki Beden İşleri ve Kadıköy merkezdeki Soft Sanat stüdyolarında, Marmaray Ayrılık Çeşmesi durağına yürüme mesafesinde.',
     what:
-      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor — 28 Eylül\'de başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi — 1 Ekim Perşembe akşamı başlıyor, dilersen 6 haftalık kısa programla deneyebilirsin.',
+      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor; 12 Ekim Pazartesi başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi; Kadıköy grubunun tarihi yakında açıklanacak (Pera grubu 3 Ekim Cumartesi 19:00\'da başlıyor), dilersen 6 haftalık kısa programla deneyebilirsin.',
     who:
       'Şarkı söylüyor ama sahnede ne yapacağını bilmiyorsan; dans ediyorsun ama "oynamayı" hiç denemediysen; ya da üçünü aynı anda öğrenmek istiyorsan — program tam bunun için kurgulandı. Konservatuvar mezunu olman gerekmiyor. Anadolu yakasında oturuyorsan (Moda, Üsküdar, Ataşehir, Bostancı) stüdyolar zaten yanı başında; Avrupa yakasından gelenler için Marmaray tek aktarma.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],

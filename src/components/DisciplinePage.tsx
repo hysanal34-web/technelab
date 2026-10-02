@@ -194,7 +194,7 @@ return (
           <h2 className="font-display text-fg leading-none" style={{ fontSize: 'clamp(24px,3.2vw,46px)' }}>
             NASIL<br />ÇALIŞIYORUZ
           </h2>
-          <p className="font-body text-[14px] text-stone leading-relaxed">{d.what}</p>
+          <div className="space-y-4">{d.what.split(/\n\n+/).map((para, i) => <p key={i} className="font-body text-[14px] text-stone leading-relaxed">{para}</p>)}</div>
         </div>
       </section>
 
@@ -204,7 +204,7 @@ return (
           <h2 className="font-display text-fg leading-none" style={{ fontSize: 'clamp(24px,3.2vw,46px)' }}>
             KİMLER<br />İÇİN
           </h2>
-          <p className="font-body text-[14px] text-stone leading-relaxed">{d.who}</p>
+          <div className="space-y-4">{d.who.split(/\n\n+/).map((para, i) => <p key={i} className="font-body text-[14px] text-stone leading-relaxed">{para}</p>)}</div>
         </div>
       </section>
 

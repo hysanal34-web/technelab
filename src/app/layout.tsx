@@ -8,7 +8,7 @@ import { CallTracker } from '@/components/CallTracker'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
-import { TiyatroBot } from '@/components/TiyatroBot'
+import { TiyatroBotLazy } from '@/components/TiyatroBotLazy'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { PerdeGecisi } from '@/components/PerdeGecisi'
 import { SITE_META } from '@/lib/data'
@@ -219,7 +219,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="icerik" className="page-enter">{children}</main>
           <SiteChrome>
             <Footer />
-            <TiyatroBot />
+            <TiyatroBotLazy />
             {/* Reklamsız telefon stratejisi: WhatsApp butonu site genelinde görünür.
                 Numara tek kaynaktan (SITE_META.phoneE164) — hat değişince data.ts yeter. */}
             <WhatsAppButton />

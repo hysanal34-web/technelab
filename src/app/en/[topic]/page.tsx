@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {}
   const url = `${SITE_META.url}/en/${p.slug}`
   return {
-    title: p.seoTitle,
+    title: { absolute: p.seoTitle.includes('Techne Lab') ? p.seoTitle : `${p.seoTitle} | Techne Lab` },
     description: p.seoDesc,
     keywords: p.keywords,
     alternates: {

@@ -4,7 +4,7 @@
  * havuzu, havada toz. Tamamen SVG; görsel dosyası yok, anında boyanır.
  *
  * İki durum:
- * - `lit=false` (3D bekleniyor): salon karanlık, ampul sönük. 3D'nin ilk karesi
+ * - `lit=false` (3D bekleniyor): salon karanlık, lamba çizilmez. 3D'nin ilk karesi
  *   de karanlık; geçişte göze çarpan hiçbir şey olmaz. Işık 3D'nin içinde yanar.
  * - `lit=true` (3D açılmayacak ya da gecikti): ampul burada yanar (CSS geçişi),
  *   sahne bu hâliyle kalır.
@@ -29,17 +29,15 @@ export function SahneFallback({ lit }: { lit: boolean }) {
       {[268, 288, 314, 346].map((y) => (
         <line key={y} x1="-200" y1={y} x2="1000" y2={y} stroke="#000" strokeOpacity="0.45" strokeWidth="1" />
       ))}
-      {/* kaide gölgesi, kaide, direk: ışık yokken silüet */}
-      <ellipse cx="400" cy="286" rx="30" ry="6" fill="#000" fillOpacity="0.7" />
-      <rect x="378" y="280" width="44" height="6" rx="2" fill="#1a1a1c" />
-      <rect x="398.6" y="112" width="2.8" height="170" fill="#161618" />
-      <rect x="396" y="104" width="8" height="10" fill="#1a1a1c" />
-      <circle cx="400" cy="92" r="8" fill="#131212" />
-      {/* 3D beklenirken salon ölü durmasın: ampulde çok hafif, yavaş bir "ısınma" nefesi (CSS) */}
-      {!lit && <circle className="sahne-nefes" cx="400" cy="92" r="46" fill="url(#gl-halo)" />}
-      {/* ışık: havuz, hale, ampul, filaman, toz — yalnız lit */}
+      {/* 3D beklenirken salon karanlık: lamba YOK. SVG'nin lambası 3D'ninkiyle aynı yerde
+          durmuyor (kutu ve kadraj farklı); sönük bir silüet bile "başka bir kare" gibi
+          okunuyordu. Yalnız geniş, çok soluk bir nefes var ki kare ölü durmasın. */}
+      {!lit && <ellipse className="sahne-nefes" cx="400" cy="200" rx="260" ry="160" fill="url(#gl-halo)" />}
+      {/* ışık: kaide, direk, kafes, havuz, hale, ampul, filaman, toz — yalnız lit */}
       <g style={light}>
         <ellipse cx="400" cy="300" rx="260" ry="70" fill="url(#gl-pool)" />
+        <ellipse cx="400" cy="286" rx="30" ry="6" fill="#000" fillOpacity="0.7" />
+        <rect x="396" y="104" width="8" height="10" fill="#2b2b2e" />
         <rect x="378" y="280" width="44" height="6" rx="2" fill="#2b2b2e" />
         <rect x="398.6" y="112" width="2.8" height="170" fill="#232326" />
         <circle cx="400" cy="92" r="70" fill="url(#gl-halo)" />

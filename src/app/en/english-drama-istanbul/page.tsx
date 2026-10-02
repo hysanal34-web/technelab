@@ -6,7 +6,7 @@ const title = 'English Drama Classes in Istanbul — Speak English Through Theat
 const description = 'English drama workshops in Istanbul for expats and international residents. Twelve weeks, small groups, Pera and Kadıköy. B1 level and above — fluency not required.'
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: `${title} | Techne Lab` },
   description,
   alternates: {
     canonical: `${SITE_META.url}/en/english-drama-istanbul`,

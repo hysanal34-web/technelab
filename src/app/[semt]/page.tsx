@@ -43,7 +43,8 @@ export async function generateMetadata({ params }: { params: Promise<{ semt: str
   const d = DISTRICTS.find((x) => x.slug === semt)
   if (!d) return {}
   return {
-    title: d.seoTitle,
+    // seoTitle zaten 'Techne Lab' içeriyor; şablon ikinci kez eklemesin.
+    title: { absolute: d.seoTitle },
     description: d.seoDesc,
     alternates: { canonical: `${SITE_META.url}/${d.slug}` },
     keywords: d.keywords,

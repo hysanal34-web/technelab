@@ -354,11 +354,11 @@ export default function Sahne3D(props: Sahne3DProps) {
        */
       const ignition = (s: number) => {
         if (s < 0.2) return 0
-        if (s < 0.28) return 0.85
-        if (s < 0.42) return 0.08
-        if (s < 0.5) return 1
-        if (s < 0.6) return 0.35
-        if (s < 0.88) return 0.35 + ((s - 0.6) / 0.28) * 0.65
+        if (s < 0.27) return 0.45
+        if (s < 0.4) return 0.08
+        if (s < 0.47) return 0.6
+        if (s < 0.56) return 0.25
+        if (s < 0.9) return 0.25 + ((s - 0.56) / 0.34) * 0.75
         return 1
       }
 

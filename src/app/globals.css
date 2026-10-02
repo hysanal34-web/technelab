@@ -356,6 +356,10 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
 
 /* ── Page transitions ───────────────────────────────────────────────── */
 .page-enter { animation: pageIn 0.5s ease both; }
+/* Ana sayfa: ilk blok siyah sahne. Beyaz gövde üstünde 0,5 sn saydamdan gelmesi
+   "beyaz kare → siyah kare" kesmesi gibi görünüyordu (2 Ekim 2026'da kayıtla görüldü).
+   Sahneyle açılan sayfada bu giriş yok; ışık zaten sahnenin içinde yanıyor. */
+.page-enter:has(> .sahne-hero) { animation: none; }
 @keyframes pageIn {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -503,8 +507,8 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
 @media (prefers-reduced-motion: reduce) { .sahne-gren { animation: none; } }
 /* Durağan sahnede 3D beklenirken ampulün hafif nefesi: kare donmuş gibi durmasın. */
 .sahne-nefes { opacity: 0; animation: sahneNefes 1.6s ease-in-out infinite; }
-@keyframes sahneNefes { 0%, 100% { opacity: 0.02; } 50% { opacity: 0.14; } }
-@media (prefers-reduced-motion: reduce) { .sahne-nefes { animation: none; opacity: 0.08; } }
+@keyframes sahneNefes { 0%, 100% { opacity: 0.015; } 50% { opacity: 0.06; } }
+@media (prefers-reduced-motion: reduce) { .sahne-nefes { animation: none; opacity: 0.04; } }
 /* Hero: telefonda akış (sahne kutusu + marka + liste), geniş ekranda tam ekran sahne. */
 @media (min-width: 768px) { .sahne-hero { min-height: max(560px, 100svh); } }
 

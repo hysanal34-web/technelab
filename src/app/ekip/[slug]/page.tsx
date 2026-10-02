@@ -22,7 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = m.seoTitle ?? `${m.name} — ${shortRole} | Techne Lab İstanbul`
   const description = m.seoDesc ?? (m.bio.length > 155 ? `${m.bio.slice(0, 152)}…` : m.bio)
   return {
-    title,
+    // Başlık markayı zaten içeriyor; layout şablonu ikinci kez eklemesin.
+    title: { absolute: title },
     description,
     alternates: { canonical: `${SITE_META.url}/ekip/${m.slug}` },
     openGraph: {
