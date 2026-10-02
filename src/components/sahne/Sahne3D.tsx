@@ -16,10 +16,23 @@ import type { SahneProgram } from './sahneVeri'
  * neon spike bantları: numara + ad. Bandın üstüne gelince ampul hafifçe
  * güçlenir, liste satırı yanar (onHover); tıklayınca kamera banda iner (focused).
  *
- * Her cihazda tembel yüklenir (bkz. SahneHero); telefonda daha hafif ayarlarla
- * (düşük DPR, küçük gölge, az toz) ve dikey kadrajla: bantlar tek sütun, kamera
- * dik. Dokunmatikte hover yok, dokunulan noktadan ışın atılır. Tekerlek
- * dinlenmez. Dokular kod ile üretilir; dışarıdan görsel dosyası yok.
+ * Açılış disiplini (ilk saniyedeki takılmanın sebebi buydu):
+ * - Kurulum tek blokta değil, parça parça; her ağır adım arasında tarayıcıya
+ *   kare bırakılır (yieldFrame). Sayfa bu sırada kaymaya, tıklamaya cevap verir.
+ * - Zemin dokusu piksel tamponuyla üretilir (20 bin fillRect yerine tek döngü).
+ * - Gölge haritası bir kez çizilir (sahne durağan; ampul ve zemin kıpırdamaz).
+ *   PointLight gölgesi küp harita = her kare 6 ek çizimdi; artık sıfır.
+ * - Shader derlemesi küçücük bir tuvalde yapılır (derleme boyuta bağlı değil,
+ *   bloom'un doldurma maliyeti bağlı). Sonra tam boya geçilir ve kare süresi
+ *   iki kez art arda 34 ms altına inene kadar 3D görünmez kalır (SVG önde).
+ * - Kamera, kadraja (dikey/yatay) göre açılış konumunda başlar; ilk görünür
+ *   karede yanlış yerden süzülmez.
+ * - Ampulün ateşlenmesi rastgele strob değil, yazılmış kısa bir çift göz
+ *   kırpması; geçiş sırasında ışık hiç sönmez.
+ *
+ * Telefonda daha hafif ayarlar (düşük DPR, küçük gölge, az toz) ve dikey
+ * kadraj: bantlar tek sütun, kamera dik. Dokunmatikte hover yok, dokunulan
+ * noktadan ışın atılır. Tekerlek dinlenmez. Dokular kod ile üretilir.
  */
 export type Sahne3DProps = {
   programs: SahneProgram[]
@@ -45,6 +58,48 @@ function canvasTex(w: number, h: number, draw: Draw): THREE.CanvasTexture {
   const t = new THREE.CanvasTexture(cv)
   t.encoding = THREE.sRGBEncoding
   return t
+}
+
+/** Tarayıcıya bir kare bırak: ana iş parçacığı boşalır, sayfa nefes alır. */
+const yieldFrame = () => new Promise<void>((r) => requestAnimationFrame(() => setTimeout(r, 0)))
+
+/** Tohumlu rastgele: her yüklemede aynı tahta, aynı toz. */
+function rng(seed: number) {
+  let s = seed >>> 0
+  return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296 }
+}
+
+/** Eski sahne tahtası: piksel tamponu, tek geçiş. 1024² için ~15 ms. */
+function floorTexture(size: number): THREE.CanvasTexture {
+  return canvasTex(size, size, (x, w, h) => {
+    const img = x.createImageData(w, h), d = img.data
+    const rnd = rng(1907)
+    const board = Math.max(32, Math.round(size / 16))
+    const rows = Math.ceil(h / board)
+    const tint = Array.from({ length: rows }, () => (rnd() - 0.5) * 10)
+    const seams = Array.from({ length: rows }, () => { const s: number[] = []; let bx = rnd() * 300; while (bx < w) { s.push(Math.floor(bx)); bx += 260 + rnd() * 380 } return s })
+    for (let y = 0; y < h; y++) {
+      const r = Math.floor(y / board), inRow = y % board
+      const base = 18 + tint[r]
+      const seamRow = inRow >= board - 2
+      const sm = seams[r]
+      for (let xx = 0; xx < w; xx++) {
+        let v = base + (rnd() - 0.5) * 9 // tahta dokusu: ince gürültü
+        if (seamRow) v *= 0.4
+        for (let k = 0; k < sm.length; k++) { const sx = sm[k]; if (xx === sx || xx === sx + 1) { v *= 0.55; break } }
+        const o = (y * w + xx) * 4
+        d[o] = v + 1; d[o + 1] = v; d[o + 2] = v - 1; d[o + 3] = 255
+      }
+    }
+    x.putImageData(img, 0, 0)
+    // uzun lif çizgileri: az sayıda, hafif
+    const n = size >= 1024 ? 500 : 160
+    for (let i = 0; i < n; i++) {
+      x.strokeStyle = `rgba(255,240,220,${rnd() * 0.05})`; x.lineWidth = rnd() * 1.4
+      x.beginPath(); const sx = rnd() * w, sy = rnd() * h
+      x.moveTo(sx, sy); x.lineTo(sx + (rnd() - 0.5) * 120, sy + (rnd() - 0.5) * 14); x.stroke()
+    }
+  })
 }
 
 type Mark = { mat: THREE.MeshStandardMaterial; level: number; pos: THREE.Vector3 }
@@ -74,40 +129,28 @@ export default function Sahne3D(props: Sahne3DProps) {
 
       /* ── Renderer ─────────────────────────────────────────── */
       THREE.ColorManagement.legacyMode = false
-      const hafif = window.matchMedia('(hover: none)').matches || (navigator.hardwareConcurrency ?? 8) <= 4 // telefon: daha düşük çözünürlük, küçük gölge haritası
+      const touch = window.matchMedia('(hover: none)').matches
+      const hafif = touch || (navigator.hardwareConcurrency ?? 8) <= 4 // telefon: daha düşük çözünürlük, küçük gölge haritası
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: !hafif, powerPreference: 'high-performance' })
       const DPR = Math.min(window.devicePixelRatio || 1, hafif ? 1.5 : 1.75)
       renderer.setPixelRatio(DPR)
       renderer.shadowMap.enabled = true
       renderer.shadowMap.type = THREE.PCFSoftShadowMap
+      renderer.shadowMap.autoUpdate = false // sahne durağan: gölge bir kez
       cleanups.push(() => renderer.dispose())
 
       const scene = new THREE.Scene()
       scene.background = new THREE.Color(BG)
       scene.fog = new THREE.FogExp2(BG, 0.09)
       const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 80)
+      await yieldFrame(); if (disposed) return
 
       /* ── Zemin: eski sahne tahtası ─────────────────────────── */
-      const FT = hafif ? 512 : 1024
-      const floorTex = canvasTex(FT, FT, (x, w, h) => {
-        x.fillStyle = '#121110'; x.fillRect(0, 0, w, h)
-        const board = 64
-        for (let y = 0; y < h; y += board) {
-          x.fillStyle = `rgba(${Math.random() > 0.5 ? '255,240,220' : '0,0,0'},${0.015 + Math.random() * 0.03})`; x.fillRect(0, y, w, board)
-          x.fillStyle = 'rgba(0,0,0,.6)'; x.fillRect(0, y + board - 2, w, 2)
-          let bx = Math.random() * 300
-          while (bx < w) { x.fillStyle = 'rgba(0,0,0,.45)'; x.fillRect(bx, y, 2, board); bx += 260 + Math.random() * 380 }
-        }
-        for (let i = 0; i < (hafif ? 250 : 900); i++) {
-          x.strokeStyle = `rgba(255,240,220,${Math.random() * 0.05})`; x.lineWidth = Math.random() * 1.4
-          x.beginPath(); const sx = Math.random() * w, sy = Math.random() * h
-          x.moveTo(sx, sy); x.lineTo(sx + (Math.random() - 0.5) * 120, sy + (Math.random() - 0.5) * 14); x.stroke()
-        }
-        for (let i = 0; i < (hafif ? 5000 : 20000); i++) { x.fillStyle = `rgba(255,255,255,${Math.random() * 0.035})`; x.fillRect(Math.random() * w, Math.random() * h, 1, 1) }
-      })
+      const floorTex = floorTexture(hafif ? 512 : 1024)
       floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping; floorTex.repeat.set(4, 4); floorTex.anisotropy = 8
       const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ map: floorTex, roughness: 0.62, metalness: 0.05 }))
       floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor)
+      await yieldFrame(); if (disposed) return
 
       /* ── Ghost light ───────────────────────────────────────── */
       const metal = new THREE.MeshStandardMaterial({ color: 0x2b2b2e, roughness: 0.35, metalness: 0.9 })
@@ -134,6 +177,7 @@ export default function Sahne3D(props: Sahne3DProps) {
       })
       const haloMat = new THREE.SpriteMaterial({ map: haloTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0 })
       const halo = new THREE.Sprite(haloMat); halo.scale.set(1.6, 1.6, 1); halo.position.y = BULB_Y; gl.add(halo)
+      await yieldFrame(); if (disposed) return
 
       /* ── Spike bantları (programlar) ───────────────────────── */
       const R = 2.55
@@ -154,7 +198,8 @@ export default function Sahne3D(props: Sahne3DProps) {
         x.fillText(p.facts.slice(0, 3).join(' · ').toLocaleUpperCase('tr-TR'), 128, 196)
       })
       const meshes: THREE.Mesh[] = []
-      P.forEach((p, i) => {
+      for (let i = 0; i < N; i++) {
+        const p = P[i]
         const map = markTexture(i, p); map.anisotropy = 8
         const mat = new THREE.MeshStandardMaterial({ map, emissiveMap: map, emissive: 0xffffff, emissiveIntensity: 0, transparent: true, roughness: 0.7, depthWrite: false, opacity: 0 })
         const m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.55), mat)
@@ -162,7 +207,8 @@ export default function Sahne3D(props: Sahne3DProps) {
         const hit = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.4, 0.7), new THREE.MeshBasicMaterial({ visible: false }))
         hit.userData.i = i; scene.add(hit); hits.push(hit)
         marks.push({ mat, level: 0, pos: new THREE.Vector3() })
-      })
+        if (i % 3 === 2) { await yieldFrame(); if (disposed) return }
+      }
       /**
        * Bant yerleşimi kadraja göre:
        * yatay → iki sıra şaşırtmalı yay, ampulün önünde sağa-sola yayılır;
@@ -190,7 +236,8 @@ export default function Sahne3D(props: Sahne3DProps) {
 
       /* ── Toz ───────────────────────────────────────────────── */
       const DN = hafif ? 220 : 380, dp = new Float32Array(DN * 3), ds = new Float32Array(DN)
-      for (let i = 0; i < DN; i++) { const r = Math.random() * 1.3, a = Math.random() * 6.28; dp[i * 3] = Math.cos(a) * r; dp[i * 3 + 1] = Math.random() * 3; dp[i * 3 + 2] = Math.sin(a) * r; ds[i] = Math.random() * 100 }
+      const drnd = rng(42)
+      for (let i = 0; i < DN; i++) { const r = drnd() * 1.3, a = drnd() * 6.28; dp[i * 3] = Math.cos(a) * r; dp[i * 3 + 1] = drnd() * 3; dp[i * 3 + 2] = Math.sin(a) * r; ds[i] = drnd() * 100 }
       const dG = new THREE.BufferGeometry(); dG.setAttribute('position', new THREE.BufferAttribute(dp, 3))
       const dustMat = new THREE.PointsMaterial({ color: 0xffe6c4, size: 0.014, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })
       scene.add(new THREE.Points(dG, dustMat))
@@ -211,16 +258,16 @@ export default function Sahne3D(props: Sahne3DProps) {
             col *= mix(.25, 1., smoothstep(.9, .2, length(c*vec2(1.2,1.)))); col += (h(vUv*uRes + fract(uTime)*97.) - .5) * .05; gl_FragColor = vec4(col, 1.); }`,
       })
       film.renderToScreen = true; composer.addPass(film)
+      await yieldFrame(); if (disposed) return
 
       /* ── Kamera / girdi ────────────────────────────────────── */
-      const touch = window.matchMedia('(hover: none)').matches
       const look = new THREE.Vector3(0.35, 0.95, 0.4)
       const lookP = new THREE.Vector3(0, 0.5, 2.35) // dikey: sütunun ortasına bak
       let mx = 0, my = 0, tmx = 0, tmy = 0
       let portrait = false
       const pointer = new THREE.Vector2(9, 9)
       const camGoal = { pos: new THREE.Vector3(), look: look.clone() }
-      const camNow = { pos: new THREE.Vector3(1.2, 4.4, 12.5), look: look.clone() }
+      const camNow = { pos: new THREE.Vector3(), look: look.clone() }
       const ray = new THREE.Raycaster()
       const tmpV = new THREE.Vector3()
       let hover3d = -1
@@ -248,49 +295,91 @@ export default function Sahne3D(props: Sahne3DProps) {
         else if (pr.focused >= 0) pr.onUnfocus()
       })
 
-      const resize = () => {
-        const w = host.clientWidth, h = host.clientHeight
-        if (!w || !h) return
+      /** Açılış kamera hedefi (intro = 0 ... 1). Kadraja göre. */
+      const introGoal = (intro: number) => {
+        if (portrait) { camGoal.pos.set(mx * 0.5, 6.3 + (1 - intro) * 1.4, 6.2 + (1 - intro) * 2.2); camGoal.look.copy(lookP) }
+        else { camGoal.pos.set(1.2 + mx * 0.9, 3.2 - my * 0.35 + (1 - intro) * 1.2, 9.2 + (1 - intro) * 3.5); camGoal.look.copy(look) }
+      }
+      const applySize = (w: number, h: number) => {
         renderer.setSize(w, h, false); composer.setSize(w, h); bloom.setSize(w, h)
         film.uniforms.uRes.value.set(w, h)
         const p = w / h < 0.9
         camera.aspect = w / h; camera.fov = p ? 64 : w / h < 1.3 ? 42 : 34; camera.updateProjectionMatrix()
         portrait = p; placeMarks(p, w / h)
       }
-      const ro = new ResizeObserver(resize); ro.observe(host); cleanups.push(() => ro.disconnect())
-      resize()
+      const resize = () => { const w = host.clientWidth, h = host.clientHeight; if (w && h) applySize(w, h) }
 
       let visible = true, pageVisible = !document.hidden
       const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting }, { threshold: 0.05 }); io.observe(host); cleanups.push(() => io.disconnect())
       on(document, 'visibilitychange', () => { pageVisible = !document.hidden })
 
+      /* ── Isınma: shader derlemesi görünmez ve küçük tuvalde ─── */
+      // Kadraj belli olsun, kamera açılış konumunda dursun.
+      const fullW = host.clientWidth || W0, fullH = host.clientHeight || H0
+      const p0 = fullW / fullH < 0.9
+      portrait = p0
+      introGoal(0); camNow.pos.copy(camGoal.pos); camNow.look.copy(camGoal.look)
+      camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
+      renderer.shadowMap.needsUpdate = true
+      // Küçük tuvalde iki kare: bütün programlar (gölge derinliği, bloom mipleri, film) derlenir.
+      applySize(64, Math.max(24, Math.round(64 * fullH / fullW)))
+      renderer.compile(scene, camera)
+      await yieldFrame(); if (disposed) return
+      composer.render()
+      await yieldFrame(); if (disposed) return
+      composer.render()
+      await yieldFrame(); if (disposed) return
+      // Tam boy; gölge bir kez daha (çözünürlük değişti).
+      renderer.shadowMap.needsUpdate = true
+      resize()
+      const ro = new ResizeObserver(resize); ro.observe(host); cleanups.push(() => ro.disconnect())
+
       /* ── Döngü ─────────────────────────────────────────────── */
       const ease = (x: number) => { x = THREE.MathUtils.clamp(x, 0, 1); return 1 - Math.pow(1 - x, 3) }
       const clock = new THREE.Clock()
-      let start = -1, ready = false, warm = 0
+      let start = -1, ready = false, warm = 0, smoothFrames = 0, lastFrameAt = performance.now()
+
+      /**
+       * Ampul ateşlemesi: yazılmış kısa çift göz kırpması. s = görünür olduktan
+       * sonraki saniye. Işık hiç tam sönmez; geçişte karanlık boşluk olmaz.
+       */
+      const ignition = (s: number) => {
+        if (s < 0.45) return 1
+        if (s < 0.53) return 0.25
+        if (s < 0.62) return 1
+        if (s < 0.70) return 0.4
+        if (s < 0.95) return 0.4 + ((s - 0.70) / 0.25) * 0.6
+        return 1
+      }
 
       const frame = () => {
         if (disposed) return
         raf = requestAnimationFrame(frame)
         if (!visible || !pageVisible) return
+        const now = performance.now()
+        const frameMs = now - lastFrameAt; lastFrameAt = now
         const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime
         const pr = propsRef.current
         const focused = pr.focused
-        // Isınma: ilk kareler shader derleme ve doku yükleme yüzünden ağır. Bunlar
-        // durağan SVG hâlâ ekrandayken (canvas opacity 0) olsun; üç kare sorunsuz
-        // çizildikten sonra 3D görünür kılınır, takılma seyirciye gitmez.
+        // Isınma: tam boyda kare süresi istikrar bulana kadar (iki kez art arda
+        // < 34 ms) ya da en çok 24 kare; SVG hâlâ önde, takılma seyirciye gitmez.
         if (!ready) {
           warm++
-          if (warm < 4) { camera.position.copy(camNow.pos); camera.lookAt(camNow.look); composer.render(); return }
-          ready = true; start = performance.now() + 250; pr.onReady()
+          introGoal(0); camNow.pos.copy(camGoal.pos); camNow.look.copy(camGoal.look)
+          camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
+          lamp.intensity = 2.6; bulbMat.emissiveIntensity = 3.6; haloMat.opacity = 0.55
+          composer.render()
+          if (warm > 1 && frameMs < 34) smoothFrames++; else smoothFrames = 0
+          if (smoothFrames < 2 && warm < 24) return
+          ready = true; start = performance.now(); pr.onReady()
         }
         const s = Math.max(0, (performance.now() - start) / 1000)
         if (touch) { tmx = Math.sin(t * 0.17) * 0.35; tmy = 0 } // imleç yok: sahne kendi kendine hafifçe salınır
         mx += (tmx - mx) * 0.05; my += (tmy - my) * 0.05
 
-        // ampul: kısa arızalı ateşleme, sonra nefes alan sabit ışık
-        const ign = s < 0.6 ? 0 : s < 1.4 ? (Math.random() > 0.5 ? 1 : 0.1) : 1
-        const flick = ign * (0.94 + Math.sin(t * 2.1) * 0.025 + Math.sin(t * 17.3) * 0.012 + (Math.random() > 0.997 ? -0.35 : 0))
+        // ampul: yazılmış kısa ateşleme, sonra nefes alan sabit ışık
+        const ign = ignition(s)
+        const flick = ign * (0.94 + Math.sin(t * 2.1) * 0.025 + Math.sin(t * 17.3) * 0.012 + (s > 3 && Math.random() > 0.997 ? -0.3 : 0))
         tmpV.set(0, BULB_Y, 0).project(camera)
         const near = 1 - Math.min(1, Math.hypot(pointer.x - tmpV.x, (pointer.y - tmpV.y) * 0.8) / 1.1)
 
@@ -304,25 +393,22 @@ export default function Sahne3D(props: Sahne3DProps) {
         bulbMat.emissiveIntensity = 1.4 + flick * 2.2 * boost
         haloMat.opacity = flick * 0.55
         filMat.color.setHex(NEON).multiplyScalar(0.4 + flick * 0.8)
-        dustMat.opacity = ease((s - 1.4) / 2) * 0.55
+        dustMat.opacity = ease((s - 0.9) / 2) * 0.55
 
         const intro = ease(s / 5)
         if (focused >= 0 && marks[focused]) {
           const mp = marks[focused].pos
           if (portrait) { camGoal.pos.set(mp.x * 0.4, 2.7, mp.z + 2.3); camGoal.look.set(mp.x, 0.05, mp.z - 0.15) }
           else { camGoal.pos.set(mp.x * 0.8 + 0.6, 2.2, mp.z + 3.4); camGoal.look.set(mp.x + 0.3, 0.1, mp.z - 0.2) }
-        } else if (portrait) {
-          // dikey: yüksekten, dik açıyla; ampul üstte, bant sütunu önde
-          camGoal.pos.set(mx * 0.5, 6.3 + (1 - intro) * 1.4, 6.2 + (1 - intro) * 2.2); camGoal.look.copy(lookP)
         } else {
-          camGoal.pos.set(1.2 + mx * 0.9, 3.2 - my * 0.35 + (1 - intro) * 1.2, 9.2 + (1 - intro) * 3.5); camGoal.look.copy(look)
+          introGoal(intro)
         }
         const L = 1 - Math.pow(0.02, dt)
         camNow.pos.lerp(camGoal.pos, L); camNow.look.lerp(camGoal.look, L)
         camera.position.copy(camNow.pos); camera.lookAt(camNow.look)
 
         marks.forEach((mk, i) => {
-          const appear = ease((s - 1.6 - i * 0.22) / 0.8)
+          const appear = ease((s - 1.0 - i * 0.2) / 0.8)
           const want = appear * (act < 0 ? 1 : act === i ? 1.35 : 0.35)
           mk.level += (want - mk.level) * (1 - Math.pow(0.004, dt))
           mk.mat.opacity = Math.min(1, mk.level)
@@ -336,7 +422,6 @@ export default function Sahne3D(props: Sahne3DProps) {
         film.uniforms.uTime.value = t
         composer.render()
       }
-      renderer.compile(scene, camera)
       frame()
     })()
 

@@ -20,7 +20,9 @@ import type { SahneProgram } from './sahneVeri'
  *
  * Kaydırma engellenmez: canvas tekerleği dinlemez.
  */
-const Sahne3D = dynamic(() => import('./Sahne3D'), { ssr: false, loading: () => null })
+/** Tek import ifadesi: dynamic ile ön yükleme aynı chunk'ı paylaşır (webpack tekilleştirir). */
+const yukle3D = () => import('./Sahne3D')
+const Sahne3D = dynamic(yukle3D, { ssr: false, loading: () => null })
 
 /** 3D neden açılmıyor? Boş dize = açılabilir. Sebep konsola yazılır (destek için). */
 function uc3dEngel(): string {
@@ -47,13 +49,19 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     const engel = uc3dEngel()
     ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
     if (engel) { console.info('[sahne] 3D kapalı:', engel); return }
-    // Telefonda sayfa önce otursun (hidrasyon, font, ilk boya); 3D sonra gelsin.
-    const bekle = window.matchMedia('(hover: none)').matches ? 1200 : 300
+    // Sayfa önce otursun (hidrasyon, font, ilk boya). Üç adım:
+    // 1) three.js chunk'ı ağdan gelsin (parse bu sırada değil, bileşen bağlanınca);
+    // 2) tarayıcı boşa düşünce 3D bağlanır; kurulum Sahne3D içinde parça parça;
+    // 3) hazır olunca SVG'den 3D'ye geçilir (onReady).
+    const telefon = window.matchMedia('(hover: none)').matches
+    const bekle = telefon ? 1200 : 300
+    let iptal = false
+    const t1 = window.setTimeout(() => { if (!iptal) yukle3D().catch(() => { /* bağlanınca tekrar denenir */ }) }, telefon ? 500 : 0)
     const hasIdle = 'requestIdleCallback' in window
     const id = hasIdle
       ? window.requestIdleCallback(() => setUse3d(true), { timeout: bekle })
       : window.setTimeout(() => setUse3d(true), bekle)
-    return () => { if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
+    return () => { iptal = true; window.clearTimeout(t1); if (hasIdle) window.cancelIdleCallback(id); else window.clearTimeout(id) }
   }, [])
 
   useEffect(() => {
