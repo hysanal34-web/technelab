@@ -118,7 +118,7 @@ export const WORKSHOPS: Workshop[] = [
     friendDiscountPercent: 10,
     facts: ['Yetişkin', 'B1+ İngilizce', '12 · 8 · 4 hafta', 'Pera & Kadıköy', 'En fazla 12 kişi'],
     schedule: [
-      { place: 'Pera', date: '3 Ekim Cumartesi', time: '15:00' },
+      { place: 'Pera', date: '3 Ekim’de başladı · katılım açık', time: '15:00' },
       { place: 'Kadıköy', date: '14 Eylül’de başladı · katılım açık', time: '20:00' },
     ],
     maxStudents: 12, active: true,
@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Pera', duration: '12 hafta', price: 59000,
     friendDiscountPercent: 10, scholarshipPercent: 25,
     facts: ['Yetişkin', 'B1+ İngilizce', '12 hafta', 'Pera', 'Masterclass + çekim günü', 'En fazla 14 kişi'],
-    schedule: [{ place: 'Pera', date: '3 Ekim Cumartesi', time: '11:00' }],
+    schedule: [{ place: 'Pera', date: '3 Ekim’de başladı · katılım açık', time: '11:00' }],
     maxStudents: 14, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Performans', 'Sahne'],
@@ -173,8 +173,8 @@ export const WORKSHOPS: Workshop[] = [
     friendDiscountPercent: 10, installments: 8,
     facts: ['10–17 yaş', 'B1+ İngilizce', '8 ay · Ekim–Mayıs', 'Haftada 1 gün', 'Pera & Kadıköy', 'Seyircili final gösterisi'],
     schedule: [
-      { place: 'Kadıköy', date: '3 Ekim Cumartesi' },
-      { place: 'Pera', date: '4 Ekim Pazar', time: '13:00' },
+      { place: 'Pera', date: '4 Ekim’de başladı · katılım açık', time: '13:00' },
+      { place: 'Kadıköy', date: 'Yakında · tarih için DM' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
@@ -232,7 +232,7 @@ export const WORKSHOPS: Workshop[] = [
     friendDiscountPercent: 10,
     facts: ['12–55 yaş', '12 ya da 6 hafta', 'Kadıköy & Taksim', 'Deneyim şart değil', 'En fazla 15 kişi'],
     schedule: [
-      { place: 'Taksim Pera', date: '3 Ekim Cumartesi', time: '19:00' },
+      { place: 'Taksim Pera', date: '3 Ekim’de başladı · katılım açık', time: '19:00' },
       { place: 'Kadıköy', date: 'Yakında · tarih için DM' },
     ],
     maxStudents: 15, active: true, ageRange: '12–55 yaş',

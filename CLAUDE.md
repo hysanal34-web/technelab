@@ -126,10 +126,11 @@ type Workshop = {
 - [x] Fal.ai görsel üretimi entegrasyonu — `FalImageGenerator.tsx` + galeri sayfasına entegre edildi
 - [x] Offline dönüşüm aktarımı — `/admin/donusumler`, bkz. `KURULUM-DONUSUM.md`
 - [x] Geçmiş tarih filtresi — `aktifSessions()` + sunucu doğrulaması + test (22 Eylül 2026)
-- [x] Ekim tanışma günleri `sessions.ts`'e eklendi (29 Eylül 2026): Youth 4 Ekim Pera · EDL 3 Ekim
-      Pera · Musical + Broadway 1 Ekim Kadıköy / 3 Ekim Pera. Program bazlı link:
-      `/tanisma-gunu?program=<slug>`. Praxis için tanışma yok. **10 Ekim Kadıköy seansları 2 Ekim'de
-      kaldırıldı**; o tarihe kayıtlı 3 kişiye (Musical Lab) ekip ulaşıyor.
+- [x] Tanışma günleri (6 Ekim 2026): yinelenen seanslar var, `haftalik: { gun, saat }` alanı ile
+      label'daki "her Pazartesi" yerine bir sonraki tarih kendiliğinden yazılır (`aktifSessions()`),
+      elle yenilemek gerekmez. Yayında: Youth Pera her Pazar 13:00 · EDL Pera her Cumartesi 15:00 ·
+      EDL Kadıköy her Pazartesi 20:00 · Musical Kadıköy 8 ve 12 Ekim. Praxis ve Broadway için tanışma yok.
+      Program bazlı link: `/tanisma-gunu?program=<slug>`.
 - [ ] **Panelden yapılacak (kodla yapılamaz):** Google Ads'de `Kayıt Oldu` + `Tanışma Günü Kaydı`
       dönüşümlerini aç, `NEXT_PUBLIC_ADS_LABEL_TANISMA` ve `META_CAPI_ACCESS_TOKEN` değişkenlerini
       Vercel'e ekle. İkisi de bugün tanımsız; tanımsızken ölçüm sessizce eksik çalışıyor.
