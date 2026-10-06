@@ -174,7 +174,7 @@ export const WORKSHOPS: Workshop[] = [
     facts: ['10–17 yaş', 'B1+ İngilizce', '8 ay · Ekim–Mayıs', 'Haftada 1 gün', 'Pera & Kadıköy', 'Seyircili final gösterisi'],
     schedule: [
       { place: 'Pera', date: '4 Ekim’de başladı · katılım açık', time: '13:00' },
-      { place: 'Kadıköy', date: 'Yakında · tarih için DM' },
+      { place: 'Kadıköy', date: '17 Ekim Cumartesi', time: '15:00' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',

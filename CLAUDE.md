@@ -128,7 +128,7 @@ type Workshop = {
 - [x] Geçmiş tarih filtresi — `aktifSessions()` + sunucu doğrulaması + test (22 Eylül 2026)
 - [x] Tanışma günleri (6 Ekim 2026): yinelenen seanslar var, `haftalik: { gun, saat }` alanı ile
       label'daki "her Pazartesi" yerine bir sonraki tarih kendiliğinden yazılır (`aktifSessions()`),
-      elle yenilemek gerekmez. Yayında: Youth Pera her Pazar 13:00 · EDL Pera her Cumartesi 15:00 ·
+      elle yenilemek gerekmez (`baslangic` ile ilk tarih). Yayında: Youth Pera her Pazar 13:00 · Youth Kadıköy her Cumartesi 15:00 (ilk 17 Ekim) · EDL Pera her Cumartesi 15:00 ·
       EDL Kadıköy her Pazartesi 20:00 · Musical Kadıköy 8 ve 12 Ekim. Praxis ve Broadway için tanışma yok.
       Program bazlı link: `/tanisma-gunu?program=<slug>`.
 - [ ] **Panelden yapılacak (kodla yapılamaz):** Google Ads'de `Kayıt Oldu` + `Tanışma Günü Kaydı`

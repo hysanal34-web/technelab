@@ -3,7 +3,7 @@
  * e-posta etiketi tek kaynaktan.
  *
  * Yayındaki tanışma günleri (6 Ekim 2026 itibarıyla):
- *   Youth     → Pera her Pazar 13:00 (yinelenen)
+ *   Youth     → Pera her Pazar 13:00 · Kadıköy her Cumartesi 15:00, ilk 17 Ekim (yinelenen)
  *   EDL       → Pera her Cumartesi 15:00 · Kadıköy her Pazartesi 20:00 (yinelenen)
  *   Musical   → Kadıköy 8 Ekim Per · 12 Ekim Pzt
  *   Broadway  → şu an tanışma yok (3 Ekim Pera seansı geçti)
@@ -51,7 +51,7 @@ export type TanismaSession = {
    * Label'da tarih yazılmaz ("her Pazartesi"); `aktifSessions()` bir sonraki
    * tarihi hesaplayıp label'a yazar. Elle yenilemek gerekmez.
    */
-  haftalik?: { gun: number; saat: string }
+  haftalik?: { gun: number; saat: string; /** İlk seans tarihi (YYYY-MM-DD); öncesinde listelenmez. */ baslangic?: string }
 }
 
 // 29 Eylül 2026: Ekim tanışma günleri eklendi (Yağız). Saati verilmeyen
@@ -61,6 +61,8 @@ export const TANISMA_SESSIONS: readonly TanismaSession[] = [
 
   // English Drama Youth
   // 6 Ekim 2026 (Yağız): Pera grubu her Pazar 13:00 tanışmaya açık; tarih haftalık kendiliğinden yenilenir.
+  // 6 Ekim 2026 (Yağız): Kadıköy grubu 17 Ekim Cumartesi 15:00'ten itibaren her hafta tanışmaya açık.
+  { id: 'youth-kadikoy-cmt', program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (10–17) — Kadıköy · her Cumartesi · 15:00',    english: true,  youth: true,  minAge: 10, maxAge: 17, haftalik: { gun: 6, saat: '15:00', baslangic: '2026-10-17' } },
   { id: 'youth-pera-paz',    program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (10–17) — Pera · her Pazar · 13:00',          english: true,  youth: true,  minAge: 10, maxAge: 17, haftalik: { gun: 0, saat: '13:00' } },
 
   // English Drama Lab
@@ -103,17 +105,23 @@ const AY_ADI = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz'
  * geçmediyse bugün; yoksa gelecek hafta. Label'daki "her Pazartesi" yerine
  * "5 Ekim Pazartesi" yazılır; e-posta ve panel bu label'ı görür.
  */
-export function sonrakiTarih(gun: number, bugun = new Date()): Date {
-  const d = new Date(bugun.getFullYear(), bugun.getMonth(), bugun.getDate())
+export function sonrakiTarih(gun: number, bugun = new Date(), baslangic?: string): Date {
+  let d = new Date(bugun.getFullYear(), bugun.getMonth(), bugun.getDate())
+  let gecKalindi = bugun.getHours() >= 18
+  if (baslangic) {
+    const [y, m, g] = baslangic.split('-').map(Number)
+    const b = new Date(y, m - 1, g)
+    if (b.getTime() > d.getTime()) { d = b; gecKalindi = false } // ilk seanstan önce: ilk seansa git
+  }
   let fark = (gun - d.getDay() + 7) % 7
-  if (fark === 0 && bugun.getHours() >= 18) fark = 7
+  if (fark === 0 && gecKalindi) fark = 7
   d.setDate(d.getDate() + fark)
   return d
 }
 
 function haftalikLabel(s: TanismaSession, bugun: Date): string {
   const h = s.haftalik!
-  const t = sonrakiTarih(h.gun, bugun)
+  const t = sonrakiTarih(h.gun, bugun, h.baslangic)
   return s.label.replace(/her \S+/, `${t.getDate()} ${AY_ADI[t.getMonth()]} ${GUN_ADI[h.gun]}`)
 }
 
