@@ -8,6 +8,8 @@ export type ArticleMeta = {
   tags: string[]; readTime: string; featured?: boolean
   image?: string
   status?: 'draft' | 'published'
+  /** İçerik esaslı güncellendiyse (YYYY-AA-GG); dateModified olarak basılır. */
+  updated?: string
 }
 
 const ARTICLES_DIR = path.join(process.cwd(), 'src/content/makaleler')
@@ -26,6 +28,7 @@ function normalize(slug: string, data: Record<string, unknown>): ArticleMeta {
     featured: data.featured === true,
     image:    typeof data.image === 'string' ? data.image : undefined,
     status:   data.status === 'draft' ? 'draft' : 'published',
+    updated:  typeof data.updated === 'string' ? data.updated : undefined,
   }
 }
 

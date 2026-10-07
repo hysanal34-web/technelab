@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Yalnızca yayında olan makaleler
   const makaleler: MetadataRoute.Sitemap = getAllArticles().map((a) => ({
     url: `${base}/makaleler/${a.slug}`,
-    lastModified: a.date ? new Date(a.date) : now,
+    lastModified: a.updated ? new Date(a.updated) : a.date ? new Date(a.date) : now,
     changeFrequency: 'monthly',
     priority: 0.6,
   }))

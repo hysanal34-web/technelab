@@ -37,6 +37,30 @@ export type Discipline = {
    * ve okuyucuya program seçerken bakacağı ölçütü verir.
    */
   criteria?: { q: string; a: string }[]
+  /**
+   * Kaynaklı veri bölümü (6 Ekim 2026). Her satırın kaynağı ve tarihi açık yazılır;
+   * doğrulanamayan ya da kaynakları çelişen rakam buraya girmez. Yeni rakam
+   * eklerken kaynağı açıp okumadan yazma.
+   */
+  /**
+   * Sözlük ya da yöntem haritası (7 Ekim 2026). Kısa, kaynaksız da doğru olan
+   * genel bilgi; her madde varsa kendi makalemize bağlanır. DefinedTermSet olarak basılır.
+   */
+  guide?: {
+    heading: string
+    lead: string
+    items: { term: string; body: string; href?: string }[]
+  }
+  /** Sayfada gösterilecek katılımcı yorumları (yorumlar.ts id'leri). Program adıyla birlikte basılır. */
+  yorumIds?: string[]
+  /** "Bu konuda yazdıklarımız" listesini elle sabitler (anahtar kelime eşleşmesi yerine). */
+  articleSlugs?: string[]
+  facts?: {
+    heading: string
+    lead: string
+    rows: { label: string; value: string; source: string; url: string }[]
+    note?: string
+  }
   /** İlgili diğer disiplinler (iç bağlantı). */
   related: string[]
   /** true → mega menüde listelenmez (semt × disiplin kombinasyon sayfaları). */
@@ -88,6 +112,22 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Oyunculuk kursu İstanbul\'da nerede yapılıyor?',
         a: 'Kadıköy tarafında iki partner stüdyo (Rasimpaşa ve Kadıköy merkez), Avrupa yakasında Pera\'da bir mekân. Aynı program bazen iki yakada da açılıyor — kayıt sırasında sana yakın olanı seçiyorsun.',
       },
+      {
+        q: 'Oyunculuk öğrenilir mi, yoksa yetenek mi?',
+        a: 'Yetenek bir başlangıç farkı yaratabilir, ama oyunculuğun araçları çalışılarak gelişiyor: dinlemek, metni çözmek, bedeni ve sesi yönetmek, aynı sahneyi tekrar tekrar canlı oynayabilmek. Atölyeye başlamak için kendini yetenekli hissetmen gerekmiyor. Neyin öğretilebildiğini, neyin öğretilemediğini ayrı bir yazıda ele aldık.',
+      },
+      {
+        q: 'Oyunculuk kursunun ilk dersinde ne yapılır?',
+        a: 'İlk ders genellikle bedenden başlıyor: ısınma, odada yürüme, dikkat ve dinleme oyunları. Kimse ilk gün tek başına uzun bir sahneye itilmiyor. Rahat, hareket etmeye uygun kıyafet yeterli. Kaygı duymak normal; ilk dersin akışını ayrıntılı yazdık.',
+      },
+      {
+        q: 'Çalışırken oyunculuk eğitimi alınabilir mi?',
+        a: 'Evet. Programlarımız akşam ya da hafta sonu saatlerinde, haftada bir ya da iki gün. Tempoyu ve devamlılığı nasıl kuracağını çalışırken oyunculuk eğitimi yazımızda anlattık.',
+      },
+      {
+        q: 'Tiyatro kursu ile oyunculuk kursu aynı şey mi?',
+        a: 'Tam olarak değil. "Tiyatro kursu" geniş bir şemsiye: oyunculuk, yaratıcı drama, tiyatro atölyesi ve konservatuvar hazırlık bu ismin altında satılabiliyor. Oyunculuk kursu oyuncunun araçlarına odaklanır; yaratıcı drama süreç ve grup deneyimine, konservatuvar hazırlık ise sınava. Hangisinin sana uyduğunu ayrı bir yazıda karşılaştırdık.',
+      },
     ],
     criteria: [
       {
@@ -111,6 +151,68 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Başlangıç seviyesine açık olduğunu söyleyen bir program, ilk haftalarda ne yaptığını da anlatabilmeli. "Herkese uygun" cümlesi tek başına bir bilgi değil. Deneyimli ve hiç sahneye çıkmamış kişilerin aynı grupta nasıl çalıştığı sorulmayı hak eden bir soru.',
       },
     ],
+    guide: {
+      heading: 'OYUNCULUK YÖNTEMLERİ: KISA BİR HARİTA',
+      lead: 'Oyunculuk kurslarının çoğu bir yöntem adı anıyor. Hangisinin neye dayandığını bilmek, program seçerken ne soracağını belirliyor. Her başlığın ayrıntılı yazısı bağlantıda.',
+      items: [
+        { term: 'Stanislavski sistemi', body: 'Konstantin Stanislavski\'nin 20. yüzyıl başında Moskova Sanat Tiyatrosu\'nda geliştirdiği yaklaşım. Karakterin ne istediğini, önündeki engeli ve verili koşulları sorar. Bugünkü oyunculuk eğitiminin büyük kısmı bu sorulardan türedi.', href: '/makaleler/stanislavski-yontemi-nedir' },
+        { term: 'Meisner tekniği', body: 'Sanford Meisner\'in geliştirdiği, dinlemeye ve partnere gerçek tepki vermeye dayanan çalışma. Tekrar egzersiziyle başlar, oyuncunun dikkatini kendinden alıp karşısındakine verir. Kamera önü çalışmasında da temel kabul edilir.', href: '/makaleler/meisner-teknigi-nedir' },
+        { term: 'Michael Chekhov tekniği', body: 'Stanislavski\'nin öğrencisi Michael Chekhov\'un hayal gücü ve beden üzerinden çalışan yaklaşımı. En bilinen aracı psikolojik jest: karakterin iç isteğini tek bir beden hareketinde toplamak.', href: '/makaleler/michael-chekhov-teknigi-psikolojik-jest' },
+        { term: 'Viewpoints', body: 'Mary Overlie\'nin dans için geliştirdiği, Anne Bogart ve Tina Landau\'nun tiyatroya uyarladığı yöntem. Tempo, süre, mekânsal ilişki ve jest gibi zaman ve mekân kavramlarını grubun ortak dili yapar.', href: '/makaleler/viewpoints-yontemi-nedir-anne-bogart' },
+        { term: 'Grotowski ve yoksul tiyatro', body: 'Jerzy Grotowski\'nin oyuncu ile seyirci ilişkisini merkeze alıp sahnedeki her fazlalığı attığı yaklaşım. Yoğun fiziksel çalışmaya dayanır.', href: '/makaleler/grotowski-yoksul-tiyatro' },
+        { term: 'Brecht ve yabancılaştırma', body: 'Bertolt Brecht\'in, seyircinin olaya kapılmak yerine onu sorgulamasını hedefleyen epik tiyatrosu. Oyuncu karakteri tümüyle "olmak" yerine onu seyirciye gösterir.', href: '/makaleler/brecht-yabancilastirma-efekti-nedir' },
+        { term: 'Devising (ortak yaratım)', body: 'Oyunun hazır bir metinden değil, grubun doğaçlamaları ve araştırmasından birlikte kurulması. Oyuncu aynı zamanda yazar ve yaratıcıdır.', href: '/makaleler/devising-tiyatro-nedir' },
+        { term: 'Doğaçlama', body: 'Önceden yazılmamış bir sahneyi anda kurmak. Temel ilkesi "evet, ve": partnerin önerisini kabul edip üzerine eklemek.', href: '/makaleler/dogaclama-tiyatro-evet-ve-kurali' },
+        { term: 'Masabaşı metin analizi', body: 'Sahneye çıkmadan önce metnin masada satır satır okunması; karakterin ne istediğinin, sahnenin nerede döndüğünün çıkarılması.', href: '/makaleler/masabasi-provasi-metin-analizi' },
+        { term: 'Ses ve nefes', body: 'Oyuncunun sesini taşıyan nefes desteği, rezonans ve diksiyon çalışması. Sahnede son sıraya ulaşmanın ve kamerada sesi küçültüp anlamı korumanın ortak temeli.', href: '/makaleler/oyunculukta-ses-ve-nefes' },
+      ],
+    },
+    yorumIds: ['et', 'ek'],
+    articleSlugs: [
+      'oyunculuk-kursunda-ilk-ders',
+      'oyunculuk-yetenek-mi-ogrenilir-mi',
+      'istanbul-oyunculuk-kursu-nasil-secilir',
+      'tiyatro-kursu-mu-oyunculuk-kursu-mu',
+      'calisirken-oyunculuk-egitimi',
+      'oyuncu-nasil-yetisir',
+    ],
+    facts: {
+      heading: 'SAHNENİN ARKASINDAKİ SEKTÖR: RAKAMLAR',
+      lead: 'Oyunculuk eğitimi alanlar sahneyle sınırlı kalmıyor; Türk dizisi bugün dünya pazarında ciddi bir ihracat kalemi. Aşağıdaki rakamların her biri kaynağıyla birlikte, tarihiyle yazıldı. Kaynaklar birbirini tam tutmuyor, bunu da açıkça belirttik.',
+      rows: [
+        {
+          label: '2024 dizi ve film ihracatı',
+          value: '602 milyon dolar; 150\'den fazla ülke',
+          source: 'Memurlar.net, 31 Mart 2025 (haber, TÜİK verisine atıfla)',
+          url: 'https://www.memurlar.net/haber/1131652/2024-te-dizi-film-sektorunde-602-milyon-dolarlik-ihracat.html',
+        },
+        {
+          label: '2024 yalnızca dizi ihracatı',
+          value: '500 milyon doları aşan hacim; yaklaşık 200 ülke, 300\'den fazla yapım',
+          source: 'CNBC-e, 18 Ocak 2025',
+          url: 'https://www.cnbce.com/veriler/turk-dizileri-rekor-kiriyor-2024-yilinda-200-ulkeye-ihrac-edildi-h8634',
+        },
+        {
+          label: '2026 yetkili beyanı',
+          value: 'Dizi ihracatı 1 milyar doları aştı; yaklaşık 170 ülke',
+          source: 'Türkiye Gazetesi, 28 Ağustos 2026 (İletişim Başkanı\'nın sözlü beyanı)',
+          url: 'https://www.turkiyegazetesi.com.tr/kultur-sanat/dizi-ihracatinda-1-milyar-dolari-asan-hacim-turk-yapimlarini-170e-yakin-ulkede-1-mily-1812197',
+        },
+        {
+          label: 'Bölüm başı satış fiyatı',
+          value: '200.000 ile 650.000 dolar arası',
+          source: 'Karar, 26 Ekim 2025 (MIPCOM aktarımı)',
+          url: 'https://www.karar.com/hayat-haberleri/turk-dizileri-ihracat-rekoru-2025-esref-ruya-bolum-basi-fiyati-ne-kadar-2001763',
+        },
+        {
+          label: 'Netflix küresel listesi',
+          value: '2021\'den bu yana 47 Türk yapımı Netflix\'in haftalık küresel ilk 10 listesine girdi',
+          source: 'CNBC-e, 18 Ocak 2025 (Netflix verisine atıfla)',
+          url: 'https://www.cnbce.com/veriler/turk-dizileri-rekor-kiriyor-2024-yilinda-200-ulkeye-ihrac-edildi-h8634',
+        },
+      ],
+      note: 'Not: 602 milyon dolar dizi ve filmi birlikte, 500 milyon doları aşan rakam yalnızca diziyi, 1 milyar dolar ise 2026 tarihli sözlü bir beyanı gösteriyor. Kapsamları ve hesap yöntemleri aynı olmadığı için birbirine eklenemez ya da yıldan yıla büyüme diye okunamaz. Kaynaklara 7 Ekim 2026\'da yeniden bakıldı.',
+    },
     related: ['kamera-onu-oyunculuk-istanbul', 'yaratici-drama-istanbul', 'muzikal-tiyatro-kursu-istanbul'],
   },
 
@@ -232,7 +334,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Karakter · Çerçeve · Audition',
     seoTitle: 'Kamera Önü Oyunculuk Kursu İstanbul — Audition & Self-Tape',
     seoDesc:
-      'İstanbul kamera önü oyunculuk atölyesi: karakter inşası, çerçeve bilinci, soğuk okuma ve self-tape. Türkçe ve İngilizce metinlerle casting hazırlığı — Pera.',
+      'İstanbul kamera önü oyunculuk kursu: 4 hafta, en çok 10 kişi. Karakter, çerçeve bilinci, göz hattı, soğuk okuma ve self-tape; Türkçe ve İngilizce metinlerle casting hazırlığı. Pera.',
     keywords: [
       'kamera önü oyunculuk', 'kamera önü oyunculuk kursu istanbul',
       'kamera oyunculuğu eğitimi', 'dizi oyunculuğu kursu istanbul',
@@ -244,7 +346,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Sahnede işleyen oyunculuk kamerada aynı şekilde işlemiyor. Sahne için büyütülen her şey — jest, ses, enerji — objektifin önünde fazla geliyor. Camera Praxis tam olarak bu farkı çalışan dört haftalık yoğun atölyemiz (Selen Uçer, Pera); şu an yeni dönem için kayıt almıyor, bekleme listesi açık. Bu dönem kamerayla çalışmanın açık kapısı English Acting Praxis: finalinde cast direktörü Harika Uygur ile bir günlük masterclass ve çekim günü var, performanslar kayda alınıp katılımcılara teslim ediliyor.',
     what:
-      'Karakter analiziyle başlıyoruz: hedef, engel, alt metin — ama metni kamera için okuyarak. Sonra teknik: çerçeve bilinci, close-up\'ta enerji yönetimi, göz hattı, tekrarlanabilirlik. Son hafta tamamen audition: soğuk okuma, casting simülasyonu, self-tape çekimi. Çıkışta showreel için kullanabileceğin kayıt elinde oluyor. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor.',
+      'Karakter analiziyle başlıyoruz: hedef, engel, alt metin; ama metni kamera için okuyarak. Sonra teknik: çerçeve bilinci, yakın planda enerji yönetimi, göz hattı, aynı hareketi her çekimde aynı anda tekrarlayabilmek. Son hafta tamamen audition: soğuk okuma, casting simülasyonu, self-tape çekimi. Çıkışta showreel için kullanabileceğin kayıt elinde oluyor. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor. Grup en çok 10 kişi; kamera önünde çekim sırayla yapıldığı için kontenjan büyüdükçe kişi başına düşen kamera süresi azalıyor, sınırı bu yüzden düşük tutuyoruz.',
     who:
       'Sahne deneyimi olup kameraya geçmek isteyenler, casting\'lere girip geri dönüş alamayanlar, self-tape hazırlaması gerekenler ve iki dilde birden çalışmak isteyen oyuncular.',
     // Açık program önce (29 Eylül 2026): Camera Praxis kayıt almıyor.
@@ -262,6 +364,26 @@ export const DISCIPLINES: Discipline[] = [
       {
         q: 'İngilizce audition hazırlığı yapıyor musunuz?',
         a: 'Evet. Çalışmalar hem Türkçe hem İngilizce metinler üzerinden yürüyor. Uluslararası casting\'lere hazırlananlar için İngilizce sahne çalışan English Acting Praxis programı da var.',
+      },
+      {
+        q: 'Sahne oyunculuğu ile kamera önü oyunculuğu arasındaki fark ne?',
+        a: 'Ölçek ve zaman. Sahnede oyuncu son sıradaki seyirciye ulaşmak zorunda ve sahne baştan sona akıyor. Kamerada yakın plan en küçük değişikliği görüyor, sahne ise parça parça, farklı açılardan ve defalarca çekiliyor. Karakter çalışması aynı kalıyor; değişen, onu hangi ölçekte oynadığın ve kaç kez aynı tazelikte tekrar edebildiğin.',
+      },
+      {
+        q: 'Self-tape çekmek için hangi ekipman gerekir?',
+        a: 'Pahalı ekipman şart değil. SAG-AFTRA\'nın 2020 tarihli rehberine göre telefonların ses kalitesi artık self-tape için yeterli; dış mikrofon kaliteyi artırabilir ama zorunlu değil. Sabit bir telefon tutucu ya da tripod, düz renkli bir arka plan (mavi, gri ya da kırık beyaz; saf beyaz değil) ve yüzü önden aydınlatan bir ışık kaynağı, pencere de olur, iyi bir başlangıç. Ayrıntıları self-tape rehberimizde adım adım yazdık.',
+      },
+      {
+        q: 'Camera Praxis ne zaman başlıyor?',
+        a: 'Yeni dönemin tarihi yakında açıklanacak. Bekleme listesine yazılırsan tarih kesinleştiğinde ilk haber alanlardan olursun. Program 4 hafta sürüyor, Pera\'da yapılıyor ve grup en çok 10 kişi.',
+      },
+      {
+        q: 'Dizi oyuncusu olmak için kamera önü kursu şart mı?',
+        a: 'Resmî bir şart yok. Ama sette istenen teknik beceriler, yani göz hattı, süreklilik, markaya basmak, aynı sahneyi defalarca taze oynamak, sahnede kendiliğinden öğrenilmiyor. Kamera önü çalışması bu boşluğu kapatıyor; temeli ise sahne oyunculuğu kuruyor. Sıralamayı dizi oyuncusu olmak üzerine yazımızda ayrıntılı anlattık.',
+      },
+      {
+        q: 'Kamera önü oyunculuk kursunda kaç kişi olmalı?',
+        a: 'Kamera önünde çekim sırayla yapılır; grup büyüdükçe kişi başına kamera süresi azalır. Camera Praxis\'te kontenjan en çok 10 kişi. Başka bir program seçiyorsan bir oturumda kaç kez kameraya gireceğini ve kaydın sana verilip verilmeyeceğini baştan sor.',
       },
     ],
     criteria: [
@@ -286,6 +408,81 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Hedefin yerel dizi ve reklam ise Türkçe metin yeterlidir. Uluslararası casting ya da yurt dışı başvurusu düşünüyorsan İngilizce sahne çalışması ayrı bir hazırlık ister. Programın hangisini kapsadığını en baştan netleştir, çünkü ikisi aynı şey değildir.',
       },
     ],
+    guide: {
+      heading: 'KAMERA ÖNÜ SÖZLÜĞÜ',
+      lead: 'Sete ilk kez giren oyuncunun en çok zorlandığı şey çoğu zaman oyunculuk değil, setin dili. Bir çekim gününde duyacağın on iki terim, ne anlama geldikleri ve oyuncudan ne istedikleri.',
+      items: [
+        { term: 'Plan boyu (çekim ölçeği)', body: 'Kameranın seni ne kadar geniş ya da yakın gördüğü. Genel planda beden ve yürüyüş, yakın planda yüz ve göz okunur. Oyuncu hangi planda çekildiğini bilip ölçeğini ona göre ayarlar.', href: '/makaleler/kamera-onunde-oyunculuk' },
+        { term: 'Yakın plan (close-up)', body: 'Kadrajın büyük kısmını yüzün kapladığı çekim. Sahnede görünmeyen küçük değişiklikler, bir bakışın kayması ya da tutulan bir nefes, burada okunur; sahne için büyütülmüş ifade ise fazla gelir.' },
+        { term: 'Göz hattı (eyeline)', body: 'Oyuncunun baktığı nokta. Kurguda sahnenin tutarlı görünmesi için her çekimde aynı yere bakmak gerekir. Self-tape\'te bu nokta genellikle kameranın hemen yanında duran okuyucudur.', href: '/makaleler/self-tape-nasil-cekilir' },
+        { term: 'Süreklilik (devamlılık)', body: 'Aynı sahne birçok çekimde, farklı açılardan çekilir. Bardağı hangi cümlede kaldırdığın, başını ne zaman çevirdiğin her çekimde aynı olmalı ki kurguda parçalar birleşebilsin.' },
+        { term: 'Master çekim ve coverage', body: 'Sahnenin önce tamamının geniş bir açıdan çekilmesi (master), sonra aynı sahnenin yakın planlardan ve karşı açılardan yeniden çekilmesi (coverage). Oyuncu aynı sahneyi bir çekim gününde defalarca, her seferinde canlı oynamak zorunda kalır.' },
+        { term: 'Marka', body: 'Oyuncunun duracağı yerin yerde bantla işaretlenmesi. Odak ve ışık o noktaya göre ayarlandığı için markayı kaçırmak çekimi bozabilir.' },
+        { term: 'Self-tape', body: 'Oyuncunun seçme sahnesini kendi imkânlarıyla kaydedip casting\'e göndermesi. Pek çok seçmede ilk eleme artık bu kayıtla yapılıyor.', href: '/makaleler/self-tape-nasil-cekilir' },
+        { term: 'Slate', body: 'Oyuncunun adını ve istenen bilgileri söylediği kısa tanıtım. Kaydın başında mı, ayrı bir videoda mı olacağını, hatta hiç olup olmayacağını casting talimatı belirler.' },
+        { term: 'Okuyucu (reader)', body: 'Seçmede karşı karakterin repliklerini okuyan kişi. Kamera dışında, kameranın hemen sağında ya da solunda durur; oyuncunun göz hattını o belirler.' },
+        { term: 'Soğuk okuma', body: 'Önceden çalışılmamış ya da çok kısa sürede hazırlanmış bir metni oynamak. Casting koşullarında sık karşılaşılır ve ayrıca çalışılması gereken bir beceridir.', href: '/makaleler/casting-direktoru-neye-bakar' },
+        { term: 'Callback', body: 'İlk seçmeden sonra yapılan ikinci görüşme. Oyuncudan çoğu zaman aynı sahneyi farklı notlarla yeniden oynaması istenir; not alıp anında uygulayabilmek burada sınanır.' },
+        { term: 'Showreel', body: 'Oyuncunun ekranda nasıl göründüğünü gösteren kısa kurgu video. Casting\'e ve ajanslara gönderilir; en güçlü sahne başa konur.', href: '/makaleler/dizi-oyuncusu-olmak-icin-nereden-baslanir' },
+      ],
+    },
+    articleSlugs: [
+      'self-tape-nasil-cekilir',
+      'kamera-onunde-oyunculuk',
+      'casting-direktoru-neye-bakar',
+      'dizi-oyuncusu-olmak-icin-nereden-baslanir',
+      'turk-oyuncularin-uluslararasi-kariyeri-dil-ve-casting',
+      'tiyatro-secmeleri-icin-monolog-nasil-calisilir',
+    ],
+    facts: {
+      heading: 'SELF-TAPE ve KAMERA: YAZILI STANDARTLAR',
+      lead: 'Kamera önü oyunculuğunda "güzel çekim" ölçülebilir kurallara dayanıyor. Aşağıdaki maddeler casting tarafının yayımladığı rehberlerden derlendi, kaynağı ve tarihi yanında. Kaynaklar bazı noktalarda ayrışıyor; bunu da işaretledik.',
+      rows: [
+        {
+          label: 'Yatay kayıt, düz arka plan',
+          value: 'Aksi istenmedikçe yatay (landscape) çekim; düz mavi ideal, gri, yeşil ya da kırık beyaz kabul edilebilir; saf beyaz ve desenden kaçın; seçme ilanından sonraki ilk 2-3 gün içinde gönder',
+          source: 'SAG-AFTRA, "Self-Tape Anatomy", 15 Ağustos 2020',
+          url: 'https://sagaftra.org/self-tape-anatomy',
+        },
+        {
+          label: 'Çerçeve',
+          value: 'Göğüs hizasından başın biraz üstüne; sabit kamera; okuyucu kameranın hemen dışında',
+          source: 'Backstage, "10 Self-Tape Tips", 14 Şubat 2024',
+          url: 'https://www.backstage.com/magazine/article/tips-winning-self-tape-audition-13472/',
+        },
+        {
+          label: 'Slate (kendini tanıtma)',
+          value: 'Kaynaklar ayrışıyor: SAG-AFTRA slate\'i seçme kaydından ayrı bir video olarak çekip ikisini birlikte göndermeyi öneriyor; Backstage casting açıkça istemedikçe slate yapılmamasını söylüyor. Doğrusu, casting ilanındaki talimat',
+          source: 'SAG-AFTRA (2020) ve Backstage (2024), yukarıdaki iki bağlantı',
+          url: 'https://www.backstage.com/magazine/article/tips-winning-self-tape-audition-13472/',
+        },
+        {
+          label: 'Casting tarafının süre ve hacim standardı',
+          value: 'İlk self-tape için en çok 6 sayfa ve en az 4 gün hazırlık; 3 sayfa ve altı için en az 3 gün; en çok 2 rol, rol başına en çok 2 sahne, sahne başına en çok 2 versiyon; oyuncudan okuyucu ücreti istenmez',
+          source: 'Equity, CDG, PMA ve CPMA ortak en iyi uygulama, Backstage UK, 12 Ağustos 2021 (Birleşik Krallık)',
+          url: 'https://www.backstage.com/uk/magazine/article/casting-directors-equity-best-practice-self-tapes-73820/',
+        },
+        {
+          label: 'Göz hattı',
+          value: 'Göz hattı kesin ve tutarlı olmalı; evde çalışırken bakış noktalarını bant ya da yapışkan notla işaretle, kendini kaydedip izle',
+          source: 'Backstage, "Eyelines: A Film Guide", 8 Nisan 2022',
+          url: 'https://www.backstage.com/magazine/article/eyelines-film-guide-74961/',
+        },
+        {
+          label: 'Süreklilik (continuity)',
+          value: 'Aynı fiziksel hareketleri her çekimde birebir tekrarla; süreklilik bozulursa kurgucu daha zayıf bir çekimi kullanmak zorunda kalabilir',
+          source: 'Backstage, Jordan Goldman (Emmy ödüllü kurgucu), 16 Aralık 2015',
+          url: 'https://www.backstage.com/magazine/article/technical-skill-film-actors-must-learn-7768/',
+        },
+        {
+          label: 'Camera Praxis, bizim sayılarımız',
+          value: '4 hafta; en çok 10 kişi; üç blok: karakter (1. hafta), kamera (2 ve 3. hafta), audition (4. hafta)',
+          source: 'Techne Lab program sayfası',
+          url: 'https://www.technelabistanbul.com/atolyeler/camera-praxis',
+        },
+      ],
+      note: 'Not: Türkiye\'deki casting ajanslarının ve platformlarının yayımlanmış bir self-tape standardını bulamadık; yukarıdakiler ABD (SAG-AFTRA, Backstage) ve Birleşik Krallık (Equity, CDG) kaynaklı rehberler. Kaynaklara 7 Ekim 2026\'da yeniden bakıldı. Türkiye\'de her casting kendi talimatını yazar; ilanı kelimesi kelimesine okumak her zaman önce gelir.',
+    },
     related: ['oyunculuk-kursu-istanbul', 'audition-hazirlik-atolyesi-istanbul', 'ingilizce-oyunculuk-istanbul', 'ingilizce-drama-istanbul'],
   },
 

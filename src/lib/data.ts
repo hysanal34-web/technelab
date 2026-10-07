@@ -268,7 +268,9 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Kamera', span: '2—3. Hafta', body: 'Çerçeve bilinci, close-up tekniği, enerji yönetimi. Sahnenin büyüklüğünü kameraya göre ayarlamak.' },
       { title: 'Audition', span: '4. Hafta', body: 'Soğuk okuma, casting simülasyonu, self-tape çekimi ve showreel için kayıt.' },
     ],
-    seoTitle: 'Kamera Önü Oyunculuk Atölyesi İstanbul — Türkçe & İngilizce',
+    // 7 Ekim 2026: başlık marka öne alındı. "kamera önü oyunculuk kursu istanbul" sorgusunu
+    // /kamera-onu-oyunculuk-istanbul hub'ı hedefliyor; iki sayfa aynı başlıkla yarışmasın.
+    seoTitle: 'Camera Praxis: Selen Uçer ile Kamera Önü Oyunculuk Atölyesi (Pera)',
     seoDesc: 'Selen Uçer ile 4 haftalık kamera önü oyunculuk atölyesi. Türkçe ve İngilizce metinlerle karakter, çerçeve bilinci, audition ve self-tape. Pera, İstanbul.',
   },
 ]

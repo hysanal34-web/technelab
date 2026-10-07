@@ -82,7 +82,7 @@ export default async function ArticlePage({ params }: Props) {
       logo: { '@type': 'ImageObject', url: `${SITE_META.url}/images/og-techne-lab.png` },
     },
     datePublished: meta.date,
-    dateModified: meta.date,
+    dateModified: meta.updated ?? meta.date,
     url: pageUrl,
   }
 

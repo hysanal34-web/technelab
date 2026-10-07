@@ -6,6 +6,7 @@ import { getDiscipline, type Discipline } from '@/lib/disiplinler'
 import { DISTRICTS } from '@/lib/semtler'
 import { findTeamMembersForInstructor, type TeamMember } from '@/lib/ekip'
 import { displayRole } from '@/lib/roleLabel'
+import { YORUMLAR } from '@/lib/yorumlar'
 
 /**
  * Disiplin landing sayfası — "oyunculuk kursu istanbul", "dans kursu istanbul"
@@ -127,6 +128,13 @@ export function DisciplinePage({ d }: { d: Discipline }) {
   // Blog trafiği ile satış sayfaları arasında iki yönlü bağ kuruyor:
   // makale → program CTA'sı zaten var, burada program sayfası → makale.
   const ilgiliYazilar = (() => {
+    // Sayfaya elle sabitlenmiş yazılar varsa onlar (taslak olanlar getAllArticles'ta zaten yok).
+    if (d.articleSlugs && d.articleSlugs.length > 0) {
+      const tum = getAllArticles()
+      return d.articleSlugs
+        .map((s) => tum.find((a) => a.slug === s))
+        .filter((a): a is NonNullable<typeof a> => Boolean(a))
+    }
     const havuz = [...d.keywords, d.label].join(' ').toLocaleLowerCase('tr-TR')
     const kelimeler = havuz.split(/[\s,]+/).filter((k) => k.length > 4)
     return getAllArticles()
@@ -141,11 +149,31 @@ export function DisciplinePage({ d }: { d: Discipline }) {
       .map((x) => x.a)
   })()
 
+  const yorumlar = (d.yorumIds ?? [])
+    .map((id) => YORUMLAR.find((y) => y.id === id))
+    .filter((y): y is NonNullable<typeof y> => Boolean(y))
+
+  const guideLd = d.guide
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTermSet',
+        name: d.guide.heading,
+        url: `${SITE_META.url}/${d.slug}`,
+        hasDefinedTerm: d.guide.items.map((g) => ({
+          '@type': 'DefinedTerm',
+          name: g.term,
+          description: g.body,
+          ...(g.href ? { url: `${SITE_META.url}${g.href}` } : {}),
+        })),
+      }
+    : null
+
 return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {guideLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideLd) }} />}
 
       {/* ── Hero ── */}
       <section className="px-4 md:px-10 pt-28 pb-16 border-b border-border">
@@ -343,6 +371,30 @@ return (
         </section>
       )}
 
+      {/* ── Kaynaklı veri ── */}
+      {d.facts && (
+        <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="veri-heading">
+          <h2 id="veri-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            {d.facts.heading}
+          </h2>
+          <p className="font-body text-[14px] text-stone leading-relaxed max-w-3xl mb-10">{d.facts.lead}</p>
+          <div className="max-w-6xl border-t border-border">
+            {d.facts.rows.map((r) => (
+              <div key={r.label} className="grid md:grid-cols-[220px_1fr_1fr] gap-x-10 gap-y-2 py-5 border-b border-border">
+                <h3 className="font-mono text-[11px] tracking-[0.12em] uppercase text-dim">{r.label}</h3>
+                <p className="font-body text-[14px] text-fg leading-relaxed">{r.value}</p>
+                <p className="font-mono text-[11px] text-dim leading-relaxed">
+                  <a href={r.url} target="_blank" rel="noopener noreferrer nofollow" className="underline underline-offset-2 hover:text-fg">
+                    {r.source}
+                  </a>
+                </p>
+              </div>
+            ))}
+          </div>
+          {d.facts.note && <p className="font-mono text-[11px] text-dim leading-relaxed max-w-3xl mt-6">{d.facts.note}</p>}
+        </section>
+      )}
+
       {/* ── Nasıl seçilir ── */}
       {d.criteria && d.criteria.length > 0 && (
         <section className="px-4 md:px-10 py-16 border-b border-border bg-bgAlt" aria-labelledby="kriter-heading">
@@ -361,6 +413,32 @@ return (
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* ── Sözlük / yöntem haritası ── */}
+      {d.guide && (
+        <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="rehber-heading">
+          <h2 id="rehber-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            {d.guide.heading}
+          </h2>
+          <p className="font-body text-[14px] text-stone leading-relaxed max-w-3xl mb-10">{d.guide.lead}</p>
+          <dl className="grid md:grid-cols-2 gap-x-16 gap-y-8 max-w-6xl">
+            {d.guide.items.map((g) => (
+              <div key={g.term} className="border-t border-border pt-5">
+                <dt className="font-display text-fg text-[18px] leading-tight mb-2">
+                  {g.href ? (
+                    <Link href={g.href} data-hover className="hover:text-neon transition-colors">
+                      {g.term} →
+                    </Link>
+                  ) : (
+                    g.term
+                  )}
+                </dt>
+                <dd className="font-body text-[14px] text-stone leading-relaxed">{g.body}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
       )}
 
@@ -412,7 +490,33 @@ return (
         </section>
       )}
 
-      {/* ── Lokasyonlar ── */}
+      {/* ── Katılımcı yorumları (gerçek, baş harfli; program adıyla) ── */}
+      {yorumlar.length > 0 && (
+        <section className="px-4 md:px-10 py-16 border-b border-border" aria-labelledby="yorum-heading">
+          <h2 id="yorum-heading" className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
+            KATILANLAR NE DİYOR?
+          </h2>
+          <p className="font-mono text-[12px] text-dim mb-10 max-w-2xl">
+            Katılımcıların kendi cümleleri, düzeltilmeden. Hangi programa katıldıkları altında yazıyor.
+          </p>
+          <div className="grid md:grid-cols-2 gap-px bg-border max-w-6xl">
+            {yorumlar.map((y) => (
+              <figure key={y.id} className="bg-bg p-6 md:p-8 flex flex-col">
+                <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-dim block mb-2">gelmeden önce</span>
+                <p className="font-mono text-[12px] leading-relaxed text-stone mb-5">{y.cekince}</p>
+                <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-neon block mb-2">sonra</span>
+                <blockquote className="font-mono text-[13px] leading-relaxed text-fg flex-1 mb-6">{y.sonuc}</blockquote>
+                <figcaption className="font-mono text-[11px] text-dim">
+                  {y.initials}
+                  {y.meslek ? ` · ${y.meslek}` : ''} · {y.program}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── NEREDE ── */}
       <section className="px-4 md:px-10 py-16 border-b border-border bg-bgAlt">
         <h2 className="font-display text-fg mb-3" style={{ fontSize: 'clamp(24px,3vw,44px)', lineHeight: 1 }}>
           NEREDE?
