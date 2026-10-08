@@ -51,7 +51,7 @@ export const WORKSHOPS: Workshop[] = [
     venue: 'Kadıköy', duration: '8 hafta (modül başına)', price: 18000,
     friendDiscountPercent: 10,
     facts: ['Yetişkin', '3 modül × 8 hafta', 'Modüller ayrı alınır', 'Kadıköy', 'En fazla 10 kişi'],
-    schedule: [{ place: 'Kadıköy', date: '7 Ekim Çarşamba' }],
+    schedule: [{ place: 'Kadıköy', date: '7 Ekim’de başladı · katılım açık' }],
     maxStudents: 10, active: true,
     category: 'yazarlık',
     tags: ['Yaratıcı Yazarlık', 'Dramaturji', 'Roman & Senaryo'],

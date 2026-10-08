@@ -30,7 +30,12 @@ export async function generateMetadata({ params }: { params: Promise<{ semt: str
       title: { absolute: disc.seoTitle },
       description: disc.seoDesc,
       keywords: disc.keywords,
-      alternates: { canonical: `${SITE_META.url}/${disc.slug}` },
+      alternates: {
+        canonical: `${SITE_META.url}/${disc.slug}`,
+        ...(disc.enPath
+          ? { languages: { 'tr-TR': `${SITE_META.url}/${disc.slug}`, 'en-US': `${SITE_META.url}${disc.enPath}`, 'x-default': `${SITE_META.url}/${disc.slug}` } }
+          : {}),
+      },
       openGraph: {
         title: disc.seoTitle,
         description: disc.seoDesc,

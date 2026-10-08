@@ -4,6 +4,7 @@ import { getAllArticles } from '@/lib/mdx'
 import { DISTRICTS } from '@/lib/semtler'
 import { DISCIPLINES } from '@/lib/disiplinler'
 import { EN_PAGES } from '@/lib/enDisciplines'
+import { getAllEnArticles } from '@/lib/enArticles'
 import { TEAM } from '@/lib/ekip'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,8 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kaynaklar/monologlar', priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/sozluk',     priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/ses-nefes',  priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/konusma-kulubu-sorulari', priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/muzikal-secme-sarkilari', priority: 0.8, freq: 'monthly' },
     { path: '/en',                        priority: 0.8, freq: 'weekly' },
     { path: '/en/english-drama-istanbul', priority: 0.8, freq: 'weekly' },
+    { path: '/en/articles',               priority: 0.8, freq: 'weekly' },
     { path: '/isbirlikleri',  priority: 0.7, freq: 'monthly' },
     { path: '/ekip',          priority: 0.7, freq: 'monthly' },
     { path: '/galeri',        priority: 0.6, freq: 'monthly' },
@@ -86,5 +90,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...sayfalar, ...disiplinler, ...ingilizce, ...semtler, ...programlar, ...ekip, ...makaleler]
+  // İngilizce makaleler — expat, ziyaretçi ve İngilizce konuşan kitle
+  const enMakaleler: MetadataRoute.Sitemap = getAllEnArticles().map((a) => ({
+    url: `${base}/en/articles/${a.slug}`,
+    lastModified: new Date(a.updated ?? a.date),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...sayfalar, ...disiplinler, ...ingilizce, ...enMakaleler, ...semtler, ...programlar, ...ekip, ...makaleler]
 }

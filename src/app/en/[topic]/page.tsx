@@ -1,3 +1,4 @@
+import { getAllEnArticles } from '@/lib/enArticles'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -21,7 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: p.keywords,
     alternates: {
       canonical: url,
-      languages: { 'en-US': url, 'tr-TR': SITE_META.url, 'x-default': SITE_META.url },
+      languages: {
+        'en-US': url,
+        'tr-TR': p.trSlug ? `${SITE_META.url}/${p.trSlug}` : SITE_META.url,
+        'x-default': p.trSlug ? `${SITE_META.url}/${p.trSlug}` : SITE_META.url,
+      },
     },
     openGraph: {
       title: p.seoTitle,
@@ -39,6 +44,9 @@ export default async function EnTopicPage({ params }: Props) {
   if (!p) notFound()
 
   const url = `${SITE_META.url}/en/${p.slug}`
+  const enArticles = (p.articleSlugs ?? [])
+    .map((s) => getAllEnArticles().find((a) => a.slug === s))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a))
   const programmes = p.workshopSlugs
     .map((s) => WORKSHOPS.find((w) => w.slug === s))
     .filter((w): w is NonNullable<typeof w> => Boolean(w) && !w!.archived)
@@ -117,6 +125,41 @@ export default async function EnTopicPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      {/* Sources */}
+      {p.sources && p.sources.length > 0 && (
+        <section className="px-4 md:px-10 py-10 border-b border-border">
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-dim mb-4">sources</p>
+          <ul className="max-w-3xl space-y-2">
+            {p.sources.map((s) => (
+              <li key={s.url} className="font-mono text-[11px] text-dim leading-relaxed">
+                <a href={s.url} target="_blank" rel="noopener noreferrer nofollow" className="underline underline-offset-2 hover:text-fg">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Articles */}
+      {enArticles.length > 0 && (
+        <section className="px-4 md:px-10 py-16 border-b border-border">
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-6">read more</p>
+          <ul className="border-t border-border max-w-3xl">
+            {enArticles.map((a) => (
+              <li key={a.slug} className="border-b border-border">
+                <Link href={`/en/articles/${a.slug}`} data-hover className="group block py-5">
+                  <span className="font-display text-fg group-hover:text-neon transition-colors block leading-snug" style={{ fontSize: 'clamp(16px,1.8vw,22px)' }}>
+                    {a.title}
+                  </span>
+                  {a.excerpt && <span className="font-mono text-[12px] text-stone leading-relaxed mt-2 block">{a.excerpt}</span>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Programmes */}
       {programmes.length > 0 && (

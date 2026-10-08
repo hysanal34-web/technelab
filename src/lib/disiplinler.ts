@@ -55,6 +55,8 @@ export type Discipline = {
   yorumIds?: string[]
   /** "Bu konuda yazdıklarımız" listesini elle sabitler (anahtar kelime eşleşmesi yerine). */
   articleSlugs?: string[]
+  /** İngilizce karşılık sayfası yolu (hreflang en-US), ör. '/en/drama-classes-for-kids-istanbul'. */
+  enPath?: string
   facts?: {
     heading: string
     lead: string
@@ -293,7 +295,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Çocuğum için İngilizce drama var mı?',
-        a: '10–17 yaş için English Drama Youth programı var: Eylül–Mayıs arası haftada bir gün, yıl sonunda seyircili bir final gösterisiyle kapanıyor. Veli onayıyla başvuru alınıyor.',
+        a: '10–17 yaş için English Drama Youth programı var: Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de, yıl sonunda seyircili bir final gösterisiyle kapanıyor. Veli onayıyla başvuru alınıyor.',
       },
     ],
     criteria: [
@@ -695,7 +697,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: '10–14 Yaş · Yıl Sonu Gösterisi',
     seoTitle: 'Çocuklar İçin İngilizce Drama İstanbul — 10-14 Yaş Yaratıcı Drama',
     seoDesc:
-      'İstanbul 10-14 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Kadıköy.',
+      'İstanbul 10-14 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
     keywords: [
       'çocuklar için ingilizce drama', 'çocuk ingilizce drama kursu istanbul',
       'ingilizce drama çocuk', '10 yaş drama kursu', '11 yaş drama kursu',
@@ -705,13 +707,13 @@ export const DISCIPLINES: Discipline[] = [
       'çocuklar için tiyatro kursu istanbul',
     ],
     intro:
-      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 10–14 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Kadıköy\'deki stüdyomuzda haftada bir gün, on iki kişiyi geçmeyen gruplarla.',
+      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 10–14 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Pera ve Kadıköy\'deki partner stüdyolarda haftada bir gün, on iki kişiyi geçmeyen gruplarla. Program İngilizcesi zaten olan çocuk için kuruldu: B1 ve üzeri bir çocuk için İstanbul\'daki seçenekler çoğu zaman ya bildiğini tekrar eden bir dil kursu ya da Türkçe bir drama kursu oluyor. Burada İngilizce çalışma dili, asıl iş tiyatro.',
     what:
-      'Ders kitabı yok, gramer anlatımı yok, sınav ve not yok. Çocuk bir karakteri canlandırırken, bir sahneyi kurarken, arkadaşıyla doğaçlama yaparken dili kullanmak zorunda kalıyor — ve kullandıkça korkusu geçiyor. Öğrendiği İngilizce burada işe yarayan bir şeye dönüşüyor. Yıl üç evrede ilerliyor: önce oyun ve güven, sonra karakter ve metin, son üç ayda gösteri provası. Mayıs\'ta seyirci önünde sahneye çıkıyorlar.',
+      'Ders kitabı yok, gramer anlatımı yok, sınav ve not yok. Çocuk bir karakteri canlandırırken, bir sahneyi kurarken, arkadaşıyla doğaçlama yaparken dili kullanmak zorunda kalıyor — ve kullandıkça korkusu geçiyor. Öğrendiği İngilizce burada işe yarayan bir şeye dönüşüyor. Her ay üç hafta drama, son hafta konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Yıl üç evrede ilerliyor: önce oyun ve güven, sonra karakter ve metin, son üç ayda çocukların kendi yazdığı ve tasarladığı malzemeyle gösteri provası. Mayıs\'ta seyirci önünde, tamamen İngilizce sahneye çıkıyorlar.',
     who:
-      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 10–14 ve 15–17 ayrı sınıflarda çalışıyor.',
+      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Uluslararası okullarda okuyan, yabancı ya da iki dilli ailelerden gelen ve İngilizcesini okul dışında kullanacak yaratıcı bir alan arayan çocuklar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 10–14 ve 15–17 ayrı sınıflarda çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
-    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
       {
         q: 'Çocuğumun İngilizce seviyesi yeterli mi?',
@@ -727,7 +729,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Program ne kadar sürüyor?',
-        a: 'Sekiz ay — Eylül\'den Mayıs\'a, haftada bir gün. Yıl sonunda seyircili bir final gösterisiyle kapanıyor.',
+        a: 'Sekiz ay, Ekim\'den Mayıs\'a, haftada bir gün. Pera grubu 4 Ekim\'de başladı ve katılım açık; Kadıköy grubu 17 Ekim\'de başlıyor. Yıl sonunda seyircili, tamamen İngilizce bir final gösterisiyle kapanıyor.',
       },
       {
         q: 'Yıl sonu gösterisi zorunlu mu?',
@@ -735,8 +737,82 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Atölyeler nerede yapılıyor?',
-        a: 'Kadıköy\'deki partner stüdyomuzda. Anadolu Yakası\'nın her yerinden ulaşım kolay; Üsküdar, Ataşehir ve Maltepe\'den gelen öğrencilerimiz var.',
+        a: 'İki yakada: Pera\'da (Beyoğlu) pazar 13:00, Kadıköy\'de cumartesi 15:00. Dersler partner stüdyolarda yapılıyor. Her iki yerde de haftalık ücretsiz tanışma seansı var.',
       },
+      {
+        q: 'Çocuğumun İngilizcesi zaten çok iyi, sıkılmaz mı?',
+        a: 'Buradaki zorluk kelime ya da gramer değil. Partnerle doğaçlama yapmak, sahne yazmak, sekiz ay boyunca bir karakteri taşımak ve seyirci önüne çıkmak. Program zaten İngilizcesi olan çocuk için kuruldu: dil öğretmiyor, dili çalışma dili olarak kullanıyor. İngilizcesi rahat olan çocuğun oynayacak daha çok alanı oluyor.',
+      },
+      {
+        q: 'Program sonunda İngilizcesi daha akıcı olur mu?',
+        a: 'Sınav ve not vermediğimiz için belirli bir seviye vaat etmiyoruz. Çalışma, CEFR\'da B1 ile B2\'yi ayıran beceriye odaklanıyor: her cümleyi kafada kurmadan, dengeli bir tempoyla konuşabilmek. Gençlerle yapılan bir araştırmada drama temelli İngilizce eğitimi alan grubun konuşması, standart iletişimsel derslere giden gruba göre daha akıcı bulundu (Galante ve Thomson, 2017).',
+      },
+      {
+        q: 'Yaratıcılık tarafında neler yapılıyor?',
+        a: 'Her ayın son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Çocuklar karakterleri için kısa hikâyeler yazıyor, karakter ve maske tasarlıyor, ritim ve grup hareketi kuruyor. Ürettikleri her şey yıl sonu gösterisinin malzemesi oluyor; yani hazır bir oyunu ezberlemiyor, kendi yazıp tasarladıkları bir şeyi sahneliyorlar.',
+      },
+      {
+        q: 'Uluslararası okulda okuyan ya da yabancı ailelerin çocukları katılabilir mi?',
+        a: 'Evet. Program İngilizce yürüyor ve tam olarak İngilizcesi zaten olan çocuklar için kuruldu: uluslararası okul öğrencileri, yabancı ve karma ailelerin çocukları, iki dilli çocuklar ve okul İngilizcesi güçlü olup onu kullanacak yer bulamayanlar. Velilerle iletişim İngilizce de yürüyebiliyor.',
+      },
+    ],
+    facts: {
+      heading: 'AKICILIK, YARATICILIK VE ARAŞTIRMA',
+      lead: 'İngilizcesi B1 ve üzeri olan bir çocuk için asıl soru "daha fazla İngilizce" değil, İngilizceyi kafasında çevirmeden kullanabilmek. Aşağıdaki satırlar bunun ne demek olduğunu ve araştırmaların ne söylediğini kaynağıyla birlikte veriyor. Bulguları abartmadan aktardık.',
+      rows: [
+        {
+          label: 'CEFR B1: konuşma',
+          value: 'Cümle kurmak ve düzeltmek için verilen duraklamalar belirgin olsa da anlaşılır biçimde konuşmayı sürdürebilir; tanıdık konularda basit bir sohbeti başlatıp bitirebilir',
+          source: 'Avrupa Konseyi, CEFR Tablo 3',
+          url: 'https://www.coe.int/en/web/common-european-framework-reference-languages/table-3-cefr-3.3-common-reference-levels-qualitative-aspects-of-spoken-language-use',
+        },
+        {
+          label: 'CEFR B2: konuşma',
+          value: 'Ara sıra tereddüt etse de oldukça dengeli bir tempoyla konuşur; söz alır, sırasını bekler, sohbeti gerektiğinde bitirir. B1\'den B2\'ye geçişin büyük kısmı yeni kelime değil, her cümleyi kafada kurmadan konuşabilmek',
+          source: 'Avrupa Konseyi, CEFR Tablo 3',
+          url: 'https://www.coe.int/en/web/common-european-framework-reference-languages/table-3-cefr-3.3-common-reference-levels-qualitative-aspects-of-spoken-language-use',
+        },
+        {
+          label: 'Drama ve akıcılık',
+          value: 'İngilizce öğrenen 24 Brezilyalı genç, dört ay boyunca ya drama temelli ya da standart iletişimsel derslerle çalıştı; 30 anadili İngilizce dinleyici drama grubunun konuşmasını daha akıcı ve daha kolay anlaşılır buldu. Aksanda fark yoktu',
+          source: 'Galante ve Thomson, TESOL Quarterly 51(1), 2017 (özet: Brock University, 2016)',
+          url: 'https://brocku.ca/brock-news/2016/04/brock-research-finds-drama-and-theatre-help-non-english-speaking-students-to-better-speak-english/',
+        },
+        {
+          label: 'Drama ve konuşma kaygısı',
+          value: 'Dört aylık programlar sonunda yabancı dil kaygısı hem drama hem drama dışı grupta düştü; drama grubunda biraz daha fazla',
+          source: 'Galante, RELC Journal 49(3), 2018',
+          url: 'https://journals.sagepub.com/doi/10.1177/0033688217746205',
+        },
+        {
+          label: '47 çalışmalık meta-analiz',
+          value: 'Drama temelli öğretimin başarı üzerinde ve psikolojik ve sosyal çıktılarda olumlu etkisi bulundu; yazarlar çalışmaların önemli kısmının neden-sonuç için zayıf tasarlandığını da belirtiyor',
+          source: 'Lee, Patall, Cawthon ve Steingut, Review of Educational Research 85(1), 2015',
+          url: 'https://journals.sagepub.com/doi/10.3102/0034654314540477',
+        },
+        {
+          label: 'İstanbul\'daki yabancı nüfus',
+          value: 'İkamet izinli 610.221 yabancı (3 Eylül 2026 verisi); uluslararası okul ve iki dilli aile çocukları için İngilizce yaratıcı alan ihtiyacının arka planı',
+          source: 'Göç Vakfı, Temmuz–Ağustos 2026 göç trendleri (Göç İdaresi Başkanlığı verisi)',
+          url: 'https://gocvakfi.org/temmuz-agustos-2026-goc-trendleri',
+        },
+        {
+          label: 'English Drama Youth, bizim sayılarımız',
+          value: '10–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          source: 'Techne Lab program sayfası',
+          url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
+        },
+      ],
+      note: 'Not: Sınav ve not vermediğimiz için belirli bir CEFR seviye atlaması vaat etmiyoruz. Araştırmalar dramanın akıcılık ve konuşma rahatlığı için iyi desteklenmiş bir yol olduğunu gösteriyor; gramer öğretiminin yerine geçmiyor. Kaynaklara 8 Ekim 2026\'da bakıldı.',
+    },
+    enPath: '/en/drama-classes-for-kids-istanbul',
+    articleSlugs: [
+      'ingilizcesi-iyi-olan-cocuk-icin-ne-var',
+      'cocugum-ingilizce-biliyor-ama-konusmuyor',
+      'ingilizce-drama-cocuga-ne-kazandirir',
+      'cocuklar-icin-ingilizce-drama-mi-ingilizce-kursu-mu',
+      'cocugum-yabanci-dilde-utaniyor',
+      'ingilizce-drama-youth-yas-gruplari-neden-ayri',
     ],
     related: ['gencler-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'yaratici-drama-istanbul'],
   },
@@ -749,7 +825,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: '15–17 Yaş · Yıl Sonu Gösterisi',
     seoTitle: 'Gençler İçin Tiyatro Kursu İstanbul — 15-17 Yaş İngilizce Drama',
     seoDesc:
-      'İstanbul 15-17 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Lise çağı için sahne, doğaçlama ve İngilizce konuşma pratiği — sınav ve not yok. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Kadıköy.',
+      'İstanbul 15-17 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Lise çağı için sahne, doğaçlama ve İngilizce konuşma pratiği — sınav ve not yok. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
     keywords: [
       'gençler için tiyatro kursu istanbul', 'genç drama kursu', 'lise tiyatro kursu',
       '15 yaş tiyatro kursu', '16 yaş drama kursu', '17 yaş oyunculuk kursu',
@@ -758,13 +834,13 @@ export const DISCIPLINES: Discipline[] = [
       'gençler için oyunculuk kursu kadıköy',
     ],
     intro:
-      'On beş yaşından sonra çocukluk oyunları işe yaramıyor — genç, ciddiye alınmak istiyor. Techne Lab İstanbul\'un 15–17 yaş grubu bu yüzden ayrı çalışıyor: gerçek metinler, gerçek sahne çalışması, yıl sonunda seyirci önünde gerçek bir gösteri. Sekiz ay, haftada bir gün, Kadıköy.',
+      'On beş yaşından sonra çocukluk oyunları işe yaramıyor — genç, ciddiye alınmak istiyor. Techne Lab İstanbul\'un 15–17 yaş grubu bu yüzden ayrı çalışıyor: gerçek metinler, gerçek sahne çalışması, yıl sonunda seyirci önünde gerçek bir gösteri. Sekiz ay, haftada bir gün, Pera ve Kadıköy. İngilizcesi B1 ve üzeri olan genç için bu, bildiğini tekrar eden bir kurs değil; İngilizcenin çalışma dili olduğu bir tiyatro atölyesi.',
     what:
-      'Dil öğretmiyoruz. Dili deneyimliyoruz. Ders kitabı, gramer anlatımı ve sınav yok; doğaçlama, karakter kurma, metin analizi ve sahne çalışması var. Genç, kendi seçtiği bir karakterle yıl boyunca uğraşıyor ve Mayıs\'taki gösteride onu seyirciye taşıyor. İngilizcesi bunun sonucunda açılıyor: bir dili sahnede kullanmak zorunda kalan biri, o dille arasındaki mesafeyi hızla kapatıyor.',
+      'Dil öğretmiyoruz. Dili deneyimliyoruz. Ders kitabı, gramer anlatımı ve sınav yok; doğaçlama, karakter kurma, metin analizi ve sahne çalışması var. Genç, kendi seçtiği bir karakterle yıl boyunca uğraşıyor ve Mayıs\'taki gösteride onu seyirciye taşıyor. İngilizcesi bunun sonucunda açılıyor: bir dili sahnede kullanmak zorunda kalan biri, o dille arasındaki mesafeyi hızla kapatıyor. Her ayın son haftası konuk atölye var: yaratıcı yazarlık, tasarım ve jazz dance; gençlerin yazdığı sahneler ve tasarımlar gösterinin malzemesi oluyor.',
     who:
-      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 15–17 kendi sınıfında, 10–14 ayrı çalışıyor.',
+      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Uluslararası okul öğrencileri ve İngilizcesini okul dışında yaratıcı bir işte kullanmak isteyen gençler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 15–17 kendi sınıfında, 10–14 ayrı çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
-    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
       {
         q: 'Küçük çocuklarla aynı sınıfta mı olacak?',
@@ -780,8 +856,81 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'İngilizce seviyesi ne olmalı?',
-        a: 'Orta seviye yeterli. Program dil öğretmiyor, dili deneyimletiyor. Konuşurken zorlanmak sorun değil — zaten çalışılan şey o.',
+        a: 'B1 ve üzeri: günlük bir sohbeti takip edip cevap verebiliyorsa yeterli. Seviye sınavı yok. Program dil öğretmiyor, dili deneyimletiyor; konuşurken zorlanmak sorun değil, zaten çalışılan şey o.',
       },
+      {
+        q: 'Çocuğumun İngilizcesi zaten çok iyi, sıkılmaz mı?',
+        a: 'Buradaki zorluk kelime ya da gramer değil. Partnerle doğaçlama yapmak, sahne yazmak, sekiz ay boyunca bir karakteri taşımak ve seyirci önüne çıkmak. Program zaten İngilizcesi olan çocuk için kuruldu: dil öğretmiyor, dili çalışma dili olarak kullanıyor. İngilizcesi rahat olan çocuğun oynayacak daha çok alanı oluyor.',
+      },
+      {
+        q: 'Program sonunda İngilizcesi daha akıcı olur mu?',
+        a: 'Sınav ve not vermediğimiz için belirli bir seviye vaat etmiyoruz. Çalışma, CEFR\'da B1 ile B2\'yi ayıran beceriye odaklanıyor: her cümleyi kafada kurmadan, dengeli bir tempoyla konuşabilmek. Gençlerle yapılan bir araştırmada drama temelli İngilizce eğitimi alan grubun konuşması, standart iletişimsel derslere giden gruba göre daha akıcı bulundu (Galante ve Thomson, 2017).',
+      },
+      {
+        q: 'Yaratıcılık tarafında neler yapılıyor?',
+        a: 'Her ayın son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Çocuklar karakterleri için kısa hikâyeler yazıyor, karakter ve maske tasarlıyor, ritim ve grup hareketi kuruyor. Ürettikleri her şey yıl sonu gösterisinin malzemesi oluyor; yani hazır bir oyunu ezberlemiyor, kendi yazıp tasarladıkları bir şeyi sahneliyorlar.',
+      },
+      {
+        q: 'Uluslararası okulda okuyan ya da yabancı ailelerin çocukları katılabilir mi?',
+        a: 'Evet. Program İngilizce yürüyor ve tam olarak İngilizcesi zaten olan çocuklar için kuruldu: uluslararası okul öğrencileri, yabancı ve karma ailelerin çocukları, iki dilli çocuklar ve okul İngilizcesi güçlü olup onu kullanacak yer bulamayanlar. Velilerle iletişim İngilizce de yürüyebiliyor.',
+      },
+    ],
+    facts: {
+      heading: 'AKICILIK, YARATICILIK VE ARAŞTIRMA',
+      lead: 'İngilizcesi B1 ve üzeri olan bir çocuk için asıl soru "daha fazla İngilizce" değil, İngilizceyi kafasında çevirmeden kullanabilmek. Aşağıdaki satırlar bunun ne demek olduğunu ve araştırmaların ne söylediğini kaynağıyla birlikte veriyor. Bulguları abartmadan aktardık.',
+      rows: [
+        {
+          label: 'CEFR B1: konuşma',
+          value: 'Cümle kurmak ve düzeltmek için verilen duraklamalar belirgin olsa da anlaşılır biçimde konuşmayı sürdürebilir; tanıdık konularda basit bir sohbeti başlatıp bitirebilir',
+          source: 'Avrupa Konseyi, CEFR Tablo 3',
+          url: 'https://www.coe.int/en/web/common-european-framework-reference-languages/table-3-cefr-3.3-common-reference-levels-qualitative-aspects-of-spoken-language-use',
+        },
+        {
+          label: 'CEFR B2: konuşma',
+          value: 'Ara sıra tereddüt etse de oldukça dengeli bir tempoyla konuşur; söz alır, sırasını bekler, sohbeti gerektiğinde bitirir. B1\'den B2\'ye geçişin büyük kısmı yeni kelime değil, her cümleyi kafada kurmadan konuşabilmek',
+          source: 'Avrupa Konseyi, CEFR Tablo 3',
+          url: 'https://www.coe.int/en/web/common-european-framework-reference-languages/table-3-cefr-3.3-common-reference-levels-qualitative-aspects-of-spoken-language-use',
+        },
+        {
+          label: 'Drama ve akıcılık',
+          value: 'İngilizce öğrenen 24 Brezilyalı genç, dört ay boyunca ya drama temelli ya da standart iletişimsel derslerle çalıştı; 30 anadili İngilizce dinleyici drama grubunun konuşmasını daha akıcı ve daha kolay anlaşılır buldu. Aksanda fark yoktu',
+          source: 'Galante ve Thomson, TESOL Quarterly 51(1), 2017 (özet: Brock University, 2016)',
+          url: 'https://brocku.ca/brock-news/2016/04/brock-research-finds-drama-and-theatre-help-non-english-speaking-students-to-better-speak-english/',
+        },
+        {
+          label: 'Drama ve konuşma kaygısı',
+          value: 'Dört aylık programlar sonunda yabancı dil kaygısı hem drama hem drama dışı grupta düştü; drama grubunda biraz daha fazla',
+          source: 'Galante, RELC Journal 49(3), 2018',
+          url: 'https://journals.sagepub.com/doi/10.1177/0033688217746205',
+        },
+        {
+          label: '47 çalışmalık meta-analiz',
+          value: 'Drama temelli öğretimin başarı üzerinde ve psikolojik ve sosyal çıktılarda olumlu etkisi bulundu; yazarlar çalışmaların önemli kısmının neden-sonuç için zayıf tasarlandığını da belirtiyor',
+          source: 'Lee, Patall, Cawthon ve Steingut, Review of Educational Research 85(1), 2015',
+          url: 'https://journals.sagepub.com/doi/10.3102/0034654314540477',
+        },
+        {
+          label: 'İstanbul\'daki yabancı nüfus',
+          value: 'İkamet izinli 610.221 yabancı (3 Eylül 2026 verisi); uluslararası okul ve iki dilli aile çocukları için İngilizce yaratıcı alan ihtiyacının arka planı',
+          source: 'Göç Vakfı, Temmuz–Ağustos 2026 göç trendleri (Göç İdaresi Başkanlığı verisi)',
+          url: 'https://gocvakfi.org/temmuz-agustos-2026-goc-trendleri',
+        },
+        {
+          label: 'English Drama Youth, bizim sayılarımız',
+          value: '10–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          source: 'Techne Lab program sayfası',
+          url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
+        },
+      ],
+      note: 'Not: Sınav ve not vermediğimiz için belirli bir CEFR seviye atlaması vaat etmiyoruz. Araştırmalar dramanın akıcılık ve konuşma rahatlığı için iyi desteklenmiş bir yol olduğunu gösteriyor; gramer öğretiminin yerine geçmiyor. Kaynaklara 8 Ekim 2026\'da bakıldı.',
+    },
+    articleSlugs: [
+      'ingilizcesi-iyi-olan-cocuk-icin-ne-var',
+      'cocugum-ingilizce-biliyor-ama-konusmuyor',
+      'ingilizce-drama-cocuga-ne-kazandirir',
+      'cocuklar-icin-ingilizce-drama-mi-ingilizce-kursu-mu',
+      'genclerde-yaratici-drama-okul-basarisina-etkisi',
+      'ingilizce-drama-youth-yas-gruplari-neden-ayri',
     ],
     related: ['cocuklar-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],
   },

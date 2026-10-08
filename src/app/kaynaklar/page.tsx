@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_META } from '@/lib/data'
 import { TERMS, MONOLOGUES, EXERCISES } from '@/lib/kaynaklar'
+import { TOPLAM_SORU } from '@/lib/konusmaSorulari'
+import { TOPLAM_SARKI } from '@/lib/secmeSarkilari'
 
 const title = 'Ücretsiz Tiyatro Kaynakları — Monolog, Sözlük, Ses Egzersizleri'
 const description = 'Oyuncular ve yazarlar için ücretsiz kaynaklar: monolog kütüphanesi, tiyatro terimleri sözlüğü, ses ve nefes egzersizleri. Techne Lab İstanbul.'
@@ -46,8 +48,22 @@ const RESOURCES = [
     desc: 'Nefes desteği, rezonans, artikülasyon ve sahne öncesi hazırlık. Evde tek başına uygulanabilir, güvenlik notlarıyla.',
   },
   {
-    href: '/atolye-testi',
+    href: '/kaynaklar/konusma-kulubu-sorulari',
     code: '04',
+    title: 'KONUŞMA KULÜBÜ SORULARI',
+    sub: `${TOPLAM_SORU} soru · B1 / B2 / C1`,
+    desc: 'İngilizce konuşma kulüpleri ve speaking pratiği için seviyeye göre soru bankası. Her soruya takip sorusu, her konuya ısınma ve rol kartı.',
+  },
+  {
+    href: '/kaynaklar/muzikal-secme-sarkilari',
+    code: '05',
+    title: 'MÜZİKAL SEÇME ŞARKILARI',
+    sub: `${TOPLAM_SARKI} şarkı · ses tipine göre`,
+    desc: 'Soprano, mezzo, tenor ve bariton için seçme şarkıları; çok söylenenler ve yerine söylenebilecekler. Kaynaklı liste ve seçme rehberi.',
+  },
+  {
+    href: '/atolye-testi',
+    code: '06',
     title: 'HANGİ ATÖLYE SANA UYGUN?',
     sub: '2 dakika · 6 soru',
     desc: 'Ne aradığını, nasıl çalışmak istediğini ve neye zaman ayırabildiğini soruyoruz — sana en uygun programı öneriyoruz.',

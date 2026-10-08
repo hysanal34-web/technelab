@@ -23,6 +23,12 @@ export type EnPage = {
   faq: { q: string; a: string }[]
   workshopSlugs: string[]
   related: string[]
+  /** Türkçe karşılık sayfası (hreflang tr-TR). Yoksa ana sayfa. */
+  trSlug?: string
+  /** Sayfadaki iddiaların kaynakları (kaynağı açılıp okunmuş olmalı). */
+  sources?: { label: string; url: string }[]
+  /** /en/articles altındaki ilgili yazılar. */
+  articleSlugs?: string[]
 }
 
 export const EN_PAGES: EnPage[] = [
@@ -134,54 +140,91 @@ export const EN_PAGES: EnPage[] = [
     related: ['acting-classes-istanbul', 'theatre-workshops-for-expats-istanbul'],
   },
 
+  // 8 Ekim 2026: yeniden yazıldı. Eski metin "Eylül–Mayıs", "yalnız Kadıköy" ve
+  // "İngilizce seviyesi önemli değil" diyordu; üçü de programla çelişiyordu (B1+,
+  // Ekim–Mayıs, Pera & Kadıköy). Konumlandırma: İngilizcesi zaten olan çocuk.
   {
     slug: 'drama-classes-for-kids-istanbul',
     label: 'Drama for Kids & Teens',
     h1: 'ENGLISH DRAMA\nFOR KIDS & TEENS',
-    eyebrow: 'Ages 10–17 · Year-End Performance',
-    seoTitle: 'English Drama Classes for Kids in Istanbul — Ages 10-17',
+    eyebrow: 'Ages 10–17 · B1+ English · Pera & Kadıköy',
+    seoTitle: 'English Drama Classes for Kids & Teens in Istanbul — Ages 10–17',
     seoDesc:
-      'English drama classes for children and teenagers in Istanbul, ages 10-17. Eight-month programme ending in a public performance. Kadıköy, small groups.',
+      "English drama and creativity programme in Istanbul for children who already speak English, ages 10–17. Weekly, October to May, in Pera and Kadıköy. Creative writing, design and jazz dance workshops; a fully English show in May.",
     keywords: [
       'drama classes for kids istanbul', 'english drama classes children istanbul',
       'kids theatre classes istanbul english', 'drama school for children istanbul',
       'after school activities istanbul english', 'teen drama classes istanbul',
       'english activities for kids istanbul', 'international school activities istanbul',
       'youth theatre istanbul', 'acting classes for teenagers istanbul',
-      'expat kids activities istanbul',
+      'expat kids activities istanbul', 'english speaking kids activities istanbul',
+      'creative activities for teens istanbul', 'bilingual kids istanbul',
+      'weekend activities for kids istanbul english', 'theatre for teenagers istanbul',
     ],
     lede:
-      'Children learn a language by using it, not by studying it. Our English drama programme puts them on their feet for eight months and ends with a real performance in front of an audience.',
+      "For children who already speak English and need somewhere to use it. English Drama Youth runs in English from October to May, one day a week, in Pera and Kadıköy, and ends with a fully English performance in front of a live audience.",
     sections: [
       {
-        heading: 'How the year runs',
-        body: 'September to May, one session a week. The year moves through three phases: play and trust first, then character and text, then three months of rehearsal. In May they perform for a live audience — families, friends, and anyone who wants to come. That evening is the point of the whole year.',
+        heading: 'Who it is for',
+        body: "Children aged 10 to 17 who already speak English at around B1 level or above: pupils at international schools, children of expat and mixed families, bilingual children, and Turkish children whose English is strong but who rarely get to use it outside the classroom. There is no level test. If your child can hold an everyday conversation in English, that is enough. No acting experience is needed.",
       },
       {
-        heading: 'Age groups',
-        body: 'Two separate classes: ages 10–14 and ages 15–17. We keep them apart deliberately — a twelve-year-old and a seventeen-year-old need different work and move at different speeds. Your child will be placed by age at registration.',
+        heading: 'The gap we built it for',
+        body: "Once a child reaches a working level of English, most of what Istanbul offers stops fitting. Language courses keep teaching what they already know. Most drama and theatre courses for children run in Turkish. The English drama options we found for this age group are either open to every level or designed to introduce English through play, which suits beginners but not a child who already speaks it. English Drama Youth starts from the other end: English is simply the working language, and the work itself is theatre.",
       },
       {
-        heading: 'Language level',
-        body: 'The programme is built around age, not English level. Early weeks lean on movement and play; language enters gradually. The goal is not advanced grammar — it is the confidence to speak without stopping to translate first. Children from international schools and Turkish schools sit in the same room and both do fine.',
+        heading: 'What the year looks like',
+        body: "October to May, one session a week. Each month runs the same way: three weeks of drama (creative drama, improvisation, solo and ensemble work) and a fourth week with a guest artist, rotating between creative writing, design and jazz dance. October to December is play, trust and improvisation. January is character and text, with a scene-writing workshop. February to April is rehearsal, using scenes built from the children's own writing, designs and movement. In May come the dress and technical rehearsals and a fully English show for families and an audience.",
+      },
+      {
+        heading: 'Creativity, not just conversation',
+        body: "In the guest workshops children write short stories for their characters, design characters and masks, and build rhythm and ensemble movement with a dancer. Everything they make goes into a shared pool that becomes the material of the May show. They are not handed a finished play to memorise; they perform something they helped to write, design and choreograph, in English.",
+      },
+      {
+        heading: 'What changes in their English',
+        body: "The Council of Europe's CEFR describes a B1 speaker as someone who can keep going comprehensibly, though pausing to plan and repair is very evident; at B2, speech runs at a fairly even tempo. Much of the step from B1 to B2 is about speaking without stopping to plan every sentence. That is exactly what improvisation and rehearsal train: answering in the moment, repeating lines until they flow, speaking to an audience. Research points the same way. In a TESOL Quarterly study (Galante & Thomson, 2017), 24 Brazilian teenagers learning English followed either a four-month drama-based programme or communicative classes; 30 native-speaker listeners rated the drama group's speech as more fluent and easier to understand. A meta-analysis of 47 studies (Lee et al., Review of Educational Research, 2015) found positive effects of drama-based teaching on achievement and on psychological and social outcomes. We do not test or grade, so we will not promise a jump in level. What the year targets is the part of fluency grammar lessons rarely reach: speaking without translating first.",
+      },
+      {
+        heading: 'Two age groups, two sides of the city',
+        body: "Ages 10–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) starts on Saturday 17 October at 15:00. Classes take place in partner studios.",
+      },
+      {
+        heading: 'For parents who do not speak Turkish',
+        body: "Everything can be done in English: questions, enrolment and updates during the year. Our online booking form is currently in Turkish, so the easiest route is to email or message us in English and we will book your child into a free introduction session on a Sunday in Pera or a Saturday in Kadıköy.",
       },
     ],
     faq: [
       {
-        q: 'My child\'s English is weak. Will they struggle?',
-        a: 'No. The programme is grouped by age rather than language level. The first weeks are mostly physical and playful, and language comes in slowly. The aim is the courage to speak, not fluency on day one.',
+        q: 'What English level does my child need?',
+        a: "Around B1 or above: your child can follow an everyday conversation and answer in full sentences. There is no test; your own judgement is enough. If your child is not there yet, a language course first is the better choice, and we will tell you so.",
       },
       {
-        q: 'Will young children be in the same class as teenagers?',
+        q: 'My child is at an international school and already fluent. Will this be too easy?',
+        a: "The challenge here is not vocabulary. It is improvising with a partner, writing a scene, holding a character for eight months and performing for an audience. Children who already speak English easily tend to have the most room to play, which is the point of the programme.",
+      },
+      {
+        q: "Will my child's English improve?",
+        a: "We do not grade or test, so we do not promise a level. The work is built around the skill that separates B1 from B2 in the CEFR: speaking at an even tempo without stopping to plan. Studies of drama-based English teaching with teenagers have found larger gains in fluency than standard communicative classes (Galante & Thomson, TESOL Quarterly, 2017).",
+      },
+      {
+        q: 'Are younger children mixed with teenagers?',
         a: 'No. Ages 10–14 and 15–17 work in separate classes. This separation is deliberate.',
       },
       {
         q: 'Is the final performance compulsory?',
-        a: 'The performance is part of the programme and the whole group prepares it together. How prominent your child is on stage is set by their own pace — nobody is pushed further than they want to go.',
+        a: 'The performance is part of the programme and the whole group prepares it together. How prominent your child is on stage depends on their own pace; nobody is pushed further than they want to go.',
       },
       {
-        q: 'Where are the classes held?',
-        a: 'At our Kadıköy studio on the Asian side. Families travel to us from Üsküdar, Ataşehir, Maltepe and across the city.',
+        q: 'Where and when are the classes?',
+        a: 'Pera (Beyoğlu, European side) on Sundays at 13:00, and Kadıköy (Asian side) on Saturdays at 15:00 from 17 October. One session a week, October to May.',
+      },
+      {
+        q: 'Can my child join after the start?',
+        a: 'Yes. The Pera group started on 4 October and joining is still open; the Kadıköy group starts on 17 October. The first months are about play and trust, so a late start is easy to absorb.',
+      },
+      {
+        q: 'Can we try a session first?',
+        a: 'Yes. Free introduction sessions run weekly: Sundays at 13:00 in Pera and Saturdays at 15:00 in Kadıköy. Email or message us in English and we will book you in.',
       },
       {
         q: 'Do parents need to speak Turkish to enrol?',
@@ -190,6 +233,13 @@ export const EN_PAGES: EnPage[] = [
     ],
     workshopSlugs: ['english-drama-youth'],
     related: ['acting-classes-istanbul', 'theatre-workshops-for-expats-istanbul'],
+    trSlug: 'cocuklar-icin-ingilizce-drama-istanbul',
+    articleSlugs: ['english-drama-for-kids-teens-istanbul-parents-guide'],
+    sources: [
+      { label: 'Council of Europe, CEFR Table 3: qualitative aspects of spoken language use (B1, B2)', url: 'https://www.coe.int/en/web/common-european-framework-reference-languages/table-3-cefr-3.3-common-reference-levels-qualitative-aspects-of-spoken-language-use' },
+      { label: 'Galante & Thomson (2017), TESOL Quarterly 51(1): drama and L2 fluency. Summary: Brock University News, 4 April 2016', url: 'https://brocku.ca/brock-news/2016/04/brock-research-finds-drama-and-theatre-help-non-english-speaking-students-to-better-speak-english/' },
+      { label: 'Lee, Patall, Cawthon & Steingut (2015), Review of Educational Research 85(1): meta-analysis of drama-based pedagogy', url: 'https://journals.sagepub.com/doi/10.3102/0034654314540477' },
+    ],
   },
 
   {

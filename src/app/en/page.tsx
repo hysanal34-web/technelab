@@ -312,6 +312,9 @@ export default function EnglishHome() {
           <Link href="/kaynaklar/monologlar" data-hover className="font-mono text-[12px] tracking-widest2 uppercase border border-border text-fg px-8 py-4 hover:border-neon hover:text-neon transition-colors">
             free monologue library →
           </Link>
+          <Link href="/en/articles" data-hover className="font-mono text-[12px] tracking-widest2 uppercase border border-border text-fg px-8 py-4 hover:border-neon hover:text-neon transition-colors">
+            articles in english →
+          </Link>
         </div>
       </section>
     </>
