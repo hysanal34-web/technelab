@@ -47,3 +47,8 @@ brosurler-2026-v2/
 /test-results/
 /playwright-report/
 /blob-report/
+
+_to_delete/
+_tmp_proto/
+.tmp-font/
+seo-raporlar/*.b64
