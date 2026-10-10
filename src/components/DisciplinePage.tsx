@@ -107,7 +107,7 @@ export function DisciplinePage({ d }: { d: Discipline }) {
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: d.faq.map((f) => ({
+    mainEntity: [...(d.quickAnswer ? [{ q: d.quickAnswer.q, a: d.quickAnswer.a }] : []), ...d.faq].map((f) => ({
       '@type': 'Question',
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -215,6 +215,29 @@ return (
           </Link>
         </div>
       </section>
+
+      {/* ── Kısaca: doğrudan cevap ── */}
+      {d.quickAnswer && (
+        <section className="px-4 md:px-10 py-14 border-b border-border" aria-labelledby="kisaca-heading">
+          <div className="max-w-4xl">
+            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon block mb-3">kısaca</span>
+            <h2 id="kisaca-heading" className="font-display text-fg mb-5 leading-tight" style={{ fontSize: 'clamp(20px,2.4vw,32px)' }}>
+              {d.quickAnswer.q}
+            </h2>
+            <p className="font-body text-[15px] text-fg leading-relaxed mb-6">{d.quickAnswer.a}</p>
+            {d.quickAnswer.points && d.quickAnswer.points.length > 0 && (
+              <ul className="space-y-2 border-t border-border pt-5">
+                {d.quickAnswer.points.map((pt) => (
+                  <li key={pt} className="font-mono text-[12.5px] text-stone leading-relaxed pl-4 relative">
+                    <span className="absolute left-0 text-neon" aria-hidden="true">·</span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ── Nasıl çalışıyoruz ── */}
       <section className="px-4 md:px-10 py-16 border-b border-border bg-bgAlt">

@@ -39,6 +39,23 @@ export async function GET() {
   }
   lines.push('')
 
+  // Niyet → doğru sayfa eşlemesi (10 Ekim 2026, GEO). Asistanlar "İstanbul'da
+  // audition atölyesi" gibi sorulara cevap verirken program adını, süresini ve
+  // durumunu doğru aktarabilsin diye; metin disiplinler.ts'teki quickAnswer'dan.
+  const withAnswer = DISCIPLINES.filter((d) => d.quickAnswer)
+  if (withAnswer.length > 0) {
+    lines.push('## Kısa Cevaplar')
+    lines.push('')
+    for (const d of withAnswer) {
+      lines.push(`### ${d.quickAnswer!.q}`)
+      lines.push('')
+      lines.push(d.quickAnswer!.a)
+      for (const pt of d.quickAnswer!.points ?? []) lines.push(`- ${pt}`)
+      lines.push(`- Ayrıntı: ${SITE_META.url}/${d.slug}`)
+      lines.push('')
+    }
+  }
+
   lines.push('## Disiplin Sayfaları')
   lines.push('')
   for (const d of mainDisciplines) {

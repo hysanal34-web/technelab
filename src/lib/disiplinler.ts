@@ -55,6 +55,13 @@ export type Discipline = {
   yorumIds?: string[]
   /** "Bu konuda yazdıklarımız" listesini elle sabitler (anahtar kelime eşleşmesi yerine). */
   articleSlugs?: string[]
+  /**
+   * Sayfanın üstündeki doğrudan cevap (10 Ekim 2026, GEO). Google'ın yapay zekâ
+   * özetleri ve sohbet asistanları ilk ekrandaki net, olgu içeren cümleleri
+   * alıntılıyor: program adı, eğitmen, süre, yer, durum. Yalnızca data.ts'te
+   * karşılığı olan bilgi yazılır.
+   */
+  quickAnswer?: { q: string; a: string; points?: string[] }
   /** İngilizce karşılık sayfası yolu (hreflang en-US), ör. '/en/drama-classes-for-kids-istanbul'. */
   enPath?: string
   facts?: {
@@ -76,11 +83,12 @@ export const DISCIPLINES: Discipline[] = [
     label: 'Oyunculuk',
     h1: 'OYUNCULUK KURSU\nİSTANBUL',
     eyebrow: 'Sahne · Beden · Ses',
-    seoTitle: 'Oyunculuk Kursu İstanbul — Tiyatro & Sahne Oyunculuğu Atölyesi',
+    seoTitle: 'Oyunculuk Kursu ve Eğitimi İstanbul — Küçük Gruplu Atölyeler',
     seoDesc:
       'İstanbul oyunculuk kursu: beden farkındalığı, ses-nefes, sahne mevcudiyeti ve karakter çalışması. Kadıköy ve Pera\'da küçük gruplu oyunculuk atölyeleri. Deneyim şartı yok.',
     keywords: [
       'oyunculuk kursu istanbul', 'oyunculuk atölyesi istanbul', 'oyunculuk eğitimi istanbul',
+      'oyunculuk eğitimi', 'oyunculuk eğitimi nasıl alınır',
       'tiyatro kursu istanbul', 'sahne oyunculuğu kursu', 'oyunculuk dersi istanbul',
       'oyunculuk kursu kadıköy', 'oyunculuk kursu taksim', 'oyunculuk kursu beyoğlu',
       'anadolu yakası oyunculuk kursu', 'avrupa yakası oyunculuk kursu',
@@ -130,6 +138,10 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Tiyatro kursu ile oyunculuk kursu aynı şey mi?',
         a: 'Tam olarak değil. "Tiyatro kursu" geniş bir şemsiye: oyunculuk, yaratıcı drama, tiyatro atölyesi ve konservatuvar hazırlık bu ismin altında satılabiliyor. Oyunculuk kursu oyuncunun araçlarına odaklanır; yaratıcı drama süreç ve grup deneyimine, konservatuvar hazırlık ise sınava. Hangisinin sana uyduğunu ayrı bir yazıda karşılaştırdık.',
       },
+      {
+        q: 'Oyunculuk eğitimi nasıl alınır?',
+        a: 'Beş yolu var: konservatuvar (özel yetenek sınavıyla giriş, lisans programı), özel kurslar (genellikle aylar süren kur sistemi), bağımsız atölyeler (belirli bir eğitmenle birkaç hafta ile bir sezon), belediye ve kültür merkezlerinin dönemlik programları ve online eğitim. Hangisinin doğru olduğu hedefe bağlı; beşini yan yana karşılaştırdığımız bir rehberimiz var.',
+      },
     ],
     criteria: [
       {
@@ -153,6 +165,15 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Başlangıç seviyesine açık olduğunu söyleyen bir program, ilk haftalarda ne yaptığını da anlatabilmeli. "Herkese uygun" cümlesi tek başına bir bilgi değil. Deneyimli ve hiç sahneye çıkmamış kişilerin aynı grupta nasıl çalıştığı sorulmayı hak eden bir soru.',
       },
     ],
+    quickAnswer: {
+      q: 'Techne Lab\'da oyunculuk eğitimi nasıl alınır?',
+      a: 'Techne Lab İstanbul bağımsız bir tiyatro laboratuvarı; oyunculuk eğitimi atölye modelinde, en fazla 12–14 kişilik gruplarla, Pera ve Kadıköy\'deki partner stüdyolarda yürüyor. Deneyim şartı yok. Bu dönem kayıt alan programlar: English Acting Praxis (Ece Ertez, 12 hafta İngilizce sahne oyunculuğu, Pera; finalde Cast Direktörü Harika Uygur masterclass\'ı) ve Techne Musical Lab (Köksal Ünal ve Bartu Ayaz, 8 ay oyunculuk, şan ve dans, Kadıköy, 15–55 yaş). Kamera önü programı Camera Praxis ve Türkçe sahne programı Oyuncunun Mevcudiyeti için yeni dönem tarihleri yakında açıklanacak.',
+      points: [
+        'Gruplar küçük: herkes her hafta sahneye çıkıyor, herkes bireysel geri bildirim alıyor',
+        'Eğitmenlerin adı ve geçmişi açık; programlar akşam ya da hafta sonu',
+        'Haftalık ücretsiz tanışma seansları var',
+      ],
+    },
     guide: {
       heading: 'OYUNCULUK YÖNTEMLERİ: KISA BİR HARİTA',
       lead: 'Oyunculuk kurslarının çoğu bir yöntem adı anıyor. Hangisinin neye dayandığını bilmek, program seçerken ne soracağını belirliyor. Her başlığın ayrıntılı yazısı bağlantıda.',
@@ -171,11 +192,11 @@ export const DISCIPLINES: Discipline[] = [
     },
     yorumIds: ['et', 'ek'],
     articleSlugs: [
+      'oyunculuk-egitimi-nasil-alinir',
       'oyunculuk-kursunda-ilk-ders',
       'oyunculuk-yetenek-mi-ogrenilir-mi',
       'istanbul-oyunculuk-kursu-nasil-secilir',
       'tiyatro-kursu-mu-oyunculuk-kursu-mu',
-      'calisirken-oyunculuk-egitimi',
       'oyuncu-nasil-yetisir',
     ],
     facts: {
@@ -334,11 +355,12 @@ export const DISCIPLINES: Discipline[] = [
     label: 'Kamera Önü',
     h1: 'KAMERA ÖNÜ\nOYUNCULUK',
     eyebrow: 'Karakter · Çerçeve · Audition',
-    seoTitle: 'Kamera Önü Oyunculuk Kursu İstanbul — Audition & Self-Tape',
+    seoTitle: 'Kamera Önü Oyunculuk Kursu ve Eğitimi İstanbul | Self-Tape',
     seoDesc:
       'İstanbul kamera önü oyunculuk kursu: 4 hafta, en çok 10 kişi. Karakter, çerçeve bilinci, göz hattı, soğuk okuma ve self-tape; Türkçe ve İngilizce metinlerle casting hazırlığı. Pera.',
     keywords: [
       'kamera önü oyunculuk', 'kamera önü oyunculuk kursu istanbul',
+      'kamera önü oyunculuk eğitimi', 'kamera önü oyunculuk eğitimi istanbul',
       'kamera oyunculuğu eğitimi', 'dizi oyunculuğu kursu istanbul',
       'sinema oyunculuğu kursu', 'audition hazırlık kursu', 'self tape eğitimi',
       'casting hazırlık istanbul', 'showreel çekimi istanbul',
@@ -410,6 +432,15 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Hedefin yerel dizi ve reklam ise Türkçe metin yeterlidir. Uluslararası casting ya da yurt dışı başvurusu düşünüyorsan İngilizce sahne çalışması ayrı bir hazırlık ister. Programın hangisini kapsadığını en baştan netleştir, çünkü ikisi aynı şey değildir.',
       },
     ],
+    quickAnswer: {
+      q: 'Techne Lab\'da kamera önü oyunculuk eğitimi nasıl?',
+      a: 'Kamera önü programımız Camera Praxis: Selen Uçer ile 4 haftalık yoğun atölye, Pera\'da, en çok 10 kişi. İlk hafta karakter ve metin, ikinci ve üçüncü hafta kamera tekniği (çerçeve, yakın plan, göz hattı), dördüncü hafta audition: soğuk okuma, casting simülasyonu, self-tape ve showreel için kayıt. Türkçe ve İngilizce metinlerle çalışılıyor. Yeni dönemin tarihi yakında açıklanacak; bu dönem kamerayla çalışmanın açık kapısı, finalinde Cast Direktörü Harika Uygur masterclass\'ı ve çekim günü olan English Acting Praxis.',
+      points: [
+        'Camera Praxis: 4 hafta · Pera · en çok 10 kişi · bekleme listesi açık',
+        'English Acting Praxis: 12 hafta · Pera · en fazla 14 kişi · 3 Ekim\'de başladı, katılım açık',
+        'Deneyim şartı yok; sahne deneyimi kamera ölçeğini daha hızlı kavratır',
+      ],
+    },
     guide: {
       heading: 'KAMERA ÖNÜ SÖZLÜĞÜ',
       lead: 'Sete ilk kez giren oyuncunun en çok zorlandığı şey çoğu zaman oyunculuk değil, setin dili. Bir çekim gününde duyacağın on iki terim, ne anlama geldikleri ve oyuncudan ne istedikleri.',
@@ -434,7 +465,7 @@ export const DISCIPLINES: Discipline[] = [
       'casting-direktoru-neye-bakar',
       'dizi-oyuncusu-olmak-icin-nereden-baslanir',
       'turk-oyuncularin-uluslararasi-kariyeri-dil-ve-casting',
-      'tiyatro-secmeleri-icin-monolog-nasil-calisilir',
+      'audition-nedir-secmeye-nasil-hazirlanilir',
     ],
     facts: {
       heading: 'SELF-TAPE ve KAMERA: YAZILI STANDARTLAR',
@@ -1125,44 +1156,132 @@ export const DISCIPLINES: Discipline[] = [
   {
     slug: 'audition-hazirlik-atolyesi-istanbul',
     label: 'Audition Hazırlık',
-    h1: 'AUDITION HAZIRLIK\nATÖLYESİ',
-    eyebrow: 'Casting · Kamera · Seçmeler',
-    seoTitle: 'Audition Hazırlık Atölyesi İstanbul — Casting & Seçme Hazırlığı',
+    h1: 'AUDITION\nATÖLYESİ',
+    eyebrow: 'Seçme Hazırlığı · Self-Tape · Cast Direktörü',
+    seoTitle: 'Audition Atölyesi İstanbul — Seçme ve Self-Tape Hazırlığı',
     seoDesc:
-      'İstanbul audition ve casting hazırlık atölyesi: self-tape, monolog seçimi, kamera önü teknik. Cast direktörü masterclass\'ıyla profesyonel geri bildirim.',
+      'İstanbul audition atölyesi ve seçme hazırlığı: soğuk okuma, seçme sayfası çözümleme, self-tape ve kamera önü teknik. Cast Direktörü Harika Uygur masterclass\'ı ve Camera Praxis audition haftası. Pera.',
     keywords: [
-      'audition atölyesi istanbul', 'casting hazırlık kursu',
+      'audition atölyesi', 'audition atölyesi istanbul', 'audition hazırlık istanbul',
+      'seçmeye hazırlık oyunculuk', 'audition nedir', 'casting atölyesi istanbul',
+      'cast direktörü atölyesi', 'casting hazırlık kursu',
       'seçme hazırlık atölyesi', 'self tape atölyesi',
       'oyuncu seçmeleri hazırlık', 'casting workshop istanbul',
       'monolog hazırlama atölyesi', 'kamera önü audition',
       'dizi seçmeleri hazırlık', 'ajans için hazırlık oyunculuk',
     ],
     intro:
-      'Seçmeyi kaybettiren şey genelde yetenek değil — hazırlıksızlık. Yanlış monolog, kameranın önünde bozulan ritim, kendini ne zaman durduracağını bilmemek. Techne Lab İstanbul\'un audition hazırlık çalışması bu üçüne odaklanıyor ve profesyonel bir cast direktörünün gözünden geri bildirim almanı sağlıyor.',
+      'Seçmeyi kaybettiren şey çoğu zaman yetenek değil, hazırlıksızlık: birkaç saat önce eline geçen sayfaları çözememek, kameranın önünde bozulan ritim, nota cevap verememek. Techne Lab İstanbul\'da audition çalışması iki programın içinde yürüyor: English Acting Praxis\'in finalinde Cast Direktörü Harika Uygur ile bir günlük masterclass ve çekim günü var; Camera Praxis\'in son haftası ise tamamen audition. Ayrı, tek günlük bir audition atölyemiz şu an yok; bunu baştan söylüyoruz.',
     what:
-      'Malzeme seçimiyle başlıyoruz: sana ne oturuyor, hangi metin seni gösteriyor. Ardından kamera önü teknik — çerçeve içinde kalmak, göz hattı, enerjinin kameraya nasıl geçtiği. Self-tape çekimi yapıyoruz, izliyoruz, tekrar çekiyoruz. Programın finalinde Cast Direktörü Harika Uygur\'un masterclass\'ı var: seçme masasının diğer tarafındaki kişiden doğrudan geri bildirim. Bu, bir atölyede alabileceğin en gerçekçi ayna.',
+      'Bir audition atölyesinde dört şey çalışılır. Metin: seçme sayfalarını kısa sürede çözmek, karakterin ne istediğini bulup bir karar vermek. Kamera: çerçeve içinde kalmak, göz hattı, yakın planda ölçek. Yönlendirme: bir not geldiğinde sahneyi gerçekten farklı oynayabilmek. Kayıt ve geri bildirim: çekmek, izlemek, yeniden çekmek.\n\nCamera Praxis\'te (Selen Uçer, 4 hafta) ilk hafta karakter ve metin, ikinci ve üçüncü hafta kamera tekniği, dördüncü hafta soğuk okuma, casting simülasyonu, self-tape çekimi ve showreel için kayıt. English Acting Praxis\'te (Ece Ertez, 12 hafta) İngilizce metin ve karakter çalışması, finalde Cast Direktörü Harika Uygur\'un masterclass\'ı ve çekim günüyle kapanıyor; performanslar kayda alınıp katılımcılara teslim ediliyor. Seçme masasının diğer tarafındaki kişiden doğrudan geri bildirim, bir atölyede alınabilecek en gerçekçi ayna.',
     who:
-      'Seçmelere giren ama sonuç alamayanlar. Ajansa portföy hazırlayanlar. Kameraya ilk kez çıkacaklar. Sahne deneyimi olup kamerayla arası açık olanlar. Uluslararası projeler için İngilizce self-tape hazırlaması gerekenler.',
+      'Seçmelere giren ama sonuç alamayanlar. Ajansa ya da casting\'e kayıt ve showreel hazırlayanlar. Kameraya ilk kez çıkacaklar. Sahne deneyimi olup kamerayla arası açık olanlar. Uluslararası projeler için İngilizce self-tape hazırlaması gerekenler. Hiç sahneye çıkmamış biri için önce temel bir oyunculuk programı daha sağlam bir başlangıç.',
     workshopSlugs: ['english-drama-final-project', 'camera-praxis'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu', 'kadikoy-tiyatro-kursu'],
     faq: [
       {
+        q: 'Ayrı bir audition atölyeniz var mı?',
+        a: 'Şu an yok. Audition çalışması iki programın içinde yürüyor: English Acting Praxis\'in finalindeki Cast Direktörü Harika Uygur masterclass\'ı ve çekim günü, Camera Praxis\'in son haftasındaki soğuk okuma, casting simülasyonu ve self-tape. Kısa bir audition atölyesi açıldığında bekleme listesindekilere önce haber veriyoruz.',
+      },
+      {
         q: 'Self-tape çekmeyi öğretiyor musunuz?',
-        a: 'Evet, atölyenin merkezinde bu var. Kadraj, ışık, ses ve oyunculuk birlikte çalışılıyor — çünkü teknik olarak kötü bir kayıt, iyi bir oyunculuğu da götürüyor.',
+        a: 'Evet. Camera Praxis\'in son haftasında self-tape çekiliyor, izleniyor ve yeniden çekiliyor; kadraj, ışık, ses ve oyunculuk birlikte çalışılıyor. Teknik olarak kötü bir kayıt, iyi bir oyunculuğu da götürüyor.',
       },
       {
         q: 'Cast direktörü gerçekten geliyor mu?',
-        a: 'Evet. English Acting Praxis programının finalinde Cast Direktörü Harika Uygur masterclass veriyor ve katılımcıların çalışmalarını izleyip geri bildirim veriyor.',
+        a: 'Evet. English Acting Praxis programının finalinde Cast Direktörü Harika Uygur bir günlük masterclass veriyor, katılımcıların çalışmalarını izleyip geri bildirim veriyor; performanslar kayda alınıp katılımcılara teslim ediliyor.',
+      },
+      {
+        q: 'Audition\'a nasıl hazırlanılır?',
+        a: 'Önce talimatı iki kez oku. Sonra sahneyi ezberlemeden önce çöz: karakter ne istiyor, kimden, önünde ne var, sahne nerede dönüyor. Bir karar ver; belirsiz bir okuma yönlendirilemez. Metni kâğıda bağlı kalmayacak kadar bil. Self-tape ise talimattaki formata uy ve teknik olarak temiz bir kayıt gönder. Adım adım rehberimiz: Audition nedir, seçmeye nasıl hazırlanılır.',
+      },
+      {
+        q: 'Soğuk okuma nedir, çalışılabilir mi?',
+        a: 'Önceden çalışılmamış ya da çok kısa sürede hazırlanmış bir metni seçmede oynamak. Bir kas gibi düzenli çalışıldığında hızlanıyor: hiç görülmemiş bir sahneyi on dakikada hazırlayıp kameraya oynamak ve kaydı izlemek bunun en iyi egzersizi.',
       },
       {
         q: 'İngilizce seçmelere de hazırlanabilir miyim?',
-        a: 'Evet. Program İngilizce yürüyen bir kolu içeriyor; uluslararası yapımlar için İngilizce self-tape hazırlığı yapılabiliyor.',
+        a: 'Evet. English Acting Praxis tamamen İngilizce yürüyor ve uluslararası yapımlar için İngilizce sahne ve self-tape hazırlığına uygun; B1 İngilizce gerekiyor. Camera Praxis\'te de Türkçe ve İngilizce metinlerle çalışılıyor.',
       },
       {
         q: 'Hiç kamera deneyimim yok, erken mi?',
-        a: 'Hayır. Kamera önünde durmak öğrenilen bir şey, sahne deneyiminden bağımsız. Sıfırdan başlayanlar için de uygun.',
+        a: 'Kamera önünde durmak öğrenilen bir şey. Ama hiç sahneye çıkmamışsan, seçme tekniğinden önce dinleme ve metin çözme gibi temel araçları kurmak daha sağlam bir sıralama.',
+      },
+      {
+        q: 'Audition atölyesi seçerken neye bakmalıyım?',
+        a: 'Kamera her oturumda kullanılıyor mu, kayıtlar sana veriliyor mu, süreçte bir cast direktörü yer alıyor mu ve kim olduğu yazıyor mu, grup kaç kişi. Bu dört sorunun cevabını yazmayan bir atölyede ne alacağını baştan bilemezsin.',
       },
     ],
+    quickAnswer: {
+      q: 'Techne Lab\'da audition hazırlığı nasıl yapılıyor?',
+      a: 'İki programın içinde. English Acting Praxis (Ece Ertez, 12 hafta, Pera, cumartesi 11:00, en fazla 14 kişi) İngilizce sahne ve metin çalışmasıyla ilerliyor ve finalde Cast Direktörü Harika Uygur\'un bir günlük masterclass\'ı ve çekim günüyle kapanıyor; performanslar kayda alınıp katılımcılara teslim ediliyor. Camera Praxis (Selen Uçer, 4 hafta, Pera, en çok 10 kişi) kamera önü oyunculuk atölyesi; son haftası soğuk okuma, casting simülasyonu ve self-tape çekimine ayrılıyor.',
+      points: [
+        'English Acting Praxis: 3 Ekim\'de başladı, katılım açık; B1 İngilizce gerekiyor.',
+        'Camera Praxis: yeni dönem tarihi yakında, bekleme listesi açık.',
+        'Ayrı, tek günlük bir audition atölyesi şu an yok.',
+      ],
+    },
+    guide: {
+      heading: 'AUDITION SÖZLÜĞÜ',
+      lead: 'Seçme sürecinde sık duyulan on terim, ne anlama geldikleri ve oyuncudan ne istedikleri.',
+      items: [
+        { term: 'Audition (seçme)', body: 'Bir rol için oyuncunun, karar verecek kişilerin önünde ya da kameranın karşısında o rolün bir bölümünü oynaması.', href: '/makaleler/audition-nedir-secmeye-nasil-hazirlanilir' },
+        { term: 'Seçme sayfaları (sides)', body: 'Seçmede oynanacak, senaryodan alınmış birkaç sayfalık sahneler. Çoğu zaman senaryonun tamamı verilmez.' },
+        { term: 'Soğuk okuma', body: 'Önceden çalışılmamış ya da çok kısa sürede hazırlanmış bir metni oynamak. Düzenli çalışıldığında hızlanan bir beceri.' },
+        { term: 'Self-tape', body: 'Oyuncunun seçme sahnesini kendisi kaydedip göndermesi. Pek çok seçmede ilk eleme artık bu kayıtla yapılıyor.', href: '/makaleler/self-tape-nasil-cekilir' },
+        { term: 'Slate', body: 'Oyuncunun adını ve istenen bilgileri söylediği kısa tanıtım. Yapılıp yapılmayacağını ve nasıl yapılacağını casting talimatı belirler.' },
+        { term: 'Okuyucu (reader)', body: 'Seçmede karşı karakterin repliklerini okuyan kişi. Kamera dışında, kameranın hemen yanında durur.' },
+        { term: 'Callback', body: 'İlk seçmeden sonra yapılan ikinci görüşme. Genellikle yönetmen de olur; aynı sahnenin farklı notlarla oynanması istenir.' },
+        { term: 'Cast direktörü', body: 'Bir yapımın oyuncularını seçme sürecini yöneten kişi. Rol için adayları belirler, seçmeleri yürütür, yönetmene önerir.', href: '/makaleler/casting-direktoru-neye-bakar' },
+        { term: 'Monolog', body: 'Tek bir karakterin uzun konuşması. Özellikle tiyatro ve konservatuvar seçmelerinde istenir; doğru metni seçmek oyunculuktan önce gelen bir karardır.', href: '/makaleler/tiyatro-secmeleri-icin-monolog-nasil-calisilir' },
+        { term: 'Showreel', body: 'Oyuncunun ekranda nasıl göründüğünü gösteren kısa kurgu video. Ajanslara ve casting\'e gönderilir.', href: '/makaleler/dizi-oyuncusu-olmak-icin-nereden-baslanir' },
+      ],
+    },
+    articleSlugs: [
+      'audition-nedir-secmeye-nasil-hazirlanilir',
+      'casting-direktoru-neye-bakar',
+      'self-tape-nasil-cekilir',
+      'tiyatro-secmeleri-icin-monolog-nasil-calisilir',
+      'kamera-onunde-oyunculuk',
+      'turk-oyuncularin-uluslararasi-kariyeri-dil-ve-casting',
+    ],
+    facts: {
+      heading: 'SEÇMENİN YAZILI KURALLARI',
+      lead: 'Self-tape ve seçme süreci için casting tarafının yayımladığı kurallar ve bizim programlarımızın sayıları. Her satırın kaynağı yanında.',
+      rows: [
+        {
+          label: 'Self-tape hacmi ve süresi',
+          value: 'İlk self-tape için en çok 6 sayfa ve en az 4 gün hazırlık; 3 sayfa ve altı için en az 3 gün; en çok 2 rol, rol başına en çok 2 sahne, sahne başına en çok 2 versiyon; oyuncudan okuyucu ücreti istenmez',
+          source: 'Equity, CDG, PMA ve CPMA ortak en iyi uygulama, Backstage UK, 12 Ağustos 2021 (Birleşik Krallık)',
+          url: 'https://www.backstage.com/uk/magazine/article/casting-directors-equity-best-practice-self-tapes-73820/',
+        },
+        {
+          label: 'Self-tape teknik',
+          value: 'Aksi istenmedikçe yatay kayıt; düz renkli arka plan (mavi ideal, saf beyaz değil); slate seçme kaydından ayrı; ilandan sonraki ilk 2-3 gün içinde gönderim',
+          source: 'SAG-AFTRA, "Self-Tape Anatomy", 15 Ağustos 2020 (ABD)',
+          url: 'https://sagaftra.org/self-tape-anatomy',
+        },
+        {
+          label: 'Slate tartışması',
+          value: 'Backstage, talimatta açıkça istenmedikçe slate yapılmamasını öneriyor; SAG-AFTRA ayrı bir slate videosu öneriyor. Doğrusu her zaman ilandaki talimat',
+          source: 'Backstage, "10 Self-Tape Tips", 14 Şubat 2024',
+          url: 'https://www.backstage.com/magazine/article/tips-winning-self-tape-audition-13472/',
+        },
+        {
+          label: 'Masterclass: Harika Uygur',
+          value: 'Cast direktörü; Amerikan Film Akademisi (AMPAS), Casting Society of America (CSA) ve Avrupa Film Akademisi üyesi. English Acting Praxis finalinde bir günlük masterclass ve çekim günü',
+          source: 'Techne Lab program sayfası',
+          url: 'https://www.technelabistanbul.com/atolyeler/english-drama-final-project',
+        },
+        {
+          label: 'Bizim sayılarımız',
+          value: 'English Acting Praxis: 12 hafta, Pera, en fazla 14 kişi. Camera Praxis: 4 hafta, Pera, en çok 10 kişi, son hafta audition',
+          source: 'Techne Lab program sayfaları',
+          url: 'https://www.technelabistanbul.com/atolyeler/camera-praxis',
+        },
+      ],
+      note: 'Not: Türkiye\'deki casting ajanslarının yayımladığı ortak bir self-tape standardını bulamadık; yukarıdakiler ABD ve Birleşik Krallık kaynaklı rehberler. Kaynaklara 7 Ekim 2026\'da bakıldı.',
+    },
     related: ['kamera-onu-oyunculuk-istanbul', 'oyunculuk-kursu-istanbul', 'ingilizce-drama-istanbul'],
   },
 
