@@ -239,7 +239,7 @@ export const DISTRICTS: District[] = [
       },
       {
         q: 'Çocuğum için Anadolu yakasında program var mı?',
-        a: 'Evet. 10–17 yaş İngilizce drama programı Kadıköy stüdyosunda yürüyor, haftada bir gün, Eylül–Mayıs. Gruplar yaşa göre ayrılıyor: 10–14 ve 15–17 ayrı sınıflarda.',
+        a: 'Evet. 8–17 yaş İngilizce drama programı Kadıköy stüdyosunda yürüyor, haftada bir gün, Eylül–Mayıs. Gruplar yaşa göre ayrılıyor: 8–14 ve 15–17 ayrı sınıflarda.',
       },
       {
         q: 'Avrupa yakasında da programınız var mı?',

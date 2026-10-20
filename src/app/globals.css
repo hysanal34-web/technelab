@@ -523,3 +523,9 @@ html { scrollbar-color: var(--ink) var(--bg); scrollbar-width: thin; }
 }
 .perde-gecis.on { opacity: 1; pointer-events: auto; }
 .perde-gecis.on::after { transform: scaleX(1); }
+
+/* Çerez banner'ı açıkken (mobil) WhatsApp butonu banner'ın üstüne çıkar —
+   asıl iletişim kanalı karar verilene kadar örtülmesin. Bkz. CerezIzni.tsx */
+@media (max-width: 767px) {
+  html[data-cerez-acik] .wa-float { bottom: calc(var(--cerez-yukseklik, 240px) + 16px); }
+}

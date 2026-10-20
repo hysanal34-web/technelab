@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
-import { trackLead, newBrowserEventId } from '@/components/MetaPixel'
+import { trackLead, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
 import { SITE_META } from '@/lib/data'
 
 type WorkshopMin = {
@@ -45,6 +45,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
     // Piksel ve CAPI aynı kimliği taşısın — yoksa Meta tek başvuruyu iki sayar.
     const eventId = newBrowserEventId()
     formData.append('eventId', eventId)
+    formData.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
@@ -154,7 +155,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
       </div>
 
       {/* Right — form */}
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+      <form ref={formRef} onSubmit={handleSubmit} data-olcum-form="program_basvurusu" className="space-y-6">
 
         {/* Ad Soyad */}
         <FieldGroup htmlFor="name" label="Ad Soyad" required>
@@ -182,7 +183,7 @@ export default function RegistrationForm({ workshop, action }: Props) {
             required
           />
           {isYouth && (
-            <p className="font-mono text-[11px] text-dim mt-1">Bu program 10–17 yaş grubuna yöneliktir.</p>
+            <p className="font-mono text-[11px] text-dim mt-1">Bu program 8–17 yaş grubuna yöneliktir.</p>
           )}
         </FieldGroup>
 

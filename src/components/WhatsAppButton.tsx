@@ -31,7 +31,7 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="WhatsApp ile iletişime geç"
       data-call-cta="whatsapp-float"
-      className={`fixed bottom-24 right-6 z-[9000] ${onProgramPage ? 'max-md:hidden' : ''} flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]`}
+      className={`wa-float fixed bottom-24 right-6 z-[9000] ${onProgramPage ? 'max-md:hidden' : ''} flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]`}
       style={{ backgroundColor: '#25D366' }}
     >
       {/* WhatsApp SVG */}

@@ -147,10 +147,10 @@ export const EN_PAGES: EnPage[] = [
     slug: 'drama-classes-for-kids-istanbul',
     label: 'Drama for Kids & Teens',
     h1: 'ENGLISH DRAMA\nFOR KIDS & TEENS',
-    eyebrow: 'Ages 10–17 · B1+ English · Pera & Kadıköy',
-    seoTitle: 'English Drama Classes for Kids & Teens in Istanbul — Ages 10–17',
+    eyebrow: 'Ages 8–17 · B1+ English · Pera & Kadıköy',
+    seoTitle: 'English Drama Classes for Kids & Teens in Istanbul — Ages 8–17',
     seoDesc:
-      "English drama and creativity programme in Istanbul for children who already speak English, ages 10–17. Weekly, October to May, in Pera and Kadıköy. Creative writing, design and jazz dance workshops; a fully English show in May.",
+      "English drama and creativity programme in Istanbul for children who already speak English, ages 8–17. Weekly, October to May, in Pera and Kadıköy. Creative writing, design and jazz dance workshops; a fully English show in May.",
     keywords: [
       'drama classes for kids istanbul', 'english drama classes children istanbul',
       'kids theatre classes istanbul english', 'drama school for children istanbul',
@@ -166,7 +166,7 @@ export const EN_PAGES: EnPage[] = [
     sections: [
       {
         heading: 'Who it is for',
-        body: "Children aged 10 to 17 who already speak English at around B1 level or above: pupils at international schools, children of expat and mixed families, bilingual children, and Turkish children whose English is strong but who rarely get to use it outside the classroom. There is no level test. If your child can hold an everyday conversation in English, that is enough. No acting experience is needed.",
+        body: "Children aged 8 to 17 who already speak English at around B1 level or above: pupils at international schools, children of expat and mixed families, bilingual children, and Turkish children whose English is strong but who rarely get to use it outside the classroom. There is no level test. If your child can hold an everyday conversation in English, that is enough. No acting experience is needed.",
       },
       {
         heading: 'The gap we built it for',
@@ -186,7 +186,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         heading: 'Two age groups, two sides of the city',
-        body: "Ages 10–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) starts on Saturday 17 October at 15:00. Classes take place in partner studios.",
+        body: "Ages 8–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) started on Saturday 17 October at 15:00, and joining is open. Classes take place in partner studios.",
       },
       {
         heading: 'For parents who do not speak Turkish',
@@ -208,7 +208,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         q: 'Are younger children mixed with teenagers?',
-        a: 'No. Ages 10–14 and 15–17 work in separate classes. This separation is deliberate.',
+        a: 'No. Ages 8–14 and 15–17 work in separate classes. This separation is deliberate.',
       },
       {
         q: 'Is the final performance compulsory?',
@@ -216,11 +216,11 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         q: 'Where and when are the classes?',
-        a: 'Pera (Beyoğlu, European side) on Sundays at 13:00, and Kadıköy (Asian side) on Saturdays at 15:00 from 17 October. One session a week, October to May.',
+        a: 'Pera (Beyoğlu, European side) on Sundays at 13:00, and Kadıköy (Asian side) on Saturdays at 15:00 (started 17 October). One session a week, October to May.',
       },
       {
         q: 'Can my child join after the start?',
-        a: 'Yes. The Pera group started on 4 October and joining is still open; the Kadıköy group starts on 17 October. The first months are about play and trust, so a late start is easy to absorb.',
+        a: 'Yes. The Pera group started on 4 October and joining is still open; the Kadıköy group started on 17 October. The first months are about play and trust, so a late start is easy to absorb.',
       },
       {
         q: 'Can we try a session first?',
@@ -267,7 +267,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         heading: 'What we run in English',
-        body: 'English Drama Lab is the main entry point: twelve weeks, entirely in English, no experience needed. English Acting Praxis goes further, ending with a masterclass from Casting Director Harika Uygur. Musical theatre and Broadway dance run with English support. And for those with children, our youth drama programme runs in English for ages 10–17.',
+        body: 'English Drama Lab is the main entry point: twelve weeks, entirely in English, no experience needed. English Acting Praxis goes further, ending with a masterclass from Casting Director Harika Uygur. Musical theatre and Broadway dance run with English support. And for those with children, our youth drama programme runs in English for ages 8–17.',
       },
       {
         heading: 'Practical',

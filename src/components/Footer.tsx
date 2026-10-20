@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { SITE_META } from '@/lib/data'
 import { BultenForm } from '@/components/BultenForm'
+import { CerezTercihLinki } from '@/components/CerezIzni'
 
 export function Footer() {
   return (
@@ -123,6 +124,7 @@ export function Footer() {
         <Link href="/kvkk" className="font-mono text-[11px] text-dim hover:text-neon transition-colors duration-200 tracking-[0.1em] lowercase py-2">
           kvkk aydınlatma metni
         </Link>
+        <CerezTercihLinki className="font-mono text-[11px] text-dim hover:text-neon transition-colors duration-200 tracking-[0.1em] lowercase py-2" />
         <span className="font-mono text-[11px] text-dim tracking-[0.14em] uppercase hidden md:block" title="τέχνη — zanaat">τέχνη · zanaat · istanbul</span>
         <span className="font-mono text-[11px] text-dim tracking-[0.1em] uppercase">Tüm Hakları Saklıdır</span>
       </div>

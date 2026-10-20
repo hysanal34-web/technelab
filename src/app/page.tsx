@@ -167,7 +167,7 @@ export default function HomePage() {
             { tr: 'BROADWAY DANSI', en: 'BROADWAY DANCE', href: '/dans-kursu-istanbul' },
             { tr: 'YARATICI DRAMA', en: 'CREATIVE DRAMA', href: '/yaratici-drama-istanbul' },
             { tr: 'KAMERA ÖNÜ', en: 'ON-CAMERA', href: '/kamera-onu-oyunculuk-istanbul' },
-            { tr: '10–17 YAŞ', en: 'AGES 10–17', href: '/atolyeler/english-drama-youth' },
+            { tr: '8–17 YAŞ', en: 'AGES 8–17', href: '/atolyeler/english-drama-youth' },
           ].map((d, i) => (
             <li key={d.href} className="flex items-center">
               {i > 0 && <span className="px-3 md:px-4 text-ink/60" aria-hidden="true">·</span>}
@@ -260,7 +260,7 @@ export default function HomePage() {
                 {[
                   { tr: 'Yaratıcı yazarlık · dramaturji', en: 'Playwriting · dramaturgy' },
                   { tr: 'Oyunculuk · kamera önü', en: 'Acting · on-camera' },
-                  { tr: 'İngilizce drama · 10–17 ve yetişkin', en: 'English drama · youth & adults' },
+                  { tr: 'İngilizce drama · 8–17 ve yetişkin', en: 'English drama · youth & adults' },
                   { tr: 'Müzikal · Broadway dansı', en: 'Musical theatre · Broadway dance' },
                 ].map((item) => (
                   <li key={item.tr} className="font-mono text-[11px] tracking-[0.08em] text-stone">

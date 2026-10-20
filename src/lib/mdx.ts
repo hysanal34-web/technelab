@@ -12,6 +12,10 @@ export type ArticleMeta = {
   updated?: string
   /** İngilizce karşılık makale slug'ı (/en/articles/<enSlug>), hreflang için. */
   enSlug?: string
+  /** <title> için kısa başlık (≤60 kr). H1 daima `title`. */
+  seoTitle?: string
+  /** meta description (120–155 kr). Yoksa excerpt. */
+  seoDescription?: string
 }
 
 const ARTICLES_DIR = path.join(process.cwd(), 'src/content/makaleler')
@@ -32,6 +36,8 @@ function normalize(slug: string, data: Record<string, unknown>): ArticleMeta {
     status:   data.status === 'draft' ? 'draft' : 'published',
     updated:  typeof data.updated === 'string' ? data.updated : undefined,
     enSlug:   typeof data.enSlug === 'string' ? data.enSlug : undefined,
+    seoTitle: typeof data.seoTitle === 'string' ? data.seoTitle : undefined,
+    seoDescription: typeof data.seoDescription === 'string' ? data.seoDescription : undefined,
   }
 }
 

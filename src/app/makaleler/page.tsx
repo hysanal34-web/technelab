@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getAllArticles } from '@/lib/mdx'
 import { ArticleCard } from '@/components/ArticleCard'
 import { SITE_META } from '@/lib/data'
+import Link from 'next/link'
+import { KATEGORILER } from '@/lib/kategoriler'
 
 export const metadata: Metadata = {
   title: 'Makale & Araştırma — Tiyatro, Dramaturji, Performans',
@@ -40,9 +42,20 @@ export default function ArticlesPage() {
         <h1 className="font-display text-fg mb-6" style={{ fontSize: 'clamp(44px,7.5vw,108px)', letterSpacing: '0.01em', lineHeight: 0.9 }}>
           BLOG
         </h1>
-        <p className="font-mono text-[14px] text-stone max-w-lg leading-relaxed">
+        <p className="font-mono text-[14px] text-stone max-w-lg leading-relaxed mb-8">
           Dramaturji, oyunculuk pedagojisi, çağdaş sahne pratiği ve bağımsız tiyatro üzerine.
         </p>
+        <nav aria-label="Kategoriler">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {KATEGORILER.filter((k) => articles.some((a) => a.category === k.label)).map((k) => (
+              <li key={k.slug}>
+                <Link href={`/makaleler/kategori/${k.slug}`} className="font-mono text-[11px] tracking-[0.14em] uppercase text-stone hover:text-neon transition-colors" data-hover>
+                  {k.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </section>
       <section className="px-4 md:px-10 py-16">
         {articles.length === 0 ? (

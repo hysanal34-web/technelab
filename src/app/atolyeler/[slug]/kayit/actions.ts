@@ -2,8 +2,8 @@
 
 import { Resend } from 'resend'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
-import { headers, cookies } from 'next/headers'
-import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
+import { cookies } from 'next/headers'
+import { donusumuIsle } from '@/lib/olcumSunucu'
 import { priceSummary } from '@/lib/fiyat'
 import { basvuruKaydet } from '@/lib/basvuruStore'
 
@@ -92,7 +92,7 @@ export async function submitRegistration(
     }
   }
 
-  // Youth: 10–17 yaş kontrolü
+  // Youth: 8–17 yaş kontrolü
   if (isYouth && birthDate) {
     const d = new Date(birthDate)
     if (!Number.isNaN(d.getTime())) {
@@ -101,7 +101,7 @@ export async function submitRegistration(
         return {
           status: 'error',
           field: 'birthDate',
-          message: `Bu program 10–17 yaş grubuna yönelik. Girilen doğum tarihine göre yaş ${age}. Farklı bir program için bize yazabilirsiniz.`,
+          message: `Bu program 8–17 yaş grubuna yönelik. Girilen doğum tarihine göre yaş ${age}. Farklı bir program için bize yazabilirsiniz.`,
         }
       }
     }
@@ -260,15 +260,26 @@ export async function submitRegistration(
       html,
     })
 
-    // Meta Conversions API — sunucudan Lead olayı.
-    // Tarayıcı pikseli engellenirse bu yine ulaşır; ikisi event_id ile eşleşip tek sayılır.
-    // await ediyoruz ki serverless fonksiyon kapanmadan istek çıksın.
-    await sendLeadToMeta({
+    // Ölçüm: Meta CAPI (Lead + CompleteRegistration) ve sitenin kendi
+    // dönüşüm kaydı. Başvuru kaydı ve e-posta BAŞARILI olduktan sonra.
+    // eventId tarayıcıdan geliyor; piksel aynı kimlikle gönderiyor.
+    // Rıza kapıları ve gönderilen alanlar: src/lib/olcumSunucu.ts
+    const fiyat = workshop ? (priceSummary(workshop)?.current ?? workshop.price) : undefined
+    await donusumuIsle({
+      tur: 'program',
+      olaylar: ['Lead', 'CompleteRegistration'],
+      eventId: formData.get('eventId') as string | null,
+      sayfa: formData.get('olaySayfasi') as string | null,
+      yedekYol: `/atolyeler/${slug}/kayit`,
+      program: workshop?.title ?? slug,
       slug,
-      workshop,
       email: contactEmail || email,
-      phone: contactPhone || phone,
-      eventId: (formData.get('eventId') as string) || undefined,
+      telefon: contactPhone || phone,
+      reklamRizasi,
+      deger: fiyat,
+      icerikAdi: workshop?.title,
+      icerikKimligi: slug,
+      icerikKategorisi: 'program_basvurusu',
     })
 
     return { status: 'success' }
@@ -282,40 +293,3 @@ export async function submitRegistration(
 }
 
 
-/**
- * Başvuruyu Meta'ya bildirir.
- * Hata fırlatmaz — reklam takibi başvuru akışını asla bozmamalı.
- */
-async function sendLeadToMeta(args: {
-  slug: string
-  workshop: (typeof WORKSHOPS)[number] | undefined
-  email: string
-  phone: string
-  /** Tarayıcı pikselinin kullandığı kimlik — çift sayımı engelliyor. */
-  eventId?: string
-}): Promise<void> {
-  try {
-    const h = await headers()
-    const c = await cookies()
-    const w = args.workshop
-    const price = w ? (priceSummary(w)?.current ?? w.price) : undefined
-
-    await sendCapiEvent({
-      eventName: 'Lead',
-      eventId: args.eventId || newEventId(),
-      eventSourceUrl: `${SITE_META.url}/atolyeler/${args.slug}/kayit`,
-      email: args.email || undefined,
-      phone: args.phone || undefined,
-      fbp: c.get('_fbp')?.value,
-      fbc: c.get('_fbc')?.value,
-      clientIp: h.get('x-forwarded-for')?.split(',')[0]?.trim(),
-      userAgent: h.get('user-agent') ?? undefined,
-      value: price,
-      currency: 'TRY',
-      contentName: w?.title,
-      contentId: args.slug,
-    })
-  } catch (err) {
-    console.error('[kayıt] CAPI atlandı:', err)
-  }
-}

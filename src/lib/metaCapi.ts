@@ -1,127 +1,93 @@
 import 'server-only'
 import crypto from 'crypto'
+import { olayOzeti, type CapiOlay } from '@/lib/metaCapiYuk'
 
 /**
- * Meta Conversions API (CAPI) — sunucu taraflı olay gönderimi.
+ * Meta Conversions API (CAPI) — sunucu taraflı gönderim.
  *
  * NEDEN GEREKLİ
- * Tarayıcıdaki piksel; iOS gizlilik ayarları (ATT), Safari ITP ve reklam
- * engelleyiciler yüzünden başvuruların yaklaşık %30'unu kaybediyor. Sunucudan
- * gönderilen olay bunların hiçbirinden etkilenmiyor. İkisi birlikte çalışır:
- * aynı olay hem tarayıcıdan hem sunucudan gider, Meta `event_id` ile ikisini
- * eşleştirip tek sayar. Yani çift sayım olmaz, eksik sayım kapanır.
+ * Tarayıcı pikseli; iOS gizlilik ayarları, Safari ITP ve reklam engelleyiciler
+ * yüzünden olayların bir kısmını kaybediyor. Sunucudan gönderilen olay bunların
+ * hiçbirinden etkilenmiyor. İkisi birlikte çalışır: aynı olay hem tarayıcıdan
+ * hem sunucudan gider, Meta `event_name + event_id` ile ikisini tek sayar.
  *
- * KURULUM
- *   META_PIXEL_ID          → Events Manager'daki piksel numarası
+ * Yük `metaCapiYuk.ts` içinde kuruluyor (rıza kuralları orada). Bu dosya
+ * yalnızca gönderir. Kim, ne zaman, hangi rızayla gönderir: `olcumSunucu.ts`.
+ *
+ * KURULUM (yalnızca sunucu ortam değişkenleri — tarayıcıya ÇIKMAZ)
+ *   META_PIXEL_ID          → Events Manager'daki piksel (veri kümesi) numarası
  *   META_CAPI_ACCESS_TOKEN → Events Manager → Ayarlar → Conversions API →
  *                            "Erişim belirteci oluştur"
- *   META_TEST_EVENT_CODE   → (opsiyonel) Test Events sekmesindeki kod.
- *                            Yalnızca kurulumu doğrularken kullan, sonra sil.
+ *   META_TEST_EVENT_CODE   → (opsiyonel) Test Events kodu. Doluysa olaylar
+ *                            gerçek raporlara değil Test Events sekmesine düşer.
+ *   META_CAPI_KURU=1       → (opsiyonel) Hiçbir şey gönderme; yalnızca hangi
+ *                            alanların gideceğini logla. Yerel denemeler için.
  *
- * GİZLİLİK
- * Kişisel veri Meta'ya ASLA açık gönderilmez. E-posta ve telefon burada
- * SHA-256 ile geri döndürülemez şekilde özetlenir (Meta'nın şartı budur).
- * Ad, mesaj, motivasyon metni gibi alanlar hiç gönderilmez.
+ * Erişim belirteci URL'ye değil gövdeye yazılıyor: sorgu dizesi proxy ve
+ * hata loglarına düşebiliyor.
  */
 
-const PIXEL_ID = process.env.META_PIXEL_ID
-const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN
-const TEST_CODE = process.env.META_TEST_EVENT_CODE
-const API_VERSION = 'v21.0'
+const API_SURUMU = 'v21.0'
 
-/** Meta normalize kuralı: kırp, küçült, sonra SHA-256. */
-function hash(value: string): string {
-  return crypto.createHash('sha256').update(value.trim().toLowerCase()).digest('hex')
+export type CapiSonuc =
+  | 'gonderildi'
+  | 'kuru'
+  | 'yapilandirilmadi'
+  | 'atlandi'
+  | `hata:${string}`
+
+export function capiYapilandirildiMi(): boolean {
+  return Boolean(process.env.META_PIXEL_ID && process.env.META_CAPI_ACCESS_TOKEN)
 }
 
-/** Telefonu E.164'e yaklaştır: sadece rakam, Türkiye için 90 öneki. */
-function normalizePhone(raw: string): string | null {
-  const digits = raw.replace(/\D/g, '')
-  if (!digits) return null
-  if (digits.startsWith('90')) return digits
-  if (digits.startsWith('0')) return '90' + digits.slice(1)
-  if (digits.startsWith('5')) return '90' + digits
-  return digits
-}
-
-export type CapiEvent = {
-  eventName: 'Lead' | 'CompleteRegistration' | 'Subscribe' | 'InitiateCheckout' | 'Contact'
-  /** Tarayıcı olayıyla eşleşen kimlik — çift sayımı engeller. */
-  eventId: string
-  eventSourceUrl?: string
-  email?: string
-  phone?: string
-  /** Tarayıcıdaki _fbp çerezi — eşleşme kalitesini ciddi artırır. */
-  fbp?: string
-  /** Reklamdan gelen _fbc çerezi. */
-  fbc?: string
-  clientIp?: string
-  userAgent?: string
-  value?: number
-  currency?: string
-  contentName?: string
-  contentId?: string
+async function birDene(govde: string, piksel: string): Promise<{ ok: boolean; kod: string; tekrar: boolean }> {
+  try {
+    const res = await fetch(`https://graph.facebook.com/${API_SURUMU}/${piksel}/events`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: govde,
+      // Form cevabını geciktirmesin.
+      signal: AbortSignal.timeout(3500),
+    })
+    if (res.ok) return { ok: true, kod: '200', tekrar: false }
+    const metin = await res.text().catch(() => '')
+    // Meta'nın hata mesajı kişisel veri içermez; yine de kısaltılıyor.
+    console.error('[capi] Meta reddetti:', res.status, metin.slice(0, 300))
+    return { ok: false, kod: String(res.status), tekrar: res.status >= 500 || res.status === 429 }
+  } catch (err) {
+    console.error('[capi] gönderilemedi:', (err as Error)?.name ?? 'hata')
+    return { ok: false, kod: 'ag', tekrar: true }
+  }
 }
 
 /**
- * Olayı Meta'ya gönderir.
- * Asla hata fırlatmaz — reklam takibi başvuru akışını bozmamalı.
+ * Olayları tek istekte gönderir. Asla hata fırlatmaz — reklam ölçümü
+ * başvuru akışını bozmamalı. Geçici hatada (ağ, 5xx, 429) bir kez yeniden dener.
  */
-export async function sendCapiEvent(ev: CapiEvent): Promise<void> {
-  if (!PIXEL_ID || !ACCESS_TOKEN) return // kurulmadıysa sessizce geç
+export async function capiGonder(olaylar: CapiOlay[]): Promise<CapiSonuc> {
+  if (olaylar.length === 0) return 'atlandi'
+  const piksel = process.env.META_PIXEL_ID
+  const jeton = process.env.META_CAPI_ACCESS_TOKEN
 
-  const userData: Record<string, string | string[]> = {}
-  if (ev.email) userData.em = hash(ev.email)
-  if (ev.phone) {
-    const p = normalizePhone(ev.phone)
-    if (p) userData.ph = hash(p)
+  if (process.env.META_CAPI_KURU === '1') {
+    for (const o of olaylar) console.info('[capi:kuru]', olayOzeti(o))
+    return 'kuru'
   }
-  if (ev.fbp) userData.fbp = ev.fbp
-  if (ev.fbc) userData.fbc = ev.fbc
-  if (ev.clientIp) userData.client_ip_address = ev.clientIp
-  if (ev.userAgent) userData.client_user_agent = ev.userAgent
+  if (!piksel || !jeton) return 'yapilandirilmadi'
 
-  const body: Record<string, unknown> = {
-    data: [
-      {
-        event_name: ev.eventName,
-        event_time: Math.floor(Date.now() / 1000),
-        event_id: ev.eventId,
-        event_source_url: ev.eventSourceUrl,
-        action_source: 'website',
-        user_data: userData,
-        custom_data: {
-          ...(ev.value !== undefined ? { value: ev.value } : {}),
-          ...(ev.currency ? { currency: ev.currency } : {}),
-          ...(ev.contentName ? { content_name: ev.contentName } : {}),
-          ...(ev.contentId ? { content_ids: [ev.contentId], content_type: 'product' } : {}),
-        },
-      },
-    ],
-  }
-  if (TEST_CODE) body.test_event_code = TEST_CODE
+  const govdeNesnesi: Record<string, unknown> = { data: olaylar, access_token: jeton }
+  if (process.env.META_TEST_EVENT_CODE) govdeNesnesi.test_event_code = process.env.META_TEST_EVENT_CODE
+  const govde = JSON.stringify(govdeNesnesi)
 
-  try {
-    const res = await fetch(
-      `https://graph.facebook.com/${API_VERSION}/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-        // Başvuru cevabını geciktirmesin
-        signal: AbortSignal.timeout(4000),
-      }
-    )
-    if (!res.ok) {
-      const text = await res.text().catch(() => '')
-      console.error('[capi] Meta reddetti:', res.status, text.slice(0, 400))
-    }
-  } catch (err) {
-    console.error('[capi] gönderilemedi:', err)
+  let s = await birDene(govde, piksel)
+  if (!s.ok && s.tekrar) {
+    await new Promise((r) => setTimeout(r, 400))
+    s = await birDene(govde, piksel)
   }
+  return s.ok ? 'gonderildi' : `hata:${s.kod}`
 }
 
-/** Tarayıcı ve sunucu olaylarını eşleştirmek için ortak kimlik. */
+/** Tarayıcı olayıyla eşleşecek kimlik gelmediyse sunucuda üretilir. */
 export function newEventId(): string {
   return crypto.randomUUID()
 }

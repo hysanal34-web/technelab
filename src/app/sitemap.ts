@@ -6,6 +6,7 @@ import { DISCIPLINES } from '@/lib/disiplinler'
 import { EN_PAGES } from '@/lib/enDisciplines'
 import { getAllEnArticles } from '@/lib/enArticles'
 import { TEAM } from '@/lib/ekip'
+import { KATEGORILER } from '@/lib/kategoriler'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_META.url
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kaynaklar/ses-nefes',  priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/konusma-kulubu-sorulari', priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/muzikal-secme-sarkilari', priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/ingilizce-tartisma-konulari', priority: 0.8, freq: 'monthly' },
     { path: '/en',                        priority: 0.8, freq: 'weekly' },
     { path: '/en/english-drama-istanbul', priority: 0.8, freq: 'weekly' },
     { path: '/en/articles',               priority: 0.8, freq: 'weekly' },
@@ -82,6 +84,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  // Makale kategori hub'ları — küme çatı sayfaları (19 Ekim 2026)
+  const tumMakaleler = getAllArticles()
+  const kategoriler: MetadataRoute.Sitemap = KATEGORILER
+    .filter((k) => tumMakaleler.some((a) => a.category === k.label))
+    .map((k) => ({
+      url: `${base}/makaleler/kategori/${k.slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }))
+
   // Eğitmen profilleri — E-E-A-T; program ve makale sayfalarından linkleniyor
   const ekip: MetadataRoute.Sitemap = TEAM.map((m) => ({
     url: `${base}/ekip/${m.slug}`,
@@ -98,5 +111,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...sayfalar, ...disiplinler, ...ingilizce, ...enMakaleler, ...semtler, ...programlar, ...ekip, ...makaleler]
+  return [...sayfalar, ...disiplinler, ...kategoriler, ...ingilizce, ...enMakaleler, ...semtler, ...programlar, ...ekip, ...makaleler]
 }

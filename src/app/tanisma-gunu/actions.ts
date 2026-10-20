@@ -1,9 +1,9 @@
 'use server'
 
 import { Resend } from 'resend'
-import { headers, cookies } from 'next/headers'
+import { cookies } from 'next/headers'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
-import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
+import { donusumuIsle } from '@/lib/olcumSunucu'
 import { basvuruKaydet } from '@/lib/basvuruStore'
 import { TANISMA_SESSIONS, aktifSessions } from './sessions'
 
@@ -216,34 +216,28 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       html,
     })
 
-    // Meta CAPI.
-    // eventId: tarayıcıdan geliyor — piksel de aynısını gönderiyor, böylece
-    // Meta iki olayı tekilleştiriyor. Gelmezse sunucuda üretilir (eski davranış).
+    // Ölçüm: Meta CAPI (Schedule + Lead) ve sitenin kendi dönüşüm kaydı.
+    // Randevu kaydı ve e-posta BAŞARILI olduktan sonra — butona basıldığı an değil.
+    // eventId tarayıcıdan geliyor; piksel aynı kimlikle gönderiyor, Meta tekilleştiriyor.
     // value: tanışma kaydının tahmini değeri (program bedelinin %10'u).
-    // 8 Eylül'e kadar hiç değer gönderilmiyordu; değer bazlı teklif veren
-    // algoritma bütün kayıtları eşit değersiz görüyordu.
-    try {
-      const h = await headers()
-      const c = await cookies()
-      const price = WORKSHOPS.find((w) => w.slug === sessionObj.slug)?.price ?? 0
-      await sendCapiEvent({
-        eventName: 'Lead',
-        eventId: (formData.get('eventId') as string) || newEventId(),
-        eventSourceUrl: `${SITE_META.url}/tanisma-gunu`,
-        email: contactEmail,
-        phone: contactPhone,
-        fbp: c.get('_fbp')?.value,
-        fbc: c.get('_fbc')?.value,
-        clientIp: h.get('x-forwarded-for')?.split(',')[0]?.trim(),
-        userAgent: h.get('user-agent') ?? undefined,
-        value: Math.round(price * 0.1),
-        currency: 'TRY',
-        contentName: `Tanışma Günü — ${sessionObj.program}`,
-        contentId: `tanisma-gunu-${sessionObj.id}`,
-      })
-    } catch (err) {
-      console.error('[tanışma] CAPI atlandı:', err)
-    }
+    // Rıza kapıları ve gönderilen alanlar: src/lib/olcumSunucu.ts
+    const price = WORKSHOPS.find((w) => w.slug === sessionObj.slug)?.price ?? 0
+    await donusumuIsle({
+      tur: 'tanisma',
+      olaylar: ['Schedule', 'Lead'],
+      eventId: formData.get('eventId') as string | null,
+      sayfa: formData.get('olaySayfasi') as string | null,
+      yedekYol: '/tanisma-gunu',
+      program: sessionObj.program,
+      slug: sessionObj.slug,
+      email: contactEmail,
+      telefon: contactPhone,
+      reklamRizasi,
+      deger: Math.round(price * 0.1),
+      icerikAdi: `Tanışma Günü — ${sessionObj.program}`,
+      icerikKimligi: `tanisma-gunu-${sessionObj.id}`,
+      icerikKategorisi: 'tanisma_gunu',
+    })
 
     return { status: 'success' }
   } catch (err) {

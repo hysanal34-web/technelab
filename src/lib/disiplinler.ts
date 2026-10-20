@@ -116,7 +116,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Şu an Türkçe oyunculuk kursu açık mı?',
-        a: 'Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; açıldığında haber almak için bekleme listesine yazılabilirsin. Bu dönem kayıt alan programlar İngilizce yürüyen English Acting Praxis (Pera, cumartesi) ve oyunculuk, şan ve dansı birlikte çalışan Techne Musical Lab (Kadıköy, 12 Ekim\'de başlıyor).',
+        a: 'Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; açıldığında haber almak için bekleme listesine yazılabilirsin. Bu dönem kayıt alan programlar İngilizce yürüyen English Acting Praxis (Pera, cumartesi) ve oyunculuk, şan ve dansı birlikte çalışan Techne Musical Lab (Kadıköy, 12 Ekim\'de başladı, katılım açık).',
       },
       {
         q: 'Oyunculuk kursu İstanbul\'da nerede yapılıyor?',
@@ -167,7 +167,7 @@ export const DISCIPLINES: Discipline[] = [
     ],
     quickAnswer: {
       q: 'Techne Lab\'da oyunculuk eğitimi nasıl alınır?',
-      a: 'Techne Lab İstanbul bağımsız bir tiyatro laboratuvarı; oyunculuk eğitimi atölye modelinde, en fazla 12–14 kişilik gruplarla, Pera ve Kadıköy\'deki partner stüdyolarda yürüyor. Deneyim şartı yok. Bu dönem kayıt alan programlar: English Acting Praxis (Ece Ertez, 12 hafta İngilizce sahne oyunculuğu, Pera; finalde Cast Direktörü Harika Uygur masterclass\'ı) ve Techne Musical Lab (Köksal Ünal ve Bartu Ayaz, 8 ay oyunculuk, şan ve dans, Kadıköy, 15–55 yaş). Kamera önü programı Camera Praxis ve Türkçe sahne programı Oyuncunun Mevcudiyeti için yeni dönem tarihleri yakında açıklanacak.',
+      a: 'Techne Lab İstanbul bağımsız bir tiyatro laboratuvarı; oyunculuk eğitimi atölye modelinde, en fazla 12–14 kişilik gruplarla, Pera ve Kadıköy\'deki partner stüdyolarda yürüyor. Deneyim şartı yok. Bu dönem kayıt alan programlar: English Acting Praxis (Ece Ertez, 12 hafta İngilizce sahne oyunculuğu, Pera; finalde Cast Direktörü Harika Uygur masterclass\'ı) ve Techne Musical Lab (Köksal Ünal ve Beril Korkmaz, 8 ay oyunculuk, şan ve dans, Kadıköy, 15–55 yaş). Kamera önü programı Camera Praxis ve Türkçe sahne programı Oyuncunun Mevcudiyeti için yeni dönem tarihleri yakında açıklanacak.',
       points: [
         'Gruplar küçük: herkes her hafta sahneye çıkıyor, herkes bireysel geri bildirim alıyor',
         'Eğitmenlerin adı ve geçmişi açık; programlar akşam ya da hafta sonu',
@@ -270,11 +270,11 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Yetişkinler için yaratıcı drama var mı?',
-        a: 'Evet, gruplarımızın çoğu yetişkin. 10–17 yaş için ayrı bir gençlik programı yürüyor (English Drama Youth), o da seyircili final gösterisiyle kapanıyor.',
+        a: 'Evet, gruplarımızın çoğu yetişkin. 8–17 yaş için ayrı bir gençlik programı yürüyor (English Drama Youth), o da seyircili final gösterisiyle kapanıyor.',
       },
       {
         q: 'Yaratıcı dramayı İngilizce yapıyor musunuz?',
-        a: 'Evet. English Drama Lab tam olarak bu: yaratıcı drama araçlarını İngilizce dil pratiğiyle birleştiren, 12/6/4 haftalık paketlerle açık program. Konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.',
+        a: 'Evet. English Drama Lab tam olarak bu: yaratıcı drama araçlarını İngilizce dil pratiğiyle birleştiren, her hafta katılınabilen esnek bir program (1, 4 ya da 8 katılım). Konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.',
       },
     ],
     related: ['ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],
@@ -288,21 +288,21 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'English Creative Drama',
     seoTitle: 'İngilizce Drama Kursu İstanbul — English Drama & Konuşma Pratiği',
     seoDesc:
-      'İngilizce yaratıcı drama atölyesi İstanbul: doğaçlama ve sahne çalışmasıyla İngilizce konuşma pratiği. Yetişkin ve 10–17 yaş grupları — Kadıköy ve Pera.',
+      'İngilizce yaratıcı drama atölyesi İstanbul: doğaçlama ve sahne çalışmasıyla İngilizce konuşma pratiği. Yetişkin ve 8–17 yaş grupları — Kadıköy ve Pera.',
     keywords: [
       'ingilizce drama istanbul', 'ingilizce drama kursu', 'ingilizce yaratıcı drama',
       'english drama istanbul', 'english drama lab', 'ingilizce tiyatro istanbul',
       'ingilizce konuşma kulübü istanbul', 'ingilizce konuşma pratiği istanbul',
       'english acting workshop istanbul', 'ingilizce drama kadıköy',
       'ingilizce drama beyoğlu', 'gençler için ingilizce drama',
-      '10 17 yaş ingilizce drama', 'ingilizce sahne sanatları',
+      '8 17 yaş ingilizce drama', 'ingilizce sahne sanatları',
     ],
     intro:
       'İngilizce konuşmayı ders kitabından değil, sahneden öğrenmek. Techne Lab\'ın İngilizce drama programları dili bedene ve sese yerleştiriyor: doğaçlama, oyun, anlık tepki. Gramer çalışmıyoruz — konuşuyoruz. İstanbul\'un iki yakasında da grup açılıyor.',
     what:
       'İlk dört hafta oyun ve güven egzersizleri: dil oyunları, beden-ses-hayal gücü. Sonrasında doğaçlama sahneler, status oyunları, karakter çalışmaları. Son bölümde araçlar sahnede bütünleşiyor. Metin ezberi yok, sınav yok, seviye testi yok — herkes kendi İngilizcesiyle başlıyor ve konuşarak açılıyor. İleri seviye için ayrıca İngilizce metinlerle çalışan bir oyunculuk programı (English Acting Praxis) var.',
     who:
-      'Techne Lab İstanbul\'da İngilizce drama üç ayrı yaş grubunda yürüyor. Yetişkinler (18+): İngilizcesi var ama konuşurken donanlar, konuşma kulübü deneyip sıkılanlar, yurtdışı hazırlığı yapanlar. Gençler (15–17): lise çağı, sekiz ay, Mayıs\'ta seyircili final gösterisi. Çocuklar (10–14): oyun temelli, kendi grubunda. Üç grup ayrı günlerde, ayrı eğitmenlerle çalışıyor — hiçbiri diğeriyle karışmıyor.',
+      'Techne Lab İstanbul\'da İngilizce drama üç ayrı yaş grubunda yürüyor. Yetişkinler (18+): İngilizcesi var ama konuşurken donanlar, konuşma kulübü deneyip sıkılanlar, yurtdışı hazırlığı yapanlar. Gençler (15–17): lise çağı, sekiz ay, Mayıs\'ta seyircili final gösterisi. Çocuklar (8–14): oyun temelli, kendi grubunda. Üç grup ayrı günlerde, ayrı eğitmenlerle çalışıyor — hiçbiri diğeriyle karışmıyor.',
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project', 'english-drama-youth'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
     faq: [
@@ -316,7 +316,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Çocuğum için İngilizce drama var mı?',
-        a: '10–17 yaş için English Drama Youth programı var: Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de, yıl sonunda seyircili bir final gösterisiyle kapanıyor. Veli onayıyla başvuru alınıyor.',
+        a: '8–17 yaş için English Drama Youth programı var: Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de, yıl sonunda seyircili bir final gösterisiyle kapanıyor. Veli onayıyla başvuru alınıyor.',
       },
     ],
     criteria: [
@@ -569,9 +569,9 @@ export const DISCIPLINES: Discipline[] = [
     label: 'Müzikal & Şan',
     h1: 'MÜZİKAL TİYATRO\nKURSU',
     eyebrow: 'Oyunculuk · Şan · Dans',
-    seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Şan, Dans & Oyunculuk Eğitimi',
+    seoTitle: 'Müzikal Tiyatro Kursu İstanbul 2026-27 | Şan, Dans, Oyunculuk · Techne Lab',
     seoDesc:
-      'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. 8 aylık kapsamlı eğitim, seyircili bitirme performansı — Kadıköy. Köksal Ünal & Bartu Ayaz.',
+      'İstanbul müzikal tiyatro kursu 2026-27: müzikal oyunculuk, şan ve dans tek programda. 8 aylık eğitim, en fazla 12 kişilik grup, seyircili bitirme müzikali. Kadıköy, Köksal Ünal & Beril Korkmaz.',
     keywords: [
       'müzikal tiyatro kursu istanbul', 'müzikal kursu istanbul', 'müzikal eğitimi istanbul',
       'şan kursu istanbul', 'şan eğitimi istanbul', 'şan ve dans atölyesi',
@@ -582,17 +582,29 @@ export const DISCIPLINES: Discipline[] = [
       'istanbul müzikal atölyesi', 'müzikal atölyesi istanbul', 'müzikal atölyesi',
     ],
     intro:
-      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Bartu Ayaz ile Kadıköy\'de, sekiz ay, haftada iki gün.',
+      'Müzikal tiyatro üç dili aynı anda konuşmayı gerektirir: oyunculuk, şan ve dans. Techne Lab\'ın müzikal programı bu üçünü ayrı başlıklar olarak değil, tek bir sahne pratiği olarak kuruyor. Köksal Ünal ve Beril Korkmaz ile Kadıköy\'de, sekiz ay, haftada iki gün.',
     what:
-      'Program dramadan başlıyor, çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Sekiz ay üç bloğa ayrılıyor. Ekim-Aralık, Oyunculuk & Şan: sahne varlığı, karakter inşası ve vokal teknik; şan ve vokal koçluğuyla buluşan oyuncu sesi. Ocak-Mart, Müzikal Sahneleme: müzikal ritim, Broadway dans temelleri ve şarkıyla sahne hareketinin birleştiği koreografi. Nisan-Mayıs, Yıl Sonu Gösterisi: sahnelenmiş bir müzikal; kostüm, ışık ve dekorla, seyirci önünde tam bir prodüksiyon.\n\nİki eğitmen aynı programı birlikte yürütüyor. Bartu Ayaz, İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro bölümünden mezun; Grease, Alaaddin\'in Müzikali ve Damdaki Kemancı gibi prodüksiyonlarda sahne aldı. Programda şan, vokal koçluğu ve müzikal oyunculuk tarafını taşıyor. Köksal Ünal koreograf; 2017 Yılın Koreografisi ödülünün sahibi ve İstanbul Aydın Üniversitesi Güzel Sanatlar Fakültesi\'nde öğretim görevlisi. Hareket, dans ve sahneleme onun alanı. Şarkı ile koreografi ayrı odalarda değil, aynı sahne çalışmasının içinde buluşuyor: bir numarada nefesin, adımın ve karakterin niyetinin aynı anda nasıl taşınacağı birlikte çalışılıyor.\n\nGrup en fazla 12 kişi. Bu sınırın sebebi şan: ses, bireysel geri bildirim olmadan doğru kurulmuyor ve kalabalık bir sınıfta herkesin sesini tek tek duymak mümkün olmuyor. Çalışma haftada iki gün, Ekim\'den Mayıs\'a Kadıköy\'de sürüyor. 2026-27 dönemi 12 Ekim Pazartesi başlıyor. Sekiz ayın sonunda elinde bir katılım belgesinden fazlası oluyor: seyirci önünde baştan sona oynanmış bir müzikal ve o sahneye varana kadar biriktirilmiş bir repertuvar.',
+      'Program dramadan başlıyor, çünkü şarkı da bir sahnedir ve oynanmadan söylenmez. Sekiz ay üç bloğa ayrılıyor. Ekim-Aralık, Oyunculuk & Şan: sahne varlığı, karakter inşası ve vokal teknik; şan ve vokal koçluğuyla buluşan oyuncu sesi. Ocak-Mart, Müzikal Sahneleme: müzikal ritim, Broadway dans temelleri ve şarkıyla sahne hareketinin birleştiği koreografi. Nisan-Mayıs, Yıl Sonu Gösterisi: sahnelenmiş bir müzikal; kostüm, ışık ve dekorla, seyirci önünde tam bir prodüksiyon.\n\nİki eğitmen aynı programı birlikte yürütüyor. Beril Korkmaz, İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro bölümünden mezun; Araf Müzikali, Jekyll ve Hyde ve Damdaki Kemancı gibi müzikallerde sahne aldı. Programda şan ve müzikal oyunculuk tarafını taşıyor. Köksal Ünal koreograf; 2017 Yılın Koreografisi ödülünün sahibi ve İstanbul Aydın Üniversitesi Güzel Sanatlar Fakültesi\'nde öğretim görevlisi. Hareket, dans ve sahneleme onun alanı. Şarkı ile koreografi ayrı odalarda değil, aynı sahne çalışmasının içinde buluşuyor: bir numarada nefesin, adımın ve karakterin niyetinin aynı anda nasıl taşınacağı birlikte çalışılıyor.\n\nGrup en fazla 12 kişi. Bu sınırın sebebi şan: ses, bireysel geri bildirim olmadan doğru kurulmuyor ve kalabalık bir sınıfta herkesin sesini tek tek duymak mümkün olmuyor. Çalışma haftada iki gün, Ekim\'den Mayıs\'a Kadıköy\'de sürüyor. 2026-27 dönemi 12 Ekim\'de başladı, katılım açık. Sekiz ayın sonunda elinde bir katılım belgesinden fazlası oluyor: seyirci önünde baştan sona oynanmış bir müzikal ve o sahneye varana kadar biriktirilmiş bir repertuvar.',
     who:
       'Şarkı söyleyip bunu sahneye taşımak isteyenler; oyunculuk çalışmış ve müzikale geçmek isteyenler; dans geçmişi olup üzerine ses ve oyunculuk eklemek isteyenler. Ortak nokta, üç disiplini birden ve uzun soluklu çalışmaya hazır olmak. Program konserde şarkı söylemeyi değil, bir karakterin sesi olarak şarkı söylemeyi öğretiyor; yalnızca ses tekniği arıyorsan birebir şan dersi daha doğru bir başlangıç olabilir.\n\nProgram 15-55 yaş aralığına açık ve katılımcılar aynı grupta çalışıyor. Profesyonel şan ya da dans geçmişi beklenmiyor: ses çalışması temelden kuruluyor, dans tarafı da teknik temelden başlıyor. Beklenen şey temel bir ses kontrolü, öğrenme isteği ve sekiz ay boyunca haftada iki gün düzenli katılım. Müzikal bir ansambl işi; bir kişinin sürekli devamsızlığı bütün grubun provasını etkiliyor.\n\nBaşvuru için bir müzikal ya da pop şarkıyı seslendirdiğin 1-2 dakikalık kısa bir video isteniyor. Telefonla çekilmiş olması yeterli, sesinin net duyulması önemli. Kabul video incelemesiyle yapılıyor; video bir yetenek sınavından çok, sesinin bugün nerede durduğunu görüp grubu dengeli kurmak için. Kararsızsan önce bir tanışma günü seansına gelip programı ve eğitmenleri yakından görebilirsin.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
     districtSlugs: ['kadikoy-tiyatro-kursu'],
     faq: [
       {
+        q: 'Müzikal tiyatro kursu ne kadar sürer?',
+        a: 'Techne Musical Lab sekiz ay sürer: Ekim\'den Mayıs\'a, haftada iki gün. İlk blok oyunculuk ve şan, ikinci blok müzikal sahneleme ve Broadway dans, son blok seyirci önünde sahnelenen yıl sonu müzikali. Daha kısa bir başlangıç arıyorsan 6 ya da 12 haftalık Broadway Musical Dance seçeneği var.',
+      },
+      {
+        q: 'Müzikal oyunculuk kursu ile müzikal tiyatro kursu aynı şey mi?',
+        a: 'Pratikte aynı alanı anlatıyorlar: şarkı, dans ve oyunculuğu tek sahne çalışmasında birleştiren eğitim. Techne Lab\'ın programı bu yüzden hem müzikal oyunculuk hem müzikal tiyatro kursu olarak çalışıyor; fark adlandırmada, içerikte değil.',
+      },
+      {
+        q: 'Grupta kaç kişi var, şan çalışması bireysel mi?',
+        a: 'Grup en fazla 12 kişi. Bu sayıda her katılımcının sesi derste tek tek duyuluyor ve bireysel geri bildirim alıyor; kalabalık gruplarda bu mümkün olmuyor.',
+      },
+      {
         q: 'Şan eğitimi programa dahil mi?',
-        a: 'Evet. Bartu Ayaz ile şan ve vokal çalışması programın omurgasında — ayrı bir başlık olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
+        a: 'Evet. Beril Korkmaz ile şan ve vokal çalışması programın omurgasında — ayrı bir başlık olarak değil, oyunculuk ve dansla birlikte yürüyor. "Şarkı yoluyla oynamak" programın merkezinde.',
       },
       {
         q: 'Nota bilmem gerekiyor mu?',
@@ -604,7 +616,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Program ne zaman ve nerede başlıyor?',
-        a: 'Techne Musical Lab\'in 2026-27 dönemi 12 Ekim Pazartesi Kadıköy\'de başlıyor ve Mayıs\'a kadar haftada iki gün sürüyor. Tam adres kayıt sonrası paylaşılıyor.',
+        a: 'Techne Musical Lab\'in 2026-27 dönemi 12 Ekim Pazartesi Kadıköy\'de başladı ve Mayıs\'a kadar haftada iki gün sürüyor. Katılım açık; dönem içinde katılmak için tanışma gününe gelebilir ya da başvuru videosu gönderebilirsin. Tam adres kayıt sonrası paylaşılıyor.',
       },
       {
         q: 'Başvuru videosu için hangi şarkıyı seçmeliyim?',
@@ -614,6 +626,34 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Kayıt olmadan önce programı görebilir miyim?',
         a: 'Evet. Ücretsiz tanışma günü seanslarında programı ve eğitmenleri yakından görebilir, sorularını sorabilirsin. Güncel seanslar tanışma günü sayfasında listeleniyor; seans yeri programın yürüdüğü Kadıköy\'den farklı olabilir, sayfada ayrıca yazıyor.',
       },
+      {
+        q: 'Müzikal kursu için yetenek ya da deneyim şart mı?',
+        a: 'Profesyonel şan ya da dans geçmişi beklenmiyor. Ses çalışması temelden kuruluyor, dans tarafı da teknik temelden başlıyor. Beklenen şey temel bir ses kontrolü, öğrenme isteği ve sekiz ay boyunca haftada iki gün düzenli katılım. Başvuru videosu bir yetenek sınavı değil; sesinin bugün nerede durduğunu görüp grubu dengeli kurmak için isteniyor.',
+      },
+      {
+        q: 'Dönem başladı, şimdi katılabilir miyim?',
+        a: 'Evet, 2026-27 dönemi 12 Ekim\'de başladı ve katılım açık. İlk blok oyunculuk ve şan üzerine kurulu olduğu için ilk haftalarda katılan biri gruba yetişebiliyor. En kolay yol bir tanışma günü seansına gelmek ya da başvuru videosunu göndermek.',
+      },
+      {
+        q: '15 yaşından küçükler için müzikal kursu var mı?',
+        a: 'Techne Musical Lab 15-55 yaş aralığına açık. 12 yaşından itibaren katılabilen program Broadway Musical Dance; yalnızca dansa odaklı, şan ve oyunculuk içermiyor. 12 yaş altı için şu an bir müzikal programımız yok.',
+      },
+      {
+        q: 'Yetişkin olarak müzikale başlamak için geç mi?',
+        a: 'Program 55 yaşa kadar açık ve farklı yaşlardan katılımcılar aynı grupta çalışıyor. Yetişkin bir katılımcının avantajı, şarkının anlattığı şeyi yaşamış olması: müzikalde ses kadar niyet de önemli. Konuyu ayrıntılı ele aldığımız yazı: Yetişkin olarak müzikale başlamak.',
+      },
+      {
+        q: 'Kurs bitince müzikallerde sahne alabilir miyim?',
+        a: 'Program seyirci önünde baştan sona oynanan bir yıl sonu müzikaliyle kapanıyor; yani sahneye çıkmak programın kendisinin parçası. Profesyonel müzikal kadrolarına giriş ise her yapımın kendi seçmesiyle oluyor ve hiçbir kurs bunu garanti edemez. Programın verdiği şey, seçmeye götürebileceğin bir repertuvar ve sahnede şarkıyla oynama pratiği.',
+      },
+    ],
+    articleSlugs: [
+      'muzikal-oyunculuk-nedir',
+      'muzikal-tiyatro-atolyesi-secerken-nelere-bakilir',
+      'san-dersi-mi-muzikal-kursu-mu',
+      'yetiskin-olarak-muzikale-baslamak',
+      'muzikal-basvuru-videosu-nasil-hazirlanir',
+      'muzikali-tiyatro-kursu-istanbul',
     ],
     criteria: [
       {
@@ -718,31 +758,32 @@ export const DISCIPLINES: Discipline[] = [
     related: ['oyunculuk-kursu-istanbul', 'yaratici-drama-istanbul'],
   },
 
-  // ── ÇOCUKLAR İÇİN İNGİLİZCE DRAMA (10–14) ────────────────────────
+  // ── ÇOCUKLAR İÇİN İNGİLİZCE DRAMA (8–14) ────────────────────────
   // Rakip taraması: veliler "çocuklar için" + yaş aralığı ile arıyor.
   // Programımız 10'dan başladığı için bu sorgularda meşru olarak varız.
   {
     slug: 'cocuklar-icin-ingilizce-drama-istanbul',
     label: 'Çocuklar İçin İngilizce Drama',
     h1: 'ÇOCUKLAR İÇİN\nİNGİLİZCE DRAMA',
-    eyebrow: '10–14 Yaş · Yıl Sonu Gösterisi',
-    seoTitle: 'Çocuklar İçin İngilizce Drama İstanbul — 10-14 Yaş Yaratıcı Drama',
+    eyebrow: '8–14 Yaş · Yıl Sonu Gösterisi',
+    seoTitle: 'Çocuklar İçin İngilizce Drama İstanbul — 8-14 Yaş Yaratıcı Drama',
     seoDesc:
-      'İstanbul 10-14 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
+      'İstanbul 8-14 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
     keywords: [
       'çocuklar için ingilizce drama', 'çocuk ingilizce drama kursu istanbul',
-      'ingilizce drama çocuk', '10 yaş drama kursu', '11 yaş drama kursu',
-      '12 yaş tiyatro kursu', '13 yaş drama kursu', '10 12 yaş yaratıcı drama',
+      'ingilizce drama çocuk', '8 yaş drama kursu', '9 yaş drama kursu',
+      '10 yaş drama kursu', '11 yaş drama kursu',
+      '12 yaş tiyatro kursu', '13 yaş drama kursu', '8 12 yaş yaratıcı drama',
       'çocuklara ingilizce tiyatro', 'çocuk drama kursu kadıköy',
       'ingilizce konuşma çocuk kursu', 'çocuk yaratıcı drama istanbul',
       'çocuklar için tiyatro kursu istanbul',
     ],
     intro:
-      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 10–14 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Pera ve Kadıköy\'deki partner stüdyolarda haftada bir gün, on iki kişiyi geçmeyen gruplarla. Program İngilizcesi zaten olan çocuk için kuruldu: B1 ve üzeri bir çocuk için İstanbul\'daki seçenekler çoğu zaman ya bildiğini tekrar eden bir dil kursu ya da Türkçe bir drama kursu oluyor. Burada İngilizce çalışma dili, asıl iş tiyatro.',
+      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 8–14 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Pera ve Kadıköy\'deki partner stüdyolarda haftada bir gün, on iki kişiyi geçmeyen gruplarla. Program İngilizcesi zaten olan çocuk için kuruldu: B1 ve üzeri bir çocuk için İstanbul\'daki seçenekler çoğu zaman ya bildiğini tekrar eden bir dil kursu ya da Türkçe bir drama kursu oluyor. Burada İngilizce çalışma dili, asıl iş tiyatro.',
     what:
       'Ders kitabı yok, gramer anlatımı yok, sınav ve not yok. Çocuk bir karakteri canlandırırken, bir sahneyi kurarken, arkadaşıyla doğaçlama yaparken dili kullanmak zorunda kalıyor — ve kullandıkça korkusu geçiyor. Öğrendiği İngilizce burada işe yarayan bir şeye dönüşüyor. Her ay üç hafta drama, son hafta konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Yıl üç evrede ilerliyor: önce oyun ve güven, sonra karakter ve metin, son üç ayda çocukların kendi yazdığı ve tasarladığı malzemeyle gösteri provası. Mayıs\'ta seyirci önünde, tamamen İngilizce sahneye çıkıyorlar.',
     who:
-      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Uluslararası okullarda okuyan, yabancı ya da iki dilli ailelerden gelen ve İngilizcesini okul dışında kullanacak yaratıcı bir alan arayan çocuklar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 10–14 ve 15–17 ayrı sınıflarda çalışıyor.',
+      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Uluslararası okullarda okuyan, yabancı ya da iki dilli ailelerden gelen ve İngilizcesini okul dışında kullanacak yaratıcı bir alan arayan çocuklar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 8–14 ve 15–17 ayrı sınıflarda çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
@@ -751,16 +792,16 @@ export const DISCIPLINES: Discipline[] = [
         a: 'B1 ve üzeri bekliyoruz — yani günlük bir sohbeti takip edip cevap verebiliyorsa yeterli. Akıcı olması gerekmiyor. Burası İngilizce öğretilen bir yer değil; öğrendiğinin kullanıldığı yer. Sıfırdan dil kurmuyoruz, var olan bilgiyi konuşmaya çeviriyoruz.',
       },
       {
-        q: 'Çocuğum 10 yaşından küçük, bir programınız var mı?',
-        a: 'Şu an yok. İngilizce drama programımız 10 yaşında başlıyor ve bunun bir sebebi var: sahnede doğaçlama yaparken dili kullanabilmek için önce o dilde bir sohbeti sürdürebilmek gerekiyor. Daha küçük yaşta bu eşik genellikle oluşmamış oluyor ve çocuk sahnede susmak zorunda kalıyor — kimseye faydası olmayan bir deneyim. Türkçe yaratıcı drama ise daha erken yaşta çalışılabiliyor; çocuğunuz için doğru zamanı birlikte konuşmak isterseniz arayın.',
+        q: 'Çocuğum 8 yaşından küçük, bir programınız var mı?',
+        a: 'Şu an yok. İngilizce drama programımız 8 yaşında başlıyor ve bunun bir sebebi var: sahnede doğaçlama yaparken dili kullanabilmek için önce o dilde bir sohbeti sürdürebilmek gerekiyor. Daha küçük yaşta bu eşik genellikle oluşmamış oluyor ve çocuk sahnede susmak zorunda kalıyor, kimseye faydası olmayan bir deneyim. Belirleyici olan yaştan çok dil: sekiz yaşında İngilizce sohbet edebilen bir çocuk için uygun, on yaşında ama henüz konuşamayan bir çocuk için erken. Emin değilseniz arayın, çocuğunuzla kısa bir sohbet yeterli oluyor.',
       },
       {
         q: 'Küçük çocuklar büyüklerle aynı grupta mı olacak?',
-        a: 'Hayır, gruplar ayrı. 10–14 yaş ve 15–17 yaş farklı sınıflarda çalışıyor. Kayıt sırasında çocuğunuzun yaşına uygun gruba yerleştiriyoruz.',
+        a: 'Hayır, gruplar ayrı. 8–14 yaş ve 15–17 yaş farklı sınıflarda çalışıyor. Kayıt sırasında çocuğunuzun yaşına uygun gruba yerleştiriyoruz.',
       },
       {
         q: 'Program ne kadar sürüyor?',
-        a: 'Sekiz ay, Ekim\'den Mayıs\'a, haftada bir gün. Pera grubu 4 Ekim\'de başladı ve katılım açık; Kadıköy grubu 17 Ekim\'de başlıyor. Yıl sonunda seyircili, tamamen İngilizce bir final gösterisiyle kapanıyor.',
+        a: 'Sekiz ay, Ekim\'den Mayıs\'a, haftada bir gün. Pera grubu 4 Ekim\'de başladı ve katılım açık; Kadıköy grubu 17 Ekim\'de başladı. Yıl sonunda seyircili, tamamen İngilizce bir final gösterisiyle kapanıyor.',
       },
       {
         q: 'Yıl sonu gösterisi zorunlu mu?',
@@ -829,7 +870,7 @@ export const DISCIPLINES: Discipline[] = [
         },
         {
           label: 'English Drama Youth, bizim sayılarımız',
-          value: '10–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          value: '8–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
           source: 'Techne Lab program sayfası',
           url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
         },
@@ -869,13 +910,13 @@ export const DISCIPLINES: Discipline[] = [
     what:
       'Dil öğretmiyoruz. Dili deneyimliyoruz. Ders kitabı, gramer anlatımı ve sınav yok; doğaçlama, karakter kurma, metin analizi ve sahne çalışması var. Genç, kendi seçtiği bir karakterle yıl boyunca uğraşıyor ve Mayıs\'taki gösteride onu seyirciye taşıyor. İngilizcesi bunun sonucunda açılıyor: bir dili sahnede kullanmak zorunda kalan biri, o dille arasındaki mesafeyi hızla kapatıyor. Her ayın son haftası konuk atölye var: yaratıcı yazarlık, tasarım ve jazz dance; gençlerin yazdığı sahneler ve tasarımlar gösterinin malzemesi oluyor.',
     who:
-      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Uluslararası okul öğrencileri ve İngilizcesini okul dışında yaratıcı bir işte kullanmak isteyen gençler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 15–17 kendi sınıfında, 10–14 ayrı çalışıyor.',
+      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Uluslararası okul öğrencileri ve İngilizcesini okul dışında yaratıcı bir işte kullanmak isteyen gençler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 15–17 kendi sınıfında, 8–14 ayrı çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
       {
         q: 'Küçük çocuklarla aynı sınıfta mı olacak?',
-        a: 'Hayır. 15–17 yaş kendi grubunda çalışıyor, 10–14 yaş ayrı. Bu ayrımı bilinçli yapıyoruz — iki yaş grubunun ihtiyacı ve çalışma temposu farklı.',
+        a: 'Hayır. 15–17 yaş kendi grubunda çalışıyor, 8–14 yaş ayrı. Bu ayrımı bilinçli yapıyoruz — iki yaş grubunun ihtiyacı ve çalışma temposu farklı.',
       },
       {
         q: 'Konservatuvar hazırlığı sayılır mı?',
@@ -948,7 +989,7 @@ export const DISCIPLINES: Discipline[] = [
         },
         {
           label: 'English Drama Youth, bizim sayılarımız',
-          value: '10–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          value: '8–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
           source: 'Techne Lab program sayfası',
           url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
         },
@@ -999,7 +1040,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Yaş grubu gerçekten ayrı mı?',
-        a: 'Evet. Yetişkin grupları 18 yaş üstü katılımcılardan oluşuyor. Çocuk (10–14) ve genç (15–17) programları tamamen ayrı günlerde, ayrı eğitmenlerle yürüyor.',
+        a: 'Evet. Yetişkin grupları 18 yaş üstü katılımcılardan oluşuyor. Çocuk (8–14) ve genç (15–17) programları tamamen ayrı günlerde, ayrı eğitmenlerle yürüyor.',
       },
       {
         q: 'İngilizce seviyem yeterli mi?',
@@ -1149,7 +1190,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Bir bitiş noktası, hazırlığın niteliğini değiştirir. Sunum, sahne ya da kayıt gibi bir kapanışı olan programlarda katılımcı daha çok çalışır. Açık uçlu sohbet gruplarında ilerleme ölçülemez, o yüzden de çoğu kişi birkaç ay sonra bırakır.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
   },
 
   // ── AUDITION HAZIRLIK ────────────────────────────────────────────
@@ -1352,7 +1393,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal tiyatro yaş sormuyor. Techne Musical Lab\'in gruplarında yirmili yaşlarında katılımcı da var, ellili yaşlarında olan da — ve ikisi de aynı sahnede aynı işi yapıyor. Sekiz ay, haftada iki gün, Kadıköy.',
     what:
-      'Program üç disiplini aynı anda yürütüyor: oyunculuk, şan ve dans. Köksal Ünal ve Bartu Ayaz yönetiminde beden, ses ve sahne birlikte çalışılıyor. Yıl seyircili bir final performansıyla kapanıyor — kurs bitirme belgesi değil, gerçek bir gösteri. Sekiz ay boyunca aynı grupla çalışmak, tek başına bir topluluk deneyimi.',
+      'Program üç disiplini aynı anda yürütüyor: oyunculuk, şan ve dans. Köksal Ünal ve Beril Korkmaz yönetiminde beden, ses ve sahne birlikte çalışılıyor. Yıl seyircili bir final performansıyla kapanıyor — kurs bitirme belgesi değil, gerçek bir gösteri. Sekiz ay boyunca aynı grupla çalışmak, tek başına bir topluluk deneyimi.',
     who:
       'Şarkı söylemeyi seven ama hiç sahneye çıkmamış olanlar. Ofisten çıkıp bambaşka bir şey yapmak isteyenler. Çocukken müzikale merak salmış, hiç fırsat bulamamış olanlar. Deneyim aranmıyor, ses eğitimi programın parçası. On sekiz yaş üstü — üst sınır elli beş.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
@@ -1360,7 +1401,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Şarkı söyleyemiyorum, olur mu?',
-        a: 'Olur. Şan eğitimi programın içinde — Bartu Ayaz ile sesini kullanmayı öğreniyorsun. Kimse ses testinden geçmiyor.',
+        a: 'Olur. Şan eğitimi programın içinde — Beril Korkmaz ile sesini kullanmayı öğreniyorsun. Kimse ses testinden geçmiyor.',
       },
       {
         q: 'Yaşım büyük, geç mi kaldım?',
@@ -1405,7 +1446,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Kaç yaşından itibaren katılınabiliyor?',
-        a: 'Müzikal programı on beş yaşından itibaren. Daha küçük yaştaki çocuklar için 10–17 yaş İngilizce drama programımız var, o da seyircili final gösterisiyle kapanıyor.',
+        a: 'Müzikal programı on beş yaşından itibaren. Daha küçük yaştaki çocuklar için 8–17 yaş İngilizce drama programımız var, o da seyircili final gösterisiyle kapanıyor.',
       },
       {
         q: 'Yetişkinlerle aynı grupta mı olacak?',
@@ -1450,7 +1491,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Müzikal çalışmak için Kadıköy\'den daha doğru bir yer düşünmek zor: geniş stüdyolar, bağımsız sahne kültürü ve her akşam bir yerlerde açık bir perde. Techne Lab\'ın iki müzikal programı da burada yürüyor — Rasimpaşa\'daki Beden İşleri ve Kadıköy merkezdeki Soft Sanat stüdyolarında, Marmaray Ayrılık Çeşmesi durağına yürüme mesafesinde.',
     what:
-      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor; 12 Ekim Pazartesi başlıyor, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi; Kadıköy grubunun tarihi yakında açıklanacak (Pera grubu 3 Ekim Cumartesi 19:00\'da başlıyor), dilersen 6 haftalık kısa programla deneyebilirsin.',
+      'Kadıköy\'de iki ayrı kapı var. Techne Musical Lab sekiz aylık tam program: oyunculuk temelinden başlıyor, şan ve dansı üzerine kuruyor, Mayıs\'ta seyircili bir bitirme performansıyla kapanıyor; 12 Ekim Pazartesi başladı, katılım açık, başvuru kısa bir şarkı videosuyla. Broadway Musical Dance ise yalnızca dansa odaklı 12 haftalık yoğun program: jazz ve theatre dance teknikleri, sahne koreografisi; Kadıköy grubunun tarihi yakında açıklanacak (Pera grubu 3 Ekim Cumartesi 19:00\'da başladı), dilersen 6 haftalık kısa programla deneyebilirsin.',
     who:
       'Şarkı söylüyor ama sahnede ne yapacağını bilmiyorsan; dans ediyorsun ama "oynamayı" hiç denemediysen; ya da üçünü aynı anda öğrenmek istiyorsan — program tam bunun için kurgulandı. Konservatuvar mezunu olman gerekmiyor. Anadolu yakasında oturuyorsan (Moda, Üsküdar, Ataşehir, Bostancı) stüdyolar zaten yanı başında; Avrupa yakasından gelenler için Marmaray tek aktarma.',
     workshopSlugs: ['techne-musical-lab', 'broadway-musical-dance'],
@@ -1523,7 +1564,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Broadway Dans · Müzikal — Avrupa Yakası',
     seoTitle: 'Beyoğlu & Pera Dans Kursu — Broadway Müzikal Dansı | Techne Lab',
     seoDesc:
-      'Beyoğlu\'nda dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. Pera\'da ayrıca İngilizce drama ve oyunculuk atölyeleri.',
+      'Beyoğlu\'nda dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başladı, katılım açık. Jazz ve theatre dance, sahne koreografisi. Pera\'da ayrıca İngilizce drama ve oyunculuk atölyeleri.',
     keywords: [
       'beyoğlu dans kursu', 'pera dans kursu', 'pera dans atölyesi', 'galata dans kursu',
       'cihangir dans kursu', 'beyoğlu müzikal kursu', 'pera müzikal atölyesi',
@@ -1531,7 +1572,7 @@ export const DISCIPLINES: Discipline[] = [
       'beyoğlu broadway dans', 'şişhane dans atölyesi',
     ],
     intro:
-      'Beyoğlu tarafında dans arıyorsan: Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor — Galata, Cihangir, Şişhane hattından yürüme ya da tek durak mesafesinde. Aynı program Kadıköy stüdyosunda Perşembe akşamları da açık; Karaköy\'den vapurla geçmeyi ritüel sayanlar oraya da gidebiliyor. İngilizce drama ve oyunculuk atölyelerimiz ise Pera\'daki partner stüdyoda yürüyor.',
+      'Beyoğlu tarafında dans arıyorsan: Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başladı, katılım açık — Galata, Cihangir, Şişhane hattından yürüme ya da tek durak mesafesinde. Aynı program Kadıköy stüdyosunda Perşembe akşamları da açık; Karaköy\'den vapurla geçmeyi ritüel sayanlar oraya da gidebiliyor. İngilizce drama ve oyunculuk atölyelerimiz ise Pera\'daki partner stüdyoda yürüyor.',
     what:
       'Dans hattında Broadway Musical Dance var: jazz ve theatre dance teknikleriyle sahne koreografisi, 12 haftalık tam ya da 6 haftalık kısa seçenek — Taksim sınıfı 3 Ekim Cumartesi 19:00\'da, Kadıköy sınıfı 1 Ekim Perşembe 19:00\'da başlıyor. Müzikal hattında Techne Musical Lab: sekiz ay, oyunculuk + şan + dans, seyircili bitirme performansı; bu program stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de.',
     who:
@@ -1541,7 +1582,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Beyoğlu\'nda dans dersi veriyor musunuz?',
-        a: 'Evet — Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00\'da çalışıyor, 3 Ekim\'de başlıyor. Müzikal Lab ise zemin, ayna ve piyano gereksinimleri nedeniyle yalnızca Kadıköy stüdyosunda. Mekân bilgisini her sayfada açık yazarız.',
+        a: 'Evet — Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00\'da çalışıyor, 3 Ekim\'de başladı, katılım açık. Müzikal Lab ise zemin, ayna ve piyano gereksinimleri nedeniyle yalnızca Kadıköy stüdyosunda. Mekân bilgisini her sayfada açık yazarız.',
       },
       {
         q: 'Kadıköy sınıfını tercih edersem nasıl giderim?',
@@ -1564,7 +1605,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'Broadway Dans · Müzikal — Taksim Sınıfı Açıldı',
     seoTitle: 'Taksim Dans Kursu — Broadway Müzikal Dansı | Techne Lab',
     seoDesc:
-      'Taksim\'de dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor. Jazz ve theatre dance, sahne koreografisi. 12 ya da 6 haftalık program, dans deneyimi şart değil.',
+      'Taksim\'de dans kursu: Broadway Musical Dance Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başladı, katılım açık. Jazz ve theatre dance, sahne koreografisi. 12 ya da 6 haftalık program, dans deneyimi şart değil.',
     keywords: [
       'taksim dans kursu', 'taksim dans atölyesi', 'taksim müzikal kursu',
       'taksim jazz dans', 'istiklal dans kursu', 'taksim broadway dans',
@@ -1572,7 +1613,7 @@ export const DISCIPLINES: Discipline[] = [
       'taksim müzikal tiyatro', 'elmadağ dans kursu',
     ],
     intro:
-      'Taksim civarında dans kursu çok; sahneye bakanı az. Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başlıyor — İstiklal\'den çıkıp yürüyerek yetişebileceğin bir saatte. Aynı program Kadıköy stüdyosunda Perşembe akşamları da yürüyor; hangi yaka sana yakınsa oradan başlıyorsun. Taksim tarafında kalmak istersen Pera\'daki partner stüdyoda oyunculuk ve İngilizce drama atölyeleri de var.',
+      'Taksim civarında dans kursu çok; sahneye bakanı az. Broadway Musical Dance\'in Taksim sınıfı 3 Ekim Cumartesi 19:00\'da başladı, katılım açık — İstiklal\'den çıkıp yürüyerek yetişebileceğin bir saatte. Aynı program Kadıköy stüdyosunda Perşembe akşamları da yürüyor; hangi yaka sana yakınsa oradan başlıyorsun. Taksim tarafında kalmak istersen Pera\'daki partner stüdyoda oyunculuk ve İngilizce drama atölyeleri de var.',
     what:
       'Dans: Broadway Musical Dance — jazz ve theatre dance teknikleriyle sahne koreografisi. 12 haftalık tam ya da 6 haftalık kısa program; Taksim sınıfı 3 Ekim Cumartesi 19:00\'da, Kadıköy sınıfı 1 Ekim Perşembe 19:00\'da başlıyor. Müzikal: Techne Musical Lab — sekiz ay, oyunculuk + şan + dans, Mayıs\'ta seyircili bitirme performansı; bu program yalnızca Kadıköy stüdyosunda, çünkü zemin, ayna ve piyano altyapısı orada.',
     who:
@@ -1582,7 +1623,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Taksim\'de dans dersi veriyor musunuz?',
-        a: 'Evet. Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00–21:00\'da, 3 Ekim\'de başlıyor. Aynı program Perşembe akşamları Kadıköy stüdyosunda da açık — ikisinden birini seçiyorsun. Müzikal Lab ise stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de; bunu açıkça yazıyoruz, "her semtte her program" iddiasında değiliz.',
+        a: 'Evet. Broadway Musical Dance\'in Taksim sınıfı Cumartesi 19:00–21:00\'da, 3 Ekim\'de başladı, katılım açık. Aynı program Perşembe akşamları Kadıköy stüdyosunda da açık — ikisinden birini seçiyorsun. Müzikal Lab ise stüdyo gereksinimleri nedeniyle yalnızca Kadıköy\'de; bunu açıkça yazıyoruz, "her semtte her program" iddiasında değiliz.',
       },
       {
         q: 'Kadıköy sınıfına geçmek istersem ulaşım gerçekçi mi?',
@@ -1605,7 +1646,7 @@ export const DISCIPLINES: Discipline[] = [
     eyebrow: 'English Drama Lab · English Drama Youth — Kadıköy',
     seoTitle: 'Kadıköy İngilizce Drama Kursu — English Drama Lab & Youth',
     seoDesc:
-      'Kadıköy\'de İngilizce drama: yetişkinler için English Drama Lab (Pazartesi 20:00) ve 10-17 yaş için English Drama Youth (Cumartesi). Doğaçlama temelli, gramer yok — Anadolu yakasında.',
+      'Kadıköy\'de İngilizce drama: yetişkinler için English Drama Lab (Pazartesi 20:00) ve 8-17 yaş için English Drama Youth (Cumartesi). Doğaçlama temelli, gramer yok — Anadolu yakasında.',
     keywords: [
       'kadıköy ingilizce drama', 'kadıköy ingilizce drama kursu', 'kadıköy english drama',
       'anadolu yakası ingilizce drama', 'kadıköy ingilizce tiyatro', 'kadıköy ingilizce konuşma kulübü',
@@ -1614,9 +1655,9 @@ export const DISCIPLINES: Discipline[] = [
       'ataşehir ingilizce drama', 'bostancı ingilizce drama', 'kadıköy english drama lab',
     ],
     intro:
-      'Kadıköy\'de İngilizce sahnede konuşmak isteyenler için iki ayrı kapı var: yetişkinler için English Drama Lab, 10-17 yaş için English Drama Youth. İkisi de aynı yöntemle çalışıyor — gramer değil, doğaçlama ve oyun. Anadolu yakasından "ingilizce drama nerede" diye arayanların çoğu bu sayfaya düşüyor, çünkü Beyoğlu\'na geçmeden aynı kalitede bir program burada.',
+      'Kadıköy\'de İngilizce sahnede konuşmak isteyenler için iki ayrı kapı var: yetişkinler için English Drama Lab, 8-17 yaş için English Drama Youth. İkisi de aynı yöntemle çalışıyor — gramer değil, doğaçlama ve oyun. Anadolu yakasından "ingilizce drama nerede" diye arayanların çoğu bu sayfaya düşüyor, çünkü Beyoğlu\'na geçmeden aynı kalitede bir program burada.',
     what:
-      'Yetişkin tarafında English Drama Lab: 12, 6 ya da 4 haftalık paket seçenekleri, Kadıköy grubu Pazartesi akşamları 20:00\'de. Metin ezberi yok — doğaçlama, status oyunları, karakter çalışması. Gençlik tarafında English Drama Youth: 10-17 yaş, Cumartesi günleri, sekiz ay (Ekim-Mayıs); 10-14 ve 15-17 yaş grupları ayrı sınıflarda çalışıyor, yıl seyircili bir final gösterisiyle kapanıyor.',
+      'Yetişkin tarafında English Drama Lab: her hafta katılınabilen esnek program (1, 4 ya da 8 katılım), Kadıköy grubu Pazartesi akşamları 20:00\'de. Metin ezberi yok — doğaçlama, status oyunları, karakter çalışması. Gençlik tarafında English Drama Youth: 8-17 yaş, Cumartesi günleri, sekiz ay (Ekim-Mayıs); 8-14 ve 15-17 yaş grupları ayrı sınıflarda çalışıyor, yıl seyircili bir final gösterisiyle kapanıyor.',
     who:
       'İngilizcesi var ama konuşurken donan yetişkinler, yurtdışı hazırlığı yapanlar, konuşma kulübü deneyip sıkılmış olanlar — bunlar English Drama Lab\'a. Çocuğu ya da genci için oyun temelli, sınavsız bir İngilizce ortamı arayan veliler — English Drama Youth\'a. Üsküdar, Ataşehir, Bostancı\'dan gelenler için Kadıköy zaten en yakın nokta.',
     workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
@@ -1627,8 +1668,8 @@ export const DISCIPLINES: Discipline[] = [
         a: 'English Drama Lab yetişkin grubu Pazartesi 20:00\'de, English Drama Youth ise Cumartesi günleri çalışıyor. İkisi ayrı program, ayrı yaş grubu — kayıt sırasında hangisine katılacağını netleştiriyoruz.',
       },
       {
-        q: '10-17 yaş için Kadıköy\'de İngilizce drama var mı?',
-        a: 'Evet — English Drama Youth, Ekim-Mayıs arası Cumartesi günleri Kadıköy\'de yürüyor. 10-14 ve 15-17 yaş ayrı sınıflarda çalışıyor; yıl seyircili bir final gösterisiyle kapanıyor.',
+        q: '8-17 yaş için Kadıköy\'de İngilizce drama var mı?',
+        a: 'Evet — English Drama Youth, Ekim-Mayıs arası Cumartesi günleri Kadıköy\'de yürüyor. 8-14 ve 15-17 yaş ayrı sınıflarda çalışıyor; yıl seyircili bir final gösterisiyle kapanıyor.',
       },
       {
         q: 'İngilizce seviyem düşük, yine de katılabilir miyim?',
@@ -1658,7 +1699,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Pera\'da İngilizce sahne çalışmasının iki farklı katmanı var: English Drama Lab konuşma cesaretini kuruyor, English Acting Praxis o cesareti uluslararası bir oyunculuk diline taşıyor. Beyoğlu ve Taksim çevresinden "ingilizce drama" ya da "ingilizce oyunculuk" arayanların çoğu ihtiyacını bu ikisinden birinde karşılıyor.',
     what:
-      'English Drama Lab: 12, 6 ya da 4 haftalık paket, Pera grubu Cumartesi 15:00\'de — doğaçlama ve oyun temelli, metin ezberi yok. English Acting Praxis: 12 hafta, Cumartesi 11:00\'de, B1 üzeri İngilizce yeterli; metin çalışması, karakter kurma ve prova disipliniyle ilerliyor, finalde cast direktörü Harika Uygur\'un bir günlük masterclass ve çekim günü var.',
+      'English Drama Lab: her hafta katılınabilen esnek program, Pera grubu Cumartesi 15:00\'de — doğaçlama ve oyun temelli, metin ezberi yok. English Acting Praxis: 12 hafta, Cumartesi 11:00\'de, B1 üzeri İngilizce yeterli; metin çalışması, karakter kurma ve prova disipliniyle ilerliyor, finalde cast direktörü Harika Uygur\'un bir günlük masterclass ve çekim günü var.',
     who:
       'İngilizce konuşurken donan, yurtdışı hazırlığı yapan ya da bir konuşma kulübünden fazlasını arayan yetişkinler — English Drama Lab\'a. Sahne deneyimi olan, oyunculuğunu uluslararası castinglere hazırlamak isteyen oyuncular — English Acting Praxis\'e. İkisi de Pera\'daki aynı stüdyoda, İstiklal Caddesi\'ne yürüme mesafesinde.',
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
@@ -1679,6 +1720,118 @@ export const DISCIPLINES: Discipline[] = [
     ],
     related: ['ingilizce-drama-istanbul', 'kamera-onu-oyunculuk-istanbul', 'kadikoy-ingilizce-drama-kursu'],
   },
+  // ── KADIKÖY × KONUŞMA KULÜBÜ (17 Ekim 2026) ─────────────────────
+  // SERP araştırması: "konuşma kulübü kadıköy" için gün/saat/yer veren tek bir sayfa yok.
+  // Dürüst konumlandırma: biz kulüp değiliz; kulüp gibi esnek katılımlı bir drama grubuyuz.
+  {
+    slug: 'kadikoy-ingilizce-konusma-kulubu',
+    label: 'Konuşma Kulübü · Kadıköy',
+    navHidden: true,
+    h1: 'KADIKÖY\nİNGİLİZCE KONUŞMA',
+    eyebrow: 'English Drama Lab — Kadıköy · Pazartesi 20:00',
+    seoTitle: 'Kadıköy İngilizce Konuşma Kulübü Alternatifi — Pazartesi 20:00 · English Drama Lab',
+    seoDesc:
+      'Kadıköy\'de İngilizce konuşma pratiği: English Drama Lab her Pazartesi 20:00. Kulüp gibi esnek katılım (1, 4 ya da 8 oturum), ama sohbet yerine doğaçlama ve sahne. B1 ve üzeri yetişkinler. Ücretsiz tanışma oturumu.',
+    keywords: [
+      'kadıköy ingilizce konuşma kulübü', 'konuşma kulübü kadıköy', 'kadıköy speaking club',
+      'kadıköy english speaking club', 'anadolu yakası ingilizce konuşma kulübü', 'moda ingilizce konuşma',
+      'kadıköy ingilizce pratik', 'üsküdar ingilizce konuşma kulübü', 'ataşehir ingilizce konuşma kulübü',
+      'kadıköy ingilizce konuşma grubu',
+    ],
+    intro:
+      'Kadıköy\'de İngilizce konuşma kulübü arıyorsan önce bir şeyi açık söyleyelim: biz bir konuşma kulübü değiliz. English Drama Lab, kulübün esnekliğini taşıyan bir drama grubu. Her Pazartesi 20:00\'de Kadıköy\'de toplanıyor; tek bir oturuma, dört haftaya ya da sekiz haftaya katılabiliyorsun. Masa etrafında sırayla konuşmak yerine ayağa kalkıp bir sahnenin içinde konuşuyorsun.',
+    what:
+      'Bir oturum ısınma ve dil oyunlarıyla açılıyor, doğaçlama sahnelerle devam ediyor, kısa bir sahne çalışmasıyla bitiyor. Metin ezberi ve gramer yok. Konuşma kulüplerinde sık yaşanan sorun, herkesin sırayla bir cevap verip konuşmanın orada bitmesi. Doğaçlamada ise bir duruma tepki vermek zorundasın: karşındaki bir şey kuruyor, sen üstüne ekliyorsun. Dil bir sınav cevabı olmaktan çıkıp bir ilişkinin aracı oluyor.\n\nKatılım esnek: 1, 4 ya da 8 oturum. Bir akşam deneyip devam edip etmeyeceğine sonra karar verebilirsin. Grup İngilizce yürüyor ve B1 ve üzeri yetişkinlere göre kuruluyor; yani sohbet edebiliyor ama konuşurken donuyorsan doğru yerdesin.\n\nHer hafta kendi kulübünü yürütüyorsan ya da evde çalışıyorsan, ücretsiz kaynaklarımız da var: seviyeye göre 216 konuşma kulübü sorusu ve B2-C1 için 60 tartışma konusu.',
+    who:
+      'Konuşma kulübüne gidip "hep aynı şeyleri konuşuyoruz" diyenler. İngilizcesi var ama toplantıda, telefonda ya da yabancı bir arkadaşla konuşurken donanlar. Anadolu yakasında yaşayıp iş çıkışı karşıya geçmek istemeyenler: Moda, Fenerbahçe, Üsküdar, Ataşehir ve Bostancı\'dan Kadıköy en yakın nokta. 18 yaş üstü; çocuk ve gençler için ayrı program English Drama Youth.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
+    articleSlugs: [
+      'konusma-kulubu-mu-dogaclama-mi',
+      'ingilizce-konusma-kulubune-gittim-ise-yaramadi',
+      'ingilizce-konusma-kulubu-nasil-secilir',
+      'toplantida-ingilizce-konusamiyorum',
+    ],
+    faq: [
+      {
+        q: 'Kadıköy\'de İngilizce konuşma pratiği ne zaman?',
+        a: 'English Drama Lab\'ın Kadıköy grubu her Pazartesi 20:00\'de toplanıyor. Tam adres kayıt sonrası paylaşılıyor.',
+      },
+      {
+        q: 'Bu bir konuşma kulübü mü?',
+        a: 'Hayır, ama kulübün esnekliğini taşıyor. Konuşma kulübünde bir konu etrafında sohbet edilir; burada doğaçlama sahnelerle, bir karakterin ve bir durumun içinden konuşulur. Katılım yine esnek: 1, 4 ya da 8 oturum.',
+      },
+      {
+        q: 'Tek bir oturuma katılabilir miyim?',
+        a: 'Evet. Program 1, 4 ya da 8 katılım olarak alınabiliyor. Önce görmek istersen ücretsiz tanışma oturumu da var; güncel tarihler tanışma günü sayfasında.',
+      },
+      {
+        q: 'Hangi İngilizce seviyesi gerekiyor?',
+        a: 'Grup B1 ve üzeri yetişkinlere göre kuruluyor: tanıdık konularda sohbet edebilmen yeterli. Mükemmel gramer beklenmiyor; asıl çalışılan şey konuşma cesareti ve akış.',
+      },
+      {
+        q: 'Avrupa yakasında da var mı?',
+        a: 'Evet. English Drama Lab\'ın Pera grubu her Cumartesi 15:00\'de çalışıyor. Ayrıntılar Beyoğlu sayfasında.',
+      },
+    ],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'beyoglu-ingilizce-konusma-kulubu', 'kadikoy-ingilizce-drama-kursu'],
+  },
+
+  // ── BEYOĞLU · PERA × KONUŞMA KULÜBÜ (17 Ekim 2026) ──────────────
+  {
+    slug: 'beyoglu-ingilizce-konusma-kulubu',
+    label: 'Konuşma Kulübü · Beyoğlu',
+    navHidden: true,
+    h1: 'BEYOĞLU · PERA\nİNGİLİZCE KONUŞMA',
+    eyebrow: 'English Drama Lab — Pera · Cumartesi 15:00',
+    seoTitle: 'Beyoğlu İngilizce Konuşma Kulübü Alternatifi — Pera, Cumartesi 15:00 · English Drama Lab',
+    seoDesc:
+      'Beyoğlu ve Taksim\'de İngilizce konuşma pratiği: English Drama Lab her Cumartesi 15:00, Pera. Kulüp gibi esnek katılım (1, 4 ya da 8 oturum), sohbet yerine doğaçlama ve sahne. B1 ve üzeri yetişkinler. Ücretsiz tanışma oturumu.',
+    keywords: [
+      'beyoğlu ingilizce konuşma kulübü', 'taksim ingilizce konuşma kulübü', 'konuşma kulübü beyoğlu',
+      'taksim speaking club', 'pera english speaking club', 'galata ingilizce konuşma',
+      'cihangir ingilizce konuşma kulübü', 'şişli ingilizce konuşma kulübü', 'avrupa yakası ingilizce konuşma kulübü',
+      'istanbul english speaking club saturday',
+    ],
+    intro:
+      'Beyoğlu\'nda İngilizce konuşma kulübü arıyorsan, alternatif bir kapı: English Drama Lab her Cumartesi 15:00\'de Pera\'da, İstiklal Caddesi\'ne yürüme mesafesindeki Pod Pera stüdyosunda toplanıyor. Kulüp gibi esnek katılım, ama sohbet masası yerine sahne.',
+    what:
+      'Oturum ısınma ve dil oyunlarıyla başlıyor, doğaçlama sahnelerle sürüyor, kısa bir sahne çalışmasıyla kapanıyor. Gramer ve ezber yok. Doğaçlamada bir duruma anında tepki verdiğin için konuşma kulübündeki "sıra bana gelsin, cümlemi hazırlayayım" döngüsü kırılıyor: dinlemek ve cevap vermek aynı anda oluyor.\n\nKatılım 1, 4 ya da 8 oturum. Grup İngilizce yürüyor, B1 ve üzeri yetişkinler için kuruluyor. Cumartesi öğleden sonra olduğu için hafta içi akşamları dolu olanlara da uyuyor.\n\nKendi kulübünü yönetenler için ücretsiz kaynaklar: seviyeye göre 216 konuşma kulübü sorusu ve 60 tartışma konusu.',
+    who:
+      'Taksim, Cihangir, Galata, Şişhane, Harbiye ve Şişli hattında yaşayan ya da çalışanlar. Konuşma kulübünde aynı sohbetlere takılıp kalanlar. 18 yaş üstü; 8-17 yaş için Pera\'da Pazar 13:00\'te English Drama Youth var.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu'],
+    articleSlugs: [
+      'konusma-kulubu-mu-dogaclama-mi',
+      'ingilizce-konusma-kulubune-gittim-ise-yaramadi',
+      'ingilizce-konusma-pratigi-yontemleri',
+      'ingilizce-anliyorum-ama-konusamiyorum',
+    ],
+    faq: [
+      {
+        q: 'Beyoğlu\'nda İngilizce konuşma pratiği ne zaman ve nerede?',
+        a: 'English Drama Lab\'ın Pera grubu her Cumartesi 15:00\'de, İstiklal Caddesi\'ne yürüme mesafesindeki Pod Pera stüdyosunda çalışıyor.',
+      },
+      {
+        q: 'Konuşma kulübünden farkı ne?',
+        a: 'Kulüpte bir konu etrafında sohbet edilir. Burada doğaçlama sahnelerle konuşulur: bir rolün ve bir durumun içinden. Bu, hata kaygısını düşürür çünkü hatayı sen değil karakter yapar; ayrıca konuşmayı dinlemeye ve anında tepki vermeye bağlar.',
+      },
+      {
+        q: 'Tek seferlik katılabilir miyim?',
+        a: 'Evet, program 1, 4 ya da 8 oturum olarak alınabiliyor. Ücretsiz tanışma oturumları da var; güncel tarihler tanışma günü sayfasında.',
+      },
+      {
+        q: 'Hangi seviye gerekiyor?',
+        a: 'B1 ve üzeri: tanıdık konularda sohbet edebilmen yeterli. Hedef akıcılık ve konuşma cesareti, mükemmel gramer değil.',
+      },
+      {
+        q: 'Anadolu yakasında da var mı?',
+        a: 'Evet, Kadıköy grubu her Pazartesi 20:00\'de. Ayrıntılar Kadıköy sayfasında.',
+      },
+    ],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-drama-kursu'],
+  },
+
 ]
 
 export function getDiscipline(slug: string) {

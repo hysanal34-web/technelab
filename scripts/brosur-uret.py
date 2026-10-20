@@ -233,9 +233,9 @@ PROGRAMLAR = {
         "tr": {
             "mekan": "PERA & KADIKÖY", "baslik": "ENGLISH DRAMA YOUTH",
             "slogan": "Dil öğretmiyoruz. Dili deneyimliyoruz.",
-            "meta": ["10–17 yaş", "8 ay · haftada 1 gün", "En fazla 12 kişi", "B1 ve üzeri · test yok"],
+            "meta": ["8–17 yaş", "8 ay · haftada 1 gün", "En fazla 12 kişi", "B1 ve üzeri · test yok"],
             "amac": "Okulda öğrenilen İngilizceyi konuşulan dile çevirmek ve sezonu seyirci önünde bir gösteriyle kapatmak.",
-            "aciklama": "Bu bir İngilizce kursu değil. Kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\nÇocuğun İngilizcesini sıfırdan kurmuyoruz, var olan bilgisini konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılır: 10–14 ve 15–17 ayrı sınıflarda çalışır.",
+            "aciklama": "Bu bir İngilizce kursu değil. Kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\nÇocuğun İngilizcesini sıfırdan kurmuyoruz, var olan bilgisini konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılır: 8–14 ve 15–17 ayrı sınıflarda çalışır.",
             "fazlar": [
                 ("EKİM–ARALIK", "Keşif & Oyun", "Doğaçlama, beden-ses-hayal gücü egzersizleri. Grup dinamiği ve İngilizce dil güveni."),
                 ("OCAK–MART", "Karakter & Metin", "Sahne metni çalışması, karakter inşası, partner çalışması."),
@@ -248,16 +248,16 @@ PROGRAMLAR = {
             "tanisma": "12 Eylül Cumartesi · 13:00 · Kadıköy — 13 Eylül Pazar · 13:00 · Taksim Pera. Veliler de katılabilir.",
             "sss": [
                 ("Çocuğumun İngilizcesi yeterli mi?", "B1 ve üzeri öneriyoruz; sohbet edebiliyorsa yeterli. Seviye testi yok."),
-                ("Gruplar yaşa göre ayrı mı?", "Evet. 10–14 ve 15–17 ayrı sınıflarda, ayrı günlerde çalışıyor."),
+                ("Gruplar yaşa göre ayrı mı?", "Evet. 8–14 ve 15–17 ayrı sınıflarda, ayrı günlerde çalışıyor."),
                 ("Final gösterisi nasıl oluyor?", "Mayıs'ta, seyirci önünde, tamamı İngilizce. Sekiz ayın sonunda çocuk sahnede duruyor ve İngilizce konuşuyor."),
             ],
         },
         "en": {
             "mekan": "PERA & KADIKÖY", "baslik": "ENGLISH DRAMA YOUTH",
             "slogan": "We don't teach the language. We make you live it.",
-            "meta": ["Ages 10–17", "8 months · 1 day/week", "Max 12 people", "B1 and above · no test"],
+            "meta": ["Ages 8–17", "8 months · 1 day/week", "Max 12 people", "B1 and above · no test"],
             "amac": "Turning school English into spoken language, and closing the season with a performance in front of an audience.",
-            "aciklama": "This is not an English course. No textbook, no exams, no grades — just being inside a situation on stage and having to answer.\n\nWe don't build your child's English from zero; we turn what they already know into speech. Groups are split by age: 10–14 and 15–17 work in separate classes.",
+            "aciklama": "This is not an English course. No textbook, no exams, no grades — just being inside a situation on stage and having to answer.\n\nWe don't build your child's English from zero; we turn what they already know into speech. Groups are split by age: 8–14 and 15–17 work in separate classes.",
             "fazlar": [
                 ("OCT–DEC", "Discovery & Play", "Improvisation and body–voice exercises. Group dynamics and confidence in English."),
                 ("JAN–MAR", "Character & Text", "Scene text, character-building and partner work in English."),
@@ -270,7 +270,7 @@ PROGRAMLAR = {
             "tanisma": "Saturday, September 12 · 13:00 · Kadıköy — Sunday, September 13 · 13:00 · Taksim Pera. Parents are welcome.",
             "sss": [
                 ("Is my child's English good enough?", "We recommend B1 and above; if they can hold a conversation, that's enough. No placement test."),
-                ("Are the groups split by age?", "Yes. 10–14 and 15–17 work in separate classes on separate days."),
+                ("Are the groups split by age?", "Yes. 8–14 and 15–17 work in separate classes on separate days."),
                 ("What is the final showcase?", "In May, in front of an audience, entirely in English."),
             ],
         },

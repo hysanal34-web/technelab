@@ -2,6 +2,7 @@
 
 import { Resend } from 'resend'
 import { SITE_META } from '@/lib/data'
+import { donusumuIsle } from '@/lib/olcumSunucu'
 
 /**
  * Fiyat & Program Bilgisi formu.
@@ -40,6 +41,8 @@ export async function submitBilgiForm(formData: FormData): Promise<BilgiFormStat
   const occupation = take(formData, 'occupation', 160)
   const message    = take(formData, 'message', 2000)
   const kvkk       = formData.get('kvkk')
+  // Reklam platformlarına e-posta/telefon özeti aktarımı için ayrı açık rıza.
+  const reklamRizasi = formData.get('reklamRizasi') === 'evet'
   // Honeypot — botlar doldurur, insanlar görmez.
   const website = take(formData, 'website', 200)
 
@@ -98,6 +101,20 @@ export async function submitBilgiForm(formData: FormData): Promise<BilgiFormStat
         .create({ email, firstName: first, lastName: rest.join(' ') || undefined, audienceId, unsubscribed: false })
         .catch((e) => console.error('[bilgi] audience kaydı başarısız:', e))
     }
+
+    // Ölçüm: mesaj bize ULAŞTIKTAN sonra — gerçek, doğrulanmış iletişim.
+    // Meta: Contact (tarayıcıyla aynı event_id). Rıza kapıları: olcumSunucu.ts
+    await donusumuIsle({
+      tur: 'iletisim',
+      olaylar: ['Contact'],
+      eventId: formData.get('eventId') as string | null,
+      sayfa: formData.get('olaySayfasi') as string | null,
+      yedekYol: '/bilgi',
+      email,
+      telefon: phone,
+      reklamRizasi,
+      icerikKategorisi: 'iletisim_formu',
+    })
 
     return { status: 'success' }
   } catch (err) {

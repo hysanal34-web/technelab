@@ -16,11 +16,11 @@ export const TEAM: TeamMember[] = [
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
-    name: 'Bartu Ayaz',
-    slug: 'bartu-ayaz',
-    role: 'Şan & Vokal Koçu · Eğitmen',
-    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu, aynı kurumda Sahne Sanatları yüksek lisansına devam eden Bartu Ayaz; Grease\'te Danny Zuko, Alaaddin\'in Müzikali\'nde başrol ve Damdaki Kemancı\'da Hancı gibi rollerle sahne tecrübesini genişletti. Şan, piyano ve dans (hip-hop, jazz, çağdaş dans) üzerine çalışan sanatçı, Techne Musical Lab\'de vokal tekniği ve müzikal oyunculuk performansları üzerine çalışıyor.',
-    image: '/images/team/bartu-ayaz.jpg',
+    name: 'Beril Korkmaz',
+    slug: 'beril-korkmaz',
+    role: 'Şan · Müzikal Oyunculuk · Eğitmen',
+    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro bölümünden mezun olan Beril Korkmaz; BKM yapımı Araf Müzikali, Jekyll ve Hyde ve Damdaki Kemancı gibi müzikallerde, Matmazel Julie\'de Julie ve Dostlarla Akşam Yemeği\'nde Beth rolleriyle sahne aldı. Belt, klasik teknik ve mix voice üzerine şan eğitimi aldı; bale, jazz ve modern dans çalıştı, Londra Pineapple Dance Studio\'da jazz atölyelerine katıldı. Solist olarak sahneye çıkan sanatçı, Techne Musical Lab\'de şan ve müzikal oyunculuk tarafını yürütüyor.',
+    image: '/images/team/beril-korkmaz.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {

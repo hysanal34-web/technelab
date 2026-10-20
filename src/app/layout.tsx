@@ -5,6 +5,7 @@ import { MetaPixel } from '@/components/MetaPixel'
 import { TiklamaKimligi } from '@/components/TiklamaKimligi'
 import { SiteChrome } from '@/components/SiteChrome'
 import { CallTracker } from '@/components/CallTracker'
+import { CerezIzni } from '@/components/CerezIzni'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     'bağımsız tiyatro istanbul',
     'Techne Lab istanbul',
     'gençler tiyatro kursu istanbul',
-    '10 17 yaş drama kursu',
+    '8 17 yaş drama kursu',
     'sanat okulu istanbul',
     'art school istanbul',
   ],
@@ -235,6 +236,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MetaPixel />
           <TiklamaKimligi />
           <CallTracker />
+          {/* Çerez izni: karar verilene kadar Meta Pixel yüklenmez, Google çerez yazmaz. */}
+          <CerezIzni />
         </SiteChrome>
       </body>
     </html>

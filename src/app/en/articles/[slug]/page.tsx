@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${SITE_META.url}/en/articles/${slug}`
   const trUrl = meta.trSlug ? `${SITE_META.url}/makaleler/${meta.trSlug}` : undefined
   return {
-    title: { absolute: meta.title },
-    description: meta.excerpt,
+    title: { absolute: meta.seoTitle ?? meta.title },
+    description: meta.seoDescription ?? meta.excerpt,
     openGraph: {
-      title: meta.title, description: meta.excerpt, type: 'article',
+      title: meta.seoTitle ?? meta.title, description: meta.seoDescription ?? meta.excerpt, type: 'article',
       publishedTime: meta.date, authors: [meta.author], url, locale: 'en_US',
       images: [{ url: meta.image ?? `${SITE_META.url}/images/og-techne-lab.png`, alt: meta.title }],
     },
@@ -55,7 +55,8 @@ export default async function EnArticlePage({ params }: Props) {
     '@id': `${pageUrl}#article`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     headline: meta.title,
-    description: meta.excerpt,
+    description: meta.seoDescription ?? meta.excerpt,
+    isAccessibleForFree: true,
     ...(meta.image ? { image: meta.image } : {}),
     inLanguage: 'en',
     articleSection: meta.category,

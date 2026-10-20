@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import { submitBilgiForm, type BilgiFormState } from '@/app/bilgi/actions'
-import { trackBilgiTalebi } from '@/components/MetaPixel'
+import { trackBilgiTalebi, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
 import { SITE_META } from '@/lib/data'
 
 const INPUT =
@@ -26,12 +26,16 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const fd = new FormData(e.currentTarget)
+    // Piksel ve CAPI aynı kimliği taşısın — yoksa Meta tek mesajı iki sayar.
+    const eventId = newBrowserEventId()
+    fd.append('eventId', eventId)
+    fd.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const res = await submitBilgiForm(fd)
       setState(res)
       if (res.status === 'success') {
         // Başvurudan ayrı bir olay: bkz. trackBilgiTalebi açıklaması.
-        trackBilgiTalebi()
+        trackBilgiTalebi(eventId)
         formRef.current?.reset()
       }
     })
@@ -49,7 +53,7 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className="space-y-4" aria-label="İletişim formu">
+    <form ref={formRef} onSubmit={onSubmit} className="space-y-4" aria-label="İletişim formu" data-olcum-form="iletisim_formu">
       {!compact && (
         <>
           <p className="text-stone text-[14px] leading-relaxed">
@@ -133,6 +137,21 @@ export function BilgiForm({ compact = false }: { compact?: boolean }) {
             KVKK aydınlatma metnini
           </Link>{' '}
           okudum; bilgilerimin bana geri dönüş yapılması amacıyla işlenmesine onay veriyorum. *
+        </span>
+      </label>
+
+      {/* Reklam ölçümü ayrı açık rıza (tanışma ve başvuru formlarındakiyle aynı
+          metin). Varsayılan kapalı; işaretlenmezse mesaj aynen iletilir. */}
+      <label className="flex items-start gap-3 cursor-pointer group">
+        <input
+          type="checkbox"
+          name="reklamRizasi"
+          value="evet"
+          className="mt-0.5 w-4 h-4 shrink-0 accent-[#C8FF00] bg-bgAlt border border-border"
+        />
+        <span className="font-mono text-[11px] leading-relaxed text-stone group-hover:text-fg transition-colors">
+          Reklam ölçümü için e-posta ve telefonumun şifrelenerek Meta ve Google&apos;a aktarılmasına izin veriyorum.
+          <span className="block text-dim mt-0.5">İsteğe bağlı. İşaretlemezsen mesajın aynen iletilir.</span>
         </span>
       </label>
 

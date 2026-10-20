@@ -84,6 +84,8 @@ const nextConfig = {
     // gösteriyordu; 301 ile doğru sayfaya aktarılınca biriken değer kaybolmuyor.
     const eskiAdresler = [
       { source: '/ekip/sitare-bilge', destination: '/ekip', permanent: true },
+      // 14 Ekim 2026: Musical Lab'de Bartu Ayaz'ın yerine Beril Korkmaz geldi.
+      { source: '/ekip/bartu-ayaz', destination: '/ekip/beril-korkmaz', permanent: true },
       { source: '/makaleler/ingilizce-atolyesi-nedir', destination: '/makaleler/ingilizce-drama-atolyesi-nedir', permanent: true },
       { source: '/makaleler/tiyatro-secmeleri-icin-monolog-nasil-calisilar', destination: '/makaleler/tiyatro-secmeleri-icin-monolog-nasil-calisilir', permanent: true },
       { source: '/makaleler/yonetmen-nasil-bir-sey', destination: '/makaleler/yonetmen-olmak-nasil-bir-sey', permanent: true },

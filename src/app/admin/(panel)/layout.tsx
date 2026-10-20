@@ -14,6 +14,7 @@ const MENU = [
   { yol: '/admin/basvurular', etiket: 'başvurular' },
   { yol: '/admin/programlar', etiket: 'programlar' },
   { yol: '/admin/donusumler', etiket: 'dönüşümler' },
+  { yol: '/admin/olcum',      etiket: 'ölçüm' },
   { yol: '/admin/araclar',    etiket: 'araçlar' },
 ]
 

@@ -2,6 +2,7 @@
 
 import { Resend } from 'resend'
 import { SITE_META } from '@/lib/data'
+import { donusumuIsle } from '@/lib/olcumSunucu'
 
 /**
  * BEKLEME LİSTESİ — iki aşamalı.
@@ -93,6 +94,18 @@ export async function joinWaitlist(formData: FormData): Promise<WaitlistState> {
         .create({ email, firstName: first, lastName: rest.join(' ') || undefined, audienceId, unsubscribed: false })
         .catch((e) => console.error('[bekleme] audience kaydı başarısız:', e))
     }
+
+    // Ölçüm: yalnızca sitenin kendi dönüşüm kaydı. Meta'ya standart olay
+    // gitmiyor (ne başvuru ne iletişim); tarayıcı FormSubmitSuccess atıyor.
+    await donusumuIsle({
+      tur: 'bekleme',
+      olaylar: [],
+      sayfa: formData.get('olaySayfasi') as string | null,
+      yedekYol: '/bekleme-listesi',
+      program: program || undefined,
+      email,
+      reklamRizasi: false,
+    })
 
     return { status: 'success', email }
   } catch (err) {

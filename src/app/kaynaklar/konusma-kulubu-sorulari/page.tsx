@@ -202,6 +202,9 @@ export default function KonusmaSorulariPage() {
           <Link href="/ingilizce-konusma-kulubu-istanbul" data-hover className="font-mono text-[12px] tracking-widest2 uppercase bg-neon text-bg px-8 py-4 hover:bg-fg transition-colors">
             konuşma kulübü yerine drama →
           </Link>
+          <Link href="/kaynaklar/ingilizce-tartisma-konulari" data-hover className="font-mono text-[12px] tracking-widest2 uppercase border border-border text-fg px-8 py-4 hover:border-neon hover:text-neon transition-colors">
+            60 tartışma konusu →
+          </Link>
           <Link href="/makaleler/konusma-kulubu-nasil-yonetilir" data-hover className="font-mono text-[12px] tracking-widest2 uppercase border border-border text-fg px-8 py-4 hover:border-neon hover:text-neon transition-colors">
             moderatör rehberi →
           </Link>

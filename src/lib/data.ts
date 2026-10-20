@@ -112,11 +112,14 @@ export const WORKSHOPS: Workshop[] = [
     // 17 Eylül: kademeler 12/6/4 → 12/8/4 haftaya çekildi, fiyatlar güncellendi.
     // Aylık birim 8.500 (KDV dahil): 4 hafta 8.500 · 8 hafta 17.000 · 12 hafta 21.000 (%18 taahhüt indirimi).
     // price/priceLabel en üst kademe (12 hafta); priceTier2/3 alttaki kademeler.
-    venue: 'Pera & Kadıköy', duration: '12, 8 ya da 4 hafta', price: 21000,
-    priceLabel: '12 hafta', priceTier2: 17000, priceTier2Label: '8 hafta',
-    priceTier3: 8500, priceTier3Label: '4 hafta',
+    // 14 Ekim 2026: paket modelinden esnek katılıma geçildi. Her hafta oyuna dahil olunabiliyor.
+    // 1 katılım 2.000 · 4 katılım 7.000 + KDV · 8 katılım 12.500 + KDV. İlk katılımdan sonra devam edilirse
+    // ödenen ücret paket bakiyesinden düşülür. Aşağıdaki tutarlar KDV dahil (price en üst kademe).
+    venue: 'Pera & Kadıköy', duration: 'Esnek · 1, 4 ya da 8 katılım', price: 15000,
+    priceLabel: '8 katılım', priceTier2: 8400, priceTier2Label: '4 katılım',
+    priceTier3: 2000, priceTier3Label: '1 katılım',
     friendDiscountPercent: 10,
-    facts: ['Yetişkin', 'B1+ İngilizce', '12 · 8 · 4 hafta', 'Pera & Kadıköy', 'En fazla 12 kişi'],
+    facts: ['Yetişkin', 'B1+ İngilizce', 'Esnek katılım', 'Pera & Kadıköy', 'En fazla 12 kişi'],
     schedule: [
       { place: 'Pera', date: '3 Ekim’de başladı · katılım açık', time: '15:00' },
       { place: 'Kadıköy', date: '14 Eylül’de başladı · katılım açık', time: '20:00' },
@@ -124,7 +127,7 @@ export const WORKSHOPS: Workshop[] = [
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
     tags: ['İngilizce', 'Yaratıcı Drama', 'Doğaçlama'],
-    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\n"Anlıyorum ama konuşamıyorum" diyorsan doğru yerdesin. Sıfırdan İngilizce öğretmiyoruz; var olan ama uyuyan birikimi sahnede çalıştırıyoruz. Sohbet edebiliyorsan seviyen yeterli.\n\nÜç paket seçeneği var: 12, 8 ya da 4 hafta. İstediğiniz süreyle başlayabilirsiniz.',
+    desc: 'İngilizce, yaratıcı drama egzersizleri ve doğaçlamalar yoluyla bedene ve sese yerleşir. Metin ezberi yok — anlık tepki ve hayal gücü var. Bir konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.\n\n"Anlıyorum ama konuşamıyorum" diyorsan doğru yerdesin. Sıfırdan İngilizce öğretmiyoruz; var olan ama uyuyan birikimi sahnede çalıştırıyoruz. Sohbet edebiliyorsan seviyen yeterli.\n\nProgram esnek: her hafta yeni bir sahne kuruluyor, istediğin hafta oyuna dahil olabilirsin. Tek katılımla başlayıp 4 ya da 8 katılımlık paketle devam edebilirsin; ilk katılımın ücreti paket bakiyenden düşülür.',
     blocks: [
       { title: 'Isınma & Keşif', span: 'Eksen 01', body: 'Oyun ve güven egzersizleri, dil oyunları. İngilizce sezginin açılması.' },
       { title: 'Doğaçlama & Karakter', span: 'Eksen 02', body: 'Anlık sahne çalışması, status oyunları. Dili düşünmeden konuşmak.' },
@@ -133,7 +136,7 @@ export const WORKSHOPS: Workshop[] = [
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-final-project', 'english-drama-youth'],
     seoTitle: 'İngilizce Drama & Konuşma Kulübü İstanbul — English Drama Lab',
-    seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, 12/8/4 haftalık paketler.',
+    seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, her hafta katılınabilen esnek program.',
   },
 
   // ── 04 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
@@ -162,37 +165,37 @@ export const WORKSHOPS: Workshop[] = [
     seoDesc: 'İngilizce acting workshop İstanbul: 12 hafta metin analizi, karakter ve prova disiplini. English acting kursu, Ece Ertez ile — Harika Uygur masterclass finali. Pera, Beyoğlu.',
   },
 
-  // ── 05 — ENGLISH DRAMA YOUTH: 10–17 YAŞ ────────────────────────────
+  // ── 05 — ENGLISH DRAMA YOUTH: 8–17 YAŞ ────────────────────────────
   {
     id: 9, slug: 'english-drama-youth', code: '04',
-    title: 'ENGLISH DRAMA YOUTH (10–17)', sub: 'Çocuk ve Gençlere İngilizce Drama',
+    title: 'ENGLISH DRAMA YOUTH (8–17)', sub: 'Çocuk ve Gençlere İngilizce Drama',
     tagline: 'Dil Öğretmiyoruz. Dili Deneyimliyoruz.',
     instructor: 'Alara Lokum',
     instructorBio: "Alara Lokum: Şehir Tiyatroları'nda çocuk yaşta başlayan sahne serüvenini Kadir Has Üniversitesi Tiyatro Bölümü'nde akademik temele oturttu. Amerika ve İtalya'daki eğitimleriyle anadil seviyesinde İngilizce hâkimiyeti kazandı. Gençlerle çalışırken İngilizceyi ödev olmaktan çıkarıp sahnede özgür bir ifade aracına dönüştürüyor — gramerden önce cesaret geliyor.",
     venue: 'Pera & Kadıköy', duration: '8 ay · Haftada 1 gün (Ekim–Mayıs)', price: 125000,
     friendDiscountPercent: 10, installments: 8,
-    facts: ['10–17 yaş', 'B1+ İngilizce', '8 ay · Ekim–Mayıs', 'Haftada 1 gün', 'Pera & Kadıköy', 'Seyircili final gösterisi'],
+    facts: ['8–17 yaş', 'B1+ İngilizce', '8 ay · Ekim–Mayıs', 'Haftada 1 gün', 'Pera & Kadıköy', 'Seyircili final gösterisi'],
     schedule: [
       { place: 'Pera', date: '4 Ekim’de başladı · katılım açık', time: '13:00' },
       { place: 'Kadıköy', date: '17 Ekim Cumartesi', time: '15:00' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',
-    tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '10–17 Yaş'],
-    desc: "10–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili deneyimliyoruz: kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\nB1 ve üzeri seviye öneriyoruz. Seviye tespit sınavı yok; günlük hayatta kendini rahatça ifade edebiliyorsa uygundur. Gruplar yaşa göre ayrılır: 10–14 ve 15–17 ayrı sınıflarda. Ekim–Mayıs, haftada bir gün; yıl, seyircili ve tamamen İngilizce bir gösteriyle kapanır.\n\nHer ayın ilk üç haftası drama, son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü gelir. Çocukların ürettiği metinler, tasarımlar ve hareket parçaları yıl sonu gösterisinin malzemesi olur.",
-    aiSummary: "10–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz: kitap, sınav ve not yok. B1 ve üzeri İngilizce seviyesi önerilir; seviye sınavı yok, sohbet edebilmek yeterli. Gruplar 10–14 ve 15–17 ayrı. Ekim–Mayıs, haftada bir gün: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance). Provalar 5. aydan itibaren; Mayıs'ta seyircili, tamamen İngilizce yıl sonu gösterisi.",
+    tags: ['İngilizce', 'Gençler', 'Drama', 'Final Gösterisi', '8–17 Yaş'],
+    desc: "8–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili deneyimliyoruz: kitap, sınav ve not yok; sahnede bir durumun içinde olmak ve cevap vermek var.\n\nB1 ve üzeri seviye öneriyoruz. Seviye tespit sınavı yok; günlük hayatta kendini rahatça ifade edebiliyorsa uygundur. Gruplar yaşa göre ayrılır: 8–14 ve 15–17 ayrı sınıflarda. Ekim–Mayıs, haftada bir gün; yıl, seyircili ve tamamen İngilizce bir gösteriyle kapanır.\n\nHer ayın ilk üç haftası drama, son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü gelir. Çocukların ürettiği metinler, tasarımlar ve hareket parçaları yıl sonu gösterisinin malzemesi olur.",
+    aiSummary: "8–17 yaş için Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz: kitap, sınav ve not yok. B1 ve üzeri İngilizce seviyesi önerilir; seviye sınavı yok, sohbet edebilmek yeterli. Gruplar 8–14 ve 15–17 ayrı. Ekim–Mayıs, haftada bir gün: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance). Provalar 5. aydan itibaren; Mayıs'ta seyircili, tamamen İngilizce yıl sonu gösterisi.",
     blocks: [
       { title: 'Nasıl İşliyor', span: 'Her ay', body: 'İlk üç hafta drama: yaratıcı drama, doğaçlama, bireysel ve ensemble çalışma. Ayın son haftası konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü gelir. Her atölye küçük bir üretim ödeviyle kapanır.' },
       { title: 'Keşif & Oyun', span: '1–3. Ay · Ekim–Aralık', body: 'Grup dinamiği, güven, doğaçlama oyunları. Beden, ses ve hayal gücü egzersizleri; hikâye anlatımı; ensemble doğaçlamaları. Konuk atölyeler: karakterine kısa hikâye yazma, karakter ve maske tasarımı, ritim ve ensemble hareket.' },
       { title: 'Karakter & Metin', span: '4. Ay · Ocak', body: 'İngilizce sahne metni, karakter inşası, partner çalışması. Sahne yazımı atölyesi. Ay sonunda tüm üretimler sanatçılara gider: gösteri malzemesinin ilk derlemesi.' },
       { title: 'Prova & Sahneleme', span: '5–7. Ay · Şubat–Nisan', body: 'Çocukların üretimlerinden seçilen sahnelerle provalar başlar. Sahne geçişleri, ensemble sahneleri, gösteri koreografisi; dekor ve kostüm eskizleri. Nisan\'da tüm ekiple ortak prova atölyesi: metin, tasarım ve hareket tek gösteride birleşir.' },
       { title: 'Yıl Sonu Gösterisi', span: '8. Ay · Mayıs', body: 'Genel prova, teknik prova ve seyircili, tamamen İngilizce yıl sonu gösterisi. Aileler ve seyirci davetli; tarih ve mekân sezon içinde velilerle paylaşılır.' },
-      { title: 'Velilere Not', span: 'Seviye & Grup', body: 'Seviye tespit sınavı yok; ailenin dil beyanı yeterli (B1 ve üzeri). Kitap, sınav ve not yok. Aradığımız mükemmel İngilizce değil, hata yapma özgürlüğü. Gruplar 10–14 ve 15–17 olarak ayrı çalışır.' },
+      { title: 'Velilere Not', span: 'Seviye & Grup', body: 'Seviye tespit sınavı yok; ailenin dil beyanı yeterli (B1 ve üzeri). Kitap, sınav ve not yok. Aradığımız mükemmel İngilizce değil, hata yapma özgürlüğü. Gruplar 8–14 ve 15–17 olarak ayrı çalışır.' },
     ],
     images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
     edlFamily: ['english-drama-lab', 'english-drama-final-project'],
-    seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 10–17 Yaş Drama',
-    seoDesc: "İstanbul 10–17 yaş İngilizce tiyatro: Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz; kitap ve sınav yok. B1 ve üzeri. Seyircili final gösterisi. Kadıköy & Pera, 8 ay.",
+    seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 8–17 Yaş Drama',
+    seoDesc: "İstanbul 8–17 yaş İngilizce tiyatro: Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz; kitap ve sınav yok. B1 ve üzeri. Seyircili final gösterisi. Kadıköy & Pera, 8 ay.",
   },
 
   // ── 06 — TECHNE MUSICAL LAB ────────────────────────────────────────
@@ -200,12 +203,12 @@ export const WORKSHOPS: Workshop[] = [
     id: 5, slug: 'techne-musical-lab', code: '05',
     title: 'TECHNE MUSICAL LAB', sub: 'Drama · Tiyatro · Müzikal',
     tagline: 'Sahne. Ses. Hareket. — Seyircinin Karşısında.',
-    instructor: 'Köksal Ünal & Bartu Ayaz',
-    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Bartu Ayaz: İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Grease, Alaaddin\'in Müzikali ve Damdaki Kemancı gibi prodüksiyonlarda sahne aldı, şan ve vokal koçluğu yapıyor. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
+    instructor: 'Köksal Ünal & Beril Korkmaz',
+    instructorBio: 'Köksal Ünal: Oyuncu, yönetmen ve Broadway dans eğitmeni. Beril Korkmaz: İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Araf Müzikali, Jekyll ve Hyde ve Damdaki Kemancı gibi müzikallerde sahne aldı, şan ve müzikal oyunculuk çalışıyor. İkisi birlikte oyunculuk, şan ve dans disiplinlerini tek programda buluşturuyor.',
     venue: 'Kadıköy', duration: '8 ay · Haftada 2 gün (Ekim–Mayıs)', price: 135000,
     friendDiscountPercent: 10, installments: 6,
     facts: ['15–55 yaş', '8 ay · Ekim–Mayıs', 'Haftada 2 gün', 'Kadıköy', 'Video ile başvuru', 'Yıl sonu gösterisi'],
-    schedule: [{ place: 'Kadıköy', date: '12 Ekim Pazartesi' }],
+    schedule: [{ place: 'Kadıköy', date: '12 Ekim’de başladı · katılım açık' }],
     maxStudents: 12, active: true, ageRange: '15–55 yaş',
     category: 'dans-muzikal',
     tags: ['Müzikal', 'Drama', 'Tiyatro', 'Uzun Dönem'],
@@ -216,8 +219,8 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Yıl Sonu Gösterisi', span: 'Nisan–Mayıs', body: 'Sahnelenmiş bir müzikal — kostüm, ışık, dekor, seyirci önünde tam prodüksiyon.' },
     ],
     images: ['musical-01', 'musical-02', 'musical-03', 'dslr-zl5a1045', 'dslr-zl5a1079'],
-    seoTitle: 'Müzikal Tiyatro Kursu İstanbul — Oyunculuk, Şan & Dans',
-    seoDesc: 'İstanbul müzikal tiyatro kursu: oyunculuk, şan ve dans tek programda. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Bartu Ayaz ile. 15–55 yaş. Seyircili yıl sonu gösterisi. Kadıköy.',
+    seoTitle: 'Techne Musical Lab — 8 Aylık Müzikal Programı, Kadıköy',
+    seoDesc: 'Techne Musical Lab: oyunculuk, şan ve dans tek programda, 8 ay, haftada 2 gün. Musical theatre, Broadway repertuarı ve koreografi — Köksal Ünal & Beril Korkmaz ile. 15–55 yaş. Seyircili yıl sonu gösterisi. Kadıköy.',
   },
 
   // ── 07 — BROADWAY MUSICAL DANCE ────────────────────────────────────

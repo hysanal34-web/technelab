@@ -15,11 +15,11 @@ export const TEAM: TeamMember[] = [
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
-    name: 'Bartu Ayaz',
-    slug: 'bartu-ayaz',
-    role: 'Şan & Vokal Koçu · Eğitmen',
-    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Grease\'te Danny Zuko, Alaaddin\'in Müzikali\'nde başrol ve Damdaki Kemancı\'da Hancı gibi rollerle sahne tecrübesini genişletti. Techne Musical Lab\'de vokal tekniği, şan ve müzikal oyunculuk üzerine çalışıyor.',
-    image: '/images/team/bartu-ayaz.jpg',
+    name: 'Beril Korkmaz',
+    slug: 'beril-korkmaz',
+    role: 'Şan · Müzikal Oyunculuk · Eğitmen',
+    bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro mezunu; Araf Müzikali (BKM), Jekyll ve Hyde ve Damdaki Kemancı gibi müzikallerde sahne aldı. Belt, klasik ve mix voice üzerine şan eğitimi aldı. Techne Musical Lab\'de şan ve müzikal oyunculuk üzerine çalışıyor.',
+    image: '/images/team/beril-korkmaz.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
   },
   {

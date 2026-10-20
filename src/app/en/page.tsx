@@ -164,7 +164,7 @@ export default function EnglishHome() {
             {[
               ['/en/acting-classes-istanbul', 'Acting Classes', 'All levels · no experience needed'],
               ['/en/musical-theatre-classes-istanbul', 'Musical Theatre & Dance', 'Broadway, jazz, voice'],
-              ['/en/drama-classes-for-kids-istanbul', 'Drama for Kids & Teens', 'Ages 10–17 · year-end show'],
+              ['/en/drama-classes-for-kids-istanbul', 'Drama for Kids & Teens', 'Ages 8–17 · year-end show'],
               ['/en/theatre-workshops-for-expats-istanbul', 'For Expats', 'Meet people, work on something real'],
             ].map(([href, label, sub]) => (
               <li key={href} className="border-b border-border">

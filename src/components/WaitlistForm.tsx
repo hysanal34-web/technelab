@@ -1,6 +1,7 @@
 'use client'
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
+import { trackBeklemeListesi, olaySayfasi } from '@/components/MetaPixel'
 import { joinWaitlist, enrichWaitlist, type WaitlistState } from '@/app/bekleme-listesi/actions'
 
 const INPUT =
@@ -34,10 +35,12 @@ export function WaitlistForm({
   function onJoin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const fd = new FormData(e.currentTarget)
+    fd.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const res = await joinWaitlist(fd)
       setState(res)
       if (res.status === 'success') {
+        trackBeklemeListesi()
         setEmail(res.email ?? '')
         setStep(2)
       }
@@ -150,7 +153,7 @@ export function WaitlistForm({
 
   // ── 1. ekran: zorunlu alanlar ──
   return (
-    <form onSubmit={onJoin} noValidate className="border border-border bg-bgAlt p-7">
+    <form onSubmit={onJoin} noValidate className="border border-border bg-bgAlt p-7" data-olcum-form="bekleme_listesi">
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
       <div className="grid sm:grid-cols-2 gap-5 mb-5">

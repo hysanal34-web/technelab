@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
-import { trackLead, newBrowserEventId } from '@/components/MetaPixel'
+import { trackLead, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
 import { SITE_META, WORKSHOPS } from '@/lib/data'
 
 type WorkshopMin = {
@@ -48,6 +48,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
     // kimliği taşımazsa tek başvuru iki lead olarak sayılıyor.
     const eventId = newBrowserEventId()
     formData.append('eventId', eventId)
+    formData.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
@@ -148,7 +149,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
         </p>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
+      <form ref={formRef} onSubmit={handleSubmit} data-olcum-form="program_basvurusu" className="space-y-10">
 
         {/* Bölüm 1: Öğrenci Bilgileri */}
         <Section label="01 — Katılımcı Bilgileri">
@@ -254,7 +255,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
               className="mt-0.5 accent-neon shrink-0 cursor-pointer"
             />
             <label htmlFor="parentConsent" className="font-mono text-[11px] text-stone leading-relaxed cursor-pointer">
-              10–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth" programına katılmasına,
+              8–17 yaş aralığındaki çocuğumun / yasal sorumluluğunu taşıdığım öğrencinin "English Drama Youth" programına katılmasına,
               provalarda ve yılsonu temsilinde yer almasına onay veriyorum.
               <span className="text-neon ml-1">*</span>
             </label>

@@ -2,7 +2,7 @@
 import { useState, useTransition } from 'react'
 import Link from 'next/link'
 import { subscribeBulten, type BultenState } from '@/app/bulten/actions'
-import { trackSubscribe } from '@/components/MetaPixel'
+import { trackSubscribe, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
 
 /**
  * Footer'daki bülten kayıt formu.
@@ -15,9 +15,14 @@ export function BultenForm() {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const fd = new FormData(e.currentTarget)
+    // Piksel ve CAPI aynı kimliği taşısın: 15 Ekim 2026'ya kadar ayrı
+    // kimliklerle gidiyordu, tek abonelik iki kez sayılıyordu.
+    const eventId = newBrowserEventId()
+    fd.append('eventId', eventId)
+    fd.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const res = await subscribeBulten(fd)
-      if (res.status === 'success') trackSubscribe()
+      if (res.status === 'success') trackSubscribe(eventId)
       setState(res)
     })
   }
@@ -34,7 +39,7 @@ export function BultenForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate>
+    <form onSubmit={onSubmit} noValidate data-olcum-form="bulten">
       <div className="flex flex-col sm:flex-row gap-2 max-w-md">
         <label htmlFor="bulten-eposta" className="sr-only">E-posta adresiniz</label>
         <input

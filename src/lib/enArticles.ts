@@ -14,6 +14,8 @@ export type EnArticleMeta = {
   status?: 'draft' | 'published'
   updated?: string
   trSlug?: string
+  seoTitle?: string
+  seoDescription?: string
 }
 
 const DIR = path.join(process.cwd(), 'src/content/articles-en')
@@ -33,6 +35,8 @@ function normalize(slug: string, d: Record<string, unknown>): EnArticleMeta {
     status:   d.status === 'draft' ? 'draft' : 'published',
     updated:  typeof d.updated === 'string' ? d.updated : undefined,
     trSlug:   typeof d.trSlug === 'string' ? d.trSlug : undefined,
+    seoTitle: typeof d.seoTitle === 'string' ? d.seoTitle : undefined,
+    seoDescription: typeof d.seoDescription === 'string' ? d.seoDescription : undefined,
   }
 }
 

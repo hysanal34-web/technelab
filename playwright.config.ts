@@ -54,6 +54,11 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     // Site koyu zeminli; açık tema varsayımıyla çekilen kareler farklı çıkıyor.
     colorScheme: 'dark',
+    // Çerez izni banner'ı (15 Ekim 2026) her ilk ziyarette çıkıyor. Görsel ve
+    // akış testleri "izin reddedildi" çereziyle başlıyor ki banner ekran
+    // görüntülerine girmesin ve tıklamaları örtmesin. Banner'ın kendisi
+    // e2e/olcum.spec.ts içinde, bu durum sıfırlanarak test ediliyor.
+    storageState: 'e2e/izin-reddedildi.json',
   },
 
   expect: {

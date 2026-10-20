@@ -80,6 +80,36 @@ export async function GET() {
   }
   lines.push('')
 
+  lines.push('## Kaynak Sayfaları ve Rehberler')
+  lines.push('')
+  const base = SITE_META.url
+  lines.push(`- [İngilizce konuşma kulübü soruları](${base}/kaynaklar/konusma-kulubu-sorulari): konuşma kulübü moderatörleri ve katılımcıları için soru bankası`)
+  lines.push(`- [İngilizce tartışma konuları](${base}/kaynaklar/ingilizce-tartisma-konulari): B2/C1 için 60 önerge, kalıplar ve formatlar`)
+  lines.push(`- [Müzikal seçme şarkıları](${base}/kaynaklar/muzikal-secme-sarkilari)`)
+  lines.push(`- [Monologlar](${base}/kaynaklar/monologlar)`)
+  lines.push(`- [Ses ve nefes](${base}/kaynaklar/ses-nefes)`)
+  lines.push(`- [Tiyatro sözlüğü](${base}/kaynaklar/sozluk)`)
+  lines.push(`- [Müzikal tiyatro kursu İstanbul](${base}/muzikal-tiyatro-kursu-istanbul)`)
+  lines.push(`- [Kadıköy İngilizce konuşma kulübü](${base}/kadikoy-ingilizce-konusma-kulubu)`)
+  lines.push(`- [Beyoğlu İngilizce konuşma kulübü](${base}/beyoglu-ingilizce-konusma-kulubu)`)
+  lines.push('')
+  lines.push('### Konu kümeleri (öncü yazılar)')
+  lines.push('')
+  const pillars: [string, string][] = [
+    ['Müzikal', 'muzikal-oyunculuk-nedir'],
+    ['Müzikal', 'belting-nedir-muzikal-sesi-belt-mix-legit'],
+    ['Müzikal', 'muzikal-ensemble-oyuncusu-olmak-koronun-gorunmeyen-isi'],
+    ['İngilizce konuşma', 'ingilizce-konusma-kulubu-nasil-secilir'],
+    ['İngilizce konuşma', 'ingilizce-anliyorum-ama-konusamiyorum'],
+    ['İngilizce drama (çocuk ve genç)', 'ingilizce-drama-youth-yas-gruplari-neden-ayri'],
+    ['Yaratıcı drama', 'yaratici-drama-nedir'],
+    ['Oyunculuk', 'istanbul-oyunculuk-kursu-nasil-secilir'],
+    ['Dramaturji', 'dramaturji-nedir'],
+    ['Oyun yazarlığı', 'tiyatro-oyunu-nasil-yazilir'],
+  ]
+  for (const [k, slug] of pillars) lines.push(`- ${k}: ${base}/makaleler/${slug}`)
+  lines.push('')
+
   lines.push('## İletişim')
   lines.push('')
   lines.push(`- Telefon / WhatsApp: ${SITE_META.phone}`)
@@ -94,6 +124,8 @@ export async function GET() {
   lines.push(`- [Ekip](${SITE_META.url}/ekip)`)
   lines.push(`- [Hakkında](${SITE_META.url}/hakkinda)`)
   lines.push(`- [English version](${SITE_META.url}/en)`)
+  lines.push(`- [Tüm makalelerin tam metni (llms-full.txt)](${SITE_META.url}/llms-full.txt)`)
+  lines.push(`- [Makale kategorileri](${SITE_META.url}/makaleler)`)
 
   return new Response(lines.join('\n'), {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },

@@ -4,7 +4,7 @@ import { useState, useTransition, useRef } from 'react'
 import Link from 'next/link'
 import type { TanismaFormState } from '@/app/tanisma-gunu/actions'
 import { ENGLISH_LEVELS, type TanismaSession } from '@/app/tanisma-gunu/sessions'
-import { trackTanismaLead, newBrowserEventId } from '@/components/MetaPixel'
+import { trackTanismaLead, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
 import { WORKSHOPS, SITE_META } from '@/lib/data'
 
 /**
@@ -65,6 +65,7 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
     // İkisi aynı kimliği taşımazsa tek kayıt iki lead olarak sayılıyor.
     const eventId = newBrowserEventId()
     formData.append('eventId', eventId)
+    formData.append('olaySayfasi', olaySayfasi())
     startTransition(async () => {
       const result = await action(formData)
       setState(result)
@@ -161,7 +162,7 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
       </div>
 
       {/* Sağ — form */}
-      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" data-olcum-form="tanisma_gunu">
         <Field htmlFor="session" label="Hangi Program?" required>
           <select
             id="session" name="session" required value={sessionId}

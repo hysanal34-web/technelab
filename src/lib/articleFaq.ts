@@ -22,7 +22,7 @@ export function extractFaq(content: string): FaqItem[] {
   const m = HEADING.exec(content)
   if (!m) return []
   const rest = content.slice(m.index + m[0].length)
-  const end = rest.search(/^##\s/m)
+  const end = rest.search(/^(##\s|---\s*$)/m) // yatay çizgi (yazar notu) de bölümü bitirir
   const section = end === -1 ? rest : rest.slice(0, end)
   const items: FaqItem[] = []
   const re = /^\*\*(.+?)\*\*\s*\n([\s\S]*?)(?=^\*\*.+?\*\*\s*$|(?![\s\S]))/gm

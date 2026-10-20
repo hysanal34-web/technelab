@@ -1,8 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
-import { headers, cookies } from 'next/headers'
-import { sendCapiEvent, newEventId } from '@/lib/metaCapi'
+import { donusumuIsle } from '@/lib/olcumSunucu'
 
 export type BultenState = {
   status: 'idle' | 'success' | 'error'
@@ -63,21 +62,19 @@ export async function subscribeBulten(formData: FormData): Promise<BultenState> 
       })
     }
 
-    // Meta'ya Subscribe olayı — bülten abonesi, Lookalike kitle için değerli sinyal
-    try {
-      const h = await headers()
-      const c = await cookies()
-      await sendCapiEvent({
-        eventName: 'Subscribe',
-        eventId: newEventId(),
-        eventSourceUrl: 'https://technelabistanbul.com',
-        email: eposta,
-        fbp: c.get('_fbp')?.value,
-        fbc: c.get('_fbc')?.value,
-        clientIp: h.get('x-forwarded-for')?.split(',')[0]?.trim(),
-        userAgent: h.get('user-agent') ?? undefined,
-      })
-    } catch { /* takip başarısızlığı kaydı engellemez */ }
+    // Ölçüm: Meta CAPI Subscribe (tarayıcıyla aynı event_id) + dönüşüm kaydı.
+    // Bu formda ayrı "reklam ölçümü" kutusu yok: e-posta özeti Meta'ya GİTMEZ,
+    // yalnızca pazarlama çerez izni varsa tarayıcı sinyalleri gider.
+    await donusumuIsle({
+      tur: 'bulten',
+      olaylar: ['Subscribe'],
+      eventId: formData.get('eventId') as string | null,
+      sayfa: formData.get('olaySayfasi') as string | null,
+      yedekYol: '/',
+      email: eposta,
+      reklamRizasi: false,
+      icerikKategorisi: 'bulten',
+    })
 
     return { status: 'success', message: 'Kaydınız alındı. İlk bültende görüşmek üzere.' }
   } catch (err) {

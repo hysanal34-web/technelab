@@ -18,17 +18,15 @@
  * Broadway Pera 3 Ekim 19:00 · Youth Pera 4 Ekim 13:00 | Kadıköy EDL 14 Eylül 20:00 ·
  * Broadway Kadıköy 1 Ekim · Musical Lab 28 Eylül · Youth Kadıköy 3 Ekim · Auteur 7 Ekim
  *
- * DİKKAT: Musical Lab yalnızca Kadıköy'de yürüyor; tanışma seansı Pera'da, Broadway ile
- * ortak. Metinlerde "tanışma Pera'da, program Kadıköy'de" ayrımı açıkça yazılmalı.
+ * 17 Ekim 2026 (Yağız): liste dörde indi. Tanışma günü OLAN programlar:
+ *   English Drama Youth — Kadıköy Cumartesi 15:00 · Pera Pazar 13:00
+ *   Techne Musical Lab  — Kadıköy Pazartesi ve Salı 19:00
+ * Tanışma günü OLMAYAN programlar: English Drama Lab · Acting Praxis ·
+ * Broadway Musical Dance · The Auteur Lab.
  *
- * 15 Eylül 2026: 12 ve 13 Eylül seansları kaldırıldı, Youth için 27 Eylül Pazar eklendi,
- * Musical Lab 19 Eylül Broadway seansına eklendi (iki programın eğitmeni de Köksal Ünal).
- *
- * 22 Eylül 2026: 19 Eylül Pera seansları (EDL · Praxis · Broadway · Musical Lab) geçtiği
- * için kaldırıldı. Bu dört programın tanışma günü şu an YOK; programlar 3 Ekim'de
- * başlıyor, yeni tarih verilince buraya eklenecek.
- *
- * Tanışma günü OLMAYAN programlar: The Auteur Lab · Broadway Kadıköy grubu.
+ * Program sayfasındaki "tanışma gününe kaydol" düğmesi bu listeye bakıyor
+ * (`atolyeler/[slug]/page.tsx`), yani buradan silinen program için düğme de
+ * kendiliğinden kayboluyor. Ayrıca elle bir şey kapatmak gerekmiyor.
  *
  * GEÇMİŞ TARİH: artık elle temizlemeye gerek yok. `aktifSessions()` label'daki
  * tarihi okuyup geçmiş olanı eliyor; form ve server action ikisi de onu kullanıyor.
@@ -43,7 +41,7 @@ export type TanismaSession = {
   slug: string
   label: string
   english: boolean   // İngilizce seviyesi sorulsun mu
-  youth: boolean     // veli alanları + 10–17 yaş kontrolü
+  youth: boolean     // veli alanları + 8–17 yaş kontrolü
   minAge: number
   maxAge?: number
   /**
@@ -62,27 +60,20 @@ export const TANISMA_SESSIONS: readonly TanismaSession[] = [
   // English Drama Youth
   // 6 Ekim 2026 (Yağız): Pera grubu her Pazar 13:00 tanışmaya açık; tarih haftalık kendiliğinden yenilenir.
   // 6 Ekim 2026 (Yağız): Kadıköy grubu 17 Ekim Cumartesi 15:00'ten itibaren her hafta tanışmaya açık.
-  { id: 'youth-kadikoy-cmt', program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (10–17) — Kadıköy · her Cumartesi · 15:00',    english: true,  youth: true,  minAge: 10, maxAge: 17, haftalik: { gun: 6, saat: '15:00', baslangic: '2026-10-17' } },
-  { id: 'youth-pera-paz',    program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (10–17) — Pera · her Pazar · 13:00',          english: true,  youth: true,  minAge: 10, maxAge: 17, haftalik: { gun: 0, saat: '13:00' } },
-
-  // English Drama Lab
-  // 2 Ekim 2026 (Yağız): Kadıköy grubu her Pazartesi 20:00 tanışmaya açık; tarih haftalık kendiliğinden yenilenir.
-  // 6 Ekim 2026 (Yağız): Pera grubu her Cumartesi 15:00 tanışmaya açık; tarih haftalık kendiliğinden yenilenir.
-  { id: 'edl-pera-cmt',      program: 'English Drama Lab',      slug: 'english-drama-lab',      label: 'English Drama Lab — Pera · her Cumartesi · 15:00',                  english: true,  youth: false, minAge: 18, haftalik: { gun: 6, saat: '15:00' } },
-  { id: 'edl-kadikoy-pzt',   program: 'English Drama Lab',      slug: 'english-drama-lab',      label: 'English Drama Lab — Kadıköy · her Pazartesi · 20:00',               english: true,  youth: false, minAge: 18, haftalik: { gun: 1, saat: '20:00' } },
+  { id: 'youth-kadikoy-cmt', program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (8–17) — Kadıköy · her Cumartesi · 15:00',    english: true,  youth: true,  minAge: 8, maxAge: 17, haftalik: { gun: 6, saat: '15:00', baslangic: '2026-10-17' } },
+  { id: 'youth-pera-paz',    program: 'English Drama Youth',    slug: 'english-drama-youth',    label: 'English Drama Youth (8–17) — Pera · her Pazar · 13:00',          english: true,  youth: true,  minAge: 8, maxAge: 17, haftalik: { gun: 0, saat: '13:00' } },
 
   // Techne Musical Lab (program Kadıköy'de yürüyor)
-  // 8 Ekim 2026 (Yağız): Musical tanışmaları HER HAFTA yinelenir — Pera Perşembe ve Cumartesi,
-  // Kadıköy Pazartesi ve Salı. İlk seanslar 8, 10, 12, 13 Ekim. Saat verilmedi (DM ile iletiliyor);
-  // saat netleşince `saat` alanına ve label'a eklenmeli.
-  { id: 'musical-pera-per',    program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Pera · her Perşembe',                         english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 4, saat: '', baslangic: '2026-10-08' } },
-  { id: 'musical-pera-cmt',    program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Pera · her Cumartesi',                        english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 6, saat: '', baslangic: '2026-10-10' } },
-  { id: 'musical-kadikoy-pzt', program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Kadıköy · her Pazartesi',                     english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 1, saat: '', baslangic: '2026-10-12' } },
-  { id: 'musical-kadikoy-sal', program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Kadıköy · her Salı',                          english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 2, saat: '', baslangic: '2026-10-13' } },
+  // 8 Ekim 2026 (Yağız): Musical tanışmaları HER HAFTA yinelenir.
+  // 17 Ekim 2026 (Yağız): Pera seansları kaldırıldı, yalnız Kadıköy Pazartesi ve Salı
+  // kaldı; saat 19:00 olarak netleşti ve label'a yazıldı.
+  { id: 'musical-kadikoy-pzt', program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Kadıköy · her Pazartesi · 19:00',             english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 1, saat: '19:00', baslangic: '2026-10-12' } },
+  { id: 'musical-kadikoy-sal', program: 'Techne Musical Lab',     slug: 'techne-musical-lab',     label: 'Techne Musical Lab — Kadıköy · her Salı · 19:00',                  english: false, youth: false, minAge: 15, maxAge: 55, haftalik: { gun: 2, saat: '19:00', baslangic: '2026-10-13' } },
 
-  // Broadway Musical Dance
-  // 8 Ekim 2026 (Yağız): Pera grubu her Cumartesi 19:00 — o saatlerde tanışmaya açık; tarih haftalık kendiliğinden yenilenir.
-  { id: 'broadway-pera-cmt',   program: 'Broadway Musical Dance', slug: 'broadway-musical-dance', label: 'Broadway Musical Dance — Pera · her Cumartesi · 19:00',            english: false, youth: false, minAge: 12, maxAge: 55, haftalik: { gun: 6, saat: '19:00', baslangic: '2026-10-10' } },
+  // 17 Ekim 2026 (Yağız): English Drama Lab, Broadway Musical Dance ve Musical Pera
+  // tanışma seansları kaldırıldı. Yalnız Youth (Kadıköy Cumartesi, Pera Pazar) ve
+  // Musical (Kadıköy Pazartesi ve Salı) tanışmaya açık.
+  // Geri açılacaksa satırlar git geçmişinde: 17 Ekim 2026 öncesi sürüm.
 ] as const
 
 /**

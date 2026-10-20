@@ -9,7 +9,7 @@ import { aktifSessions } from '@/app/tanisma-gunu/sessions'
  */
 export type SahneProgram = {
   slug: string
-  /** Bloğa kazınan ad: parantezli kısım ("(10–17)") atılmış hâli. */
+  /** Bloğa kazınan ad: parantezli kısım ("(8–17)") atılmış hâli. */
   title: string
   /** Blok altındaki mono satır. */
   sub: string

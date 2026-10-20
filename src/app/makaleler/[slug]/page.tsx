@@ -10,6 +10,7 @@ import { findTeamMemberByName } from '@/lib/ekip'
 import { ArticleCTA, resolveArticleCta } from '@/components/ArticleCTA'
 import { ilgiliMakaleler } from '@/lib/ilgiliMakaleler'
 import { extractFaq, faqJsonLd } from '@/lib/articleFaq'
+import { kategoriSlug } from '@/lib/kategoriler'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -27,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // absolute: makale başlıklarına marka eki eklenmiyor.
     // Bunlar iki parçalı editoryal başlıklar; kısaltmak anlamı bozuyor,
     // marka eki de Google'ın kestiği alandan yer yiyor.
-    title: { absolute: meta.title },
-    description: meta.excerpt,
+    title: { absolute: meta.seoTitle ?? meta.title },
+    description: meta.seoDescription ?? meta.excerpt,
     authors: [{ name: meta.author, url: author ? `${SITE_META.url}/ekip/${author.slug}` : undefined }],
     openGraph: {
-      title: meta.title, description: meta.excerpt, type: 'article',
+      title: meta.seoTitle ?? meta.title, description: meta.seoDescription ?? meta.excerpt, type: 'article',
       publishedTime: meta.date, authors: [meta.author],
       url: `${SITE_META.url}/makaleler/${slug}`,
       // Görseli olmayan makalede marka görseline düş — aksi halde 32 makalenin
@@ -73,7 +74,9 @@ export default async function ArticlePage({ params }: Props) {
     '@id': `${pageUrl}#article`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     headline: meta.title,
-    description: meta.excerpt,
+    description: meta.seoDescription ?? meta.excerpt,
+    isAccessibleForFree: true,
+    wordCount: content.split(/\s+/).length,
     ...(meta.image ? { image: meta.image } : {}),
     inLanguage: 'tr',
     articleSection: meta.category,
@@ -102,7 +105,8 @@ export default async function ArticlePage({ params }: Props) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Techne Lab İstanbul', item: SITE_META.url },
       { '@type': 'ListItem', position: 2, name: 'Makaleler', item: `${SITE_META.url}/makaleler` },
-      { '@type': 'ListItem', position: 3, name: meta.title, item: pageUrl },
+      { '@type': 'ListItem', position: 3, name: meta.category, item: `${SITE_META.url}/makaleler/kategori/${kategoriSlug(meta.category)}` },
+      { '@type': 'ListItem', position: 4, name: meta.title, item: pageUrl },
     ],
   }
 
@@ -132,7 +136,7 @@ export default async function ArticlePage({ params }: Props) {
             <ol className="flex flex-wrap items-center gap-2 font-mono text-[11px] tracking-widest2 uppercase text-stone">
               <li><Link href="/makaleler" className="hover:text-neon transition-colors">makaleler</Link></li>
               <li aria-hidden="true" className="text-dim">/</li>
-              <li className="text-stone">{meta.category}</li>
+              <li><Link href={`/makaleler/kategori/${kategoriSlug(meta.category)}`} className="text-stone hover:text-neon transition-colors">{meta.category}</Link></li>
             </ol>
           </nav>
           <h1 className="font-display text-fg mb-6" style={{ fontSize: 'clamp(32px,5.5vw,72px)', letterSpacing: '0.02em', lineHeight: 0.95 }}>
