@@ -18,6 +18,8 @@ export function Footer() {
             ['/ekip','ekip'],
             ['/galeri','galeri'],
             ['/makaleler','makaleler'],
+            ['/kurumsal','kurumsal'],
+            ['/okullar','okullar ve kolejler'],
             ['/isbirlikleri','işbirliklerimiz'],
             ['/hakkinda','hakkında'],
             ['/iletisim','iletişim'],
@@ -110,6 +112,8 @@ export function Footer() {
               ['/en/musical-theatre-classes-istanbul', 'musical theatre & dance'],
               ['/en/drama-classes-for-kids-istanbul', 'drama for kids & teens'],
               ['/en/theatre-workshops-for-expats-istanbul', 'for expats'],
+              ['/en/corporate', 'corporate workshops'],
+              ['/en/schools', 'for schools'],
             ].map(([href, label]) => (
               <Link key={href} href={href} className="font-mono text-[11px] text-stone hover:text-neon transition-colors duration-200 py-0.5">
                 {label}
