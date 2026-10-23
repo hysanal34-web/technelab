@@ -1,6 +1,7 @@
 import { WORKSHOPS, SITE_META, VENUES } from '@/lib/data'
 import { DISCIPLINES } from '@/lib/disiplinler'
 import { getAllArticles } from '@/lib/mdx'
+import { B2B_PAGES, b2bPath } from '@/lib/b2b'
 
 // llms.txt — AI asistanlarının (ChatGPT, Gemini, Claude, Perplexity) siteyi
 // hızlı ve doğru özetlemesi için yapılandırılmış markdown. Tamamı data.ts /
@@ -77,6 +78,14 @@ export async function GET() {
   lines.push('')
   for (const a of articles) {
     lines.push(`- [${a.title}](${SITE_META.url}/makaleler/${a.slug}): ${a.excerpt}`)
+  }
+  lines.push('')
+
+  lines.push('## Kurumsal ve Okul/Kolej Çalışmaları')
+  lines.push('')
+  lines.push('Paketler yakında açıklanacak; şu an ihtiyaç görüşmesiyle çalışılıyor. Süre ve fiyat sitede yayınlanmaz.')
+  for (const bp of B2B_PAGES) {
+    lines.push(`- [${bp.h1}](${SITE_META.url}${b2bPath(bp)}): ${bp.quick.a}`)
   }
   lines.push('')
 

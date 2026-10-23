@@ -109,6 +109,22 @@ export const KATEGORILER: Kategori[] = [
     hubs: [{ href: '/makaleler', label: 'Tüm makaleler' }],
   },
   {
+    slug: 'kurumsal', label: 'Kurumsal',
+    seoTitle: 'Kurumsal Drama ve Doğaçlama Yazıları — Techne Lab',
+    seoDesc: 'Kurumsal drama eğitimi, doğaçlamanın iş hayatındaki karşılığı, İngilizce konuşmaktan çekinen ekipler. İK ve öğrenme-gelişim ekipleri için yazılar.',
+    intro: 'Tiyatronun şirket içinde ne işe yaradığını soran yazılar: drama, doğaçlama, sahne varlığı ve İngilizce iletişim.',
+    hubs: [{ href: '/kurumsal', label: 'Kurumsal atölyeler' }, { href: '/kurumsal/ingilizce-drama-is-iletisimi', label: 'Kurumsal İngilizce iletişim' }],
+    pillars: ['kurumsal-drama-egitimi-nedir', 'dogaclama-is-hayatinda-ne-ise-yarar', 'ingilizce-konusmaktan-cekinen-ekipler'],
+  },
+  {
+    slug: 'okullar', label: 'Okullar',
+    seoTitle: 'Okullar İçin Tiyatro, Müzikal ve İngilizce Drama Yazıları',
+    seoDesc: 'Okul müzikali nasıl hazırlanır, tiyatro kulübü nasıl planlanır, okulda İngilizce drama nasıl çalışır? Okul yöneticileri ve öğretmenler için rehberler.',
+    intro: 'Okul yöneticileri, İngilizce zümreleri ve kulüp öğretmenleri için: okulda tiyatro, müzikal ve İngilizce dramanın nasıl kurulduğu.',
+    hubs: [{ href: '/okullar', label: 'Okullar ve kolejler' }, { href: '/okullar/okul-muzikali', label: 'Okul müzikali' }],
+    pillars: ['okul-muzikali-nasil-hazirlanir', 'okul-tiyatro-kulubu-yillik-plan', 'okulda-ingilizce-drama-nasil-calisir'],
+  },
+  {
     slug: 'pedagoji', label: 'Pedagoji',
     seoTitle: 'Tiyatro Pedagojisi Yazıları — Oyuncu Nasıl Yetişir',
     seoDesc: 'Oyuncu nasıl yetişir, tiyatro eğitimi nasıl kurulur? Tiyatro pedagojisi üzerine yazılar.',

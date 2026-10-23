@@ -34,6 +34,8 @@ import type { ArticleMeta } from '@/lib/mdx'
  * yazı yerine konusu yakın bir yazı gösterilsin diye.
  */
 const YAKIN_KATEGORI: Record<string, string[]> = {
+  'Kurumsal':        ['İngilizce Drama', 'Teknik', 'Oyunculuk'],
+  'Okullar':         ['Yaratıcı Drama', 'İngilizce Drama', 'Dans & Müzikal'],
   'Oyunculuk':       ['Tiyatro', 'Teknik', 'Yaratıcı Drama', 'Sektör'],
   'Teknik':          ['Oyunculuk', 'Tiyatro', 'Dramaturji', 'Yazarlık'],
   'Yaratıcı Drama':  ['Pedagoji', 'Oyunculuk', 'İngilizce Drama'],

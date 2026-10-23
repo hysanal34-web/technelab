@@ -7,6 +7,7 @@ import { EN_PAGES } from '@/lib/enDisciplines'
 import { getAllEnArticles } from '@/lib/enArticles'
 import { TEAM } from '@/lib/ekip'
 import { KATEGORILER } from '@/lib/kategoriler'
+import { B2B_PAGES, b2bPath } from '@/lib/b2b'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_META.url
@@ -95,6 +96,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }))
 
+  // Kurumsal ve okul/kolej sayfaları (23 Ekim 2026)
+  const b2b: MetadataRoute.Sitemap = B2B_PAGES.map((p) => ({
+    url: `${base}${b2bPath(p)}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: p.slug === '' ? 0.9 : 0.8,
+  }))
+
   // Eğitmen profilleri — E-E-A-T; program ve makale sayfalarından linkleniyor
   const ekip: MetadataRoute.Sitemap = TEAM.map((m) => ({
     url: `${base}/ekip/${m.slug}`,
@@ -111,5 +120,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...sayfalar, ...disiplinler, ...kategoriler, ...ingilizce, ...enMakaleler, ...semtler, ...programlar, ...ekip, ...makaleler]
+  return [...sayfalar, ...disiplinler, ...b2b, ...kategoriler, ...ingilizce, ...enMakaleler, ...semtler, ...programlar, ...ekip, ...makaleler]
 }
