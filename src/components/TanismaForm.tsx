@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition, useRef } from 'react'
+import { useState, useTransition, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import type { TanismaFormState } from '@/app/tanisma-gunu/actions'
 import { ENGLISH_LEVELS, type TanismaSession } from '@/app/tanisma-gunu/sessions'
@@ -53,6 +53,12 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
   const errRef = useRef<HTMLParagraphElement>(null)
+  const basariRef = useRef<HTMLHeadingElement>(null)
+
+  // Başarı ekranı formun yerine geçiyor; odak kaybolan butonda kalmasın.
+  useEffect(() => {
+    if (state.status === 'success') basariRef.current?.focus()
+  }, [state.status])
 
   const session = sessions.find((s) => s.id === sessionId)
   const isYouth = session?.youth ?? false
@@ -98,12 +104,17 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
   if (state.status === 'success') {
     return (
       <div className="min-h-[60vh] flex items-center justify-center px-4 py-24">
-        <div className="max-w-sm w-full">
+        <div className="max-w-sm w-full" role="status">
           <div className="h-[2px] w-12 bg-neon mb-8" />
           <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-4">kayıt alındı</p>
-          <h2 className="font-display text-fg mb-6" style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}>
+          <h2 ref={basariRef} tabIndex={-1} className="font-display text-fg mb-6 focus:outline-none" style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}>
             GÖRÜŞMEK ÜZERE
           </h2>
+          {state.label && (
+            <p className="font-mono text-[13px] text-fg leading-relaxed mb-4 border-l-2 border-neon pl-3">
+              {state.label}
+            </p>
+          )}
           <p className="font-mono text-[13px] text-stone leading-relaxed mb-8">
             Tanışma günü kaydınız alındı. Mekân adresini ve detayları size yazacağız; sorunuz olursa DM'den ulaşabilirsiniz.
           </p>
@@ -174,10 +185,12 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
               <option key={s.id} value={s.id}>{s.label.replace(' — ', ' · ')}</option>
             ))}
           </select>
+          {/* Sunucu, formun gösterdiği tarihle güncel tarihi karşılaştırıyor (kayıt kapandıysa reddeder). */}
+          <input type="hidden" name="sessionLabel" value={session?.label ?? ''} />
         </Field>
 
         <Field htmlFor="name" label={isYouth ? 'Öğrencinin Adı Soyadı' : 'Ad Soyad'} required>
-          <input id="name" name="name" placeholder={isYouth ? 'Öğrencinin adı ve soyadı' : 'Adınız ve soyadınız'} required autoComplete="name" className={inputCls} />
+          <input id="name" name="name" placeholder={isYouth ? 'Öğrencinin adı ve soyadı' : 'Adınız ve soyadınız'} required autoComplete={isYouth ? 'off' : 'name'} className={inputCls} />
         </Field>
 
         <Field htmlFor="birthYear" label={isYouth ? 'Öğrencinin Doğum Yılı' : 'Doğum Yılı'} required>
@@ -210,8 +223,8 @@ export default function TanismaForm({ action, sessions, initialSessionId = '', f
             <Field htmlFor="phone" label="Telefon" required>
               <input id="phone" name="phone" type="tel" inputMode="tel" placeholder="+90 5xx xxx xx xx" required autoComplete="tel" className={inputCls} />
             </Field>
-            <Field htmlFor="occupation" label="Meslek / Çalışma Alanı" required>
-              <input id="occupation" name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" required autoComplete="organization-title" className={inputCls} />
+            <Field htmlFor="occupation" label="Meslek / Çalışma Alanı (isteğe bağlı)">
+              <input id="occupation" name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" autoComplete="organization-title" className={inputCls} />
             </Field>
           </>
         )}

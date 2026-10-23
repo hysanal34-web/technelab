@@ -1,5 +1,5 @@
 'use client'
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { subscribeBulten, type BultenState } from '@/app/bulten/actions'
 import { trackSubscribe, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
@@ -11,6 +11,10 @@ import { trackSubscribe, newBrowserEventId, olaySayfasi } from '@/components/Met
 export function BultenForm() {
   const [state, setState] = useState<BultenState>({ status: 'idle' })
   const [pending, startTransition] = useTransition()
+  const basariRef = useRef<HTMLParagraphElement>(null)
+  useEffect(() => {
+    if (state.status === 'success') basariRef.current?.focus()
+  }, [state.status])
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -29,9 +33,9 @@ export function BultenForm() {
 
   if (state.status === 'success') {
     return (
-      <div className="flex items-start gap-3 py-1">
+      <div className="flex items-start gap-3 py-1" role="status">
         <span className="text-neon font-mono text-[13px] leading-none mt-0.5" aria-hidden="true">✓</span>
-        <p className="font-mono text-[12px] text-stone leading-relaxed">
+        <p ref={basariRef} tabIndex={-1} className="font-mono text-[12px] text-stone leading-relaxed focus:outline-none">
           {state.message}
         </p>
       </div>

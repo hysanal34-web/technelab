@@ -49,7 +49,7 @@ export type Basvuru = {
   /** Blob yolu — hem kimlik hem adres. */
   id: string
   olusturuldu: string
-  kaynak: 'tanisma' | 'program' | 'bulten'
+  kaynak: 'tanisma' | 'program' | 'bulten' | 'b2b'
   program: string
   slug: string
   ad: string

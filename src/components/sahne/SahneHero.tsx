@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { T } from '@/components/LangText'
 import { SahneFallback } from './SahneFallback'
 import type { SahneProgram } from './sahneVeri'
@@ -20,13 +21,13 @@ import type { SahneProgram } from './sahneVeri'
  * Kaydırma engellenmez: canvas tekerleği dinlemez.
  */
 /**
- * Statik import: three.js sayfanın ilk JS paketine girer ve HTML'deki preload ile
- * hidrasyonla aynı anda iner. Önceden dynamic() ile ikinci bir ağ turu vardı; canlıda
- * ilk boyadan 3D'ye kadar ~1 sn karanlık kalıyordu, çoğu o chunk'ı beklemekti.
- * Sahne her açılışın kahramanı, paket ağırlığı buna değer. Sunucuda render edilmez
- * (use3d sunucuda false).
+ * Dinamik import (ssr: false): three.js ilk JS paketinden çıktı. 3D'yi hiç
+ * göstermeyecek cihazlar (hareketi azalt, veri tasarrufu, WebGL yok) paketi indirmez.
+ * Gösterme koşulları değişmedi: use3d yalnız uc3dEngel() boşsa true olur.
+ * Ağ turunu kısaltmak için engel yoksa chunk aşağıda hemen önden ısıtılır.
  */
-import Sahne3D from './Sahne3D'
+const sahne3dYukle = () => import('./Sahne3D')
+const Sahne3D = dynamic(sahne3dYukle, { ssr: false })
 
 /** 3D neden açılmıyor? Boş dize = açılabilir. Sebep konsola yazılır (destek için). */
 function uc3dEngel(): string {
@@ -59,6 +60,8 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     const engel = uc3dEngel()
     ;(window as Window & { __sahne?: string }).__sahne = engel || '3d'
     if (engel) { console.info('[sahne] 3D kapalı:', engel); const t = window.setTimeout(() => setFbLit(true), 350); return () => window.clearTimeout(t) }
+    // Önden ısıtma: chunk inmeye başlasın, bileşen boşta bağlanınca hazır olsun.
+    void sahne3dYukle().catch(() => {})
     // Sayfa önce otursun (hidrasyon, font, ilk boya). Üç adım:
     // 1) three.js chunk'ı ağdan gelsin (parse bu sırada değil, bileşen bağlanınca);
     // 2) tarayıcı boşa düşünce 3D bağlanır; kurulum Sahne3D içinde parça parça;
@@ -137,6 +140,15 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
         <p className="md:hidden font-body text-[13px] leading-[1.35] text-fg/80 mt-2">
           <T tr="Bağımsız tiyatro laboratuvarı. Programlar ışığın içinde: birini seç, sahneye çık." en="An independent theatre lab. The programmes are in the light: pick one, step on stage." />
         </p>
+        {/* Telefon ilk ekranı: tıklanabilir iki adım (marka bloğu pointer-events-none, düğmeler açık) */}
+        <div className={`md:hidden mt-3 flex gap-2 ${focused >= 0 ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+          <Link href="/tanisma-gunu" className="bg-neon px-4 py-3 font-code text-[11px] tracking-[0.16em] uppercase text-ink hover:bg-fg transition-colors" data-hover>
+            <T tr="ücretsiz tanışma" en="free trial day" />
+          </Link>
+          <a href="#programlar" className="border border-fg/30 px-4 py-3 font-code text-[11px] tracking-[0.16em] uppercase text-fg hover:border-neon hover:text-neon transition-colors" data-hover>
+            <T tr="programlar ↓" en="programmes ↓" />
+          </a>
+        </div>
         {/* Her zaman yerinde (görünmez olsa da): 3D bağlanınca yer açılıp marka yukarı zıplamasın. */}
         <p className={`mt-2 font-code text-[10px] tracking-[0.2em] uppercase text-neon/60 md:hidden transition-opacity duration-500 ${ready ? '' : 'opacity-0'}`} aria-hidden={!ready}>
           <T tr="Zemindeki banda dokun · sahneye çık" en="Tap a mark on the floor · step on stage" />
@@ -224,7 +236,7 @@ export function SahneHero({ programs }: { programs: SahneProgram[] }) {
     </section>
 
     {/* 6 · program listesi (telefon): hero'nun altında, satır doğrudan program sayfasına */}
-    <nav className="surface-dark px-6 pt-6 pb-8 md:hidden" aria-label="Programlar">
+    <nav id="programlar" className="surface-dark px-6 pt-6 pb-8 md:hidden scroll-mt-[64px]" aria-label="Programlar">
       <div className="flex justify-between border-b border-fg/20 pb-2.5 font-code text-[11px] tracking-[0.2em] uppercase text-fg/60">
         <span><T tr="Programlar" en="Programmes" /></span><span>{total}</span>
       </div>

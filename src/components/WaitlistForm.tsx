@@ -1,5 +1,5 @@
 'use client'
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { trackBeklemeListesi, olaySayfasi } from '@/components/MetaPixel'
 import { joinWaitlist, enrichWaitlist, type WaitlistState } from '@/app/bekleme-listesi/actions'
@@ -31,6 +31,11 @@ export function WaitlistForm({
   const [state, setState] = useState<WaitlistState>({ status: 'idle' })
   const [email, setEmail] = useState('')
   const [pending, startTransition] = useTransition()
+  // Adım değişince form yerine yeni blok geliyor; odak başlığa taşınır.
+  const baslikRef = useRef<HTMLParagraphElement>(null)
+  useEffect(() => {
+    if (step > 1) baslikRef.current?.focus()
+  }, [step])
 
   function onJoin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -60,8 +65,8 @@ export function WaitlistForm({
   // ── 3. ekran: kapanış ──
   if (step === 3) {
     return (
-      <div className="border border-neon/40 bg-bgAlt p-7">
-        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-3">Tamamdır</p>
+      <div className="border border-neon/40 bg-bgAlt p-7" role="status">
+        <p ref={baslikRef} tabIndex={-1} className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-3 focus:outline-none">Tamamdır</p>
         <p className="font-body text-[14px] text-stone leading-relaxed">
           Kaydın alındı. Tarih netleştiğinde ilk sana yazacağız; kontenjan açılmadan önce haber vereceğiz.
         </p>
@@ -73,7 +78,9 @@ export function WaitlistForm({
   if (step === 2) {
     return (
       <div className="border border-border bg-bgAlt p-7">
-        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-3">Listeye eklendin</p>
+        <div role="status">
+          <p ref={baslikRef} tabIndex={-1} className="font-mono text-[11px] tracking-[0.2em] uppercase text-neon mb-3 focus:outline-none">Listeye eklendin</p>
+        </div>
         <p className="font-body text-[14px] text-stone leading-relaxed mb-7">
           Birkaç soruya daha cevap verirsen grubu ve saatleri sana göre kurabiliriz. Hepsi isteğe bağlı,
           boş bırakıp geçebilirsin.
@@ -196,7 +203,7 @@ export function WaitlistForm({
       </button>
 
       {state.status === 'error' && (
-        <p role="alert" className="font-mono text-[12px] text-red-400 mt-4">{state.message}</p>
+        <p role="alert" className="font-mono text-[12px] text-red-700 border border-red-700/40 px-4 py-3 bg-red-700/5 leading-relaxed mt-4">{state.message}</p>
       )}
 
       <p className="font-mono text-[11px] text-dim leading-relaxed mt-5">

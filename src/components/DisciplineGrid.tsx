@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import { DISTRICTS } from '@/lib/semtler'
 import { WORKSHOPS } from '@/lib/data'

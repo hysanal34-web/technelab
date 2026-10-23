@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import type { GalleryImage } from '@/lib/data'
 
@@ -19,8 +19,14 @@ export function Gallery({ images, preview = 0 }: Props) {
   const [idx, setIdx] = useState(0)
 
   const visible = preview > 0 ? images.slice(0, preview) : images
+  // Odak yönetimi: açılışta "kapat"a, kapanışta tetikleyen kareye; Tab diyalog içinde döner
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
+  const isOpen = !!selected
 
   const open = useCallback((img: GalleryImage, i: number) => {
+    triggerRef.current = document.activeElement as HTMLElement | null
     setSelected(img)
     setIdx(i)
   }, [])
@@ -40,6 +46,14 @@ export function Gallery({ images, preview = 0 }: Props) {
       if (e.key === 'Escape') close()
       if (e.key === 'ArrowLeft') prev()
       if (e.key === 'ArrowRight') next()
+      if (e.key === 'Tab' && dialogRef.current) {
+        const odak = Array.from(dialogRef.current.querySelectorAll<HTMLElement>('button'))
+        if (!odak.length) return
+        const ilk = odak[0], son = odak[odak.length - 1]
+        if (e.shiftKey && document.activeElement === ilk) { e.preventDefault(); son.focus() }
+        else if (!e.shiftKey && document.activeElement === son) { e.preventDefault(); ilk.focus() }
+        else if (!dialogRef.current.contains(document.activeElement)) { e.preventDefault(); ilk.focus() }
+      }
     }
     window.addEventListener('keydown', handler)
     document.body.style.overflow = 'hidden'
@@ -48,6 +62,12 @@ export function Gallery({ images, preview = 0 }: Props) {
       document.body.style.overflow = ''
     }
   }, [selected, prev, next, close])
+
+  // Açılış/kapanış odağı (yalnız açık/kapalı değişiminde; ok tuşlarıyla gezinmede değil)
+  useEffect(() => {
+    if (isOpen) { closeRef.current?.focus(); return }
+    if (triggerRef.current) { triggerRef.current.focus(); triggerRef.current = null }
+  }, [isOpen])
 
   return (
     <>
@@ -81,6 +101,7 @@ export function Gallery({ images, preview = 0 }: Props) {
       {/* ── Lightbox ──────────────────────────────────────────── */}
       {selected && (
         <div
+          ref={dialogRef}
           className="surface-dark fixed inset-0 z-[9999] bg-bg/98 backdrop-blur-sm flex items-center justify-center"
           onClick={close}
           role="dialog"
@@ -92,6 +113,7 @@ export function Gallery({ images, preview = 0 }: Props) {
             {String(idx + 1).padStart(2, '0')} / {String(visible.length).padStart(2, '0')}
           </div>
           <button
+            ref={closeRef}
             onClick={close}
             className="absolute top-4 right-6 font-mono text-[11px] tracking-[0.2em] uppercase text-stone hover:text-neon transition-colors z-20"
             aria-label="Kapat"

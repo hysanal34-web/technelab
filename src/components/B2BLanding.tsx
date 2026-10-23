@@ -419,7 +419,7 @@ export function B2BLanding({ p }: { p: B2BPage }) {
             {' · '}
             <a href={`tel:${SITE_META.phoneE164}`} data-call-cta={`b2b-form-${p.audience}`} className="hover:text-neon underline">{SITE_META.phone}</a>
           </p>
-          <BilgiForm compact />
+          <BilgiForm compact variant={isKurumsal ? 'kurumsal' : 'okul'} lang={en ? 'en' : 'tr'} />
         </div>
       </section>
 

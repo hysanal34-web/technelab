@@ -7,5 +7,9 @@ const p = b2bHub('en/corporate')
 export const metadata: Metadata = b2bMetadata(p)
 
 export default function Page() {
-  return <B2BLanding p={p} />
+  return (
+    <div lang="en">
+      <B2BLanding p={p} />
+    </div>
+  )
 }

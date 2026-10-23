@@ -91,6 +91,8 @@ const nextConfig = {
       { source: '/makaleler/yonetmen-nasil-bir-sey', destination: '/makaleler/yonetmen-olmak-nasil-bir-sey', permanent: true },
       // 8 Ekim 2026: aynı konuda iki yazı vardı; daha kapsamlı olan (aşamalar) kanonik oldu.
       { source: '/makaleler/yaratici-drama-oturumu-nasil-kurulur', destination: '/makaleler/yaratici-drama-asamalari', permanent: true },
+      // 23 Ekim 2026: /sahne hero önizlemesiydi, sayfa içi 307 yerine kalıcı yönlendirme.
+      { source: '/sahne', destination: '/', permanent: true },
     ]
 
     return [

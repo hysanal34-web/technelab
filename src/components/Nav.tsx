@@ -10,10 +10,11 @@ import { aktifSessions, type TanismaSession } from '@/app/tanisma-gunu/sessions'
 
 const links = [
   { href: '/atolyeler', tr: 'atölyeler', en: 'workshops', hasMega: true },
-  { href: '/kaynaklar', tr: 'kaynaklar', en: 'resources', hasMega: false },
+  { href: '/kaynaklar', tr: 'kaynaklar', en: 'resources', hasMega: false, lgOnly: true },
   { href: '/ekip',      tr: 'ekip',      en: 'team',      hasMega: false },
-  { href: '/galeri',    tr: 'galeri',    en: 'gallery',   hasMega: false },
-  { href: '/isbirlikleri', tr: 'işbirlikleri', en: 'venues', hasMega: false },
+  { href: '/galeri',    tr: 'galeri',    en: 'gallery',   hasMega: false, lgOnly: true },
+  { href: '/kurumsal',  tr: 'kurumsal',  en: 'corporate', hasMega: false },
+  { href: '/okullar',   tr: 'okullar',   en: 'schools',   hasMega: false },
   { href: '/hakkinda',  tr: 'hakkında',  en: 'about',     hasMega: false },
   { href: '/iletisim',  tr: 'iletişim',  en: 'contact',   hasMega: false },
 ]
@@ -36,16 +37,18 @@ function MegaMenu({ onClose, onEnter, sessions }: { onClose: () => void; onEnter
       <div className="grid md:grid-cols-[repeat(4,1fr)_auto]">
         {CATEGORIES.map((cat, i) => {
           const cnt = WORKSHOPS.filter((w) => w.category === cat.key && w.active).length
+          // Aktif programı olmayan kategori boş liste göstermesin: disiplin sayfasına gider.
+          const bosHref = cat.key === 'oyunculuk' ? '/oyunculuk-kursu-istanbul' : '/atolyeler'
           return (
             <Link
               key={cat.key}
-              href={`/atolyeler?kategori=${cat.key}`}
+              href={cnt > 0 ? `/atolyeler?kategori=${cat.key}` : bosHref}
               onClick={onClose}
               className="group px-8 py-9 border-r border-border hover:bg-bgAlt transition-colors duration-200"
               data-hover
             >
               <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-dim group-hover:text-neon transition-colors duration-200 block mb-2">
-                0{i + 1} · {cnt} program
+                0{i + 1} · {cnt > 0 ? `${cnt} program` : 'yeni dönem yakında'}
               </span>
               <span className="font-display text-fg group-hover:text-neon transition-colors duration-200 leading-none block"
                 style={{ fontSize: 'clamp(20px, 1.8vw, 30px)', letterSpacing: '0.02em' }}>
@@ -119,6 +122,7 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
   const { lang, setLang } = useLang()
   const [sessions, setSessions] = useState<readonly TanismaSession[]>([])
   useEffect(() => { setSessions(aktifSessions()) }, [])
@@ -133,6 +137,16 @@ export function Nav() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
+  // Esc mobil menüyü kapatır, odak hamburger düğmesine döner
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setMenuOpen(false); hamburgerRef.current?.focus() }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
   }, [menuOpen])
 
   // Sayfa değişince menüyü kapat
@@ -164,8 +178,8 @@ export function Nav() {
       </Link>
 
       {/* Desktop links */}
-      <nav className="hidden md:flex items-center gap-7 relative" aria-label="Ana navigasyon">
-        {links.map(({ href, tr, en, hasMega }) =>
+      <nav className="hidden md:flex items-center gap-5 lg:gap-7 relative" aria-label="Ana navigasyon">
+        {links.map(({ href, tr, en, hasMega, lgOnly }) =>
           hasMega ? (
             <div
               key={href}
@@ -205,7 +219,7 @@ export function Nav() {
             <Link
               key={href}
               href={href}
-              className={`relative font-body text-[15px] font-medium transition-colors duration-200 group ${
+              className={`${lgOnly ? 'hidden lg:inline ' : ''}relative font-body text-[15px] font-medium transition-colors duration-200 group ${
                 path.startsWith(href) ? 'text-neon' : 'text-fg/70 hover:text-fg'
               }`}
               data-hover
@@ -218,22 +232,37 @@ export function Nav() {
           )
         )}
 
+        {/* Birincil dönüşüm: ücretsiz tanışma günü */}
+        <Link
+          href="/tanisma-gunu"
+          className="font-mono text-[11px] tracking-[0.14em] uppercase text-ink bg-neon hover:bg-fg transition-colors duration-200 border border-neon hover:border-fg px-4 min-h-[44px] flex items-center whitespace-nowrap"
+          data-hover
+        >
+          {lang === 'en' ? 'free trial day' : 'ücretsiz tanışma'}
+        </Link>
+
         {/* TR / EN toggle */}
         <button
           onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}
-          className="font-body text-[14px] font-semibold text-ink bg-neon hover:bg-fg transition-colors duration-200 border border-neon hover:border-fg px-3 min-h-[44px] flex items-center"
-          aria-label="Dil / Language"
+          className="font-body text-[14px] font-semibold text-fg hover:text-neon transition-colors duration-200 border border-border hover:border-neon px-3 min-h-[44px] flex items-center"
           data-hover
         >
-          {lang === 'tr' ? 'EN' : 'TR'}
+          <span className="sr-only">{lang === 'tr' ? 'Dil: ' : 'Language: '}</span>{lang === 'tr' ? 'EN' : 'TR'}
         </button>
 
         {/* Tema */}
       </nav>
 
       {/* Mobile: hamburger */}
-      <div className="md:hidden flex items-center gap-4">
+      <div className="md:hidden flex items-center gap-3">
+        <Link
+          href="/tanisma-gunu"
+          className="font-mono text-[11px] tracking-[0.08em] uppercase text-ink bg-neon hover:bg-fg transition-colors duration-200 px-2.5 min-h-[44px] flex items-center whitespace-nowrap"
+        >
+          {lang === 'en' ? 'free trial' : 'ücretsiz tanış'}
+        </Link>
         <button
+          ref={hamburgerRef}
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex flex-col justify-center items-center gap-1 w-11 h-11 -mr-2"
           aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
@@ -257,8 +286,17 @@ export function Nav() {
             aria-hidden="true"
           />
           <div id="mobil-menu" className="absolute top-full left-0 right-0 bg-bg border-b border-border md:hidden z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
-            <nav className="px-8 py-4 flex flex-col gap-1">
-              {links.map(({ href, tr, en }) => (
+            <nav className="px-8 py-4 flex flex-col gap-1" aria-label="Mobil menü">
+              <Link
+                href="/tanisma-gunu"
+                onClick={() => setMenuOpen(false)}
+                className="font-mono text-[12px] tracking-[0.14em] uppercase bg-neon text-ink text-center py-3.5 mb-2 hover:bg-fg transition-colors"
+              >
+                {lang === 'en' ? 'free trial day →' : 'ücretsiz tanışma günü →'}
+              </Link>
+              {/* Mobilde kurumsal ve okullar listenin başında */}
+              {[...links.filter((l) => l.href === '/kurumsal' || l.href === '/okullar'),
+                ...links.filter((l) => l.href !== '/kurumsal' && l.href !== '/okullar')].map(({ href, tr, en }) => (
                 <Link
                   key={href}
                   href={href}

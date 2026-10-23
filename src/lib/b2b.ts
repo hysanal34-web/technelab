@@ -303,7 +303,6 @@ export const B2B_PAGES: B2BPage[] = [
     ],
     articleSlugs: ['ingilizce-konusmaktan-cekinen-ekipler', 'toplantida-ingilizce-konusamiyorum', 'ingilizce-anliyorum-ama-konusamiyorum', 'ingilizce-aksan-kaygisi', 'dogaclama-ile-ingilizce-nasil-calisilir'],
     links: [{ href: '/atolyeler/english-drama-lab', label: 'English Drama Lab (yetişkin, haftalık)' }, { href: '/yetiskinler-icin-ingilizce-drama-istanbul', label: 'Yetişkinler için İngilizce drama' }, { href: '/kaynaklar/ingilizce-tartisma-konulari', label: 'İngilizce tartışma konuları' }],
-    enPath: '/en/corporate',
   },
   {
     audience: 'kurumsal', slug: 'sunum-ve-sahne-varligi', label: 'Etkili konuşma ve sunum',
@@ -589,7 +588,6 @@ export const B2B_PAGES: B2BPage[] = [
     ],
     articleSlugs: ['okulda-ingilizce-drama-nasil-calisir', 'ingilizce-yaratici-drama-yontemi', 'cocugum-ingilizce-biliyor-ama-konusmuyor', 'ingilizce-drama-youth-yas-gruplari-neden-ayri', 'genclerde-ingilizce-drama'],
     links: [{ href: '/atolyeler/english-drama-youth', label: 'English Drama Youth (8–17)' }, { href: '/okullar/ogretmenlere-yaratici-drama', label: 'Drama in the English Classroom' }, { href: '/gencler-icin-ingilizce-drama-istanbul', label: 'Gençler için İngilizce drama' }],
-    enPath: '/en/schools',
   },
   {
     audience: 'okullar', slug: 'okul-muzikali', label: 'Müzikal ve jazz dans',
@@ -619,7 +617,6 @@ export const B2B_PAGES: B2BPage[] = [
     ],
     articleSlugs: ['okul-muzikali-nasil-hazirlanir', 'muzikal-ensemble-oyuncusu-olmak-koronun-gorunmeyen-isi', 'belting-nedir-muzikal-sesi-belt-mix-legit', 'jazz-dance-nedir'],
     links: [{ href: '/muzikal-tiyatro-kursu-istanbul', label: 'Müzikal tiyatro kursu' }, { href: '/gencler-icin-muzikal-tiyatro-istanbul', label: 'Gençler için müzikal tiyatro' }, { href: '/kaynaklar/muzikal-secme-sarkilari', label: 'Müzikal seçme şarkıları' }],
-    enPath: '/en/schools',
   },
   {
     audience: 'okullar', slug: 'yil-sonu-gosterisi', label: 'Yıl sonu oyun çıkarma',

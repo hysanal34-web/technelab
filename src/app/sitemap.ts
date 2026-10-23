@@ -33,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/hakkinda',      priority: 0.7, freq: 'monthly' },
     { path: '/makaleler',     priority: 0.7, freq: 'weekly' },
     { path: '/iletisim',      priority: 0.6, freq: 'monthly' },
-    { path: '/kvkk',          priority: 0.3, freq: 'monthly' },
   ]
 
   const sayfalar: MetadataRoute.Sitemap = statik.map((s) => ({

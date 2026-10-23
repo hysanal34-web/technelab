@@ -97,7 +97,7 @@ export async function submitRegistration(
     const d = new Date(birthDate)
     if (!Number.isNaN(d.getTime())) {
       const age = Math.floor((Date.now() - d.getTime()) / 31557600000)
-      if (age < 10 || age > 17) {
+      if (age < 8 || age > 17) {
         return {
           status: 'error',
           field: 'birthDate',

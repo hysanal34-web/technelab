@@ -11,6 +11,8 @@ export type TanismaFormState = {
   status: 'idle' | 'success' | 'error'
   message?: string
   field?: string
+  /** Başarıda: kaydolunan seansın etiketi (gün, saat, yer). Başarı ekranı tekrar eder. */
+  label?: string
 }
 
 function esc(s: string): string {
@@ -45,6 +47,10 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   const guardianPhone = take(formData, 'guardianPhone', 40)
   const guardianEmail = take(formData, 'guardianEmail', 160)
   const parentConsent = formData.get('parentConsent')
+  // Formun gösterdiği seans etiketi. Yinelenen seansta kayıt saati geçince
+  // aynı id bir sonraki haftaya kayar; kişi bugünkü tarihi görüp göndermişse
+  // sessizce gelecek haftaya yazılmasın, reddedilsin.
+  const sessionLabel  = take(formData, 'sessionLabel', 200)
 
   // Yalnızca hâlâ geçerli seanslar kabul edilir. Sayfa önbellekten geldiyse
   // kullanıcının elinde geçmiş bir seans kalmış olabilir; burada eleniyor.
@@ -57,6 +63,13 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       message: gecmisSeans
         ? 'Bu tanışma günü geçti. Sayfayı yenileyip güncel bir seans seçin.'
         : 'Hangi programın tanışma gününe katılacağınızı seçin.',
+    }
+  }
+  if (sessionLabel && sessionLabel !== sessionObj.label) {
+    return {
+      status: 'error',
+      field: 'session',
+      message: `Bu seansın kaydı kapandı. Bir sonraki tarih: ${sessionObj.label.replace(' — ', ' · ')}. Sayfayı yenileyip yeniden seçin.`,
     }
   }
   const isYouth = sessionObj.youth
@@ -88,13 +101,15 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   if (!Number.isInteger(y) || y < 1950 || y > thisYear) {
     return { status: 'error', field: 'birthYear', message: `Doğum yılını 1950–${thisYear} aralığında girin.` }
   }
+  // Yalnız doğum yılı soruluyor: yıl farkı gerçek yaştan 1 fazla olabilir
+  // (yıl sonu doğumlu 17 yaşındaki genç "18" çıkıyor). Üst sınırda 1 yıl
+  // tolerans; kesin yaşı ekip telefonda doğruluyor.
   const age = thisYear - y
-  if (age < sessionObj.minAge || (sessionObj.maxAge !== undefined && age > sessionObj.maxAge)) {
+  if (age < sessionObj.minAge || (sessionObj.maxAge !== undefined && age > sessionObj.maxAge + 1)) {
     const range = sessionObj.maxAge !== undefined ? `${sessionObj.minAge}–${sessionObj.maxAge}` : `${sessionObj.minAge}+`
     return { status: 'error', field: 'birthYear', message: `${sessionObj.program} ${range} yaş aralığına yönelik. Farklı bir program için bize yazabilirsiniz.` }
   }
 
-  if (!isYouth && !occupation) return { status: 'error', field: 'occupation', message: 'Meslek / çalışma alanı gerekli.' }
   if (sessionObj.english && !englishLevel) return { status: 'error', field: 'englishLevel', message: 'İngilizce seviyenizi seçin.' }
   if (!kvkk) {
     return { status: 'error', field: 'kvkk', message: 'Devam etmek için KVKK aydınlatma metnini onaylamanız gerekiyor.' }
@@ -142,6 +157,8 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   })
 
   const stamp = new Date().toISOString()
+  /** Kişiye gösterilen seans metni: "Program · Yer · 31 Ekim Cumartesi · 15:00". */
+  const seansMetni = sessionObj.label.replace(' — ', ' · ')
   const r = (k: string, v: string): [string, string] => [k, v]
   const rows: [string, string][] = [
     r('Tanışma Günü', sessionObj.label),
@@ -195,7 +212,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
   if (!process.env.RESEND_API_KEY) {
     if (process.env.NODE_ENV !== 'production') {
       console.log('[tanışma] RESEND_API_KEY yok — dev fallback:', { name, session })
-      return { status: 'success' }
+      return { status: 'success', label: seansMetni }
     }
     console.error('[tanışma] RESEND_API_KEY tanımsız — kayıt gönderilemedi:', { name })
     return {
@@ -215,6 +232,20 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       subject: `Tanışma Günü — ${sessionObj.program} — ${name}`,
       html,
     })
+
+    // Kişiye onay e-postası. Hata verirse kayıt yine başarılı: ekip maili
+    // gitti, kayıt depoda. Bu yüzden ayrı try/catch, ölçümü de etkilemez.
+    try {
+      await resend.emails.send({
+        from:    process.env.RESEND_FROM || 'Techne Lab Başvuru <onboarding@resend.dev>',
+        to:      contactEmail,
+        replyTo: SITE_META.email,
+        subject: `Tanışma günü kaydınız: ${seansMetni}`,
+        html:    onayHtml(seansMetni, isYouth ? guardianName : name),
+      })
+    } catch (err) {
+      console.error('[tanışma] Onay e-postası gönderilemedi:', err)
+    }
 
     // Ölçüm: Meta CAPI (Schedule + Lead) ve sitenin kendi dönüşüm kaydı.
     // Randevu kaydı ve e-posta BAŞARILI olduktan sonra — butona basıldığı an değil.
@@ -239,7 +270,7 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       icerikKategorisi: 'tanisma_gunu',
     })
 
-    return { status: 'success' }
+    return { status: 'success', label: seansMetni }
   } catch (err) {
     console.error('[tanışma] Mail gönderilemedi:', err)
     return {
@@ -247,4 +278,22 @@ export async function submitTanisma(formData: FormData): Promise<TanismaFormStat
       message: `Bir hata oluştu. Lütfen tekrar deneyin ya da doğrudan ${SITE_META.email} adresine yazın.`,
     }
   }
+}
+
+/**
+ * Kayıt olan kişiye giden kısa onay. Adres yazılmıyor (WhatsApp'tan
+ * iletiliyor), fiyat yok. Kullanıcıya giden metinde em dash kullanılmıyor.
+ */
+function onayHtml(seans: string, ad: string): string {
+  const ilkAd = ad.split(/\s+/)[0] || ''
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#111;padding:24px;margin:0">
+  <p>Merhaba${ilkAd ? ' ' + esc(ilkAd) : ''},</p>
+  <p>Ücretsiz tanışma günü kaydınızı aldık.</p>
+  <p style="padding:12px 16px;border-left:3px solid #C8FF00;background:#f6f6f2"><strong>${esc(seans)}</strong></p>
+  <p>Mekân ve ayrıntıları WhatsApp'tan ileteceğiz.</p>
+  <p>Sorunuz olursa: ${esc(SITE_META.phone)} (telefon ve WhatsApp) · <a href="mailto:${SITE_META.email}">${SITE_META.email}</a></p>
+  <p>Görüşmek üzere,<br>Techne Lab İstanbul</p>
+</body></html>`
 }

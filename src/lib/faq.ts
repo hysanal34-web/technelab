@@ -57,11 +57,17 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     },
     {
       q: 'Konuşma kulübünden farkı ne?',
-      a: 'Konuşma kulübü seni bir masaya oturtur ve konuşmanı umar. Drama ise konuşmayı zorunlu kılar: sahnede sessiz kalmak bir seçenek değil. Ayrıca eğitmenden yapılandırılmış geri bildirim alıyorsun — konuşma kulüplerinde bu neredeyse hiç yok.',
+      // Youth (8–17) velisi okuyor: yetişkin dili ve hedef kitlesi ona gitmesin.
+      // Yalnız data.ts'teki bilgiler (kitap/sınav/not yok, B1+, 8–14 ve 15–17 ayrı).
+      a: w.slug === 'english-drama-youth'
+        ? 'Kitap, sınav ve not yok. Masada sohbet yerine sahnede bir durumun içinde olup cevap vermek var; sahnede sessiz kalmak bir seçenek değil. Böylece İngilizce ödev olmaktan çıkıp bir ifade aracına dönüşüyor. Çocuklar eğitmenden yapılandırılmış geri bildirim de alıyor.'
+        : 'Konuşma kulübü seni bir masaya oturtur ve konuşmanı umar. Drama ise konuşmayı zorunlu kılar: sahnede sessiz kalmak bir seçenek değil. Ayrıca eğitmenden yapılandırılmış geri bildirim alıyorsun — konuşma kulüplerinde bu neredeyse hiç yok.',
     },
     {
       q: 'Grupta kimler oluyor?',
-      a: 'Karma bir grup: yurt dışı iş görüşmesine hazırlananlar, Erasmus ya da yurt dışı okul hedefleyenler, İstanbul\'a yeni taşınmış yabancılar ve İngilizcesini gerçek bir yerde kullanmak isteyenler.',
+      a: w.slug === 'english-drama-youth'
+        ? `Okul çağındaki çocuklar ve gençler, yaşa göre iki ayrı grupta: 8–14 ve 15–17. İngilizce seviyesi olarak B1 ve üzeri öneriliyor; seviye tespit sınavı yok, ailenin dil beyanı yeterli. Gruplar en fazla ${w.maxStudents} kişi.`
+        : 'Karma bir grup: yurt dışı iş görüşmesine hazırlananlar, Erasmus ya da yurt dışı okul hedefleyenler, İstanbul\'a yeni taşınmış yabancılar ve İngilizcesini gerçek bir yerde kullanmak isteyenler.',
     },
     {
       q: 'Sahne performansı yapmam gerekecek mi?',
@@ -139,7 +145,13 @@ const COMMON_FAQ = (w: Workshop): FaqItem[] => [
   },
   {
     q: 'Program ne kadar sürüyor?',
-    a: `${w.duration}. Atölye saatleri akşam üzeri planlanıyor — çalışanlar için ulaşılabilir olsun diye.`,
+    // Saat bilgisi data.ts'teki schedule'dan: sabit "akşam üzeri" cümlesi
+    // hafta sonu öğle saatli programlarla (Youth, Praxis, EDL Pera) çelişiyordu.
+    a: (() => {
+      const saatli = (w.schedule ?? []).filter((s) => s.time)
+      const saatler = saatli.map((s) => (s.place ? `${s.place} ${s.time}` : s.time)).join(' · ')
+      return `${w.duration.replace(/\.$/, '')}.${saatler ? ` Seans saatleri: ${saatler}.` : ''}`
+    })(),
   },
   {
     q: 'Bir oturumu kaçırırsam ne olur?',
@@ -147,7 +159,7 @@ const COMMON_FAQ = (w: Workshop): FaqItem[] => [
   },
   {
     q: 'Kayıt nasıl yapılıyor?',
-    a: `${w.active ? 'Program sayfasındaki kayıt formunu doldurabilir ya da iletişim sayfasından bize yazabilirsin. Kontenjan sınırlı — grupların dolmadan başvurmanı öneriyoruz.' : 'Bu programın kaydı şu an kapalı. Yeni dönem açıldığında haberdar olmak için iletişim sayfasından bize yazabilirsin.'}`,
+    a: `${w.active ? 'Program sayfasındaki kayıt formunu doldurabilir ya da iletişim sayfasından bize yazabilirsin. Kontenjan sınırlı — grupların dolmadan başvurmanı öneriyoruz.' : 'Bu programın kaydı şu an kapalı. Sayfadaki "haber ver" düğmesiyle bekleme listesine yazılabilirsin; yeni dönem açıldığında ilk sana haber veriyoruz.'}`,
   },
 ]
 

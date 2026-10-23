@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition, useRef } from 'react'
+import { useState, useTransition, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
 import { trackLead, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
@@ -40,6 +40,11 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
   const errRef = useRef<HTMLParagraphElement>(null)
+  const basariRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    if (state.status === 'success') basariRef.current?.focus()
+  }, [state.status])
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -82,13 +87,15 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
   if (state.status === 'success') {
     return (
       <div className="min-h-[60vh] flex items-center justify-center px-4 py-24">
-        <div className="max-w-sm w-full">
+        <div className="max-w-sm w-full" role="status">
           <div className="h-[2px] w-12 bg-neon mb-8" />
           <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-4">
             başvuru alındı
           </p>
           <h2
-            className="font-display text-fg mb-6"
+            ref={basariRef}
+            tabIndex={-1}
+            className="font-display text-fg mb-6 focus:outline-none"
             style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}
           >
             TEŞEKKÜRLER
@@ -154,7 +161,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
         {/* Bölüm 1: Öğrenci Bilgileri */}
         <Section label="01 — Katılımcı Bilgileri">
           <FieldGroup htmlFor="name" label="Öğrencinin Adı ve Soyadı" required>
-            <Input name="name" placeholder="Adı ve soyadı" required autoComplete="name" />
+            <Input name="name" placeholder="Adı ve soyadı" required autoComplete="off" />
           </FieldGroup>
           <FieldGroup htmlFor="birthDate" label="Öğrencinin Doğum Tarihi" required>
             <Input name="birthDate" type="date" required />
@@ -212,7 +219,7 @@ export default function YouthRegistrationForm({ workshop, action }: Props) {
         {/* Bölüm 3: Veli Bilgileri */}
         <Section label="03 — Veli / Yasal Vasi Bilgileri">
           <FieldGroup htmlFor="guardianName" label="Veli Adı ve Soyadı" required>
-            <Input name="guardianName" placeholder="Veli adı soyadı" required />
+            <Input name="guardianName" placeholder="Veli adı soyadı" required autoComplete="name" />
           </FieldGroup>
           <FieldGroup htmlFor="guardianRel" label="Yakınlık Derecesi" required>
             <Input name="guardianRel" placeholder="Anne, Baba, vb." required />

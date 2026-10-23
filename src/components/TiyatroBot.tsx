@@ -1,4 +1,5 @@
 'use client'
+import { FORM_SAYFASI } from './WhatsAppButton'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { SITE_META } from '@/lib/data'
@@ -456,12 +457,15 @@ export function TiyatroBot() {
     setTimeout(() => addMsg(freeTextReply(v)), 350)
   }
 
+  // Form sayfası: davet balonu açılmaz, mobilde bot düğmesi gizlenir (WhatsApp'la çakışmasın)
+  const formSayfasi = !!pathname && FORM_SAYFASI.test(pathname)
+
   // Görünürlük: 4 sn sonra tek seferlik davet balonu
   const [teaser, setTeaser] = useState(false)
   useEffect(() => {
     if (open) { setTeaser(false); return }
-    // Kayıt formunda dikkat dağıtma
-    if (pathname?.endsWith('/kayit')) return
+    // Form sayfalarında (kayıt, tanışma, bilgi, bekleme listesi) dikkat dağıtma
+    if (formSayfasi) return
     try {
       if (sessionStorage.getItem('techne-teaser') === 'gosterildi') return
     } catch { /* private mode */ }
@@ -477,7 +481,7 @@ export function TiyatroBot() {
     }
     const t = setTimeout(goster, 6000)
     return () => clearTimeout(t)
-  }, [open, pathname])
+  }, [open, pathname, formSayfasi])
 
   // Balon 14 sn sonra kendi kendine kapanır — sürekli ekranda durup
   // içeriğin (ör. liste satırlarındaki DETAY butonu) üstünü kapatmasın.
@@ -530,7 +534,7 @@ export function TiyatroBot() {
       <button
         onClick={startBot}
         aria-label="Sahne asistanını aç"
-        className={`bot-breath group fixed bottom-6 right-6 z-[8000] ${onProgramPage ? 'max-md:hidden' : 'flex'} md:flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95`}
+        className={`bot-breath group fixed bottom-6 right-6 z-[8000] ${onProgramPage || formSayfasi ? 'max-md:hidden' : 'flex'} md:flex items-center gap-2.5 bg-bg border border-neon text-neon font-mono text-[12px] tracking-[0.2em] uppercase px-5 py-3.5 transition-all duration-300 hover:bg-neon hover:text-bg active:scale-95`}
         data-hover
       >
         <span className="text-[15px] leading-none" aria-hidden="true">✳</span>

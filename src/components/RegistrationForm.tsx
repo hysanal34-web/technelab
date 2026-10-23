@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useTransition, useRef } from 'react'
+import { useState, useTransition, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import type { FormState } from '@/app/atolyeler/[slug]/kayit/actions'
 import { trackLead, newBrowserEventId, olaySayfasi } from '@/components/MetaPixel'
-import { SITE_META } from '@/lib/data'
+import { SITE_META, WORKSHOPS } from '@/lib/data'
 
 type WorkshopMin = {
   slug: string
@@ -36,6 +36,18 @@ export default function RegistrationForm({ workshop, action }: Props) {
   const [isPending, startTransition] = useTransition()
   const formRef = useRef<HTMLFormElement>(null)
   const errRef = useRef<HTMLParagraphElement>(null)
+  const basariRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    if (state.status === 'success') basariRef.current?.focus()
+  }, [state.status])
+
+  // Program birden fazla yerde yürüyorsa (data.ts → schedule[].place) grup tercihi sorulur.
+  const yerler = Array.from(new Set(
+    (WORKSHOPS.find((w) => w.slug === workshop.slug)?.schedule ?? [])
+      .map((s) => s.place)
+      .filter((p): p is string => Boolean(p)),
+  ))
 
   const isYouth = workshop.category === 'ingilizce-drama' && workshop.slug.includes('youth')
 
@@ -77,13 +89,15 @@ export default function RegistrationForm({ workshop, action }: Props) {
   if (state.status === 'success') {
     return (
       <div className="min-h-[60vh] flex items-center justify-center px-4 py-24">
-        <div className="max-w-sm w-full">
+        <div className="max-w-sm w-full" role="status">
           <div className="h-[2px] w-12 bg-neon mb-8" />
           <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neon mb-4">
             başvuru alındı
           </p>
           <h2
-            className="font-display text-fg mb-6"
+            ref={basariRef}
+            tabIndex={-1}
+            className="font-display text-fg mb-6 focus:outline-none"
             style={{ fontSize: 'clamp(28px,4vw,48px)', letterSpacing: '0.01em', lineHeight: 1 }}
           >
             TEŞEKKÜRLER
@@ -191,6 +205,18 @@ export default function RegistrationForm({ workshop, action }: Props) {
         <FieldGroup htmlFor="occupation" label="Meslek / Çalışma Alanı" required>
           <Input name="occupation" placeholder="Oyuncu, öğrenci, mühendis…" required autoComplete="organization-title" />
         </FieldGroup>
+
+        {/* Lokasyon tercihi — yalnız program birden fazla yerde yürüyorsa */}
+        {yerler.length > 1 && (
+          <FieldGroup htmlFor="location" label="Hangi Grup? (isteğe bağlı)">
+            <SelectField name="location" defaultValue="">
+              <option value="">Fark etmez</option>
+              {yerler.map((y) => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </SelectField>
+          </FieldGroup>
+        )}
 
         {/* Deneyim */}
         <FieldGroup htmlFor="experience" label="Sahne / Tiyatro Deneyiminiz">

@@ -59,6 +59,23 @@ test.describe('tanışma günü formu', () => {
     await expect(page.locator('input[name="guardianPhone"]')).toBeVisible()
     await expect(page.locator('input[name="parentConsent"]')).toHaveAttribute('required', '')
   })
+
+  test('yetişkin seansında meslek alanı isteğe bağlı', async ({ page }) => {
+    await page.goto('/tanisma-gunu')
+
+    const secim = page.locator('select[name="session"]')
+    const yetiskinDeger = await secim
+      .locator('option:not([disabled])')
+      .filter({ hasNotText: /youth/i })
+      .first()
+      .getAttribute('value')
+
+    test.skip(!yetiskinDeger, 'açık yetişkin seansı yok')
+    await secim.selectOption(yetiskinDeger!)
+
+    await expect(page.locator('input[name="occupation"]')).toBeVisible()
+    await expect(page.locator('input[name="occupation"]')).not.toHaveAttribute('required', '')
+  })
 })
 
 test.describe('admin paneli', () => {

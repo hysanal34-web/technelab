@@ -15,6 +15,7 @@ export function Footer() {
         <nav className="flex flex-wrap gap-x-6 gap-y-1" aria-label="Footer navigasyon">
           {[
             ['/atolyeler','atölyeler'],
+            ['/tanisma-gunu','ücretsiz tanışma günü'],
             ['/ekip','ekip'],
             ['/galeri','galeri'],
             ['/makaleler','makaleler'],

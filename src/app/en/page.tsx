@@ -124,7 +124,7 @@ const PROGRAMS = [
 
 export default function EnglishHome() {
   return (
-    <>
+    <div lang="en">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
@@ -317,6 +317,6 @@ export default function EnglishHome() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   )
 }

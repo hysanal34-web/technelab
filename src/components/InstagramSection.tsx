@@ -59,7 +59,9 @@ export function InstagramSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="relative aspect-square overflow-hidden group bg-bg"
-            aria-label={`Instagram'da gör — ${IG_HANDLE}`}
+            // Dekoratif ızgara: altı aynı link sekme sırasını doldurmasın; odaklanabilir tek link "takip et"
+            aria-hidden="true"
+            tabIndex={-1}
           >
             <Image
               src={src}

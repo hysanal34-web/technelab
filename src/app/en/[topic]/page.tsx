@@ -87,7 +87,7 @@ export default async function EnTopicPage({ params }: Props) {
   }
 
   return (
-    <>
+    <div lang="en">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
@@ -248,6 +248,6 @@ export default async function EnTopicPage({ params }: Props) {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

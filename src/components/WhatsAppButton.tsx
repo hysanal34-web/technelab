@@ -14,15 +14,20 @@ import { SITE_META } from '@/lib/data'
 const WHATSAPP_NUMBER = SITE_META.phoneE164.replace('+', '')
 const WHATSAPP_MESSAGE = encodeURIComponent('Merhaba! Techne Lab atölyeleri hakkında bilgi almak istiyorum.')
 
+/** Form sayfaları (kayıt, tanışma, bilgi, bekleme listesi). TiyatroBot da buradan okur:
+ *  bot balonu açılmaz, mobilde bot düğmesi gizlenir, WhatsApp en alta iner (çakışma yok). */
+export const FORM_SAYFASI = /\/kayit$|^\/tanisma-gunu(\/|$)|^\/bilgi(\/|$)|^\/bekleme-listesi(\/|$)/
+
 export function WhatsAppButton() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
   const pathname = usePathname()
 
   // Program sayfalarında mobilde altta zaten StickyApplyBar (başvur) var.
   // Üstüne WhatsApp + Sahne Bot da eklenince üç ayrı yüzen buton içeriği
-  // (ör. ders takvimi satırlarını) kapatıyordu. Mobilde tek CTA bırakıyoruz.
+  // (ör. program takvimi satırlarını) kapatıyordu. Mobilde tek CTA bırakıyoruz.
   const onProgramPage =
     !!pathname && pathname.startsWith('/atolyeler/') && !pathname.endsWith('/kayit')
+  const formSayfasi = !!pathname && FORM_SAYFASI.test(pathname)
 
   return (
     <a
@@ -31,7 +36,7 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="WhatsApp ile iletişime geç"
       data-call-cta="whatsapp-float"
-      className={`wa-float fixed bottom-24 right-6 z-[9000] ${onProgramPage ? 'max-md:hidden' : ''} flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]`}
+      className={`wa-float fixed bottom-24 right-6 z-[9000] ${onProgramPage ? 'max-md:hidden' : ''} ${formSayfasi ? 'max-md:bottom-6' : ''} flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]`}
       style={{ backgroundColor: '#25D366' }}
     >
       {/* WhatsApp SVG */}

@@ -96,7 +96,7 @@ type Workshop = {
 | 04 | english-drama-lab | ingilizce-drama | aktif | — |
 | 05 | english-drama-acting-focus | ingilizce-drama | aktif | — |
 | 06 | english-drama-final-performance | ingilizce-drama | aktif | — |
-| 07 | english-drama-youth | ingilizce-drama | aktif | 60.000₺ · 10-17 yaş |
+| 07 | english-drama-youth | ingilizce-drama | aktif | 60.000₺ · 8-17 yaş |
 | 08 | techne-musical-lab | dans-muzikal | aktif | — |
 | 09 | broadway-musical-dance | dans-muzikal | aktif | — |
 
@@ -128,9 +128,22 @@ type Workshop = {
 - [x] Geçmiş tarih filtresi — `aktifSessions()` + sunucu doğrulaması + test (22 Eylül 2026)
 - [x] Tanışma günleri (6 Ekim 2026): yinelenen seanslar var, `haftalik: { gun, saat }` alanı ile
       label'daki "her Pazartesi" yerine bir sonraki tarih kendiliğinden yazılır (`aktifSessions()`),
-      elle yenilemek gerekmez (`baslangic` ile ilk tarih). Yayında: Youth Pera her Pazar 13:00 · Youth Kadıköy her Cumartesi 15:00 (ilk 17 Ekim) · EDL Pera her Cumartesi 15:00 ·
-      EDL Kadıköy her Pazartesi 20:00 · Musical Kadıköy 8 ve 12 Ekim. Praxis ve Broadway için tanışma yok.
+      elle yenilemek gerekmez (`baslangic` ile ilk tarih). **Yayında (22 Ekim 2026'dan beri, altı seans):**
+      Youth Kadıköy her Cumartesi 15:00 · Youth Pera her Pazar 13:00 · Musical Kadıköy her Pazartesi ve her Salı 19:00 ·
+      EDL Pera her Cumartesi 15:00 · EDL Kadıköy her Pazartesi 20:00 (22 Ekim'de geri açıldı, trafik düşmüştü).
+      Praxis, Broadway ve Auteur için tanışma günü YOK; program sayfasındaki düğme bu listeye bakıyor, kendiliğinden gizleniyor.
       Program bazlı link: `/tanisma-gunu?program=<slug>`.
+- [x] Galeri: stüdyo arşivinden 12 yeni kare (22 Ekim 2026) — `public/images/gallery/atolye-01…12.jpg`,
+      uzun kenar 2400, EXIF temizlendi. `GALLERY_IMAGES` içine serpiştirildi, sona eklenmedi;
+      `Gallery.tsx` kırpma oranını sıra numarasından türetiyor.
+- [x] Ekip ana sayfada (22 Ekim 2026): `InstructorStrip` hero ve `DisciplineGrid`'den hemen sonra.
+      Bileşenin kendi FACES listesi vardı, kaldırıldı — artık `lib/ekip.ts`'teki `TEAM`'i okuyor,
+      yani **ekip sırası tek kaynaktan**: diziye yazılan sıra hem /ekip'te hem ana sayfada geçerli.
+      Linkler `/hakkinda?open=…#ekip`e gidiyordu (o sayfada öyle bir bölüm yok), `/ekip?open=<slug>` oldu.
+      Başlık "SAHNEYİ BİLENLER" değil **"EĞİTMEN VE EKİP"**.
+      **Eğitmen görselleri sitenin her yerinde siyah beyaz.** Tuzak: `InstructorStrip`'te gri tonlama
+      satır içi `style.filter` ile veriliyor, Tailwind `grayscale` sınıfıyla değil — ikisi de CSS
+      `filter`'ı yazdığı için satır içi stil sınıfı eziyordu ve renkli portreler renkli basılıyordu.
 - [ ] **Panelden yapılacak (kodla yapılamaz):** Google Ads'de `Kayıt Oldu` + `Tanışma Günü Kaydı`
       dönüşümlerini aç, `NEXT_PUBLIC_ADS_LABEL_TANISMA` ve `META_CAPI_ACCESS_TOKEN` değişkenlerini
       Vercel'e ekle. İkisi de bugün tanımsız; tanımsızken ölçüm sessizce eksik çalışıyor.
@@ -248,6 +261,31 @@ kırmızı çıkıyor. "başladı / katılım açık" geçen satırlar kasıtlı
 
 Panel **okuma ekranı**; fiyat ve tarih hâlâ `data.ts`'ten deploy ile değişiyor. Tek kaynak
 kuralı bozulmasın diye bilerek böyle.
+
+### Ölçüm (Meta Pixel + CAPI + çerez izni) — 15 Ekim 2026
+
+Ayrıntı: `docs/olcum/META-OLCUM.md`. Panel: `/admin/olcum`.
+
+- Pixel yalnızca çerez banner'ında **pazarlama** izniyle yüklenir; Google etiketi `NEXT_PUBLIC_GOOGLE_IZIN_MODU` (temel = izinsiz yüklenmez).
+- CAPI yalnızca sunucuda doğrulanmış dönüşümlerde, `src/lib/olcumSunucu.ts` → `donusumuIsle()` üzerinden.
+  E-posta/telefon özeti yalnızca formdaki "reklam ölçümü" kutusuyla gider. Yeni bir form eklenirse bunu çağır,
+  formda `data-olcum-form="ad"`, `eventId` ve `olaySayfasi` alanlarını ekle.
+- WhatsApp/telefon tıklaması `Contact` DEĞİL: `WhatsAppClick` / `CallClick` özel olayları. `Contact` = iletişim formu.
+- Tanışma kaydı: `Schedule` + `Lead`. Program başvurusu: `Lead` + `CompleteRegistration`. Aynı event_id.
+- Testler `e2e/izin-reddedildi.json` çereziyle başlıyor (banner ekran görüntüsüne girmesin).
+- `META_CAPI_ACCESS_TOKEN` 15 Ekim 2026'da Vercel'e eklendi, deploy edildi. İlk gerçek
+  dönüşümde `/admin/olcum` ekranında CAPI durumu `gonderildi` mi diye bak.
+- Bekleyen: `OLCUM_ANAHTARI` (yoksa admin şifresine düşüyor, şifre değişince tekil
+  sayım kopar) ve reklam setlerinde dönüşüm olayının `Contact`'tan `Lead`/`Schedule`'a
+  çekilmesi. Ayrıntı: `docs/olcum/YAPILACAKLAR-PANEL.md`.
+
+### Meta'ya geçmiş veri yükleme — 15 Ekim 2026
+
+Kayıt tablosundan üretilen müşteri listesi ve çevrimdışı olay dosyaları
+`~/Desktop/META-YUKLEME/` içinde. **Müşteri verisi, bilerek depo dışında.**
+Üreten betik oturum `outputs/meta_liste.py`; satırlar elle çıkarıldı çünkü
+tabloda sütun kayması var ve otomatik ayrıştırma tutarı yanlış okuyor.
+Yükleme adımları ve kısıtlar `~/Desktop/META-YUKLEME/OKU-BENI.md` içinde.
 
 ### Hazır komutlar
 

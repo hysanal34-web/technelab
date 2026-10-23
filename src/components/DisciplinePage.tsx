@@ -490,7 +490,8 @@ return (
               >
                 {m.image ? (
                   <span className="relative w-16 h-20 overflow-hidden block">
-                    <Image src={m.image} alt={m.name} fill sizes="64px" className="object-cover object-top" />
+                    {/* 22 Ekim 2026 (Yağız): eğitmen görselleri sitenin her yerinde siyah beyaz. */}
+                    <Image src={m.image} alt={m.name} fill sizes="64px" className="object-cover object-top grayscale" />
                   </span>
                 ) : <span className="w-16 h-20 bg-bgAlt block" />}
                 <span className="block">

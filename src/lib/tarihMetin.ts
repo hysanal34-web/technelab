@@ -36,10 +36,44 @@ export function metinTarihiCoz(metin: string, bugun = new Date()): Date | null {
  */
 export const KASITLI_GECMIS = /başladı|katılım açık|devam ediyor|sürüyor/i
 
-/** Metindeki tarih bugünden önce mi? Çözülemeyen metin geçmiş sayılmaz. */
+/**
+ * Verilen anın İstanbul'daki takvim günü ve gün içindeki dakikası.
+ *
+ * NEDEN: Vercel sunucusu UTC çalışıyor, tarayıcı ise kullanıcının saat
+ * diliminde. `getHours()` / `getDate()` ile hesaplanan kesim İstanbul'da
+ * fiilen 3 saat kayıyordu (18:00 kesimi 21:00'e düşüyordu) ve sunucuyla
+ * tarayıcı aynı anda farklı tarih basabiliyordu. Seanslar İstanbul'da,
+ * hesap da İstanbul saatine göre.
+ *
+ * `gun`: o takvim gününün yerel gece yarısı (yalnız yıl/ay/gün karşılaştırması
+ * ve `getDay()` için; saat bilgisi taşımaz).
+ */
+export function istanbulSimdi(an = new Date()): { gun: Date; dakika: number } {
+  const p: Record<string, string> = {}
+  for (const x of new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Istanbul',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(an)) p[x.type] = x.value
+  return {
+    gun: new Date(Number(p.year), Number(p.month) - 1, Number(p.day)),
+    dakika: Number(p.hour) * 60 + Number(p.minute),
+  }
+}
+
+/** "15:00" → 900. Metinde saat yoksa null. */
+export function saatDakika(metin: string): number | null {
+  const m = metin.match(/\b(\d{1,2})[:.](\d{2})\b/)
+  if (!m) return null
+  const sa = Number(m[1]), dk = Number(m[2])
+  if (sa > 23 || dk > 59) return null
+  return sa * 60 + dk
+}
+
+/** Metindeki tarih bugünden (İstanbul günü) önce mi? Çözülemeyen metin geçmiş sayılmaz. */
 export function gecmisMi(metin: string, bugun = new Date()): boolean {
   if (KASITLI_GECMIS.test(metin)) return false
-  const gunBasi = new Date(bugun.getFullYear(), bugun.getMonth(), bugun.getDate())
+  const gunBasi = istanbulSimdi(bugun).gun
   const t = metinTarihiCoz(metin, gunBasi)
   if (!t) return false
   return t.getTime() < gunBasi.getTime()

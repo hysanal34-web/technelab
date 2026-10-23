@@ -12,7 +12,7 @@ import { SITE_META, type Workshop } from '@/lib/data'
  * başvuru butonunu göremiyordu. Bu bar ilk ekranı geçtikten sonra
  * devreye giriyor ve fiyatla birlikte hep görünür kalıyor.
  */
-export function StickyApplyBar({ w }: { w: Workshop }) {
+export function StickyApplyBar({ w, tanisma = false }: { w: Workshop; tanisma?: boolean }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -54,11 +54,13 @@ export function StickyApplyBar({ w }: { w: Workshop }) {
               <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
             </svg>
           </a>
+          {/* Tanışma günü olan programda ana düğme ücretsiz tanışma (prop sunucudan gelir,
+              sessions.ts istemci paketine inmez). */}
           <Link
-            href={`/atolyeler/${w.slug}/kayit`}
-            className="font-mono text-[12px] tracking-[0.14em] uppercase bg-neon text-bg px-6 py-3.5 hover:bg-fg transition-colors duration-200 flex items-center"
+            href={tanisma ? `/tanisma-gunu?program=${w.slug}` : `/atolyeler/${w.slug}/kayit`}
+            className="font-mono text-[12px] tracking-[0.14em] uppercase bg-neon text-bg px-6 py-3.5 hover:bg-fg transition-colors duration-200 flex items-center whitespace-nowrap"
           >
-            başvur →
+            {tanisma ? 'ücretsiz tanış →' : 'başvur →'}
           </Link>
         </div>
       </div>

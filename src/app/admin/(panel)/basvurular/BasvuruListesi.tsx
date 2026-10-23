@@ -16,6 +16,7 @@ const KAYNAK_ETIKET: Record<Basvuru['kaynak'], string> = {
   tanisma: 'tanışma',
   program: 'program',
   bulten: 'bülten',
+  b2b: 'kurumsal / okul',
 }
 
 function telLink(t: string) {

@@ -1,6 +1,12 @@
 // ══════════════════════════════════════════════════════════════════
 // EKİP — TEK VERİ KAYNAĞI
-// /ekip (liste) ve /ekip/[slug] (bireysel eğitmen sayfası) buradan besleniyor.
+// /ekip (liste), /ekip/[slug] (bireysel sayfa) ve ana sayfadaki
+// InstructorStrip buradan besleniyor.
+//
+// SIRA ÖNEMLİ: diziye yazıldığı sıra hem ekip sayfasında hem ana sayfa
+// şeridinde aynen görünüyor.
+// 22 Ekim 2026 (Yağız): Köksal Ünal ikinci, Alara Lokum dördüncü, Selen Uçer beşinci.
+// Selen bir ara sona düşmüştü; sıra kaydırılıp yukarı alındı, sonu Burcu Halaçoğlu aldı.
 // ══════════════════════════════════════════════════════════════════
 import type { TeamMember } from '@/components/TeamGrid'
 
@@ -16,12 +22,48 @@ export const TEAM: TeamMember[] = [
     programs: [{ label: 'The Auteur Lab', slug: 'auteur-lab' }],
   },
   {
+    name: 'Köksal Ünal',
+    slug: 'koksal-unal',
+    seoTitle: 'Köksal Ünal — Koreograf & Müzikal Dans Eğitmeni | Techne Lab',
+    seoDesc: 'Koreograf Köksal Ünal: 2017 Yılın Koreografisi ödülü, İstanbul Aydın Üniversitesi öğretim görevlisi. Techne Musical Lab ve Broadway Musical Dance eğitmeni.',
+    role: 'Ödüllü Koreograf · Öğretim Görevlisi · Eğitmen',
+    bio: 'YTÜ Dans Bölümü ve Haliç Üniversitesi Tiyatro Yüksek Lisansı mezunu ödüllü koreograf Köksal Ünal; Devlet ve Şehir Tiyatroları\'ndaki köklü sahne tecrübesini müzikal dinamikleriyle birleştiriyor. 2017 Yılın Koreografisi ödülü sahibi olan Ünal, İstanbul Üniversitesi ve Bahçeşehir Üniversitesi konservatuvarlarındaki eğitimlerin ardından günümüzde İstanbul Aydın Üniversitesi GSF Tiyatro Bölümü\'nde hareket, çağdaş dans ve fiziksel tiyatro üzerine öğretim görevlisi olarak çalışmalarını sürdürüyor.',
+    image: '/images/team/koksal-unal.jpg',
+    programs: [
+      { label: 'Techne Musical Lab', slug: 'techne-musical-lab' },
+      { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
+    ],
+  },
+  {
     name: 'Beril Korkmaz',
     slug: 'beril-korkmaz',
     role: 'Şan · Müzikal Oyunculuk · Eğitmen',
     bio: 'İstanbul Üniversitesi Devlet Konservatuvarı Müzikal Tiyatro bölümünden mezun olan Beril Korkmaz; BKM yapımı Araf Müzikali, Jekyll ve Hyde ve Damdaki Kemancı gibi müzikallerde, Matmazel Julie\'de Julie ve Dostlarla Akşam Yemeği\'nde Beth rolleriyle sahne aldı. Belt, klasik teknik ve mix voice üzerine şan eğitimi aldı; bale, jazz ve modern dans çalıştı, Londra Pineapple Dance Studio\'da jazz atölyelerine katıldı. Solist olarak sahneye çıkan sanatçı, Techne Musical Lab\'de şan ve müzikal oyunculuk tarafını yürütüyor.',
     image: '/images/team/beril-korkmaz.jpg',
     programs: [{ label: 'Techne Musical Lab', slug: 'techne-musical-lab' }],
+  },
+  {
+    name: 'Alara Lokum',
+    slug: 'alara-lokum',
+    role: 'Eğitmen',
+    bio: 'Tiyatro serüvenine çocuk yaşta Şehir Tiyatroları\'nda adım atan ve akademik temelini Kadir Has Üniversitesi Tiyatro Bölümü\'nde kurgulayan Alara Lokum, Amerika ve İtalya\'daki eğitimleriyle oyunculuk pratiğine global bir vizyon kazandırmıştır. Uluslararası deneyimleriyle şekillenen anadil seviyesindeki İngilizce hakimiyetini English Drama Lab\'e taşıyan sanatçı; İngilizceyi bir "ders" olmaktan çıkarıyor, katılımcılara dili sahnede özgür bir ifade aracı olarak kullanmanın yollarını açıyor.',
+    image: '/images/team/alara-lokum.jpg',
+    programs: [
+      { label: 'English Drama Lab', slug: 'english-drama-lab' },
+      { label: 'English Drama Youth', slug: 'english-drama-youth' },
+    ],
+  },
+  {
+    // Camera Praxis'in eğitmeni. TEAM'de kaydı olmadığı için oyunculuk,
+    // kamera önü, audition ve İngilizce oyunculuk disiplin sayfalarında
+    // eğitmen kartı hiç çıkmıyordu. Biyografi data.ts'teki instructorBio
+    // metninin aynısı — yeni bir iddia eklenmedi.
+    name: 'Selen Uçer',
+    slug: 'selen-ucer',
+    role: 'Eğitmen',
+    bio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve tiyatroda uzun yıllara dayanan oyunculuk pratiğini kamera önü tekniğiyle birleştiriyor.',
+    image: '/images/team/selen-ucer.jpg',
+    programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
   },
   {
     name: 'Yeşim Çelebi',
@@ -54,42 +96,6 @@ export const TEAM: TeamMember[] = [
     bio: 'Doktora çalışmalarını "Çağdaş Oyunculuk Eğitiminde Mevcudiyet" kavramı üzerine tamamlayan Dr. Burcu Halaçoğlu, uluslararası Michael Chekhov Europe eğitmeni ve Michael Chekhov İstanbul\'un kurucu ortağıdır. İstanbul Bilgi Üniversitesi\'nde oyunculuk dersleri vermekte; kurucusu olduğu TiyatroPol\'deki yönetmenlik çalışmalarının yanı sıra Balat Monologlar Müzesi bünyesinde aktif oyunculuk kariyerini sürdürmektedir.',
     image: '/images/team/burcu-halacoglu.jpg',
     programs: [{ label: 'Oyuncunun Mevcudiyeti', slug: 'oyuncunun-mevcudiyeti' }],
-  },
-  {
-    name: 'Alara Lokum',
-    slug: 'alara-lokum',
-    role: 'Eğitmen',
-    bio: 'Tiyatro serüvenine çocuk yaşta Şehir Tiyatroları\'nda adım atan ve akademik temelini Kadir Has Üniversitesi Tiyatro Bölümü\'nde kurgulayan Alara Lokum, Amerika ve İtalya\'daki eğitimleriyle oyunculuk pratiğine global bir vizyon kazandırmıştır. Uluslararası deneyimleriyle şekillenen anadil seviyesindeki İngilizce hakimiyetini English Drama Lab\'e taşıyan sanatçı; İngilizceyi bir "ders" olmaktan çıkarıyor, katılımcılara dili sahnede özgür bir ifade aracı olarak kullanmanın yollarını açıyor.',
-    image: '/images/team/alara-lokum.jpg',
-    programs: [
-      { label: 'English Drama Lab', slug: 'english-drama-lab' },
-      { label: 'English Drama Youth', slug: 'english-drama-youth' },
-    ],
-  },
-  {
-    name: 'Köksal Ünal',
-    slug: 'koksal-unal',
-    seoTitle: 'Köksal Ünal — Koreograf & Müzikal Dans Eğitmeni | Techne Lab',
-    seoDesc: 'Koreograf Köksal Ünal: 2017 Yılın Koreografisi ödülü, İstanbul Aydın Üniversitesi öğretim görevlisi. Techne Musical Lab ve Broadway Musical Dance eğitmeni.',
-    role: 'Ödüllü Koreograf · Öğretim Görevlisi · Eğitmen',
-    bio: 'YTÜ Dans Bölümü ve Haliç Üniversitesi Tiyatro Yüksek Lisansı mezunu ödüllü koreograf Köksal Ünal; Devlet ve Şehir Tiyatroları\'ndaki köklü sahne tecrübesini müzikal dinamikleriyle birleştiriyor. 2017 Yılın Koreografisi ödülü sahibi olan Ünal, İstanbul Üniversitesi ve Bahçeşehir Üniversitesi konservatuvarlarındaki eğitimlerin ardından günümüzde İstanbul Aydın Üniversitesi GSF Tiyatro Bölümü\'nde hareket, çağdaş dans ve fiziksel tiyatro üzerine öğretim görevlisi olarak çalışmalarını sürdürüyor.',
-    image: '/images/team/koksal-unal.jpg',
-    programs: [
-      { label: 'Techne Musical Lab', slug: 'techne-musical-lab' },
-      { label: 'Broadway Musical Dance', slug: 'broadway-musical-dance' },
-    ],
-  },
-  {
-    // Camera Praxis'in eğitmeni. TEAM'de kaydı olmadığı için oyunculuk,
-    // kamera önü, audition ve İngilizce oyunculuk disiplin sayfalarında
-    // eğitmen kartı hiç çıkmıyordu. Biyografi data.ts'teki instructorBio
-    // metninin aynısı — yeni bir iddia eklenmedi.
-    name: 'Selen Uçer',
-    slug: 'selen-ucer',
-    role: 'Eğitmen',
-    bio: 'Oyuncu ve kamera önü oyunculuk eğitmeni. Sinema, dizi ve tiyatroda uzun yıllara dayanan oyunculuk pratiğini kamera önü tekniğiyle birleştiriyor.',
-    image: '/images/team/selen-ucer.jpg',
-    programs: [{ label: 'Camera Praxis', slug: 'camera-praxis' }],
   },
 ]
 

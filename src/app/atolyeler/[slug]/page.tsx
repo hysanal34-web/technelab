@@ -12,7 +12,11 @@ import { TrackProgramView } from '@/components/PixelEvents'
 import { StickyApplyBar } from '@/components/StickyApplyBar'
 import { priceSummary } from '@/lib/fiyat'
 import { TANISMA_SESSIONS } from '@/app/tanisma-gunu/sessions'
+import { gecmisMi } from '@/lib/tarihMetin'
 type Props = { params: Promise<{ slug: string }> }
+
+// Başlangıç satırlarındaki geçmiş tarih süzgeci render anında çalışır; sayfa build'de donmasın.
+export const revalidate = 3600
 
 
 export async function generateStaticParams() {
@@ -31,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: w.seoTitle, description: w.seoDesc,
       url: `${SITE_META.url}/atolyeler/${w.slug}`,
       images: w.images?.[0]
-        ? [{ url: `${SITE_META.url}/images/gallery/${w.images[0]}.jpg`, width: 1200, height: 800, alt: `${w.title} — ${w.sub}` }]
+        ? [{ url: `${SITE_META.url}/images/gallery/${w.images[0]}.jpg`, alt: `${w.title} — ${w.sub}` }]
         : undefined,
     },
   }
@@ -41,6 +45,12 @@ export default async function WorkshopDetailPage({ params }: Props) {
   const { slug } = await params
   const w = WORKSHOPS.find((w) => w.slug === slug)
   if (!w) notFound()
+
+  // Tanışma günü olan aktif programda birincil adım ücretsiz tanışma, başvuru ikincil
+  const tanismaVar = w.active && TANISMA_SESSIONS.some((s) => s.slug === w.slug)
+
+  // Geçmiş tarihli başlangıç satırı basılmaz ("başladı / katılım açık" satırları kalır)
+  const takvim = (w.schedule ?? []).filter((s) => !gecmisMi(s.date))
 
   // SEO: bu programı listeleyen disiplin sayfaları (spoke → hub iç bağlantısı)
   const hubs = DISCIPLINES.filter((d) => d.workshopSlugs.includes(w.slug))
@@ -255,11 +265,11 @@ export default async function WorkshopDetailPage({ params }: Props) {
           {/* Satın alma kutusu */}
           <aside className="order-1 md:order-2 sticky top-20 border border-border bg-bgAlt p-6 md:p-8" aria-label="Kayıt bilgileri">
             {/* Başlangıç tarihi — karar anındaki ilk soru */}
-            {(w.schedule?.length || w.scheduleNote) && (
+            {(takvim.length > 0 || w.scheduleNote) && (
               <div className="mb-6 pb-6 border-b border-border">
                 <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-stone mb-3">başlangıç</p>
-                {w.schedule?.length ? (
-                  w.schedule.map((s) => (
+                {takvim.length ? (
+                  takvim.map((s) => (
                     <div key={`${s.place}-${s.date}`} className="flex items-baseline gap-2 mb-1.5 last:mb-0">
                       <span className="font-display text-fg leading-none" style={{ fontSize: 17 }}>{s.date}</span>
                       {s.time && <span className="font-mono text-[11px] text-stone">{s.time}</span>}
@@ -379,6 +389,24 @@ export default async function WorkshopDetailPage({ params }: Props) {
                   ya da doğrudan yaz
                 </a>
               </div>
+            ) : tanismaVar ? (
+              /* Tanışma günü linki: tarih yazılmıyor, liste /tanisma-gunu'da render anında süzülüyor. */
+              <>
+                <Link
+                  href={`/tanisma-gunu?program=${w.slug}`}
+                  className="block font-mono text-[11px] tracking-[0.14em] uppercase text-bg bg-neon hover:bg-fg border border-neon text-center py-4 transition-all duration-200"
+                  data-hover
+                >
+                  ücretsiz tanışmaya kaydol →
+                </Link>
+                <Link
+                  href={`/atolyeler/${w.slug}/kayit`}
+                  className="block font-mono text-[11px] tracking-[0.14em] uppercase text-fg border border-border hover:border-neon hover:text-neon text-center py-3 mt-3 transition-colors duration-200"
+                  data-hover
+                >
+                  başvur →
+                </Link>
+              </>
             ) : (
               <Link
                 href={`/atolyeler/${w.slug}/kayit`}
@@ -386,17 +414,6 @@ export default async function WorkshopDetailPage({ params }: Props) {
                 data-hover
               >
                 başvur →
-              </Link>
-            )}
-            {/* Tanışma günü linki — tarih yazılmıyor: sayfa statik, tarih
-                geçince eskir. Liste /tanisma-gunu'da render anında süzülüyor. */}
-            {w.active && TANISMA_SESSIONS.some((s) => s.slug === w.slug) && (
-              <Link
-                href={`/tanisma-gunu?program=${w.slug}`}
-                className="block font-mono text-[11px] tracking-[0.14em] uppercase text-fg border border-border hover:border-neon hover:text-neon text-center py-3 mt-3 transition-colors duration-200"
-                data-hover
-              >
-                ücretsiz tanışma gününe kaydol →
               </Link>
             )}
           </aside>
@@ -545,7 +562,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
       </section>
 
       {/* Mobil alt bar: tek dokunuşla ara + başvur. Aktif olmayan programda render olmaz. */}
-      <StickyApplyBar w={w} />
+      <StickyApplyBar w={w} tanisma={tanismaVar} />
     </>
   )
 }

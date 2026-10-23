@@ -9,6 +9,7 @@ import { RevealSection } from '@/components/RevealSection'
 import { Gallery } from '@/components/Gallery'
 import { ClientStats } from '@/components/ClientStats'
 import { InstagramSection } from '@/components/InstagramSection'
+import { InstructorStrip } from '@/components/InstructorStrip'
 import { T } from '@/components/LangText'
 import { DisciplineGrid } from '@/components/DisciplineGrid'
 import { Yorumlar } from '@/components/Yorumlar'
@@ -120,7 +121,8 @@ const jsonLd = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Tiyatro Atölyeleri',
-    itemListElement: WORKSHOPS.map((w) => ({
+    // Yalnız aktif programlar: kapalı program Course olarak ilan edilmesin
+    itemListElement: WORKSHOPS.filter((w) => w.active).map((w) => ({
       '@type': 'Course',
       name: `${w.title} — ${w.sub}`,
       description: w.desc,
@@ -139,6 +141,19 @@ export default function HomePage() {
   const SAYI_TR: Record<number, string> = { 1: 'bir', 2: 'iki', 3: 'üç', 4: 'dört', 5: 'beş', 6: 'altı', 7: 'yedi', 8: 'sekiz', 9: 'dokuz' }
   const SAYI_EN: Record<number, string> = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' }
   const previewImages  = GALLERY_IMAGES.slice(0, 8)
+  // Grup büyüklüğü data.ts maxStudents'tan: "en fazla 10–15 kişi" gibi aralık
+  const kontenjanlar = activeWorkshops.map((w) => Number(w.maxStudents)).filter((n) => n > 0)
+  const kMin = Math.min(...kontenjanlar), kMax = Math.max(...kontenjanlar)
+  const kontenjanMetin = kMin === kMax ? `${kMax}` : `${kMin}–${kMax}`
+  // "Aktif kayıt" listesi: yalnız aktif programı olan disiplinler (kapalı kategori yazılmaz)
+  const aktifDisiplinler = [
+    { key: 'yazarlık',        tr: 'Yaratıcı yazarlık · dramaturji', en: 'Playwriting · dramaturgy' },
+    { key: 'oyunculuk',       tr: 'Oyunculuk · kamera önü',          en: 'Acting · on-camera' },
+    { key: 'ingilizce-drama', tr: 'İngilizce drama · 8–17 ve yetişkin', en: 'English drama · youth & adults' },
+    { key: 'dans-muzikal',    tr: 'Müzikal · Broadway dansı',        en: 'Musical theatre · Broadway dance' },
+  ].filter((d) => activeWorkshops.some((w) => w.category === d.key))
+  const disiplinSayiTr = SAYI_TR[aktifDisiplinler.length] ?? String(aktifDisiplinler.length)
+  const disiplinSayiEn = SAYI_EN[aktifDisiplinler.length] ?? String(aktifDisiplinler.length)
 
   return (
     <>
@@ -186,6 +201,15 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════ */}
       <DisciplineGrid />
 
+      {/* ════════════════════════════════════════════════════════════
+          EKİP — hero ve disiplinlerden hemen sonra, üçüncü blok.
+          22 Ekim 2026 (Yağız): ekip daha görünür olsun diye yukarı alındı.
+          Yeni bir markanın en güçlü kartı kadrosu; sayfanın dibinde durmamalı.
+          Sıra ekip.ts'teki TEAM dizisinden geliyor, burada ayrı liste yok.
+      ════════════════════════════════════════════════════════════ */}
+      <RevealSection>
+        <InstructorStrip />
+      </RevealSection>
 
       {/* ════════════════════════════════════════════════════════════
           NASIL ÇALIŞIRIZ — Metodoloji (kimlik tekrarı değil)
@@ -208,15 +232,15 @@ export default function HomePage() {
               </h2>
               <p className="font-mono text-[12px] leading-relaxed text-stone max-w-md mb-8">
                 <T
-                  tr="Her program seyircili bir final performansıyla noktalanır. Metin, beden ve ses — aynı anda, aynı stüdyoda."
-                  en="Every programme ends with a live final performance. Text, body and voice — simultaneously, in the same studio."
+                  tr="Uzun programlar seyircili bir final gösterisiyle kapanır. Metin, beden ve ses — aynı anda, aynı stüdyoda."
+                  en="Longer programmes close with a live final showing. Text, body and voice — simultaneously, in the same studio."
                 />
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  { tr: 'Maksimum 12 kişilik gruplar', en: 'Max 12 per group' },
+                  { tr: `En fazla ${kontenjanMetin} kişilik gruplar`, en: `Max ${kontenjanMetin} per group` },
                   { tr: 'Haftada 1–2 gün yoğun pratik', en: '1–2 sessions per week' },
-                  { tr: 'Seyircili final performansı', en: 'Live final performance' },
+                  { tr: 'Uzun programlarda seyircili final', en: 'Live final showing in longer programmes' },
                   { tr: 'Pera ve Kadıköy stüdyoları', en: 'Pera & Kadıköy studios' },
                 ].map((item) => (
                   <li key={item.tr} className="flex items-center gap-3">
@@ -250,19 +274,14 @@ export default function HomePage() {
                 </h3>
                 <p className="font-mono text-[12px] leading-relaxed text-stone max-w-sm">
                   <T
-                    tr={`Dört disiplin, ${SAYI_TR[activeWorkshops.length] ?? activeWorkshops.length} program. Kayıtlar açık — gruplar dolduğunda kapanıyor.`}
-                    en={`Four disciplines, ${SAYI_EN[activeWorkshops.length] ?? activeWorkshops.length} programmes. Enrolment is open — groups close when full.`}
+                    tr={`${disiplinSayiTr.charAt(0).toLocaleUpperCase('tr-TR')}${disiplinSayiTr.slice(1)} disiplin, ${SAYI_TR[activeWorkshops.length] ?? activeWorkshops.length} program. Kayıtlar açık — gruplar dolduğunda kapanıyor.`}
+                    en={`${disiplinSayiEn.charAt(0).toUpperCase()}${disiplinSayiEn.slice(1)} disciplines, ${SAYI_EN[activeWorkshops.length] ?? activeWorkshops.length} programmes. Enrolment is open — groups close when full.`}
                   />
                 </p>
               </div>
 
               <ul className="flex flex-col gap-2 border-l border-neon/30 pl-4">
-                {[
-                  { tr: 'Yaratıcı yazarlık · dramaturji', en: 'Playwriting · dramaturgy' },
-                  { tr: 'Oyunculuk · kamera önü', en: 'Acting · on-camera' },
-                  { tr: 'İngilizce drama · 8–17 ve yetişkin', en: 'English drama · youth & adults' },
-                  { tr: 'Müzikal · Broadway dansı', en: 'Musical theatre · Broadway dance' },
-                ].map((item) => (
+                {aktifDisiplinler.map((item) => (
                   <li key={item.tr} className="font-mono text-[11px] tracking-[0.08em] text-stone">
                     <T tr={item.tr} en={item.en} />
                   </li>
@@ -444,7 +463,7 @@ export default function HomePage() {
           {/* bg-ink is always #0A0A0C — all text must be hardcoded light to survive light-mode */}
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
             <div>
-              <p className="font-mono text-[11px] tracking-widest2 uppercase text-[#E8E5DF]/50 mb-4">iletişim</p>
+              <p className="font-mono text-[11px] tracking-widest2 uppercase text-[#E8E5DF]/70 mb-4">iletişim</p>
               <h2
                 id="contact-heading"
                 className="font-display text-[#E8E5DF] leading-none mb-4"
@@ -453,20 +472,26 @@ export default function HomePage() {
                 BİRLİKTE<br />
                 <span className="text-neon">ÜRETELİM</span>
               </h2>
-              <p className="font-mono text-[11px] text-[#E8E5DF]/50 max-w-xs">
+              <p className="font-mono text-[11px] text-[#E8E5DF]/70 max-w-xs">
                 Atölyeler, işbirlikleri, prodüksiyonlar.
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <Link
-                href="/iletisim"
+                href="/tanisma-gunu"
                 className="font-mono text-[11px] tracking-[0.18em] uppercase bg-neon text-bg px-10 py-4 hover:bg-[#E8E5DF] hover:text-ink border border-neon transition-all duration-200 text-center whitespace-nowrap"
+              >
+                ücretsiz tanışma günü
+              </Link>
+              <Link
+                href="/iletisim"
+                className="font-mono text-[11px] tracking-[0.18em] uppercase text-[#E8E5DF] border border-[#E8E5DF]/40 hover:border-neon hover:text-neon px-10 py-4 transition-colors duration-200 text-center whitespace-nowrap"
               >
                 iletişime geç
               </Link>
               <a
                 href={`mailto:${SITE_META.email}`}
-                className="font-mono text-[11px] tracking-[0.12em] text-[#E8E5DF]/40 hover:text-[#E8E5DF]/70 transition-colors text-center"
+                className="font-mono text-[11px] tracking-[0.12em] text-[#E8E5DF]/70 hover:text-[#E8E5DF] transition-colors text-center"
               >
                 {SITE_META.email}
               </a>

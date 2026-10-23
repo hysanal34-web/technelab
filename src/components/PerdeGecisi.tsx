@@ -36,11 +36,12 @@ export function PerdeGecisi() {
       try { url = new URL(a.href, location.href) } catch { return }
       if (url.origin !== location.origin) return
       const hedef = url.pathname + url.search + url.hash
-      const simdi = location.pathname + location.search
-      if (url.pathname === location.pathname && url.hash) return          // sayfa içi çapa
-      if (url.pathname + url.search === simdi) return                         // aynı sayfa
-      // Yakalama aşamasında durduruyoruz: Next Link hemen gitmesin, perde insin, sonra gidelim.
-      e.preventDefault(); e.stopPropagation()
+      // Aynı sayfa (çapa ya da yalnız sorgu değişimi): perde inmez. Pathname değişmeyeceği
+      // için perde kalkmaz ve ekran emniyet süresine kadar kararırdı.
+      if (url.pathname === location.pathname) return
+      // Yakalama aşamasında varsayılanı engelliyoruz: Next Link hemen gitmesin, perde insin,
+      // sonra gidelim. Yayılım durdurulmuyor, Link'in kendi onClick'i (menü kapatma) çalışsın.
+      e.preventDefault()
       setOn(true)
       timer.current = window.setTimeout(() => { router.push(hedef) }, 230)
       // Emniyet: rota 2,5 sn içinde değişmezse perdeyi kaldır (ör. aynı sayfaya yönlendirme).

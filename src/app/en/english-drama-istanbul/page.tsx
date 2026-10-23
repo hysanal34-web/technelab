@@ -99,7 +99,7 @@ export default function EnglishDramaIstanbul() {
   const w = WORKSHOPS.find((x) => x.slug === 'english-drama-lab')
 
   return (
-    <>
+    <div lang="en">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
@@ -234,6 +234,6 @@ export default function EnglishDramaIstanbul() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   )
 }

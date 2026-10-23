@@ -5,13 +5,13 @@ import Image from 'next/image'
 import type { Workshop } from '@/lib/data'
 
 const WORKSHOP_IMAGES: Record<string, string> = {
-  'auteur-lab':                    '/images/covers/auteur-lab.png',
-  'english-drama-lab':             '/images/covers/english-drama-lab.png',
-  'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.png',
-  'english-drama-final-project':   '/images/covers/english-drama-final-project.png',
-  'english-drama-youth':           '/images/covers/english-drama-youth.png',
-  'techne-musical-lab':            '/images/covers/techne-musical-lab.png',
-  'broadway-musical-dance':        '/images/covers/broadway-musical-dance.png',
+  'auteur-lab':                    '/images/covers/auteur-lab.jpg',
+  'english-drama-lab':             '/images/covers/english-drama-lab.jpg',
+  'oyuncunun-mevcudiyeti':         '/images/covers/oyuncunun-mevcudiyeti.jpg',
+  'english-drama-final-project':   '/images/covers/english-drama-final-project.jpg',
+  'english-drama-youth':           '/images/covers/english-drama-youth.jpg',
+  'techne-musical-lab':            '/images/covers/techne-musical-lab.jpg',
+  'broadway-musical-dance':        '/images/covers/broadway-musical-dance.jpg',
 }
 
 // Bauhaus accent colours per card (border + number tint)

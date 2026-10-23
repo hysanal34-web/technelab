@@ -64,6 +64,24 @@ test.describe('tarih tutarlılığı', () => {
     ).toBe(TANISMA_SESSIONS.length)
   })
 
+  test('seans günü, seans saatinden 60 dk önce kayıt bir sonraki haftaya geçer (İstanbul saati)', () => {
+    // İstanbul = UTC+3 (yaz saati yok). Anlar UTC ile kuruluyor ki test hangi
+    // saat diliminde koşarsa koşsun aynı sonucu versin (Vercel UTC, Mac İstanbul).
+    const ist = (y: number, ay: number, g: number, sa: number, dk = 0) => new Date(Date.UTC(y, ay, g, sa - 3, dk))
+    const label = (an: Date, id: string) => aktifSessions(an).find((s) => s.id === id)?.label ?? ''
+
+    // 31 Ekim 2026 Cumartesi · Youth Kadıköy 15:00
+    expect(label(ist(2026, 9, 31, 13, 30), 'youth-kadikoy-cmt')).toContain('31 Ekim')
+    expect(label(ist(2026, 9, 31, 14, 0), 'youth-kadikoy-cmt')).toContain('7 Kasım')
+    expect(label(ist(2026, 9, 31, 16, 0), 'youth-kadikoy-cmt')).toContain('7 Kasım')
+    // UTC 23:30 Cuma = İstanbul 02:30 Cumartesi: gün İstanbul'a göre okunmalı
+    expect(label(new Date(Date.UTC(2026, 9, 30, 23, 30)), 'youth-kadikoy-cmt')).toContain('31 Ekim')
+
+    // 1 Kasım 2026 Pazar · Youth Pera 13:00
+    expect(label(ist(2026, 10, 1, 11, 59), 'youth-pera-paz')).toContain('1 Kasım')
+    expect(label(ist(2026, 10, 1, 12, 0), 'youth-pera-paz')).toContain('8 Kasım')
+  })
+
   test('data.ts ve sessions.ts tarihleri geçmemiş', () => {
     const bulgular = tarihleriDenetle()
     const gecmisOlanlar = bulgular.filter((b) => b.gecmis)

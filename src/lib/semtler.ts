@@ -67,7 +67,7 @@ export const DISTRICTS: District[] = [
         a: 'Türkçe sahne oyunculuğu programımız Oyuncunun Mevcudiyeti şu an yeni dönem için kayıt almıyor; açıldığında haber almak için bekleme listesine yazılabilirsin. Kadıköy\'de oyunculuğu çalışmanın açık yolu Techne Musical Lab: sekiz ay boyunca oyunculuk, şan ve dans bir arada, seyircili yıl sonu gösterisiyle. İngilizce çalışmak istersen English Drama Lab da Kadıköy\'de.',
       },
       {
-        q: 'Kadıköy\'deki derslere Avrupa yakasından gelmek mantıklı mı?',
+        q: 'Kadıköy\'deki seanslara Avrupa yakasından gelmek mantıklı mı?',
         a: 'Marmaray ile Sirkeci\'den Ayrılık Çeşmesi 8 dakika, vapurla Karaköy–Kadıköy 20 dakika. Bazı programlarımız hem Pera hem Kadıköy\'de açılıyor — kayıt sırasında sana yakın olanı seçebilirsin.',
       },
       {
@@ -176,7 +176,7 @@ export const DISTRICTS: District[] = [
         a: 'Pera\'daki mekânımızda kamera önü oyunculuk (Camera Praxis), İngilizce drama programları ve oyun yazarlığı atölyesi (Auteur Lab) yürüyor. Mekân Taksim ve Şişhane metro duraklarına yürüme mesafesinde.',
       },
       {
-        q: 'Taksim\'deki derslere hangi saatlerde geliniyor?',
+        q: 'Taksim\'deki seanslara hangi saatlerde geliniyor?',
         a: 'Programların çoğu akşam saatlerinde — çalışanlar için planlanmış. Hafta sonu grupları da var. Kesin gün ve saat her program sayfasında yazıyor.',
       },
       {
@@ -220,7 +220,7 @@ export const DISTRICTS: District[] = [
     intro:
       'Anadolu yakasında yaşıyorsan sanat eğitimi için köprü geçmen gerekmiyor. Techne Lab\'ın programlarının çoğu bu tarafta yürüyor ve katılımcılarımız Üsküdar\'dan Kartal\'a kadar geniş bir alandan geliyor. Bu sayfa, yakanın hangi semtinden hangi programa nasıl ulaşacağını tek yerde topluyor.',
     character:
-      'Yakanın ulaşım omurgası tek noktada kesişiyor: Marmaray ve M4 metro hattı, Gebze\'den Üsküdar\'a kadar tüm ilçeleri aynı merkeze bağlıyor. Bu yüzden Ataşehir\'de oturan biriyle Maltepe\'de oturan biri aynı derse benzer sürede yetişiyor. Akşam saatlerinde raylı sistem trafikten etkilenmiyor — çalışan katılımcılar için belirleyici olan da bu.',
+      'Yakanın ulaşım omurgası tek noktada kesişiyor: Marmaray ve M4 metro hattı, Gebze\'den Üsküdar\'a kadar tüm ilçeleri aynı merkeze bağlıyor. Bu yüzden Ataşehir\'de oturan biriyle Maltepe\'de oturan biri aynı seansa benzer sürede yetişiyor. Akşam saatlerinde raylı sistem trafikten etkilenmiyor — çalışan katılımcılar için belirleyici olan da bu.',
     transport: [
       { label: 'Marmaray', detail: 'Ayrılık Çeşmesi ve Söğütlüçeşme — Gebze\'den Halkalı\'ya tüm hat.' },
       { label: 'Metro (M4)', detail: 'Kadıköy–Tavşantepe hattı; Kartal, Maltepe, Bostancı doğrudan bağlantılı.' },

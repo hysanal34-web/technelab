@@ -127,8 +127,8 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Yetenek bir başlangıç farkı yaratabilir, ama oyunculuğun araçları çalışılarak gelişiyor: dinlemek, metni çözmek, bedeni ve sesi yönetmek, aynı sahneyi tekrar tekrar canlı oynayabilmek. Atölyeye başlamak için kendini yetenekli hissetmen gerekmiyor. Neyin öğretilebildiğini, neyin öğretilemediğini ayrı bir yazıda ele aldık.',
       },
       {
-        q: 'Oyunculuk kursunun ilk dersinde ne yapılır?',
-        a: 'İlk ders genellikle bedenden başlıyor: ısınma, odada yürüme, dikkat ve dinleme oyunları. Kimse ilk gün tek başına uzun bir sahneye itilmiyor. Rahat, hareket etmeye uygun kıyafet yeterli. Kaygı duymak normal; ilk dersin akışını ayrıntılı yazdık.',
+        q: 'Oyunculuk kursunun ilk seansında ne yapılır?',
+        a: 'İlk seans genellikle bedenden başlıyor: ısınma, odada yürüme, dikkat ve dinleme oyunları. Kimse ilk gün tek başına uzun bir sahneye itilmiyor. Rahat, hareket etmeye uygun kıyafet yeterli. Kaygı duymak normal; ilk seansın akışını ayrıntılı yazdık.',
       },
       {
         q: 'Çalışırken oyunculuk eğitimi alınabilir mi?',
@@ -600,7 +600,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Grupta kaç kişi var, şan çalışması bireysel mi?',
-        a: 'Grup en fazla 12 kişi. Bu sayıda her katılımcının sesi derste tek tek duyuluyor ve bireysel geri bildirim alıyor; kalabalık gruplarda bu mümkün olmuyor.',
+        a: 'Grup en fazla 12 kişi. Bu sayıda her katılımcının sesi seansta tek tek duyuluyor ve bireysel geri bildirim alıyor; kalabalık gruplarda bu mümkün olmuyor.',
       },
       {
         q: 'Şan eğitimi programa dahil mi?',
@@ -809,7 +809,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Atölyeler nerede yapılıyor?',
-        a: 'İki yakada: Pera\'da (Beyoğlu) pazar 13:00, Kadıköy\'de cumartesi 15:00. Dersler partner stüdyolarda yapılıyor. Her iki yerde de haftalık ücretsiz tanışma seansı var.',
+        a: 'İki yakada: Pera\'da (Beyoğlu) pazar 13:00, Kadıköy\'de cumartesi 15:00. Seanslar partner stüdyolarda yapılıyor. Her iki yerde de haftalık ücretsiz tanışma seansı var.',
       },
       {
         q: 'Çocuğumun İngilizcesi zaten çok iyi, sıkılmaz mı?',

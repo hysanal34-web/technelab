@@ -1,24 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { TEAM } from '@/lib/ekip'
+import { displayRole } from '@/lib/roleLabel'
 
 /**
  * Ana sayfa eğitmen şeridi.
  * Eskiden burada "6 Atölye / 2026 Kuruluş / 3 Mekân / ∞ Pratik" rakamları vardı;
  * yeni bir markanın en zayıf kartı geçmişidir, en güçlü kartı kadrosudur.
- * Kısa ve kanıtlanabilir kimlikler — şişirme yok.
+ *
+ * 22 Ekim 2026 (Yağız): ekip ana sayfada daha görünür olsun diye şerit
+ * hero'nun hemen altına, disiplin ızgarasından sonraya alındı.
+ *
+ * İki hata burada düzeltildi:
+ *  1. Bileşenin kendi FACES listesi vardı — ekip.ts'teki TEAM ile ikinci bir
+ *     kaynak demekti. Artık doğrudan TEAM okunuyor, sıra da oradan geliyor.
+ *  2. Linkler /hakkinda?open=…#ekip'e gidiyordu; o sayfada ne #ekip bölümü
+ *     ne de TeamGrid var. Doğru hedef /ekip?open=<slug>.
  */
-
-const FACES = [
-  { name: 'Köksal Ünal',       slug: 'koksal-unal',       image: '/images/team/koksal-unal.jpg' },
-  { name: 'Beril Korkmaz',     slug: 'beril-korkmaz',     image: '/images/team/beril-korkmaz.jpg' },
-  { name: 'Burcu Halaçoğlu',   slug: 'burcu-halacoglu',   image: '/images/team/burcu-halacoglu.jpg' },
-  { name: 'Yeşim Çelebi',      slug: 'yesim-celebi',      image: '/images/team/yesim-celebi.jpg' },
-  { name: 'Ece Ertez',         slug: 'ece-ertez',         image: '/images/team/ece-ertez.jpg' },
-  { name: 'Alara Lokum',       slug: 'alara-lokum',       image: '/images/team/alara-lokum.jpg' },
-  { name: 'Selen Uçer',        slug: 'selen-ucer',        image: '/images/team/selen-ucer.jpg' },
-  { name: 'Halil Yağız Şanal', slug: 'halil-yagiz-sanal', image: '/images/team/halil-yagiz.jpg' },
-]
-
 export function InstructorStrip() {
   return (
     <section className="border-b border-border bg-bgAlt" aria-labelledby="egitmenler-heading">
@@ -32,11 +30,11 @@ export function InstructorStrip() {
             className="font-display text-fg leading-none"
             style={{ fontSize: 'clamp(28px,4.5vw,60px)', letterSpacing: '0.02em' }}
           >
-            SAHNEYİ BİLENLER
+            EĞİTMEN VE EKİP
           </h2>
         </div>
         <Link
-          href="/hakkinda#ekip"
+          href="/ekip"
           className="font-mono text-[11px] tracking-[0.16em] uppercase text-stone hover:text-neon transition-colors duration-200 pb-2"
           data-hover
         >
@@ -44,37 +42,50 @@ export function InstructorStrip() {
         </Link>
       </div>
 
-      <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-px bg-border border-t border-border">
-        {FACES.map((p) => (
-          <li key={p.name} className="bg-bg">
+      {/* 8 kişi: telefonda 2, tablette 4, masaüstünde 8 sütun — hep tam sıra. */}
+      <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-px bg-border border-t border-border">
+        {TEAM.map((p) => (
+          <li key={p.slug} className="bg-bg">
             {/* Doğrudan o kişinin biyografisine — ekip sayfasında tekrar tıklatmıyoruz */}
             <Link
-              href={`/hakkinda?open=${p.slug}#ekip`}
+              href={`/ekip?open=${p.slug}`}
               className="group block"
               aria-label={`${p.name} — biyografi`}
               data-hover
             >
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3 / 4' }}>
-                <Image
-                  src={p.image}
-                  alt={p.name}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 15vw"
-                  className="object-cover grayscale transition-all duration-500"
-                  style={{ filter: 'brightness(0.82)' }}
-                />
+                {p.image && (
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12vw"
+                    className="object-cover transition-all duration-500"
+                    /* 22 Ekim 2026 (Yağız): eğitmen görselleri her durumda siyah beyaz.
+                       DİKKAT: gri tonlama buradan, Tailwind'in `grayscale` sınıfından değil.
+                       İkisi de CSS `filter`'ı yazıyor; satır içi stil sınıfı eziyordu, bu yüzden
+                       renkli portreler (Selen, Yeşim, Ece) renkli basılıyordu. İkisi tek
+                       bildirimde birleşti. */
+                    style={{ filter: 'grayscale(1) brightness(0.82)' }}
+                  />
+                )}
                 <div
                   className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
                   style={{ background: 'linear-gradient(to top, rgba(10,10,12,0.92), transparent)' }}
                 />
                 <div className="absolute bottom-0 inset-x-0 h-[2px] bg-neon scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </div>
-              <div className="px-4 py-4">
+              {/* min-h: unvan satırı kiminde iki, kiminde üç satır oluyor.
+                  Sabit yükseklik olmadan şeridin alt kenarı tırtıklı duruyordu. */}
+              <div className="px-3 py-4 min-h-[88px]">
                 <p
                   className="font-display text-fg group-hover:text-neon transition-colors duration-200 leading-tight"
-                  style={{ fontSize: 17, letterSpacing: '0.02em' }}
+                  style={{ fontSize: 16, letterSpacing: '0.02em' }}
                 >
                   {p.name.toUpperCase()}
+                </p>
+                <p className="font-mono text-[11px] tracking-[0.1em] uppercase text-dim mt-1.5">
+                  {displayRole(p.role)}
                 </p>
               </div>
             </Link>
