@@ -5,7 +5,8 @@
  * SÜRE ve FİYAT yazmaz; "çalışma biçimi" ve "görüşmede netleşenler" anlatır.
  * Paketler açıklanınca künyedeki "Fiyat ve süre" satırı güncellenir.
  *
- * GERÇEKLER (Yağız, 23 Ekim): MEB onayı YOK (hiç anma), sertifika programı YOK,
+ * GERÇEKLER (Yağız, 23 Ekim): MEB onayı YOK (hiç anma), sertifika programı YOK (sitede
+ * "sertifika yok" diye de yazılmaz, Yağız: göze batıyor),
  * eğitmenler konservatuvar mezunu, şirket/okulla henüz çalışılmadı; tek kurum
  * deneyimi İstanbul Gelişim Üniversitesi'nde yapılan atölye.
  * YASAK: başka referans/müşteri/okul adı, sertifika/MEB onayı iddiası, kaynaksız rakam, "ders" kelimesi.
@@ -56,7 +57,6 @@ const KUNYE_K = [
   { k: 'Deneyim şartı', v: 'Yok. Katılımcılardan oyunculuk beklenmez' },
   { k: 'Eğitmenler', v: 'Konservatuvar mezunu oyuncu ve eğitmenler' },
   { k: 'Fiyat ve süre', v: 'Talebe göre; görüşmeden sonra iletilir' },
-  { k: 'Sertifika', v: 'Yok; uygulamalı atölye' },
 ]
 const KUNYE_O = [
   { k: 'Dil', v: 'Türkçe ya da İngilizce' },
@@ -65,7 +65,6 @@ const KUNYE_O = [
   { k: 'Takvim', v: 'Okulun akademik takvimine göre planlanır' },
   { k: 'Eğitmenler', v: 'Konservatuvar mezunu oyuncu ve eğitmenler' },
   { k: 'Fiyat ve süre', v: 'Talebe göre; görüşmeden sonra iletilir' },
-  { k: 'Sertifika', v: 'Yok; uygulamalı atölye' },
 ]
 const set = (arr: { k: string; v: string }[], k: string, v: string) => arr.map((x) => (x.k === k ? { k, v } : x))
 
@@ -95,7 +94,6 @@ export const B2B_PAGES: B2BPage[] = [
       { q: 'Katılımcıların oyunculuk deneyimi olması gerekiyor mu?', a: 'Hayır. Atölyeler oyunla başlar ve kimseyi seyirci önüne zorla çıkarmaz. Çekingen katılımcılar için katılımın en küçük biçimi de geçerli sayılır.' },
       { q: 'Atölyeler İngilizce yapılabiliyor mu?', a: 'Evet. İngilizce drama programlarımızı yürüten eğitmenlerle İngilizce atölye tasarlayabiliyoruz; özellikle İngilizce toplantılarda konuşmaktan çekinen ekipler için.' },
       { q: 'Fiyat ve süre nedir?', a: 'Fiyatı ve süreyi talebe göre iletiyoruz. Önce ekibinizin ihtiyacını dinliyor, çalışma biçimini ona göre öneriyoruz.' },
-      { q: 'Sertifika veriyor musunuz?', a: 'Hayır. Bu bir sertifika programı değil; konservatuvar mezunu oyuncu ve eğitmenlerin yürüttüğü uygulamalı bir atölye.' },
           ],
     articleSlugs: ['kurumsal-drama-egitimi-nedir', 'dogaclama-is-hayatinda-ne-ise-yarar', 'ingilizce-konusmaktan-cekinen-ekipler', 'forum-tiyatro-nedir-augusto-boal', 'sahne-korkusu-nasil-yenilir'],
     links: [{ href: '/okullar', label: 'Okullar ve kolejler için' }, { href: '/en/corporate', label: 'Corporate workshops in English' }, { href: '/ekip', label: 'Ekip' }],
