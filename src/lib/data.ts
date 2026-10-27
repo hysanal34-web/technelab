@@ -179,9 +179,10 @@ export const WORKSHOPS: Workshop[] = [
       // 22 Ekim 2026 (Yağız): Pera grubu başladı ama seansa misafir alınıp sonra kayıt
       // yapılıyor, bu yüzden "katılım açık" kalıyor. Tanışma: her Pazar 13:00 Pera.
       { place: 'Pera', date: '4 Ekim’de başladı · katılım açık', time: '13:00' },
-      // 22 Ekim 2026 (Yağız): Kadıköy grubu 17 Ekim'de değil, 24 Ekim Cumartesi başlıyor.
-      // Tanışma: bu cumartesiden itibaren her Cumartesi 15:00 (sessions.ts → youth-kadikoy-cmt).
-      { place: 'Kadıköy', date: '24 Ekim Cumartesi', time: '15:00' },
+      // 22 Ekim 2026 (Yağız): Kadıköy grubu 24 Ekim Cumartesi başladı.
+      // 26 Ekim 2026: tarih geçti, Pera ile aynı ifadeye çekildi. Seansa misafir alınıp
+      // sonra kayıt yapılıyor; tanışma her Cumartesi 15:00 (sessions.ts → youth-kadikoy-cmt).
+      { place: 'Kadıköy', date: '24 Ekim’de başladı · katılım açık', time: '15:00' },
     ],
     maxStudents: 12, active: true,
     category: 'ingilizce-drama',

@@ -646,6 +646,14 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Kurs bitince müzikallerde sahne alabilir miyim?',
         a: 'Program seyirci önünde baştan sona oynanan bir yıl sonu müzikaliyle kapanıyor; yani sahneye çıkmak programın kendisinin parçası. Profesyonel müzikal kadrolarına giriş ise her yapımın kendi seçmesiyle oluyor ve hiçbir kurs bunu garanti edemez. Programın verdiği şey, seçmeye götürebileceğin bir repertuvar ve sahnede şarkıyla oynama pratiği.',
       },
+      {
+        q: 'Müzikal tiyatro eğitimine kaç yaşında başlanır?',
+        a: 'Oyunculuk, şan ve dansın birlikte çalışılabildiği ilk eşik çoğu kişide 15 yaş civarı; ses değişimi büyük ölçüde oturmuş, beden hâlâ hızlı öğreniyor. Techne Musical Lab bu yüzden 15-55 yaş aralığına açık ve farklı yaşlar aynı grupta çalışıyor. 12 yaşından itibaren katılabilen program yalnızca dansa odaklı Broadway Musical Dance; yaş gruplarına göre neyin değiştiğini ayrı bir yazıda anlattık.',
+      },
+      {
+        q: 'Müzikal seçmesine nasıl hazırlanırım?',
+        a: 'Sesine rahat oturan ve ne anlattığını bildiğin bir şarkı seç, ondan bir-bir buçuk dakikalık iyi kesilmiş bir kesit hazırla ve bunu başkalarının önünde tekrar tekrar prova et. Techne Musical Lab başvurusu için bir müzikal ya da pop şarkıyı seslendirdiğin 1-2 dakikalık telefon videosu yeterli; sesinin net duyulması önemli. 16 bar geleneğini, cut hazırlamayı ve dans call\'u ayrı bir rehberde adım adım yazdık.',
+      },
     ],
     articleSlugs: [
       'muzikal-oyunculuk-nedir',
@@ -654,6 +662,10 @@ export const DISCIPLINES: Discipline[] = [
       'yetiskin-olarak-muzikale-baslamak',
       'muzikal-basvuru-videosu-nasil-hazirlanir',
       'muzikali-tiyatro-kursu-istanbul',
+      'muzikal-tiyatro-egitimi-kac-yasinda-baslanir',
+      'muzikal-secmelerine-nasil-hazirlanilir-16-bar',
+      'istanbulda-muzikal-tiyatro-egitimi-secenekleri',
+      'muzikalde-sahne-korkusu-ve-ses',
     ],
     criteria: [
       {
@@ -801,7 +813,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Program ne kadar sürüyor?',
-        a: 'Sekiz ay, Ekim\'den Mayıs\'a, haftada bir gün. Pera grubu 4 Ekim\'de başladı ve katılım açık; Kadıköy grubu 17 Ekim\'de başladı. Yıl sonunda seyircili, tamamen İngilizce bir final gösterisiyle kapanıyor.',
+        a: 'Sekiz ay, Ekim\'den Mayıs\'a, haftada bir gün. Pera grubu 4 Ekim\'de başladı ve katılım açık; Kadıköy grubu 24 Ekim\'de başladı ve katılım açık. Yıl sonunda seyircili, tamamen İngilizce bir final gösterisiyle kapanıyor.',
       },
       {
         q: 'Yıl sonu gösterisi zorunlu mu?',
@@ -826,6 +838,14 @@ export const DISCIPLINES: Discipline[] = [
       {
         q: 'Uluslararası okulda okuyan ya da yabancı ailelerin çocukları katılabilir mi?',
         a: 'Evet. Program İngilizce yürüyor ve tam olarak İngilizcesi zaten olan çocuklar için kuruldu: uluslararası okul öğrencileri, yabancı ve karma ailelerin çocukları, iki dilli çocuklar ve okul İngilizcesi güçlü olup onu kullanacak yer bulamayanlar. Velilerle iletişim İngilizce de yürüyebiliyor.',
+      },
+      {
+        q: '8 yaşındaki çocuk için erken mi?',
+        a: 'Yaşa değil dile bağlı. Program 8 yaşında başlıyor ve B1 ve üzeri İngilizce öneriyor; seviye tespit sınavı yok, ailenin dil beyanı yeterli. Günlük hayatta kendini rahatça ifade edebilen sekiz yaşındaki çocuk için erken değil; tam tersine, utanma eşiğinin henüz yükselmediği bir dönem. Kitap, sınav ve not olmadığı için bu yaşta çalışma oyun ve doğaçlama üzerinden yürüyor. Henüz cümle kuramayan çocuk için önce dil tarafı gelir.',
+      },
+      {
+        q: '11–14 yaş grubu 8–10 ile aynı sınıfta mı?',
+        a: 'Evet. Gruplar yaşa göre iki kademe: 8–14 ve 15–17 ayrı sınıflarda çalışıyor. Ortaokul çağındaki çocuk ilkokul çağındakiyle aynı grupta, grup başına en fazla 12 kişiyle. Çalışma aynı: her ayın ilk üç haftası drama (yaratıcı drama, doğaçlama, bireysel ve ensemble çalışma), son haftası konuk atölye. Ekim–Aralık keşif ve oyun; Ocak karakter ve metin; Şubat–Nisan prova; Mayıs\'ta seyircili, tamamen İngilizce gösteri. 15 yaşından itibaren genç ayrı gruba geçiyor.',
       },
     ],
     facts: {
@@ -885,6 +905,9 @@ export const DISCIPLINES: Discipline[] = [
       'cocuklar-icin-ingilizce-drama-mi-ingilizce-kursu-mu',
       'cocugum-yabanci-dilde-utaniyor',
       'ingilizce-drama-youth-yas-gruplari-neden-ayri',
+      '8-10-yas-ingilizce-drama-ilkokul',
+      '11-14-yas-ingilizce-drama-ortaokul',
+      'veli-rehberi-ingilizce-drama-ilk-ay',
     ],
     related: ['gencler-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'yaratici-drama-istanbul'],
   },
@@ -946,6 +969,14 @@ export const DISCIPLINES: Discipline[] = [
         q: 'Uluslararası okulda okuyan ya da yabancı ailelerin çocukları katılabilir mi?',
         a: 'Evet. Program İngilizce yürüyor ve tam olarak İngilizcesi zaten olan çocuklar için kuruldu: uluslararası okul öğrencileri, yabancı ve karma ailelerin çocukları, iki dilli çocuklar ve okul İngilizcesi güçlü olup onu kullanacak yer bulamayanlar. Velilerle iletişim İngilizce de yürüyebiliyor.',
       },
+      {
+        q: '15–17 yaş grubu neden ayrı?',
+        a: 'Program 8–14 ve 15–17\'yi ayrı sınıflarda çalıştırıyor. Çerçeve ikisinde de aynı: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Ocak\'ta İngilizce sahne metni, karakter inşası ve partner çalışması; Şubat–Nisan\'da gençlerin kendi üretimlerinden seçilen sahnelerle prova; Mayıs\'ta seyircili, tamamen İngilizce yıl sonu gösterisi. Fark malzemede ve tempoda: lise çağındaki genç karakter inşasını ve metin çalışmasını kendi yaşıtlarıyla yapıyor, on iki yaşındaki bir çocukla aynı odada değil.',
+      },
+      {
+        q: 'Lise son sınıf öğrencisi katılabilir mi?',
+        a: 'Evet, 17 yaşındaysa 15–17 grubunda yerini alıyor. Program Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de; kitap, sınav ve not olmadığı için okul yüküne ek bir ölçüm getirmiyor. 18 yaşını doldurmuş genç için yetişkin programı English Drama Lab var: B1 ve üzeri İngilizce, esnek katılım.',
+      },
     ],
     facts: {
       heading: 'AKICILIK, YARATICILIK VE ARAŞTIRMA',
@@ -1003,6 +1034,9 @@ export const DISCIPLINES: Discipline[] = [
       'cocuklar-icin-ingilizce-drama-mi-ingilizce-kursu-mu',
       'genclerde-yaratici-drama-okul-basarisina-etkisi',
       'ingilizce-drama-youth-yas-gruplari-neden-ayri',
+      '15-17-yas-ingilizce-drama-lise',
+      'veli-rehberi-ingilizce-drama-ilk-ay',
+      '11-14-yas-ingilizce-drama-ortaokul',
     ],
     related: ['cocuklar-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],
   },
@@ -1119,7 +1153,7 @@ export const DISCIPLINES: Discipline[] = [
       'İstanbul İngilizce konuşma kulübü alternatifi: masa başı sohbet değil, sahnede İngilizce. Doğaçlama ve drama yoluyla konuşma pratiği. Kadıköy ve Pera.',
     keywords: [
       'ingilizce konuşma kulübü istanbul', 'konuşma kulübü istanbul',
-      'ingilizce konuşma pratiği istanbul', 'english speaking club istanbul',
+      'english speaking club istanbul',
       'ingilizce pratik yapma yerleri istanbul', 'ingilizce konuşma grubu',
       'ingilizce konuşma kursu kadıköy', 'speaking club kadıköy',
       'ingilizce akıcı konuşma', 'ingilizce konuşma korkusu',
@@ -1131,11 +1165,22 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce konuşma kulübü mü kurs mu', 'ingilizce konuşma pratiği kadıköy',
     ],
     intro:
-      'Klasik konuşma kulüplerinin sorunu şu: bir masanın etrafında oturup "bugün hava nasıl" diye konuşuyorsun ve iki hafta sonra sıkılıyorsun. Techne Lab\'ın yaklaşımı farklı. İngilizceyi sahnede, bir eylemin içinde kullanıyorsun. Bir karakteri canlandırırken, doğaçlama yaparken, sahne kurarken dil bir amaç değil araç oluyor. Ve araç olduğu anda korku kayboluyor.',
+      'Önce açık söyleyelim: Techne Lab bir konuşma kulübü değil. English Drama Lab, kulübün esnekliğini taşıyan bir İngilizce drama grubu; Kadıköy\'de her Pazartesi 20:00, Pera\'da her Cumartesi 15:00 toplanıyor. Klasik konuşma kulüplerinin sorunu şu: bir masanın etrafında oturup "bugün hava nasıl" diye konuşuyorsun ve iki hafta sonra sıkılıyorsun. Techne Lab\'ın yaklaşımı farklı. İngilizceyi sahnede, bir eylemin içinde kullanıyorsun. Bir karakteri canlandırırken, doğaçlama yaparken, sahne kurarken dil bir amaç değil araç oluyor. Ve araç olduğu anda korku kayboluyor.',
     what:
-      'Atölye tamamen İngilizce yürüyor. Gramer anlatılmıyor, kelime listesi ezberlenmiyor. Doğaçlama sahneleri kuruyorsun, karakterler yaratıyorsun, metinlerle çalışıyorsun. Hata yapmak sorun değil, sahnede hata zaten malzeme. Aradaki fark yöntemsel: masada konuşurken cümleyi önce kafanda kurup sonra çeviriyorsun, sahnede ise bir şey yapmak zorundasın ve cümle o eylemin içinden çıkıyor. Bellek araştırmalarında bu farka eylem üstünlüğü deniyor: kendi yaptığın bir eyleme bağlanan bilgi, yalnızca konuşularak kodlanan bilgiden daha iyi hatırlanıyor. Pratikte karşılığı şudur, katılımcıların çoğu ilk ay içinde düşünmeden konuşmaya başladığını söylüyor, çünkü sahnede düşünecek vakit yok.',
+      'Atölye tamamen İngilizce yürüyor. Gramer anlatılmıyor, kelime listesi ezberlenmiyor. Doğaçlama sahneleri kuruyorsun, karakterler yaratıyorsun, metinlerle çalışıyorsun. Hata yapmak sorun değil, sahnede hata zaten malzeme. Aradaki fark yöntemsel: masada konuşurken cümleyi önce kafanda kurup sonra çeviriyorsun, sahnede ise bir şey yapmak zorundasın ve cümle o eylemin içinden çıkıyor. Bellek araştırmalarında bu farka eylem üstünlüğü deniyor: kendi yaptığın bir eyleme bağlanan bilgi, yalnızca konuşularak kodlanan bilgiden daha iyi hatırlanıyor. Bu bulgu sözcük düzeyinde ve laboratuvar koşullarında gösterildi; sahnede beklediğimiz şey daha mütevazı: düşünecek vakit olmadığı için çeviri basamağını atlama alışkanlığı.',
     who:
       'İngilizcesi kâğıt üzerinde iyi ama konuşurken donanlar. Konuşma kulüplerine gidip sıkılanlar. Yurtdışı iş görüşmesine ya da eğitimine hazırlananlar. Aksan kaygısı taşıyanlar. B1 ve üzeri yeterli, akıcılık aranmıyor, zaten çalışılan şey o.',
+    quickAnswer: {
+      q: 'İstanbul\'da İngilizce konuşma kulübü arayan biri için Techne Lab ne sunuyor?',
+      a: 'Konuşma kulübü değil, kulüp esnekliğinde bir İngilizce drama grubu: English Drama Lab. Masa başı sohbet yerine doğaçlama ve sahne; eğitmen yönetiminde, en fazla 12 kişi. Kulüplerde sık yaşanan "iyi konuşan konuşur, diğerleri susar" sorunu burada yapıdan çözülüyor: sahnede herkesin sırası ve rolü var.',
+      points: [
+        'Kadıköy: her Pazartesi 20:00 · Pera: her Cumartesi 15:00',
+        'B1 ve üzeri yetişkinler (18+)',
+        'En fazla 12 kişi',
+        '1, 4 ya da 8 oturum',
+        'Önce ücretsiz tanışma oturumu',
+      ],
+    },
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu'],
     faq: [
@@ -1190,7 +1235,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Bir bitiş noktası, hazırlığın niteliğini değiştirir. Sunum, sahne ya da kayıt gibi bir kapanışı olan programlarda katılımcı daha çok çalışır. Açık uçlu sohbet gruplarında ilerleme ölçülemez, o yüzden de çoğu kişi birkaç ay sonra bırakır.',
       },
     ],
-    related: ['kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'ingilizce-konusma-pratigi-istanbul', 'cocuklar-icin-ingilizce-konusma-kulubu', 'ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
   },
 
   // ── AUDITION HAZIRLIK ────────────────────────────────────────────
@@ -1727,7 +1772,7 @@ export const DISCIPLINES: Discipline[] = [
     slug: 'kadikoy-ingilizce-konusma-kulubu',
     label: 'Konuşma Kulübü · Kadıköy',
     navHidden: true,
-    h1: 'KADIKÖY\nİNGİLİZCE KONUŞMA',
+    h1: 'KADIKÖY\nİNGİLİZCE KONUŞMA\nKULÜBÜ ALTERNATİFİ',
     eyebrow: 'English Drama Lab — Kadıköy · Pazartesi 20:00',
     seoTitle: 'Kadıköy İngilizce Konuşma Kulübü Alternatifi — Pazartesi 20:00 · English Drama Lab',
     seoDesc:
@@ -1744,6 +1789,17 @@ export const DISCIPLINES: Discipline[] = [
       'Bir oturum ısınma ve dil oyunlarıyla açılıyor, doğaçlama sahnelerle devam ediyor, kısa bir sahne çalışmasıyla bitiyor. Metin ezberi ve gramer yok. Konuşma kulüplerinde sık yaşanan sorun, herkesin sırayla bir cevap verip konuşmanın orada bitmesi. Doğaçlamada ise bir duruma tepki vermek zorundasın: karşındaki bir şey kuruyor, sen üstüne ekliyorsun. Dil bir sınav cevabı olmaktan çıkıp bir ilişkinin aracı oluyor.\n\nKatılım esnek: 1, 4 ya da 8 oturum. Bir akşam deneyip devam edip etmeyeceğine sonra karar verebilirsin. Grup İngilizce yürüyor ve B1 ve üzeri yetişkinlere göre kuruluyor; yani sohbet edebiliyor ama konuşurken donuyorsan doğru yerdesin.\n\nHer hafta kendi kulübünü yürütüyorsan ya da evde çalışıyorsan, ücretsiz kaynaklarımız da var: seviyeye göre 216 konuşma kulübü sorusu ve B2-C1 için 60 tartışma konusu.',
     who:
       'Konuşma kulübüne gidip "hep aynı şeyleri konuşuyoruz" diyenler. İngilizcesi var ama toplantıda, telefonda ya da yabancı bir arkadaşla konuşurken donanlar. Anadolu yakasında yaşayıp iş çıkışı karşıya geçmek istemeyenler: Moda, Fenerbahçe, Üsküdar, Ataşehir ve Bostancı\'dan Kadıköy en yakın nokta. 18 yaş üstü; çocuk ve gençler için ayrı program English Drama Youth.',
+    quickAnswer: {
+      q: 'Kadıköy\'de İngilizce konuşma kulübü arayan biri için ne var?',
+      a: 'English Drama Lab: konuşma kulübü değil, kulüp esnekliğinde bir İngilizce drama grubu. Her Pazartesi 20:00\'de Kadıköy\'de; masa başı sohbet yerine doğaçlama ve sahne, eğitmen yönetiminde, en fazla 12 kişi. Kulüplerde sık yaşanan "iyi konuşan konuşur, diğerleri susar" sorunu burada yapıdan çözülüyor: sahnede herkesin sırası ve rolü var.',
+      points: [
+        'Her Pazartesi 20:00 · Kadıköy',
+        'B1 ve üzeri yetişkinler (18+)',
+        'En fazla 12 kişi',
+        '1, 4 ya da 8 oturum',
+        'Önce ücretsiz tanışma oturumu',
+      ],
+    },
     workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     articleSlugs: [
@@ -1751,6 +1807,7 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce-konusma-kulubune-gittim-ise-yaramadi',
       'ingilizce-konusma-kulubu-nasil-secilir',
       'toplantida-ingilizce-konusamiyorum',
+      'ingilizce-konusma-kulubunde-sessiz-kalanlar',
     ],
     faq: [
       {
@@ -1774,7 +1831,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet. English Drama Lab\'ın Pera grubu her Cumartesi 15:00\'de çalışıyor. Ayrıntılar Beyoğlu sayfasında.',
       },
     ],
-    related: ['ingilizce-konusma-kulubu-istanbul', 'beyoglu-ingilizce-konusma-kulubu', 'kadikoy-ingilizce-drama-kursu'],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'beyoglu-ingilizce-konusma-kulubu', 'kadikoy-ingilizce-drama-kursu', 'cocuklar-icin-ingilizce-konusma-kulubu', 'ingilizce-konusma-pratigi-istanbul'],
   },
 
   // ── BEYOĞLU · PERA × KONUŞMA KULÜBÜ (17 Ekim 2026) ──────────────
@@ -1782,7 +1839,7 @@ export const DISCIPLINES: Discipline[] = [
     slug: 'beyoglu-ingilizce-konusma-kulubu',
     label: 'Konuşma Kulübü · Beyoğlu',
     navHidden: true,
-    h1: 'BEYOĞLU · PERA\nİNGİLİZCE KONUŞMA',
+    h1: 'BEYOĞLU · PERA\nİNGİLİZCE KONUŞMA\nKULÜBÜ ALTERNATİFİ',
     eyebrow: 'English Drama Lab — Pera · Cumartesi 15:00',
     seoTitle: 'Beyoğlu İngilizce Konuşma Kulübü Alternatifi — Pera, Cumartesi 15:00 · English Drama Lab',
     seoDesc:
@@ -1794,11 +1851,22 @@ export const DISCIPLINES: Discipline[] = [
       'istanbul english speaking club saturday',
     ],
     intro:
-      'Beyoğlu\'nda İngilizce konuşma kulübü arıyorsan, alternatif bir kapı: English Drama Lab her Cumartesi 15:00\'de Pera\'da, İstiklal Caddesi\'ne yürüme mesafesindeki Pod Pera stüdyosunda toplanıyor. Kulüp gibi esnek katılım, ama sohbet masası yerine sahne.',
+      'Beyoğlu\'nda İngilizce konuşma kulübü arıyorsan önce açık söyleyelim: biz bir konuşma kulübü değiliz, kulübün esnekliğini taşıyan bir drama grubuyuz. English Drama Lab her Cumartesi 15:00\'de Pera\'da, İstiklal Caddesi\'ne yürüme mesafesindeki Pod Pera stüdyosunda toplanıyor. Kulüp gibi esnek katılım, ama sohbet masası yerine sahne.',
     what:
       'Oturum ısınma ve dil oyunlarıyla başlıyor, doğaçlama sahnelerle sürüyor, kısa bir sahne çalışmasıyla kapanıyor. Gramer ve ezber yok. Doğaçlamada bir duruma anında tepki verdiğin için konuşma kulübündeki "sıra bana gelsin, cümlemi hazırlayayım" döngüsü kırılıyor: dinlemek ve cevap vermek aynı anda oluyor.\n\nKatılım 1, 4 ya da 8 oturum. Grup İngilizce yürüyor, B1 ve üzeri yetişkinler için kuruluyor. Cumartesi öğleden sonra olduğu için hafta içi akşamları dolu olanlara da uyuyor.\n\nKendi kulübünü yönetenler için ücretsiz kaynaklar: seviyeye göre 216 konuşma kulübü sorusu ve 60 tartışma konusu.',
     who:
       'Taksim, Cihangir, Galata, Şişhane, Harbiye ve Şişli hattında yaşayan ya da çalışanlar. Konuşma kulübünde aynı sohbetlere takılıp kalanlar. 18 yaş üstü; 8-17 yaş için Pera\'da Pazar 13:00\'te English Drama Youth var.',
+    quickAnswer: {
+      q: 'Beyoğlu ve Taksim\'de İngilizce konuşma kulübü arayan biri için ne var?',
+      a: 'English Drama Lab: konuşma kulübü değil, kulüp esnekliğinde bir İngilizce drama grubu. Her Cumartesi 15:00\'te Pera\'da, Pod Pera stüdyosunda; masa başı sohbet yerine doğaçlama ve sahne, eğitmen yönetiminde, en fazla 12 kişi. Kulüplerde sık yaşanan "iyi konuşan konuşur, diğerleri susar" sorunu burada yapıdan çözülüyor: sahnede herkesin sırası ve rolü var.',
+      points: [
+        'Her Cumartesi 15:00 · Pera (Pod Pera)',
+        'B1 ve üzeri yetişkinler (18+)',
+        'En fazla 12 kişi',
+        '1, 4 ya da 8 oturum',
+        'Önce ücretsiz tanışma oturumu',
+      ],
+    },
     workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'taksim-oyunculuk-kursu'],
     articleSlugs: [
@@ -1806,6 +1874,7 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce-konusma-kulubune-gittim-ise-yaramadi',
       'ingilizce-konusma-pratigi-yontemleri',
       'ingilizce-anliyorum-ama-konusamiyorum',
+      'ingilizce-konusma-kulubunde-sessiz-kalanlar',
     ],
     faq: [
       {
@@ -1829,7 +1898,202 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet, Kadıköy grubu her Pazartesi 20:00\'de. Ayrıntılar Kadıköy sayfasında.',
       },
     ],
-    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-drama-kursu'],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-drama-kursu', 'cocuklar-icin-ingilizce-konusma-kulubu', 'ingilizce-konusma-pratigi-istanbul'],
+  },
+
+  // ── ÇOCUKLAR × KONUŞMA KULÜBÜ (27 Ekim 2026) ────────────────────
+  // Rakip raporu (26 Ekim 2026): "çocuklar için ingilizce konuşma kulübü istanbul" SERP'i sahipsiz
+  // (belediye ayda bir, online platformlar, bir kafe kulübünün sayfa içi tek satırı).
+  // Dürüst köprü: kulüp değiliz, kulüp esnekliği yok; haftalık sabit grup, oyunla konuşma.
+  // Bilgilerin tamamı data.ts (english-drama-youth) ve tanisma-gunu/sessions.ts'ten.
+  {
+    slug: 'cocuklar-icin-ingilizce-konusma-kulubu',
+    label: 'Çocuklar İçin Konuşma Kulübü',
+    navHidden: true,
+    h1: 'ÇOCUKLAR İÇİN\nİNGİLİZCE KONUŞMA KULÜBÜ\nALTERNATİFİ: İNGİLİZCE DRAMA (8–17)',
+    eyebrow: 'English Drama Youth — 8–14 ve 15–17 ayrı gruplar · Pera ve Kadıköy',
+    seoTitle: 'Çocuklar İçin İngilizce Konuşma Kulübü İstanbul — 8-17 Yaş Drama Alternatifi',
+    seoDesc:
+      'Çocuğu için İngilizce konuşma kulübü arayan velilere: English Drama Youth, 8-17 yaş, haftada bir gün sabit grup. Oyun, doğaçlama ve sahneyle konuşma; kitap ve sınav yok. Pera ve Kadıköy, ücretsiz tanışma.',
+    keywords: [
+      'çocuklar için ingilizce konuşma kulübü', 'çocuk ingilizce konuşma kulübü istanbul',
+      'çocuk speaking kulübü', 'çocuk ingilizce speaking kulübü', 'çocuk ingilizce konuşma pratiği istanbul',
+      'çocuk ingilizce speaking kursu', 'çocuk ingilizce konuşma dersi', 'ortaokul ingilizce konuşma kulübü',
+      'genç ingilizce konuşma kulübü', 'kadıköy çocuk ingilizce konuşma', 'beyoğlu çocuk ingilizce drama',
+      'yüz yüze çocuk ingilizce konuşma', 'kids english speaking club istanbul',
+    ],
+    intro:
+      'Çocuğunuz için İngilizce konuşma kulübü arıyorsanız önce açık konuşalım: English Drama Youth bir konuşma kulübü değil. Kulüpteki gibi istediğiniz hafta gelip gitme esnekliği yok; onun yerine Ekim\'den Mayıs\'a haftada bir gün toplanan sabit bir grup var. Çocuklar masa başında sırayla soru cevaplamıyor, oyunun, doğaçlamanın ve sahnenin içinde İngilizce konuşuyor. Gruplar 8–14 ve 15–17 yaş olarak ayrı; Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
+    quickAnswer: {
+      q: 'İstanbul\'da çocuklar için İngilizce konuşma kulübü yerine ne var?',
+      a: 'Techne Lab İstanbul\'un English Drama Youth programı, 8–17 yaş çocuk ve gençlerin İngilizceyi oyun ve sahne içinde konuştuğu haftalık bir drama grubu. Kulüp değil: tek seferlik katılım yerine Ekim–Mayıs arası sabit bir grup. Kitap, sınav ve not yok; yıl Mayıs\'ta tamamen İngilizce, seyircili bir gösteriyle kapanıyor.',
+      points: [
+        '8–17 yaş; 8–14 ve 15–17 ayrı gruplar, grup başına en fazla 12 kişi',
+        'Pera: her Pazar 13:00 · Kadıköy: her Cumartesi 15:00',
+        'B1 ve üzeri önerilir; seviye sınavı yok',
+        'Ekim–Mayıs, haftada bir gün; her ayın son haftası konuk atölye',
+        'Önce ücretsiz tanışma oturumu',
+      ],
+    },
+    what:
+      'Bir oturum ısınma ve dil oyunlarıyla açılıyor, doğaçlama ve grup sahneleriyle sürüyor. Çocuk bir karakterin, bir durumun, bir oyunun içinde konuşuyor: karşısındaki arkadaşı bir şey kuruyor, o da cevap vermek zorunda kalıyor. Konuşma kulüplerinde sık görülen tablo, iyi konuşan iki kişinin masayı doldurması ve diğerlerinin susmasıdır. Sahne çalışmasında ise sıra ve rol yapısı herkesi ayağa kaldırır. Utangaç bir çocuk için bu ilk haftalarda zor gelebilir; o yüzden kısa ve çok yapılı oyunlarla başlıyoruz.\n\nHer ay üç hafta drama, son hafta konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Çocukların yazdığı ve tasarladığı malzeme yıl sonu gösterisine dönüşüyor. Gramer anlatılmıyor; kitap, sınav ve not yok. Dil burada bir sınav cevabı değil, oyunun aracı.\n\nNeden kulüp esnekliği yok? Çünkü bir çocuğun sahnede risk alması, her hafta aynı yüzleri görmesine ve gruba güvenmesine bağlı. Her hafta değişen bir masada bu güven kurulmuyor.',
+    who:
+      'İngilizce notları iyi ama konuşmaya gelince susan çocuklar. Online birebir uygulamalardan sıkılmış, ekran yerine yüz yüze bir grup arayan aileler. Okul İngilizcesi güçlü olup onu kullanacak yer bulamayan ortaokul ve lise öğrencileri. Uluslararası okul öğrencileri ve iki dilli aileler. B1 ve üzeri öneriyoruz: günlük bir sohbeti takip edip cevap verebiliyorsa yeterli. İngilizceye sıfırdan başlayan bir çocuk için bu program erken; önce bir dil kursu daha uygun olur.',
+    workshopSlugs: ['english-drama-youth'],
+    districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu'],
+    articleSlugs: [
+      'cocuk-icin-ingilizce-konusma-kulubu-mu-drama-mi',
+      'cocugum-ingilizce-biliyor-ama-konusmuyor',
+      'cocuklar-icin-ingilizce-drama-mi-ingilizce-kursu-mu',
+      'ingilizce-drama-youth-yas-gruplari-neden-ayri',
+      'veli-rehberi-ingilizce-drama-ilk-ay',
+    ],
+    faq: [
+      {
+        q: 'Çocuğum kaç yaşında olmalı?',
+        a: 'Program 8–17 yaş için. 8–14 ve 15–17 yaş grupları ayrı sınıflarda çalışıyor; kayıt sırasında çocuğunuzu yaşına uygun gruba yerleştiriyoruz. 8 yaşın altı için şu an bir programımız yok.',
+      },
+      {
+        q: 'İngilizce seviyesi ne olmalı, seviye sınavı var mı?',
+        a: 'B1 ve üzeri öneriyoruz: günlük bir sohbeti takip edip cevap verebiliyorsa yeterli. Seviye tespit sınavı yok; ailenin dil beyanı yeterli. Emin değilseniz tanışma oturumunda çocuğunuzla kısa bir sohbet durumu netleştiriyor.',
+      },
+      {
+        q: 'Gruplar kaç kişi?',
+        a: 'Grup başına en fazla 12 kişi. Yaş grupları karışmıyor: 8 yaşındaki bir çocuk 16 yaşındakilerle aynı sahnede çalışmıyor.',
+      },
+      {
+        q: 'Hangi gün ve saatte?',
+        a: 'Pera\'da (Beyoğlu) her Pazar 13:00, Kadıköy\'de her Cumartesi 15:00. Program Ekim\'den Mayıs\'a, haftada bir gün sürüyor. İki grup da başladı ve katılım açık; güncel tanışma tarihleri tanışma günü sayfasında.',
+      },
+      {
+        q: 'Yıl sonunda gösteri var mı?',
+        a: 'Evet. Mayıs\'ta tamamen İngilizce, seyircili bir yıl sonu gösterisi var; aileler davetli. Gösteri tüm grubun ortak işi, ama sahnede ne kadar öne çıkacağı çocuğun kendi hızına göre belirleniyor.',
+      },
+      {
+        q: 'Konuşma kulübünden farkı ne?',
+        a: 'Konuşma kulübünde bir konu etrafında sohbet edilir, katılım esnektir, bir yürütücü soru sorar. Burada grup sabit, konuşma oyunun ve sahnenin içinden çıkar, herkesin bir rolü vardır. Kulüplerin de işe yaradığını gösteren çalışmalar var: Türkiye\'de lise öğrencileriyle yapılan yedi haftalık bir konuşma kulübü, konuşma kaygısını belirgin biçimde düşürdü (Saraç ve Doğan, 2024). Fark kaygıda değil yapıda: sahnede sessiz kalmak zor, ve iş bir gösteriyle kapanıyor.',
+      },
+      {
+        q: 'Ara ara ya da tek seferlik katılabilir mi?',
+        a: 'Hayır, kulüp esnekliği yok; grup her hafta aynı çocuklarla çalışıyor. Ama karar vermeden önce gelip görebilirsiniz: ücretsiz tanışma oturumunda çocuğunuz gruba misafir olarak katılıyor.',
+      },
+      {
+        q: 'Programı kim yürütüyor?',
+        a: 'English Drama Youth\'u tiyatrocu Alara Lokum yürütüyor; konuk atölyeler alanının sanatçılarıyla yapılıyor. Eğitmenlerin özgeçmişleri ekip sayfasında.',
+      },
+    ],
+    criteria: [
+      {
+        q: 'Grup her hafta aynı mı?',
+        a: 'Çocuğun konuşmak için risk alması, gruba güvenmesine bağlı. Her hafta değişen bir masada çocuk çoğu zaman dinleyici kalır. Sabit grup daha az esnek ama güven daha hızlı kurulur.',
+      },
+      {
+        q: 'Çocuğum gerçekten konuşuyor mu, yoksa dinliyor mu?',
+        a: 'Tanışma oturumunda şuna bakın: iki saatin sonunda çocuğunuz kaç kez ağzını açtı? Sohbet masasında bu sayı iyi konuşan birkaç çocuğa yığılır. Rol ve sıra yapısı olan çalışmada dağılır.',
+      },
+      {
+        q: 'Yaş grupları ayrı mı?',
+        a: '8 yaşındaki ile 16 yaşındakinin ilgi alanı da cesaret eşiği de farklı. Yaş grupları karışıksa küçükler susar, büyükler sıkılır.',
+      },
+      {
+        q: 'Bir bitiş noktası var mı?',
+        a: 'Gösteri ya da sunum gibi bir kapanış, hazırlığın niteliğini değiştirir. Açık uçlu sohbet gruplarında ilerleme görünmez; çocuk da veli de birkaç ay sonra bırakır.',
+      },
+    ],
+    related: ['cocuklar-icin-ingilizce-drama-istanbul', 'gencler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu'],
+  },
+
+  // ── İNGİLİZCE KONUŞMA PRATİĞİ İSTANBUL (27 Ekim 2026) ───────────
+  // "ingilizce konuşma pratiği istanbul" / "yüz yüze" / "konuşma grubu" sorguları: SERP'te
+  // özel ders pazar yerleri ve online ürünler; yüz yüze grup seçeneklerini yan yana koyan sayfa yok.
+  // Hub sayfası (ingilizce-konusma-kulubu-istanbul) "kulüp" niyetini, bu sayfa "pratik nerede" niyetini alır.
+  {
+    slug: 'ingilizce-konusma-pratigi-istanbul',
+    label: 'İngilizce Konuşma Pratiği',
+    navHidden: true,
+    h1: 'İSTANBUL\'DA YÜZ YÜZE\nİNGİLİZCE KONUŞMA PRATİĞİ',
+    eyebrow: 'English Drama Lab — Kadıköy Pazartesi 20:00 · Pera Cumartesi 15:00',
+    seoTitle: 'İngilizce Konuşma Pratiği İstanbul — Yüz Yüze Haftalık Grup · Kadıköy ve Pera',
+    seoDesc:
+      'İstanbul\'da yüz yüze İngilizce konuşma pratiği: seçeneklerin dürüst haritası ve English Drama Lab. Haftalık grup, en fazla 12 kişi, B1 ve üzeri. Kadıköy Pazartesi 20:00, Pera Cumartesi 15:00.',
+    keywords: [
+      'ingilizce konuşma pratiği istanbul', 'yüz yüze ingilizce konuşma pratiği',
+      'ingilizce konuşma grubu istanbul', 'ingilizce pratik grubu istanbul',
+      'ingilizce konuşma pratiği yapabileceğim yerler istanbul', 'haftalık ingilizce konuşma grubu',
+      'yetişkin ingilizce konuşma pratiği', 'ingilizce konuşma pratiği hafta sonu',
+      'ingilizce konuşma pratiği akşam', 'yüz yüze ingilizce konuşma kulübü',
+      'ingilizce konuşma pratiği kursu istanbul',
+    ],
+    intro:
+      'İstanbul\'da İngilizce konuşma pratiği yapmanın beş yaygın yolu var: ücretsiz kamu ve belediye kulüpleri, Meetup ve language exchange buluşmaları, kafe tipi ücretli konuşma kulüpleri, online birebir platformlar ve yüz yüze drama grupları. Hangisinin işe yarayacağı, nerede tıkandığına bağlı. Bu sayfa seçenekleri yan yana koyuyor ve kendi yerimizi açıkça söylüyor: English Drama Lab, B1 ve üzeri yetişkinler için kulüp esnekliğinde çalışan haftalık bir İngilizce drama grubu.',
+    quickAnswer: {
+      q: 'İstanbul\'da yüz yüze İngilizce konuşma pratiği nerede yapılır?',
+      a: 'Ücretsiz seçenekler (belediye ve kamu kulüpleri, Meetup buluşmaları) iyi bir başlangıç. Düzenli ve yönetilen bir pratik isteyen B1 ve üzeri yetişkinler için Techne Lab İstanbul\'un English Drama Lab grubu Kadıköy\'de her Pazartesi 20:00, Pera\'da her Cumartesi 15:00 toplanıyor. Bu bir konuşma kulübü değil, doğaçlama ve sahneyle çalışan bir drama grubu; katılım 1, 4 ya da 8 oturum.',
+      points: [
+        'B1 ve üzeri yetişkinler (18+)',
+        'En fazla 12 kişi',
+        'Tek oturum ya da 4 ve 8 oturumluk katılım',
+        'Önce ücretsiz tanışma oturumu',
+        '8–17 yaş için ayrı program: English Drama Youth',
+      ],
+    },
+    what:
+      'Ücretsiz kulüpler. Belediyelerin, İBB\'nin ve bazı vakıfların konuşma kulüpleri değerli: ücretsiz, erişilebilir, ilk adımı attırıyor. Sınırları da belli: kayıt dönemleri kısa, gruplar kalabalık olabiliyor, buluşmalar çoğu zaman haftada bir değil.\n\nMeetup ve language exchange. Sosyal, rahat, yabancılarla tanışma fırsatı. Çoğunda yürütücü yok; masa zamanla en iyi konuşanlara kalabiliyor.\n\nKafe tipi konuşma kulüpleri. Küçük gruplar, bir yürütücü, esnek katılım. Konuşma sohbet olarak kalıyor; konu bulmak ve sıra beklemek senin işin.\n\nOnline birebir platformlar. Kişi başına konuşma süresi en yüksek seçenek, ama ekran başında ve tek bir partnerle. Bir grubun önünde konuşma cesareti başka bir kas.\n\nDrama grubu. Bizim durduğumuz yer. Oturum ısınma ve dil oyunlarıyla açılıyor, doğaçlama sahnelerle sürüyor, kısa bir sahne çalışmasıyla kapanıyor. Sohbet yerine bir durumun içinde konuşuyorsun; sıra ve rol yapısı herkesi ayağa kaldırıyor. Gramer ve ezber yok. Sınırımız da açık: A1-A2 için uygun değil, online grubumuz yok, native speaker vaadi vermiyoruz.',
+    who:
+      'Ücretsiz kulüplere gidip düzenli devam edemeyenler. Online birebir uygulamada konuşabilen ama bir grubun önünde donanlar. Meetup masasında hep dinleyici kalanlar. İş çıkışı Anadolu yakasında (Kadıköy, Pazartesi 20:00) ya da hafta sonu Avrupa yakasında (Pera, Cumartesi 15:00) haftalık bir pratik saati arayanlar. 18 yaş üstü; çocuk ve gençler için ayrı program English Drama Youth.',
+    workshopSlugs: ['english-drama-lab'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    articleSlugs: [
+      'ucretsiz-ingilizce-konusma-kulubu-istanbul-ne-beklemeli',
+      'cambly-alternatifi-yuz-yuze-ingilizce-konusma',
+      'ingilizce-konusma-kulubunde-sessiz-kalanlar',
+      'ingilizce-konusma-pratigi-yontemleri',
+    ],
+    faq: [
+      {
+        q: 'İstanbul\'da ücretsiz İngilizce konuşma pratiği var mı?',
+        a: 'Var. Belediyeler, İBB\'nin Enstitü İstanbul programı ve bazı vakıflar dönem dönem ücretsiz konuşma kulübü açıyor; Meetup\'ta da ücretsiz ya da düşük katılım ücretli buluşmalar var. Kayıt dönemlerini takip etmek gerekiyor. Bizim tarafta ücretsiz olan, tanışma oturumu.',
+      },
+      {
+        q: 'Online mı, yüz yüze mi?',
+        a: 'Online birebir, kişi başına en çok konuşma süresini veren seçenek. Yüz yüze grup ise başka bir şeyi çalıştırıyor: birden fazla kişinin önünde, anında ve bedeniyle konuşmayı. Toplantıda, sunumda ya da kalabalık bir masada donuyorsan yüz yüze grup daha doğrudan hedefi vurur.',
+      },
+      {
+        q: 'Hangi İngilizce seviyesi gerekiyor?',
+        a: 'B1 ve üzeri: tanıdık konularda sohbet edebilmen yeterli. A1-A2 için önce bir dil kursu daha uygun.',
+      },
+      {
+        q: 'Ne zaman ve nerede?',
+        a: 'English Drama Lab Kadıköy grubu her Pazartesi 20:00, Pera grubu her Cumartesi 15:00. Ayrıntılar Kadıköy ve Beyoğlu sayfalarında.',
+      },
+      {
+        q: 'Tek bir oturuma gelebilir miyim?',
+        a: 'Evet. Katılım 1, 4 ya da 8 oturum olarak alınabiliyor. Önce görmek istersen ücretsiz tanışma oturumu var; güncel tarihler tanışma günü sayfasında.',
+      },
+      {
+        q: 'Çocuğum için de var mı?',
+        a: 'Evet, ayrı bir programla: English Drama Youth 8–17 yaş için, 8–14 ve 15–17 ayrı gruplar. Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
+      },
+    ],
+    criteria: [
+      {
+        q: 'Ne sıklıkla buluşuyor?',
+        a: 'Konuşma bir beceri ve becerinin aralıklı değil düzenli pratiğe ihtiyacı var. Ayda bir ya da iki haftada bir buluşan bir grup başlangıç için iyi, ilerleme için zayıf.',
+      },
+      {
+        q: 'Kim yönetiyor?',
+        a: 'Yürütücü yoksa masa en iyi konuşana kalır. Bir yürütücünün sırayı dağıtıp dağıtmadığına bak.',
+      },
+      {
+        q: 'İki saatte sen kaç dakika konuştun?',
+        a: 'İlk oturumdan çıkarken kendine sor. Cevap birkaç dakikaysa format sana göre değil, seviyen değil.',
+      },
+      {
+        q: 'Seviye uyuyor mu?',
+        a: 'A1 ile C1 aynı masadaysa biri susar, diğeri sıkılır. Başvuruda seviyenin sorulması, grubun dengelendiğinin işaretidir.',
+      },
+    ],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'cocuklar-icin-ingilizce-konusma-kulubu', 'yetiskinler-icin-ingilizce-drama-istanbul'],
   },
 
 ]

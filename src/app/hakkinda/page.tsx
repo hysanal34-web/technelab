@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_META } from '@/lib/data'
+import { TEAM } from '@/lib/ekip'
+import { InstructorStrip } from '@/components/InstructorStrip'
 
 export const metadata: Metadata = {
   // Marka sorgusu ("Techne Lab istanbul tiyatro") için marka + tiyatro aynı başlıkta (29 Eylül 2026).
@@ -106,11 +108,15 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Ekip — 26 Ekim 2026 (Yağız): ana sayfadaki şerit buraya da.
+          Aynı bileşen, aynı TEAM sırası; ikinci bir liste yok. ────────── */}
+      <InstructorStrip />
+
       {/* ── İç linkler — keşfe devam ───────────────────────────── */}
       <section className="grid md:grid-cols-3 border-b border-border" aria-label="Keşfet">
         {[
           { href: '/atolyeler', label: 'ATÖLYELER', sub: '7 program · 4 disiplin' },
-          { href: '/ekip', label: 'EKİP', sub: '7 eğitmen · tek sahne' },
+          { href: '/ekip', label: 'EKİP', sub: `${TEAM.length} eğitmen · tek sahne` },
           { href: '/galeri', label: 'GALERİ', sub: 'Provadan sahneye kareler' },
         ].map((x, i) => (
           <Link

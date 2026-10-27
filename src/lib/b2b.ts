@@ -269,7 +269,7 @@ export const B2B_PAGES: B2BPage[] = [
       { q: 'Atölyeler İngilizce yapılabilir mi?', a: 'Evet, tüm modüller Türkçe ya da İngilizce. İngilizce grupta B1 ve üzeri öneriyoruz; seviye sınavı yok.' },
       { q: 'Fiyat nasıl belirleniyor?', a: 'Talebe göre. Kapsam netleştikten sonra tek sayfa teklif iki iş gününde iletilir.' },
     ],
-    articleSlugs: ['kurumsal-drama-egitimi-nedir', 'dogaclama-is-hayatinda-ne-ise-yarar', 'ingilizce-konusmaktan-cekinen-ekipler', 'sahne-korkusu-nasil-yenilir', 'oyunculukta-ses-ve-nefes'],
+    articleSlugs: ['kurumsal-drama-egitimi-nedir', 'dogaclama-is-hayatinda-ne-ise-yarar', 'ingilizce-konusmaktan-cekinen-ekipler', 'ekip-etkinligi-fikirleri-istanbul', 'kurumsal-egitimin-etkisi-nasil-olculur', 'sirket-ici-ingilizce-iletisim-sorunu', 'kurumsal-egitim-butcesi-yil-sonu'],
     links: [{ href: '/okullar', label: 'Okullar ve kolejler için' }, { href: '/en/corporate', label: 'Corporate workshops in English' }, { href: '/ekip', label: 'Ekip' }],
     enPath: '/en/corporate',
   },
@@ -301,7 +301,7 @@ export const B2B_PAGES: B2BPage[] = [
       { q: 'Hangi seviye gerekir?', a: 'B1 ve üzeri. Seviye sınavı yapmıyoruz.' },
       { q: 'Atölyeyi kim yürütür?', a: 'İngilizce drama programlarımızı yürüten, konservatuvar mezunu ve anadil seviyesinde İngilizceyle çalışan eğitmenlerimiz.' },
     ],
-    articleSlugs: ['ingilizce-konusmaktan-cekinen-ekipler', 'toplantida-ingilizce-konusamiyorum', 'ingilizce-anliyorum-ama-konusamiyorum', 'ingilizce-aksan-kaygisi', 'dogaclama-ile-ingilizce-nasil-calisilir'],
+    articleSlugs: ['sirket-ici-ingilizce-iletisim-sorunu', 'ingilizce-konusmaktan-cekinen-ekipler', 'toplantida-ingilizce-konusamiyorum', 'ingilizce-anliyorum-ama-konusamiyorum', 'ingilizce-aksan-kaygisi', 'dogaclama-ile-ingilizce-nasil-calisilir'],
     links: [{ href: '/atolyeler/english-drama-lab', label: 'English Drama Lab (yetişkin, haftalık)' }, { href: '/yetiskinler-icin-ingilizce-drama-istanbul', label: 'Yetişkinler için İngilizce drama' }, { href: '/kaynaklar/ingilizce-tartisma-konulari', label: 'İngilizce tartışma konuları' }],
   },
   {
@@ -485,7 +485,7 @@ export const B2B_PAGES: B2BPage[] = [
       { q: 'Kaç kişiyle yapılabilir?', a: 'Etkinlik oturumu 90 dakika ve 20–60 kişi. Çalışan kulübü mesai sonrası, 10 × 2 saat.' },
       { q: 'Şarkı söylemek zorunlu mu?', a: 'Hayır. Şarkılı bölüm ekip olarak yapılır; istenirse yalnızca dans formatı kurulur.' },
     ],
-    articleSlugs: ['jazz-dance-nedir', 'broadway-musical-dans-nedir', 'muzikal-ensemble-oyuncusu-olmak-koronun-gorunmeyen-isi'],
+    articleSlugs: ['ekip-etkinligi-fikirleri-istanbul', 'jazz-dance-nedir', 'broadway-musical-dans-nedir', 'muzikal-ensemble-oyuncusu-olmak-koronun-gorunmeyen-isi'],
     links: [{ href: '/atolyeler/broadway-musical-dance', label: 'Broadway Musical Dance' }, { href: '/muzikal-tiyatro-kursu-istanbul', label: 'Müzikal tiyatro kursu' }],
   },
   {
