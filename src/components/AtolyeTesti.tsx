@@ -182,7 +182,7 @@ export function AtolyeTesti() {
             <div className="flex items-baseline gap-3 mb-4">
               <span className="font-mono text-[11px] tracking-[0.18em] text-neon">{top.w.code}</span>
               <span className="font-mono text-[10px] tracking-[0.16em] uppercase text-dim">
-                {top.w.active ? 'kayıt açık' : 'kayıt kapalı'}
+                {top.w.active ? 'kayıt açık' : top.w.yakinda ? 'yakında' : 'kayıt kapalı'}
               </span>
             </div>
             <h3 className="font-display text-neon leading-tight mb-3" style={{ fontSize: 'clamp(24px,3vw,42px)' }}>

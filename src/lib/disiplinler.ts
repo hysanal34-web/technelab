@@ -346,6 +346,7 @@ export const DISCIPLINES: Discipline[] = [
       'gencler-icin-ingilizce-drama-istanbul',
       'cocuklar-icin-ingilizce-drama-istanbul',
       'ingilizce-oyunculuk-istanbul',
+      'sifirdan-ingilizce-konusma-istanbul',
     ],
   },
 
@@ -909,7 +910,7 @@ export const DISCIPLINES: Discipline[] = [
       '11-14-yas-ingilizce-drama-ortaokul',
       'veli-rehberi-ingilizce-drama-ilk-ay',
     ],
-    related: ['gencler-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'yaratici-drama-istanbul'],
+    related: ['gencler-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'yaratici-drama-istanbul', 'cocuklar-icin-baslangic-ingilizce-drama'],
   },
 
   // ── GENÇLER İÇİN İNGİLİZCE DRAMA (15–17) ─────────────────────────
@@ -1038,7 +1039,7 @@ export const DISCIPLINES: Discipline[] = [
       'veli-rehberi-ingilizce-drama-ilk-ay',
       '11-14-yas-ingilizce-drama-ortaokul',
     ],
-    related: ['cocuklar-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['cocuklar-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul', 'cocuklar-icin-baslangic-ingilizce-drama'],
   },
 
   // ── YETİŞKİNLER İÇİN İNGİLİZCE DRAMA ─────────────────────────────
@@ -1078,7 +1079,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'İngilizce seviyem yeterli mi?',
-        a: 'Orta seviye (B1 civarı) yeterli. Gramer düzeltmiyoruz, akıcılık çalışıyoruz. Başvuru formunda seviyeni yazıyorsun, grupları buna göre dengeliyoruz.',
+        a: 'Orta seviye (B1 civarı) yeterli. Gramer düzeltmiyoruz, akıcılık çalışıyoruz. Başvuru formunda seviyeni yazıyorsun, grupları buna göre dengeliyoruz. İngilizceye yeni başlıyorsan yakında açılacak A1+ English Drama Lab grubuna bak (/sifirdan-ingilizce-konusma-istanbul).',
       },
       {
         q: 'Sahneye çıkmak zorunda mıyım?',
@@ -1093,7 +1094,95 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Konuşma kulübünde oturup konu üzerine konuşulur. Burada ayaktasın, hareket ediyorsun, bir durumun içindesin. Dil bedene bağlandığında hem daha hızlı çıkıyor hem daha kalıcı yerleşiyor.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'ingilizce-oyunculuk-istanbul'],
+    related: ['ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'ingilizce-oyunculuk-istanbul', 'sifirdan-ingilizce-konusma-istanbul'],
+  },
+
+  // ── A1+ BAŞLANGIÇ: YETİŞKİN (28 Ekim 2026) ──────────────────────
+  // Rakip analizi: "sıfırdan ingilizce" sorgularında dil okulu şubeleri ve "3 ayda akıcı"
+  // vaatleri baskın. Yetişkin + başlangıç + İngilizce drama birleşimini sunan kurum yok.
+  // Konum: dürüst vaat (akıcılık değil, konuşmaya başlamak). Program yakında, gün yok.
+  {
+    slug: 'sifirdan-ingilizce-konusma-istanbul',
+    label: 'Sıfırdan İngilizce (A1+)',
+    h1: 'SIFIRDAN İNGİLİZCE,\nSAHNEDE',
+    eyebrow: 'A1+ · Yetişkin · Yakında · Pera & Kadıköy',
+    seoTitle: 'Sıfırdan İngilizce Konuşma İstanbul — A1+ English Drama Lab',
+    seoDesc:
+      'İngilizceye yeni başlayan yetişkinler için İngilizce drama: 12 hafta, haftada 2 saat, Pera ve Kadıköy. Akıcılık vaadi yok, konuşmaya başlamak var. Bekleme listesi açık.',
+    keywords: [
+      'sıfırdan ingilizce', 'sıfırdan ingilizce konuşma', 'sıfırdan ingilizce kursu istanbul',
+      'a1 ingilizce kursu', 'a1 ingilizce kursu istanbul', 'başlangıç seviyesi ingilizce kursu',
+      'yetişkinler için başlangıç ingilizce', 'hiç ingilizce bilmiyorum', 'ingilizceye yeni başlayanlar',
+      'ingilizce kursu kadıköy başlangıç', 'ingilizce kursu beyoğlu başlangıç', 'ingilizce drama başlangıç',
+      'beginner english istanbul', '40 yaşında ingilizce', 'ingilizce konuşma korkusu',
+    ],
+    quickAnswer: {
+      q: 'Hiç İngilizce bilmeyen bir yetişkin İngilizce dramaya katılabilir mi?',
+      a: 'Evet. Techne Lab, İngilizceye yeni başlayan yetişkinler için A1+ English Drama Lab grubunu açıyor: 12 hafta, haftada 2 saat, Pera ve Kadıköy. Günler henüz netleşmedi; bekleme listesi açık. Program akıcılık vaat etmiyor, konuşmaya başlamayı hedefliyor.',
+      points: ['Yetişkin grubu, çocuklarla karışmaz', '12 hafta · haftada 2 saat (24 saat)', 'Pera & Kadıköy', 'Yakında · bekleme listesi açık'],
+    },
+    intro:
+      'Sıfırdan İngilizceye başlamanın en zor yanı kelime değil, ağzını açma anı. A1+ English Drama Lab bu anı çalışıyor: önce duyuyorsun, bedeninle karşılık veriyorsun, sonra aynı kalıpları bir sahnenin içinde, bir karakterin ağzından tekrar tekrar söylüyorsun. Dil okulu sınıfı değil; bir tiyatro topluluğunun provası. Yetişkinlere özel, Pera ve Kadıköy\'de, on iki hafta.',
+    what:
+      'Her oturum oyunla açılır: isim, ritim, ses. Sonra komutlar ve durumlar gelir; ilk haftalarda dinlemek ve hareketle cevap vermek yeterli, konuşmaya zorlanmıyorsun. Gündelik hayatın kalıpları (kendini tanıtmak, bir şey istemek, reddetmek, yön sormak, özür dilemek) bir partnerle, bir durumun içinde çalışılır. Araştırmalar başlangıç seviyesinde konuşmanın büyük ölçüde bu tür hazır kalıplarla kurulduğunu gösteriyor. Son haftalarda kalıplar karakterlere geçer ve kısa İngilizce sahneler kurulur. Gramer ders kitabı gibi anlatılmaz; yapılar sahnede görünür, kuralı ihtiyaç duyulduğunda konuşuruz.',
+    who:
+      'İngilizceye hiç başlamamış ya da yıllar önce bırakmış yetişkinler. Kursa gidip konuşamamış olanlar. Kırkından, ellisinden sonra başlamak isteyenler. Konuşurken donanlar. Oyunculuk deneyimi gerekmiyor. Kimin için değil: sınav hazırlığı, sertifika ya da "3 ayda akıcı" arayanlar. İngilizcesi sohbet düzeyinde (B1+) olanlar için English Drama Lab daha uygun.',
+    workshopSlugs: ['a1-english-drama-lab', 'english-drama-lab'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    criteria: [
+      { q: '12 haftada ne beklenir?', a: 'Gündelik kalıpları bir sahne içinde, bedenle birlikte kullanmak; çalışılan kalıpları daha az duraksayarak söylemek; İngilizce konuşmaya daha istekli olmak; kısa bir sahneyi İngilizce oynayabilmek.' },
+      { q: '12 haftada ne beklenmez?', a: 'Akıcılık, seviye atlama, sınav hazırlığı ya da sistematik gramer. Cambridge\'e göre sıfırdan A2\'ye yaklaşık 180–200 rehberli saat gerekiyor; bu program 24 saat. Dil okulu, uygulama ya da kendi çalışmanla birlikte en iyi sonucu verir.' },
+      { q: 'Bir başlangıç programında neye bakmalı?', a: 'Saat hesabı açık mı, "garanti" ve "X ayda akıcı" gibi vaatlerin dayanağı var mı, grup küçük mü, konuşmaya zorlamadan konuşturuyor mu. Dürüst bir program ne vermeyeceğini de söyler.' },
+    ],
+    faq: [
+      { q: 'Hiç İngilizce bilmiyorum, gerçekten katılabilir miyim?', a: 'Evet; bu grup tam olarak bunun için. İlk haftalarda konuşmak zorunda değilsin: dinlemek ve hareketle cevap vermek de çalışmanın parçası.' },
+      { q: '12 haftada akıcı konuşur muyum?', a: 'Hayır, bunu vaat etmiyoruz. 24 saat bir seviye değil, ilk basamak. Hedef konuşmaya başlamak: çalışılan kalıpları daha rahat söylemek ve konuşmaya daha istekli olmak.' },
+      { q: 'Günler ve saatler ne zaman belli olacak?', a: 'Netleşiyor. Bekleme listesine yazılırsan gün ve saatler açıklandığında ilk sana haber veriyoruz. Formda hangi yakayı ve hangi zaman dilimini tercih ettiğini de yazabilirsin.' },
+      { q: 'Gramer hiç yok mu?', a: 'Gramer önce gelmez ama yok da değildir. Yapılar sahnede görünür; kuralı ihtiyaç duyduğunda konuşuruz. Sistematik gramer çalışmak isteyenlere yanında bir kurs ya da uygulama öneriyoruz.' },
+      { q: 'İngilizcem biraz var, hangi grup bana uygun?', a: 'Günlük bir sohbeti sürdürebiliyorsan (B1 civarı) English Drama Lab daha uygun. Kalıpların ötesine geçemiyorsan A1+ grubu. Emin değilsen yaz, birlikte bakalım.' },
+    ],
+    articleSlugs: ['hic-ingilizce-bilmiyorum-nereden-baslamaliyim', 'sifirdan-ingilizce-kac-saatte-ogrenilir', '40-yasinda-ingilizce-ogrenmek', 'tpr-nedir-bedenle-ingilizce', 'ingilizce-konusma-korkusu', 'kadikoy-beyoglu-baslangic-ingilizce-secenekleri'],
+    enPath: '/en/beginner-english-drama-istanbul',
+    related: ['cocuklar-icin-baslangic-ingilizce-drama', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul'],
+  },
+
+  // ── A1+ BAŞLANGIÇ: ÇOCUK & GENÇ (28 Ekim 2026) ──────────────────
+  {
+    slug: 'cocuklar-icin-baslangic-ingilizce-drama',
+    label: 'Çocuklar İçin Başlangıç İngilizce Drama',
+    h1: 'ÇOCUKLAR İÇİN\nBAŞLANGIÇ İNGİLİZCE DRAMA',
+    eyebrow: 'A1+ · 8–12 · 13–17 · Yakında · Pera & Kadıköy',
+    seoTitle: 'Çocuklar İçin Başlangıç İngilizce Drama İstanbul — 8–12 · 13–17',
+    seoDesc:
+      'İngilizceye yeni başlayan 8–12 ve 13–17 yaş için İngilizce drama: oyun, hareket, kısa sahneler. 12 hafta, haftada 2 saat, Pera ve Kadıköy. Bekleme listesi açık.',
+    keywords: [
+      'çocuklar için ingilizce kursu başlangıç', 'oyunla ingilizce çocuk', 'çocuk ingilizce drama başlangıç',
+      'ilkokul ingilizce kursu', 'ortaokul ingilizce kursu', 'çocuklar için ingilizce kadıköy',
+      'çocuklar için ingilizce beyoğlu', 'çocuk ingilizce kursu istanbul', 'ingilizce bilmeyen çocuk drama',
+      'a1 ingilizce çocuk', 'beginner english for kids istanbul', 'çocuğum ingilizce konuşmuyor',
+    ],
+    quickAnswer: {
+      q: 'İngilizce bilmeyen çocuk İngilizce dramaya katılabilir mi?',
+      a: 'Evet. Techne Lab, İngilizceye yeni başlayan çocuk ve gençler için A1+ English Drama Youth gruplarını açıyor: 8–12 ve 13–17 yaş ayrı, 12 hafta, haftada 2 saat, Pera ve Kadıköy. Günler henüz netleşmedi; bekleme listesi açık.',
+      points: ['8–12 ve 13–17 ayrı gruplar', '12 hafta · haftada 2 saat', 'Kitap, sınav, not yok', 'Yakında · bekleme listesi açık'],
+    },
+    intro:
+      'Çocuk İngilizceyi bir kitaptan önce bir oyundan duyar. A1+ English Drama Youth, İngilizceye yeni başlayan çocuklar için kuruldu: komutu duy, bedeninle cevap ver, sonra aynı kalıbı bir karakterin ağzından söyle. Kitap, sınav ve not yok. 8–12 ve 13–17 yaş ayrı gruplarda, Pera ve Kadıköy\'de, on iki hafta.',
+    what:
+      'Oturumlar isim, ritim ve hareket oyunlarıyla açılır. Komutlar bedenle karşılanır; çocuk konuşmaya zorlanmaz, sessiz katılım da katılım sayılır. Selamlaşma, istek, soru ve duygu kalıpları oyunların ve karakterlerin içinde tekrar tekrar söylenir. Son haftalarda grupla kısa İngilizce sahneler kurulur. Türkiye\'de üçüncü sınıf öğrencileriyle yapılan kontrollü bir çalışmada drama temelli etkinlikler İngilizce konuşma becerisinde yarar gösterdi (Öztürk Pat & Yılmaz, 2021); başka bir çalışmada drama çocukların ikinci dilde sözcük edinimini destekledi (Kalogirou ve ark., 2019).',
+    who:
+      'İngilizceye okulda yeni başlamış ya da okulda öğrendiğini hiç kullanmamış çocuklar. Yabancı dilde konuşmaya çekingen olanlar. Oyunla, hareketle daha iyi öğrenenler. Yaş grupları ayrı: 8–12 ve 13–17. Çocuğunuz İngilizce sohbet edebiliyorsa (B1+), 8–17 yaş için English Drama Youth daha uygun.',
+    workshopSlugs: ['a1-english-drama-youth', 'english-drama-youth'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    faq: [
+      { q: 'Neden 8–12 ve 13–17 ayrı?', a: 'Sekiz yaşındaki bir çocukla on altı yaşındaki bir gencin oyunu, temposu ve çekinceleri farklı. Araştırmalar da sınıf ortamında büyük yaştaki başlayanların kısa vadede daha hızlı ilerlediğini gösteriyor (Muñoz, 2006); bu yüzden malzemeyi yaşa göre ayırıyoruz.' },
+      { q: 'Çocuğum 12 haftada İngilizce konuşur mu?', a: 'Akıcılık ya da seviye atlama vaat etmiyoruz. Beklediğimiz değişiklik: çalışılan kalıpları daha rahat söylemek, İngilizce konuşmaya daha istekli olmak ve kısa bir sahneyi İngilizce oynayabilmek.' },
+      { q: 'Okul İngilizcesinin yerine geçer mi?', a: 'Hayır, yanında durur. Okul yapıyı ve kelimeyi verir; burada o kelimeler bir oyunun ve bir sahnenin içinde kullanılır.' },
+      { q: 'Günler ne zaman belli olacak?', a: 'Netleşiyor. Bekleme listesine yazılırsanız gün ve saatler açıklandığında ilk size haber veriyoruz.' },
+    ],
+    articleSlugs: ['oyunla-ingilizce-cocuk-drama', 'ilkokul-ingilizce-kursu-secerken', 'tpr-nedir-bedenle-ingilizce', 'cocuklarda-ingilizce-yaratici-drama-oyunla-konusma', 'kadikoy-beyoglu-baslangic-ingilizce-secenekleri'],
+    enPath: '/en/beginner-english-drama-for-kids-istanbul',
+    related: ['sifirdan-ingilizce-konusma-istanbul', 'cocuklar-icin-ingilizce-drama-istanbul', 'gencler-icin-ingilizce-drama-istanbul'],
   },
 
   // ── YETİŞKİNLER İÇİN TİYATRO ─────────────────────────────────────
@@ -2000,7 +2089,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Gösteri ya da sunum gibi bir kapanış, hazırlığın niteliğini değiştirir. Açık uçlu sohbet gruplarında ilerleme görünmez; çocuk da veli de birkaç ay sonra bırakır.',
       },
     ],
-    related: ['cocuklar-icin-ingilizce-drama-istanbul', 'gencler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu'],
+    related: ['cocuklar-icin-ingilizce-drama-istanbul', 'gencler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'cocuklar-icin-baslangic-ingilizce-drama'],
   },
 
   // ── İNGİLİZCE KONUŞMA PRATİĞİ İSTANBUL (27 Ekim 2026) ───────────
@@ -2093,7 +2182,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'A1 ile C1 aynı masadaysa biri susar, diğeri sıkılır. Başvuruda seviyenin sorulması, grubun dengelendiğinin işaretidir.',
       },
     ],
-    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'cocuklar-icin-ingilizce-konusma-kulubu', 'yetiskinler-icin-ingilizce-drama-istanbul'],
+    related: ['ingilizce-konusma-kulubu-istanbul', 'kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'cocuklar-icin-ingilizce-konusma-kulubu', 'yetiskinler-icin-ingilizce-drama-istanbul', 'sifirdan-ingilizce-konusma-istanbul'],
   },
 
 ]

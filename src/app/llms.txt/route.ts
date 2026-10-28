@@ -57,6 +57,15 @@ export async function GET() {
     }
   }
 
+  // 28 Ekim 2026: duyurulmuş ama henüz açılmamış programlar (gün yok, bekleme listesi açık)
+  lines.push('## Yakında Açılacak Programlar')
+  lines.push('')
+  for (const w of WORKSHOPS.filter((x) => x.yakinda)) {
+    lines.push(`- [${w.title}](${SITE_META.url}/atolyeler/${w.slug}): ${w.aiSummary ?? w.desc.split('\n')[0]}`)
+  }
+  lines.push(`- [Manifesto](${SITE_META.url}/manifesto): Dil okulu değil, tiyatro topluluğu. Önce beden ve durum, sonra kelime; 12 haftada akıcılık vaadi yok.`)
+  lines.push('')
+
   lines.push('## Disiplin Sayfaları')
   lines.push('')
   for (const d of mainDisciplines) {

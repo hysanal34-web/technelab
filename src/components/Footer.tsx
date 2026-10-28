@@ -23,6 +23,7 @@ export function Footer() {
             ['/okullar','okullar ve kolejler'],
             ['/isbirlikleri','işbirliklerimiz'],
             ['/hakkinda','hakkında'],
+            ['/manifesto','manifesto'],
             ['/iletisim','iletişim'],
           ].map(([href,label]) => (
             <Link key={href} href={href} className="font-mono text-[11px] tracking-[0.12em] lowercase text-stone hover:text-neon transition-colors duration-200 py-2">

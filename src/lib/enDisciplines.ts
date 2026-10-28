@@ -186,7 +186,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         heading: 'Two age groups, two sides of the city',
-        body: "Ages 8–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) started on Saturday 17 October at 15:00, and joining is open. Classes take place in partner studios.",
+        body: "Ages 8–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) started on Saturday 24 October at 15:00, and joining is open. Classes take place in partner studios.",
       },
       {
         heading: 'For parents who do not speak Turkish',
@@ -196,7 +196,7 @@ export const EN_PAGES: EnPage[] = [
     faq: [
       {
         q: 'What English level does my child need?',
-        a: "Around B1 or above: your child can follow an everyday conversation and answer in full sentences. There is no test; your own judgement is enough. If your child is not there yet, a language course first is the better choice, and we will tell you so.",
+        a: "Around B1 or above: your child can follow an everyday conversation and answer in full sentences. There is no test; your own judgement is enough. If your child is just starting English, our A1+ beginner groups (ages 8–12 and 13–17) are coming soon: see /en/beginner-english-drama-for-kids-istanbul.",
       },
       {
         q: 'My child is at an international school and already fluent. Will this be too easy?',
@@ -294,6 +294,73 @@ export const EN_PAGES: EnPage[] = [
     ],
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project', 'techne-musical-lab', 'english-drama-youth'],
     related: ['acting-classes-istanbul', 'musical-theatre-classes-istanbul', 'drama-classes-for-kids-istanbul'],
+  },
+  // ── A1+ beginners (28 Oct 2026, coming soon; days not set) ──
+  {
+    slug: 'beginner-english-drama-istanbul',
+    label: 'Beginner English Through Drama',
+    h1: 'BEGINNER ENGLISH\nTHROUGH DRAMA',
+    eyebrow: 'A1+ · Adults · Coming soon · Pera & Kadıköy',
+    seoTitle: 'Beginner English Through Drama in Istanbul — A1+ Adults',
+    seoDesc:
+      'English for absolute beginners through drama, in Istanbul. 12 weeks, 2 hours a week, Pera and Kadıköy. No fluency promise; a real start to speaking. Waiting list open.',
+    keywords: [
+      'beginner english istanbul', 'english for beginners istanbul adults', 'english classes istanbul beginners',
+      'learn english from zero istanbul', 'english through drama beginners', 'a1 english course istanbul',
+      'english course kadikoy beginner', 'english course beyoglu beginner', 'speak english from zero',
+    ],
+    lede:
+      "A1+ English Drama Lab is not a language school class. It is a theatre company's rehearsal room for people who are just starting English: body and situation first, words after. Twelve weeks, two hours a week, in Pera and Kadıköy. Days are not set yet; the waiting list is open.",
+    sections: [
+      { heading: 'What happens in a session', body: 'Each session opens with games: names, rhythm, voice. Then come instructions and situations. In the first weeks, listening and answering with movement is enough; nobody is pushed to speak. Everyday phrases (introducing yourself, asking for something, refusing, asking the way, apologising) are practised with a partner, inside a situation, again and again. In the final weeks the phrases move into characters and short English scenes. Grammar is not lectured; structures show up on stage and we talk about the rule when you need it.' },
+      { heading: 'What to expect in 12 weeks, and what not to', body: "Cambridge estimates that reaching A2 from zero takes around 180–200 guided learning hours; this programme is 24. So we do not promise fluency or a level jump. What we expect: you say the phrases we practised with fewer pauses, you are more willing to speak English, and you can perform a short scene in English. It works best alongside a course, an app or your own study." },
+      { heading: 'Why drama at the start', body: 'Beginner speech rests largely on ready-made phrases stored whole (Wray, 2002; Myles et al., 1998). Body-based instruction, starting with Asher\'s Total Physical Response, supports listening comprehension in the early stages. Drama gives those phrases a situation and a reason to be said. To be honest about the evidence: the strongest fluency study on drama (Galante & Thomson, 2017) was with B1 teenagers over 74 hours, and we found no controlled study of drama with adult A1 groups. We do not claim more than that.' },
+      { heading: 'Who it is for', body: 'Adults starting English from zero or coming back after years. People who took a course and still freeze. Adults who think they started too late. No acting experience needed. If you can already hold an everyday conversation (around B1), English Drama Lab is the better fit.' },
+    ],
+    faq: [
+      { q: 'I speak no English at all. Can I join?', a: 'Yes, this group is built for that. In the first weeks you do not have to speak; listening and responding with movement is part of the work.' },
+      { q: 'Will I be fluent after 12 weeks?', a: 'No, and we do not promise it. 24 hours is a first step, not a level. The goal is to start speaking.' },
+      { q: 'When does it start?', a: 'Days and times are being set. Join the waiting list and we will tell you first when they are announced.' },
+      { q: 'Do I need Turkish?', a: 'No. The working language of the room is English at a beginner pace; questions and enrolment can be done in English or Turkish.' },
+    ],
+    workshopSlugs: ['a1-english-drama-lab', 'english-drama-lab'],
+    related: ['beginner-english-drama-for-kids-istanbul', 'acting-classes-istanbul', 'theatre-workshops-for-expats-istanbul'],
+    trSlug: 'sifirdan-ingilizce-konusma-istanbul',
+    sources: [
+      { label: 'Cambridge English: Guided learning hours', url: 'https://support.cambridgeenglish.org/hc/en-gb/articles/202838506-Guided-learning-hours' },
+      { label: 'Galante & Thomson (2017), TESOL Quarterly', url: 'https://doi.org/10.1002/tesq.290' },
+    ],
+    articleSlugs: ['beginner-english-istanbul-guide', 'drama-for-beginner-english'],
+  },
+  {
+    slug: 'beginner-english-drama-for-kids-istanbul',
+    label: 'Beginner English Drama for Kids',
+    h1: 'BEGINNER ENGLISH\nDRAMA FOR KIDS',
+    eyebrow: 'A1+ · Ages 8–12 · 13–17 · Coming soon',
+    seoTitle: 'Beginner English Drama for Kids in Istanbul — Ages 8–17',
+    seoDesc:
+      'English drama for children just starting English, ages 8–12 and 13–17 in separate groups. 12 weeks, 2 hours a week, Pera and Kadıköy. Waiting list open.',
+    keywords: [
+      'beginner english for kids istanbul', 'english classes for kids istanbul beginners',
+      'english through play kids istanbul', 'kids english drama beginners', 'english for children istanbul',
+      'after school english istanbul', 'english activities for kids istanbul beginners',
+    ],
+    lede:
+      'For children who are just starting English. A1+ English Drama Youth uses games, movement and short scenes: hear the instruction, answer with the body, then say the phrase in a character\'s voice. No books, tests or grades. Ages 8–12 and 13–17 work separately, in Pera and Kadıköy, over twelve weeks.',
+    sections: [
+      { heading: 'How it works', body: 'Sessions open with name, rhythm and movement games. Instructions are answered with the body; children are not pushed to speak, and quiet participation counts. Greetings, requests, questions and feelings are repeated inside games and characters. In the final weeks the group builds short English scenes together.' },
+      { heading: 'What parents can expect', body: 'We do not promise fluency or a level jump in twelve weeks. What we expect: your child says the phrases we practised more easily, is more willing to speak English, and can perform a short scene in English. A controlled study with Turkish third-graders found benefits of drama-based activities for speaking (Öztürk Pat & Yılmaz, 2021).' },
+      { heading: 'Two age groups', body: 'Ages 8–12 and 13–17 are separate: different games, different pace, different worries. If your child already speaks English at around B1, our year-long English Drama Youth programme is the better fit.' },
+    ],
+    faq: [
+      { q: 'My child speaks almost no English. Is that OK?', a: 'Yes, this group is for exactly that. Listening and answering with movement is enough at the start.' },
+      { q: 'When does it start?', a: 'Days and times are being set. Join the waiting list and we will let you know first.' },
+      { q: 'Is there a level test?', a: 'No. If your child can already chat in English, we will point you to English Drama Youth instead.' },
+    ],
+    workshopSlugs: ['a1-english-drama-youth', 'english-drama-youth'],
+    related: ['drama-classes-for-kids-istanbul', 'beginner-english-drama-istanbul'],
+    trSlug: 'cocuklar-icin-baslangic-ingilizce-drama',
+    articleSlugs: ['drama-for-beginner-english', 'english-drama-for-kids-teens-istanbul-parents-guide'],
   },
 ]
 

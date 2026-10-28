@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/ekip',          priority: 0.7, freq: 'monthly' },
     { path: '/galeri',        priority: 0.6, freq: 'monthly' },
     { path: '/hakkinda',      priority: 0.7, freq: 'monthly' },
+    { path: '/manifesto',     priority: 0.7, freq: 'monthly' },
     { path: '/makaleler',     priority: 0.7, freq: 'weekly' },
     { path: '/iletisim',      priority: 0.6, freq: 'monthly' },
   ]

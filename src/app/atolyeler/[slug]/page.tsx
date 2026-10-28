@@ -97,7 +97,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
     // Google, sayfada olmayan bir fiyatı schema'da görürse uyuşmazlık uyarısı veriyor.
     offers: {
       '@type': 'Offer',
-      availability: w.active ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+      availability: w.active ? 'https://schema.org/InStock' : w.yakinda ? 'https://schema.org/PreOrder' : 'https://schema.org/SoldOut',
       url: `${SITE_META.url}/atolyeler/${w.slug}`,
       validFrom: new Date().toISOString().slice(0, 10),
     },
@@ -286,7 +286,7 @@ export default async function WorkshopDetailPage({ params }: Props) {
               {[
                 ['mekân', `${w.venue} — kayıt sonrası adres iletilir`],
                 ['süre', w.duration],
-                ['kontenjan', `max. ${w.maxStudents} kişi`],
+                ['kontenjan', typeof w.maxStudents === 'number' ? `max. ${w.maxStudents} kişi` : String(w.maxStudents)],
                 ...(w.ageRange ? [['yaş', w.ageRange]] : []),
               ].map(([k, v]) => (
                 <div key={k} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
@@ -369,10 +369,11 @@ export default async function WorkshopDetailPage({ params }: Props) {
 
             {!w.active ? (
               <div className="border border-stone/30 bg-bgAlt px-6 py-5 text-center">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">Kayıt Kapalı</p>
+                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-stone mb-2">{w.yakinda ? 'Yakında' : 'Kayıt Kapalı'}</p>
                 <p className="font-mono text-[11px] text-dim leading-relaxed mb-4">
-                  Yeni dönem açılacak, tarihi henüz netleşmedi. Bekleme listesine yazıl, kontenjan
-                  açılmadan önce ilk sana haber verelim.
+                  {w.yakinda
+                    ? 'Program yakında açılıyor; günler netleşiyor. Bekleme listesine yazıl, gün ve saatler açıklanınca ilk sana haber verelim.'
+                    : 'Yeni dönem açılacak, tarihi henüz netleşmedi. Bekleme listesine yazıl, kontenjan açılmadan önce ilk sana haber verelim.'}
                 </p>
                 <Link
                   href={`/bekleme-listesi?program=${w.slug}`}

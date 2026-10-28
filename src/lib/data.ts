@@ -24,6 +24,8 @@ export type Workshop = {
   scheduleNote?: string      // tarih henüz netleşmediyse ("Tarih yakında açıklanacak")
   // price: 0 → fiyat henüz yayınlanmadı; fiyat bloğu gizlenir, CTA "ön kayıt" olur
   maxStudents: number | string; active: boolean; archived?: boolean; nextDate?: string
+  /** Henüz açılmamış, duyurulmuş yeni program: "Kayıt Kapalı" yerine "Yakında" + bekleme listesi. */
+  yakinda?: boolean
   ageRange?: string          // yaş aralığı olan programlar için ('12–55 yaş')
   // Sahne kartında ve telefon listesinde çip olarak basılan kısa, karar verdiren
   // bilgiler: yaş, dil seviyesi, süre, gün, yer. Grafikte değil, metinde durur.
@@ -134,9 +136,68 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Sahne & Bütünleşme', span: 'Eksen 03', body: 'Grup doğaçlamaları, partner çalışması. Araçların sahnede birleşmesi.' },
     ],
     images: ['english-drama-16', 'english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
-    edlFamily: ['english-drama-final-project', 'english-drama-youth'],
+    edlFamily: ['english-drama-final-project', 'english-drama-youth', 'a1-english-drama-lab'],
     seoTitle: 'İngilizce Drama & Konuşma Kulübü İstanbul — English Drama Lab',
     seoDesc: 'İngilizce drama atölyesi İstanbul: yaratıcı drama ve doğaçlamayla konuşma kulübü pratiği. English drama course, İngilizce konuşma pratiği — Pera ve Kadıköy. 12 kişilik gruplar, her hafta katılınabilen esnek program.',
+  },
+
+  // ── A1+ ENGLISH DRAMA LAB (28 Ekim 2026 · yakında) ───────────────
+  // İngilizceye yeni başlayanlar. 12 hafta · haftada 2 saat. Günler, eğitmen kadrosu ve
+  // kontenjan henüz netleşmedi: netleşince schedule eklenir, active: true yapılır.
+  // Dil kuralı: "akıcı İngilizce" / "akıcılık" vaadi YOK (24 saat; Cambridge'e göre
+  // sıfırdan A2 ~180–200 rehberli saat). Vaat: konuşmaya başlamak.
+  {
+    id: 10, slug: 'a1-english-drama-lab', code: '09',
+    title: 'A1+ ENGLISH DRAMA LAB', sub: 'Yeni Başlayan Yetişkinlere İngilizce Drama',
+    tagline: 'Önce Beden ve Durum, Sonra Kelime.',
+    instructor: 'Techne Lab eğitmen ekibi',
+    instructorBio: 'Konservatuvar mezunu eğitmenler. Bu grubun eğitmen kadrosu dönem açılırken duyurulacak.',
+    venue: 'Pera & Kadıköy', duration: '12 hafta · haftada 2 saat', price: 0,
+    facts: ['Yetişkin', 'A1+ · yeni başlayanlar', '12 hafta', 'Haftada 2 saat', 'Pera & Kadıköy', 'Yakında'],
+    scheduleNote: 'Yakında · günler netleşiyor',
+    maxStudents: 'Küçük grup', active: false, yakinda: true,
+    category: 'ingilizce-drama',
+    tags: ['İngilizce', 'Başlangıç', 'A1', 'Drama', 'Yetişkin'],
+    desc: "İngilizceye yeni başlayanlar için bir dil okulu sınıfı değil, bir tiyatro topluluğunun provası. Önce beden ve durum, sonra kelime: bir şey isterken, reddederken, ararken söylenen cümle bir sahneye ve bir bedene bağlanır.\n\nOn iki hafta, haftada iki saat. Gündelik hayatın en çok kullanılan kalıplarını (kendini tanıtmak, bir şey istemek, yön sormak, özür dilemek, teşekkür etmek) önce duyuyor, hareketle karşılıyor, sonra bir karakterin ağzından farklı durumlarda tekrar tekrar söylüyorsun. İlk haftalarda dinlemek ve hareketle cevap vermek yeterli; konuşmaya hazır olduğunda konuşursun.\n\nAkıcılık vaat etmiyoruz. Cambridge'e göre sıfırdan A2'ye yaklaşık 180–200 rehberli saat gerekiyor; bu program 24 saat. Vaadimiz ilk basamak: çalıştığımız kalıpları daha az duraksayarak söylemek, İngilizce konuşmaya daha istekli olmak ve kısa bir sahneyi İngilizce oynayabilmek. Günler netleşiyor; bekleme listesine yazılana ilk haber verilir.",
+    aiSummary: "A1+ English Drama Lab: Techne Lab İstanbul'un İngilizceye yeni başlayan yetişkinler için açacağı İngilizce drama atölyesi. 12 hafta, haftada 2 saat (toplam 24 saat), Pera ve Kadıköy. Durum: yakında; günler netleşmedi, bekleme listesi açık. Yöntem: komutları duyup bedenle karşılamak (TPR'den gelen bir başlangıç), gündelik kalıpları durum ve karakter içinde tekrar etmek, kısa sahneler. Akıcılık ya da seviye atlama vaat etmez; hedef konuşmaya başlamak. Ayrıca 8–12 ve 13–17 yaş için A1+ English Drama Youth grupları açılacak. İngilizcesi sohbet düzeyinde (B1+) olanlar için English Drama Lab var.",
+    blocks: [
+      { title: 'Dinle & Karşıla', span: 'İlk haftalar', body: 'Ritim, isim ve ses oyunları. Komutları duyup bedenle karşılamak. Konuşma zorunluluğu yok; dinlemek ve hareketle cevap vermek de çalışmaya dahil.' },
+      { title: 'Kalıp & Durum', span: 'Süreç', body: 'Kendini tanıtma, istek, ret, soru, teşekkür. Her kalıp bir durumun içinde, partnerle ve tekrar tekrar. Yapılar sahnede görünür; kuralı ihtiyaç duyulduğunda konuşuruz.' },
+      { title: 'Karakter & Sahne', span: 'Son haftalar', body: 'Aynı kalıplar farklı karakterlerin ağzından. Kısa, yarı doğaçlama İngilizce sahneler; takıldığında sahne durmaz, sen de durmazsın.' },
+      { title: 'Ne Beklenmez', span: 'Dürüst not', body: 'Akıcılık, seviye atlama, sınav hazırlığı ya da sistematik gramer anlatımı. 24 saat bir seviye değil, ilk basamak. Dil okulu, uygulama ya da kendi çalışmanla birlikte en iyi sonucu verir.' },
+    ],
+    images: ['english-drama-1', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
+    edlFamily: ['a1-english-drama-youth', 'english-drama-lab'],
+    seoTitle: 'Sıfırdan İngilizce, Drama ile — A1+ English Drama Lab',
+    seoDesc: 'İngilizceye yeni başlayan yetişkinler için İngilizce drama: 12 hafta, haftada 2 saat, Pera ve Kadıköy. Akıcılık vaadi yok; konuşmaya başlamak var. Yakında.',
+  },
+
+  // ── A1+ ENGLISH DRAMA YOUTH: 8–12 · 13–17 (28 Ekim 2026 · yakında) ──
+  {
+    id: 11, slug: 'a1-english-drama-youth', code: '10',
+    title: 'A1+ ENGLISH DRAMA YOUTH', sub: 'İngilizceye Yeni Başlayan Çocuk ve Gençler',
+    tagline: 'Önce Oyun, Sonra Kelime.',
+    instructor: 'Techne Lab eğitmen ekibi',
+    instructorBio: 'Konservatuvar mezunu eğitmenler. Bu grupların eğitmen kadrosu dönem açılırken duyurulacak.',
+    venue: 'Pera & Kadıköy', duration: '12 hafta · haftada 2 saat', price: 0,
+    ageRange: '8–12 ve 13–17 yaş (ayrı gruplar)',
+    facts: ['8–12 yaş', '13–17 yaş', 'A1+ · yeni başlayanlar', '12 hafta', 'Haftada 2 saat', 'Pera & Kadıköy', 'Yakında'],
+    scheduleNote: 'Yakında · günler netleşiyor',
+    maxStudents: 'Küçük grup', active: false, yakinda: true,
+    category: 'ingilizce-drama',
+    tags: ['İngilizce', 'Başlangıç', 'A1', 'Çocuk', 'Gençler', 'Drama'],
+    desc: "İngilizceye yeni başlayan çocuk ve gençler için İngilizce drama. Kitap, sınav ve not yok; oyun, hareket ve küçük sahneler var. Gruplar yaşa göre ayrı: 8–12 ve 13–17.\n\nOn iki hafta, haftada iki saat. Çocuk önce duyar, bedeniyle karşılık verir, sonra kalıpları bir oyunun ve bir karakterin içinde tekrar tekrar söyler. Konuşmaya zorlanmaz; ilk haftalarda dinlemek ve hareketle katılmak yeterli.\n\nVelilere dürüst not: 12 haftada akıcılık ya da seviye atlama vaat etmiyoruz. Beklediğimiz değişiklik, çalışılan kalıpları daha rahat söylemek, İngilizce konuşmaya daha istekli olmak ve kısa bir sahneyi İngilizce oynayabilmek. Çocuğunuz İngilizce sohbet edebiliyorsa (B1+) English Drama Youth daha uygun. Günler netleşiyor; bekleme listesine yazılana ilk haber verilir.",
+    aiSummary: "A1+ English Drama Youth: Techne Lab İstanbul'un İngilizceye yeni başlayan 8–12 ve 13–17 yaş için açacağı İngilizce drama grupları (yaş grupları ayrı). 12 hafta, haftada 2 saat, Pera ve Kadıköy. Durum: yakında; günler netleşmedi, bekleme listesi açık. Kitap, sınav ve not yok; oyun, hareket, kalıp ifadeler ve kısa sahneler. Akıcılık ya da seviye atlama vaat edilmez. İngilizcesi sohbet düzeyinde (B1+) olan 8–17 yaş için ayrı program: English Drama Youth.",
+    blocks: [
+      { title: 'Oyun & Dinleme', span: 'İlk haftalar', body: 'İsim, ritim ve hareket oyunları. Komutu duy, bedeninle cevap ver. Konuşmaya zorlamak yok; sessiz katılım da katılım.' },
+      { title: 'Kalıp & Karakter', span: 'Süreç', body: 'Selamlaşma, istek, soru, duygu. Kalıplar bir oyunun ve bir karakterin içinde tekrar tekrar söylenir; dil ödev olmaktan çıkar.' },
+      { title: 'Küçük Sahneler', span: 'Son haftalar', body: 'Grupla kurulan kısa İngilizce sahneler. Hata sahnenin parçası: takılan durmaz, oyun devam eder.' },
+      { title: 'Velilere Not', span: 'Yaş & Seviye', body: '8–12 ve 13–17 ayrı çalışır. Seviye sınavı yok. İngilizcesi sohbet düzeyindeyse B1+ English Drama Youth programına yönlendiririz.' },
+    ],
+    images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3'],
+    edlFamily: ['a1-english-drama-lab', 'english-drama-youth'],
+    seoTitle: 'Çocuklar İçin Başlangıç İngilizce Drama — 8–12 · 13–17',
+    seoDesc: 'İngilizceye yeni başlayan 8–12 ve 13–17 yaş için İngilizce drama: oyun, hareket, kısa sahneler. 12 hafta, haftada 2 saat, Pera ve Kadıköy. Yakında.',
   },
 
   // ── 04 — ENGLISH ACTING PRAXIS ─────────────────────────────────────
@@ -198,7 +259,7 @@ export const WORKSHOPS: Workshop[] = [
       { title: 'Velilere Not', span: 'Seviye & Grup', body: 'Seviye tespit sınavı yok; ailenin dil beyanı yeterli (B1 ve üzeri). Kitap, sınav ve not yok. Aradığımız mükemmel İngilizce değil, hata yapma özgürlüğü. Gruplar 8–14 ve 15–17 olarak ayrı çalışır.' },
     ],
     images: ['english-drama-youth-01', 'english-drama-4', 'english-drama-2', 'english-drama-3', 'english-drama-5'],
-    edlFamily: ['english-drama-lab', 'english-drama-final-project'],
+    edlFamily: ['english-drama-lab', 'english-drama-final-project', 'a1-english-drama-youth'],
     seoTitle: 'Gençler İngilizce Tiyatro Kursu İstanbul — 8–17 Yaş Drama',
     seoDesc: "İstanbul 8–17 yaş İngilizce tiyatro: Türkiye'nin ilk İngilizce drama ve yaratıcılık programı. Dil öğretmiyoruz, dili sahnede deneyimliyoruz; kitap ve sınav yok. B1 ve üzeri. Seyircili final gösterisi. Kadıköy & Pera, 8 ay.",
   },

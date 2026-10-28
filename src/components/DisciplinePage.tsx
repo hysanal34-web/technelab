@@ -279,7 +279,7 @@ return (
               <div className="flex items-baseline gap-3 mb-3">
                 <span className="font-mono text-[11px] tracking-[0.18em] text-neon">{w.code}</span>
                 <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-dim">
-                  {w.active ? 'kayıt açık' : 'kayıt kapalı'}
+                  {w.active ? 'kayıt açık' : w.yakinda ? 'yakında' : 'kayıt kapalı'}
                 </span>
               </div>
               <h3
