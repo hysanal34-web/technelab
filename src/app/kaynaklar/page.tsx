@@ -5,6 +5,7 @@ import { TERMS, MONOLOGUES, EXERCISES } from '@/lib/kaynaklar'
 import { TOPLAM_SORU } from '@/lib/konusmaSorulari'
 import { TOPLAM_SARKI } from '@/lib/secmeSarkilari'
 import { D_TOTAL } from '@/lib/tartismaKonulari'
+import { OYUN_SAYISI } from '@/lib/dogaclamaOyunlari'
 
 const title = 'Ücretsiz Tiyatro Kaynakları — Monolog, Sözlük, Ses Egzersizleri'
 const description = 'Oyuncular ve yazarlar için ücretsiz kaynaklar: monolog kütüphanesi, tiyatro terimleri sözlüğü, ses ve nefes egzersizleri. Techne Lab İstanbul.'
@@ -54,6 +55,13 @@ const RESOURCES = [
     title: 'KONUŞMA KULÜBÜ SORULARI',
     sub: `${TOPLAM_SORU} soru · B1 / B2 / C1`,
     desc: 'İngilizce konuşma kulüpleri ve speaking pratiği için seviyeye göre soru bankası. Her soruya takip sorusu, her konuya ısınma ve rol kartı.',
+  },
+  {
+    href: '/kaynaklar/ingilizce-dogaclama-oyunlari',
+    code: '08',
+    title: 'İNGİLİZCE DOĞAÇLAMA OYUNLARI',
+    sub: `${OYUN_SAYISI} oyun · A1–A2 / B1 / B2+`,
+    desc: 'Konuşma kulüpleri, sınıflar ve drama grupları için seviyeye göre doğaçlama oyunları: İngilizce yönerge, örnek replik, seviye notu.',
   },
   {
     href: '/kaynaklar/muzikal-secme-sarkilari',

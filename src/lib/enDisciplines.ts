@@ -393,7 +393,7 @@ export const EN_PAGES: EnPage[] = [
     ],
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
     related: ['public-speaking-english-istanbul', 'theatre-workshops-for-expats-istanbul', 'acting-classes-istanbul'],
-    trSlug: 'yetiskinler-icin-ingilizce-drama-istanbul',
+    trSlug: 'ingilizce-dogaclama-atolyesi-istanbul',
     sources: [
       { label: 'Felsman et al. (2023), The Arts in Psychotherapy', url: 'https://doi.org/10.1016/j.aip.2022.101985' },
       { label: 'Felsman (2019), University of Michigan', url: 'https://deepblue.lib.umich.edu/handle/2027.42/151483' },

@@ -277,7 +277,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet. English Drama Lab tam olarak bu: yaratıcı drama araçlarını İngilizce dil pratiğiyle birleştiren, her hafta katılınabilen esnek bir program (1, 4 ya da 8 katılım). Konuşma kulübünün pratiğini sahnede, bedenle yapıyoruz.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['ingilizce-drama-istanbul', 'oyunculuk-kursu-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── İNGİLİZCE DRAMA ──────────────────────────────────────────────
@@ -346,8 +346,7 @@ export const DISCIPLINES: Discipline[] = [
       'gencler-icin-ingilizce-drama-istanbul',
       'cocuklar-icin-ingilizce-drama-istanbul',
       'ingilizce-oyunculuk-istanbul',
-      'sifirdan-ingilizce-konusma-istanbul',
-    ],
+      'sifirdan-ingilizce-konusma-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── KAMERA ÖNÜ OYUNCULUK ─────────────────────────────────────────
@@ -1060,7 +1059,7 @@ export const DISCIPLINES: Discipline[] = [
       'ingilizce drama yetişkin', '18 yaş üstü ingilizce drama',
       'yetişkinler için ingilizce tiyatro', 'adult english drama istanbul',
       'english drama for adults istanbul', 'yetişkin ingilizce konuşma atölyesi',
-      'ingilizce doğaçlama atölyesi istanbul', 'ingilizce konuşma pratiği yetişkin',
+      'ingilizce konuşma pratiği yetişkin',
       'yetişkinler için drama kursu istanbul', 'ingilizce drama kadıköy yetişkin',
       'ingilizce drama beyoğlu yetişkin', 'çalışanlar için ingilizce atölye',
     ],
@@ -1094,7 +1093,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Konuşma kulübünde oturup konu üzerine konuşulur. Burada ayaktasın, hareket ediyorsun, bir durumun içindesin. Dil bedene bağlandığında hem daha hızlı çıkıyor hem daha kalıcı yerleşiyor.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'ingilizce-oyunculuk-istanbul', 'sifirdan-ingilizce-konusma-istanbul'],
+    related: ['ingilizce-drama-istanbul', 'ingilizce-konusma-kulubu-istanbul', 'ingilizce-oyunculuk-istanbul', 'sifirdan-ingilizce-konusma-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── A1+ BAŞLANGIÇ: YETİŞKİN (28 Ekim 2026) ──────────────────────
@@ -1144,6 +1143,70 @@ export const DISCIPLINES: Discipline[] = [
     articleSlugs: ['hic-ingilizce-bilmiyorum-nereden-baslamaliyim', 'sifirdan-ingilizce-kac-saatte-ogrenilir', '40-yasinda-ingilizce-ogrenmek', 'tpr-nedir-bedenle-ingilizce', 'ingilizce-konusma-korkusu', 'kadikoy-beyoglu-baslangic-ingilizce-secenekleri'],
     enPath: '/en/beginner-english-drama-istanbul',
     related: ['a2-ingilizce-konusma-pratigi-istanbul', 'cocuklar-icin-baslangic-ingilizce-drama', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul'],
+  },
+
+  // ── İNGİLİZCE DOĞAÇLAMA ATÖLYESİ (29 Ekim 2026) ─────────────────
+  // Niyet: "ingilizce doğaçlama atölyesi", "doğaçlama atölyesi istanbul", "improv atölyesi".
+  // İstanbul'daki doğaçlama atölyelerinin hepsi Türkçe (istanbulimpro, Gölgehanı, DC Kozmos);
+  // güncel İngilizce improv grubu bulunamadı. Bizim doğaçlamamız yalnız İngilizce; Türkçe
+  // yetişkin doğaçlama programımız yok, ima edilmez. Program: English Drama Lab.
+  {
+    slug: 'ingilizce-dogaclama-atolyesi-istanbul',
+    label: 'İngilizce Doğaçlama Atölyesi',
+    h1: 'İNGİLİZCE\nDOĞAÇLAMA ATÖLYESİ',
+    eyebrow: 'Improv · Yetişkin · Her Hafta · Pera & Kadıköy',
+    seoTitle: 'İngilizce Doğaçlama Atölyesi İstanbul — Improv',
+    seoDesc:
+      'İstanbul\'da İngilizce doğaçlama (improv) atölyesi: her hafta oyun, sahne ve hazırlıksız konuşma. Yetişkinler, B1+, esnek katılım. Pera Cumartesi, Kadıköy Pazartesi.',
+    keywords: [
+      'ingilizce doğaçlama atölyesi', 'ingilizce doğaçlama atölyesi istanbul', 'doğaçlama atölyesi istanbul',
+      'improv atölyesi istanbul', 'ingilizce improv istanbul', 'doğaçlama atölyesi kadıköy', 'doğaçlama atölyesi beyoğlu',
+      'doğaçlama atölyesi taksim', 'ingilizce doğaçlama kursu', 'improv kursu istanbul', 'doğaçlama tiyatro atölyesi',
+      'yetişkinler için doğaçlama', 'english improv istanbul', 'ingilizce doğaçlama oyunları',
+    ],
+    quickAnswer: {
+      q: 'İstanbul\'da İngilizce doğaçlama atölyesi var mı?',
+      a: 'Evet. Techne Lab İstanbul\'un English Drama Lab atölyesi her hafta İngilizce doğaçlama ve sahne çalışması yapıyor: Pera\'da Cumartesi 15:00, Kadıköy\'de Pazartesi 20:00. Yetişkinler için, B1 ve üzeri İngilizce yeterli, en fazla 12 kişi, istenen hafta katılınabiliyor. İstanbul\'daki diğer doğaçlama atölyeleri Türkçe yürüyor.',
+      points: ['Tamamen İngilizce improv', 'Pera Cmt 15:00 · Kadıköy Pzt 20:00', 'En fazla 12 kişi · esnek katılım', 'Oyunculuk deneyimi gerekmez'],
+    },
+    intro:
+      'İstanbul\'da doğaçlama atölyesi aradığında karşına çıkanların neredeyse hepsi Türkçe. English Drama Lab doğaçlamayı İngilizce yapıyor: her hafta oyunla açılan, sahneyle biten, senaryosu olmayan bir oda. Dil burada bir konu değil, çalışma aracı; bir durumun içinde, partnerinle, düşünüp çevirmeye vakit bulmadan konuşuyorsun.',
+    what:
+      'Oturum ısınma oyunlarıyla başlar: ses, beden, tepki hızı, isim ve ritim. Sonra dinleme oyunları gelir: tek kelimelik hikâye, yalnız soruyla konuşma, cümleyi partnerin son kelimesinden kurma. Ortada sahne çalışması var: bir yer, bir ilişki, bir dert verilir; iki üç kişi İngilizce çözer. "Evet, ve" kuralı (gelen teklifi kabul edip üstüne eklemek) ve statü oyunları sahnenin omurgası. Son bölümde grup sahneleri kurulur. Hata sahne sırasında düzeltilmez; sık tekrarlanan bir yapı varsa oturum sonunda topluca konuşulur. Doğaçlama terapi değil, bir sahne pratiği: araştırmalar kısa doğaçlama oturumlarının belirsizliğe karşı rahatlığı artırdığını gösteriyor, ama yetişkinlerde kaygıya etkisi hâlâ sınırlı biçimde araştırılmış (Felsman, 2019; Felsman ve ark., 2023).',
+    who:
+      'İngilizcesi sohbet düzeyinde (B1 civarı) olan ve hazırlıksız konuşmayı çalışmak isteyen yetişkinler. Konuşma kulübünde masada oturmaktan sıkılanlar. Sunumda ya da toplantıda beklenmedik soruda donanlar. İngilizceyi ortak dil olarak kullanan expatlar. Tiyatroyu merak edip hiç sahneye çıkmamış olanlar: oyunculuk deneyimi gerekmiyor. İngilizcen başlangıç düzeyindeyse A1+ grubu yakında açılıyor.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    guide: {
+      heading: 'Doğaçlama sözlüğü',
+      lead: 'Atölyede sık duyacağın kavramlar; her biri İngilizce adıyla.',
+      items: [
+        { term: 'Yes, and (Evet, ve)', body: 'Partnerin getirdiği teklifi kabul edip üstüne bir şey eklemek. Sahneyi ileri taşıyan temel kural.', href: '/makaleler/dogaclama-tiyatro-evet-ve-kurali' },
+        { term: 'Offer (teklif)', body: 'Sahneye getirilen her bilgi: bir cümle, bir hareket, bir isim. Teklifi görmek, doğaçlamanın yarısı.' },
+        { term: 'Block (engelleme)', body: 'Gelen teklifi reddetmek ya da yok saymak. Sahneyi durdurur; atölyenin ilk haftalarında en çok fark edilen alışkanlık.' },
+        { term: 'Status (statü)', body: 'Keith Johnstone\'un kavramı: iki karakter arasındaki üstünlük ilişkisinin ses, beden ve sözle kurulması.', href: '/makaleler/dogaclamada-statu-nedir' },
+        { term: 'Endowment (yükleme)', body: 'Partnere bir özellik, duygu ya da geçmiş vermek: "You look exhausted, did you run here again?"' },
+        { term: 'Scene partner', body: 'Sahnedeki ortağın. Doğaçlamada iyi oyuncu, partnerini iyi gösteren oyuncudur.' },
+        { term: 'Short form / long form', body: 'Kısa oyunlardan oluşan doğaçlama ile tek bir öneriden uzun anlatı kuran doğaçlama. Atölyemiz ağırlıkla kısa formla başlar, sahne çalışmasına uzanır.', href: '/makaleler/improv-nedir' },
+        { term: 'Isınma oyunları', body: 'Ses, beden ve dikkat için kısa oyunlar. Örnekleri ve İngilizce yönergeleriyle kaynak sayfamızda.', href: '/kaynaklar/ingilizce-dogaclama-oyunlari' },
+      ],
+    },
+    criteria: [
+      { q: 'Türkçe doğaçlama atölyesi mi, İngilizce mi?', a: 'Amacın doğaçlama tiyatro ve sahne ise İstanbul\'da köklü Türkçe atölyeler var (ör. istanbulimpro, Gölgehanı Akademi). Amacın İngilizceyi hazırlıksız konuşmak ve bunu sahnede yapmaksa İngilizce bir oda gerekir; şu an düzenli olarak bunu yapan sayılı yer var.' },
+      { q: 'Konuşma kulübü mü, doğaçlama mı?', a: 'Konuşma kulübünde oturup bir konu üzerine konuşulur. Doğaçlamada ayaktasın ve sahne senin cevabını bekliyor; sessiz kalmak bir seçenek değil, ama hata da sorun değil.' },
+      { q: 'Toastmasters mı, doğaçlama mı?', a: 'Toastmasters hazırlanmış konuşma ve değerlendirme üzerine kurulu. Doğaçlama hazırlıksız anı çalışır. İkisi birbirini tamamlar.' },
+      { q: 'Neye bakmalı?', a: 'Grup kaç kişi (herkes her hafta sahneye çıkabiliyor mu), dil gerçekten baştan sona İngilizce mi, katılım esnek mi, eğitmen tiyatro geçmişli mi.' },
+    ],
+    faq: [
+      { q: 'Hiç doğaçlama yapmadım, katılabilir miyim?', a: 'Evet. Oyunlar adım adım ilerler ve katılımcıların çoğunun sahne deneyimi yok. İlk hafta kimse seni tek başına sahnenin ortasına itmez.' },
+      { q: 'İngilizcem ne kadar iyi olmalı?', a: 'Günlük bir sohbeti sürdürebiliyorsan (B1 civarı) yeterli. Daha başlangıçtaysan yakında açılacak A1+ grubuna bak.' },
+      { q: 'Türkçe doğaçlama atölyeniz var mı?', a: 'Hayır. Bizim doğaçlama çalışmamız İngilizce. Şirketler için ihtiyaca göre Türkçe ya da İngilizce kurulan ayrı bir kurumsal doğaçlama programımız var.' },
+      { q: 'Tek bir haftaya katılabilir miyim?', a: 'Evet. Katılım esnek: tek oturumla başlayıp 4 ya da 8 oturumluk paketle devam edebilirsin. Önce ücretsiz tanışma oturumuna da gelebilirsin.' },
+      { q: 'Sonunda gösteri var mı?', a: 'English Drama Lab grup içinde kalıyor; dışarıdan seyirci yok. Seyirci önünde bir final isteyenler için English Acting Praxis var.' },
+    ],
+    articleSlugs: ['dogaclama-ile-ingilizce-nasil-calisilir', 'istanbulda-dogaclama-atolyeleri', 'dogaclama-atolyesine-ilk-kez-gidiyorsaniz', 'improv-nedir', 'dogaclama-yetiskinlere-ne-kazandirir', 'dogaclamada-statu-nedir', 'dogaclama-tiyatro-evet-ve-kurali', 'toastmasters-mi-dogaclama-mi'],
+    enPath: '/en/english-improv-istanbul',
+    related: ['yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-ozguveni-istanbul', 'ingilizce-sunum-atolyesi-istanbul', 'kadikoy-ingilizce-drama-kursu', 'beyoglu-ingilizce-drama-kursu'],
   },
 
   // ── İNGİLİZCE KONUŞMA ÖZGÜVENİ (29 Ekim 2026) ─────────────────
@@ -1197,7 +1260,7 @@ export const DISCIPLINES: Discipline[] = [
     ],
     articleSlugs: ['ingilizce-konusma-ozguveni-nasil-kazanilir', 'ingilizce-konusma-korkusu', 'ingilizcede-baska-biri-gibi-hissetmek', 'ingilizce-konusurken-takiliyorum', 'ingilizce-aksan-kaygisi', 'toplantida-ingilizce-konusamiyorum'],
     enPath: '/en/public-speaking-english-istanbul',
-    related: ['ingilizce-sunum-atolyesi-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul', 'a2-ingilizce-konusma-pratigi-istanbul'],
+    related: ['ingilizce-sunum-atolyesi-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul', 'a2-ingilizce-konusma-pratigi-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── İNGİLİZCE SUNUM (29 Ekim 2026) ──────────────────────────────
@@ -1249,7 +1312,7 @@ export const DISCIPLINES: Discipline[] = [
     ],
     articleSlugs: ['ingilizce-sunum-yaparken-heyecan', 'topluluk-onunde-konusma-korkusu', 'toastmasters-mi-dogaclama-mi', 'ingilizce-mulakat-provasi', 'sahne-korkusu-nasil-yenilir', 'dogaclama-is-hayatinda-ne-ise-yarar'],
     enPath: '/en/public-speaking-english-istanbul',
-    related: ['ingilizce-konusma-ozguveni-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-oyunculuk-istanbul'],
+    related: ['ingilizce-konusma-ozguveni-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-oyunculuk-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── A2 → B1 KÖPRÜ (29 Ekim 2026) ────────────────────────────────
@@ -1485,7 +1548,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Bir bitiş noktası, hazırlığın niteliğini değiştirir. Sunum, sahne ya da kayıt gibi bir kapanışı olan programlarda katılımcı daha çok çalışır. Açık uçlu sohbet gruplarında ilerleme ölçülemez, o yüzden de çoğu kişi birkaç ay sonra bırakır.',
       },
     ],
-    related: ['kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'ingilizce-konusma-pratigi-istanbul', 'cocuklar-icin-ingilizce-konusma-kulubu', 'ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul'],
+    related: ['kadikoy-ingilizce-konusma-kulubu', 'beyoglu-ingilizce-konusma-kulubu', 'ingilizce-konusma-pratigi-istanbul', 'cocuklar-icin-ingilizce-konusma-kulubu', 'ingilizce-drama-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'yetiskinler-icin-tiyatro-kursu-istanbul', 'oyunculuk-kursu-istanbul', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── AUDITION HAZIRLIK ────────────────────────────────────────────
@@ -1943,6 +2006,7 @@ export const DISCIPLINES: Discipline[] = [
     seoDesc:
       'Kadıköy\'de İngilizce drama: yetişkinler için English Drama Lab (Pazartesi 20:00) ve 8-17 yaş için English Drama Youth (Cumartesi). Doğaçlama temelli, gramer yok — Anadolu yakasında.',
     keywords: [
+      'ingilizce doğaçlama kadıköy', 'kadıköy improv',
       'kadıköy ingilizce drama', 'kadıköy ingilizce drama kursu', 'kadıköy english drama',
       'anadolu yakası ingilizce drama', 'kadıköy ingilizce tiyatro', 'kadıköy ingilizce konuşma kulübü',
       'moda ingilizce drama', 'kadıköy gençler için ingilizce drama',
@@ -1971,7 +2035,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Yetişkin grubunda orta seviye (B1 civarı) yeterli — beklenen mükemmel gramer değil, konuşma cesareti. Gençlik grubunda da benzer: akıcı olmak değil, sohbet edebilmek yeterli.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'kadikoy-dans-kursu'],
+    related: ['ingilizce-drama-istanbul', 'kadikoy-muzikal-tiyatro-kursu', 'kadikoy-dans-kursu', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
 
   // ── BEYOĞLU · PERA × İNGİLİZCE DRAMA ──────────────────────────────
@@ -1985,6 +2049,7 @@ export const DISCIPLINES: Discipline[] = [
     seoDesc:
       'Beyoğlu Pera\'da İngilizce drama: English Drama Lab (Cumartesi 15:00, doğaçlama temelli) ve English Acting Praxis (Cumartesi 11:00, uluslararası casting hazırlığı, Harika Uygur masterclass finali).',
     keywords: [
+      'ingilizce doğaçlama beyoğlu', 'taksim improv',
       'beyoğlu ingilizce drama', 'pera ingilizce drama', 'taksim ingilizce drama',
       'beyoğlu english drama', 'pera english acting', 'galata ingilizce drama',
       'cihangir ingilizce drama', 'ingilizce oyunculuk beyoğlu', 'beyoğlu ingilizce tiyatro',
@@ -2013,7 +2078,7 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Yalnızca English Acting Praxis\'in 12 haftasını tamamlayan katılımcılara — finalde bir günlük masterclass ve çekim günü var, performanslar kayıt altına alınıp teslim ediliyor.',
       },
     ],
-    related: ['ingilizce-drama-istanbul', 'kamera-onu-oyunculuk-istanbul', 'kadikoy-ingilizce-drama-kursu'],
+    related: ['ingilizce-drama-istanbul', 'kamera-onu-oyunculuk-istanbul', 'kadikoy-ingilizce-drama-kursu', 'ingilizce-dogaclama-atolyesi-istanbul'],
   },
   // ── KADIKÖY × KONUŞMA KULÜBÜ (17 Ekim 2026) ─────────────────────
   // SERP araştırması: "konuşma kulübü kadıköy" için gün/saat/yer veren tek bir sayfa yok.

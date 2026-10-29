@@ -103,6 +103,7 @@ export async function GET() {
   const base = SITE_META.url
   lines.push(`- [İngilizce konuşma kulübü soruları](${base}/kaynaklar/konusma-kulubu-sorulari): konuşma kulübü moderatörleri ve katılımcıları için soru bankası`)
   lines.push(`- [İngilizce tartışma konuları](${base}/kaynaklar/ingilizce-tartisma-konulari): B2/C1 için 60 önerge, kalıplar ve formatlar`)
+  lines.push(`- [İngilizce doğaçlama oyunları](${base}/kaynaklar/ingilizce-dogaclama-oyunlari): seviyeye göre improv oyunları, İngilizce yönerge ve örnek replikler`)
   lines.push(`- [Müzikal seçme şarkıları](${base}/kaynaklar/muzikal-secme-sarkilari)`)
   lines.push(`- [Monologlar](${base}/kaynaklar/monologlar)`)
   lines.push(`- [Ses ve nefes](${base}/kaynaklar/ses-nefes)`)

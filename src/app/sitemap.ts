@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kaynaklar/sozluk',     priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/ses-nefes',  priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/konusma-kulubu-sorulari', priority: 0.8, freq: 'monthly' },
+    { path: '/kaynaklar/ingilizce-dogaclama-oyunlari', priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/muzikal-secme-sarkilari', priority: 0.8, freq: 'monthly' },
     { path: '/kaynaklar/ingilizce-tartisma-konulari', priority: 0.8, freq: 'monthly' },
     { path: '/en',                        priority: 0.8, freq: 'weekly' },
