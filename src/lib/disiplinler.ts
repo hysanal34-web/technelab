@@ -1139,11 +1139,169 @@ export const DISCIPLINES: Discipline[] = [
       { q: '12 haftada akıcı konuşur muyum?', a: 'Hayır, bunu vaat etmiyoruz. 24 saat bir seviye değil, ilk basamak. Hedef konuşmaya başlamak: çalışılan kalıpları daha rahat söylemek ve konuşmaya daha istekli olmak.' },
       { q: 'Günler ve saatler ne zaman belli olacak?', a: 'Netleşiyor. Bekleme listesine yazılırsan gün ve saatler açıklandığında ilk sana haber veriyoruz. Formda hangi yakayı ve hangi zaman dilimini tercih ettiğini de yazabilirsin.' },
       { q: 'Gramer hiç yok mu?', a: 'Gramer önce gelmez ama yok da değildir. Yapılar sahnede görünür; kuralı ihtiyaç duyduğunda konuşuruz. Sistematik gramer çalışmak isteyenlere yanında bir kurs ya da uygulama öneriyoruz.' },
-      { q: 'İngilizcem biraz var, hangi grup bana uygun?', a: 'Günlük bir sohbeti sürdürebiliyorsan (B1 civarı) English Drama Lab daha uygun. Kalıpların ötesine geçemiyorsan A1+ grubu. Emin değilsen yaz, birlikte bakalım.' },
+      { q: 'İngilizcem biraz var, hangi grup bana uygun?', a: 'Günlük bir sohbeti sürdürebiliyorsan (B1 civarı) English Drama Lab daha uygun. Temel var ama kalıpların ötesine geçemiyorsan (A2) aynı A1+ grubu senin için; A2\'den B1\'e geçişi anlattığımız sayfaya da bak: /a2-ingilizce-konusma-pratigi-istanbul. Emin değilsen yaz, birlikte bakalım.' },
     ],
     articleSlugs: ['hic-ingilizce-bilmiyorum-nereden-baslamaliyim', 'sifirdan-ingilizce-kac-saatte-ogrenilir', '40-yasinda-ingilizce-ogrenmek', 'tpr-nedir-bedenle-ingilizce', 'ingilizce-konusma-korkusu', 'kadikoy-beyoglu-baslangic-ingilizce-secenekleri'],
     enPath: '/en/beginner-english-drama-istanbul',
-    related: ['cocuklar-icin-baslangic-ingilizce-drama', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul'],
+    related: ['a2-ingilizce-konusma-pratigi-istanbul', 'cocuklar-icin-baslangic-ingilizce-drama', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul'],
+  },
+
+  // ── İNGİLİZCE KONUŞMA ÖZGÜVENİ (29 Ekim 2026) ─────────────────
+  // Niyet: "ingilizce konuşma özgüveni", "konuşurken donuyorum". Bilgi niyeti makalelerde
+  // (ingilizce-konusma-korkusu, ingilizce-konusma-ozguveni-nasil-kazanilir); bu sayfa ticari.
+  // Dil kuralı: terapi değil; "kaygıyı yener" yok. Bandura/Craske = kuramsal çerçeve.
+  {
+    slug: 'ingilizce-konusma-ozguveni-istanbul',
+    label: 'İngilizce Konuşma Özgüveni',
+    h1: 'İNGİLİZCE KONUŞURKEN\nDONMAYI BIRAKMAK',
+    eyebrow: 'Yetişkin · Konuşma Özgüveni · Pera & Kadıköy',
+    seoTitle: 'İngilizce Konuşma Özgüveni Atölyesi İstanbul',
+    seoDesc:
+      'İngilizce konuşurken donuyor, cümle kuramıyor musun? Doğaçlama ve sahne çalışmasıyla haftalık İngilizce konuşma pratiği. Kadıköy ve Pera, küçük gruplar.',
+    keywords: [
+      'ingilizce konuşma özgüveni', 'ingilizce konuşma özgüveni nasıl kazanılır', 'ingilizce konuşurken heyecanlanıyorum',
+      'ingilizce konuşurken donup kalıyorum', 'öz güvenle ingilizce konuşmak', 'ingilizce konuşma cesareti',
+      'ingilizce konuşamıyorum utanıyorum', 'ingilizce konuşma korkusu atölye', 'ingilizce özgüven kursu istanbul',
+      'english speaking confidence istanbul', 'ingilizce konuşma pratiği özgüven', 'ingilizce konuşurken rezil olma korkusu',
+    ],
+    quickAnswer: {
+      q: 'İngilizce konuşma özgüveni nasıl kazanılır?',
+      a: 'Özgüven bilgiyle değil, yapınca gelir: Bandura\'nın öz-yeterlik kuramına göre en güçlü kaynak işi bizzat yapmaktır. Techne Lab\'ın English Drama Lab atölyesi bu yüzden her hafta herkesi İngilizce bir sahnenin içine sokar; hazırlıksız, partnerle, hata yapma serbestliğiyle. Yetişkin, B1+, Pera ve Kadıköy, esnek katılım.',
+      points: ['Her hafta herkes konuşur, kimse izleyici kalmaz', 'Hata düzeltilmez, sahne devam eder', 'B1+ · başlangıç için A1+ grubu yakında', 'Pera & Kadıköy · esnek katılım'],
+    },
+    intro:
+      'Kelimeleri biliyorsun. Sorun, konuşma anında birinin seni izlediğini hissetmek: cümleyi kurarken kendini dinliyor, hatayı yapmadan önce yakalamaya çalışıyorsun ve sonunda susuyorsun. English Drama Lab bu anı çalışıyor. Burada kimse rezil olmaz; sahnede yanlış cümle yoktur, devam eden sahne vardır.',
+    what:
+      'Oturum oyunla açılır, sonra doğaçlama sahnelere geçer: bir durum verilir, İngilizce içinde çözersin. Planlayacak zaman olmadığı için "doğru cümleyi bulana kadar susma" alışkanlığı işlemez; ne varsa onunla devam edersin. Kaygı araştırmalarındaki güncel bir model, korkulan sonucun gerçekleşmediğini tekrar tekrar deneyimlemenin önemli olduğunu öne sürüyor (Craske ve ark., 2014). Haftalık doğaçlama yapısal olarak buna benziyor: her hafta farklı partner, farklı sahne, aynı sonuç: konuştun ve dünya yıkılmadı. Bu bir terapi değil; bir sahne pratiği. Karakter de bir maske işi görür: o cümleyi sen değil, karakterin söylüyor.',
+    who:
+      'İngilizcesi sohbet düzeyinde (B1 civarı) ama konuşurken donan yetişkinler. Toplantıda, yabancı arkadaş ortamında ya da telefonda söz almakta zorlananlar. Aksanından utananlar. Konuşma kulübüne gidip sessiz kalanlar. İngilizcen daha başlangıçtaysa yakında açılacak A1+ grubuna bak. Sosyal kaygıyla uzun süredir zorlanıyorsan bir uzmandan destek almanı da öneririz; atölye bunun yerine geçmez.',
+    workshopSlugs: ['english-drama-lab', 'a1-english-drama-lab'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    facts: {
+      heading: 'Araştırmalar ne diyor, ne demiyor',
+      lead: 'Konuşma kaygısı ve doğaçlama üzerine doğruladığımız bulgular. Her satırın kaynağı açık; olmayanı yazmıyoruz.',
+      rows: [
+        { label: 'Yabancı dil kaygısı ve başarı', value: 'Orta düzeyde olumsuz ilişki (r = −.36); kaygı arttıkça performans düşüyor', source: 'Teimouri, Goetze & Plonsky, 2019, Studies in Second Language Acquisition', url: 'https://doi.org/10.1017/S0272263118000311' },
+        { label: 'Topluluk önünde konuşma korkusu', value: '30 randomize çalışmada psikolojik müdahalelerle belirgin azalma (g = 0.74)', source: 'Ebrahimi ve ark., 2019, Frontiers in Psychology', url: 'https://doi.org/10.3389/fpsyg.2019.00488' },
+        { label: 'Doğaçlama ve sosyal kaygı', value: '10 haftalık improv programında ergenlerde sosyal kaygı düştü; kontrol grubu yok', source: 'Felsman ve ark., 2023, The Arts in Psychotherapy', url: 'https://doi.org/10.1016/j.aip.2022.101985' },
+        { label: 'Drama ve dil kaygısı', value: 'Drama grubunda kaygı düştü; iletişimsel gruba göre fark küçük', source: 'Galante, 2018, RELC Journal', url: 'https://doi.org/10.1177/0033688217746205' },
+      ],
+      note: 'Atölyemizin kaygıyı ne kadar azalttığını ölçmedik; bu yüzden rakam vermiyoruz.',
+    },
+    faq: [
+      { q: 'Hiç konuşmazsam ne olur?', a: 'İlk oturumlarda kimse seni sahnenin ortasına itmez. Oyunlar herkesi küçük adımlarla içeri alır; tek kelimelik bir tepki de, bir hareket de katılımdır. Birkaç hafta içinde çoğu katılımcı fark etmeden konuşmaya başlıyor.' },
+      { q: 'Hatalarım düzeltilecek mi?', a: 'Sahne sırasında hayır; akış bölünmez. Sık tekrarlanan bir yapı varsa oturum sonunda topluca konuşulur. Burada amaç doğru cümle değil, devam eden cümle.' },
+      { q: 'Eğitmenler anadili İngilizce mi?', a: 'Hayır; eğitmenlerimiz konservatuvar mezunu tiyatrocular ve İngilizceyi sahnede çalışma dili olarak kullanıyor. Bir dil kursu değiliz, bir sahne pratiğiyiz: telaffuz koçluğu değil, konuşma cesareti çalışıyoruz.' },
+      { q: 'Konuşma kulübünden farkı ne?', a: 'Konuşma kulübünde oturup bir konu üzerine konuşulur ve sessiz kalmak mümkündür. Burada ayaktasın, bir durumun içindesin ve sahne senin cevabını bekliyor. Kalıp bittiğinde de devam etmeyi çalışıyorsun.' },
+      { q: 'Seviyem yeterli mi?', a: 'Günlük bir sohbeti sürdürebiliyorsan (B1 civarı) English Drama Lab uygun. Daha başlangıçtaysan A1+ English Drama Lab yakında açılıyor; bekleme listesine yazılabilirsin.' },
+    ],
+    articleSlugs: ['ingilizce-konusma-ozguveni-nasil-kazanilir', 'ingilizce-konusma-korkusu', 'ingilizcede-baska-biri-gibi-hissetmek', 'ingilizce-konusurken-takiliyorum', 'ingilizce-aksan-kaygisi', 'toplantida-ingilizce-konusamiyorum'],
+    enPath: '/en/public-speaking-english-istanbul',
+    related: ['ingilizce-sunum-atolyesi-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul', 'a2-ingilizce-konusma-pratigi-istanbul'],
+  },
+
+  // ── İNGİLİZCE SUNUM (29 Ekim 2026) ──────────────────────────────
+  // Bireysel katılımcı. Şirket alıcısı /kurumsal/sunum-ve-sahne-varligi'na gider.
+  // Dürüst sınır: doğaçlamanın sunum becerisine etkisi mütevazı, sunum stresine kısa vadede
+  // doğrudan etkisi bulunamadı (Casteleyn 2019a/b).
+  {
+    slug: 'ingilizce-sunum-atolyesi-istanbul',
+    label: 'İngilizce Sunum Atölyesi',
+    h1: 'İNGİLİZCE SUNUM:\nSAHNEDEN ÖĞRENMEK',
+    eyebrow: 'Yetişkin · Sunum & Topluluk Önünde Konuşma · Pera & Kadıköy',
+    seoTitle: 'İngilizce Sunum ve Topluluk Önünde Konuşma Atölyesi',
+    seoDesc:
+      'İngilizce sunumda heyecan, ezber ve donma: sahne pratiğiyle çalış. Ses, beden, göz teması ve hazırlıksız cevap. Haftalık, bireysel katılım; Pera ve Kadıköy.',
+    keywords: [
+      'ingilizce sunum eğitimi istanbul', 'ingilizce sunum yaparken heyecan', 'ingilizce sunumlarda heyecanlanmamak',
+      'topluluk önünde ingilizce konuşmak', 'ingilizce sunum korkusu', 'ingilizce sunum özel ders',
+      'ingilizce sunum kursu', 'public speaking in english istanbul', 'ingilizce hitabet', 'ingilizce sunum nasıl yapılır',
+      'ingilizce soru cevap heyecan', 'presentation skills istanbul english',
+    ],
+    quickAnswer: {
+      q: 'İngilizce sunum heyecanı için ne yapılır?',
+      a: 'Heyecan çoğu zaman metinde değil teslimde görünür: ses kısılır, göz kaçar, beden kapanır (Ding ve ark., 2024). Techne Lab\'ın English Drama Lab atölyesi tam bu katmanı sahnede çalışır: ses, beden, göz teması ve beklenmedik soruya hazırlıksız cevap. Bireysel katılım, B1+, Pera ve Kadıköy.',
+      points: ['Ses, beden, göz teması: sahne tekniğiyle', 'Hazırlıksız soru-cevap provası', 'Gerçek bir grup önünde, her hafta', 'Şirketler için ayrı kurumsal program'],
+    },
+    intro:
+      'İngilizce sunumu hazırladın, slaytlar hazır, metni ezberledin. Sonra ilk soru geliyor ve ezber dağılıyor. Sunumu zorlaştıran çoğu zaman dil bilgisi değil, birkaç kişinin önünde, ikinci bir dilde, beklenmedik bir şeye cevap vermek. Sahne bunu her hafta çalışır.',
+    what:
+      'İlk katman beden: nefes nereye gidiyor, ağırlık nerede, göz kimi görüyor. İkinci katman ses: cümle sonunu düşürmemek, bağırmadan taşımak. Üçüncü katman doğaçlama: beklenmedik bir soruya, hazırlıksız, İngilizce cevap vermek. Önerimiz net: açılışı hazırla ve prova et, gerisini ezberleme. Ezber ilk soruda dağılır; hazırlıksız tepki vermeyi çalışmış biri devam eder. Dürüst olalım: doğaçlama eğitiminin sunum becerisine etkisi araştırmalarda anlamlı ama mütevazı çıktı ve kısa vadede sunum stresine doğrudan bir etkisi bulunamadı (Casteleyn, 2019). Yani bu bir düğme değil, zamanla işleyen bir pratik.',
+    who:
+      'İş yerinde İngilizce sunum yapan ya da yapacak olanlar. Konferans, mülakat ya da toplantıda İngilizce söz almak zorunda kalanlar. Yüksek lisans ve akademik sunuma hazırlananlar. İngilizcesi sohbet düzeyinde (B1+) olan yetişkinler. Ekibin için arıyorsan şirketlere özel programımıza bak: /kurumsal/sunum-ve-sahne-varligi.',
+    workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    facts: {
+      heading: 'Sunum kaygısı üzerine doğrulanmış bulgular',
+      lead: 'Neyin kanıtlı, neyin sınırlı olduğunu ayırarak.',
+      rows: [
+        { label: 'İngilizce sunumda kaygı', value: 'Kaygı en çok teslimde görünüyor: ses, göz teması, beden', source: 'Ding, Chen & Xu, 2024, IRAL', url: 'https://doi.org/10.1515/iral-2023-0161' },
+        { label: 'Doğaçlama ve sunum becerisi', value: 'Kontrol grubuna göre anlamlı ama mütevazı gelişme', source: 'Casteleyn, 2019, L1-Educational Studies in Language and Literature', url: 'https://doi.org/10.17239/L1ESLL-2019.19.03.04' },
+        { label: 'Doğaçlama ve sunum stresi', value: 'Kısa vadede doğrudan etki bulunamadı', source: 'Casteleyn, 2019, Research in Drama Education', url: 'https://doi.org/10.1080/13569783.2018.1552129' },
+        { label: '"Ölümden çok korkulur" sözü', value: 'Sıralama istendiğinde ölüm birinci; konuşma en sık işaretlenen korku', source: 'Dwyer & Davidson, 2012, Communication Research Reports', url: 'https://www.kios.org/education/2012-07-17/death-or-public-speaking-uno-researchers-revisit-a-1973-study-on-the-number-one-fear' },
+      ],
+    },
+    faq: [
+      { q: 'Kendi sunumumu getirip çalışabilir miyim?', a: 'Atölye bir sunum koçluğu değil, grup sahne çalışması. Ama ses, beden ve soru-cevap üzerine yaptığımız her şey senin sunumuna taşınır; bazı haftalarda kısa, hazırlıklı açılışlar da çalışıyoruz.' },
+      { q: 'Ezberlemek mi, doğaçlama mı?', a: 'İkisi birden: açılışı hazırla ve prova et, gerisini ezberleme. Ezber ilk beklenmedik soruda dağılır; hazırlıksız tepki vermeyi çalışmış biri devam eder.' },
+      { q: 'Toastmasters\'tan farkı ne?', a: 'Toastmasters hazırlanmış konuşma ve yapılandırılmış değerlendirme üzerine kurulu, iyi bir kulüp yapısı. Biz bedeni, sesi ve hazırlıksız tepkiyi sahnede çalışıyoruz. İkisi birbirini tamamlar.' },
+      { q: 'Şirketim için ekip olarak gelebilir miyiz?', a: 'Şirketlere özel, ihtiyaca göre kurulan bir programımız var: /kurumsal/sunum-ve-sahne-varligi sayfasından görüşme talep edebilirsiniz.' },
+    ],
+    articleSlugs: ['ingilizce-sunum-yaparken-heyecan', 'topluluk-onunde-konusma-korkusu', 'toastmasters-mi-dogaclama-mi', 'ingilizce-mulakat-provasi', 'sahne-korkusu-nasil-yenilir', 'dogaclama-is-hayatinda-ne-ise-yarar'],
+    enPath: '/en/public-speaking-english-istanbul',
+    related: ['ingilizce-konusma-ozguveni-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-oyunculuk-istanbul'],
+  },
+
+  // ── A2 → B1 KÖPRÜ (29 Ekim 2026) ────────────────────────────────
+  // Sıfırdan sayfası "hiç bilmiyorum / A1"; bu sayfa "temel var, konuşamıyorum / A2".
+  // Dil kuralı: seviye atlatma vaadi yok; "intermediate plateau" A2 kanıtı değil.
+  {
+    slug: 'a2-ingilizce-konusma-pratigi-istanbul',
+    label: 'A2 İngilizce Konuşma Pratiği',
+    h1: "A2'DEN B1'E:\nKONUŞARAK GEÇ",
+    eyebrow: 'A2 · Yetişkin · B1\'e Köprü · Yakında · Pera & Kadıköy',
+    seoTitle: "A2 İngilizce Konuşma Pratiği İstanbul — B1'e Köprü",
+    seoDesc:
+      "Temel İngilizcen var ama konuşurken kopuyor musun? A2'den B1'e geçişte sahne pratiği: 12 hafta, haftada 2 saat, Pera ve Kadıköy. Bekleme listesi açık.",
+    keywords: [
+      'a2 ingilizce konuşma pratiği', 'a2 seviyesi ingilizce pratik', "a2'den b1'e geçiş", "b1'e nasıl geçilir",
+      'ingilizce seviye atlayamıyorum', 'ingilizce orta seviyeye geçemiyorum', 'pre-intermediate ingilizce kurs istanbul',
+      'elementary ingilizce konuşma', 'a2 ingilizce kursu kadıköy', 'a2 ingilizce kursu beyoğlu',
+      'ingilizce konuşurken takılıyorum', 'a2 to b1 english istanbul',
+    ],
+    quickAnswer: {
+      q: "A2'den B1'e geçmek için ne gerekir?",
+      a: "Avrupa Ortak Dil Çerçevesi B1'i, duraklasan ve kendini düzeltsen de 'anlaşılır biçimde devam edebilmek' olarak tanımlar. A2'de konuşma çok kısa ve kopuk kalır. Aradaki fark büyük ölçüde kullanma pratiğiyle kapanır: Cambridge'e göre A2'ye ~180–200, B1'e ~350–400 rehberli saat gerekiyor. Techne Lab'ın A1+ English Drama Lab atölyesi bu geçişin konuşma tarafını çalışır: 12 hafta, haftada 2 saat, Pera ve Kadıköy.",
+      points: ['Temel var, konuşma yok: tam bu aralık için', '12 hafta · haftada 2 saat (24 saat)', 'Seviye atlatma vaadi yok; devam etmeyi çalışıyoruz', 'Yakında · bekleme listesi açık'],
+    },
+    intro:
+      "A2'desin: kendini tanıtabiliyor, kalıpları biliyor, soruya cevap verebiliyorsun. Ama kalıp bittiği anda konuşma da bitiyor. B1'e geçiş bir kitapta değil, tam o anda olur: kalıp bittiğinde devam edebildiğin anda. Sahne o anı her hafta yeniden kurar. Dili kurs öğretir; sahne kullandırır.",
+    what:
+      "Aynı sahneyi tekrar oynuyoruz ama her seferinde bir şeyi değiştiriyoruz: partneri, durumu, karakterin derdini. Araştırmalar görev tekrarının konuşmanın yapısını ve doğruluğunu geliştirdiğini, akıcılığa ise daha küçük ölçüde katkı verdiğini gösteriyor (Abdi Tabari ve ark., 2025); kelimesi kelimesine tekrar ise dili genişletmeden yalnız hızlandırabiliyor (Thai & Boers, 2016). Bu yüzden tekrar ederken değiştiriyoruz. Doğaçlamanın temel kuralı (teklifi kabul et, sahneyi durdurma) CEFR'ın B1'de tarif ettiği davranışın, yani konuşmayı başlatıp sürdürmenin sahnedeki karşılığı. Bu kavramsal bir örtüşme; doğaçlamanın B1'e geçişi hızlandırdığını gösteren kontrollü bir çalışma yok. Gramer anlatmıyoruz ama gereksiz de saymıyoruz: araştırmalar açık öğretimin işe yaradığını gösteriyor. Bu atölye kursun yerine değil, yanında durur.",
+    who:
+      "Temel İngilizcesi olan (A2 civarı, kurs kitaplarında çoğu zaman elementary ya da pre-intermediate) ama konuşurken kopan yetişkinler. Kursa gidip yazılıda iyi, konuşmada sessiz olanlar. Dizi izleyip anlayan ama cevap veremeyenler. Hiç başlamadıysan /sifirdan-ingilizce-konusma-istanbul; günlük sohbeti sürdürebiliyorsan English Drama Lab (B1+) senin için.",
+    workshopSlugs: ['a1-english-drama-lab', 'english-drama-lab'],
+    districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
+    facts: {
+      heading: "A2'den B1'e: rakamlar ve tanımlar",
+      lead: 'Süre vaadi yerine resmî kaynaklar.',
+      rows: [
+        { label: 'A2 akıcılık tanımı', value: 'Çok kısa sözcelerle anlaşılır; duraklama, yanlış başlangıç ve yeniden söyleme çok belirgin', source: 'Council of Europe, CEFR Tablo 3', url: 'https://rm.coe.int/168045b15e' },
+        { label: 'B1 akıcılık tanımı', value: 'Planlama ve onarım için duraklasa da anlaşılır biçimde devam edebilir', source: 'Council of Europe, CEFR Tablo 3', url: 'https://rm.coe.int/168045b15e' },
+        { label: 'Rehberli öğrenme saati', value: 'Sıfırdan A2 ~180–200, B1 ~350–400 saat (kılavuz değer)', source: 'Cambridge English', url: 'https://support.cambridgeenglish.org/hc/en-gb/articles/202838506-Guided-learning-hours' },
+        { label: 'Seviyeler eşit genişlikte değil', value: "A2'den B1'e geçiş, A1'den A2'ye geçişten belirgin biçimde uzun", source: 'Benigno, de Jong & Van Moere, 2017, Pearson', url: 'https://www.pearson.com/content/dam/one-dot-com/one-dot-com/english/SupportingDocs/GSE-learning-hours.pdf' },
+      ],
+      note: '12 haftalık atölye 24 saat; bu, A2→B1 geçişi için önerilen sürenin küçük bir kısmı. Seviye atlatmayı değil, geçişin en çok aksayan tarafını, yani kullanmayı çalışıyoruz.',
+    },
+    faq: [
+      { q: "12 haftada B1'e geçer miyim?", a: "Hayır, bunu vaat etmiyoruz. 24 saat bir seviye değil. Beklediğimiz değişiklik: kalıp bittiğinde de devam etme alışkanlığı, prova edilmiş durumlarda daha az duraklama ve konuşmaya daha istekli olmak." },
+      { q: 'Pre-intermediate A2 mi, B1 mi?', a: 'Kurumlar farklı eşliyor: bazı kurs kitapları pre-intermediate seviyesini A2–B1 arası olarak tanımlıyor, bazı okullar doğrudan B1 diyor. Seviyeni tek bir etiketle değil, ne yapabildiğinle düşün: kalıplarla idare edip uzun konuşmada kopuyorsan bu sayfa senin için.' },
+      { q: 'A1+ grubu A2 için fazla kolay olmaz mı?', a: 'Grup kalıplarla başlar ama sahneler herkesin kendi seviyesinden oynamasına izin verir; A2 bir katılımcı aynı durumda daha uzun ve daha çeşitli cevaplar kurar. Gün ve saatler netleşince grupları seviyeye göre de dengeliyoruz.' },
+      { q: 'Kursa devam ederken katılabilir miyim?', a: 'Evet, en iyi sonuç zaten öyle gelir. Kurs yapıyı ve kelimeyi verir; burada onları kullanırsın.' },
+    ],
+    articleSlugs: ['a2den-b1e-nasil-gecilir', 'a2-seviyesi-ingilizce-ne-konusabilirsin', 'pre-intermediate-hangi-seviye', 'ingilizce-konusurken-takiliyorum', 'ingilizce-kursuna-gittim-ama-konusamiyorum', 'sifirdan-ingilizce-kac-saatte-ogrenilir'],
+    enPath: '/en/beginner-english-drama-istanbul',
+    related: ['sifirdan-ingilizce-konusma-istanbul', 'ingilizce-konusma-ozguveni-istanbul', 'yetiskinler-icin-ingilizce-drama-istanbul', 'ingilizce-konusma-pratigi-istanbul'],
   },
 
   // ── A1+ BAŞLANGIÇ: ÇOCUK & GENÇ (28 Ekim 2026) ──────────────────
@@ -1160,6 +1318,8 @@ export const DISCIPLINES: Discipline[] = [
       'ilkokul ingilizce kursu', 'ortaokul ingilizce kursu', 'çocuklar için ingilizce kadıköy',
       'çocuklar için ingilizce beyoğlu', 'çocuk ingilizce kursu istanbul', 'ingilizce bilmeyen çocuk drama',
       'a1 ingilizce çocuk', 'beginner english for kids istanbul', 'çocuğum ingilizce konuşmuyor',
+      'ortaokul ingilizce konuşma pratiği', 'lise ingilizce konuşma pratiği', 'a2 ingilizce çocuk',
+      'çocuğum ingilizceyi seviyor ama konuşmuyor', 'gençler için başlangıç ingilizce',
     ],
     quickAnswer: {
       q: 'İngilizce bilmeyen çocuk İngilizce dramaya katılabilir mi?',
@@ -1177,10 +1337,11 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       { q: 'Neden 8–12 ve 13–17 ayrı?', a: 'Sekiz yaşındaki bir çocukla on altı yaşındaki bir gencin oyunu, temposu ve çekinceleri farklı. Araştırmalar da sınıf ortamında büyük yaştaki başlayanların kısa vadede daha hızlı ilerlediğini gösteriyor (Muñoz, 2006); bu yüzden malzemeyi yaşa göre ayırıyoruz.' },
       { q: 'Çocuğum 12 haftada İngilizce konuşur mu?', a: 'Akıcılık ya da seviye atlama vaat etmiyoruz. Beklediğimiz değişiklik: çalışılan kalıpları daha rahat söylemek, İngilizce konuşmaya daha istekli olmak ve kısa bir sahneyi İngilizce oynayabilmek.' },
+      { q: 'Lise öğrencisi için de uygun mu?', a: 'Evet. 13–17 grubu ortaokul ve lise öğrencileri için ayrı çalışıyor; okulda İngilizce görüp konuşmakta zorlanan gençler için kuruldu.' },
       { q: 'Okul İngilizcesinin yerine geçer mi?', a: 'Hayır, yanında durur. Okul yapıyı ve kelimeyi verir; burada o kelimeler bir oyunun ve bir sahnenin içinde kullanılır.' },
       { q: 'Günler ne zaman belli olacak?', a: 'Netleşiyor. Bekleme listesine yazılırsanız gün ve saatler açıklandığında ilk size haber veriyoruz.' },
     ],
-    articleSlugs: ['oyunla-ingilizce-cocuk-drama', 'ilkokul-ingilizce-kursu-secerken', 'tpr-nedir-bedenle-ingilizce', 'cocuklarda-ingilizce-yaratici-drama-oyunla-konusma', 'kadikoy-beyoglu-baslangic-ingilizce-secenekleri'],
+    articleSlugs: ['oyunla-ingilizce-cocuk-drama', 'ortaokulda-ingilizce-konusma-pratigi', 'lise-ogrencisi-ingilizce-konusma-pratigi', 'ingilizceyi-seven-ama-konusmayan-cocuk', 'ilkokul-ingilizce-kursu-secerken', 'tpr-nedir-bedenle-ingilizce'],
     enPath: '/en/beginner-english-drama-for-kids-istanbul',
     related: ['sifirdan-ingilizce-konusma-istanbul', 'cocuklar-icin-ingilizce-drama-istanbul', 'gencler-icin-ingilizce-drama-istanbul'],
   },

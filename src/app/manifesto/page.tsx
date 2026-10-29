@@ -12,7 +12,7 @@ const URL = `${SITE_META.url}/manifesto`
 export const metadata: Metadata = {
   title: { absolute: 'Manifesto: Dil Okulu Değil, Tiyatro Topluluğu — Techne Lab' },
   description:
-    'Techne Lab İngilizce drama manifestosu: önce beden ve durum, sonra kelime. Hata sahnenin parçası, susmak da çalışmaya dahil, 12 haftada mucize yok. TR ve EN.',
+    'Techne Lab İngilizce drama manifestosu: dil okulu değil, tiyatro topluluğu. Burada kimse rezil olmaz; karakter bir maskedir; büyük vaat yok. TR ve EN.',
   alternates: { canonical: URL },
   keywords: ['ingilizce drama manifesto', 'drama ile ingilizce', 'english through drama manifesto', 'techne lab manifesto', 'a1 english drama'],
   openGraph: {
@@ -23,23 +23,27 @@ export const metadata: Metadata = {
 }
 
 const TR: [string, string][] = [
-  ['Biz dil okulu değiliz, bir tiyatro topluluğuyuz.', 'İngilizceyi bir sahnenin içinde, oyuncu arkadaşlarınla birlikte kullanırsın.'],
-  ['Önce beden ve durum, sonra kelime.', 'Bir şeyi isterken, reddederken, ararken söylenen cümle daha kolay akılda kalır.'],
+  ['Biz dil okulu değiliz, bir tiyatro topluluğuyuz.', 'İngilizceyi bir sahnenin içinde, oyuncu arkadaşlarınla birlikte kullanırsın. Dili kurs öğretir; sahne kullandırır.'],
+  ['Önce beden ve durum, sonra kelime.', 'Bir şeyi isterken, reddederken, ararken söylenen cümle daha kolay akılda kalır. Beden de hatırlar.'],
   ['Gramer önce gelmez, ama yok da değildir.', 'Yapıları sahnede görürsün; kuralı, ihtiyaç duyduğunda konuşuruz.'],
   ['Susmak da çalışmaya dahil.', 'İlk haftalarda dinlemek ve hareketle yanıt vermek yeterli; konuşmaya hazır olduğunda konuşursun.'],
-  ['Hata, sahnenin parçası.', 'Takıldığında durmayız; sahne devam eder, sen de devam edersin.'],
-  ['12 haftada mucize yok.', 'Akıcılık vaat etmiyoruz; İngilizceyle sahnede kalabilmeyi ve konuşmaktan korkmamayı çalışıyoruz.'],
-  ['Yaşın, aksanın, geçmişin engel değil.', '8 de olsan 48 de olsan, sıfırdan başlıyorsan doğru yerdesin.'],
+  ['Burada kimse rezil olmaz.', 'Sahnede yanlış cümle yoktur, devam eden sahne vardır. Takıldığında durmayız; sen de durmazsın.'],
+  ['Karakter bir maskedir.', 'İngilizcen birkaç kalıptan ibaret olabilir. Sahnede o kalıplar bir karakterin sesine dönüşür; utanç karaktere yapışmaz, sen de konuşursun.'],
+  ['Geçiş, kalıbın bittiği anda olur.', "A2'den B1'e geçiş bir kitapta değil, hazır cümlen bittiğinde devam edebildiğin anda olur. Sahne o anı her hafta yeniden kurar."],
+  ['Mükemmel İngilizce aramıyoruz.', 'Doğrusuyla yanlışıyla, gülerek, sahnenin tahmin edilemezliğinde kalan bir İngilizce arıyoruz.'],
+  ['Büyük vaat vermiyoruz. En zor geçişte yanında oluyoruz.', '12 haftada mucize yok, akıcılık garantisi yok. Konuşmaya başlamak ve konuşmaktan korkmamak var. Yaşın, aksanın, geçmişin engel değil.'],
 ]
 
 const EN: [string, string][] = [
-  ['We are a theatre company, not a language school.', 'You use English inside a scene, with fellow players.'],
-  ['Body and situation first, words after.', 'A sentence you say while asking, refusing or looking for something is easier to keep.'],
+  ['We are a theatre company, not a language school.', 'You use English inside a scene, with fellow players. Courses teach the language; the stage makes you use it.'],
+  ['Body and situation first, words after.', 'A sentence you say while asking, refusing or looking for something is easier to keep. The body remembers too.'],
   ["Grammar doesn't come first, but it isn't missing.", 'You meet structures on stage; we talk about the rule when you need it.'],
   ['Silence counts as work.', "In the first weeks, listening and answering with movement is enough; you speak when you're ready."],
-  ['Mistakes are part of the scene.', 'When you stumble, the scene keeps going, and so do you.'],
-  ['No miracles in 12 weeks.', "We don't promise fluency; we work on staying in the scene in English and not being afraid to speak."],
-  ['Your age, accent and past are not obstacles.', "Whether you're 8 or 48, if you're starting from zero, you're in the right room."],
+  ['Nobody gets humiliated here.', 'On stage there are no wrong sentences, only scenes that keep going. When you stumble, we do not stop, and neither do you.'],
+  ['A character is a mask.', 'Your English may be a handful of phrases. On stage they become a character\'s voice; embarrassment sticks to the character, and you keep talking.'],
+  ['The leap happens when the phrase runs out.', 'Moving from A2 to B1 happens not in a book but in the moment your ready-made sentence ends and you keep going. The stage recreates that moment every week.'],
+  ["We're not after perfect English.", 'We want English that stays in the scene, right and wrong, laughing, in the unpredictability of the stage.'],
+  ['No big promises. We stay with you through the hardest part.', 'No miracles in 12 weeks, no fluency guarantee. A real start to speaking, and not being afraid to. Your age, accent and past are not obstacles.'],
 ]
 
 function Liste({ items }: { items: [string, string][] }) {
@@ -81,7 +85,7 @@ export default function ManifestoPage() {
           <span className="text-neon">TİYATRO TOPLULUĞU.</span>
         </h1>
         <p className="font-mono text-[14px] text-stone leading-relaxed max-w-2xl mt-8">
-          Techne Lab İstanbul İngilizceyi bir sınıfta değil, bir provada çalışıyor. Bu yedi madde
+          Techne Lab İstanbul İngilizceyi bir sınıfta değil, bir provada çalışıyor. Bu dokuz madde
           English Drama Lab, English Drama Youth ve yakında açılacak A1+ English Drama Lab gruplarının
           ortak zemini.
         </p>
@@ -119,6 +123,30 @@ export default function ManifestoPage() {
         </div>
       </section>
 
+      <section className="px-4 md:px-10 py-20 border-b border-border" aria-label="Beden ve hafıza">
+        <div className="max-w-3xl">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon mb-6">beden hatırlar</p>
+          <p className="font-mono text-[14px] text-fg leading-relaxed mb-5">
+            Kelimeyi bedeniyle öğrenen, onu daha iyi hatırlıyor. Jestlerle öğretilen yabancı kelimeler üzerine
+            yapılan beyin görüntüleme çalışmalarında, kelimeyi jestle öğrenenler daha iyi hatırladı ve kelimeyi
+            çevirirken beyinlerinde hareketle ilgili alanlar devreye girdi (Mayer ve ark., 2015, Current Biology).
+          </p>
+          <p className="font-mono text-[13px] text-stone leading-relaxed mb-5">
+            Sınırı da söyleyelim: bu çalışmalar kelime hatırlamayı ölçtü; konuşmayı, akıcılığı ya da dramayı değil.
+            &quot;Önce beden, sonra kelime&quot; maddemizin bilimsel ayağı bu kadar; daha fazlasını iddia etmiyoruz.
+          </p>
+          <p className="font-mono text-[11px] text-dim leading-relaxed">
+            Kaynak:{' '}
+            <a className="underline hover:text-neon" href="https://www.eurekalert.org/news-releases/762210" target="_blank" rel="noopener noreferrer">
+              Max Planck Enstitüsü duyurusu, Mayer ve ark. 2015
+            </a>
+            . Konuşma kaygısı üzerine:{' '}
+            <Link className="underline hover:text-neon" href="/ingilizce-konusma-ozguveni-istanbul">İngilizce konuşma özgüveni</Link>,{' '}
+            <Link className="underline hover:text-neon" href="/a2-ingilizce-konusma-pratigi-istanbul">A2&apos;den B1&apos;e geçiş</Link>.
+          </p>
+        </div>
+      </section>
+
       <section lang="en" className="px-4 md:px-10 py-20 border-b border-border max-w-4xl" aria-label="Manifesto in English">
         <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-neon mb-8">in english</p>
         <Liste items={EN} />
@@ -136,7 +164,9 @@ export default function ManifestoPage() {
         {[
           ['/sifirdan-ingilizce-konusma-istanbul', 'Sıfırdan İngilizce · yetişkin', 'A1+ · yakında'],
           ['/cocuklar-icin-baslangic-ingilizce-drama', 'Başlangıç · 8–12 ve 13–17', 'A1+ · yakında'],
-          ['/ingilizce-drama-istanbul', 'İngilizce drama · B1+', 'katılım açık'],
+          ['/a2-ingilizce-konusma-pratigi-istanbul', "A2'den B1'e köprü", 'A1+ · yakında'],
+          ['/ingilizce-konusma-ozguveni-istanbul', 'Konuşma özgüveni · B1+', 'katılım açık'],
+          ['/ingilizce-sunum-atolyesi-istanbul', 'İngilizce sunum · B1+', 'katılım açık'],
         ].map(([href, t, s]) => (
           <Link key={href} href={href} className="border border-border hover:border-neon p-6 transition-colors" data-hover>
             <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-neon mb-2">{s}</p>

@@ -315,6 +315,7 @@ export const EN_PAGES: EnPage[] = [
       { heading: 'What happens in a session', body: 'Each session opens with games: names, rhythm, voice. Then come instructions and situations. In the first weeks, listening and answering with movement is enough; nobody is pushed to speak. Everyday phrases (introducing yourself, asking for something, refusing, asking the way, apologising) are practised with a partner, inside a situation, again and again. In the final weeks the phrases move into characters and short English scenes. Grammar is not lectured; structures show up on stage and we talk about the rule when you need it.' },
       { heading: 'What to expect in 12 weeks, and what not to', body: "Cambridge estimates that reaching A2 from zero takes around 180–200 guided learning hours; this programme is 24. So we do not promise fluency or a level jump. What we expect: you say the phrases we practised with fewer pauses, you are more willing to speak English, and you can perform a short scene in English. It works best alongside a course, an app or your own study." },
       { heading: 'Why drama at the start', body: 'Beginner speech rests largely on ready-made phrases stored whole (Wray, 2002; Myles et al., 1998). Body-based instruction, starting with Asher\'s Total Physical Response, supports listening comprehension in the early stages. Drama gives those phrases a situation and a reason to be said. To be honest about the evidence: the strongest fluency study on drama (Galante & Thomson, 2017) was with B1 teenagers over 74 hours, and we found no controlled study of drama with adult A1 groups. We do not claim more than that.' },
+      { heading: 'Stuck at A2?', body: 'The Council of Europe describes B1 as being able to keep going comprehensibly, even with very evident pauses for planning and repair. At A2, speech stays in very short utterances. Cambridge puts A2 at around 180–200 guided hours from zero and B1 at 350–400, so the step is long. This group also suits A2 speakers who know the phrases but lose the thread once a phrase runs out. Twelve weeks will not take you to B1; they train the keeping-going part.' },
       { heading: 'Who it is for', body: 'Adults starting English from zero or coming back after years. People who took a course and still freeze. Adults who think they started too late. No acting experience needed. If you can already hold an everyday conversation (around B1), English Drama Lab is the better fit.' },
     ],
     faq: [
@@ -330,7 +331,7 @@ export const EN_PAGES: EnPage[] = [
       { label: 'Cambridge English: Guided learning hours', url: 'https://support.cambridgeenglish.org/hc/en-gb/articles/202838506-Guided-learning-hours' },
       { label: 'Galante & Thomson (2017), TESOL Quarterly', url: 'https://doi.org/10.1002/tesq.290' },
     ],
-    articleSlugs: ['beginner-english-istanbul-guide', 'drama-for-beginner-english'],
+    articleSlugs: ['beginner-english-istanbul-guide', 'drama-for-beginner-english', 'a2-to-b1-english-why-it-takes-longer'],
   },
   {
     slug: 'beginner-english-drama-for-kids-istanbul',
@@ -361,6 +362,78 @@ export const EN_PAGES: EnPage[] = [
     related: ['drama-classes-for-kids-istanbul', 'beginner-english-drama-istanbul'],
     trSlug: 'cocuklar-icin-baslangic-ingilizce-drama',
     articleSlugs: ['drama-for-beginner-english', 'english-drama-for-kids-teens-istanbul-parents-guide'],
+  },
+  // ── English improv + public speaking (29 Oct 2026). Same programme: English Drama Lab.
+  {
+    slug: 'english-improv-istanbul',
+    label: 'Improv in English',
+    h1: 'IMPROV IN ENGLISH,\nEVERY WEEK',
+    eyebrow: 'Adults · B1+ English · Pera & Kadıköy',
+    seoTitle: 'Improv in English in Istanbul — Weekly Adult Workshop',
+    seoDesc:
+      'English-language improv in Istanbul for adults, including non-native speakers. Weekly, drop-in friendly, small groups, in Pera and Kadıköy. No experience needed.',
+    keywords: [
+      'improv classes istanbul english', 'english improv istanbul', 'improv workshop istanbul',
+      'improv for non-native speakers', 'improv theatre istanbul english', 'drama classes for adults istanbul english',
+      'improv kadikoy', 'improv beyoglu english', 'impro istanbul english',
+    ],
+    lede:
+      'English-language improv in Istanbul has been hard to find for years. English Drama Lab runs improv and scene work in English every week, in Pera and Kadıköy, for adults whose shared language is English: expats, international residents and Turkish speakers alike. You can join any week.',
+    sections: [
+      { heading: 'What a session looks like', body: 'Warm-up games for voice, body and reaction speed. Then improvised scenes: you get a situation and solve it in English, with a partner, without a script. Status games, character work, group scenes. Groups are capped at twelve, so everyone is on their feet every week. No acting experience is needed; most participants have none.' },
+      { heading: 'For non-native speakers too', body: 'You do not need to be a native speaker. If you can hold an everyday conversation in English (around B1), you can play. Mistakes are not corrected mid-scene; the scene keeps going, and so do you. That is much of the point: improv trains you to keep talking when you do not have the perfect sentence.' },
+      { heading: 'What improv does, and what it does not', body: 'In randomised lab studies, even a short improv session increased comfort with uncertainty and positive mood compared with a scripted activity (Felsman, 2019; Felsman et al., 2020). A 10-week school improv programme was followed by lower social anxiety in teenagers, though without a control group (Felsman et al., 2023). Improv is not therapy, and evidence for adults is still limited. We do not promise a cure for nerves; we offer a weekly room where speaking without a script becomes normal.' },
+      { heading: 'Improv and Toastmasters', body: 'Toastmasters clubs in Istanbul work on prepared speeches and structured feedback, and they do it well. Improv works on the unprepared part: reacting, listening, staying in a scene. Many people benefit from both.' },
+    ],
+    faq: [
+      { q: 'Do I need acting experience?', a: 'No. The games build up step by step, and most participants have never been on a stage.' },
+      { q: 'Is it in English the whole time?', a: 'Yes. English is the working language of the room. Trainers are conservatoire-trained theatre makers who work in English.' },
+      { q: 'Can I come just once?', a: 'Yes. Participation is flexible: you can join a single session and continue with a 4- or 8-session pass if you like it.' },
+      { q: 'What if my English is basic?', a: 'If you are just starting English, our A1+ beginner group is coming soon: see the beginner English through drama page.' },
+    ],
+    workshopSlugs: ['english-drama-lab', 'english-drama-final-project'],
+    related: ['public-speaking-english-istanbul', 'theatre-workshops-for-expats-istanbul', 'acting-classes-istanbul'],
+    trSlug: 'yetiskinler-icin-ingilizce-drama-istanbul',
+    sources: [
+      { label: 'Felsman et al. (2023), The Arts in Psychotherapy', url: 'https://doi.org/10.1016/j.aip.2022.101985' },
+      { label: 'Felsman (2019), University of Michigan', url: 'https://deepblue.lib.umich.edu/handle/2027.42/151483' },
+    ],
+    articleSlugs: ['improv-in-english-istanbul-guide', 'public-speaking-in-a-second-language'],
+  },
+  {
+    slug: 'public-speaking-english-istanbul',
+    label: 'Public Speaking in English',
+    h1: 'SPEAKING UP\nIN ENGLISH',
+    eyebrow: 'Adults · Confidence · Presentations · Pera & Kadıköy',
+    seoTitle: 'Public Speaking in English, Istanbul — Drama Lab',
+    seoDesc:
+      'Speaking up in English at work, in meetings or on stage. Weekly drama and improv practice for voice, body and unprepared answers. Pera and Kadıköy, small groups.',
+    keywords: [
+      'public speaking course istanbul in english', 'public speaking istanbul', 'speaking confidence english istanbul',
+      'presentation skills istanbul english', 'toastmasters istanbul alternative', 'english speaking confidence course',
+      'fear of speaking english', 'presentation anxiety english non native',
+    ],
+    lede:
+      'Speaking in front of people is hard. Doing it in a language that is not your first one adds another layer. English Drama Lab works on both through theatre: voice, body, eye contact and answering the unexpected, every week, in front of a small group.',
+    sections: [
+      { heading: 'Why it is harder in a second language', body: 'Language anxiety is linked to lower performance (a meta-analysis found a moderate negative correlation, r = −.36; Teimouri, Goetze & Plonsky, 2019). In English-language presentations, anxiety shows up most in delivery: voice, eye contact, posture (Ding et al., 2024). So we work on delivery, not only on words.' },
+      { heading: 'What we do', body: 'Breath and posture, carrying a line without shouting, keeping your eyes on people. Then improvisation: an unexpected question, answered without preparation, in English. Our advice is simple: prepare and rehearse your opening, do not memorise the rest. A memorised text breaks at the first question; someone who has practised reacting keeps going.' },
+      { heading: 'Honest about the evidence', body: 'Fear of public speaking responds well to structured psychological interventions (meta-analysis of 30 trials, g = 0.74; Ebrahimi et al., 2019). Improv training improved presentation skills in a controlled study, but modestly, and showed no direct short-term effect on presentation stress (Casteleyn, 2019). Our workshop is theatre practice, not therapy, and we do not claim numbers we have not measured.' },
+    ],
+    faq: [
+      { q: 'Is this a presentation coaching service?', a: 'No, it is a group theatre workshop. What you practise there (voice, body, unprepared answers) carries into your presentations. Companies can ask about our separate corporate programme.' },
+      { q: 'What level of English do I need?', a: 'Around B1: you can hold an everyday conversation. If you are earlier than that, see our beginner group, coming soon.' },
+      { q: 'How is this different from Toastmasters?', a: 'Toastmasters focuses on prepared speeches and evaluation. We focus on the body and the unprepared moment. They complement each other.' },
+    ],
+    workshopSlugs: ['english-drama-lab'],
+    related: ['english-improv-istanbul', 'acting-classes-istanbul', 'beginner-english-drama-istanbul'],
+    trSlug: 'ingilizce-sunum-atolyesi-istanbul',
+    sources: [
+      { label: 'Ebrahimi et al. (2019), Frontiers in Psychology', url: 'https://doi.org/10.3389/fpsyg.2019.00488' },
+      { label: 'Casteleyn (2019), Research in Drama Education', url: 'https://doi.org/10.1080/13569783.2018.1552129' },
+      { label: 'Teimouri, Goetze & Plonsky (2019), SSLA', url: 'https://doi.org/10.1017/S0272263118000311' },
+    ],
+    articleSlugs: ['public-speaking-in-a-second-language', 'improv-in-english-istanbul-guide'],
   },
 ]
 

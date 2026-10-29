@@ -280,7 +280,7 @@ export const B2B_PAGES: B2BPage[] = [
     h1: 'Şirketler İçin İngilizce: Dil Kursunun Bittiği Yerde Başlar',
     seoTitle: 'Kurumsal İngilizce Konuşma Atölyesi — Drama ile, İstanbul',
     seoDesc: 'B2\'ye ulaşmış ama global toplantıda söz almayan çalışanlar için: dil eğitimi değil, kullanım pratiği. Drama ve doğaçlamayla, B1 ve üzeri, seviye sınavı yok.',
-    keywords: ['kurumsal ingilizce konuşma', 'business english speaking istanbul', 'şirket içi ingilizce eğitimi', 'ingilizce toplantı özgüven', 'ingilizce sunum eğitimi', 'ingilizce drama kurumsal'],
+    keywords: ['kurumsal ingilizce konuşma', 'business english speaking istanbul', 'şirket içi ingilizce eğitimi', 'ingilizce toplantı özgüven', 'kurumsal ingilizce sunum eğitimi', 'ingilizce drama kurumsal'],
     quick: {
       q: 'İngilizce bilen ama toplantıda konuşamayan çalışanlar için ne yapılabilir?',
       a: 'Dil eğitimi değil, kullanım pratiği gerekir: mevcut İngilizceyi toplantıda kullanılır hâle getirmek. Techne Lab\'ın İngilizce seçeneği global toplantıda söz almayı, müşteriyle sohbeti sürdürmeyi ve beklenmedik soruya cevap vermeyi drama ve doğaçlamayla çalışır. Dil kursunun rakibi değil, tamamlayıcısı; B1 ve üzeri, seviye sınavı yok.',
