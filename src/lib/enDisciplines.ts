@@ -186,7 +186,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         heading: 'Two age groups, two sides of the city',
-        body: "Ages 8–14 and 15–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) started on Saturday 24 October at 15:00, and joining is open. Classes take place in partner studios.",
+        body: "Ages 8–12 and 13–17 work in separate classes; a twelve-year-old and a seventeen-year-old need different material and a different pace. Groups are capped at 12. The Pera group (European side) meets on Sundays at 13:00; it started on 4 October and joining is still open. The Kadıköy group (Asian side) started on Saturday 24 October at 15:00, and joining is open. Classes take place in partner studios.",
       },
       {
         heading: 'For parents who do not speak Turkish',
@@ -208,7 +208,7 @@ export const EN_PAGES: EnPage[] = [
       },
       {
         q: 'Are younger children mixed with teenagers?',
-        a: 'No. Ages 8–14 and 15–17 work in separate classes. This separation is deliberate.',
+        a: 'No. Ages 8–12 and 13–17 work in separate classes. This separation is deliberate.',
       },
       {
         q: 'Is the final performance compulsory?',

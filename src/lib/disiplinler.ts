@@ -302,7 +302,7 @@ export const DISCIPLINES: Discipline[] = [
     what:
       'İlk dört hafta oyun ve güven egzersizleri: dil oyunları, beden-ses-hayal gücü. Sonrasında doğaçlama sahneler, status oyunları, karakter çalışmaları. Son bölümde araçlar sahnede bütünleşiyor. Metin ezberi yok, sınav yok, seviye testi yok — herkes kendi İngilizcesiyle başlıyor ve konuşarak açılıyor. İleri seviye için ayrıca İngilizce metinlerle çalışan bir oyunculuk programı (English Acting Praxis) var.',
     who:
-      'Techne Lab İstanbul\'da İngilizce drama üç ayrı yaş grubunda yürüyor. Yetişkinler (18+): İngilizcesi var ama konuşurken donanlar, konuşma kulübü deneyip sıkılanlar, yurtdışı hazırlığı yapanlar. Gençler (15–17): lise çağı, sekiz ay, Mayıs\'ta seyircili final gösterisi. Çocuklar (8–14): oyun temelli, kendi grubunda. Üç grup ayrı günlerde, ayrı eğitmenlerle çalışıyor — hiçbiri diğeriyle karışmıyor.',
+      'Techne Lab İstanbul\'da İngilizce drama üç ayrı yaş grubunda yürüyor. Yetişkinler (18+): İngilizcesi var ama konuşurken donanlar, konuşma kulübü deneyip sıkılanlar, yurtdışı hazırlığı yapanlar. Gençler (13–17): ortaokulun son yılları ve lise, sekiz ay, Mayıs\'ta seyircili final gösterisi. Çocuklar (8–12): oyun temelli, kendi grubunda. Üç grup ayrı günlerde, ayrı eğitmenlerle çalışıyor — hiçbiri diğeriyle karışmıyor.',
     workshopSlugs: ['english-drama-lab', 'english-drama-final-project', 'english-drama-youth'],
     districtSlugs: ['kadikoy-tiyatro-kursu', 'beyoglu-tiyatro-kursu'],
     faq: [
@@ -771,17 +771,17 @@ export const DISCIPLINES: Discipline[] = [
     related: ['oyunculuk-kursu-istanbul', 'yaratici-drama-istanbul'],
   },
 
-  // ── ÇOCUKLAR İÇİN İNGİLİZCE DRAMA (8–14) ────────────────────────
+  // ── ÇOCUKLAR İÇİN İNGİLİZCE DRAMA (8–12) ────────────────────────
   // Rakip taraması: veliler "çocuklar için" + yaş aralığı ile arıyor.
   // Programımız 10'dan başladığı için bu sorgularda meşru olarak varız.
   {
     slug: 'cocuklar-icin-ingilizce-drama-istanbul',
     label: 'Çocuklar İçin İngilizce Drama',
     h1: 'ÇOCUKLAR İÇİN\nİNGİLİZCE DRAMA',
-    eyebrow: '8–14 Yaş · Yıl Sonu Gösterisi',
-    seoTitle: 'Çocuklar İçin İngilizce Drama İstanbul — 8-14 Yaş Yaratıcı Drama',
+    eyebrow: '8–12 Yaş · Yıl Sonu Gösterisi',
+    seoTitle: 'Çocuklar İçin İngilizce Drama İstanbul — 8-12 Yaş Yaratıcı Drama',
     seoDesc:
-      'İstanbul 8-14 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
+      'İstanbul 8-12 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ders kitabı ve sınav yok — oyunla İngilizce konuşma pratiği. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
     keywords: [
       'çocuklar için ingilizce drama', 'çocuk ingilizce drama kursu istanbul',
       'ingilizce drama çocuk', '8 yaş drama kursu', '9 yaş drama kursu',
@@ -792,11 +792,11 @@ export const DISCIPLINES: Discipline[] = [
       'çocuklar için tiyatro kursu istanbul',
     ],
     intro:
-      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 8–14 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Pera ve Kadıköy\'deki partner stüdyolarda haftada bir gün, on iki kişiyi geçmeyen gruplarla. Program İngilizcesi zaten olan çocuk için kuruldu: B1 ve üzeri bir çocuk için İstanbul\'daki seçenekler çoğu zaman ya bildiğini tekrar eden bir dil kursu ya da Türkçe bir drama kursu oluyor. Burada İngilizce çalışma dili, asıl iş tiyatro.',
+      'Bu bir İngilizce kursu değil. Dil öğretmiyoruz. Dili deneyimliyoruz. Techne Lab İstanbul\'un 8–12 yaş grubu, İngilizce yaratıcı dramayı sekiz aya yayılan sürekli bir program olarak yürütüyor ve yıl, ailelerin izlediği gerçek bir sahne gösterisiyle kapanıyor. Pera ve Kadıköy\'deki partner stüdyolarda haftada bir gün, on iki kişiyi geçmeyen gruplarla. Program İngilizcesi zaten olan çocuk için kuruldu: B1 ve üzeri bir çocuk için İstanbul\'daki seçenekler çoğu zaman ya bildiğini tekrar eden bir dil kursu ya da Türkçe bir drama kursu oluyor. Burada İngilizce çalışma dili, asıl iş tiyatro.',
     what:
       'Ders kitabı yok, gramer anlatımı yok, sınav ve not yok. Çocuk bir karakteri canlandırırken, bir sahneyi kurarken, arkadaşıyla doğaçlama yaparken dili kullanmak zorunda kalıyor — ve kullandıkça korkusu geçiyor. Öğrendiği İngilizce burada işe yarayan bir şeye dönüşüyor. Her ay üç hafta drama, son hafta konuk atölye: yaratıcı yazarlık, tasarım ve jazz dance dönüşümlü geliyor. Yıl üç evrede ilerliyor: önce oyun ve güven, sonra karakter ve metin, son üç ayda çocukların kendi yazdığı ve tasarladığı malzemeyle gösteri provası. Mayıs\'ta seyirci önünde, tamamen İngilizce sahneye çıkıyorlar.',
     who:
-      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Uluslararası okullarda okuyan, yabancı ya da iki dilli ailelerden gelen ve İngilizcesini okul dışında kullanacak yaratıcı bir alan arayan çocuklar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 8–14 ve 15–17 ayrı sınıflarda çalışıyor.',
+      'İngilizce dersleri iyi giden ama konuşmaya gelince susan çocuklar. Kalabalık önünde utanan, kendini anlatmakta zorlanan çocuklar. Sahneye merakı olanlar. Uluslararası okullarda okuyan, yabancı ya da iki dilli ailelerden gelen ve İngilizcesini okul dışında kullanacak yaratıcı bir alan arayan çocuklar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Dili sıfırdan kurmuyoruz, var olanı konuşmaya çeviriyoruz. Gruplar yaşa göre ayrılıyor: 8–12 ve 13–17 ayrı sınıflarda çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
@@ -810,7 +810,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Küçük çocuklar büyüklerle aynı grupta mı olacak?',
-        a: 'Hayır, gruplar ayrı. 8–14 yaş ve 15–17 yaş farklı sınıflarda çalışıyor. Kayıt sırasında çocuğunuzun yaşına uygun gruba yerleştiriyoruz.',
+        a: 'Hayır, gruplar ayrı. 8–12 yaş ve 13–17 yaş farklı sınıflarda çalışıyor. Kayıt sırasında çocuğunuzun yaşına uygun gruba yerleştiriyoruz.',
       },
       {
         q: 'Program ne kadar sürüyor?',
@@ -846,7 +846,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: '11–14 yaş grubu 8–10 ile aynı sınıfta mı?',
-        a: 'Evet. Gruplar yaşa göre iki kademe: 8–14 ve 15–17 ayrı sınıflarda çalışıyor. Ortaokul çağındaki çocuk ilkokul çağındakiyle aynı grupta, grup başına en fazla 12 kişiyle. Çalışma aynı: her ayın ilk üç haftası drama (yaratıcı drama, doğaçlama, bireysel ve ensemble çalışma), son haftası konuk atölye. Ekim–Aralık keşif ve oyun; Ocak karakter ve metin; Şubat–Nisan prova; Mayıs\'ta seyircili, tamamen İngilizce gösteri. 15 yaşından itibaren genç ayrı gruba geçiyor.',
+        a: 'Kısmen. Gruplar yaşa göre iki kademe: 8–12 ve 13–17 ayrı sınıflarda çalışıyor. 11–12 yaşındaki çocuk 8–10 yaşındakilerle aynı grupta; 13–14 yaşındakiler 13–17 grubunda. Grup başına en fazla 12 kişi. Çalışma aynı: her ayın ilk üç haftası drama (yaratıcı drama, doğaçlama, bireysel ve ensemble çalışma), son haftası konuk atölye. Ekim–Aralık keşif ve oyun; Ocak karakter ve metin; Şubat–Nisan prova; Mayıs\'ta seyircili, tamamen İngilizce gösteri. 15 yaşından itibaren genç ayrı gruba geçiyor.',
       },
     ],
     facts: {
@@ -891,7 +891,7 @@ export const DISCIPLINES: Discipline[] = [
         },
         {
           label: 'English Drama Youth, bizim sayılarımız',
-          value: '8–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          value: '8–12 ve 13–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
           source: 'Techne Lab program sayfası',
           url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
         },
@@ -913,15 +913,15 @@ export const DISCIPLINES: Discipline[] = [
     related: ['gencler-icin-ingilizce-drama-istanbul', 'ingilizce-drama-istanbul', 'yaratici-drama-istanbul', 'cocuklar-icin-baslangic-ingilizce-drama'],
   },
 
-  // ── GENÇLER İÇİN İNGİLİZCE DRAMA (15–17) ─────────────────────────
+  // ── GENÇLER İÇİN İNGİLİZCE DRAMA (13–17) ─────────────────────────
   {
     slug: 'gencler-icin-ingilizce-drama-istanbul',
     label: 'Gençler İçin İngilizce Drama',
     h1: 'GENÇLER İÇİN\nİNGİLİZCE DRAMA',
-    eyebrow: '15–17 Yaş · Yıl Sonu Gösterisi',
-    seoTitle: 'Gençler İçin Tiyatro Kursu İstanbul — 15-17 Yaş İngilizce Drama',
+    eyebrow: '13–17 Yaş · Yıl Sonu Gösterisi',
+    seoTitle: 'Gençler İçin Tiyatro Kursu İstanbul — 13-17 Yaş İngilizce Drama',
     seoDesc:
-      'İstanbul 15-17 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Lise çağı için sahne, doğaçlama ve İngilizce konuşma pratiği — sınav ve not yok. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
+      'İstanbul 13-17 yaş İngilizce drama: dil öğretmiyoruz, dili sahnede deneyimliyoruz. Ortaokulun son yılları ve lise için sahne, doğaçlama ve İngilizce konuşma pratiği — sınav ve not yok. B1 ve üzeri. Sekiz ay, seyircili final gösterisi. Pera ve Kadıköy.',
     keywords: [
       'gençler için tiyatro kursu istanbul', 'genç drama kursu', 'lise tiyatro kursu',
       '15 yaş tiyatro kursu', '16 yaş drama kursu', '17 yaş oyunculuk kursu',
@@ -930,17 +930,17 @@ export const DISCIPLINES: Discipline[] = [
       'gençler için oyunculuk kursu kadıköy',
     ],
     intro:
-      'On beş yaşından sonra çocukluk oyunları işe yaramıyor — genç, ciddiye alınmak istiyor. Techne Lab İstanbul\'un 15–17 yaş grubu bu yüzden ayrı çalışıyor: gerçek metinler, gerçek sahne çalışması, yıl sonunda seyirci önünde gerçek bir gösteri. Sekiz ay, haftada bir gün, Pera ve Kadıköy. İngilizcesi B1 ve üzeri olan genç için bu, bildiğini tekrar eden bir kurs değil; İngilizcenin çalışma dili olduğu bir tiyatro atölyesi.',
+      'On beş yaşından sonra çocukluk oyunları işe yaramıyor — genç, ciddiye alınmak istiyor. Techne Lab İstanbul\'un 13–17 yaş grubu bu yüzden ayrı çalışıyor: gerçek metinler, gerçek sahne çalışması, yıl sonunda seyirci önünde gerçek bir gösteri. Sekiz ay, haftada bir gün, Pera ve Kadıköy. İngilizcesi B1 ve üzeri olan genç için bu, bildiğini tekrar eden bir kurs değil; İngilizcenin çalışma dili olduğu bir tiyatro atölyesi.',
     what:
       'Dil öğretmiyoruz. Dili deneyimliyoruz. Ders kitabı, gramer anlatımı ve sınav yok; doğaçlama, karakter kurma, metin analizi ve sahne çalışması var. Genç, kendi seçtiği bir karakterle yıl boyunca uğraşıyor ve Mayıs\'taki gösteride onu seyirciye taşıyor. İngilizcesi bunun sonucunda açılıyor: bir dili sahnede kullanmak zorunda kalan biri, o dille arasındaki mesafeyi hızla kapatıyor. Her ayın son haftası konuk atölye var: yaratıcı yazarlık, tasarım ve jazz dance; gençlerin yazdığı sahneler ve tasarımlar gösterinin malzemesi oluyor.',
     who:
-      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Uluslararası okul öğrencileri ve İngilizcesini okul dışında yaratıcı bir işte kullanmak isteyen gençler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 15–17 kendi sınıfında, 8–14 ayrı çalışıyor.',
+      'Sahneye ilgisi olan, konservatuvar ya da yurtdışı düşünen, ya da sadece kendini ifade etmek için bir alan arayan liseliler. Uluslararası okul öğrencileri ve İngilizcesini okul dışında yaratıcı bir işte kullanmak isteyen gençler. Üniversite hazırlığı sürecinde nefes alacak bir yer arayanlar. Oyunculuk deneyimi gerekmiyor; İngilizcede B1 ve üzeri bekliyoruz — sohbet edebiliyorsa yeterli. Gruplar yaşa göre ayrı: 13–17 kendi sınıfında, 8–12 ayrı çalışıyor.',
     workshopSlugs: ['english-drama-youth'],
     districtSlugs: ['beyoglu-tiyatro-kursu', 'kadikoy-tiyatro-kursu', 'anadolu-yakasi-tiyatro-kursu'],
     faq: [
       {
         q: 'Küçük çocuklarla aynı sınıfta mı olacak?',
-        a: 'Hayır. 15–17 yaş kendi grubunda çalışıyor, 8–14 yaş ayrı. Bu ayrımı bilinçli yapıyoruz — iki yaş grubunun ihtiyacı ve çalışma temposu farklı.',
+        a: 'Hayır. 13–17 yaş kendi grubunda çalışıyor, 8–12 yaş ayrı. Bu ayrımı bilinçli yapıyoruz — iki yaş grubunun ihtiyacı ve çalışma temposu farklı.',
       },
       {
         q: 'Konservatuvar hazırlığı sayılır mı?',
@@ -971,12 +971,12 @@ export const DISCIPLINES: Discipline[] = [
         a: 'Evet. Program İngilizce yürüyor ve tam olarak İngilizcesi zaten olan çocuklar için kuruldu: uluslararası okul öğrencileri, yabancı ve karma ailelerin çocukları, iki dilli çocuklar ve okul İngilizcesi güçlü olup onu kullanacak yer bulamayanlar. Velilerle iletişim İngilizce de yürüyebiliyor.',
       },
       {
-        q: '15–17 yaş grubu neden ayrı?',
-        a: 'Program 8–14 ve 15–17\'yi ayrı sınıflarda çalıştırıyor. Çerçeve ikisinde de aynı: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Ocak\'ta İngilizce sahne metni, karakter inşası ve partner çalışması; Şubat–Nisan\'da gençlerin kendi üretimlerinden seçilen sahnelerle prova; Mayıs\'ta seyircili, tamamen İngilizce yıl sonu gösterisi. Fark malzemede ve tempoda: lise çağındaki genç karakter inşasını ve metin çalışmasını kendi yaşıtlarıyla yapıyor, on iki yaşındaki bir çocukla aynı odada değil.',
+        q: '13–17 yaş grubu neden ayrı?',
+        a: 'Program 8–12 ve 13–17\'yi ayrı sınıflarda çalıştırıyor. Çerçeve ikisinde de aynı: her ay üç hafta drama, son hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Ocak\'ta İngilizce sahne metni, karakter inşası ve partner çalışması; Şubat–Nisan\'da gençlerin kendi üretimlerinden seçilen sahnelerle prova; Mayıs\'ta seyircili, tamamen İngilizce yıl sonu gösterisi. Fark malzemede ve tempoda: lise çağındaki genç karakter inşasını ve metin çalışmasını kendi yaşıtlarıyla yapıyor, on iki yaşındaki bir çocukla aynı odada değil.',
       },
       {
         q: 'Lise son sınıf öğrencisi katılabilir mi?',
-        a: 'Evet, 17 yaşındaysa 15–17 grubunda yerini alıyor. Program Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de; kitap, sınav ve not olmadığı için okul yüküne ek bir ölçüm getirmiyor. 18 yaşını doldurmuş genç için yetişkin programı English Drama Lab var: B1 ve üzeri İngilizce, esnek katılım.',
+        a: 'Evet, 17 yaşındaysa 13–17 grubunda yerini alıyor. Program Ekim–Mayıs arası haftada bir gün, Pera ve Kadıköy\'de; kitap, sınav ve not olmadığı için okul yüküne ek bir ölçüm getirmiyor. 18 yaşını doldurmuş genç için yetişkin programı English Drama Lab var: B1 ve üzeri İngilizce, esnek katılım.',
       },
     ],
     facts: {
@@ -1021,7 +1021,7 @@ export const DISCIPLINES: Discipline[] = [
         },
         {
           label: 'English Drama Youth, bizim sayılarımız',
-          value: '8–14 ve 15–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
+          value: '8–12 ve 13–17 ayrı gruplar, grup başına en çok 12 kişi; Ekim–Mayıs haftada bir gün; her ay üç hafta drama + bir hafta konuk atölye (yaratıcı yazarlık, tasarım, jazz dance); Mayıs\'ta tamamen İngilizce seyircili gösteri',
           source: 'Techne Lab program sayfası',
           url: 'https://www.technelabistanbul.com/atolyeler/english-drama-youth',
         },
@@ -1075,7 +1075,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Yaş grubu gerçekten ayrı mı?',
-        a: 'Evet. Yetişkin grupları 18 yaş üstü katılımcılardan oluşuyor. Çocuk (8–14) ve genç (15–17) programları tamamen ayrı günlerde, ayrı eğitmenlerle yürüyor.',
+        a: 'Evet. Yetişkin grupları 18 yaş üstü katılımcılardan oluşuyor. Çocuk (8–12) ve genç (13–17) programları tamamen ayrı günlerde, ayrı eğitmenlerle yürüyor.',
       },
       {
         q: 'İngilizce seviyem yeterli mi?',
@@ -1952,7 +1952,7 @@ export const DISCIPLINES: Discipline[] = [
     intro:
       'Kadıköy\'de İngilizce sahnede konuşmak isteyenler için iki ayrı kapı var: yetişkinler için English Drama Lab, 8-17 yaş için English Drama Youth. İkisi de aynı yöntemle çalışıyor — gramer değil, doğaçlama ve oyun. Anadolu yakasından "ingilizce drama nerede" diye arayanların çoğu bu sayfaya düşüyor, çünkü Beyoğlu\'na geçmeden aynı kalitede bir program burada.',
     what:
-      'Yetişkin tarafında English Drama Lab: her hafta katılınabilen esnek program (1, 4 ya da 8 katılım), Kadıköy grubu Pazartesi akşamları 20:00\'de. Metin ezberi yok — doğaçlama, status oyunları, karakter çalışması. Gençlik tarafında English Drama Youth: 8-17 yaş, Cumartesi günleri, sekiz ay (Ekim-Mayıs); 8-14 ve 15-17 yaş grupları ayrı sınıflarda çalışıyor, yıl seyircili bir final gösterisiyle kapanıyor.',
+      'Yetişkin tarafında English Drama Lab: her hafta katılınabilen esnek program (1, 4 ya da 8 katılım), Kadıköy grubu Pazartesi akşamları 20:00\'de. Metin ezberi yok — doğaçlama, status oyunları, karakter çalışması. Gençlik tarafında English Drama Youth: 8-17 yaş, Cumartesi günleri, sekiz ay (Ekim-Mayıs); 8-12 ve 13-17 yaş grupları ayrı sınıflarda çalışıyor, yıl seyircili bir final gösterisiyle kapanıyor.',
     who:
       'İngilizcesi var ama konuşurken donan yetişkinler, yurtdışı hazırlığı yapanlar, konuşma kulübü deneyip sıkılmış olanlar — bunlar English Drama Lab\'a. Çocuğu ya da genci için oyun temelli, sınavsız bir İngilizce ortamı arayan veliler — English Drama Youth\'a. Üsküdar, Ataşehir, Bostancı\'dan gelenler için Kadıköy zaten en yakın nokta.',
     workshopSlugs: ['english-drama-lab', 'english-drama-youth'],
@@ -1964,7 +1964,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: '8-17 yaş için Kadıköy\'de İngilizce drama var mı?',
-        a: 'Evet — English Drama Youth, Ekim-Mayıs arası Cumartesi günleri Kadıköy\'de yürüyor. 8-14 ve 15-17 yaş ayrı sınıflarda çalışıyor; yıl seyircili bir final gösterisiyle kapanıyor.',
+        a: 'Evet — English Drama Youth, Ekim-Mayıs arası Cumartesi günleri Kadıköy\'de yürüyor. 8-12 ve 13-17 yaş ayrı sınıflarda çalışıyor; yıl seyircili bir final gösterisiyle kapanıyor.',
       },
       {
         q: 'İngilizce seviyem düşük, yine de katılabilir miyim?',
@@ -2161,7 +2161,7 @@ export const DISCIPLINES: Discipline[] = [
     label: 'Çocuklar İçin Konuşma Kulübü',
     navHidden: true,
     h1: 'ÇOCUKLAR İÇİN\nİNGİLİZCE KONUŞMA KULÜBÜ\nALTERNATİFİ: İNGİLİZCE DRAMA (8–17)',
-    eyebrow: 'English Drama Youth — 8–14 ve 15–17 ayrı gruplar · Pera ve Kadıköy',
+    eyebrow: 'English Drama Youth — 8–12 ve 13–17 ayrı gruplar · Pera ve Kadıköy',
     seoTitle: 'Çocuklar İçin İngilizce Konuşma Kulübü İstanbul — 8-17 Yaş Drama Alternatifi',
     seoDesc:
       'Çocuğu için İngilizce konuşma kulübü arayan velilere: English Drama Youth, 8-17 yaş, haftada bir gün sabit grup. Oyun, doğaçlama ve sahneyle konuşma; kitap ve sınav yok. Pera ve Kadıköy, ücretsiz tanışma.',
@@ -2173,12 +2173,12 @@ export const DISCIPLINES: Discipline[] = [
       'yüz yüze çocuk ingilizce konuşma', 'kids english speaking club istanbul',
     ],
     intro:
-      'Çocuğunuz için İngilizce konuşma kulübü arıyorsanız önce açık konuşalım: English Drama Youth bir konuşma kulübü değil. Kulüpteki gibi istediğiniz hafta gelip gitme esnekliği yok; onun yerine Ekim\'den Mayıs\'a haftada bir gün toplanan sabit bir grup var. Çocuklar masa başında sırayla soru cevaplamıyor, oyunun, doğaçlamanın ve sahnenin içinde İngilizce konuşuyor. Gruplar 8–14 ve 15–17 yaş olarak ayrı; Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
+      'Çocuğunuz için İngilizce konuşma kulübü arıyorsanız önce açık konuşalım: English Drama Youth bir konuşma kulübü değil. Kulüpteki gibi istediğiniz hafta gelip gitme esnekliği yok; onun yerine Ekim\'den Mayıs\'a haftada bir gün toplanan sabit bir grup var. Çocuklar masa başında sırayla soru cevaplamıyor, oyunun, doğaçlamanın ve sahnenin içinde İngilizce konuşuyor. Gruplar 8–12 ve 13–17 yaş olarak ayrı; Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
     quickAnswer: {
       q: 'İstanbul\'da çocuklar için İngilizce konuşma kulübü yerine ne var?',
       a: 'Techne Lab İstanbul\'un English Drama Youth programı, 8–17 yaş çocuk ve gençlerin İngilizceyi oyun ve sahne içinde konuştuğu haftalık bir drama grubu. Kulüp değil: tek seferlik katılım yerine Ekim–Mayıs arası sabit bir grup. Kitap, sınav ve not yok; yıl Mayıs\'ta tamamen İngilizce, seyircili bir gösteriyle kapanıyor.',
       points: [
-        '8–17 yaş; 8–14 ve 15–17 ayrı gruplar, grup başına en fazla 12 kişi',
+        '8–17 yaş; 8–12 ve 13–17 ayrı gruplar, grup başına en fazla 12 kişi',
         'Pera: her Pazar 13:00 · Kadıköy: her Cumartesi 15:00',
         'B1 ve üzeri önerilir; seviye sınavı yok',
         'Ekim–Mayıs, haftada bir gün; her ayın son haftası konuk atölye',
@@ -2201,7 +2201,7 @@ export const DISCIPLINES: Discipline[] = [
     faq: [
       {
         q: 'Çocuğum kaç yaşında olmalı?',
-        a: 'Program 8–17 yaş için. 8–14 ve 15–17 yaş grupları ayrı sınıflarda çalışıyor; kayıt sırasında çocuğunuzu yaşına uygun gruba yerleştiriyoruz. 8 yaşın altı için şu an bir programımız yok.',
+        a: 'Program 8–17 yaş için. 8–12 ve 13–17 yaş grupları ayrı sınıflarda çalışıyor; kayıt sırasında çocuğunuzu yaşına uygun gruba yerleştiriyoruz. 8 yaşın altı için şu an bir programımız yok.',
       },
       {
         q: 'İngilizce seviyesi ne olmalı, seviye sınavı var mı?',
@@ -2322,7 +2322,7 @@ export const DISCIPLINES: Discipline[] = [
       },
       {
         q: 'Çocuğum için de var mı?',
-        a: 'Evet, ayrı bir programla: English Drama Youth 8–17 yaş için, 8–14 ve 15–17 ayrı gruplar. Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
+        a: 'Evet, ayrı bir programla: English Drama Youth 8–17 yaş için, 8–12 ve 13–17 ayrı gruplar. Pera\'da Pazar 13:00, Kadıköy\'de Cumartesi 15:00.',
       },
     ],
     criteria: [

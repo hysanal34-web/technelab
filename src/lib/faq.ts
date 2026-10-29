@@ -58,7 +58,7 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     {
       q: 'Konuşma kulübünden farkı ne?',
       // Youth (8–17) velisi okuyor: yetişkin dili ve hedef kitlesi ona gitmesin.
-      // Yalnız data.ts'teki bilgiler (kitap/sınav/not yok, B1+, 8–14 ve 15–17 ayrı).
+      // Yalnız data.ts'teki bilgiler (kitap/sınav/not yok, B1+, 8–12 ve 13–17 ayrı).
       a: w.slug === 'english-drama-youth'
         ? 'Kitap, sınav ve not yok. Masada sohbet yerine sahnede bir durumun içinde olup cevap vermek var; sahnede sessiz kalmak bir seçenek değil. Böylece İngilizce ödev olmaktan çıkıp bir ifade aracına dönüşüyor. Çocuklar eğitmenden yapılandırılmış geri bildirim de alıyor.'
         : 'Konuşma kulübü seni bir masaya oturtur ve konuşmanı umar. Drama ise konuşmayı zorunlu kılar: sahnede sessiz kalmak bir seçenek değil. Ayrıca eğitmenden yapılandırılmış geri bildirim alıyorsun — konuşma kulüplerinde bu neredeyse hiç yok.',
@@ -66,7 +66,7 @@ const CATEGORY_FAQ: Record<Workshop['category'], (w: Workshop) => FaqItem[]> = {
     {
       q: 'Grupta kimler oluyor?',
       a: w.slug === 'english-drama-youth'
-        ? `Okul çağındaki çocuklar ve gençler, yaşa göre iki ayrı grupta: 8–14 ve 15–17. İngilizce seviyesi olarak B1 ve üzeri öneriliyor; seviye tespit sınavı yok, ailenin dil beyanı yeterli. Gruplar en fazla ${w.maxStudents} kişi.`
+        ? `Okul çağındaki çocuklar ve gençler, yaşa göre iki ayrı grupta: 8–12 ve 13–17. İngilizce seviyesi olarak B1 ve üzeri öneriliyor; seviye tespit sınavı yok, ailenin dil beyanı yeterli. Gruplar en fazla ${w.maxStudents} kişi.`
         : 'Karma bir grup: yurt dışı iş görüşmesine hazırlananlar, Erasmus ya da yurt dışı okul hedefleyenler, İstanbul\'a yeni taşınmış yabancılar ve İngilizcesini gerçek bir yerde kullanmak isteyenler.',
     },
     {
